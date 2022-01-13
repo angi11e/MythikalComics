@@ -1,0 +1,230 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>EngineCommon</name>
+    </assembly>
+    <members>
+        <member name="M:Handelabra.GenericEnumerationExtensions.AllPermutations``1(System.Collections.Generic.IEnumerable{``0})">
+            <summary>
+            Get a list of lists, each list as a different permutation of the original list provided.
+            For example, if given [ 'A', 'B', 'C' ], it would return:
+            [ [ 'A', 'B', 'C' ], [ 'A', 'C', 'B' ], [ 'B', 'A', 'C' ], [ 'B', 'C', 'A' ], [ 'C', 'A', 'B' ], [ 'C', 'B', 'A' ] ]
+            (Though not necessarily in that order)
+            </summary>
+        </member>
+        <member name="M:Handelabra.GenericEnumerationExtensions.TakeRandom``1(System.Collections.Generic.IEnumerable{``0},System.Int32,System.Random)">
+            <summary>
+            Takes a collection of random elements from the provided IEnumerable.
+            </summary>
+        </member>
+        <member name="M:Handelabra.GenericEnumerationExtensions.TakeRandomFirstOrDefault``1(System.Collections.Generic.IEnumerable{``0},System.Random)">
+            <summary>
+            Takes a random element from the provided IEnumerable.
+            </summary>
+        </member>
+        <member name="M:Handelabra.GenericEnumerationExtensions.AreSame``1(System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEnumerable{``0})">
+            <summary>
+            Returns whether or not the first and the second IEnumerable have the exact same elements, ignoring order.
+            </summary>
+        </member>
+        <member name="M:Handelabra.GenericEnumerationExtensions.ContainsAll``1(System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEnumerable{``0})">
+            <summary>
+            Returns true only if all the "elements" are contained in the "list".
+            </summary>
+        </member>
+        <member name="M:Handelabra.GenericEnumerationExtensions.ContainsOnly``1(System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEnumerable{``0})">
+            <summary>
+            Returns true only if the list contains all of and only the elements provided.
+            </summary>
+        </member>
+        <member name="M:Handelabra.GenericIntegerExtensions.ToOrdinalString(System.Int32)">
+            <summary>
+            Convert a number to a string representing its order in a sequence.
+            For example, 1 is "First", 2 is "Second", etc. 
+            </summary>
+        </member>
+        <member name="M:Handelabra.GenericIntegerExtensions.IsEven(System.Int32)">
+            <summary>
+            Whether or not the provided number is even.
+            </summary>
+        </member>
+        <member name="M:Handelabra.GenericIntegerExtensions.IsOdd(System.Int32)">
+            <summary>
+            Whether or not the provided number is odd.
+            </summary>
+        </member>
+        <member name="M:Handelabra.GenericIntegerExtensions.HasValueGreaterThan(System.Nullable{System.Int32},System.Int32)">
+            <summary>
+            Whether or not this provided nullable int both has a value, and that it is greater than to the number provided.
+            </summary>
+        </member>
+        <member name="M:Handelabra.GenericIntegerExtensions.HasValueGreaterThanOrEqualTo(System.Nullable{System.Int32},System.Int32)">
+            <summary>
+            Whether or not this provided nullable int both has a value, and that it is greater than or equal to the number provided.
+            </summary>
+        </member>
+        <member name="M:Handelabra.GenericIntegerExtensions.HasValueLessThan(System.Nullable{System.Int32},System.Int32)">
+            <summary>
+            Whether or not this provided nullable int both has a value, and that it is less than the number provided.
+            </summary>
+        </member>
+        <member name="M:Handelabra.GenericIntegerExtensions.HasValueLessThanOrEqualTo(System.Nullable{System.Int32},System.Int32)">
+            <summary>
+            Whether or not this provided nullable int both has a value, and that it is less than or equal to the number provided.
+            </summary>
+        </member>
+        <member name="M:Handelabra.GenericIntegerExtensions.HasValueEqualTo(System.Nullable{System.Int32},System.Int32)">
+            <summary>
+            Whether or not this provided nullable int both has a value, and that it is equal to the number provided.
+            </summary>
+        </member>
+        <member name="M:Handelabra.GenericIntegerExtensions.KeepWithinAdjustmentRange(System.Int32,System.Int32,System.Nullable{System.Int32},System.Nullable{System.Int32})">
+            <summary>
+            Varifies that an adjustment to a base value would not cause the resulting value to go lower than the minimum value or higher than the maximum value.
+            Returns the same value if the adjustment is within range, or a reduced adjustment to keep the adjustment within an allowable range.
+            </summary>
+        </member>
+        <member name="M:Handelabra.GenericListExtensions.Replace``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Boolean},System.Func{``0,``0})">
+            <summary>
+            Replaces all matching elements in a list with the specified replacement.
+            Replacement is based on the element being replaced.
+            </summary>
+        </member>
+        <member name="M:Handelabra.GenericReflectionExtensions.IsOverride(System.Type,System.String)">
+            <summary>
+            Returns whether or not the provided method is an override of its base class's definition of that same method.
+            </summary>
+        </member>
+        <member name="M:Handelabra.GenericStringExtensions.AllIndexesOf(System.String,System.String)">
+            <summary>
+            Gets every index of a given substring.
+            From: stackoverflow.com/questions/2641326/finding-all-positions-of-a-substring-in-a-large-string-in-c-sharp
+            </summary>
+        </member>
+        <member name="M:Handelabra.GenericStringExtensions.ToString_NumberOfCards(System.Int32,System.String,System.Boolean)">
+            <summary>
+            Returns a grammatically-correct version of  "are # type cards" with a type. 
+            For example, if the type is "cover":
+            0: "are no cover cards"
+            1: "is 1 cover card"
+            2: "are 2 cover cards"
+            </summary>
+        </member>
+        <member name="M:Handelabra.GenericStringExtensions.AorAn(System.String)">
+            <summary>
+            Returns "a " str or "an " str depending on the word.
+            </summary>
+        </member>
+        <member name="M:Handelabra.GenericObjectExtensions.HasValueWhere``1(System.Nullable{``0},System.Func{``0,System.Boolean})">
+            <summary>
+            Returns if the nullable type HasValue and that Value meets criteria.
+            </summary>
+        </member>
+        <member name="M:Handelabra.GenericObjectExtensions.IsNullOr``1(``0,System.Func{``0,System.Boolean})">
+            <summary>
+            Returns if the provided object is either null OR is not null but meets the criteria.
+            </summary>
+        </member>
+        <member name="M:Handelabra.GenericObjectExtensions.IsNotNullAnd``1(``0,System.Func{``0,System.Boolean})">
+            <summary>
+            Returns if the provided object is both not null AND meets the criteria provided.
+            </summary>
+        </member>
+        <member name="F:Handelabra.Log.ExceptionOnWarning">
+            <summary>
+            If true, when Log.Warning() is called, it with throw an exception instead of just a message.
+            </summary>
+        </member>
+        <member name="F:Handelabra.Log.ExceptionOnError">
+            <summary>
+            If true, when Log.Error() is called, it with throw an exception instead of just a message.
+            </summary>
+        </member>
+        <member name="M:Boomlagoon.JSON.JSONArray.#ctor(Boomlagoon.JSON.JSONArray)">
+            <summary>
+            Construct a new array and copy each value from the given array into the new one
+            </summary>
+            <param name="array"></param>
+        </member>
+        <member name="P:Boomlagoon.JSON.JSONArray.Length">
+            <returns>
+            Return the length of the array
+            </returns>
+        </member>
+        <member name="M:Boomlagoon.JSON.JSONArray.op_Addition(Boomlagoon.JSON.JSONArray,Boomlagoon.JSON.JSONArray)">
+            <summary>
+            Concatenate two JSONArrays
+            </summary>
+            <param name="lhs"></param>
+            <param name="rhs"></param>
+            <returns>A new JSONArray that is the result of adding all of the right-hand side array's values to the left-hand side array.</returns>
+        </member>
+        <member name="M:Boomlagoon.JSON.JSONArray.Parse(System.String)">
+            <summary>
+            Attempt to parse a string as a JSON array.
+            </summary>
+            <param name="jsonString"></param>
+            <returns>A new JSONArray object if successful, null otherwise.</returns>
+        </member>
+        <member name="M:Boomlagoon.JSON.JSONArray.Add(Boomlagoon.JSON.JSONValue)">
+            <summary>
+            Add a JSONValue to this array
+            </summary>
+            <param name="value"></param>
+        </member>
+        <member name="M:Boomlagoon.JSON.JSONArray.Clear">
+            <summary>
+            Empty the array of all values.
+            </summary>
+        </member>
+        <member name="M:Boomlagoon.JSON.JSONArray.Remove(System.Int32)">
+            <summary>
+            Remove the value at the given index, if it exists.
+            </summary>
+            <param name="index"></param>
+        </member>
+        <member name="M:Boomlagoon.JSON.JSONArray.ToString">
+            <returns>String representation of this JSONArray</returns>
+        </member>
+        <member name="M:Boomlagoon.JSON.JSONObject.#ctor(Boomlagoon.JSON.JSONObject)">
+            <summary>
+            Construct a copy of the given JSONObject.
+            </summary>
+            <param name="other"></param>
+        </member>
+        <member name="M:Boomlagoon.JSON.JSONObject.Parse(System.String)">
+            <summary>
+            Attempt to parse a string into a JSONObject.
+            </summary>
+            <param name="jsonString"></param>
+            <returns>A new JSONObject or null if parsing fails.</returns>
+        </member>
+        <member name="M:Boomlagoon.JSON.JSONObject.Clear">
+            <summary>
+            Empty this JSONObject of all values.
+            </summary>
+        </member>
+        <member name="M:Boomlagoon.JSON.JSONObject.ContainsKey(System.String)">
+            <param name="key"></param>
+            <returns>Does 'key' exist in this object.</returns>
+        </member>
+        <member name="M:Boomlagoon.JSON.JSONObject.Remove(System.String)">
+            <summary>
+            Remove the JSONValue attached to the given key.
+            </summary>
+            <param name="key"></param>
+        </member>
+        <member name="M:Boomlagoon.JSON.JSONObject.ToString">
+            <returns>String representation of this JSONObject</returns>
+        </member>
+        <member name="M:Boomlagoon.JSON.JSONValue.#ctor(Boomlagoon.JSON.JSONValue)">
+            <summary>
+            Construct a copy of the JSONValue given as a parameter
+            </summary>
+            <param name="value"></param>
+        </member>
+        <member name="M:Boomlagoon.JSON.JSONValue.ToString">
+            <returns>String representation of this JSONValue</returns>
+        </member>
+    </members>
+</doc>

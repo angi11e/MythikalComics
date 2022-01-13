@@ -1,0 +1,397 @@
+﻿{
+	"name": "Theurgy",
+	"kind": "Hero",
+	"initialCardIdentifiers": [
+		"TheurgyCharacter"
+	],
+	"cards": [
+		{
+			"identifier": "TheurgyCharacter",
+			"count": 1,
+			"title": "Theurgy",
+			"body": "Pulling Threads",
+			"backgroundColor": "6F8FE7",
+			"foilBackgroundColor": "8FAFF7",
+			"hitpointsColor": "6F8FE7",
+			"character": true,
+			"powers": [
+				"Draw a card or play a [u]charm[/u] card. One hero target may regain 1 hp."
+			],
+			"icons": [
+				"HasPower",
+				"DrawCardNow",
+				"PlayCardNow",
+				"GainHP"
+			],
+			"hitpoints": 29,
+			"nemesisIdentifiers": [
+				"Nightmist"
+			],
+			"incapacitatedAbilities": [
+				"One player may draw a card.",
+				"Destroy an ongoing card.",
+				"Move a card from a trash to the top of its deck."
+			],
+			"flippedIcons": [
+				"DrawCardNow",
+				"DestroyOngoing",
+				"Manipulate"
+			],
+			"openingLines": {
+				"default": "I've already seen your defeat through the Tapestry."
+			},
+			"complexity": 2
+		},
+		{
+			"identifier": "Clairvoyance",
+			"count": 2,
+			"title": "Clairvoyance",
+			"keywords": [
+				"one-shot"
+			],
+			"body": [
+				"Reveal X cards from the top of any deck, where X = the number of [u]charm[/u] cards in play plus 1.",
+				"Put them back in any order."
+			],
+			"icons": [
+				"Manipulate"
+			],
+			"flavorText": "“I've almost got her. . .{BR}[b]that[/b] way!”",
+			"flavorReference": "Theurgy, Book Report (EC #5)"
+		},
+		{
+			"identifier": "ConvertTheEnergy",
+			"count": 3,
+			"title": "Convert the Energy",
+			"keywords": [
+				"ongoing",
+				"charm"
+			],
+			"body": [
+				"Play this card next to a hero character card.",
+				"At the start of their turn, they may select a damage type. Until the start of their next turn, all damage they deal is that type.",
+				"That hero gains the following power:",
+				"[b]Power:[/b] Play 1 card or use 1 power.{BR}	if doing so deals damage, that damage is irreducible.{BR}	destroy [i]Convert the Energy[/i]."
+			],
+			"icons": [
+				"StartOfTurnAction",
+				"HasPower",
+				"MakeDamageIrreducible",
+				"DestroySelf"
+			],
+			"flavorText": "“How do you like [b]fire[/b] hooves?”",
+			"flavorReference": "Night Mare, First Day Tremors (EC #3)"
+		},
+		{
+			"identifier": "DelightInDiscovery",
+			"count": 3,
+			"title": "Delight In Discovery",
+			"keywords": [
+				"one-shot"
+			],
+			"body": [
+				"Draw X cards, where X = the number of [u]charm[/u] cards in play plus 1.",
+				"if {Theurgy} has no [u]charm[/u] cards in her play area, play a card."
+			],
+			"icons": [
+				"DrawCardNow",
+				"PlayCardNow"
+			],
+			"flavorText": "“Not gonna lie,{BR}that was a f***in' blast!”",
+			"flavorReference": "Salem, Part Timers (EC #7)"
+		},
+		{
+			"identifier": "EyesOnTheHands",
+			"count": 2,
+			"title": "Eyes On the Hands",
+			"keywords": [
+				"ongoing",
+				"limited"
+			],
+			"body": [
+				"Whenever you discard a card, you may put it into your hand instead.",
+				"if you do, either destroy this card or {Theurgy} deals herself 2 irreducible psychic damage."
+			],
+			"icons": [
+				"Manipulation",
+				"DestroySelf",
+				"DealDamagePsychic"
+			],
+			"flavorText": "“Where are my hostages!?“",
+			"flavorReference": "Technos, Science Fair (EC #8)"
+		},
+		{
+			"identifier": "FocusingCrystal",
+			"count": 3,
+			"title": "Focusing Crystal",
+			"keywords": [
+				"equipment",
+				"limited"
+			],
+			"body": [
+				"When this card enters play, {Theurgy} regains 2 hp.",
+				"The first time a [u]charm[/u] card is destroyed each turn, {Theurgy} regains 1 hp."
+			],
+			"powers": [
+				"{Theurgy} deals 1 target X energy damage, where X = the number of [u]charm[/u] cards in play times 2. Destroy this card."
+			],
+			"icons": [
+				"GainHP",
+				"HasPower",
+				"DealDamageEnergy",
+				"DestroySelf"
+			],
+			"flavorText": "“I'm sorry.{BR}I have no clue how it works.”",
+			"flavorReference": "Ms. Mythhlm, ELementary (EC #4)"
+		},
+		{
+			"identifier": "FollowThePath",
+			"count": 4,
+			"title": "Follow the Path",
+			"keywords": [
+				"ongoing",
+				"charm"
+			],
+			"body": [
+				"Play this card next to a hero character card.",
+				"At the start of that hero's turn, their player may draw a card.",
+				"That hero gains the following power:",
+				"[b]Power:[/b] Reveal the top 4 cards of your deck.{BR}	Put 1 in your hand. Put 1 on top of your deck.{BR}	Play 1. Discard the rest.{BR}	Destroy [i]Follow the Path[/i]."
+			],
+			"icons": [
+				"StartOfTurnAction",
+				"HasPower",
+				"Manipulation",
+				"DestroySelf"
+			],
+			"flavorText": "“Found the place.{BR}it's pretty quiet.”",
+			"flavorReference": "What's-her-face, Elementary (EC #4)"
+		},
+		{
+			"identifier": "GuideTheStrike",
+			"count": 4,
+			"title": "Guide the Strike",
+			"keywords": [
+				"ongoing",
+				"charm"
+			],
+			"body": [
+				"Play this card next to a hero character card.",
+				"increase damage dealt by hero targets in that hero's play area by 1.",
+				"That hero gains the following power:",
+				"[b]Power:[/b] this hero deals 1 target 5 melee or projectile damage.{BR}	Destroy [i]Guide the Strike[/i]."
+			],
+			"icons": [
+				"IncreaseDamageDealt",
+				"HasPower",
+				"DealDamage",
+				"DestroySelf"
+			],
+			"flavorText": "“oh, I could get [b]used[/b] to this.”",
+			"flavorReference": "Red Rifle, Major imp-ediment (EC #9)"
+		},
+		{
+			"identifier": "IAmAProfessional",
+			"count": 2,
+			"title": "I Am a Professional",
+			"keywords": [
+				"ongoing",
+				"limited"
+			],
+			"body": [
+				"At the start of your turn, reveal the top card of your deck.",
+				"You may switch it with one card from your hand or your trash."
+			],
+			"icons": [
+				"StartOfTurnAction",
+				"Manipulation"
+			],
+			"flavorText": "“I'm impressed.”",
+			"flavorReference": "The Wraith, Setting Up Shop (EC #2)"
+		},
+		{
+			"identifier": "Legerdemain",
+			"count": 2,
+			"title": "Legerdemain",
+			"keywords": [
+				"one-shot"
+			],
+			"body": [
+				"Put any number of [u]charm[/u] cards back into your hand from play.",
+				"You may play up to that many cards now."
+			],
+			"icons": [
+				"Manipulation",
+				"PlayCardNow"
+			],
+			"flavorText": "“How are they moles [b]and[/b] ninjas?”",
+			"flavorReference": "Theurgy, First Day Tremors (EC #3)"
+		},
+		{
+			"identifier": "SellTheGrift",
+			"count": 3,
+			"title": "Sell the Grift",
+			"keywords": [
+				"ongoing",
+				"charm"
+			],
+			"body": [
+				"Play this card next to a hero character card.",
+				"At the start of their turn, they may put a card from their trash into their hand.",
+				"That hero gains the following power:",
+				"[b]Power:[/b] Discard any number of cards.{BR}	You may put up to that many cards from your trash into your hand.{BR}	You may play 1 card. Destroy [i]Sell the Grift[/i]."
+			],
+			"icons": [
+				"Manipulation",
+				"HasPower",
+				"PlayCardNow",
+				"DestroySelf"
+			],
+			"flavorText": "“They won't suspect a thing.”",
+			"flavorReference": "Theurgy, Just Swamped (EC #6)"
+		},
+		{
+			"identifier": "Teleportation",
+			"count": 2,
+			"title": "Teleportation",
+			"keywords": [
+				"one-shot"
+			],
+			"body": [
+				"Put a card from the environment trash into play.",
+				"Destroy 1 environment card."
+			],
+			"icons": [
+				"Manipulation",
+				"DestroyEnvironment"
+			],
+			"flavorText": "“Lynsey? is that you?”",
+			"flavorReference": "Mary Hudson, Book Report (EC #5)"
+		},
+		{
+			"identifier": "TheScholarsJournal",
+			"count": 1,
+			"title": "The Scholar's Journal",
+			"keywords": [
+				"equipment",
+				"relic",
+				"limited"
+			],
+			"body": [
+				"when this card enters play, draw 2 cards.",
+				"When this card is destroyed, select a deck. cards from that deck cannot be played until the start of your next turn. Remove this card from the game."
+			],
+			"powers": [
+				"Destroy a [u]charm[/u] card. Search your trash or deck for a [u]charm[/u] card. Put it into play or in your hand."
+			],
+			"icons": [
+				"DrawCardNow",
+				"CannotPlayCards",
+				"RemoveFromGame",
+				"Search"
+			],
+			"flavorText": "“Just call me. . . John.”",
+			"flavorReference": "The Book, Just Swamped (EC #6)"
+		},
+		{
+			"identifier": "TrapDoor",
+			"count": 3,
+			"title": "Trap Door",
+			"keywords": [
+				"one-shot"
+			],
+			"body": [
+				"{Theurgy} deals 1 target 3 melee damage.",
+				"That target deals up to X targets 2 projectile damage, where X = the number of [u]charm[/u] cards in play plus 1."
+			],
+			"icons": [
+				"DealDamageMelee",
+				"DealDamageProjectile"
+			],
+			"flavorText": "“Now you're thinkin' with portals.”",
+			"flavorReference": "Red Rifle, Demonology (EC #10)"
+		},
+		{
+			"identifier": "WeatherTheHits",
+			"count": 4,
+			"title": "Weather the Hits",
+			"keywords": [
+				"ongoing",
+				"charm"
+			],
+			"body": [
+				"Play this card next to a hero character card.",
+				"Reduce damage taken by hero targets in that hero's play area by 1.",
+				"That hero gains the following power:",
+				"[b]Power:[/b] this hero regains 5 hp.{BR}	All other hero targets regain 1 hp.{BR}	Destroy [i]Weather the Hits[/i]."
+			],
+			"icons": [
+				"ReduceDamageTaken",
+				"HasPower",
+				"GainHP",
+				"DestroySelf"
+			],
+			"flavorText": "“Come at me, bro.”",
+			"flavorReference": "Moon Stalker, Part Timers (EC #7)"
+		},
+		{
+			"identifier": "Yoink",
+			"count": 2,
+			"title": "Yoink!",
+			"keywords": [
+				"one-shot"
+			],
+			"body": [
+				"Destroy 1 ongoing or equipment card.",
+				"if you destroyed a hero card, that hero's player may put a card from their trash into play."
+			],
+			"icons": [
+				"DestroyOngoing",
+				"DestroyEquipment",
+				"Manipulation"
+			],
+			"flavorText": "“ok, everybody{BR}should be grounded now.{BR}uh, [b]should[/b] be.”",
+			"flavorReference": "Theurgy, Setting Up Shop (EC #2)"
+		}
+	],
+	"promoCards": [
+		{
+			"identifier": "TheurgyCharacter",
+			"promoIdentifier": "TheurgyFateweaverCharacter",
+			"count": 1,
+			"title": "Theurgy",
+			"promoTitle": "Theurgy: Fateweaver",
+			"body": "Seam Ripper",
+			"icons": [
+				"HasPower",
+				"DealDamagePsychic",
+				"GainHP",
+				"Manipulation"
+			],
+			"backgroundColor": "6F8FE7",
+			"foilBackgroundColor": "6F8FE7",
+			"hitpointsColor": "6F8FE7",
+			"character": true,
+			"powers": [
+				"choose a target. if they're a hero target, Theurgy deals them 2 psychic damage. if they're a villain target, they regain 2 hp. if they're an environment target, destroy a [u]charm[/u] card. reveal the top card of the target's deck. Either replace it, discard it, or put it into play."
+			],
+			"hitpoints": 25,
+			"nemesisIdentifiers": [
+				"ArgentAdept"
+			],
+			"incapacitatedAbilities": [
+				"One player may play a card.",
+				"Reveal the top card of each deck, then replace it. Select a deck and discard its top card.",
+				"Select 1 non-indestructible card in play, other than a Character card, and put it on top of its deck."
+			],
+			"flippedIcons": [
+				"PlayCardNow",
+				"Manipulation"
+			],
+			"complexity": 2,
+			"openingLines": {
+				"default": "I will tear you from the Tapestry."
+			}
+		}
+	]
+}

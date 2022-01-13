@@ -1,0 +1,104 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{6F3261DE-3E88-457F-8506-63B907A7EADF}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Angille</RootNamespace>
+    <AssemblyName>Angille</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EngineCommon">
+      <HintPath>C:\Program Files (x86)\Steam\steamapps\common\Sentinels of the Multiverse\Sentinels_Data\Managed\EngineCommon.dll</HintPath>
+    </Reference>
+    <Reference Include="SentinelsEngine">
+      <HintPath>C:\Program Files (x86)\Steam\steamapps\common\Sentinels of the Multiverse\Sentinels_Data\Managed\SentinelsEngine.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TheUndersiders\Cards\AdvancePlanningCardController.cs" />
+    <Compile Include="TheUndersiders\Cards\AngelicaCardController.cs" />
+    <Compile Include="TheUndersiders\Cards\BastardCardController.cs" />
+    <Compile Include="TheUndersiders\Cards\BentleyCardController.cs" />
+    <Compile Include="TheUndersiders\CharacterCards\BitchCharacterCardController.cs" />
+    <Compile Include="TheUndersiders\Cards\ClothGolemCardController.cs" />
+    <Compile Include="TheUndersiders\Cards\CoordinatedBlitzCardController.cs" />
+    <Compile Include="TheUndersiders\Cards\DescentOfTheSwarmCardController.cs" />
+    <Compile Include="TheUndersiders\CharacterCards\FoilCharacterCardController.cs" />
+    <Compile Include="TheUndersiders\Cards\ForgottenAssailantCardController.cs" />
+    <Compile Include="TheUndersiders\CharacterCards\GrueCharacterCardController.cs" />
+    <Compile Include="TheUndersiders\Cards\HailOfBladesCardController.cs" />
+    <Compile Include="TheUndersiders\CharacterCards\ImpCharacterCardController.cs" />
+    <Compile Include="TheUndersiders\Cards\ImperiousControlCardController.cs" />
+    <Compile Include="TheUndersiders\CharacterCards\ParianCharacterCardController.cs" />
+    <Compile Include="TheUndersiders\CharacterCards\RegentCharacterCardController.cs" />
+    <Compile Include="TheUndersiders\CharacterCards\SkitterCharacterCardController.cs" />
+    <Compile Include="TheUndersiders\Cards\StingingSwarmCardController.cs" />
+    <Compile Include="TheUndersiders\CharacterCards\TattletaleCharacterCardController.cs" />
+    <Compile Include="TheUndersiders\Cards\TenebrousCloudCardController.cs" />
+    <Compile Include="TheUndersiders\TheUndersidersBaseCardController.cs" />
+    <Compile Include="TheUndersiders\TheUndersidersVillainCardController.cs" />
+    <Compile Include="TheUndersiders\TheUndersidersInstructionsCardController.cs" />
+    <Compile Include="TheUndersiders\TheUndersidersTurnTakerController.cs" />
+    <Compile Include="TheUndersiders\WarlordsOfBrocktonCardController.cs" />
+    <Compile Include="TheUndersiders\Cards\WatchfulSwarmCardController.cs" />
+    <Compile Include="Theurgy\CharmBaseCardController.cs" />
+    <Compile Include="Theurgy\ClairvoyanceCardController.cs" />
+    <Compile Include="Theurgy\ConvertTheEnergyCardController.cs" />
+    <Compile Include="Theurgy\DelightInDiscoveryCardController.cs" />
+    <Compile Include="Theurgy\EyesOnTheHandsCardController.cs" />
+    <Compile Include="Theurgy\FocusingCrystalCardController.cs" />
+    <Compile Include="Theurgy\FollowThePathCardController.cs" />
+    <Compile Include="Theurgy\GuideTheStrikeCardController.cs" />
+    <Compile Include="Theurgy\IAmAProfessionalCardController.cs" />
+    <Compile Include="Theurgy\LegerdemainCardController.cs" />
+    <Compile Include="Theurgy\SellTheGriftCardController.cs" />
+    <Compile Include="Theurgy\TeleportationCardController.cs" />
+    <Compile Include="Theurgy\TheScholarsJournalCardController.cs" />
+    <Compile Include="Theurgy\TheurgyBaseCardController.cs" />
+    <Compile Include="Theurgy\TheurgyCharacterCardController.cs" />
+    <Compile Include="Theurgy\TheurgyFateweaverCharacterCardController.cs" />
+    <Compile Include="Theurgy\TheurgyTurnTakerController.cs" />
+    <Compile Include="Theurgy\TrapDoorCardController.cs" />
+    <Compile Include="Theurgy\WeatherTheHitsCardController.cs" />
+    <Compile Include="Theurgy\YoinkCardController.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="DeckLists\TheUndersidersDeckList.json" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="DeckLists\TheurgyDeckList.json" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
