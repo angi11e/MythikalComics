@@ -5,769 +5,769 @@
   "kind": "Villain",
   "expansionIdentifier": "Angille",
   "initialCardIdentifiers": [
-    "TheUndesidersInstructions",
-    "WarlordsOfBrockton"
+	"TheUndersidersInstructions",
+	"WarlordsOfBrockton"
   ],
   "cards": [
-    {
-      "identifier": "TheUndersidersInstructions",
-      "count": 1,
-      "title": "The Undersiders",
-      "body": "Gather Forces",
-      "backgroundColor": "39A7CC",
-      "foilBackgroundColor": "39A7CC",
-      "isReal":  false,
-      "character": true,
-      "setup": [
-        "At the start of the game, this card enters play “Gather Forces“ side up.",
-        "Warlords of Brockton is put into play. The Villain deck is shuffled.",
-        "The 8 Villain character cards are shuffled and placed beneath Warlords of Brockton.",
-        "The top {H - 1} cards from beneath Warlords of Brockton are moved into the villain play area."
-      ],
-      "gameplay": [
-        "At the start of the Villain turn, move the top card from beneath Warlords of Brockton into the villain play area.",
-        "At the end of the Villain turn, if there are no environment cards in play, play the top card of the environment deck. Flip this card.",
-        "Whenever there are no villain character targets in play, the heroes win."
-      ],
-      "advanced": "When a villain character card enters play, play the top card of the villain deck.",
-      "icons": [
-        "StartAndEndOfTurnAction",
-        "PlayCardNow"
-      ],
-      "advancedIcons": [
-        "PlayCardNow"
-      ],
-      "flippedBody": "Escalation",
-      "flippedGameplay": [
-        "At the start of the villain turn, play the top card of the villain deck.",
-        "When a villain character card is incapacitated, destroy all environment cards. The villain target with the highest HP deals the hero character target with the lowest HP {H} melee damage. Flip this card.",
-        "Whenever there are no villain character targets in play, the heroes win."
-      ],
-      "flippedAdvanced": "Increase damage taken by hero targets by 1.",
-      "flippedIcons": [
-        "StartOfTurnAction",
-        "PlayCardNow",
-        "DestroyEnvironment",
-        "DealDamageMelee"
-      ],
-      "flippedAdvancedIcons": [
-        "IncreaseDamageTaken"
-      ],
-      "difficulty": 3,
-      "challengeTitle": "Lingering Presence",
-      "challengeText": "Villains continue to activate their symbols when incapacitated.",
-      "flippedChallengeText": "Villains continue to activate their symbols when incapacitated.",
-      "challengeIcons": [
-      ],
-      "openingLines": {
-        "default": "Is it the PRT or the Merchants? Ya know, it doesn't matter. Take 'em out."
-      }
-    },
-    {
-      "identifier": "BitchCharacter",
-      "count": 1,
-      "title": "Bitch",
-      "keywords": [
-        "villain"
-      ],
-      "body": "Hellish Canine Augmenter",
-      "backgroundColor": "39A7CC",
-      "character": true,
-      "hitpoints": 26,
-      "nemesisIdentifiers": [
-        "Bunker"
-      ],
-      "gameplay": [
-        "When this card enters play, reveal cards from the top of the villain deck until a dog card is revealed. Put it into play. Shuffle the other revealed cards back into the villain deck.",
-        "At the start of the villain turn, if there are no dog targets in play, move 1 dog card from the villain trash into play.",
-        "increase damage dealt by dog targets by 1.",
-        "Treat {Dog} effects as active."
-      ],
-      "icons": [
-        "Search",
-        "Manipulate",
-        "IncreaseDamageDealt",
-        "Angille.Dog"
-      ],
-      "flippedShowHitpoints": false,
-      "flippedBody": "incapacitated",
-      "flippedKeywords": [
-      ],
-      "flippedGameplay": [
-        "When a dog target is destroyed by damage from a target, it first deals {H - 1} melee damage to that target."
-      ],
-      "flippedChallengeText": "Treat {Dog} effects as active.",
-      "flippedIcons": [
-        "CounterDamage"
-      ]
-    },
-    {
-      "identifier": "FoilCharacter",
-      "count": 1,
-      "title": "Foil",
-      "keywords": [
-        "villain"
-      ],
-      "body": "Breaker of the Laws of Physics",
-      "backgroundColor": "39A7CC",
-      "character": true,
-      "hitpoints": 22,
-      "nemesisIdentifiers": [
-        "TheWraith"
-      ],
-      "gameplay": [
-        "Damage dealt by {Foil} is irreducible.",
-        "At the end of the villain turn, {Foil} deals the hero target with the most HP {H - 2} melee damage, and the hero target with the least HP 1 projectile damage.",
-        "Treat {Blade} effects as active."
-      ],
-      "icons": [
-        "MakeDamageIrreducible",
-        "EndOfTurnAction",
-        "DealDamage",
-        "Angille.Blade"
-      ],
-      "flippedShowHitpoints": false,
-      "flippedBody": "incapacitated",
-      "flippedKeywords": [
-      ],
-      "flippedGameplay": [
-        "Damage dealt by villain targets is irreducible."
-      ],
-      "flippedChallengeText": "Treat {Blade} effects as active.",
-      "flippedIcons": [
-        "MakeDamageIrreducible"
-      ]
-    },
-    {
-      "identifier": "GrueCharacter",
-      "count": 1,
-      "title": "Grue",
-      "keywords": [
-        "villain"
-      ],
-      "body": "Source of the Smothering Darkness",
-      "backgroundColor": "39A7CC",
-      "character": true,
-      "hitpoints": 23,
-      "nemesisIdentifiers": [
-        "Fanatic"
-      ],
-      "gameplay": [
-        "When this card enters play, if it's not already in play, search the villain trash and deck for the card Tenebrous Cloud and put it into play. if the villain deck was searched, shuffle it.",
-        "At the end of the villain turn, {Grue} deals the hero character with the most cards in their play area 1 melee damage and 1 infernal damage.",
-        "Treat {Skull} effects as active."
-      ],
-      "icons": [
-        "Search",
-        "EndOfTurnAction",
-        "DealDamage",
-        "Angille.Skull"
-      ],
-      "flippedShowHitpoints": false,
-      "flippedBody": "incapacitated",
-      "flippedKeywords": [
-      ],
-      "flippedGameplay": [
-        "At the end of the villain turn, the villain target with the lowest HP deals the {H - 1} hero targets with the lowest HP 1 infernal damage."
-      ],
-      "flippedChallengeText": "Treat {Skull} effects as active.",
-      "flippedIcons": [
-        "EndOfTurnAction",
-        "DealDamageInfernal"
-      ]
-    },
-    {
-      "identifier": "ImpCharacter",
-      "count": 1,
-      "title": "Imp",
-      "keywords": [
-        "villain"
-      ],
-      "body": "...who?",
-      "backgroundColor": "39A7CC",
-      "character": true,
-      "hitpoints": 12,
-      "nemesisIdentifiers": [
-        "OblivAeon"
-      ],
-      "gameplay": [
-        "When this card enters play, place her in the play area of the first active hero in turn order.",
-        "At the start of the environment turn, or when that hero becomes incapacitated, move {Imp} to the play area of the next active hero in turn order.",
-        "At the start of that hero's turn, {Imp} deals them 2 melee damage.",
-        "{Imp} is immune to damage from sources outside that hero's play area'.",
-        "Treat {Mask} effects as active."
-      ],
-      "icons": [
-        "Manipulate",
-        "DealDamageMelee",
-        "ImmuneToDamage",
-        "Angille.Mask"
-      ],
-      "flippedShowHitpoints": false,
-      "flippedBody": "incapacitated",
-      "flippedKeywords": [
-      ],
-      "flippedGameplay": [
-        "When {Imp} flips to this side, move her back to the villain play area.",
-        "At the end of each hero's turn, if they haven't dealt any damage that turn, they shuffle their trash into their deck."
-      ],
-      "flippedChallengeText": "Treat {Mask} effects as active.",
-      "flippedIcons": [
-        "Manipulate"
-      ]
-    },
-    {
-      "identifier": "ParianCharacter",
-      "count": 1,
-      "title": "Parian",
-      "keywords": [
-        "villain"
-      ],
-      "body": "Minion Stitcher",
-      "backgroundColor": "39A7CC",
-      "character": true,
-      "hitpoints": 20,
-      "nemesisIdentifiers": [
-        "TheSentinels"
-      ],
-      "gameplay": [
-        "When this card enters play, restore all villain construct targets to 6 HP. if there are non in play, search the villain trash and deck for a construct card and put it into play. if the villain deck was searched, shuffle it.",
-        "Villain targets are immune to damage from environment cards.",
-        "Treat {Bear} effects as active."
-      ],
-      "icons": [
-        "GainHP",
-        "Search",
-        "ImmuneToDamage",
-        "Angille.Bear"
-      ],
-      "flippedShowHitpoints": false,
-      "flippedBody": "incapacitated",
-      "flippedKeywords": [
-      ],
-      "flippedGameplay": [
-        "At the end of the villain turn, discard the top card of the environment deck. if it's a target, play the top card of the villain deck.'"
-      ],
-      "flippedChallengeText": "Treat {Bear} effects as active.",
-      "flippedIcons": [
-        "EndOfTurnAction",
-        "Discard",
-        "PlayCardNow"
-      ]
-    },
-    {
-      "identifier": "RegentCharacter",
-      "count": 1,
-      "title": "Regent",
-      "keywords": [
-        "villain"
-      ],
-      "body": "Heartbroken Puppet Master",
-      "backgroundColor": "39A7CC",
-      "character": true,
-      "hitpoints": 19,
-      "nemesisIdentifiers": [
-        "SkyScraper"
-      ],
-      "gameplay": [
-        "The first time {Regent} is dealt damage by a target each turn, he deals that target 2 lightning damage.",
-        "At the end of the villain turn, the hero with the least cards in their play area deals themself 2 melee damage.",
-        "Treat {Crown} effects as active."
-      ],
-      "icons": [
-        "CounterDamage",
-        "EndOfTurnAction",
-        "DealDamageMelee",
-        "Angille.Crown"
-      ],
-      "flippedShowHitpoints": false,
-      "flippedBody": "incapacitated",
-      "flippedKeywords": [
-      ],
-      "flippedGameplay": [
-        "At the end of each hero's turn, they may discard a card. If that hero does not do so they deal themself 1 melee damage."
-      ],
-      "flippedChallengeText": "Treat {Crown} effects as active.",
-      "flippedIcons": [
-        "EndOfTurnAction",
-        "Discard",
-        "DealDamageMelee"
-      ]
-    },
-    {
-      "identifier": "SkitterCharacter",
-      "count": 1,
-      "title": "Skitter",
-      "keywords": [
-        "villain"
-      ],
-      "body": "insect Controller",
-      "backgroundColor": "39A7CC",
-      "character": true,
-      "hitpoints": 24,
-      "nemesisIdentifiers": [
-        "MrFixer"
-      ],
-      "gameplay": [
-        "When this card enters play, reveal cards from the top of the villain deck until {H - 2} swarm cards are revealed. Put them into play. Shuffle the other revealed cards back into the villain deck.",
-        "At the start of the villain turn, restore all villain swarm targets to 3 HP.",
-        "Treat {Spider} effects as active."
-      ],
-      "icons": [
-        "Search",
-        "GainHP",
-        "Angille.Spider"
-      ],
-      "flippedShowHitpoints": false,
-      "flippedBody": "incapacitated",
-      "flippedKeywords": [
-      ],
-      "flippedGameplay": [
-        "At the start of the villain turn, each villain swarm target regains 1 HP.",
-        "At the end of the villain turn, if there are any swarm cards in play, the hero target with the highest HP deals themself 1 psychic damage."
-      ],
-      "flippedChallengeText": "Treat {Spider} effects as active.",
-      "flippedIcons": [
-        "StartAndEndOfTurnAction",
-        "GainHP",
-        "DealDamagePsychic"
-      ]
-    },
-    {
-      "identifier": "TattletaleCharacter",
-      "count": 1,
-      "title": "Tattletale",
-      "keywords": [
-        "villain"
-      ],
-      "body": "Fact Finder, Secret Spiller",
-      "backgroundColor": "39A7CC",
-      "character": true,
-      "hitpoints": 18,
-      "nemesisIdentifiers": [
-        "Tachyon"
-      ],
-      "gameplay": [
-        "increase damage dealt by villain character targets by 1. Reduce damage taken by villain character targets by 1.",
-        "At the end of the villain turn, destroy {H} hero ongoing and/or equipment cards. The villain target with the highest HP deals 1 projectile damage to each hero with any ongoing or equipment cards in play.",
-        "Treat {Tattle} effects as active."
-      ],
-      "icons": [
-        "IncreaseDamageDealt",
-        "ReduceDamageTaken",
-        "EndOfTurnAction",
-        "Angille.Tattle"
-      ],
-      "flippedShowHitpoints": false,
-      "flippedBody": "incapacitated",
-      "flippedKeywords": [
-      ],
-      "flippedGameplay": [
-        "At the start of the villain turn, each player may destroy 1 of their ongoing or equipment cards. If they do not, they discard 1 card."
-      ],
-      "flippedChallengeText": "Treat {Tattle} effects as active.",
-      "flippedIcons": [
-        "StartOfTurnAction",
-        "DestroyOngoing",
-        "DestroyEquipment",
-        "Discard"
-      ]
-    },
-    {
-      "identifier": "AdvancePlanning",
-      "count": 2,
-      "title": "Advance Planning",
-      "keywords": [
-        "one-shot"
-      ],
-      "body": [
-        "Each player discards 1 card. Each player discards the top card and the bottom card of their deck."
-      ],
-      "activatableAbilities": [
-        {
-          "name": "{Tattle}",
-          "text": "Play the top card of the villain deck."
-        },
-        {
-          "name": "{Bear}",
-          "text": "Destroy 1 environment card. Play the top card of the environment deck."
-        }
-      ],
-      "icons": [
-        "Discard",
-        "PlayCardNow",
-        "Angille.Tattle",
-        "Angille.Bear"
-      ],
-      "flavorText": "“So. We're in agreement?{BR}The A.B.B. cannot be allowed to{BR}continue operating.”",
-      "flavorReference": "Coil, Hive 5.1"
-    },
-    {
-      "identifier": "Angelica",
-      "count": 1,
-      "title": "Angelica",
-      "keywords": [
-        "dog"
-      ],
-      "hitpoints": 10,
-      "body": [
-        "At the end of the villain turn, this card deals each non-villain target {H - 2} melee damage."
-      ],
-      "activatableAbilities": [
-        {
-          "name": "{Dog}",
-          "text": "The first time each turn a villain character card would be dealt damage, redirect it to this card."
-        },
-        {
-          "name": "{Tattle}",
-          "text": "At the end of the villain turn, destroy each non-villain target with 2 HP or less."
-        }
-      ],
-      "icons": [
-        "DealDamageMelee",
-        "RedirectDamage",
-        "Angille.Dog",
-        "Angille.Tattle"
-      ],
-      "flavorText": "“Brutus is good boy. Doesn't pull{BR}on leash like Angelica still does.”",
-      "flavorReference": "Brutus, interlude 4"
-    },
-    {
-      "identifier": "Bastard",
-      "count": 1,
-      "title": "Bastard",
-      "keywords": [
-        "dog"
-      ],
-      "hitpoints": 12,
-      "body": [
-        "At the end of the villain turn, this card deals the 2 hero targets with the lowest hp 2 melee damage each."
-      ],
-      "activatableAbilities": [
-        {
-          "name": "{Dog}",
-          "text": "At the start of the villain turn, this card regains 2 HP."
-        },
-        {
-          "name": "{Skull}",
-          "text": "Whenever this card deals damage to a target, it also deals that target 1 infernal damage."
-        }
-      ],
-      "icons": [
-        "StartAndEndOfTurnAction",
-        "DealDamage",
-        "Angille.Dog",
-        "Angille.Skull"
-      ],
-      "flavorText": "“it was different from the{BR}others, symmetrical, the alterations{BR}flowing into each other better.”",
-      "flavorReference": "Weaver, Scarab 25.6"
-    },
-    {
-      "identifier": "Bentley",
-      "count": 1,
-      "title": "Bentley",
-      "keywords": [
-        "dog"
-      ],
-      "hitpoints": 12,
-      "body": [
-        "At the end of the villain turn, this card deals the hero target with the highest HP {H - 1} melee damage."
-      ],
-      "activatableAbilities": [
-        {
-          "name": "{Dog}",
-          "text": "This card is immune to melee damage."
-        },
-        {
-          "name": "{Mask}",
-          "text": "At the end of the villain turn, move {Imp} to the hero play area with the highest HP. She deals that hero 1 projectile damage."
-        }
-      ],
-      "icons": [
-        "EndOfTurnAction",
-        "DealDamage",
-        "Angille.Dog",
-        "Angille.Mask"
-      ],
-      "flavorText": "“Bentley. Kill.”",
-      "flavorReference": "Bitch, Scourge 19.1"
-    },
-    {
-      "identifier": "ClothGolem",
-      "count": 2,
-      "title": "Cloth Golem",
-      "keywords": [
-        "construct"
-      ],
-      "hitpoints": 6,
-      "body": [
-        "At the end of the villain turn, this card deals the hero target with the highest HP {H - 1} melee damage."
-      ],
-      "activatableAbilities": [
-        {
-          "name": "{Bear}",
-          "text": "The first time each turn this card would be dealt damage, redirect it to the environment target with the lowest HP."
-        },
-        {
-          "name": "{Spider}",
-          "text": "Damage dealt by this card is Psychic and irreducible."
-        }
-      ],
-      "icons": [
-        "DealDamage",
-        "RedirectDamage",
-        "Angille.Bear",
-        "Angille.Spider"
-      ],
-      "flavorText": "“Threads, Skitter? These{BR}yours, or leftovers from before?”",
-      "flavorReference": "Bonesaw, Snare 13.9"
-    },
-    {
-      "identifier": "CoordinatedBlitz",
-      "count": 2,
-      "title": "Coordinated Blitz",
-      "keywords": [
-        "one-shot"
-      ],
-      "body": [
-        "Each villain character card deals the non-villain target with the highest HP 2 projectile damage, one at a time."
-      ],
-      "activatableAbilities": [
-        {
-          "name": "{Dog}",
-          "text": "Each dog, construct, and swarm card deals the non-villain target with the highest HP 1 toxic damage, one at a time."
-        },
-        {
-          "name": "{Blade}",
-          "text": "Damage until this card resolves is irreducible."
-        }
-      ],
-      "icons": [
-        "DealDamage",
-        "MakeDamageIrreducible",
-        "Angille.Dog",
-        "Angille.Blade"
-      ],
-      "flavorText": "“All I know is that I was{BR}suddenly blind and deaf, and when I{BR}tried to move, everything bent the wrong{BR}way. Then I think I got tasered.”",
-      "flavorReference": "Browbeat, interlude 3"
-    },
-    {
-      "identifier": "DescentOfTheSwarm",
-      "count": 2,
-      "title": "Descent of the Swarm",
-      "keywords": [
-        "one-shot"
-      ],
-      "body": [
-        "Put all the swarm cards from the villain trash into play."
-      ],
-      "activatableAbilities": [
-        {
-          "name": "{Spider}",
-          "text": "Reveal cards from the top of the villain deck until a swarm card is revealed. Put it into play. Shuffle the other revealed cards back into the villain deck."
-        },
-        {
-          "name": "{Skull}",
-          "text": "Each villain character card regains {H} HP."
-        }
-      ],
-      "icons": [
-        "Manipulate",
-        "GainHP",
-        "Angille.Spider",
-        "Angille.Skull"
-      ],
-      "flavorText": "“My bugs can devour a cow{BR}to the bone in 90 seconds. I have a million{BR}eyes to watch you with. [b]go elsewhere.[/b]”",
-      "flavorReference": "Skitter, infestation 11.2"
-    },
-    {
-      "identifier": "ForgottenAssailant",
-      "count": 2,
-      "title": "Forgotten Assailant",
-      "keywords": [
-        "one-shot"
-      ],
-      "body": [
-        "The villain character card with the lowest HP deals the hero character card with the most cards in their trash {H - 2} melee damage."
-      ],
-      "activatableAbilities": [
-        {
-          "name": "{Mask}",
-          "text": "{Imp} deals the hero she's in front of 1 melee damage and 1 toxic damage."
-        },
-        {
-          "name": "{Crown}",
-          "text": "Any targets damaged by the results of this card deal themselves 2 psychic damage."
-        }
-      ],
-      "icons": [
-        "DealDamage",
-        "Angille.Mask",
-        "Angille.Crown"
-      ],
-      "flavorText": "“I was distracted by the fact that{BR}Flechette was disarmed, her weapon{BR}broken. How had that happened?”",
-      "flavorReference": "Skitter, Parasite 10.3"
-    },
-    {
-      "identifier": "HailOfBlades",
-      "count": 2,
-      "title": "Hail of Blades",
-      "keywords": [
-        "one-shot"
-      ],
-      "body": [
-        "The villain character card with the highest HP deals {H - 1} hero targets {H - 2} projectile damage."
-      ],
-      "activatableAbilities": [
-        {
-          "name": "{Blade}",
-          "text": "{Foil} deals any hero targets not dealt damage by the main text 2 projectile damage."
-        },
-        {
-          "name": "{Bear}",
-          "text": "Targets dealt damage by the results of this card cannot deal damage until the start of the villain turn."
-        }
-      ],
-      "icons": [
-        "DealDamageProjectile",
-        "CannotDealDamage",
-        "Angille.Blade",
-        "Angille.Bear"
-      ],
-      "flavorText": "“She can punch a few holes in{BR}Crimson while he's trapped.”",
-      "flavorReference": "Weaver, Sting 26.2"
-    },
-    {
-      "identifier": "ImperiousControl",
-      "count": 2,
-      "title": "Imperious Control",
-      "keywords": [
-        "ongoing"
-      ],
-      "body": [
-        "When this card enters play, move it into the hero play area with the fewest ongoing cards.",
-        "Whenever that hero uses a power, they must discard a card."
-      ],
-      "activatableAbilities": [
-        {
-          "name": "{Crown}",
-          "text": "Whenever that hero plays a card, they deal themself 2 psychic damage."
-        },
-        {
-          "name": "{Mask}",
-          "text": "Whenever that hero draws a card, {Imp} deals them 2 melee damage."
-        }
-      ],
-      "icons": [
-        "Discard",
-        "DealDamage",
-        "Angille.Crown",
-        "Angille.Mask"
-      ],
-      "flavorText": "“Funny thing about having this control{BR}over you, I can feel your emotions, your body's{BR}reactions. like a really good polygraph test.”",
-      "flavorReference": "Regent, interlude 10"
-    },
-    {
-      "identifier": "StingingSwarm",
-      "count": 3,
-      "title": "Stinging Swarm",
-      "keywords": [
-        "swarm"
-      ],
-      "hitpoints": 3,
-      "body": [
-        "At the end of the villain turn, this card deals the hero target with the highest number of cards in their hand 1 toxic damage."
-      ],
-      "activatableAbilities": [
-        {
-          "name": "{Spider}",
-          "text": "Whenever this card deals damage to a target, {Skitter} deals that target 1 psychic damage."
-        },
-        {
-          "name": "{Skull}",
-          "text": "Whenever this card deals damage to a target, {Grue} deals that target 1 infernal damage."
-        }
-      ],
-      "icons": [
-        "EndOfTurnAction",
-        "DealDamage",
-        "Angille.Spider",
-        "Angille.Skull"
-      ],
-      "flavorText": "“I'm going to have{BR}nightmares. nightmares with lots{BR}and lots of spiders.'”",
-      "flavorReference": "Clockblocker, interlude 3"
-    },
-    {
-      "identifier": "TenebrousCloud",
-      "count": 1,
-      "title": "Tenebrous Cloud",
-      "keywords": [
-        "ongoing"
-      ],
-      "body": [
-        "Reduce HP recovery for hero targets by 1.",
-        "Increase HP recovery for villain targets by 1."
-      ],
-      "activatableAbilities": [
-        {
-          "name": "{Skull}",
-          "text": "This card is indestructible."
-        },
-        {
-          "name": "{Tattle}",
-          "text": "After the first time a villain target is dealt damage by a target each turn, the villain target with the lowest HP regains HP equal to the amount of damage dealt."
-        }
-      ],
-      "icons": [
-        "ReduceGainHP",
-        "IncreaseGainHP",
-        "Angille.Skull",
-        "Angille.Tattle"
-      ],
-      "flavorText": "“You can't hear in there either. and it{BR}feels strange too. there's resistance, like{BR}you're underwater, but not floating.”",
-      "flavorReference": "Browbeat, interlude 3"
-    },
-    {
-      "identifier": "WatchfulSwarm",
-      "count": 3,
-      "title": "Watchful Swarm",
-      "keywords": [
-        "swarm"
-      ],
-      "hitpoints": 3,
-      "body": [
-        "Whenever a villain character target would take damage, redirect it to the {WatchfulSwarm} card with the highest HP."
-      ],
-      "activatableAbilities": [
-        {
-          "name": "{Spider}",
-          "text": "This card is immune to melee and projectile damage."
-        },
-        {
-          "name": "{Tattle}",
-          "text": "When this card is destroyed, the hero with the most cards in hand must discard a card."
-        }
-      ],
-      "icons": [
-        "RedirectDamage",
-        "Discard",
-        "Angille.Spider",
-        "Angille.Tattle"
-      ],
-      "flavorText": "“Threads, Skitter? These{BR}yours, or leftovers from before?”",
-      "flavorReference": "Bonesaw, Snare 13.9"
-    },
-    {
-      "identifier": "WarlordsOfBrockton",
-      "count": 1,
-      "title": "Warlords of Brockton",
-      "body": [
-        "Whenever a villain character target would be destroyed, flip it over instead.",
-        "This card and all cards beneath this card are indestructible and cannot be removed from the play area by any means."
-      ],
-      "icons": [
-        "Indestructible"
-      ]
-    }
+		{
+			"identifier": "TheUndersidersInstructions",
+			"count": 1,
+			"title": "The Undersiders",
+			"body": "Gather Forces",
+			"backgroundColor": "39A7CC",
+			"foilBackgroundColor": "39A7CC",
+			"isReal": false,
+			"character": true,
+			"setup": [
+				"At the start of the game, this card enters play “Gather Forces“ side up.",
+				"Warlords of Brockton is put into play. The Villain deck is shuffled.",
+				"The 8 Villain character cards are shuffled and placed beneath Warlords of Brockton.",
+				"The top {H - 2} cards from beneath Warlords of Brockton are moved into the villain play area."
+			],
+			"gameplay": [
+				"At the start of the Villain turn, move the top card from beneath Warlords of Brockton into the villain play area.",
+				"At the end of the Villain turn, play the top card of the environment deck. Flip this card.",
+				"Whenever there are no villain character targets in play, the heroes win."
+			],
+			"advanced": "When a villain character card enters play, play the top card of the villain deck.",
+			"icons": [
+				"StartAndEndOfTurnAction",
+				"PlayCardNow"
+			],
+			"advancedIcons": [
+				"PlayCardNow"
+			],
+			"flippedBody": "Escalation",
+			"flippedGameplay": [
+				"At the start of the villain turn, play the top card of the villain deck.",
+				"When a villain character card is incapacitated, destroy all environment cards. The villain target with the highest HP deals the hero character target with the lowest HP {H} melee damage. Flip this card.",
+				"Whenever there are no villain character targets in play, the heroes win."
+			],
+			"flippedAdvanced": "Increase damage taken by hero targets by 1.",
+			"flippedIcons": [
+				"StartOfTurnAction",
+				"PlayCardNow",
+				"DestroyEnvironment",
+				"DealDamageMelee"
+			],
+			"flippedAdvancedIcons": [
+				"IncreaseDamageTaken"
+			],
+			"difficulty": 3,
+			"challengeTitle": "Lingering Presence",
+			"challengeText": "Villains continue to activate their symbols when incapacitated. if they deal damage, the villain character card with the highest hp does so instead.",
+			"flippedChallengeText": "Villains continue to activate their symbols when incapacitated. if they deal damage, the villain character card with the highest hp does so instead.",
+			"challengeIcons": [
+			],
+			"openingLines": {
+				"default": "Are these guys the PRT or the Merchants? Ya know what, I don't care, it doesn't matter. Take 'em out."
+			}
+		},
+	{
+	  "identifier": "BitchCharacter",
+	  "count": 1,
+	  "title": "Bitch",
+	  "keywords": [
+		"villain"
+	  ],
+	  "body": "Hellish Canine Augmenter",
+	  "backgroundColor": "39A7CC",
+	  "character": true,
+	  "hitpoints": 26,
+	  "nemesisIdentifiers": [
+		"Bunker"
+	  ],
+	  "gameplay": [
+		"When this card enters play, reveal cards from the top of the villain deck until a dog card is revealed. Put it into play. Shuffle the other revealed cards back into the villain deck.",
+		"At the start of the villain turn, if there are no dog targets in play, move 1 dog card from the villain trash into play.",
+		"increase damage dealt by dog targets by 1.",
+		"Treat {Dog} effects as active."
+	  ],
+	  "icons": [
+		"Search",
+		"Manipulate",
+		"IncreaseDamageDealt",
+		"Angille.Dog"
+	  ],
+	  "flippedShowHitpoints": false,
+	  "flippedBody": "incapacitated",
+	  "flippedKeywords": [
+	  ],
+	  "flippedGameplay": [
+		"When a dog target would be destroyed by damage from a target, it first deals {H - 1} melee damage to that target."
+	  ],
+	  "flippedChallengeText": "Treat {Dog} effects as active.",
+	  "flippedIcons": [
+		"CounterDamage"
+	  ]
+	},
+	{
+	  "identifier": "FoilCharacter",
+	  "count": 1,
+	  "title": "Foil",
+	  "keywords": [
+		"villain"
+	  ],
+	  "body": "Breaker of the Laws of Physics",
+	  "backgroundColor": "39A7CC",
+	  "character": true,
+	  "hitpoints": 22,
+	  "nemesisIdentifiers": [
+		"TheWraith"
+	  ],
+	  "gameplay": [
+		"Damage dealt by {FoilCharacter} is irreducible.",
+		"At the end of the villain turn, {Foil} deals the hero target with the most HP {H - 2} melee damage, and the hero target with the least HP 1 projectile damage.",
+		"Treat {Blade} effects as active."
+	  ],
+	  "icons": [
+		"MakeDamageIrreducible",
+		"EndOfTurnAction",
+		"DealDamage",
+		"Angille.Blade"
+	  ],
+	  "flippedShowHitpoints": false,
+	  "flippedBody": "incapacitated",
+	  "flippedKeywords": [
+	  ],
+	  "flippedGameplay": [
+		"Damage dealt by villain targets is irreducible."
+	  ],
+	  "flippedChallengeText": "Treat {Blade} effects as active.",
+	  "flippedIcons": [
+		"MakeDamageIrreducible"
+	  ]
+	},
+	{
+	  "identifier": "GrueCharacter",
+	  "count": 1,
+	  "title": "Grue",
+	  "keywords": [
+		"villain"
+	  ],
+	  "body": "Source of the Smothering Darkness",
+	  "backgroundColor": "39A7CC",
+	  "character": true,
+	  "hitpoints": 23,
+	  "nemesisIdentifiers": [
+		"Fanatic"
+	  ],
+	  "gameplay": [
+		"When this card enters play, if it's not already in play, search the villain trash and deck for the card Tenebrous Cloud and put it into play. if the villain deck was searched, shuffle it.",
+		"At the end of the villain turn, {GrueCharacter} deals the hero character with the most cards in their play area 1 melee damage and 1 infernal damage.",
+		"Treat {Skull} effects as active."
+	  ],
+	  "icons": [
+		"Search",
+		"EndOfTurnAction",
+		"DealDamage",
+		"Angille.Skull"
+	  ],
+	  "flippedShowHitpoints": false,
+	  "flippedBody": "incapacitated",
+	  "flippedKeywords": [
+	  ],
+	  "flippedGameplay": [
+		"At the end of the villain turn, the villain target with the lowest HP deals the {H - 1} hero targets with the lowest HP 1 infernal damage."
+	  ],
+	  "flippedChallengeText": "Treat {Skull} effects as active.",
+	  "flippedIcons": [
+		"EndOfTurnAction",
+		"DealDamageInfernal"
+	  ]
+	},
+	{
+	  "identifier": "ImpCharacter",
+	  "count": 1,
+	  "title": "Imp",
+	  "keywords": [
+		"villain"
+	  ],
+	  "body": "...who?",
+	  "backgroundColor": "39A7CC",
+	  "character": true,
+	  "hitpoints": 12,
+	  "nemesisIdentifiers": [
+		"OblivAeon"
+	  ],
+	  "gameplay": [
+		"When this card enters play, place her in the play area of the first active hero in turn order.",
+		"At the start of the environment turn, or when that hero becomes incapacitated, move {ImpCharacter} to the play area of the next active hero in turn order.",
+		"At the start of that hero's turn, {ImpCharacter} deals them 2 melee damage.",
+		"{ImpCharacter} is immune to damage from sources outside that hero's play area.",
+		"Treat {Mask} effects as active."
+	  ],
+	  "icons": [
+		"Manipulate",
+		"DealDamageMelee",
+		"ImmuneToDamage",
+		"Angille.Mask"
+	  ],
+	  "flippedShowHitpoints": false,
+	  "flippedBody": "incapacitated",
+	  "flippedKeywords": [
+	  ],
+	  "flippedGameplay": [
+		"When {ImpCharacter} flips to this side, move her back to the villain play area.",
+		"At the end of each hero's turn, if they haven't dealt any damage that turn, they shuffle their trash into their deck."
+	  ],
+	  "flippedChallengeText": "Treat {Mask} effects as active.",
+	  "flippedIcons": [
+		"Manipulate"
+	  ]
+	},
+	{
+	  "identifier": "ParianCharacter",
+	  "count": 1,
+	  "title": "Parian",
+	  "keywords": [
+		"villain"
+	  ],
+	  "body": "Minion Stitcher",
+	  "backgroundColor": "39A7CC",
+	  "character": true,
+	  "hitpoints": 20,
+	  "nemesisIdentifiers": [
+		"TheSentinels"
+	  ],
+	  "gameplay": [
+		"When this card enters play, restore all villain construct targets to 6 HP. if there are none in play, search the villain trash and deck for a construct card and put it into play. if the villain deck was searched, shuffle it.",
+		"Villain targets are immune to damage from environment cards.",
+		"Treat {Bear} effects as active."
+	  ],
+	  "icons": [
+		"GainHP",
+		"Search",
+		"ImmuneToDamage",
+		"Angille.Bear"
+	  ],
+	  "flippedShowHitpoints": false,
+	  "flippedBody": "incapacitated",
+	  "flippedKeywords": [
+	  ],
+	  "flippedGameplay": [
+		"At the end of the villain turn, discard the top card of the environment deck. if it's a target, play the top card of the villain deck."
+	  ],
+	  "flippedChallengeText": "Treat {Bear} effects as active.",
+	  "flippedIcons": [
+		"EndOfTurnAction",
+		"Discard",
+		"PlayCardNow"
+	  ]
+	},
+	{
+	  "identifier": "RegentCharacter",
+	  "count": 1,
+	  "title": "Regent",
+	  "keywords": [
+		"villain"
+	  ],
+	  "body": "Heartbroken Puppet Master",
+	  "backgroundColor": "39A7CC",
+	  "character": true,
+	  "hitpoints": 19,
+	  "nemesisIdentifiers": [
+		"SkyScraper"
+	  ],
+	  "gameplay": [
+		"The first time {RegentCharacter} is dealt damage by a target each turn, he deals that target 2 lightning damage.",
+		"At the end of the villain turn, the hero with the least cards in their play area deals themself 2 melee damage.",
+		"Treat {Crown} effects as active."
+	  ],
+	  "icons": [
+		"CounterDamage",
+		"EndOfTurnAction",
+		"DealDamageMelee",
+		"Angille.Crown"
+	  ],
+	  "flippedShowHitpoints": false,
+	  "flippedBody": "incapacitated",
+	  "flippedKeywords": [
+	  ],
+	  "flippedGameplay": [
+		"At the end of each hero's turn, they may discard a card. If that hero does not do so they deal themself 1 melee damage."
+	  ],
+	  "flippedChallengeText": "Treat {Crown} effects as active.",
+	  "flippedIcons": [
+		"EndOfTurnAction",
+		"Discard",
+		"DealDamageMelee"
+	  ]
+	},
+	{
+	  "identifier": "SkitterCharacter",
+	  "count": 1,
+	  "title": "Skitter",
+	  "keywords": [
+		"villain"
+	  ],
+	  "body": "insect Controller",
+	  "backgroundColor": "39A7CC",
+	  "character": true,
+	  "hitpoints": 24,
+	  "nemesisIdentifiers": [
+		"MrFixer"
+	  ],
+	  "gameplay": [
+		"When this card enters play, reveal cards from the top of the villain deck until {H - 2} swarm cards are revealed. Put them into play. Shuffle the other revealed cards back into the villain deck.",
+		"At the start of the villain turn, restore all villain swarm targets to 3 HP.",
+		"Treat {Spider} effects as active."
+	  ],
+	  "icons": [
+		"Search",
+		"GainHP",
+		"Angille.Spider"
+	  ],
+	  "flippedShowHitpoints": false,
+	  "flippedBody": "incapacitated",
+	  "flippedKeywords": [
+	  ],
+	  "flippedGameplay": [
+		"At the start of the villain turn, each villain swarm target regains 1 HP.",
+		"At the end of the villain turn, if there are any swarm cards in play, the hero target with the highest HP deals themself 1 psychic damage."
+	  ],
+	  "flippedChallengeText": "Treat {Spider} effects as active.",
+	  "flippedIcons": [
+		"StartAndEndOfTurnAction",
+		"GainHP",
+		"DealDamagePsychic"
+	  ]
+	},
+	{
+	  "identifier": "TattletaleCharacter",
+	  "count": 1,
+	  "title": "Tattletale",
+	  "keywords": [
+		"villain"
+	  ],
+	  "body": "Fact Finder, Secret Spiller",
+	  "backgroundColor": "39A7CC",
+	  "character": true,
+	  "hitpoints": 18,
+	  "nemesisIdentifiers": [
+		"Tachyon"
+	  ],
+	  "gameplay": [
+		"increase damage dealt by villain character targets by 1. Reduce damage taken by villain character targets by 1.",
+		"At the end of the villain turn, destroy {H} hero ongoing and/or equipment cards. The villain target with the highest HP deals 1 projectile damage to each hero with any ongoing or equipment cards in play.",
+		"Treat {Tattle} effects as active."
+	  ],
+	  "icons": [
+		"IncreaseDamageDealt",
+		"ReduceDamageTaken",
+		"EndOfTurnAction",
+		"Angille.Tattle"
+	  ],
+	  "flippedShowHitpoints": false,
+	  "flippedBody": "incapacitated",
+	  "flippedKeywords": [
+	  ],
+	  "flippedGameplay": [
+		"At the start of the villain turn, each player may destroy 1 of their ongoing or equipment cards. If they do not, they discard 1 card."
+	  ],
+	  "flippedChallengeText": "Treat {Tattle} effects as active.",
+	  "flippedIcons": [
+		"StartOfTurnAction",
+		"DestroyOngoing",
+		"DestroyEquipment",
+		"Discard"
+	  ]
+	},
+	{
+	  "identifier": "AdvancePlanning",
+	  "count": 2,
+	  "title": "Advance Planning",
+	  "keywords": [
+		"one-shot"
+	  ],
+	  "body": [
+		"Each player discards 1 card. Each player discards the top card and the bottom card of their deck."
+	  ],
+	  "activatableAbilities": [
+		{
+		  "name": "{Tattle}:",
+		  "text": "Play the top card of the villain deck."
+		},
+		{
+		  "name": "{Bear}:",
+		  "text": "Destroy 1 environment card. Play the top card of the environment deck."
+		}
+	  ],
+	  "icons": [
+		"Discard",
+		"PlayCardNow",
+		"Angille.Tattle",
+		"Angille.Bear"
+	  ],
+	  "flavorText": "“So. We're in agreement?{BR}The A.B.B. cannot be allowed to{BR}continue operating.”",
+	  "flavorReference": "Coil, Hive 5.1"
+	},
+	{
+	  "identifier": "Angelica",
+	  "count": 1,
+	  "title": "Angelica",
+	  "keywords": [
+		"dog"
+	  ],
+	  "hitpoints": 10,
+	  "body": [
+		"At the end of the villain turn, this card deals each non-villain target {H - 2} melee damage."
+	  ],
+	  "activatableAbilities": [
+		{
+		  "name": "{Dog}:",
+		  "text": "The first time each turn a villain character card would be dealt damage, redirect it to this card."
+		},
+		{
+		  "name": "{Tattle}:",
+		  "text": "At the end of the villain turn, destroy each non-villain target with 2 HP or less."
+		}
+	  ],
+	  "icons": [
+		"DealDamageMelee",
+		"RedirectDamage",
+		"Angille.Dog",
+		"Angille.Tattle"
+	  ],
+	  "flavorText": "“Brutus is good boy. Doesn't pull{BR}on leash like Angelica still does.”",
+	  "flavorReference": "Brutus, interlude 4"
+	},
+	{
+	  "identifier": "Bastard",
+	  "count": 1,
+	  "title": "Bastard",
+	  "keywords": [
+		"dog"
+	  ],
+	  "hitpoints": 12,
+	  "body": [
+		"At the end of the villain turn, this card deals the 2 hero targets with the lowest hp 2 melee damage each."
+	  ],
+	  "activatableAbilities": [
+		{
+		  "name": "{Dog}:",
+		  "text": "At the start of the villain turn, this card regains 2 HP."
+		},
+		{
+		  "name": "{Skull}:",
+		  "text": "Whenever this card deals melee damage to a target, it also deals that target 1 infernal damage."
+		}
+	  ],
+	  "icons": [
+		"StartAndEndOfTurnAction",
+		"DealDamage",
+		"Angille.Dog",
+		"Angille.Skull"
+	  ],
+	  "flavorText": "“it was different from the{BR}others, symmetrical, the alterations{BR}flowing into each other better.”",
+	  "flavorReference": "Weaver, Scarab 25.6"
+	},
+	{
+	  "identifier": "Bentley",
+	  "count": 1,
+	  "title": "Bentley",
+	  "keywords": [
+		"dog"
+	  ],
+	  "hitpoints": 12,
+	  "body": [
+		"At the end of the villain turn, this card deals the hero target with the highest HP {H - 1} melee damage."
+	  ],
+	  "activatableAbilities": [
+		{
+		  "name": "{Dog}:",
+		  "text": "This card is immune to melee damage."
+		},
+		{
+		  "name": "{Mask}:",
+		  "text": "At the end of the villain turn, move {ImpCharacter} to the hero play area with the highest HP. She deals that hero 1 projectile damage."
+		}
+	  ],
+	  "icons": [
+		"EndOfTurnAction",
+		"DealDamage",
+		"Angille.Dog",
+		"Angille.Mask"
+	  ],
+	  "flavorText": "“Bentley. Kill.”",
+	  "flavorReference": "Bitch, Scourge 19.1"
+	},
+	{
+	  "identifier": "ClothGolem",
+	  "count": 2,
+	  "title": "Cloth Golem",
+	  "keywords": [
+		"construct"
+	  ],
+	  "hitpoints": 6,
+	  "body": [
+		"At the end of the villain turn, this card deals the hero target with the highest HP {H - 1} melee damage."
+	  ],
+	  "activatableAbilities": [
+		{
+		  "name": "{Bear}:",
+		  "text": "The first time each turn this card would be dealt damage, redirect it to the environment target with the lowest HP."
+		},
+		{
+		  "name": "{Spider}:",
+		  "text": "Damage dealt by this card is Psychic and irreducible."
+		}
+	  ],
+	  "icons": [
+		"DealDamage",
+		"RedirectDamage",
+		"Angille.Bear",
+		"Angille.Spider"
+	  ],
+	  "flavorText": "“Threads, Skitter? These{BR}yours, or leftovers from before?”",
+	  "flavorReference": "Bonesaw, Snare 13.9"
+	},
+	{
+	  "identifier": "CoordinatedBlitz",
+	  "count": 2,
+	  "title": "Coordinated Blitz",
+	  "keywords": [
+		"one-shot"
+	  ],
+	  "body": [
+		"Each villain character card deals the non-villain target with the highest HP 2 projectile damage, one at a time."
+	  ],
+	  "activatableAbilities": [
+		{
+		  "name": "{Dog}:",
+		  "text": "Each dog, construct, and swarm card deals the non-villain target with the highest HP 1 toxic damage, one at a time."
+		},
+		{
+		  "name": "{Blade}:",
+		  "text": "Damage done while this card resolves is irreducible."
+		}
+	  ],
+	  "icons": [
+		"DealDamage",
+		"MakeDamageIrreducible",
+		"Angille.Dog",
+		"Angille.Blade"
+	  ],
+	  "flavorText": "“All I know is that I was{BR}suddenly blind and deaf, and when I{BR}tried to move, everything bent the wrong{BR}way. Then I think I got tasered.”",
+	  "flavorReference": "Browbeat, interlude 3"
+	},
+	{
+	  "identifier": "DescentOfTheSwarm",
+	  "count": 2,
+	  "title": "Descent of the Swarm",
+	  "keywords": [
+		"one-shot"
+	  ],
+	  "body": [
+		"Put all the swarm cards from the villain trash into play."
+	  ],
+	  "activatableAbilities": [
+		{
+		  "name": "{Spider}:",
+		  "text": "Reveal cards from the top of the villain deck until a swarm card is revealed. Put it into play. Shuffle the other revealed cards back into the villain deck."
+		},
+		{
+		  "name": "{Skull}:",
+		  "text": "Each villain character card regains {H} HP."
+		}
+	  ],
+	  "icons": [
+		"Manipulate",
+		"GainHP",
+		"Angille.Spider",
+		"Angille.Skull"
+	  ],
+	  "flavorText": "“My bugs can devour a cow{BR}to the bone in 90 seconds. I have a million{BR}eyes to watch you with. [b]go elsewhere.[/b]”",
+	  "flavorReference": "Skitter, infestation 11.2"
+	},
+	{
+	  "identifier": "ForgottenAssailant",
+	  "count": 2,
+	  "title": "Forgotten Assailant",
+	  "keywords": [
+		"one-shot"
+	  ],
+	  "body": [
+		"The villain character card with the lowest HP deals the hero character card with the most cards in their trash {H - 2} melee damage."
+	  ],
+	  "activatableAbilities": [
+		{
+		  "name": "{Mask}:",
+		  "text": "{ImpCharacter} deals the hero she's in front of 1 melee damage and 1 toxic damage."
+		},
+		{
+		  "name": "{Crown}:",
+		  "text": "Any hero targets damaged this turn deal themselves 2 psychic damage."
+		}
+	  ],
+	  "icons": [
+		"DealDamage",
+		"Angille.Mask",
+		"Angille.Crown"
+	  ],
+	  "flavorText": "“I was distracted by the fact that{BR}Flechette was disarmed, her weapon{BR}broken. How had that happened?”",
+	  "flavorReference": "Skitter, Parasite 10.3"
+	},
+	{
+	  "identifier": "HailOfBlades",
+	  "count": 2,
+	  "title": "Hail of Blades",
+	  "keywords": [
+		"one-shot"
+	  ],
+	  "body": [
+		"The villain character card with the highest HP deals the {H - 1} hero targets with the highest HP {H - 2} projectile damage."
+	  ],
+	  "activatableAbilities": [
+		{
+		  "name": "{Blade}:",
+		  "text": "{FoilCharacter} deals any hero targets not dealt damage this turn 2 projectile damage."
+		},
+		{
+		  "name": "{Bear}:",
+		  "text": "Targets dealt damage by the results of this card cannot deal damage until the start of the villain turn."
+		}
+	  ],
+	  "icons": [
+		"DealDamageProjectile",
+		"CannotDealDamage",
+		"Angille.Blade",
+		"Angille.Bear"
+	  ],
+	  "flavorText": "“She can punch a few holes in{BR}Crimson while he's trapped.”",
+	  "flavorReference": "Weaver, Sting 26.2"
+	},
+	{
+	  "identifier": "ImperiousControl",
+	  "count": 2,
+	  "title": "Imperious Control",
+	  "keywords": [
+		"ongoing"
+	  ],
+	  "body": [
+		"When this card enters play, move it next to the hero character with the fewest cards in play.",
+		"Whenever that hero uses a power, they must discard a card."
+	  ],
+	  "activatableAbilities": [
+		{
+		  "name": "{Crown}:",
+		  "text": "Whenever that hero plays a card, they deal themself 2 psychic damage."
+		},
+		{
+		  "name": "{Mask}:",
+		  "text": "Whenever that hero draws a card, {ImpCharacter} deals them 2 melee damage."
+		}
+	  ],
+	  "icons": [
+		"Discard",
+		"DealDamage",
+		"Angille.Crown",
+		"Angille.Mask"
+	  ],
+	  "flavorText": "“Funny thing about having this control{BR}over you, I can feel your emotions, your body's{BR}reactions. like a really good polygraph test.”",
+	  "flavorReference": "Regent, interlude 10"
+	},
+	{
+	  "identifier": "StingingSwarm",
+	  "count": 3,
+	  "title": "Stinging Swarm",
+	  "keywords": [
+		"swarm"
+	  ],
+	  "hitpoints": 3,
+	  "body": [
+		"At the end of the villain turn, this card deals the hero target with the highest number of cards in their hand 1 toxic damage."
+	  ],
+	  "activatableAbilities": [
+		{
+		  "name": "{Spider}:",
+		  "text": "Whenever this card deals damage to a target, {SkitterCharacter} deals that target 1 psychic damage."
+		},
+		{
+		  "name": "{Skull}:",
+		  "text": "Whenever this card deals damage to a target, {GrueCharacter} deals that target 1 infernal damage."
+		}
+	  ],
+	  "icons": [
+		"EndOfTurnAction",
+		"DealDamage",
+		"Angille.Spider",
+		"Angille.Skull"
+	  ],
+	  "flavorText": "“I'm going to have{BR}nightmares. nightmares with lots{BR}and lots of spiders.'”",
+	  "flavorReference": "Clockblocker, interlude 3"
+	},
+	{
+	  "identifier": "TenebrousCloud",
+	  "count": 1,
+	  "title": "Tenebrous Cloud",
+	  "keywords": [
+		"ongoing"
+	  ],
+	  "body": [
+		"Reduce HP recovery for hero targets by 1.",
+		"Increase HP recovery for villain targets by 1."
+	  ],
+	  "activatableAbilities": [
+		{
+		  "name": "{Skull}:",
+		  "text": "This card is indestructible."
+		},
+		{
+		  "name": "{Tattle}:",
+		  "text": "After the first time a villain target is dealt damage by a target each turn, the villain character target with the lowest HP regains HP equal to the amount of damage dealt."
+		}
+	  ],
+	  "icons": [
+		"ReduceGainHP",
+		"IncreaseGainHP",
+		"Angille.Skull",
+		"Angille.Tattle"
+	  ],
+	  "flavorText": "“You can't hear in there either. and it{BR}feels strange too. there's resistance, like{BR}you're underwater, but not floating.”",
+	  "flavorReference": "Browbeat, interlude 3"
+	},
+	{
+	  "identifier": "WatchfulSwarm",
+	  "count": 3,
+	  "title": "Watchful Swarm",
+	  "keywords": [
+		"swarm"
+	  ],
+	  "hitpoints": 3,
+	  "body": [
+		"Whenever a villain character target would take damage, redirect it to the {WatchfulSwarm} card with the lowest HP."
+	  ],
+	  "activatableAbilities": [
+		{
+		  "name": "{Spider}:",
+		  "text": "This card is immune to melee and projectile damage."
+		},
+		{
+		  "name": "{Tattle}:",
+		  "text": "When this card is destroyed, the hero with the most cards in hand must discard a card."
+		}
+	  ],
+	  "icons": [
+		"RedirectDamage",
+		"Discard",
+		"Angille.Spider",
+		"Angille.Tattle"
+	  ],
+	  "flavorText": "“Threads, Skitter? These{BR}yours, or leftovers from before?”",
+	  "flavorReference": "Bonesaw, Snare 13.9"
+	},
+	{
+	  "identifier": "WarlordsOfBrockton",
+	  "count": 1,
+	  "title": "Warlords of Brockton",
+	  "body": [
+		"Whenever a villain character target would be destroyed, flip it over instead.",
+		"This card and all cards beneath this card are indestructible and cannot be removed from the play area by any means."
+	  ],
+	  "icons": [
+		"Indestructible"
+	  ]
+	}
   ]
 }

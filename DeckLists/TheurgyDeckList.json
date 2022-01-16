@@ -71,7 +71,7 @@
 				"Play this card next to a hero character card.",
 				"At the start of their turn, they may select a damage type. Until the start of their next turn, all damage they deal is that type.",
 				"That hero gains the following power:",
-				"[b]Power:[/b] Play 1 card or use 1 power.{BR}	if doing so deals damage, that damage is irreducible.{BR}	destroy [i]Convert the Energy[/i]."
+				"[b]Power:[/b] Play 1 card or use 1 power. All{BR}damage is irreducible until this card leaves play.{BR}destroy [i]Convert the Energy[/i]."
 			],
 			"icons": [
 				"StartOfTurnAction",
@@ -239,7 +239,7 @@
 				"Play this card next to a hero character card.",
 				"At the start of their turn, they may put a card from their trash into their hand.",
 				"That hero gains the following power:",
-				"[b]Power:[/b] Discard any number of cards.{BR}	You may put up to that many cards from your trash into your hand.{BR}	You may play 1 card. Destroy [i]Sell the Grift[/i]."
+				"[b]Power:[/b] Discard any number of cards.{BR}	You may move up to that many cards from your trash into your hand.{BR}	You may play 1 card. Destroy [i]Sell the Grift[/i]."
 			],
 			"icons": [
 				"Manipulation",
