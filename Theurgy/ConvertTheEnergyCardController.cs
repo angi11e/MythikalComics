@@ -157,7 +157,7 @@ namespace Angille.Theurgy
 
 			// reverse irreducible condition
 			// which, uh, hopefully happens on destruction?
-			// think it might get weird with Null Point
+			// think it might get weird with Null Point, but should also destroy at the end of the phase
 
 			// destroy this card
 			IEnumerator destructionCR = GameController.DestroyCard(
