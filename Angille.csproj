@@ -66,6 +66,7 @@
     <Compile Include="TheUndersiders\Cards\StingingSwarmCardController.cs" />
     <Compile Include="TheUndersiders\CharacterCards\TattletaleCharacterCardController.cs" />
     <Compile Include="TheUndersiders\Cards\TenebrousCloudCardController.cs" />
+    <Compile Include="TheUndersiders\TheUndersiders.cs" />
     <Compile Include="TheUndersiders\TheUndersidersBaseCardController.cs" />
     <Compile Include="TheUndersiders\TheUndersidersVillainCardController.cs" />
     <Compile Include="TheUndersiders\TheUndersidersInstructionsCardController.cs" />
