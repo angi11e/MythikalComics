@@ -7,11 +7,11 @@ using Handelabra.Sentinels.Engine.Model;
 
 namespace Angille.Theurgy
 {
-    public abstract class TheurgyBaseCardController : CardController
-    {
-        protected TheurgyBaseCardController(Card card, TurnTakerController turnTakerController) : base(card, turnTakerController)
-        {
-        }
+	public abstract class TheurgyBaseCardController : CardController
+	{
+		protected TheurgyBaseCardController(Card card, TurnTakerController turnTakerController) : base(card, turnTakerController)
+		{
+		}
 
 		protected LinqCardCriteria IsCharmCriteria(Func<Card, bool> additionalCriteria = null)
 		{

@@ -24,7 +24,10 @@ namespace Angille.Theurgy
 			List<DestroyCardAction> storedResults = new List<DestroyCardAction>();
 			IEnumerator destroyCR = base.GameController.SelectAndDestroyCard(
 				base.HeroTurnTakerController,
-				new LinqCardCriteria((Card c) => c.IsOngoing || c.IsEnvironment, "ongoing or environment"),
+				new LinqCardCriteria(
+					(Card c) => c.IsOngoing || c.DoKeywordsContain("equipment"),
+					"ongoing or equipment"
+				),
 				optional: false,
 				storedResults,
 				cardSource: GetCardSource()
@@ -41,14 +44,14 @@ namespace Angille.Theurgy
 
 			// was it a hero card?
 			if (DidDestroyCard(storedResults) && storedResults.First().CardToDestroy.Card.IsHero)
-            {
+			{
 				// if so, they play a card from their trash
-				HeroTurnTakerController hero = storedResults.First().CardToDestroy.DecisionMaker;
+				HeroTurnTakerController httc = storedResults.First().CardToDestroy.DecisionMaker;
 
 				IEnumerator recoverCR = GameController.SelectAndMoveCard(
-					hero,
-					(Card c) => c.IsInTrash && c.Owner == hero.TurnTaker,
-					hero.HeroTurnTaker.PlayArea,
+					httc,
+					(Card c) => c.IsInTrash && c.Owner == httc.TurnTaker,
+					httc.HeroTurnTaker.PlayArea,
 					optional: true,
 					isPutIntoPlay: true,
 					cardSource: GetCardSource()

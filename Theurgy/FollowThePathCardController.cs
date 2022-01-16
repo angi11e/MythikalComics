@@ -29,16 +29,16 @@ namespace Angille.Theurgy
 
 			// At the start of that hero's turn, their player may draw a card.
 			AddStartOfTurnTrigger(
-				(TurnTaker tt) => tt == GetCardThisCardIsNextTo().Owner,
-				DrawCardResponse,
+				(TurnTaker tt) => tt == base.Card.Location.OwnerTurnTaker,
+				(PhaseChangeAction p) => DrawCard(base.Card.Location.OwnerTurnTaker.ToHero(), true),
 				TriggerType.DrawCard
 			);
 		}
 
 		private IEnumerator DrawCardResponse(PhaseChangeAction p)
-        {
+		{
 			IEnumerator drawCR = DrawCard(
-				GetCardThisCardIsNextTo().Owner.ToHero(),
+				p.DecisionMaker.HeroTurnTaker,
 				true
 			);
 			if (UseUnityCoroutines)
@@ -65,24 +65,24 @@ namespace Angille.Theurgy
 			List<MoveCardDestination> list = new List<MoveCardDestination>();
 			list.Add(new MoveCardDestination(hero.Hand));
 			if (handNumeral > 1)
-            {
+			{
 				list.Add(new MoveCardDestination(hero.Hand));
 			}
 			list.Add(new MoveCardDestination(hero.Deck));
 			if (deckNumeral > 1)
-            {
+			{
 				list.Add(new MoveCardDestination(hero.Deck));
 			}
 			list.Add(new MoveCardDestination(hero.PlayArea));
 			if (playNumeral > 1)
-            {
+			{
 				list.Add(new MoveCardDestination(hero.PlayArea));
 			}
 			if (revealNumeral > (handNumeral + deckNumeral + playNumeral))
-            {
+			{
 				list.Add(new MoveCardDestination(hero.Trash));
 				if (revealNumeral > list.Count)
-                {
+				{
 					list.Add(new MoveCardDestination(hero.Trash));
 				}
 			}

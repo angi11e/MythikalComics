@@ -29,7 +29,7 @@ namespace Angille.Theurgy
 			AddIncreaseDamageTrigger(
 				(DealDamageAction dd) =>
 					dd.DamageSource.Card.IsHero && dd.DamageSource.Card.IsTarget &&
-					dd.DamageSource.IsOneOfTheseCards(GetCardThisCardIsNextTo().Owner.GetPlayAreaCards()),
+					dd.DamageSource.IsOneOfTheseCards(base.Card.Location.OwnerTurnTaker.GetPlayAreaCards()),
 				1
 			);
 		}
@@ -39,11 +39,11 @@ namespace Angille.Theurgy
 			int targetNumeral = GetPowerNumeral(0, 1);
 			int damageNumeral = GetPowerNumeral(1, 5);
 
-			HeroTurnTakerController hero = cc.HeroTurnTakerController;
+			HeroTurnTakerController httc = cc.HeroTurnTakerController;
 			//Select a damage type
 			List<SelectDamageTypeDecision> chosenType = new List<SelectDamageTypeDecision>();
 			IEnumerator chooseTypeCR = GameController.SelectDamageType(
-				hero,
+				httc,
 				chosenType,
 				new DamageType[] { DamageType.Melee, DamageType.Projectile },
 				cardSource: GetCardSource()
@@ -58,10 +58,17 @@ namespace Angille.Theurgy
 			DamageType? damageType = GetSelectedDamageType(chosenType);
 			if (damageType != null)
 			{
+				// should handle both SW Sentinels and Guise
+				Card targetHero = GetCardThisCardIsNextTo();
+				if (targetHero == null)
+				{
+					targetHero = base.Card.Location.OwnerTurnTaker.CharacterCard;
+				}
+
 				// Hit 1 target for 5 damage of chosen type
 				IEnumerator strikeCR = GameController.SelectTargetsAndDealDamage(
-					hero,
-					new DamageSource(GameController, hero.CharacterCard),
+					httc,
+					new DamageSource(GameController, targetHero),
 					damageNumeral,
 					damageType.Value,
 					targetNumeral,
@@ -78,7 +85,7 @@ namespace Angille.Theurgy
 			}
 
 			IEnumerator destructionCR = GameController.DestroyCard(
-				hero,
+				httc,
 				base.Card,
 				cardSource: GetCardSource()
 			);

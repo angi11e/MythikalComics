@@ -20,6 +20,7 @@ namespace Angille.Theurgy
 			TurnTakerController turnTakerController
 		) : base(card, turnTakerController)
 		{
+			AddAsPowerContributor();
 		}
 
 		protected abstract string CharmPowerText { get; }
@@ -27,7 +28,6 @@ namespace Angille.Theurgy
 		public override void AddTriggers()
 		{
 			base.AddTriggers();
-			AddAsPowerContributor();
 			AddIfTheTargetThatThisCardIsNextToLeavesPlayDestroyThisCardTrigger();
 		}
 
@@ -41,7 +41,10 @@ namespace Angille.Theurgy
 		{
 			//When this card enters play, put it next to a hero
 			IEnumerator selectHeroCR = SelectCardThisCardWillMoveNextTo(
-				new LinqCardCriteria((Card c) => c.IsHeroCharacterCard, "hero character"),
+				new LinqCardCriteria(
+					(Card c) => c.IsHeroCharacterCard && !c.IsIncapacitatedOrOutOfGame,
+					"hero character"
+				),
 				storedResults,
 				isPutIntoPlay,
 				decisionSources
@@ -61,21 +64,29 @@ namespace Angille.Theurgy
 		public override IEnumerable<Power> AskIfContributesPowersToCardController(CardController cc)
 		{
 			// this defines what displays in a green box in the UI
-			if (GetCardThisCardIsNextTo(true) != null && cc.Card == GetCardThisCardIsNextTo(true))
+
+			// need to be prepared for both SW Sentinels AND Guise
+			Card cardToCheck = GetCardThisCardIsNextTo();
+			if (cardToCheck == null)
+			{
+				cardToCheck = base.Card.Location.OwnerTurnTaker.CharacterCard;
+			}
+
+			if (cc.Card == cardToCheck)
 			{
 				//If this card is next to a hero, they have this power
-				List<Power> list = new List<Power>();
-				Power charmPower = new Power(
-					cc.DecisionMaker,
-					cc,
-					CharmPowerText,
-					CharmPowerResponse(cc),
-					0,
-					null,
-					GetCardSource()
-				);
-				list.Add(charmPower);
-				return list;
+				return new Power[1]
+				{
+					new Power(
+						cc.HeroTurnTakerController,
+						cc,
+						CharmPowerText,
+						CharmPowerResponse(cc),
+						0,
+						null,
+						GetCardSource()
+					)
+				};
 			}
 			return null;
 		}

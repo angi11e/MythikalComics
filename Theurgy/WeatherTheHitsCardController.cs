@@ -32,7 +32,7 @@ namespace Angille.Theurgy
 			// reduce damage taken by hero targets in that hero's play area by 1.
 			AddReduceDamageTrigger(
 				(Card c) =>
-					c.IsInLocation(GetCardThisCardIsNextTo().Owner.PlayArea) &&
+					c.IsInLocation(base.Card.Location.OwnerTurnTaker.PlayArea) &&
 					c.IsHero,
 				1
 			);
@@ -43,11 +43,18 @@ namespace Angille.Theurgy
 			int heroHealNumeral = GetPowerNumeral(0, 5);
 			int groupHealNumeral = GetPowerNumeral(1, 1);
 
-			HeroTurnTakerController hero = cc.HeroTurnTakerController;
+			HeroTurnTakerController httc = cc.HeroTurnTakerController;
+
+			// should handle both SW Sentinels and Guise
+			Card targetHero = GetCardThisCardIsNextTo();
+			if (targetHero == null)
+			{
+				targetHero = base.Card.Location.OwnerTurnTaker.CharacterCard;
+			}
 
 			// heal this hero for 5
 			IEnumerator healTargetCR = base.GameController.GainHP(
-				cc.CharacterCard,
+				targetHero,
 				heroHealNumeral,
 				cardSource: base.GetCardSource()
 			);
@@ -62,8 +69,8 @@ namespace Angille.Theurgy
 
 			// heal other hero targets for 1
 			IEnumerator healTargetsCR = base.GameController.GainHP(
-				hero,
-				(Card c) => c.IsHero && (c != cc.CharacterCard),
+				httc,
+				(Card c) => c.IsHero && (c != targetHero),
 				groupHealNumeral,
 				cardSource: base.GetCardSource()
 			);
@@ -78,7 +85,7 @@ namespace Angille.Theurgy
 
 			// destroy this card.
 			IEnumerator destructionCR = GameController.DestroyCard(
-				hero,
+				httc,
 				base.Card,
 				cardSource: GetCardSource()
 			);

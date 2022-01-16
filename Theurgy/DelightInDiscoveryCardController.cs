@@ -37,7 +37,7 @@ namespace Angille.Theurgy
 
 			// no charm cards? play a card.
 			if (!base.TurnTaker.GetPlayAreaCards().Any((Card c) => IsCharm(c)))
-            {
+			{
 				IEnumerator playCardCR = SelectAndPlayCardFromHand(base.HeroTurnTakerController);
 				if (base.UseUnityCoroutines)
 				{

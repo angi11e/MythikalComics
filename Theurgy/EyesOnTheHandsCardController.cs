@@ -36,28 +36,28 @@ namespace Angille.Theurgy
 			base.AddTriggers();
 		}
 
-        private IEnumerator DealWithTheDiscard(GameAction a)
-        {
+		private IEnumerator DealWithTheDiscard(GameAction a)
+		{
 			Card card = null;
 			DiscardCardAction discardObj = null;
 			MoveCardAction moveObj = null;
 			DestroyCardAction destroyObj = null;
 
 			if (a is DiscardCardAction)
-            {
+			{
 				discardObj = a as DiscardCardAction;
 				card = discardObj.CardToDiscard;
-            }
+			}
 			else if (a is MoveCardAction)
 			{
 				moveObj = a as MoveCardAction;
 				card = moveObj.CardToMove;
-            }
+			}
 			else if (a is DestroyCardAction)
-            {
+			{
 				destroyObj = a as DestroyCardAction;
 				card = destroyObj.CardToDestroy.Card;
-            }
+			}
 
 			// you may put it into your hand instead.
 			List<YesNoCardDecision> yesOrNo = new List<YesNoCardDecision>();
@@ -80,7 +80,7 @@ namespace Angille.Theurgy
 			}
 
 			if (yesOrNo.Count > 0 && yesOrNo.FirstOrDefault().Answer == true)
-            {
+			{
 				// If you do...
 				if (a is DiscardCardAction)
 				{

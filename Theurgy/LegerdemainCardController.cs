@@ -34,9 +34,16 @@ namespace Angille.Theurgy
 				cardSource: GetCardSource()
 			);
 
+			List<SelectCardDecision> storedResults = new List<SelectCardDecision>();
 			IEnumerator selectCardsCR = GameController.SelectCardsAndDoAction(
 				selectCards,
-				MoveCardsToHand,
+				(SelectCardDecision scd) => GameController.MoveCard(
+					DecisionMaker,
+					scd.SelectedCard,
+					HeroTurnTaker.Hand,
+					cardSource: GetCardSource()
+				),
+				storedResults,
 				cardSource: GetCardSource()
 			);
 
@@ -50,9 +57,9 @@ namespace Angille.Theurgy
 			}
 
 			// play that many
-			int cardsToPlay = base.HeroTurnTaker.Hand.NumberOfCards - beforeRetrieval;
+			int cardsToPlay = storedResults.Count();
 			if (cardsToPlay > 0)
-            {
+			{
 				IEnumerator playCardsCR = GameController.SelectAndPlayCardsFromHand(
 					DecisionMaker,
 					cardsToPlay,
@@ -71,27 +78,5 @@ namespace Angille.Theurgy
 			}
 			yield break;
 		}
-
-		private IEnumerator MoveCardsToHand(SelectCardDecision scd)
-        {
-			// put them in-hand
-			IEnumerator moveCardsCR = GameController.MoveCard(
-				DecisionMaker,
-				scd.SelectedCard,
-				HeroTurnTaker.Hand,
-				cardSource: GetCardSource()
-			);
-
-			if (base.UseUnityCoroutines)
-			{
-				yield return base.GameController.StartCoroutine(moveCardsCR);
-			}
-			else
-			{
-				base.GameController.ExhaustCoroutine(moveCardsCR);
-			}
-
-			yield break;
-        }
 	}
 }

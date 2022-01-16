@@ -8,13 +8,13 @@ using System.Collections;
 
 namespace Angille.Theurgy
 {
-    public class TheurgyTurnTakerController : HeroTurnTakerController
-    {
-        public TheurgyTurnTakerController(
-            TurnTaker turnTaker,
-            GameController gameController
-        ) : base(turnTaker, gameController)
-        {
-        }
-    }
+	public class TheurgyTurnTakerController : HeroTurnTakerController
+	{
+		public TheurgyTurnTakerController(
+			TurnTaker turnTaker,
+			GameController gameController
+		) : base(turnTaker, gameController)
+		{
+		}
+	}
 }

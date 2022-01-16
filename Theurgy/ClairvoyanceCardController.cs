@@ -19,8 +19,8 @@ namespace Angille.Theurgy
 			base.SpecialStringMaker.ShowNumberOfCardsInPlay(IsCharmCriteria());
 		}
 
-        public override IEnumerator Play()
-        {
+		public override IEnumerator Play()
+		{
 			// count the charm cards
 			int drawNumeral = FindCardsWhere((Card c) => c.IsInPlayAndHasGameText && IsCharm(c)).Count() + 1;
 
@@ -88,6 +88,6 @@ namespace Angille.Theurgy
 				}
 			}
 			yield break;
-        }
-    }
+		}
+	}
 }

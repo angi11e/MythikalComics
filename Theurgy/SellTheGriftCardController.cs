@@ -23,7 +23,7 @@ namespace Angille.Theurgy
 		{
 		}
 
-		protected override string CharmPowerText => "Discard any number of cards. You may put up to that many cards from your trash into your hand. Destroy Sell the Grift.";
+		protected override string CharmPowerText => "Discard any number of cards. You may move up to that many cards from your trash into your hand. Destroy Sell the Grift.";
 
 		public override void AddTriggers()
 		{
@@ -31,7 +31,7 @@ namespace Angille.Theurgy
 
 			// at the start of their turn...
 			AddStartOfTurnTrigger(
-				(TurnTaker tt) => tt == GetCardThisCardIsNextTo().Owner,
+				(TurnTaker tt) => tt == base.Card.Location.OwnerTurnTaker,
 				RecoverCardResponse,
 				TriggerType.MoveCard
 			);
@@ -40,12 +40,12 @@ namespace Angille.Theurgy
 		private IEnumerator RecoverCardResponse(PhaseChangeAction phaseChange)
 		{
 			// they may put a card from their trash into their hand.
-			HeroTurnTakerController hero = phaseChange.DecisionMaker;
+			HeroTurnTakerController httc = phaseChange.DecisionMaker;
 
 			IEnumerator recoverCR = GameController.SelectAndMoveCard(
-				hero,
-				(Card c) => c.IsInTrash && c.Owner == GetCardThisCardIsNextTo().Owner,
-				GetCardThisCardIsNextTo().Owner.ToHero().Hand,
+				httc,
+				(Card c) => c.IsInTrash && c.Owner == base.Card.Location.OwnerTurnTaker,
+				base.Card.Location.OwnerTurnTaker.ToHero().Hand,
 				optional: true,
 				cardSource: GetCardSource()
 			);
@@ -62,12 +62,12 @@ namespace Angille.Theurgy
 
 		protected override IEnumerator CharmPowerResponse(CardController cc)
 		{
-			HeroTurnTakerController hero = cc.HeroTurnTakerController;
+			HeroTurnTakerController httc = cc.HeroTurnTakerController;
 
 			// discard any number of cards
 			List<DiscardCardAction> storedResults = new List<DiscardCardAction>();
 			IEnumerator discardCR = SelectAndDiscardCards(
-				hero,
+				httc,
 				null,
 				optional: false,
 				0,
@@ -88,11 +88,11 @@ namespace Angille.Theurgy
 
 			// choose up to that many cards from trash
 			IEnumerable<MoveCardDestination> heroHand = new MoveCardDestination[] {
-				new MoveCardDestination(hero.HeroTurnTaker.Hand)
+				new MoveCardDestination(httc.HeroTurnTaker.Hand)
 			};
 			IEnumerator recoverCR = base.GameController.SelectCardsFromLocationAndMoveThem(
-				hero,
-				hero.TurnTaker.Trash,
+				httc,
+				httc.TurnTaker.Trash,
 				null,
 				numberOfCards,
 				new LinqCardCriteria(
@@ -115,7 +115,7 @@ namespace Angille.Theurgy
 
 			// destroy this card.
 			IEnumerator destructionCR = GameController.DestroyCard(
-				hero,
+				httc,
 				base.Card,
 				cardSource: GetCardSource()
 			);

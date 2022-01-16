@@ -18,54 +18,73 @@ namespace Angille.Theurgy
 
 		public override IEnumerator UsePower(int index = 0)
 		{
-			// Draw a card or play a charm card. One hero target regains 1 hp.
-			List<Function> functionList = new List<Function>();
-
-			// first draw a card option
-			functionList.Add(
-				new Function(
-					this.DecisionMaker,
-					"Draw a card",
-					SelectionType.DrawCard,
-					() => base.GameController.DrawCards(
-                        this.HeroTurnTakerController,
-						1
-					)
-				)
-			);
-
-			// ...or play a charm card option
-			functionList.Add(
-				new Function(
-					this.DecisionMaker,
-					"Play a charm card",
-					SelectionType.PlayCard,
-					() => base.SelectAndPlayCardFromHand(
-						this.HeroTurnTakerController,
-						false,
-						null,
-						IsCharmCriteria()
-					)
-				)
-			);
-
-			// ask for which one
-			SelectFunctionDecision selectFunction = new SelectFunctionDecision(
-				base.GameController,
-				this.DecisionMaker,
-				functionList,
-				false,
-				cardSource: base.GetCardSource()
-			);
-
-			IEnumerator selectFunctionCR = base.GameController.SelectAndPerformFunction(selectFunction);
-			if (UseUnityCoroutines)
+			if (this.HeroTurnTaker.GetCardsWhere((Card c) => c.Location == HeroTurnTaker.Hand && IsCharm(c)).Count() > 0)
 			{
-				yield return base.GameController.StartCoroutine(selectFunctionCR);
+				// Draw a card or play a charm card. One hero target regains 1 hp.
+				List<Function> functionList = new List<Function>();
+
+				// first draw a card option
+				functionList.Add(
+					new Function(
+						this.DecisionMaker,
+						"Draw a card",
+						SelectionType.DrawCard,
+						() => base.GameController.DrawCards(
+							this.HeroTurnTakerController,
+							1
+						)
+					)
+				);
+
+				// ...or play a charm card option
+				functionList.Add(
+					new Function(
+						this.DecisionMaker,
+						"Play a charm card",
+						SelectionType.PlayCard,
+						() => base.SelectAndPlayCardFromHand(
+							this.HeroTurnTakerController,
+							false,
+							null,
+							IsCharmCriteria()
+						)
+					)
+				);
+
+				// ask for which one
+				SelectFunctionDecision selectFunction = new SelectFunctionDecision(
+					base.GameController,
+					this.DecisionMaker,
+					functionList,
+					false,
+					cardSource: base.GetCardSource()
+				);
+
+				IEnumerator selectFunctionCR = base.GameController.SelectAndPerformFunction(selectFunction);
+				if (UseUnityCoroutines)
+				{
+					yield return base.GameController.StartCoroutine(selectFunctionCR);
+				}
+				else
+				{
+					base.GameController.ExhaustCoroutine(selectFunctionCR);
+				}
 			}
 			else
 			{
-				base.GameController.ExhaustCoroutine(selectFunctionCR);
+				IEnumerator drawCardCR = base.GameController.DrawCards(
+					this.HeroTurnTakerController,
+					1
+				);
+
+				if (UseUnityCoroutines)
+				{
+					yield return base.GameController.StartCoroutine(drawCardCR);
+				}
+				else
+				{
+					base.GameController.ExhaustCoroutine(drawCardCR);
+				}
 			}
 
 			// One hero target regains 1 HP.
@@ -208,7 +227,7 @@ namespace Angille.Theurgy
 		{
 			var result = new LinqCardCriteria(c => IsCharm(c), "charm", true);
 			if (additionalCriteria != null)
-            {
+			{
 				result = new LinqCardCriteria(result, additionalCriteria);
 			}
 				

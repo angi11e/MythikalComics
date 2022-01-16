@@ -41,8 +41,8 @@ namespace Angille.Theurgy
 			yield break;
 		}
 
-        public override void AddTriggers()
-        {
+		public override void AddTriggers()
+		{
 			// first time a charm card is destroyed...
 			AddTrigger(
 				(DestroyCardAction d) => IsCharm(d.CardToDestroy.Card) &&
@@ -59,10 +59,10 @@ namespace Angille.Theurgy
 			);
 
 			base.AddTriggers();
-        }
+		}
 
 		private IEnumerator GainHPResponse(GameAction d)
-        {
+		{
 			SetCardPropertyToTrueIfRealAction("FirstTimeCharmCardDestroyed");
 			// Theurgy regains 1 hp
 			IEnumerator healTargetCR = base.GameController.GainHP(
@@ -80,16 +80,16 @@ namespace Angille.Theurgy
 			}
 
 			yield break;
-        }
-        public override IEnumerator UsePower(int index = 0)
-        {
+		}
+		public override IEnumerator UsePower(int index = 0)
+		{
 			int targetNumeral = GetPowerNumeral(0, 1);
 			int damageMod = GetPowerNumeral(1, 2);
 
 			// count the charm cards.
 			int damageNumeral = FindCardsWhere((Card c) => c.IsInPlayAndHasGameText && IsCharm(c)).Count() * damageMod;
 
-			// Theurgy deals 1 target X energy damage. (modded in case Guise)
+			// Theurgy deals 1 target X energy damage.
 			IEnumerator damageCR = base.GameController.SelectTargetsAndDealDamage(
 				DecisionMaker,
 				new DamageSource(base.GameController, base.CharacterCard),

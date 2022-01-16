@@ -9,21 +9,10 @@ using Handelabra;
 
 namespace Angille.TheUndersiders
 {
-    public class TheUndersidersInstructionsCardController : VillainCharacterCardController
+	public class TheUndersidersInstructionsCardController : VillainCharacterCardController
 	{
-		// At the start of the Villain turn, move the top card from beneath Warlords of Brockton into the villain play area.
-		// At the end of the Villain turn, if there are no environment cards in play, play the top card of the environment deck. Flip this card.
-		// Whenever there are no villain character targets in play, the heroes win.
-		// Advanced: When a villain character card enters play, play the top card of the villain deck.
-		////////////////////////////////////////////////////////
-		// At the start of the villain turn, play the top card of the villain deck.
-        // When a villain character card is incapacitated, destroy all environment cards. The villain target with the highest HP deals the hero character target with the lowest HP {H} melee damage. Flip this card.
-        // Whenever there are no villain character targets in play, the heroes win."
-		// Advanced: Increase damage taken by hero targets by 1.
-
-
 		public TheUndersidersInstructionsCardController(Card card, TurnTakerController turnTakerController)
-            : base(card, turnTakerController)
+			: base(card, turnTakerController)
 		{
 			base.SpecialStringMaker.ShowNumberOfCardsInPlay(
 				new LinqCardCriteria((Card c) => c.IsVillainTarget && c.IsVillainCharacterCard, "villain character target")
@@ -42,6 +31,7 @@ namespace Angille.TheUndersiders
 
 		public override void AddSideTriggers()
 		{
+			// Whenever there are no villain character targets in play, the heroes win.
 			AddSideTrigger(AddTrigger(
 				(GameAction g) => base.GameController.HasGameStarted
 					&& !(g is GameOverAction)
@@ -60,24 +50,26 @@ namespace Angille.TheUndersiders
 
 			if (!base.Card.IsFlipped)
 			{
+				// At the start of the Villain turn, move the top card from beneath Warlords of Brockton into the villain play area.
 				AddSideTrigger(AddStartOfTurnTrigger(
 					(TurnTaker tt) => tt == base.TurnTaker,
-					(PhaseChangeAction p) => base.GameController.MoveIntoPlay(
+					(PhaseChangeAction p) => base.GameController.PlayCard(
 						base.TurnTakerController,
 						FindCard("WarlordsOfBrockton").UnderLocation.TopCard,
-						base.TurnTaker,
-						GetCardSource()
+						true
 					),
-					TriggerType.MoveCard
+					TriggerType.PlayCard
 				));
 
+				// At the end of the Villain turn, play the top card of the environment deck. Flip this card.
 				AddSideTrigger(AddEndOfTurnTrigger(
 					(TurnTaker tt) => tt == base.TurnTaker,
 					(PhaseChangeAction p) => FrontSideFlip(p),
-					TriggerType.FlipCard,
-					(PhaseChangeAction p) => FindCardsWhere((Card c) => c.IsEnvironment && c.IsInPlay).Count() <= 0
+					TriggerType.FlipCard
+//					(PhaseChangeAction p) => FindCardsWhere((Card c) => c.IsEnvironment && c.IsInPlay).Count() <= 0
 				));
 
+				// Advanced: When a villain character card enters play, play the top card of the villain deck.
 				if (base.GameController.Game.IsAdvanced)
 				{
 					AddSideTrigger(AddTrigger(
@@ -91,26 +83,42 @@ namespace Angille.TheUndersiders
 
 				return;
 			}
-			/* old Ennead stuff - still need 
-			AddSideTrigger(AddEndOfTurnTrigger((TurnTaker tt) => tt == base.TurnTaker, delegate
+			else
 			{
-				GameController gameController = base.GameController;
-				HeroTurnTakerController decisionMaker = DecisionMaker;
-				Func<Card, bool> criteria = (Card c) => c.IsVillainTarget;
-				int amount = base.H - 2;
-				CardSource cardSource = GetCardSource();
-				return gameController.GainHP(decisionMaker, criteria, amount, null, optional: false, null, null, null, cardSource);
-			}, TriggerType.GainHP));
-			if (base.GameController.Game.IsAdvanced)
-			{
-				AddSideTrigger(AddIncreaseDamageTrigger((DealDamageAction dd) => dd.DamageSource.IsVillainTarget, 1));
+				// At the start of the villain turn, play the top card of the villain deck.
+				AddSideTrigger(AddStartOfTurnTrigger(
+					(TurnTaker tt) => tt == base.TurnTaker,
+					base.PlayTheTopCardOfTheVillainDeckWithMessageResponse,
+					TriggerType.PlayCard
+				));
+
+				// When a villain character card is incapacitated, destroy all environment cards. The villain target with the highest HP deals the hero character target with the lowest HP {H} melee damage. Flip this card.
+				AddSideTrigger(AddTrigger(
+					(FlipCardAction fc) => fc.CardToFlip.Card != base.Card && fc.CardToFlip.Card.IsVillainCharacterCard,
+					(FlipCardAction fc) => BackSideFlip(fc),
+					new TriggerType[]
+					{
+						TriggerType.DestroyCard,
+						TriggerType.DealDamage,
+						TriggerType.FlipCard
+					},
+					TriggerTiming.After
+				));
+
+				// Advanced: Increase damage taken by hero targets by 1.
+				if (base.GameController.Game.IsAdvanced)
+				{
+					AddSideTrigger(AddIncreaseDamageTrigger(
+						(DealDamageAction dd) => dd.Target.IsHero,
+						1
+					));
+				}
 			}
-			*/
 		}
 
 		private IEnumerator FrontSideFlip(GameAction triggerAction)
 		{
-			IEnumerator discardEnvCR = PlayTheTopCardOfTheEnvironmentDeckWithMessageResponse(triggerAction);
+			IEnumerator playEnvCR = PlayTheTopCardOfTheEnvironmentDeckWithMessageResponse(triggerAction);
 			IEnumerator flipCR = base.GameController.FlipCard(
 				this,
 				treatAsPlayed: false,
@@ -120,14 +128,59 @@ namespace Angille.TheUndersiders
 
 			if (base.UseUnityCoroutines)
 			{
-				yield return base.GameController.StartCoroutine(discardEnvCR);
+				yield return base.GameController.StartCoroutine(playEnvCR);
 				yield return base.GameController.StartCoroutine(flipCR);
 			}
 			else
 			{
-				base.GameController.ExhaustCoroutine(discardEnvCR);
+				base.GameController.ExhaustCoroutine(playEnvCR);
 				base.GameController.ExhaustCoroutine(flipCR);
 			}
+			yield break;
+		}
+
+		private IEnumerator BackSideFlip(GameAction triggerAction)
+		{
+			IEnumerator destroyEnviromentCR = GameController.DestroyCards(
+				DecisionMaker,
+				new LinqCardCriteria((Card c) => c.IsEnvironment),
+				cardSource: GetCardSource()
+			);
+
+			IEnumerator retributionCR = DealDamageToLowestHP(
+				null,
+				1,
+				(Card c) => c.IsHero,
+				(Card c) => base.H,
+				DamageType.Melee,
+				damageSourceInfo: new TargetInfo(
+					HighestLowestHP.HighestHP,
+					1,
+					1,
+					new LinqCardCriteria((Card c) => c.IsVillainTarget, "The villain target with the highest HP")
+				)
+			);
+
+			IEnumerator flipCR = base.GameController.FlipCard(
+				base.CharacterCardController,
+				treatAsPlayed: false,
+				treatAsPutIntoPlay: false,
+				cardSource: GetCardSource()
+			);
+
+			if (base.UseUnityCoroutines)
+			{
+				yield return base.GameController.StartCoroutine(destroyEnviromentCR);
+				yield return base.GameController.StartCoroutine(retributionCR);
+				yield return base.GameController.StartCoroutine(flipCR);
+			}
+			else
+			{
+				base.GameController.ExhaustCoroutine(destroyEnviromentCR);
+				base.GameController.ExhaustCoroutine(retributionCR);
+				base.GameController.ExhaustCoroutine(flipCR);
+			}
+
 			yield break;
 		}
 

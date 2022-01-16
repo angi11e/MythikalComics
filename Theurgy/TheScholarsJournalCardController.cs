@@ -61,7 +61,7 @@ namespace Angille.Theurgy
 		}
 
 		private IEnumerator DestructionResponse(DestroyCardAction d)
-        {
+		{
 			// select a deck.
 			List<SelectLocationDecision> storedResultsDeck = new List<SelectLocationDecision>();
 

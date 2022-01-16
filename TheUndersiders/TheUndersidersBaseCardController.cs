@@ -15,67 +15,36 @@ namespace Angille.TheUndersiders
 			: base(card, turnTakerController)
 		{
 		}
-		public IEnumerator FindVillain(string identifier, Card villain, bool needTarget = false, Card originator = null)
+
+		public bool IsEnabled(string icon)
 		{
-			villain = TurnTaker.FindCard(identifier);
-			if (!villain.IsFlipped && villain.IsInPlayAndNotUnderCard && villain.IsVillainTarget)
+			string identifier = TheUndersiders.GetIdentifier(TheUndersiders.GetVillainFromIcon(icon));
+			if (identifier == null)
 			{
-				yield return villain;
-			}
-			else if (needTarget && base.GameController.Game.IsChallenge && !villain.IsUnderCard)
-			{
-				IEnumerable<Card> highestVillains = base.GameController.FindAllTargetsWithHighestHitPoints(
-					1,
-					(Card c) => c.IsVillainTarget && c.IsInPlayAndNotUnderCard,
-					GetCardSource()
-				);
-
-				villain = highestVillains.FirstOrDefault();
-				if (highestVillains.Count() > 1)
-				{
-					List<SelectCardDecision> storedResults = new List<SelectCardDecision>();
-					IEnumerator getHighestCR = base.GameController.SelectCardAndStoreResults(
-						DecisionMaker,
-						SelectionType.CardToDealDamage,
-						new LinqCardCriteria((Card c) => highestVillains.Contains(c)),
-						storedResults,
-						false,
-						cardSource: GetCardSource()
-					);
-					if (base.UseUnityCoroutines)
-					{
-						yield return base.GameController.StartCoroutine(getHighestCR);
-					}
-					else
-					{
-						base.GameController.ExhaustCoroutine(getHighestCR);
-					}
-					villain = storedResults.FirstOrDefault().SelectedCard;
-				}
-
-				IEnumerator challengeCR = GameController.SendMessageAction(
-					"Undersiders never forget their enemies.",
-					Priority.Medium,
-					GetCardSource()
-				);
-				if (base.UseUnityCoroutines)
-				{
-					yield return base.GameController.StartCoroutine(challengeCR);
-				}
-				else
-				{
-					base.GameController.ExhaustCoroutine(challengeCR);
-				}
-
-				yield return villain;
-			}
-			else
-			{
-				villain = null;
+				return false;
 			}
 
-			yield return null;
+			Card who = base.FindCard(identifier);
+			if (!who.IsFlipped && who.IsInPlayAndNotUnderCard && who.IsVillainTarget)
+			{
+				return true;
+			}
+
+			if (base.GameController.Game.IsChallenge && who.IsFlipped)
+			{
+				return true;
+			}
+
+			return false;
 		}
 
+		protected Card BitchCharacter => base.FindCard("BitchCharacter");
+		protected Card FoilCharacter => base.FindCard("BitchCharacter");
+		protected Card GrueCharacter => base.FindCard("GrueCharacter");
+		protected Card ImpCharacter => base.FindCard("ImpCharacter");
+		protected Card ParianCharacter => base.FindCard("ParianCharacter");
+		protected Card RegentCharacter => base.FindCard("RegentCharacter");
+		protected Card SkitterCharacter => base.FindCard("SkitterCharacter");
+		protected Card TattletaleCharacter => base.FindCard("TattletaleCharacter");
 	}
 }

@@ -10,18 +10,14 @@ namespace Angille.TheUndersiders
 {
 	public abstract class TheUndersidersVillainCardController : VillainCharacterCardController
 	{
-/*		public const string Dog = "{Dog}";
-		public const string Blade = "{Blade}";
-		public const string Skull = "{Skull}";
-		public const string Mask = "{Mask}";
-		public const string Bear = "{Bear}";
-		public const string Crown = "{Crown}";
-		public const string Spider = "{Spider}";
-		public const string Tattle = "{Tattle}";
-*/
 		public TheUndersidersVillainCardController(Card card, TurnTakerController turnTakerController)
 			: base(card, turnTakerController)
 		{
+		}
+
+		public override bool CanBeDestroyed
+		{
+			get { return false; }
 		}
 
 		public override void AddSideTriggers()
@@ -44,19 +40,23 @@ namespace Angille.TheUndersiders
 				cardSource = GetCardSource();
 			}
 
-			IEnumerator untargetCR = base.GameController.RemoveTarget(
-				base.Card,
-				leavesPlayIfInPlay: true,
-				cardSource
-			);
-			if (base.UseUnityCoroutines)
-			{
-				yield return base.GameController.StartCoroutine(untargetCR);
+			if (!flip.CardToFlip.Card.IsFlipped) {
+				IEnumerator untargetCR = base.GameController.RemoveTarget(
+					base.Card,
+					leavesPlayIfInPlay: true,
+					cardSource
+				);
+				if (base.UseUnityCoroutines)
+				{
+					yield return base.GameController.StartCoroutine(untargetCR);
+				}
+				else
+				{
+					base.GameController.ExhaustCoroutine(untargetCR);
+				}
 			}
-			else
-			{
-				base.GameController.ExhaustCoroutine(untargetCR);
-			}
+
+			yield break;
 		}
 
 		public override IEnumerator DestroyAttempted(DestroyCardAction destroyCard)

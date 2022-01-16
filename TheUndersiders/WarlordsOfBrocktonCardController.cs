@@ -32,14 +32,14 @@ namespace Angille.TheUndersiders
 			base.AddTriggers();
 		}
 
-        public override bool AskIfCardIsIndestructible(Card card)
-        {
+		public override bool AskIfCardIsIndestructible(Card card)
+		{
 			if (card == base.Card || card.Location == base.Card.UnderLocation)
-            {
+			{
 				return true;
-            }
+			}
 
-            return false;
-        }
-    }
+			return false;
+		}
+	}
 }

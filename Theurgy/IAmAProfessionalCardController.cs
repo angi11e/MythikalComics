@@ -30,7 +30,7 @@ namespace Angille.Theurgy
 		}
 
 		private IEnumerator RevealCardResponse(PhaseChangeAction action)
-        {
+		{
 			// ...reveal the top card of your deck.
 			List<Card> cards = new List<Card>();
 			IEnumerator revealCR = base.GameController.RevealCards(
@@ -76,12 +76,7 @@ namespace Angille.Theurgy
 					this.DecisionMaker,
 					"switch with a card in your hand",
 					SelectionType.MoveCardToHand,
-					() => base.GameController.MoveCard(
-						base.TurnTakerController,
-						revealedCard,
-						base.HeroTurnTaker.Hand,
-						cardSource: GetCardSource()
-					)
+					() => WorkWithCardsResponse(revealedCard, base.HeroTurnTaker.Hand)
 				)
 			);
 
@@ -91,12 +86,7 @@ namespace Angille.Theurgy
 					this.DecisionMaker,
 					"switch with a card in your trash",
 					SelectionType.MoveCardToTrash,
-					() => base.GameController.MoveCard(
-						base.TurnTakerController,
-						revealedCard,
-						base.HeroTurnTaker.Trash,
-						cardSource: GetCardSource()
-					)
+					() => WorkWithCardsResponse(revealedCard, base.HeroTurnTaker.Trash)
 				)
 			);
 
@@ -119,22 +109,54 @@ namespace Angille.Theurgy
 				base.GameController.ExhaustCoroutine(selectFunctionCR);
 			}
 
-			if (revealedCard.Location != base.HeroTurnTaker.Deck)
+			IEnumerator cleanupCR = CleanupCardsAtLocations(
+				new List<Location>() {base.TurnTaker.Revealed},
+				base.TurnTaker.Deck
+			);
+			if (base.UseUnityCoroutines)
 			{
-				IEnumerator selectAndMoveCR = base.GameController.SelectAndMoveCard(
-					DecisionMaker,
-					c => c.IsInLocation(revealedCard.Location),
-					base.HeroTurnTaker.Deck,
-					cardSource: base.GetCardSource()
-				);
-				if (UseUnityCoroutines)
-				{
-					yield return base.GameController.StartCoroutine(selectAndMoveCR);
-				}
-				else
-				{
-					base.GameController.ExhaustCoroutine(selectAndMoveCR);
-				}
+				yield return base.GameController.StartCoroutine(cleanupCR);
+			}
+			else
+			{
+				base.GameController.ExhaustCoroutine(cleanupCR);
+			}
+
+			yield break;
+		}
+
+		private IEnumerator WorkWithCardsResponse(Card revealedCard, Location swapLocation)
+		{
+			IEnumerator moveFirstCardCR = GameController.SelectCardFromLocationAndMoveIt(
+				this.DecisionMaker,
+				swapLocation,
+				new LinqCardCriteria((Card c) => true),
+				new MoveCardDestination[] { new MoveCardDestination(base.HeroTurnTaker.Deck) }
+			);
+
+			if (base.UseUnityCoroutines)
+			{
+				yield return base.GameController.StartCoroutine(moveFirstCardCR);
+			}
+			else
+			{
+				base.GameController.ExhaustCoroutine(moveFirstCardCR);
+			}
+
+			IEnumerator moveSecondCardCR = GameController.MoveCard(
+				this.DecisionMaker,
+				revealedCard,
+				swapLocation,
+				cardSource: GetCardSource()
+			);
+
+			if (base.UseUnityCoroutines)
+			{
+				yield return base.GameController.StartCoroutine(moveSecondCardCR);
+			}
+			else
+			{
+				base.GameController.ExhaustCoroutine(moveSecondCardCR);
 			}
 
 			yield break;

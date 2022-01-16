@@ -8,12 +8,12 @@ using Handelabra;
 
 namespace Angille.Theurgy
 {
-    public class TheurgyFateweaverCharacterCardController : HeroCharacterCardController
-    {
-        public TheurgyFateweaverCharacterCardController(Card card, TurnTakerController turnTakerController)
-            : base(card, turnTakerController)
-        {
-        }
+	public class TheurgyFateweaverCharacterCardController : HeroCharacterCardController
+	{
+		public TheurgyFateweaverCharacterCardController(Card card, TurnTakerController turnTakerController)
+			: base(card, turnTakerController)
+		{
+		}
 
 		public override IEnumerator UsePower(int index = 0)
 		{
@@ -57,7 +57,7 @@ namespace Angille.Theurgy
 					Card theCard = selectedTarget.FirstOrDefault().SelectedCard;
 					// hero target? deal 2 psychic
 					if (theCard.IsHero)
-                    {
+					{
 						IEnumerator dealDamageCR = base.DealDamage(
 							base.Card,
 							theCard,
@@ -78,7 +78,7 @@ namespace Angille.Theurgy
 
 					// villain target? regain 2 hp
 					else if (theCard.IsVillain)
-                    {
+					{
 						IEnumerator healTargetCR = GameController.GainHP(
 							theCard,
 							healNumeral,
@@ -96,7 +96,7 @@ namespace Angille.Theurgy
 
 					// environment (or [other]) target? choose a charm card and destroy it
 					else
-                    {
+					{
 						IEnumerator destroyCR = base.GameController.SelectAndDestroyCard(
 							DecisionMaker,
 							IsCharmCriteria(),
@@ -116,7 +116,7 @@ namespace Angille.Theurgy
 
 					// which deck was that? reveal the top card
 					if (theCard.Owner.Deck.IsRealDeck)
-                    {
+					{
 						List<Card> revealedCards = new List<Card>();
 						IEnumerator revealCR = GameController.RevealCards(
 							DecisionMaker,
@@ -138,7 +138,7 @@ namespace Angille.Theurgy
 
 						Log.Debug("seamripper revealed cards: " + revealedCards.Count());
 						if (revealedCards.Count() > 0)
-                        {
+						{
 							Card revealedCard = revealedCards.First();
 							CardController revealedController = FindCardController(revealedCard);
 
@@ -147,9 +147,9 @@ namespace Angille.Theurgy
 							possibleDestinations.Add(new MoveCardDestination(revealedCard.Owner.Deck));
 							possibleDestinations.Add(revealedController.GetTrashDestination());
 							if (GameController.CanPlayCard(revealedController, true) == CanPlayCardResult.CanPlay)
-                            {
+							{
 								possibleDestinations.Add(new MoveCardDestination(revealedCard.Owner.PlayArea));
-                            }
+							}
 							Log.Debug("seamripper destinations: " + possibleDestinations);
 
 							// ...then ask and do so
@@ -175,7 +175,7 @@ namespace Angille.Theurgy
 						}
 					}
 					else
-                    {
+					{
 						IEnumerator notDeckCR = GameController.SendMessageAction(
 							"This target has no parent deck to reveal from.",
 							Priority.Low,
@@ -220,15 +220,15 @@ namespace Angille.Theurgy
 					// Select a deck and discard its top card.
 					List<Location> allDecks = new List<Location>();
 					foreach (TurnTaker tt in Game.TurnTakers)
-                    {
+					{
 						if (tt.IsIncapacitatedOrOutOfGame) continue;
 						if (tt.Deck.IsRealDeck && GameController.IsLocationVisibleToSource(tt.Deck, GetCardSource()))
-                        {
+						{
 							allDecks.Add(tt.Deck);
-                        }
+						}
 						allDecks = allDecks.Concat(tt.SubDecks.Where(l => l.IsRealDeck
 							&& GameController.IsLocationVisibleToSource(l, GetCardSource()))).ToList();
-                    }
+					}
 
 					List<Card> revealedCards = new List<Card>();
 
@@ -337,7 +337,7 @@ namespace Angille.Theurgy
 		}
 
 		private IEnumerator RevealTopCardAndReturn(Location deck, List<Card> revealedCards)
-        {
+		{
 			List<Card> cards = new List<Card>();
 			List<RevealCardsAction> actionResult = new List<RevealCardsAction>();
 
@@ -376,15 +376,15 @@ namespace Angille.Theurgy
 			}
 
 			if (!actionResult.Any())
-            {
+			{
 				yield break;
-            }
+			}
 
 			RevealCardsAction revealAction = actionResult.First();
 			if (!revealAction.RevealedCards.Any() && !revealAction.RemovedFromRevealedCards.Any())
-            {
+			{
 				yield break;
-            }
+			}
 
 			Card revealedCard = revealAction.RevealedCards.Any()
 				? revealAction.RevealedCards.First()
@@ -398,7 +398,7 @@ namespace Angille.Theurgy
 			HeroTurnTakerController hero,
 			IEnumerable<Card> choices,
 			IEnumerable<CardController> cardsToFlip )
-        {
+		{
 			SelectCardDecision selectCardDecision = new SelectCardDecision(
 				GameController,
 				hero,
@@ -425,13 +425,13 @@ namespace Angille.Theurgy
 			}
 
 			yield break;
-        }
+		}
 
 		private IEnumerator FlipAndDiscardCard(
 			HeroTurnTakerController hero,
 			Card selectedCard,
 			IEnumerable<CardController> cardsToFlip)
-        {
+		{
 			IEnumerator flipCR = GameController.FlipCards(cardsToFlip, GetCardSource());
 			if (UseUnityCoroutines)
 			{
