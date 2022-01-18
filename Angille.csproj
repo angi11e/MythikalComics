@@ -45,7 +45,39 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="NightMare\BringAnotherCardController.cs" />
+    <Compile Include="NightMare\CowabungaItIsCardController.cs" />
+    <Compile Include="NightMare\HoldYerHorsesCardController.cs" />
+    <Compile Include="NightMare\HoofLooseCardController.cs" />
+    <Compile Include="NightMare\HoofStompCardController.cs" />
+    <Compile Include="NightMare\HotToTrotCardController.cs" />
+    <Compile Include="NightMare\NightMareCharacterCardController.cs" />
+    <Compile Include="NightMare\NightMareTurnTakerController.cs" />
+    <Compile Include="NightMare\ReinedCombatCardController.cs" />
+    <Compile Include="NightMare\StampedeCardController.cs" />
+    <Compile Include="NightMare\TwoTrickPonyCardController.cs" />
+    <Compile Include="Patina\EmpowerAndRepairCardController.cs" />
+    <Compile Include="Patina\EnergyConversionCardController.cs" />
+    <Compile Include="Patina\EnergyRedirectionCardController.cs" />
+    <Compile Include="Patina\FocusedApparatusCardController.cs" />
+    <Compile Include="Patina\HaltCardController.cs" />
+    <Compile Include="Patina\HybridParagonCardController.cs" />
+    <Compile Include="Patina\MaerynianImmunityCardController.cs" />
+    <Compile Include="Patina\PatinaCharacterCardController.cs" />
+    <Compile Include="Patina\PatinaTurnTakerController.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RedRifle\FullAutoCardController.cs" />
+    <Compile Include="RedRifle\NanoPlateCardController.cs" />
+    <Compile Include="RedRifle\OverclockingCardController.cs" />
+    <Compile Include="RedRifle\PoweredShotCardController.cs" />
+    <Compile Include="RedRifle\RedRifleBaseCardController.cs" />
+    <Compile Include="RedRifle\RedRifleCharacterCardController.cs" />
+    <Compile Include="RedRifle\RedRifleTrueshotPoolUtility.cs" />
+    <Compile Include="RedRifle\RedRifleTurnTakerController.cs" />
+    <Compile Include="RedRifle\RicochetCardController.cs" />
+    <Compile Include="RedRifle\SilverTongueCardController.cs" />
+    <Compile Include="RedRifle\SituationalAwarenessCardController.cs" />
+    <Compile Include="RedRifle\YellingInformationCardController.cs" />
     <Compile Include="TheUndersiders\Cards\AdvancePlanningCardController.cs" />
     <Compile Include="TheUndersiders\Cards\AngelicaCardController.cs" />
     <Compile Include="TheUndersiders\Cards\BastardCardController.cs" />
@@ -93,6 +125,16 @@
     <Compile Include="Theurgy\TrapDoorCardController.cs" />
     <Compile Include="Theurgy\WeatherTheHitsCardController.cs" />
     <Compile Include="Theurgy\YoinkCardController.cs" />
+    <Compile Include="WhatsHerFace\AceUpHerSleeveCardController.cs" />
+    <Compile Include="WhatsHerFace\AntiAntimemeticsCardController.cs" />
+    <Compile Include="WhatsHerFace\FlourishAndVanishCardController.cs" />
+    <Compile Include="WhatsHerFace\JustWhatYouNeededCardController.cs" />
+    <Compile Include="WhatsHerFace\MissedByThatMuchCardController.cs" />
+    <Compile Include="WhatsHerFace\NotQuiteSureWhatThisDoesCardController.cs" />
+    <Compile Include="WhatsHerFace\PullThePinsCardController.cs" />
+    <Compile Include="WhatsHerFace\WatchYourStepCardController.cs" />
+    <Compile Include="WhatsHerFace\WhatsHerFaceCharacterCardController.cs" />
+    <Compile Include="WhatsHerFace\WhatsHerFaceTurnTakerController.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="DeckLists\TheUndersidersDeckList.json" />
