@@ -1,0 +1,373 @@
+﻿{
+	"name": "Red Rifle",
+	"kind": "Hero",
+	"initialCardIdentifiers": [
+		"RedRifleCharacter"
+	],
+	"cards": [
+		{
+			"identifier": "RedRifleCharacter",
+			"count": 1,
+			"title": "RedRifle",
+			"body": "Take Aim",
+			"backgroundColor": "E42A28",
+			"foilBackgroundColor": "E42A28",
+			"hitpointsColor": "E42A28",
+			"character": true,
+			"powers": [
+				"Add 1 token to your trueshot pool. Draw a card."
+			],
+			"icons": [
+				"AddTokens",
+				"DrawCardNow"
+			],
+			"hitpoints": 30,
+			"nemesisIdentifiers": [
+				"Expatriette"
+			],
+			"incapacitatedAbilities": [
+				"One player may use a power.",
+				"One hero may deal 1 target 1 projectile damage.",
+				"Up to two hero ongoing cards may be played now."
+			],
+			"flippedIcons": [
+				"UsePowerNow",
+				"DealDamageProjectile",
+				"PlayCardNow"
+			],
+			"openingLines": {
+				"default": ""
+			},
+			"complexity": 1
+		},
+		{
+			"identifier": "CalledShot",
+			"count": 3,
+			"title": "Called Shot",
+			"keywords": [
+				"one-shot"
+			],
+			"body": [
+				"{RedRifle} deals 1 target 3 projectile damage.",
+				"Remove 3 tokens from your trueshot pool. If you do, destroy 1 Ongoing or Environment card."
+			],
+			"icons": [
+				"DealDamageProjectile",
+				"RemoveTokens",
+				"DestroyOngoing",
+				"DestroyEnvironment"
+			],
+			"flavorText": "“”",
+			"flavorReference": ""
+		},
+		{
+			"identifier": "EnergyBurst",
+			"count": 3,
+			"title": "Energy Burst",
+			"keywords": [
+				"one-shot"
+			],
+			"body": [
+				"{RedRifle} deals each non-hero target 1 energy damage.",
+				"If you have 5 or more tokens in your trueshot pool, the damage is irreducible.",
+				"If you have 10 or more tokens in your trueshot pool, destroy 1 hero Ongoing or Equipment card."
+			],
+			"icons": [
+				"DealDamageEnergy",
+				"MakeDamageIrreducible",
+				"DestroyOngoing",
+				"DestroyEquipment"
+			],
+			"flavorText": "“”",
+			"flavorReference": ""
+		},
+		{
+			"identifier": "FullAuto",
+			"count": 3,
+			"title": "Full Auto",
+			"keywords": [
+				"ongoing",
+				"limited"
+			],
+			"body": [
+				"At the start of your turn, add 2 tokens to your trueshot pool.",
+				"At the end of your turn, if you have fewer than 5 tokens in your trueshot pool, destroy this card."
+			],
+			"powers": [
+				"Remove any number of tokens from your trueshot pool. For each token you removed, you may increase one of the numerals in this power by 1. {RedRifle} deals up to 1 target 1 projectile damage."
+			],
+			"icons": [
+				"AddOrRemoveTokens",
+				"DestroySelf",
+				"DealDamageProjectile"
+			],
+			"flavorText": "“”",
+			"flavorReference": ""
+		},
+		{
+			"identifier": "HairTrigger",
+			"count": 3,
+			"title": "Hair Trigger",
+			"keywords": [
+				"ongoing",
+				"limited"
+			],
+			"body": [
+				"Whenever a non-hero target enters play, {RedRifle} may deal that target 1 projectile damage.",
+				"If that target takes no damage, add 1 token to your trueshot pool."
+			],
+			"icons": [
+				"DealDamageProjectile",
+				"AddTokens"
+			],
+			"flavorText": "“”",
+			"flavorReference": ""
+		},
+		{
+			"identifier": "IndescriminateFabrication",
+			"count": 2,
+			"title": "Indescriminate Fabrication",
+			"keywords": [
+				"one-shot"
+			],
+			"body": [
+				"Reveal the top card of each deck. Put any revealed targets and equipment into play. Discard the other revealed cards.",
+				"For each card put into play this way, add 1 token to your trueshot pool."
+			],
+			"icons": [
+				"PlayCardNow",
+				"Discard",
+				"AddTokens"
+			],
+			"flavorText": "“”",
+			"flavorReference": ""
+		},
+		{
+			"identifier": "NanoPlate",
+			"count": 3,
+			"title": "Nano Plate",
+			"keywords": [
+				"equipment",
+				"limited"
+			],
+			"body": [
+				"At the start of your turn either add 2 tokens to your trueshot pool, or {RedRifle} regains 2 HP.",
+				"Reduce damage dealt to {RedRifle} by 1."
+			],
+			"powers": [
+				""
+			],
+			"icons": [
+				"AddTokens",
+				"GainHP",
+				"ReduceDamageTaken",
+				""
+			],
+			"flavorText": "“”",
+			"flavorReference": ""
+		},
+		{
+			"identifier": "Overclocking",
+			"count": 3,
+			"title": "Overclocking",
+			"keywords": [
+				"equipment",
+				"limited"
+			],
+			"body": [
+				"Increase damage dealt by {RedRifle} by 1.",
+				"When this card is destroyed, {RedRifle} deals himself 2 energy damage. Add 3 tokens to your trueshot pool."
+			],
+			"powers": [
+				"Play 2 one-shot cards now. Destroy this card."
+			],
+			"icons": [
+				"IncreaseDamageDealt",
+				"PlayCardNow",
+				"DestroySelf",
+				"AddTokens"
+			],
+			"flavorText": "“”",
+			"flavorReference": ""
+		},
+		{
+			"identifier": "PoweredShot",
+			"count": 3,
+			"title": "Powered Shot",
+			"keywords": [
+				"one-shot"
+			],
+			"body": [
+				"{RedRifle} deals 1 target 1 irreducible projectile damage.",
+				"Remove 2 tokens from your trueshot pool. If you do so, {RedRifle} deals that target 1 irreducible energy damage.",
+				"Remove 2 tokens from your trueshot pool. If you do so, {RedRifle} deals that target 1 irreducible sonic damage.",
+				"Remove 2 tokens from your trueshot pool. If you do so, {RedRifle} deals that target 1 irreducible radiant damage."
+			],
+			"icons": [
+				"MakeDamageIrreducible",
+				"DealDamage",
+				"RemoveTokens"
+			],
+			"flavorText": "“”",
+			"flavorReference": ""
+		},
+		{
+			"identifier": "PreciseShot",
+			"count": 3,
+			"title": "Precise Shot",
+			"keywords": [
+				"one-shot"
+			],
+			"body": [
+				"{RedRifle} deals 1 target X projectile damage, where X equals the number of villain and environment targets in play, to a maximum of the number of tokens in your trueshot pool.",
+				"This damage cannot be redirected."
+			],
+			"icons": [
+				"DealDamageProjectile",
+				"MakeDamageUnredirectable"
+			],
+			"flavorText": "“”",
+			"flavorReference": ""
+		},
+		{
+			"identifier": "Ricochet",
+			"count": 3,
+			"title": "Ricochet",
+			"keywords": [
+				"ongoing"
+			],
+			"body": [
+				"Whenever {RedRifle} is dealt damage, add 2 tokens to your trueshot pool."
+			],
+			"icons": [
+				"AddTokens"
+			],
+			"flavorText": "“”",
+			"flavorReference": ""
+		},
+		{
+			"identifier": "SilverTongue",
+			"count": 3,
+			"title": "Silver Tongue",
+			"keywords": [
+				"ongoing",
+				"limited"
+			],
+			"body": [
+				"When this card enters play, add 2 tokens to your trueshot pool. Each hero target gains 1 HP.",
+				"Whenever a villain target deals a non-villain target damage, you may remove any number of tokens from your trueshot pool. Reduce that damage by that amount."
+			],
+			"icons": [
+				"AddOrRemoveTokens",
+				"GainHP",
+				"ReduceDamageDealt"
+			],
+			"flavorText": "“”",
+			"flavorReference": ""
+		},
+		{
+			"identifier": "SituationalAwareness",
+			"count": 3,
+			"title": "Situational Awareness",
+			"keywords": [
+				"one-shot"
+			],
+			"body": [
+				"Add or remove 3 tokens from your trueshot pool.",
+				"If you removed 3 tokens this way, reveal the top 2 cards of any deck. Put 1 on top of the deck and 1 on the bottom of the deck.",
+				"Draw or play 1 card."
+			],
+			"icons": [
+				"AddOrRemoveTokens",
+				"Manipulate",
+				"DrawCardNow",
+				"PlayCardNow"
+			],
+			"flavorText": "“”",
+			"flavorReference": ""
+		},
+		{
+			"identifier": "TechNerd",
+			"count": 3,
+			"title": "Tech Nerd",
+			"keywords": [
+				"one-shot"
+			],
+			"body": [
+				"Reveal cards from the top of your deck until you reveal an Equipment card. Put it into play or into your hand. Shuffle the rest of the revealed cards into your deck.",
+				"If no card entered play this way, add 2 tokens to your trueshot pool, then one hero other than {RedRifle} may draw a card."
+			],
+			"icons": [
+				"Manipulate",
+				"PlayCardNow",
+				"AddTokens",
+				"DrawCardNow"
+			],
+			"flavorText": "“”",
+			"flavorReference": ""
+		},
+		{
+			"identifier": "YellingInformation",
+			"count": 2,
+			"title": "Yelling Information",
+			"keywords": [
+				"ongoing",
+				"limited"
+			],
+			"body": [
+				"Reduce all damage dealt by 1."
+			],
+			"powers": [
+				"Play the top card of each deck. For each one-shot played this way, add 1 token to your trueshot pool. Destroy this card."
+			],
+			"icons": [
+				"ReduceDamageDealt",
+				"PlayCardNow",
+				"AddTokens",
+				"DestroySelf"
+			],
+			"flavorText": "“”",
+			"flavorReference": ""
+		},
+		"promoCards": [
+			{
+				"identifier": "RedRifleCharacter",
+				"promoIdentifier": "SeeingRedRedRifleCharacter",
+				"count": 1,
+				"title": "Red Rifle",
+				"promoTitle": "Seeing Red Red Rifle",
+				"body": "Head Shot",
+				"icons": [
+					"HasPower",
+					"AddOrRemoveTokens",
+					"PlayCardNow"
+				],
+				"backgroundColor": "F41A18",
+				"foilBackgroundColor": "F41A18",
+				"hitpointsColor": "F41A18",
+				"character": true,
+				"powers": [
+					"Add 2 tokens to your trueshot pool. Play 1 one-shot card. Remove 3 tokens from your trueshot pool."
+				],
+				"hitpoints": 29,
+				"nemesisIdentifiers": [
+					"Apostate"
+				],
+				"incapacitatedAbilities": [
+					"One player may use a power. Any damage they deal is irreducible.",
+					"One player may draw 2 cards, then discard 1.",
+					"Destroy a target with 1 HP."
+				],
+				"flippedIcons": [
+					"UsePowerNow",
+					"MakeDamageIrreducible",
+					"DrawCardNow",
+					"DestroyTarget"
+				],
+				"complexity": 2,
+				"openingLines": {
+					"default": "Oh, you're dead.'"
+				}
+			}
+		]
+}

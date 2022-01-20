@@ -38,13 +38,36 @@ namespace Angille.TheUndersiders
 			return false;
 		}
 
-		protected Card BitchCharacter => base.FindCard("BitchCharacter");
-		protected Card FoilCharacter => base.FindCard("BitchCharacter");
-		protected Card GrueCharacter => base.FindCard("GrueCharacter");
-		protected Card ImpCharacter => base.FindCard("ImpCharacter");
-		protected Card ParianCharacter => base.FindCard("ParianCharacter");
-		protected Card RegentCharacter => base.FindCard("RegentCharacter");
-		protected Card SkitterCharacter => base.FindCard("SkitterCharacter");
-		protected Card TattletaleCharacter => base.FindCard("TattletaleCharacter");
+		protected Card BitchCharacter => GameController.FindCardsWhere(
+			(Card c) => c.Identifier == "BitchCharacter" && c.IsVillainCharacterCard
+		).FirstOrDefault();
+
+		protected Card FoilCharacter => GameController.FindCardsWhere(
+			(Card c) => c.Identifier == "FoilCharacter" && c.IsVillainCharacterCard
+		).FirstOrDefault();
+
+		protected Card GrueCharacter => GameController.FindCardsWhere(
+			(Card c) => c.Identifier == "GrueCharacter" && c.IsVillainCharacterCard
+		).FirstOrDefault();
+
+		protected Card ImpCharacter => GameController.FindCardsWhere(
+			(Card c) => c.Identifier == "ImpCharacter" && c.IsVillainCharacterCard
+		).FirstOrDefault();
+
+		protected Card ParianCharacter => GameController.FindCardsWhere(
+			(Card c) => c.Identifier == "ParianCharacter" && c.IsVillainCharacterCard
+		).FirstOrDefault();
+
+		protected Card RegentCharacter => GameController.FindCardsWhere(
+			(Card c) => c.Identifier == "RegentCharacter" && c.IsVillainCharacterCard
+		).FirstOrDefault();
+
+		protected Card SkitterCharacter => GameController.FindCardsWhere(
+			(Card c) => c.Identifier == "SkitterCharacter" && c.IsVillainCharacterCard
+		).FirstOrDefault();
+
+		protected Card TattletaleCharacter => GameController.FindCardsWhere(
+			(Card c) => c.Identifier == "TattletaleCharacter" && c.IsVillainCharacterCard
+		).FirstOrDefault();
 	}
 }
