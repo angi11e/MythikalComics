@@ -8,7 +8,7 @@
 		{
 			"identifier": "RedRifleCharacter",
 			"count": 1,
-			"title": "RedRifle",
+			"title": "Red Rifle",
 			"body": "Take Aim",
 			"backgroundColor": "E42A28",
 			"foilBackgroundColor": "E42A28",
@@ -26,7 +26,7 @@
 				"Expatriette"
 			],
 			"incapacitatedAbilities": [
-				"One player may use a power.",
+				"One hero may use a power.",
 				"One hero may deal 1 target 1 projectile damage.",
 				"Up to two hero ongoing cards may be played now."
 			],
@@ -49,7 +49,7 @@
 			],
 			"body": [
 				"{RedRifle} deals 1 target 3 projectile damage.",
-				"Remove 3 tokens from your trueshot pool. If you do, destroy 1 Ongoing or Environment card."
+				"Add 1 or remove 3 tokens from your trueshot pool. If you removed 3 tokens this way, destroy 1 Ongoing or Environment card."
 			],
 			"icons": [
 				"DealDamageProjectile",
@@ -94,7 +94,7 @@
 				"At the end of your turn, if you have fewer than 5 tokens in your trueshot pool, destroy this card."
 			],
 			"powers": [
-				"Remove any number of tokens from your trueshot pool. For each token you removed, you may increase one of the numerals in this power by 1. {RedRifle} deals up to 1 target 1 projectile damage."
+				"Remove any number of tokens from your trueshot pool. For each token removed, increase a numeral in this power by one. {RedRifle} deals up to 1 target 1 projectile damage."
 			],
 			"icons": [
 				"AddOrRemoveTokens",
@@ -153,9 +153,6 @@
 			"body": [
 				"At the start of your turn either add 2 tokens to your trueshot pool, or {RedRifle} regains 2 HP.",
 				"Reduce damage dealt to {RedRifle} by 1."
-			],
-			"powers": [
-				""
 			],
 			"icons": [
 				"AddTokens",
@@ -237,7 +234,7 @@
 				"ongoing"
 			],
 			"body": [
-				"Whenever {RedRifle} is dealt damage, add 2 tokens to your trueshot pool."
+				"Whenever {RedRifle} is dealt damage, add 1 token to your trueshot pool."
 			],
 			"icons": [
 				"AddTokens"
@@ -294,7 +291,8 @@
 				"one-shot"
 			],
 			"body": [
-				"Reveal cards from the top of your deck until you reveal an Equipment card. Put it into play or into your hand. Shuffle the rest of the revealed cards into your deck.",
+				"Reveal cards from the top of your deck until you reveal an Ongoing or Equipment card. Put it into your hand and shuffle the rest of the revealed cards into your deck.",
+				"You may play an Ongoing or Equipment card now.",
 				"If no card entered play this way, add 2 tokens to your trueshot pool, then one hero other than {RedRifle} may draw a card."
 			],
 			"icons": [
@@ -318,7 +316,7 @@
 				"Reduce all damage dealt by 1."
 			],
 			"powers": [
-				"Play the top card of each deck. For each one-shot played this way, add 1 token to your trueshot pool. Destroy this card."
+				"Play the top card of each deck. For each one-shot played this turn, add 1 token to your trueshot pool. Destroy this card."
 			],
 			"icons": [
 				"ReduceDamageDealt",
@@ -328,46 +326,47 @@
 			],
 			"flavorText": "“”",
 			"flavorReference": ""
-		},
-		"promoCards": [
-			{
-				"identifier": "RedRifleCharacter",
-				"promoIdentifier": "SeeingRedRedRifleCharacter",
-				"count": 1,
-				"title": "Red Rifle",
-				"promoTitle": "Seeing Red Red Rifle",
-				"body": "Head Shot",
-				"icons": [
-					"HasPower",
-					"AddOrRemoveTokens",
-					"PlayCardNow"
-				],
-				"backgroundColor": "F41A18",
-				"foilBackgroundColor": "F41A18",
-				"hitpointsColor": "F41A18",
-				"character": true,
-				"powers": [
-					"Add 2 tokens to your trueshot pool. Play 1 one-shot card. Remove 3 tokens from your trueshot pool."
-				],
-				"hitpoints": 29,
-				"nemesisIdentifiers": [
-					"Apostate"
-				],
-				"incapacitatedAbilities": [
-					"One player may use a power. Any damage they deal is irreducible.",
-					"One player may draw 2 cards, then discard 1.",
-					"Destroy a target with 1 HP."
-				],
-				"flippedIcons": [
-					"UsePowerNow",
-					"MakeDamageIrreducible",
-					"DrawCardNow",
-					"DestroyTarget"
-				],
-				"complexity": 2,
-				"openingLines": {
-					"default": "Oh, you're dead.'"
-				}
+		}
+	],
+	"promoCards": [
+		{
+			"identifier": "RedRifleCharacter",
+			"promoIdentifier": "SeeingRedRedRifleCharacter",
+			"count": 1,
+			"title": "Red Rifle",
+			"promoTitle": "Seeing Red Red Rifle",
+			"body": "Head Shot",
+			"icons": [
+				"HasPower",
+				"AddOrRemoveTokens",
+				"PlayCardNow"
+			],
+			"backgroundColor": "F41A18",
+			"foilBackgroundColor": "F41A18",
+			"hitpointsColor": "F41A18",
+			"character": true,
+			"powers": [
+				"Add 2 tokens to your trueshot pool. Play 1 one-shot card. Remove 3 tokens from your trueshot pool."
+			],
+			"hitpoints": 29,
+			"nemesisIdentifiers": [
+				"Apostate"
+			],
+			"incapacitatedAbilities": [
+				"One hero may use a power.",
+				"One player may discard 2 cards. If they do, they may draw 2 cards.",
+				"Destroy a target with 1 HP."
+			],
+			"flippedIcons": [
+				"UsePowerNow",
+				"Discard",
+				"DrawCardNow",
+				"DestroyTarget"
+			],
+			"complexity": 2,
+			"openingLines": {
+				"default": "Oh, you're dead.'"
 			}
-		]
+		}
+	]
 }

@@ -67,6 +67,7 @@ namespace Angille.Theurgy
 
 			// Until the start of their next turn, all damage they deal is that type.
 			DamageType? damageType = storedResults.First((SelectDamageTypeDecision d) => d.Completed).SelectedDamageType;
+
 			ChangeDamageTypeStatusEffect changeDamageTypeStatusEffect = new ChangeDamageTypeStatusEffect(damageType.Value);
 			changeDamageTypeStatusEffect.SourceCriteria.IsSpecificCard = targetHero;
 			changeDamageTypeStatusEffect.UntilStartOfNextTurn(targetHero.Owner);

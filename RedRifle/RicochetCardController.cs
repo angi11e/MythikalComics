@@ -6,9 +6,11 @@ using Handelabra.Sentinels.Engine.Model;
 
 namespace Angille.RedRifle
 {
-	public class RicochetCardController : CardController
+	public class RicochetCardController : RedRifleBaseCardController
 	{
-		// card text here
+		/*
+		 * Whenever {RedRifle} is dealt damage, add 1 token to your trueshot pool.
+		 */
 
 		public RicochetCardController(
 			Card card,
@@ -17,19 +19,17 @@ namespace Angille.RedRifle
 		{
 		}
 
-		public override IEnumerator Play()
-		{
-			yield break;
-		}
-
 		public override void AddTriggers()
 		{
-			base.AddTriggers();
-		}
+			// Whenever {RedRifle} is dealt damage, add 1 token to your trueshot pool.
+			AddTrigger(
+				(DealDamageAction dd) => dd.DidDealDamage && dd.Target == base.CharacterCard,
+				(DealDamageAction dd) => RedRifleTrueshotPoolUtility.AddTrueshotTokens(this, 1),
+				TriggerType.AddTokensToPool,
+				TriggerTiming.After
+			);
 
-		public override IEnumerator UsePower(int index = 0)
-		{
-			yield break;
+			base.AddTriggers();
 		}
 	}
 }

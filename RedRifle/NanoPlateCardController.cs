@@ -6,9 +6,12 @@ using Handelabra.Sentinels.Engine.Model;
 
 namespace Angille.RedRifle
 {
-	public class NanoPlateCardController : CardController
+	public class NanoPlateCardController : RedRifleBaseCardController
 	{
-		// card text here
+		/*
+		 * At the start of your turn either add 2 tokens to your trueshot pool, or {RedRifle} regains 2 HP.
+		 * Reduce damage dealt to {RedRifle} by 1.
+		 */
 
 		public NanoPlateCardController(
 			Card card,
@@ -17,19 +20,54 @@ namespace Angille.RedRifle
 		{
 		}
 
-		public override IEnumerator Play()
-		{
-			yield break;
-		}
-
 		public override void AddTriggers()
 		{
-			base.AddTriggers();
-		}
+			// At the start of your turn either add 2 tokens to your trueshot pool, or {RedRifle} regains 2 HP.
+			List<Function> functionList = new List<Function>();
 
-		public override IEnumerator UsePower(int index = 0)
-		{
-			yield break;
+			// first 2 tokens option
+			functionList.Add(
+				new Function(
+					DecisionMaker,
+					"add 2 tokens to trueshot pool",
+					SelectionType.AddTokens,
+					() => RedRifleTrueshotPoolUtility.AddTrueshotTokens(this, 2)
+				)
+			);
+
+			// ...or regain hp option
+			functionList.Add(
+				new Function(
+					DecisionMaker,
+					"regain 2 HP",
+					SelectionType.GainHP,
+					() => GameController.GainHP(
+						base.CharacterCard,
+						2,
+						cardSource: GetCardSource()
+					)
+				)
+			);
+
+			// ask for which one
+			SelectFunctionDecision selectFunction = new SelectFunctionDecision(
+				GameController,
+				DecisionMaker,
+				functionList,
+				false,
+				cardSource: GetCardSource()
+			);
+
+			AddStartOfTurnTrigger(
+				(TurnTaker tt) => tt == base.TurnTaker,
+				(PhaseChangeAction p) => GameController.SelectAndPerformFunction(selectFunction),
+				new TriggerType[] {TriggerType.AddTokensToPool, TriggerType.GainHP}
+			);
+
+			// Reduce damage dealt to {RedRifle} by 1.
+			AddReduceDamageTrigger((Card c) => c == base.CharacterCard, 1);
+
+			base.AddTriggers();
 		}
 	}
 }

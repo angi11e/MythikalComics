@@ -54,11 +54,13 @@
     <Compile Include="NightMare\NightMareCharacterCardController.cs" />
     <Compile Include="NightMare\NightMareTurnTakerController.cs" />
     <Compile Include="NightMare\ReinedCombatCardController.cs" />
+    <Compile Include="NightMare\ScoishTomboyCardController.cs" />
     <Compile Include="NightMare\StampedeCardController.cs" />
     <Compile Include="NightMare\TwoTrickPonyCardController.cs" />
     <Compile Include="Patina\EmpowerAndRepairCardController.cs" />
     <Compile Include="Patina\EnergyConversionCardController.cs" />
     <Compile Include="Patina\EnergyRedirectionCardController.cs" />
+    <Compile Include="Patina\FishOutOfWaterCardController.cs" />
     <Compile Include="Patina\FocusedApparatusCardController.cs" />
     <Compile Include="Patina\HaltCardController.cs" />
     <Compile Include="Patina\HybridParagonCardController.cs" />
@@ -66,17 +68,25 @@
     <Compile Include="Patina\PatinaCharacterCardController.cs" />
     <Compile Include="Patina\PatinaTurnTakerController.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RedRifle\CalledShotCardController.cs" />
+    <Compile Include="RedRifle\EnergyBurstCardController.cs" />
+    <Compile Include="RedRifle\ExtensionMethods.cs" />
     <Compile Include="RedRifle\FullAutoCardController.cs" />
+    <Compile Include="RedRifle\HairTriggerCardController.cs" />
+    <Compile Include="RedRifle\IndescriminateFabricationCardController.cs" />
     <Compile Include="RedRifle\NanoPlateCardController.cs" />
     <Compile Include="RedRifle\OverclockingCardController.cs" />
     <Compile Include="RedRifle\PoweredShotCardController.cs" />
+    <Compile Include="RedRifle\PreciseShotCardController.cs" />
     <Compile Include="RedRifle\RedRifleBaseCardController.cs" />
+    <Compile Include="RedRifle\SeeingRedRedRifleCharacterCardController.cs" />
     <Compile Include="RedRifle\RedRifleCharacterCardController.cs" />
     <Compile Include="RedRifle\RedRifleTrueshotPoolUtility.cs" />
     <Compile Include="RedRifle\RedRifleTurnTakerController.cs" />
     <Compile Include="RedRifle\RicochetCardController.cs" />
     <Compile Include="RedRifle\SilverTongueCardController.cs" />
     <Compile Include="RedRifle\SituationalAwarenessCardController.cs" />
+    <Compile Include="RedRifle\TechNerdCardController.cs" />
     <Compile Include="RedRifle\YellingInformationCardController.cs" />
     <Compile Include="TheUndersiders\Cards\AdvancePlanningCardController.cs" />
     <Compile Include="TheUndersiders\Cards\AngelicaCardController.cs" />
@@ -127,14 +137,21 @@
     <Compile Include="Theurgy\YoinkCardController.cs" />
     <Compile Include="WhatsHerFace\AceUpHerSleeveCardController.cs" />
     <Compile Include="WhatsHerFace\AntiAntimemeticsCardController.cs" />
+    <Compile Include="WhatsHerFace\CheckYourTargetCardController.cs" />
     <Compile Include="WhatsHerFace\FlourishAndVanishCardController.cs" />
+    <Compile Include="WhatsHerFace\ForgotAboutHerCardController.cs" />
     <Compile Include="WhatsHerFace\JustWhatYouNeededCardController.cs" />
+    <Compile Include="WhatsHerFace\LostAndForgottenCardController.cs" />
     <Compile Include="WhatsHerFace\MissedByThatMuchCardController.cs" />
     <Compile Include="WhatsHerFace\NotQuiteSureWhatThisDoesCardController.cs" />
     <Compile Include="WhatsHerFace\PullThePinsCardController.cs" />
+    <Compile Include="WhatsHerFace\SubtleInfluenceCardController.cs" />
+    <Compile Include="WhatsHerFace\ThoroughAnalysisCardController.cs" />
+    <Compile Include="WhatsHerFace\VisualCalculusCardController.cs" />
     <Compile Include="WhatsHerFace\WatchYourStepCardController.cs" />
     <Compile Include="WhatsHerFace\WhatsHerFaceCharacterCardController.cs" />
     <Compile Include="WhatsHerFace\WhatsHerFaceTurnTakerController.cs" />
+    <Compile Include="WhatsHerFace\WhereDidSheComeFromCardController.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="DeckLists\TheUndersidersDeckList.json" />
@@ -142,6 +159,8 @@
   <ItemGroup>
     <EmbeddedResource Include="DeckLists\TheurgyDeckList.json" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <EmbeddedResource Include="DeckLists\RedRifleDeckList.json" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

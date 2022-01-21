@@ -6,9 +6,12 @@ using Handelabra.Sentinels.Engine.Model;
 
 namespace Angille.RedRifle
 {
-	public class HairTriggerCardController : CardController
+	public class HairTriggerCardController : RedRifleBaseCardController
 	{
-		// card text here
+		/*
+		 * Whenever a non-hero target enters play, {RedRifle} may deal that target 1 projectile damage.
+		 * If that target takes no damage, add 1 token to your trueshot pool.
+		 */
 
 		public HairTriggerCardController(
 			Card card,
@@ -17,18 +20,57 @@ namespace Angille.RedRifle
 		{
 		}
 
-		public override IEnumerator Play()
-		{
-			yield break;
-		}
-
 		public override void AddTriggers()
 		{
+			// Whenever a non-hero target enters play, {RedRifle} may deal that target 1 projectile damage.
+			AddTargetEntersPlayTrigger(
+				(Card c) => !c.IsHero,
+				(Card c) => HairTriggerResponse(c),
+				TriggerType.DealDamage,
+				TriggerTiming.After
+			);
 			base.AddTriggers();
 		}
 
-		public override IEnumerator UsePower(int index = 0)
+		private IEnumerator HairTriggerResponse(Card target)
 		{
+			List<DealDamageAction> storedResults = new List<DealDamageAction>();
+
+			// Whenever a non-hero target enters play, {RedRifle} may deal that target 1 projectile damage.
+			IEnumerator dealDamageCR = DealDamage(
+				base.CharacterCard,
+				target,
+				1,
+				DamageType.Projectile,
+				optional: true,
+				storedResults: storedResults,
+				cardSource: GetCardSource()
+			);
+
+			if (base.UseUnityCoroutines)
+			{
+				yield return base.GameController.StartCoroutine(dealDamageCR);
+			}
+			else
+			{
+				base.GameController.ExhaustCoroutine(dealDamageCR);
+			}
+
+			// If that target takes no damage, add 1 token to your trueshot pool.
+			if (!storedResults.FirstOrDefault().DidDealDamage)
+			{
+				IEnumerator addTokenCR = RedRifleTrueshotPoolUtility.AddTrueshotTokens(this, 1);
+
+				if (base.UseUnityCoroutines)
+				{
+					yield return base.GameController.StartCoroutine(addTokenCR);
+				}
+				else
+				{
+					base.GameController.ExhaustCoroutine(addTokenCR);
+				}
+			}
+
 			yield break;
 		}
 	}
