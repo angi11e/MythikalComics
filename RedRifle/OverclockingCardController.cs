@@ -47,8 +47,8 @@ namespace Angille.RedRifle
 		{
 			// {RedRifle} deals himself 2 energy damage.
 			IEnumerator selfDamageCR = DealDamage(
-				base.Card,
-				base.Card,
+				base.CharacterCard,
+				base.CharacterCard,
 				2,
 				DamageType.Energy
 			);
@@ -81,6 +81,15 @@ namespace Angille.RedRifle
 				cardCriteria: new LinqCardCriteria((Card c) => c.IsOneShot, "one-shot")
 			);
 
+			if (UseUnityCoroutines)
+			{
+				yield return GameController.StartCoroutine(playCardsCR);
+			}
+			else
+			{
+				GameController.ExhaustCoroutine(playCardsCR);
+			}
+
 			// Destroy this card.
 			IEnumerator destructionCR = GameController.DestroyCard(
 				this.DecisionMaker,
@@ -90,12 +99,10 @@ namespace Angille.RedRifle
 
 			if (UseUnityCoroutines)
 			{
-				yield return GameController.StartCoroutine(playCardsCR);
 				yield return GameController.StartCoroutine(destructionCR);
 			}
 			else
 			{
-				GameController.ExhaustCoroutine(playCardsCR);
 				GameController.ExhaustCoroutine(destructionCR);
 			}
 

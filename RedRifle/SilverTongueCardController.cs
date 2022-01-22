@@ -18,14 +18,18 @@ namespace Angille.RedRifle
 		 */
 
 		private ITrigger _reduceDamage;
+		private int? _reduceAmount;
 
 		public SilverTongueCardController(
 			Card card,
 			TurnTakerController turnTakerController
 		) : base(card, turnTakerController)
 		{
+			_reduceDamage = null;
 			base.SpecialStringMaker.ShowTokenPool(base.TrueshotPool);
 		}
+
+		public override bool AllowFastCoroutinesDuringPretend { get => TrueshotPool.CurrentValue < 1; }
 
 		public override IEnumerator Play()
 		{
@@ -67,7 +71,7 @@ namespace Angille.RedRifle
 				(DealDamageAction dd) => ReduceDamageResponse(dd),
 				new TriggerType[] {TriggerType.ModifyTokens, TriggerType.ReduceDamage},
 				TriggerTiming.Before,
-				isActionOptional: true
+				isActionOptional: false
 			);
 			base.AddTriggers();
 		}
@@ -75,11 +79,71 @@ namespace Angille.RedRifle
 		private IEnumerator ReduceDamageResponse(DealDamageAction dd)
 		{
 			// you may remove any number of tokens from your trueshot pool.
+			if (GameController.PretendMode || _reduceAmount == null)
+			{
+				int maxTokens = TrueshotPool.CurrentValue < dd.Amount ? TrueshotPool.CurrentValue : dd.Amount;
+
+				SelectNumberDecision numbers = new SelectNumberDecision(
+					GameController,
+					DecisionMaker,
+					SelectionType.RemoveTokens,
+					0,
+					maxTokens,
+					cardSource: GetCardSource()
+				);
+				IEnumerator numbersCR = GameController.MakeDecisionAction(numbers);
+
+				if (base.UseUnityCoroutines)
+				{
+					yield return base.GameController.StartCoroutine(numbersCR);
+				}
+				else
+				{
+					base.GameController.ExhaustCoroutine(numbersCR);
+				}
+
+				_reduceAmount = numbers?.SelectedNumber ?? maxTokens;
+			}
+
+			int tokensRemoved = _reduceAmount.GetValueOrDefault(0);
+			if (tokensRemoved > 0)
+			{
+				IEnumerator removeTokensCR = RedRifleTrueshotPoolUtility.RemoveTrueshotTokens<GameAction>(this, tokensRemoved);
+
+				IEnumerator reduceDamageCR = GameController.ReduceDamage(
+					dd,
+					tokensRemoved,
+					_reduceDamage,
+					GetCardSource()
+				);
+
+				if (base.UseUnityCoroutines)
+				{
+					yield return base.GameController.StartCoroutine(removeTokensCR);
+					yield return base.GameController.StartCoroutine(reduceDamageCR);
+				}
+				else
+				{
+					base.GameController.ExhaustCoroutine(removeTokensCR);
+					base.GameController.ExhaustCoroutine(reduceDamageCR);
+				}
+			}
+
+			if (!GameController.PretendMode)
+			{
+				_reduceAmount = null;
+			}
+
+			/*
+			List<Card> list = new List<Card>();
+			list.Add(base.CardWithoutReplacements);
+
 			YesNoDecision yesNo = new YesNoDecision(
 				GameController,
 				DecisionMaker,
 				SelectionType.ReduceDamageTaken,
 				gameAction: dd,
+				associatedCards: list,
 				cardSource: GetCardSource()
 			);
 			IEnumerator yesNoCR = GameController.MakeDecisionAction(yesNo);
@@ -95,31 +159,54 @@ namespace Angille.RedRifle
 
 			if (yesNo != null && yesNo.Answer.HasValue && yesNo.Answer.Value)
 			{
-				List<SelectNumberDecision> selectNumberDecisions = new List<SelectNumberDecision>();
 				int maxTokens = TrueshotPool.CurrentValue < dd.Amount ? TrueshotPool.CurrentValue : dd.Amount;
 
-				IEnumerator howManyCR = GameController.SelectNumber(
+				SelectNumberDecision numbers = new SelectNumberDecision(
+					GameController,
 					DecisionMaker,
 					SelectionType.RemoveTokens,
 					1,
 					maxTokens,
-					storedResults: selectNumberDecisions,
 					cardSource: GetCardSource()
 				);
+				IEnumerator numbersCR = GameController.MakeDecisionAction(numbers);
 
 				if (base.UseUnityCoroutines)
 				{
-					yield return base.GameController.StartCoroutine(howManyCR);
+					yield return base.GameController.StartCoroutine(numbersCR);
 				}
 				else
 				{
-					base.GameController.ExhaustCoroutine(howManyCR);
+					base.GameController.ExhaustCoroutine(numbersCR);
 				}
 
-				int tokensRemoved = selectNumberDecisions.FirstOrDefault()?.SelectedNumber ?? 0;
+				int tokensRemoved = numbers?.SelectedNumber ?? maxTokens;
+				*/
+			/*
+			List<SelectNumberDecision> selections = new List<SelectNumberDecision>();
 
-				// Reduce that damage by that amount.
-				if (tokensRemoved > 0)
+			IEnumerator howManyCR = GameController.SelectNumber(
+				DecisionMaker,
+				SelectionType.RemoveTokens,
+				1,
+				maxTokens,
+				storedResults: selections,
+				cardSource: GetCardSource()
+			);
+
+			if (base.UseUnityCoroutines)
+			{
+				yield return base.GameController.StartCoroutine(howManyCR);
+			}
+			else
+			{
+				base.GameController.ExhaustCoroutine(howManyCR);
+			}
+
+			SelectNumberDecision theNumber = selections.FirstOrDefault();
+			int tokensRemoved = theNumber?.SelectedNumber ?? maxTokens;
+			// Reduce that damage by that amount.
+			if (tokensRemoved > 0)
 				{
 					IEnumerator removeTokensCR = RedRifleTrueshotPoolUtility.RemoveTrueshotTokens<GameAction>(this, tokensRemoved);
 
@@ -142,6 +229,7 @@ namespace Angille.RedRifle
 					}
 				}
 			}
+			*/
 
 			yield break;
 		}

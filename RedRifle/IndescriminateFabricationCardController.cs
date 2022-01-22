@@ -30,6 +30,7 @@ namespace Angille.RedRifle
 				new LinqTurnTakerCriteria(tt => GameController.IsTurnTakerVisibleToCardSource(tt,GetCardSource())),
 				SelectionType.RevealTopCardOfDeck,
 				RevealAndDoStuffResponse,
+				allowAutoDecide: true,
 				cardSource: GetCardSource()
 			);
 
@@ -71,7 +72,7 @@ namespace Angille.RedRifle
 			}
 
 			// For each card put into play this way, add 1 token to your trueshot pool.
-			if (storedResults.FirstOrDefault().Destination.IsInPlay)
+			if (storedResults.FirstOrDefault() != null && storedResults.FirstOrDefault().Destination.IsInPlay)
 			{
 				IEnumerator addTokenCR = RedRifleTrueshotPoolUtility.AddTrueshotTokens(this, 1);
 

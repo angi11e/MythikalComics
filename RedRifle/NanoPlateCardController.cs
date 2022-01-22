@@ -20,6 +20,11 @@ namespace Angille.RedRifle
 		{
 		}
 
+		public override bool AllowFastCoroutinesDuringPretend
+		{
+			get => base.CharacterCard.MaximumHitPoints == base.CharacterCard.HitPoints;
+		}
+
 		public override void AddTriggers()
 		{
 			// At the start of your turn either add 2 tokens to your trueshot pool, or {RedRifle} regains 2 HP.
@@ -31,7 +36,7 @@ namespace Angille.RedRifle
 					DecisionMaker,
 					"add 2 tokens to trueshot pool",
 					SelectionType.AddTokens,
-					() => RedRifleTrueshotPoolUtility.AddTrueshotTokens(this, 2)
+					() => AddTrueshotTokens(2)
 				)
 			);
 

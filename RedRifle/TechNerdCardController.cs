@@ -47,28 +47,58 @@ namespace Angille.RedRifle
 				base.GameController.ExhaustCoroutine(discoverCR);
 			}
 
-			// You may play an Ongoing or Equipment card now.
-			List<PlayCardAction> storedResults = new List<PlayCardAction>();
-			IEnumerator playTechCR = SelectAndPlayCardFromHand(
-				base.HeroTurnTakerController,
-				optional: true,
-				storedResults,
-				new LinqCardCriteria((Card c) => c.IsOngoing || IsEquipment(c), "ongoing or equipment card")
+			/*
+			YesNoDecision yesNo = new YesNoDecision(
+				GameController,
+				DecisionMaker,
+				SelectionType.PlayCard,
+				cardSource: GetCardSource()
 			);
+			IEnumerator yesNoCR = GameController.MakeDecisionAction(yesNo);
 
 			if (base.UseUnityCoroutines)
 			{
-				yield return base.GameController.StartCoroutine(playTechCR);
+				yield return base.GameController.StartCoroutine(yesNoCR);
 			}
 			else
 			{
-				base.GameController.ExhaustCoroutine(playTechCR);
+				base.GameController.ExhaustCoroutine(yesNoCR);
 			}
 
-			if (!storedResults.FirstOrDefault().WasCardPlayed)
+			if (yesNo != null && yesNo.Answer.HasValue && yesNo.Answer.Value)
+			{ */
+				List<PlayCardAction> storedResults = new List<PlayCardAction>();
+				// You may play an Ongoing or Equipment card now.
+				IEnumerator playTechCR = SelectAndPlayCardFromHand(
+					base.HeroTurnTakerController,
+					optional: true,
+					storedResults,
+					new LinqCardCriteria((Card c) => c.IsOngoing || IsEquipment(c), "ongoing or equipment card")
+				);
+
+				if (base.UseUnityCoroutines)
+				{
+					yield return base.GameController.StartCoroutine(playTechCR);
+				}
+				else
+				{
+					base.GameController.ExhaustCoroutine(playTechCR);
+				}
+//			}
+
+			if (storedResults.FirstOrDefault() == null || !storedResults.FirstOrDefault().WasCardPlayed)
 			{
 				// If no card entered play this way, add 2 tokens to your trueshot pool
-				IEnumerator addTokensCR = RedRifleTrueshotPoolUtility.AddTrueshotTokens(this, 2);
+				IEnumerator addTokensCR = AddTrueshotTokens(2);
+
+				if (base.UseUnityCoroutines)
+				{
+					yield return base.GameController.StartCoroutine(addTokensCR);
+				}
+				else
+				{
+					base.GameController.ExhaustCoroutine(addTokensCR);
+				}
 
 				// then one hero other than {RedRifle} may draw a card.
 				IEnumerator grantDrawCR = GameController.SelectHeroToDrawCard(
@@ -81,12 +111,10 @@ namespace Angille.RedRifle
 
 				if (base.UseUnityCoroutines)
 				{
-					yield return base.GameController.StartCoroutine(addTokensCR);
 					yield return base.GameController.StartCoroutine(grantDrawCR);
 				}
 				else
 				{
-					base.GameController.ExhaustCoroutine(addTokensCR);
 					base.GameController.ExhaustCoroutine(grantDrawCR);
 				}
 			}

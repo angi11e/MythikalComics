@@ -39,7 +39,7 @@ namespace Angille.RedRifle
 			// {RedRifle} deals each non-hero target 1 energy damage.
 			IEnumerator dealDamageCR = GameController.DealDamage(
 				DecisionMaker,
-				base.Card,
+				base.CharacterCard,
 				(Card c) => !c.IsHero,
 				damageNumeral,
 				DamageType.Energy,

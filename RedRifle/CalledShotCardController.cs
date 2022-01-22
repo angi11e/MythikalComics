@@ -53,6 +53,15 @@ namespace Angille.RedRifle
 				insufficientTokenMessage: "nothing happens."
 			);
 
+			if (UseUnityCoroutines)
+			{
+				yield return GameController.StartCoroutine(addOrRemoveCR);
+			}
+			else
+			{
+				GameController.ExhaustCoroutine(addOrRemoveCR);
+			}
+
 			yield break;
 		}
 

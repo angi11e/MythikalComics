@@ -56,7 +56,6 @@ namespace Angille.RedRifle
 			int damageAmount = GetPowerNumeral(1, 1);
 			int tokensRemoved = 0;
 			string message = null;
-			List<SelectNumberDecision> selectNumberDecisions = new List<SelectNumberDecision>();
 			TokenPool trueshotPool = RedRifleTrueshotPoolUtility.GetTrueshotPool(this);
 
 			// Remove any number of tokens from your trueshot pool.
@@ -87,12 +86,13 @@ namespace Angille.RedRifle
 			}
 			else
 			{
+				List<SelectNumberDecision> tokensToRemove = new List<SelectNumberDecision>();
 				IEnumerator howManyCR = GameController.SelectNumber(
 					DecisionMaker,
 					SelectionType.RemoveTokens,
 					0,
 					trueshotPool.CurrentValue,
-					storedResults: selectNumberDecisions,
+					storedResults: tokensToRemove,
 					cardSource: GetCardSource()
 				);
 
@@ -105,7 +105,7 @@ namespace Angille.RedRifle
 					base.GameController.ExhaustCoroutine(howManyCR);
 				}
 
-				tokensRemoved = selectNumberDecisions.FirstOrDefault()?.SelectedNumber ?? 0;
+				tokensRemoved = tokensToRemove.FirstOrDefault()?.SelectedNumber ?? 0;
 			}
 
 			// For each token removed, increase a numeral in this power by one.
@@ -113,12 +113,13 @@ namespace Angille.RedRifle
 			{
 				IEnumerator removeTokensCR = RedRifleTrueshotPoolUtility.RemoveTrueshotTokens<GameAction>(this, tokensRemoved);
 
+				List<SelectNumberDecision> extraTargetsToHit = new List<SelectNumberDecision>();
 				IEnumerator extraTargetsCR = GameController.SelectNumber(
 					DecisionMaker,
-					SelectionType.ModifyNumeral,
+					SelectionType.MakeTarget,
 					0,
 					tokensRemoved,
-					storedResults: selectNumberDecisions,
+					storedResults: extraTargetsToHit,
 					cardSource: GetCardSource()
 				);
 
@@ -133,7 +134,7 @@ namespace Angille.RedRifle
 					base.GameController.ExhaustCoroutine(extraTargetsCR);
 				}
 
-				extraTargets = selectNumberDecisions.FirstOrDefault()?.SelectedNumber ?? 0;
+				extraTargets = extraTargetsToHit.FirstOrDefault()?.SelectedNumber ?? 0;
 				if (extraTargets > 0)
 				{
 					targetCount += extraTargets;

@@ -33,7 +33,7 @@ namespace Angille.RedRifle
 			// {RedRifle} deals 1 target 1 irreducible projectile damage.
 			IEnumerator dealDamageCR = GameController.SelectTargetsAndDealDamage(
 				DecisionMaker,
-				new DamageSource(GameController, base.Card),
+				new DamageSource(GameController, base.CharacterCard),
 				1,
 				DamageType.Projectile,
 				1,
@@ -95,7 +95,7 @@ namespace Angille.RedRifle
 
 				// If you do so, {RedRifle} deals that target 1 irreducible ENERGYTYPE damage.
 				IEnumerator dealDamageCR = DealDamage(
-					base.Card,
+					base.CharacterCard,
 					target,
 					1,
 					damageType,

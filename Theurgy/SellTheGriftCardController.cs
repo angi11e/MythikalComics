@@ -11,7 +11,8 @@ namespace Angille.Theurgy
 	internal class SellTheGriftCardController : CharmBaseCardController
 	{
 		// Play this card next to a hero character card.
-		// At the start of their turn, they may put a card from their trash into their hand.
+		// At the start of their turn, they may discard a card.
+		//  If they do, they may put a card from their trash into their hand.
 		// That hero gains the following power:
 		// Power: discard any number of cards. You may put up to that many cards from your trash into your hand.
 		//  Destroy this card.
@@ -39,23 +40,46 @@ namespace Angille.Theurgy
 
 		private IEnumerator RecoverCardResponse(PhaseChangeAction phaseChange)
 		{
-			// they may put a card from their trash into their hand.
 			HeroTurnTakerController httc = phaseChange.DecisionMaker;
 
-			IEnumerator recoverCR = GameController.SelectAndMoveCard(
+			// At the start of their turn, they may discard a card.
+			List<DiscardCardAction> storedResults = new List<DiscardCardAction>();
+			IEnumerator discardCR = SelectAndDiscardCards(
 				httc,
-				(Card c) => c.IsInTrash && c.Owner == base.Card.Location.OwnerTurnTaker,
-				base.Card.Location.OwnerTurnTaker.ToHero().Hand,
+				1,
 				optional: true,
-				cardSource: GetCardSource()
+				0,
+				storedResults
 			);
-			if (UseUnityCoroutines)
+
+			if (base.UseUnityCoroutines)
 			{
-				yield return GameController.StartCoroutine(recoverCR);
+				yield return base.GameController.StartCoroutine(discardCR);
 			}
 			else
 			{
-				GameController.ExhaustCoroutine(recoverCR);
+				base.GameController.ExhaustCoroutine(discardCR);
+			}
+
+			int numberOfCards = storedResults.Count();
+			if (numberOfCards > 0)
+			{
+				// If they do, they may put a card from their trash into their hand.
+				IEnumerator recoverCR = GameController.SelectAndMoveCard(
+					httc,
+					(Card c) => c.IsInTrash && c.Owner == base.Card.Location.OwnerTurnTaker,
+					base.Card.Location.OwnerTurnTaker.ToHero().Hand,
+					optional: true,
+					cardSource: GetCardSource()
+				);
+				if (UseUnityCoroutines)
+				{
+					yield return GameController.StartCoroutine(recoverCR);
+				}
+				else
+				{
+					GameController.ExhaustCoroutine(recoverCR);
+				}
 			}
 			yield break;
 		}

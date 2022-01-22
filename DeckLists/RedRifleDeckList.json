@@ -17,6 +17,15 @@
 			"powers": [
 				"Add 1 token to your trueshot pool. Draw a card."
 			],
+			"tokenPools": [
+				{
+					"identifier": "RedRifleTrueshotPool",
+					"name": "Red Rifle's Trueshot Pool",
+					"initialValue": 0,
+					"minimumValue": 0,
+					"color": "D1426D"
+				}
+			],
 			"icons": [
 				"AddTokens",
 				"DrawCardNow"
@@ -336,6 +345,15 @@
 			"title": "Red Rifle",
 			"promoTitle": "Seeing Red Red Rifle",
 			"body": "Head Shot",
+			"tokenPools": [
+				{
+					"identifier": "RedRifleTrueshotPool",
+					"name": "Red Rifle's Trueshot Pool",
+					"initialValue": 0,
+					"minimumValue": 0,
+					"color": "D1426D"
+				}
+			],
 			"icons": [
 				"HasPower",
 				"AddOrRemoveTokens",

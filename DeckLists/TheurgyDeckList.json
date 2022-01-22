@@ -71,7 +71,7 @@
 				"Play this card next to a hero character card.",
 				"At the start of their turn, they may select a damage type. Until the start of their next turn, all damage they deal is that type.",
 				"That hero gains the following power:",
-				"[b]Power:[/b] Play 1 card or use 1 power. All{BR}damage is irreducible until this card leaves play.{BR}destroy [i]Convert the Energy[/i]."
+				"[b]Power:[/b] Play 1 card or use 1 power. All damage is irreducible until this card leaves play. destroy [i]Convert the Energy[/i]."
 			],
 			"icons": [
 				"StartOfTurnAction",
@@ -156,7 +156,7 @@
 				"Play this card next to a hero character card.",
 				"At the start of that hero's turn, their player may draw a card.",
 				"That hero gains the following power:",
-				"[b]Power:[/b] Reveal the top 4 cards of your deck.{BR}	Put 1 in your hand. Put 1 on top of your deck.{BR}	Play 1. Discard the rest.{BR}	Destroy [i]Follow the Path[/i]."
+				"[b]Power:[/b] Reveal the top 4 cards of your deck. Put 1 in your hand. Put 1 on top of your deck. Play 1. Discard the rest. Destroy [i]Follow the Path[/i]."
 			],
 			"icons": [
 				"StartOfTurnAction",
@@ -179,7 +179,7 @@
 				"Play this card next to a hero character card.",
 				"increase damage dealt by hero targets in that hero's play area by 1.",
 				"That hero gains the following power:",
-				"[b]Power:[/b] this hero deals 1 target 5 melee or projectile damage.{BR}	Destroy [i]Guide the Strike[/i]."
+				"[b]Power:[/b] this hero deals 1 target 5 melee or projectile damage. Destroy [i]Guide the Strike[/i]."
 			],
 			"icons": [
 				"IncreaseDamageDealt",
@@ -237,9 +237,9 @@
 			],
 			"body": [
 				"Play this card next to a hero character card.",
-				"At the start of their turn, they may put a card from their trash into their hand.",
+				"At the start of their turn, they may discard a card. If they do, they may put a card from their trash into their hand.",
 				"That hero gains the following power:",
-				"[b]Power:[/b] Discard any number of cards.{BR}	You may move up to that many cards from your trash into your hand.{BR}	You may play 1 card. Destroy [i]Sell the Grift[/i]."
+				"[b]Power:[/b] Discard any number of cards. You may move up to that many cards from your trash into your hand. You may play 1 card. Destroy [i]Sell the Grift[/i]."
 			],
 			"icons": [
 				"Manipulation",
@@ -323,7 +323,7 @@
 				"Play this card next to a hero character card.",
 				"Reduce damage taken by hero targets in that hero's play area by 1.",
 				"That hero gains the following power:",
-				"[b]Power:[/b] this hero regains 5 hp.{BR}	All other hero targets regain 1 hp.{BR}	Destroy [i]Weather the Hits[/i]."
+				"[b]Power:[/b] this hero regains 5 hp. All other hero targets regain 1 hp. Destroy [i]Weather the Hits[/i]."
 			],
 			"icons": [
 				"ReduceDamageTaken",
