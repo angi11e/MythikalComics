@@ -47,44 +47,37 @@ namespace Angille.RedRifle
 				base.GameController.ExhaustCoroutine(discoverCR);
 			}
 
-			/*
-			YesNoDecision yesNo = new YesNoDecision(
-				GameController,
-				DecisionMaker,
-				SelectionType.PlayCard,
-				cardSource: GetCardSource()
+			IEnumerator cleanupCR = CleanupCardsAtLocations(
+				new List<Location>() { base.TurnTaker.Revealed },
+				base.TurnTaker.Deck
 			);
-			IEnumerator yesNoCR = GameController.MakeDecisionAction(yesNo);
-
 			if (base.UseUnityCoroutines)
 			{
-				yield return base.GameController.StartCoroutine(yesNoCR);
+				yield return base.GameController.StartCoroutine(cleanupCR);
 			}
 			else
 			{
-				base.GameController.ExhaustCoroutine(yesNoCR);
+				base.GameController.ExhaustCoroutine(cleanupCR);
 			}
 
-			if (yesNo != null && yesNo.Answer.HasValue && yesNo.Answer.Value)
-			{ */
-				List<PlayCardAction> storedResults = new List<PlayCardAction>();
-				// You may play an Ongoing or Equipment card now.
-				IEnumerator playTechCR = SelectAndPlayCardFromHand(
-					base.HeroTurnTakerController,
-					optional: true,
-					storedResults,
-					new LinqCardCriteria((Card c) => c.IsOngoing || IsEquipment(c), "ongoing or equipment card")
-				);
+			List<PlayCardAction> storedResults = new List<PlayCardAction>();
+			// You may play an Ongoing or Equipment card now.
+			IEnumerator playTechCR = SelectAndPlayCardFromHand(
+				base.HeroTurnTakerController,
+				optional: true,
+				storedResults,
+				new LinqCardCriteria((Card c) => c.IsOngoing || IsEquipment(c), "ongoing or equipment card"),
+				associateCardSource: true
+			);
 
-				if (base.UseUnityCoroutines)
-				{
-					yield return base.GameController.StartCoroutine(playTechCR);
-				}
-				else
-				{
-					base.GameController.ExhaustCoroutine(playTechCR);
-				}
-//			}
+			if (base.UseUnityCoroutines)
+			{
+				yield return base.GameController.StartCoroutine(playTechCR);
+			}
+			else
+			{
+				base.GameController.ExhaustCoroutine(playTechCR);
+			}
 
 			if (storedResults.FirstOrDefault() == null || !storedResults.FirstOrDefault().WasCardPlayed)
 			{

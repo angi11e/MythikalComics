@@ -14,8 +14,8 @@ namespace Angille.Theurgy
 		// At the start of their turn, they may discard a card.
 		//  If they do, they may put a card from their trash into their hand.
 		// That hero gains the following power:
-		// Power: discard any number of cards. You may put up to that many cards from your trash into your hand.
-		//  Destroy this card.
+		// Power: discard any number of cards. Move up to that many cards from your trash to your hand.
+		//  Play 1 card. Destroy Sell the Grift.
 
 		public SellTheGriftCardController(
 			Card card,
@@ -24,7 +24,7 @@ namespace Angille.Theurgy
 		{
 		}
 
-		protected override string CharmPowerText => "Discard any number of cards. You may move up to that many cards from your trash into your hand. Destroy Sell the Grift.";
+		protected override string CharmPowerText => "Discard any number of cards. Move up to that many cards from your trash to your hand. Play 1 card. Destroy Sell the Grift.";
 
 		public override void AddTriggers()
 		{
@@ -40,7 +40,7 @@ namespace Angille.Theurgy
 
 		private IEnumerator RecoverCardResponse(PhaseChangeAction phaseChange)
 		{
-			HeroTurnTakerController httc = phaseChange.DecisionMaker;
+			HeroTurnTakerController httc = FindHeroTurnTakerController(base.Card.Location.OwnerTurnTaker.ToHero());
 
 			// At the start of their turn, they may discard a card.
 			List<DiscardCardAction> storedResults = new List<DiscardCardAction>();
@@ -135,6 +135,17 @@ namespace Angille.Theurgy
 			else
 			{
 				GameController.ExhaustCoroutine(recoverCR);
+			}
+
+			// Play 1 card.
+			IEnumerator playCardCR = SelectAndPlayCardFromHand(httc, false);
+			if (base.UseUnityCoroutines)
+			{
+				yield return base.GameController.StartCoroutine(playCardCR);
+			}
+			else
+			{
+				base.GameController.ExhaustCoroutine(playCardCR);
 			}
 
 			// destroy this card.

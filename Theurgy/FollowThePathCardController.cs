@@ -25,31 +25,14 @@ namespace Angille.Theurgy
 
 		public override void AddTriggers()
 		{
-			base.AddTriggers();
-
 			// At the start of that hero's turn, their player may draw a card.
 			AddStartOfTurnTrigger(
 				(TurnTaker tt) => tt == base.Card.Location.OwnerTurnTaker,
 				(PhaseChangeAction p) => DrawCard(base.Card.Location.OwnerTurnTaker.ToHero(), true),
 				TriggerType.DrawCard
 			);
-		}
 
-		private IEnumerator DrawCardResponse(PhaseChangeAction p)
-		{
-			IEnumerator drawCR = DrawCard(
-				p.DecisionMaker.HeroTurnTaker,
-				true
-			);
-			if (UseUnityCoroutines)
-			{
-				yield return GameController.StartCoroutine(drawCR);
-			}
-			else
-			{
-				GameController.ExhaustCoroutine(drawCR);
-			}
-			yield break;
+			base.AddTriggers();
 		}
 
 		protected override IEnumerator CharmPowerResponse(CardController cc)

@@ -9,12 +9,12 @@ namespace Angille.RedRifle
 	public class FullAutoCardController : RedRifleBaseCardController
 	{
 		/*
-		 * At the start of your turn, add 2 tokens to your trueshot pool.
+		 * At the start of your turn, add 1 token to your trueshot pool.
 		 * At the end of your turn, if you have fewer than 5 tokens in your trueshot pool, destroy this card.
 		 * 
 		 * POWER
 		 * Remove any number of tokens from your trueshot pool.
-		 * For each token you removed, you may increase one of the numerals in this power by one.
+		 * For each token removed, increase a numeral in this power by one.
 		 * {RedRifle} deals up to 1 target 1 projectile damage.
 		 */
 
@@ -28,10 +28,10 @@ namespace Angille.RedRifle
 
 		public override void AddTriggers()
 		{
-			// At the start of your turn, add 2 tokens to your trueshot pool.
+			// At the start of your turn, add 1 token to your trueshot pool.
 			AddStartOfTurnTrigger(
 				(TurnTaker tt) => tt == base.TurnTaker,
-				(PhaseChangeAction p) => RedRifleTrueshotPoolUtility.AddTrueshotTokens(this, 2),
+				(PhaseChangeAction p) => RedRifleTrueshotPoolUtility.AddTrueshotTokens(this, 1),
 				TriggerType.AddTokensToPool
 			);
 

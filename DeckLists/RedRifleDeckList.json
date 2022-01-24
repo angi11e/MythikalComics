@@ -27,6 +27,7 @@
 				}
 			],
 			"icons": [
+				"HasPower",
 				"AddTokens",
 				"DrawCardNow"
 			],
@@ -51,7 +52,7 @@
 		},
 		{
 			"identifier": "CalledShot",
-			"count": 3,
+			"count": 4,
 			"title": "Called Shot",
 			"keywords": [
 				"one-shot"
@@ -92,20 +93,21 @@
 		},
 		{
 			"identifier": "FullAuto",
-			"count": 3,
+			"count": 2,
 			"title": "Full Auto",
 			"keywords": [
 				"ongoing",
 				"limited"
 			],
 			"body": [
-				"At the start of your turn, add 2 tokens to your trueshot pool.",
-				"At the end of your turn, if you have fewer than 5 tokens in your trueshot pool, destroy this card."
+				"At the start of your turn, add 1 token to your trueshot pool.",
+				"At the end of your turn, if your trueshot pool is smaller than 5, destroy this card."
 			],
 			"powers": [
 				"Remove any number of tokens from your trueshot pool. For each token removed, increase a numeral in this power by one. {RedRifle} deals up to 1 target 1 projectile damage."
 			],
 			"icons": [
+				"HasPower",
 				"AddOrRemoveTokens",
 				"DestroySelf",
 				"DealDamageProjectile"
@@ -160,21 +162,20 @@
 				"limited"
 			],
 			"body": [
-				"At the start of your turn either add 2 tokens to your trueshot pool, or {RedRifle} regains 2 HP.",
-				"Reduce damage dealt to {RedRifle} by 1."
+				"Reduce damage dealt to {RedRifle} by 1.",
+				"At the start of your turn either add 1 token to your trueshot pool, or {RedRifle} gains 1 HP."
 			],
 			"icons": [
 				"AddTokens",
 				"GainHP",
-				"ReduceDamageTaken",
-				""
+				"ReduceDamageTaken"
 			],
 			"flavorText": "“”",
 			"flavorReference": ""
 		},
 		{
 			"identifier": "Overclocking",
-			"count": 3,
+			"count": 2,
 			"title": "Overclocking",
 			"keywords": [
 				"equipment",
@@ -189,8 +190,8 @@
 			],
 			"icons": [
 				"IncreaseDamageDealt",
+				"HasPower",
 				"PlayCardNow",
-				"DestroySelf",
 				"AddTokens"
 			],
 			"flavorText": "“”",
@@ -204,10 +205,9 @@
 				"one-shot"
 			],
 			"body": [
-				"{RedRifle} deals 1 target 1 irreducible projectile damage.",
-				"Remove 2 tokens from your trueshot pool. If you do so, {RedRifle} deals that target 1 irreducible energy damage.",
-				"Remove 2 tokens from your trueshot pool. If you do so, {RedRifle} deals that target 1 irreducible sonic damage.",
-				"Remove 2 tokens from your trueshot pool. If you do so, {RedRifle} deals that target 1 irreducible radiant damage."
+				"Remove up to 8 tokens from your trueshot pool and choose a target.",
+				"For every 2 tokens removed, {RedRifle} deals that target 1 irreducible damage.",
+				"That damage is projectile, energy, sonic, and radiant, in that order."
 			],
 			"icons": [
 				"MakeDamageIrreducible",
@@ -219,7 +219,7 @@
 		},
 		{
 			"identifier": "PreciseShot",
-			"count": 3,
+			"count": 4,
 			"title": "Precise Shot",
 			"keywords": [
 				"one-shot"
@@ -253,7 +253,7 @@
 		},
 		{
 			"identifier": "SilverTongue",
-			"count": 3,
+			"count": 2,
 			"title": "Silver Tongue",
 			"keywords": [
 				"ongoing",
@@ -294,7 +294,7 @@
 		},
 		{
 			"identifier": "TechNerd",
-			"count": 3,
+			"count": 4,
 			"title": "Tech Nerd",
 			"keywords": [
 				"one-shot"

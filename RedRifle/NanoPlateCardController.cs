@@ -9,7 +9,7 @@ namespace Angille.RedRifle
 	public class NanoPlateCardController : RedRifleBaseCardController
 	{
 		/*
-		 * At the start of your turn either add 2 tokens to your trueshot pool, or {RedRifle} regains 2 HP.
+		 * At the start of your turn either add 1 token to your trueshot pool, or {RedRifle} regains 1 HP.
 		 * Reduce damage dealt to {RedRifle} by 1.
 		 */
 
@@ -27,16 +27,32 @@ namespace Angille.RedRifle
 
 		public override void AddTriggers()
 		{
-			// At the start of your turn either add 2 tokens to your trueshot pool, or {RedRifle} regains 2 HP.
+			// At the start of your turn either add 1 tokens to your trueshot pool, or {RedRifle} regains 1 HP.
+			// moved to its own function, because the gamestate inadvertantly "remembers" your very first choice
+			AddStartOfTurnTrigger(
+				(TurnTaker tt) => tt == base.TurnTaker,
+				(PhaseChangeAction p) => ChooseOneResponse(p),
+				new TriggerType[] {TriggerType.AddTokensToPool, TriggerType.GainHP}
+			);
+
+			// Reduce damage dealt to {RedRifle} by 1.
+			AddReduceDamageTrigger((Card c) => c == base.CharacterCard, 1);
+
+			base.AddTriggers();
+		}
+
+		private IEnumerator ChooseOneResponse(PhaseChangeAction p)
+		{
+			// At the start of your turn either add 1 tokens to your trueshot pool, or {RedRifle} regains 1 HP.
 			List<Function> functionList = new List<Function>();
 
 			// first 2 tokens option
 			functionList.Add(
 				new Function(
 					DecisionMaker,
-					"add 2 tokens to trueshot pool",
+					"add 1 token to trueshot pool",
 					SelectionType.AddTokens,
-					() => AddTrueshotTokens(2)
+					() => AddTrueshotTokens(1)
 				)
 			);
 
@@ -44,11 +60,11 @@ namespace Angille.RedRifle
 			functionList.Add(
 				new Function(
 					DecisionMaker,
-					"regain 2 HP",
+					"regain 1 HP",
 					SelectionType.GainHP,
 					() => GameController.GainHP(
 						base.CharacterCard,
-						2,
+						1,
 						cardSource: GetCardSource()
 					)
 				)
@@ -63,16 +79,17 @@ namespace Angille.RedRifle
 				cardSource: GetCardSource()
 			);
 
-			AddStartOfTurnTrigger(
-				(TurnTaker tt) => tt == base.TurnTaker,
-				(PhaseChangeAction p) => GameController.SelectAndPerformFunction(selectFunction),
-				new TriggerType[] {TriggerType.AddTokensToPool, TriggerType.GainHP}
-			);
+			IEnumerator chooseCR = GameController.SelectAndPerformFunction(selectFunction);
+			if (base.UseUnityCoroutines)
+			{
+				yield return base.GameController.StartCoroutine(chooseCR);
+			}
+			else
+			{
+				base.GameController.ExhaustCoroutine(chooseCR);
+			}
 
-			// Reduce damage dealt to {RedRifle} by 1.
-			AddReduceDamageTrigger((Card c) => c == base.CharacterCard, 1);
-
-			base.AddTriggers();
+			yield break;
 		}
 	}
 }
