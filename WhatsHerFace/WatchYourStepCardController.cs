@@ -6,9 +6,11 @@ using Handelabra.Sentinels.Engine.Model;
 
 namespace Angille.WhatsHerFace
 {
-	public class WatchYourStepCardController : CardController
+	public class WatchYourStepCardController : WhatsHerFaceBaseCardController
 	{
-		// card text here
+		/*
+		 * One target deals itself 2 Melee damage, plus 2 per [u]recall[/u] card next to it.
+		 */
 
 		public WatchYourStepCardController(
 			Card card,
@@ -19,16 +21,48 @@ namespace Angille.WhatsHerFace
 
 		public override IEnumerator Play()
 		{
-			yield break;
-		}
+			// One target deals itself 2 Melee damage, plus 2 per [u]recall[/u] card next to it.
+			List<SelectCardDecision> storedResult = new List<SelectCardDecision>();
+			IEnumerator pickTargetCR = GameController.SelectCardAndStoreResults(
+				DecisionMaker,
+				SelectionType.DealDamageSelf,
+				new LinqCardCriteria((Card c) => c.IsTarget && c.IsInPlay, "target", useCardsSuffix: false),
+				storedResult,
+				optional: false,
+				cardSource: GetCardSource()
+			);
 
-		public override void AddTriggers()
-		{
-			base.AddTriggers();
-		}
+			if (base.UseUnityCoroutines)
+			{
+				yield return base.GameController.StartCoroutine(pickTargetCR);
+			}
+			else
+			{
+				base.GameController.ExhaustCoroutine(pickTargetCR);
+			}
 
-		public override IEnumerator UsePower(int index = 0)
-		{
+			SelectCardDecision selection = storedResult.FirstOrDefault();
+			if (selection != null && selection.SelectedCard != null)
+			{
+				Card theTarget = selection.SelectedCard;
+				int recallCount = theTarget.NextToLocation.Cards.Where(c => IsRecall(c)).Count();
+
+				IEnumerator selfDamageCR = DealDamage(
+					theTarget,
+					theTarget,
+					2 * (recallCount + 1),
+					DamageType.Melee
+				);
+				if (base.UseUnityCoroutines)
+				{
+					yield return base.GameController.StartCoroutine(selfDamageCR);
+				}
+				else
+				{
+					base.GameController.ExhaustCoroutine(selfDamageCR);
+				}
+			}
+
 			yield break;
 		}
 	}

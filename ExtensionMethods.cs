@@ -7,7 +7,7 @@ using System.Data;
 using System.Linq;
 using Handelabra;
 
-namespace Angille.RedRifle
+namespace Angille
 {
 	public static class ExtensionMethods
 	{
@@ -34,5 +34,12 @@ namespace Angille.RedRifle
 				tokenPools[0] = newFirst;
 			}
 		}
+
+		/* ended up putting this in a BaseCardController instead
+		public static IEnumerator DiscardResponse(this CardController card)
+		{
+			yield break;
+		}
+		*/
 	}
 }

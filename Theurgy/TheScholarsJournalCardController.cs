@@ -123,10 +123,24 @@ namespace Angille.Theurgy
 			}
 
 			// remove this card from the game
-			d.OverridePostDestroyDestination(
+			IEnumerator cancelCR = CancelAction(d, false);
+			IEnumerator moveThisCardCR = GameController.MoveCard(
+				base.TurnTakerController,
+				base.Card,
 				base.TurnTaker.OutOfGame,
 				cardSource: GetCardSource()
 			);
+
+			if (base.UseUnityCoroutines)
+			{
+				yield return base.GameController.StartCoroutine(cancelCR);
+				yield return base.GameController.StartCoroutine(moveThisCardCR);
+			}
+			else
+			{
+				base.GameController.ExhaustCoroutine(cancelCR);
+				base.GameController.ExhaustCoroutine(moveThisCardCR);
+			}
 
 			yield break;
 		}

@@ -368,7 +368,7 @@
 			],
 			"hitpoints": 29,
 			"nemesisIdentifiers": [
-				"Apostate"
+				"Fanatic"
 			],
 			"incapacitatedAbilities": [
 				"One hero may use a power.",
@@ -383,7 +383,7 @@
 			],
 			"complexity": 2,
 			"openingLines": {
-				"default": "Oh, you're dead.'"
+				"default": "Oh, you're dead."
 			}
 		}
 	]

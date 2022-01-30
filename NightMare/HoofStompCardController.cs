@@ -6,9 +6,15 @@ using Handelabra.Sentinels.Engine.Model;
 
 namespace Angille.NightMare
 {
-	public class HoofStompCardController : CardController
+	public class HoofStompCardController : NightMareBaseCardController
 	{
-		// card text here
+		/*
+		 * {NightMare} deals each non-Hero Target 1 Sonic Damage.
+		 * Targets dealt damage this way deal themselves 1 Melee Damage.
+		 * 
+		 * DISCARD
+		 * Until the start of your next turn, increase the damage {NightMare} deals to targets at full HP by 3.
+		 */
 
 		public HoofStompCardController(
 			Card card,
@@ -19,16 +25,66 @@ namespace Angille.NightMare
 
 		public override IEnumerator Play()
 		{
+			// {NightMare} deals each non-Hero Target 1 Sonic Damage.
+			List<DealDamageAction> storedResults = new List<DealDamageAction>();
+			IEnumerator damageCR = DealDamage(
+				base.CharacterCard,
+				(Card c) => !c.IsHero,
+				1,
+				DamageType.Sonic,
+				storedResults: storedResults
+			);
+
+			if (UseUnityCoroutines)
+			{
+				yield return GameController.StartCoroutine(damageCR);
+			}
+			else
+			{
+				GameController.ExhaustCoroutine(damageCR);
+			}
+
+			// Targets dealt damage this way deal themselves 1 Melee Damage.
+			List<Card> retargets = (from dd in storedResults where dd.DidDealDamage select dd.Target).Distinct().ToList();
+			IEnumerator selfDamageCR = GameController.DealDamageToSelf(
+				DecisionMaker,
+				(Card c) => retargets.Contains(c),
+				1,
+				DamageType.Melee,
+				cardSource: GetCardSource()
+			);
+
+			if (UseUnityCoroutines)
+			{
+				yield return GameController.StartCoroutine(selfDamageCR);
+			}
+			else
+			{
+				GameController.ExhaustCoroutine(selfDamageCR);
+			}
+
 			yield break;
 		}
 
-		public override void AddTriggers()
+		protected override IEnumerator DiscardResponse(GameAction ga)
 		{
-			base.AddTriggers();
-		}
+			// Until the start of your next turn, increase the damage {NightMare} deals to targets at full HP by 3.
+			IncreaseDamageStatusEffect increaseDamageSE = new IncreaseDamageStatusEffect(3);
+			increaseDamageSE.TargetCriteria.HasMaxHitPoints = true;
+			increaseDamageSE.SourceCriteria.IsSpecificCard = base.CharacterCard;
+			increaseDamageSE.UntilStartOfNextTurn(TurnTaker);
 
-		public override IEnumerator UsePower(int index = 0)
-		{
+			IEnumerator increaseDamageCR = AddStatusEffect(increaseDamageSE);
+
+			if (UseUnityCoroutines)
+			{
+				yield return GameController.StartCoroutine(increaseDamageCR);
+			}
+			else
+			{
+				GameController.ExhaustCoroutine(increaseDamageCR);
+			}
+
 			yield break;
 		}
 	}

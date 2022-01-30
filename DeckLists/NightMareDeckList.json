@@ -1,0 +1,409 @@
+﻿{
+	"name": "NightMare",
+	"kind": "Hero",
+	"initialCardIdentifiers": [
+		"NightMareCharacter"
+	],
+	"cards": [
+		{
+			"identifier": "NightMareCharacter",
+			"count": 1,
+			"title": "NightMare",
+			"body": "Canter",
+			"backgroundColor": "302E71",
+			"foilBackgroundColor": "302E71",
+			"hitpointsColor": "302E71",
+			"character": true,
+			"powers": [
+				"Draw a card. Discard a card. Deal 1 target 1 Melee damage."
+			],
+			"icons": [
+				"HasPower",
+				"DrawCardNow",
+				"Discard",
+				"DealDamageMelee"
+			],
+			"hitpoints": 31,
+			"nemesisIdentifiers": [
+				"MrFixer"
+			],
+			"incapacitatedAbilities": [
+				"One player may draw a card.",
+				"Destroy a target with 1 HP.",
+				"Select a Hero. Increase the next Damage dealt by that hero by 2."
+			],
+			"flippedIcons": [
+				"DrawCardNow",
+				"DestroyTarget",
+				"IncreaseDamageDealt"
+			],
+			"openingLines": {
+				"default": ""
+			},
+			"complexity": 1
+		},
+		{
+			"identifier": "BringAnother",
+			"count": 3,
+			"title": "Bring Another",
+			"keywords": [
+				"ongoing",
+				"limited"
+			],
+			"body": [
+				"Whenever {NightMare} destroys a target, she may deal 1 target 2 Melee damage. Discard the top card of your deck."
+			],
+			"activatableAbilities": [
+				{
+					"name": "discard",
+					"text": "Reveal the top card of the villain deck. If it is a target, put it into play and increase the next damage {NightMare} deals it by 3. Otherwise, discard it."
+				}
+			],
+			"icons": [
+				"DealDamageMelee",
+				"Discard",
+				"Manipulate"
+			],
+			"flavorText": "“”",
+			"flavorReference": ""
+		},
+		{
+			"identifier": "CowabungaItIs",
+			"count": 4,
+			"title": "Cowabunga it is!",
+			"keywords": [
+				"one-shot"
+			],
+			"body": [
+				"{NightMare} deals up to 3 targets 2 Melee damage each."
+			],
+			"activatableAbilities": [
+				{
+					"name": "discard",
+					"text": "Select a card from your trash and discard it."
+				}
+			],
+			"icons": [
+				"DealDamageMelee",
+				"Manipulate",
+				"Discard"
+			],
+			"flavorText": "“”",
+			"flavorReference": ""
+		},
+		{
+			"identifier": "DynamicEntry",
+			"count": 4,
+			"title": "Dynamic Entry",
+			"keywords": [
+				"one-shot"
+			],
+			"body": [
+				"Destroy an environment card."
+			],
+			"activatableAbilities": [
+				{
+					"name": "discard",
+					"text": "Destroy an ongoing card."
+				}
+			],
+			"icons": [
+				"DestroyEnvironment",
+				"DestroyOngoing"
+			],
+			"flavorText": "“”",
+			"flavorReference": ""
+		},
+		{
+			"identifier": "HoldYerHorses",
+			"count": 3,
+			"title": "Hold Yer Horses",
+			"keywords": [
+				"ongoing",
+				"limited"
+			],
+			"body": [
+				"Reduce damage taken by {NightMare} by 1.",
+				"When any damage is redirected to {NightMare}, reduce it by 1."
+			],
+			"powers": [
+				"{NightMare} deals 1 target 1 Melee damage. Targets dealt Damage this way cannot deal Damage until the start of your next turn."
+			],
+			"activatableAbilities": [
+				{
+					"name": "discard",
+					"text": "One hero target regains 1 HP."
+				}
+			],
+			"icons": [
+				"HasPower",
+				"ReduceDamageTaken",
+				"DealDamageMelee",
+				"CannotDealDamage"
+			],
+			"flavorText": "“”",
+			"flavorReference": ""
+		},
+		{
+			"identifier": "HoofLoose",
+			"count": 3,
+			"title": "Hoof Loose",
+			"keywords": [
+				"ongoing",
+				"limited"
+			],
+			"body": [
+				"When this card enters play, draw 2 cards.",
+				"If {NightMare} would be dealt 3 or more Damage from a single source, reduce it by 3, then destroy this card."
+			],
+			"activatableAbilities": [
+				{
+					"name": "discard",
+					"text": "Draw 1 card."
+				}
+			],
+			"icons": [
+				"DrawCardNow",
+				"ReduceDamageTaken",
+				"DestroySelf"
+			],
+			"flavorText": "“”",
+			"flavorReference": ""
+		},
+		{
+			"identifier": "HoofStomp",
+			"count": 4,
+			"title": "Hoof Stomp",
+			"keywords": [
+				"one-shot"
+			],
+			"body": [
+				"{NightMare} deals each non-Hero Target 1 Sonic Damage. Targets dealt damage this way deal themselves 1 Melee Damage."
+			],
+			"activatableAbilities": [
+				{
+					"name": "discard",
+					"text": "Until the start of your next turn, increase the damage {NightMare} deals to targets at full HP by 3."
+				}
+			],
+			"icons": [
+				"DealDamageSonic",
+				"DealDamageMelee"
+			],
+			"flavorText": "“”",
+			"flavorReference": ""
+		},
+		{
+			"identifier": "HotToTrot",
+			"count": 3,
+			"title": "Hot To Trot",
+			"keywords": [
+				"ongoing",
+				"limited"
+			],
+			"body": [
+				"When this card enters play, {NightMare} deals 1 target 1 Melee damage.",
+				"If {NightMare} would be dealt irreducible damage, prevent that damage, then {NightMare} deals herself that much infernal damage."
+			],
+			"powers": [
+				"Draw 2 cards. Discard 1."
+			],
+			"activatableAbilities": [
+				{
+					"name": "discard",
+					"text": "Choose a hero target. Reduce the next damage that would be dealt to that target by 2."
+				}
+			],
+			"icons": [
+				"HasPower",
+				"DealDamageMelee",
+				"CancelledDamageGreen",
+				"DrawCardNow"
+			],
+			"flavorText": "“”",
+			"flavorReference": ""
+		},
+		{
+			"identifier": "KelpieMagic",
+			"count": 3,
+			"title": "Kelpie Magic",
+			"keywords": [
+				"ongoing",
+				"limited"
+			],
+			"body": [
+				"increase damage dealt by {NightMare} by 1.",
+				"If {NightMare} would deal melee damage, change its type to infernal."
+			],
+			"powers": [
+				"Draw 1 card. Discard 1 card. Play 1 card."
+			],
+			"activatableAbilities": [
+				{
+					"name": "discard",
+					"text": "Play a card."
+				}
+			],
+			"icons": [
+				"HasPower",
+				"IncreaseDamageDealt",
+				"DrawCardNow",
+				"PlayCardNow"
+			],
+			"flavorText": "“”",
+			"flavorReference": ""
+		},
+		{
+			"identifier": "ManoACasco",
+			"count": 3,
+			"title": "Mano a Casco",
+			"keywords": [
+				"ongoing",
+				"limited"
+			],
+			"body": [
+				"Play this card next to a non-Hero target.",
+				"Damage dealt to that target is irreducible. Damage dealt by that target is irreducible and redirected to {NightMare}.",
+				"At the start of your turn, you may destroy this card."
+			],
+			"activatableAbilities": [
+				{
+					"name": "discard",
+					"text": "Choose a target. Until the start of your next turn, damage dealt by and to that target is irreducible."
+				}
+			],
+			"icons": [
+				"HasPower",
+				"MakeDamageIrreducible",
+				"RedirectDamage",
+				"DealDamageMelee"
+			],
+			"flavorText": "“”",
+			"flavorReference": ""
+		},
+		{
+			"identifier": "ReinedCombat",
+			"count": 3,
+			"title": "Reined Combat",
+			"keywords": [
+				"equipment",
+				"limited"
+			],
+			"body": [
+				"When this card enters play, Draw a card then Discard a card."
+			],
+			"powers": [
+				"{NightMare} deals 1 target 5 Melee damage. increase the next damage dealt by that target by 5."
+			],
+			"activatableAbilities": [
+				{
+					"name": "discard",
+					"text": "increase damage dealt by {NightMare} by 1 until the start of your next turn."
+				}
+			],
+			"icons": [
+				"HasPower",
+				"DrawCardNow",
+				"DealDamageMelee",
+				"ReduceDamageTaken"
+			],
+			"flavorText": "“”",
+			"flavorReference": ""
+		},
+		{
+			"identifier": "Stampede",
+			"count": 4,
+			"title": "Stampede",
+			"keywords": [
+				"one-shot"
+			],
+			"body": [
+				"{NightMare} deals each non-Hero Target 1 Melee Damage.",
+				"{NightMare} deals each non-Hero Target with 1 HP 1 infernal damage."
+			],
+			"activatableAbilities": [
+				{
+					"name": "discard",
+					"text": "Destroy a target with 1 HP."
+				}
+			],
+			"icons": [
+				"DealDamageMelee",
+				"DealDamageInfernal"
+			],
+			"flavorText": "“”",
+			"flavorReference": ""
+		},
+		{
+			"identifier": "TwoTrickPony",
+			"count": 3,
+			"title": "Two-Trick Pony",
+			"keywords": [
+				"ongoing",
+				"limited"
+			],
+			"body": [
+				"Whenever you use a power, draw a card.",
+				"Whenever you play a card, draw a card."
+			],
+			"powers": [
+				"Discard 1 card. Play 1 card."
+			],
+			"activatableAbilities": [
+				{
+					"name": "discard",
+					"text": "You may return this card to your hand."
+				}
+			],
+			"icons": [
+				"HasPower",
+				"DrawCardNow",
+				"Discard",
+				"PlayCardNow"
+			],
+			"flavorText": "“”",
+			"flavorReference": ""
+		}
+	],
+	"promoCards": [
+		{
+			"identifier": "NightMareCharacter",
+			"promoIdentifier": "NightMareWholeHorseCharacter",
+			"count": 1,
+			"title": "NightMare",
+			"promoTitle": "NightMare Whole Horse",
+			"body": "Gallop",
+			"icons": [
+				"HasPower",
+				"AddOrRemoveTokens",
+				"PlayCardNow"
+			],
+			"backgroundColor": "302E71",
+			"foilBackgroundColor": "302E71",
+			"hitpointsColor": "302E71",
+			"character": true,
+			"powers": [
+				"Discard a card, then play it from your trash."
+			],
+			"hitpoints": 32,
+			"nemesisIdentifiers": [
+				"Knyfe"
+			],
+			"incapacitatedAbilities": [
+				"One hero may use a power.",
+				"Each player may discard 2 cards. Any player that does may play a card.",
+				"Reveal the top card of a deck. Put it into play or discard it."
+			],
+			"flippedIcons": [
+				"UsePowerNow",
+				"Discard",
+				"PlayCardNow",
+				"Manipulate"
+			],
+			"complexity": 1,
+			"openingLines": {
+				"default": ""
+			}
+		}
+	]
+}

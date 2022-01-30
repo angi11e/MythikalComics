@@ -6,9 +6,14 @@ using Handelabra.Sentinels.Engine.Model;
 
 namespace Angille.NightMare
 {
-	public class CowabungaItIsCardController : CardController
+	public class CowabungaItIsCardController : NightMareBaseCardController
 	{
-		// card text here
+		/*
+		 * {NightMare} deals up to 3 targets 2 Melee damage each.
+		 * 
+		 * DISCARD
+		 * Select a card from your trash and discard it.
+		 */
 
 		public CowabungaItIsCardController(
 			Card card,
@@ -19,16 +24,72 @@ namespace Angille.NightMare
 
 		public override IEnumerator Play()
 		{
+			// {NightMare} deals up to 3 targets 2 Melee damage each.
+			IEnumerator dealDamageCR = GameController.SelectTargetsAndDealDamage(
+				DecisionMaker,
+				new DamageSource(GameController, base.CharacterCard),
+				2,
+				DamageType.Melee,
+				3,
+				false,
+				0,
+				cardSource: GetCardSource()
+			);
+
+			if (UseUnityCoroutines)
+			{
+				yield return GameController.StartCoroutine(dealDamageCR);
+			}
+			else
+			{
+				GameController.ExhaustCoroutine(dealDamageCR);
+			}
 			yield break;
 		}
 
-		public override void AddTriggers()
+		protected override IEnumerator DiscardResponse(GameAction ga)
 		{
-			base.AddTriggers();
-		}
+			// Select a card from your trash and discard it.
+			List<MoveCardAction> storedResults = new List<MoveCardAction>();
+			IEnumerator moveCardCR = GameController.SelectCardFromLocationAndMoveIt(
+				DecisionMaker,
+				TurnTaker.Trash,
+				new LinqCardCriteria((Card c) => true),
+				new MoveCardDestination[] { new MoveCardDestination(HeroTurnTaker.Hand) },
+				storedResultsMove: storedResults,
+				cardSource: new CardSource(FindCardController(base.CharacterCard))
+			);
 
-		public override IEnumerator UsePower(int index = 0)
-		{
+			if (UseUnityCoroutines)
+			{
+				yield return GameController.StartCoroutine(moveCardCR);
+			}
+			else
+			{
+				GameController.ExhaustCoroutine(moveCardCR);
+			}
+
+			Card theCard = storedResults.FirstOrDefault().CardToMove;
+			if (theCard != null && theCard.Location != TurnTaker.Trash)
+			{
+				IEnumerator discardCR = GameController.MoveCard(
+					DecisionMaker,
+					theCard,
+					TurnTaker.Trash,
+					isDiscard: true,
+					cardSource: GetCardSource()
+				);
+
+				if (UseUnityCoroutines)
+				{
+					yield return GameController.StartCoroutine(discardCR);
+				}
+				else
+				{
+					GameController.ExhaustCoroutine(discardCR);
+				}
+			}
+
 			yield break;
 		}
 	}

@@ -6,9 +6,13 @@ using Handelabra.Sentinels.Engine.Model;
 
 namespace Angille.WhatsHerFace
 {
-	public class AntiAntimemeticsCardController : CardController
+	public class AntiAntimemeticsCardController : RecallBaseCardController
 	{
-		// card text here
+		/*
+		 * Play this card next to a hero character card.
+		 * Redirect all Damage that would be dealt to Hero Targets to that hero.
+		 * At the start of your turn, destroy this card.
+		 */
 
 		public AntiAntimemeticsCardController(
 			Card card,
@@ -17,19 +21,40 @@ namespace Angille.WhatsHerFace
 		{
 		}
 
-		public override IEnumerator Play()
-		{
-			yield break;
-		}
+		// Play this card next to a hero character card.
+		protected override LinqCardCriteria CustomCriteria => new LinqCardCriteria(
+			(Card c) => c.IsHeroCharacterCard && !c.IsIncapacitatedOrOutOfGame,
+			"hero character"
+		);
 
 		public override void AddTriggers()
 		{
-			base.AddTriggers();
-		}
+			// Redirect all Damage that would be dealt to Hero Targets to that hero.
+			Card targetHero = GetCardThisCardIsNextTo();
+			if (!targetHero.IsHeroCharacterCard)
+			{
+				targetHero = base.Card.Location.OwnerTurnTaker.CharacterCard;
+			}
 
-		public override IEnumerator UsePower(int index = 0)
-		{
-			yield break;
+			AddRedirectDamageTrigger(
+				(DealDamageAction dd) =>
+					dd.Target.IsHero
+					&& dd.Target != targetHero, 
+				() => targetHero
+			);
+
+			// At the start of your turn, destroy this card.
+			AddStartOfTurnTrigger(
+				(TurnTaker tt) => tt == base.TurnTaker,
+				(PhaseChangeAction p) => GameController.DestroyCard(
+					this.DecisionMaker,
+					base.Card,
+					cardSource: GetCardSource()
+				),
+				TriggerType.DestroySelf
+			);
+
+			base.AddTriggers();
 		}
 	}
 }

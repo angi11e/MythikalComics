@@ -1,0 +1,386 @@
+﻿{
+	"name": "What's-Her-Face",
+	"kind": "Hero",
+	"initialCardIdentifiers": [
+		"WhatsHerFaceCharacter"
+	],
+	"cards": [
+		{
+			"identifier": "WhatsHerFaceCharacter",
+			"count": 1,
+			"title": "What's-Her-Face",
+			"body": "Unnoticed Scout",
+			"backgroundColor": "8888AA",
+			"foilBackgroundColor": "8888AA",
+			"hitpointsColor": "8888AA",
+			"character": true,
+			"powers": [
+				"Reveal the top card of the villain deck. Discard it or put it into play. If you put it into play, you may play a [u]recall[/u] card now."
+			],
+			"icons": [
+				"HasPower",
+				"Manipulate",
+				"PlayCardNow"
+			],
+			"hitpoints": 25,
+			"nemesisIdentifiers": [
+				"Setback"
+			],
+			"incapacitatedAbilities": [
+				"One Player may draw a card.",
+				"Destroy an ongoing card.",
+				"Select a target. Reduce the next damage dealt to that target by 2."
+			],
+			"flippedIcons": [
+				"DrawCardNow",
+				"DestroyOngoing",
+				"ReduceDamageTaken"
+			],
+			"openingLines": {
+				"default": ""
+			},
+			"complexity": 2
+		},
+		{
+			"identifier": "AceUpHerSleeve",
+			"count": 3,
+			"title": "Ace Up Her Sleeve",
+			"keywords": [
+				"equipment",
+				"limited"
+			],
+			"body": [
+				"When this card enters play, one hero other than {WhatsHerFace} may use a power."
+			],
+			"powers": [
+				"Draw 1 card.",
+				"Play 1 card.",
+				"Deal 1 target 2 melee damage."
+			],
+			"icons": [
+				"UsePowerNow",
+				"HasPower",
+				"DrawCardNow",
+				"DealDamageMelee"
+			],
+			"flavorText": "“”",
+			"flavorReference": ""
+		},
+		{
+			"identifier": "AntiAntimemetics",
+			"count": 2,
+			"title": "Anti-Antimemetics",
+			"keywords": [
+				"ongoing",
+				"limited",
+				"recall"
+			],
+			"body": [
+				"Play this card next to a hero character card.",
+				"Redirect all Damage that would be dealt to Hero Targets to that hero.",
+				"At the start of your turn, destroy this card."
+			],
+			"icons": [
+				"RedirectDamage",
+				"DestroySelf"
+			],
+			"flavorText": "“”",
+			"flavorReference": ""
+		},
+		{
+			"identifier": "CheckYourTarget",
+			"count": 3,
+			"title": "Check Your Target",
+			"keywords": [
+				"ongoing",
+				"recall"
+			],
+			"body": [
+				"Play this card next to a non-hero target.",
+				"Redirect the first damage dealt by that target each turn to the villain target with the highest HP.",
+				"If that target leaves play, return this card to your hand."
+			],
+			"icons": [
+				"RedirectDamage",
+				"Manipulate"
+			],
+			"flavorText": "“”",
+			"flavorReference": ""
+		},
+		{
+			"identifier": "FlourishAndVanish",
+			"count": 3,
+			"title": "Flourish and Vanish",
+			"keywords": [
+				"one-shot"
+			],
+			"body": [
+				"Destroy an ongoing or environment card.",
+				"If you destroyed an environment card, {WhatsHerFace} regains 2 hp.",
+				"If you destroyed a hero card, you may draw 1 card now."
+			],
+			"icons": [
+				"DestroyOngoing",
+				"DestroyEnvironment",
+				"GainHP",
+				"DrawCardNow"
+			],
+			"flavorText": "“”",
+			"flavorReference": ""
+		},
+		{
+			"identifier": "ForgotAboutHer",
+			"count": 2,
+			"title": "Forgot About Her",
+			"keywords": [
+				"ongoing",
+				"limited",
+				"recall"
+			],
+			"body": [
+				"Play this card next to a non-hero target.",
+				"That target cannot affect or be affected by any of your cards or effects, aside from this one.",
+				"At the start of your turn, you may destroy this card."
+			],
+			"icons": [
+				"DestroySelf"
+			],
+			"flavorText": "“”",
+			"flavorReference": ""
+		},
+		{
+			"identifier": "JustWhatYouNeeded",
+			"count": 3,
+			"title": "Just What You Needed",
+			"keywords": [
+				"one-shot"
+			],
+			"body": [
+				"1 player selects a keyword.",
+				"That player reveals cards from the top of their deck until they reveal 2 cards with that keyword. Put one of them either into play or into their hand.",
+				"Shuffle the rest of the revealed cards into their deck."
+			],
+			"icons": [
+				"Search"
+			],
+			"flavorText": "“”",
+			"flavorReference": ""
+		},
+		{
+			"identifier": "LostAndForgotten",
+			"count": 2,
+			"title": "Lost And Forgotten",
+			"keywords": [
+				"ongoing",
+				"recall"
+			],
+			"body": [
+				"Play this card next to a non-character card.",
+				"If that card is destroyed, remove it from the game instead, then remove this card from the game.",
+				"If that card leaves play in any other way, return this card to your hand."
+			],
+			"icons": [
+				"RemoveFromGame",
+				"Manipulate"
+			],
+			"flavorText": "“”",
+			"flavorReference": ""
+		},
+		{
+			"identifier": "MissedByThatMuch",
+			"count": 2,
+			"title": "Missed By That Much",
+			"keywords": [
+				"ongoing",
+				"recall"
+			],
+			"body": [
+				"Play this card next to a hero ongoing or equipment card.",
+				"When that card would be destroyed, prevent that destruction, then destroy this card.",
+				"If that card leaves play in any other way, return this card to your hand."
+			],
+			"icons": [
+				"DestroySelf"
+			],
+			"flavorText": "“”",
+			"flavorReference": ""
+		},
+		{
+			"identifier": "NotQuiteSureWhatThisDoes",
+			"count": 3,
+			"title": "Not Quite Sure What This Does?",
+			"keywords": [
+				"equipment",
+				"limited"
+			],
+			"powers": [
+				"Play the top card of your deck. If you played a [u]recall[/u] card, play the top card of your deck. If you played an equipment card, move 1 card from your trash to the top of your deck. If you played a one-shot, you may draw 1 card now."
+			],
+			"icons": [
+				"PlayCardNow",
+				"Manipulate",
+				"DrawCardNow"
+			],
+			"flavorText": "“”",
+			"flavorReference": ""
+		},
+		{
+			"identifier": "PullThePins",
+			"count": 3,
+			"title": "Pull The Pins",
+			"keywords": [
+				"one-shot"
+			],
+			"body": [
+				"Destroy any number of [u]recall[/u] cards. {WhatsHerFace} deals each non-hero target X Fire damage, where X = the number of cards destroyed this way."
+			],
+			"icons": [
+				"DestroyOngoing",
+				"DealDamageFire"
+			],
+			"flavorText": "“”",
+			"flavorReference": ""
+		},
+		{
+			"identifier": "SubtleInfluence",
+			"count": 3,
+			"title": "Subtle Influence",
+			"keywords": [
+				"ongoing",
+				"recall"
+			],
+			"body": [
+				"Play this card next to a character card.",
+				"increase damage taken by targets in that character's play area by 1.",
+				"reduce damage dealt by targets in that character's play area by 1.",
+				"If that target leaves play, destroy this card."
+			],
+			"icons": [
+				"IncreaseDamageTaken",
+				"ReduceDamageDealt"
+			],
+			"flavorText": "“”",
+			"flavorReference": ""
+		},
+		{
+			"identifier": "ThoroughAnalysis",
+			"count": 3,
+			"title": "Thorough Analysis",
+			"keywords": [
+				"ongoing",
+				"recall"
+			],
+			"body": [
+				"Play this card next to a target.",
+				"At the start of your turn, either that target gains 2 HP or {WhatsHerFace} deals that target 2 Psychic damage.",
+				"If that target leaves play, return this card to your hand."
+			],
+			"icons": [
+				"StartOfTurnAction",
+				"GainHP",
+				"DealDamagePsychic",
+				"Manipulate"
+			],
+			"flavorText": "“”",
+			"flavorReference": ""
+		},
+		{
+			"identifier": "VisualCalculus",
+			"count": 2,
+			"title": "Visual Calculus",
+			"keywords": [
+				"ongoing",
+				"recall"
+			],
+			"body": [
+				"Play this card next to a character card.",
+				"You may look at the top card of their deck at any time.",
+				"If that target leaves play, return this card to your hand."
+			],
+			"icons": [
+				"Manipulate"
+			],
+			"flavorText": "“”",
+			"flavorReference": ""
+		},
+		{
+			"identifier": "WatchYourStep",
+			"count": 3,
+			"title": "Watch Your Step",
+			"keywords": [
+				"one-shot"
+			],
+			"body": [
+				"One target deals itself 2 Melee damage, plus 2 per [u]recall[/u] card next to it."
+			],
+			"icons": [
+				"DealDamageMelee"
+			],
+			"flavorText": "“”",
+			"flavorReference": ""
+		},
+		{
+			"identifier": "WhereDidSheComeFrom",
+			"count": 3,
+			"title": "Where Did She Come From?",
+			"keywords": [
+				"ongoing",
+				"recall"
+			],
+			"body": [
+				"Play this card next to a target.",
+				"At the start of your turn, {WhatsHerFace} deals that target 2 projectile damage.",
+				"At the end of your turn, move this card next to a new target.",
+				"If the card this card is next to leaves play, destroy this card."
+			],
+			"icons": [
+				"StartAndEndOfTurnAction",
+				"DealDamageProjectile",
+				"DestroySelf"
+			],
+			"flavorText": "“”",
+			"flavorReference": ""
+		}
+	],
+	"promoCards": [
+		{
+			"identifier": "WhatsHerFaceCharacter",
+			"promoIdentifier": "WhatsHerFaceGadgeteerCharacter",
+			"count": 1,
+			"title": "What's-Her-Face",
+			"promoTitle": "What's-Her-Face: Gadgeteer",
+			"body": "improvise",
+			"icons": [
+				"HasPower",
+				"DestroyOngoing",
+				"DealDamageSonic"
+			],
+			"backgroundColor": "779999",
+			"foilBackgroundColor": "779999",
+			"hitpointsColor": "779999",
+			"character": true,
+			"powers": [
+				"Destroy a [u]recall[/u] card. If you do so, deal 1 target 3 sonic damage."
+			],
+			"hitpoints": 27,
+			"nemesisIdentifiers": [
+				"TheWraith"
+			],
+			"incapacitatedAbilities": [
+				"Move an equipment card from a hero trash into play.",
+				"Each player may discard a card. Any player that does draws 2 cards.",
+				"Select a hero target. Until the start of your next turn, reduce damage dealt to that target by 1."
+			],
+			"flippedIcons": [
+				"Search",
+				"Discard",
+				"DrawCardNow",
+				"ReduceDamageTaken"
+			],
+			"complexity": 2,
+			"openingLines": {
+				"default": ""
+			}
+		}
+	]
+}

@@ -47,14 +47,18 @@
   <ItemGroup>
     <Compile Include="NightMare\BringAnotherCardController.cs" />
     <Compile Include="NightMare\CowabungaItIsCardController.cs" />
+    <Compile Include="NightMare\DynamicEntryCardController.cs" />
     <Compile Include="NightMare\HoldYerHorsesCardController.cs" />
     <Compile Include="NightMare\HoofLooseCardController.cs" />
     <Compile Include="NightMare\HoofStompCardController.cs" />
     <Compile Include="NightMare\HotToTrotCardController.cs" />
+    <Compile Include="NightMare\KelpieMagicCardController.cs" />
+    <Compile Include="NightMare\ManoACascoCardController.cs" />
+    <Compile Include="NightMare\NightMareBaseCardController.cs" />
     <Compile Include="NightMare\NightMareCharacterCardController.cs" />
+    <Compile Include="NightMare\NightMareWholeHorseCharacterCardController.cs" />
     <Compile Include="NightMare\NightMareTurnTakerController.cs" />
     <Compile Include="NightMare\ReinedCombatCardController.cs" />
-    <Compile Include="NightMare\ScoishTomboyCardController.cs" />
     <Compile Include="NightMare\StampedeCardController.cs" />
     <Compile Include="NightMare\TwoTrickPonyCardController.cs" />
     <Compile Include="Patina\EmpowerAndRepairCardController.cs" />
@@ -70,7 +74,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RedRifle\CalledShotCardController.cs" />
     <Compile Include="RedRifle\EnergyBurstCardController.cs" />
-    <Compile Include="RedRifle\ExtensionMethods.cs" />
+    <Compile Include="ExtensionMethods.cs" />
     <Compile Include="RedRifle\FullAutoCardController.cs" />
     <Compile Include="RedRifle\HairTriggerCardController.cs" />
     <Compile Include="RedRifle\IndescriminateFabricationCardController.cs" />
@@ -145,10 +149,14 @@
     <Compile Include="WhatsHerFace\MissedByThatMuchCardController.cs" />
     <Compile Include="WhatsHerFace\NotQuiteSureWhatThisDoesCardController.cs" />
     <Compile Include="WhatsHerFace\PullThePinsCardController.cs" />
+    <Compile Include="WhatsHerFace\RecallBaseCardController.cs" />
     <Compile Include="WhatsHerFace\SubtleInfluenceCardController.cs" />
     <Compile Include="WhatsHerFace\ThoroughAnalysisCardController.cs" />
     <Compile Include="WhatsHerFace\VisualCalculusCardController.cs" />
     <Compile Include="WhatsHerFace\WatchYourStepCardController.cs" />
+    <Compile Include="WhatsHerFace\WhatsHerFaceBaseCardController.cs" />
+    <Compile Include="WhatsHerFace\WhatsHerFaceBaseCharacterCardController.cs" />
+    <Compile Include="WhatsHerFace\WhatsHerFaceGadgeteerCharacterCardController.cs" />
     <Compile Include="WhatsHerFace\WhatsHerFaceCharacterCardController.cs" />
     <Compile Include="WhatsHerFace\WhatsHerFaceTurnTakerController.cs" />
     <Compile Include="WhatsHerFace\WhereDidSheComeFromCardController.cs" />
@@ -161,6 +169,12 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="DeckLists\RedRifleDeckList.json" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="DeckLists\WhatsHerFaceDeckList.json" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="DeckLists\NightMareDeckList.json" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

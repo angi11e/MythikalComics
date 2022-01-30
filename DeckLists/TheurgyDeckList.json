@@ -10,9 +10,9 @@
 			"count": 1,
 			"title": "Theurgy",
 			"body": "Pulling Threads",
-			"backgroundColor": "6F8FE7",
-			"foilBackgroundColor": "8FAFF7",
-			"hitpointsColor": "6F8FE7",
+			"backgroundColor": "945783",
+			"foilBackgroundColor": "945783",
+			"hitpointsColor": "945783",
 			"character": true,
 			"powers": [
 				"Draw a card or play a [u]charm[/u] card. One hero target may regain 1 hp."
@@ -23,13 +23,13 @@
 				"PlayCardNow",
 				"GainHP"
 			],
-			"hitpoints": 29,
+			"hitpoints": 27,
 			"nemesisIdentifiers": [
 				"Nightmist"
 			],
 			"incapacitatedAbilities": [
 				"One player may draw a card.",
-				"Destroy an ongoing card.",
+				"Destroy an environment card.",
 				"Move a card from a trash to the top of its deck."
 			],
 			"flippedIcons": [
@@ -113,7 +113,7 @@
 				"if you do, either destroy this card or {Theurgy} deals herself 2 irreducible psychic damage."
 			],
 			"icons": [
-				"Manipulation",
+				"Manipulate",
 				"DestroySelf",
 				"DealDamagePsychic"
 			],
@@ -161,7 +161,7 @@
 			"icons": [
 				"StartOfTurnAction",
 				"HasPower",
-				"Manipulation",
+				"Manipulate",
 				"DestroySelf"
 			],
 			"flavorText": "“Found the place.{BR}it's pretty quiet.”",
@@ -204,7 +204,7 @@
 			],
 			"icons": [
 				"StartOfTurnAction",
-				"Manipulation"
+				"Manipulate"
 			],
 			"flavorText": "“I'm impressed.”",
 			"flavorReference": "The Wraith, Setting Up Shop (EC #2)"
@@ -221,7 +221,7 @@
 				"You may play up to that many cards now."
 			],
 			"icons": [
-				"Manipulation",
+				"Manipulate",
 				"PlayCardNow"
 			],
 			"flavorText": "“How are they moles [b]and[/b] ninjas?”",
@@ -242,7 +242,7 @@
 				"[b]Power:[/b] Discard any number of cards. Move up to that many cards from your trash to your hand. Play 1 card. Destroy [i]Sell the Grift[/i]."
 			],
 			"icons": [
-				"Manipulation",
+				"Manipulate",
 				"HasPower",
 				"PlayCardNow",
 				"DestroySelf"
@@ -262,7 +262,7 @@
 				"Destroy 1 environment card."
 			],
 			"icons": [
-				"Manipulation",
+				"Manipulate",
 				"DestroyEnvironment"
 			],
 			"flavorText": "“Lynsey? is that you?”",
@@ -348,7 +348,7 @@
 			"icons": [
 				"DestroyOngoing",
 				"DestroyEquipment",
-				"Manipulation"
+				"Manipulate"
 			],
 			"flavorText": "“ok, everybody{BR}should be grounded now.{BR}uh, [b]should[/b] be.”",
 			"flavorReference": "Theurgy, Setting Up Shop (EC #2)"
@@ -366,18 +366,18 @@
 				"HasPower",
 				"DealDamagePsychic",
 				"GainHP",
-				"Manipulation"
+				"Manipulate"
 			],
-			"backgroundColor": "6F8FE7",
-			"foilBackgroundColor": "6F8FE7",
-			"hitpointsColor": "6F8FE7",
+			"backgroundColor": "945783",
+			"foilBackgroundColor": "945783",
+			"hitpointsColor": "945783",
 			"character": true,
 			"powers": [
 				"choose a target. if they're a hero target, Theurgy deals them 2 psychic damage. if they're a villain target, they regain 2 hp. if they're an environment target, destroy a [u]charm[/u] card. reveal the top card of the target's deck. Either replace it, discard it, or put it into play."
 			],
 			"hitpoints": 25,
 			"nemesisIdentifiers": [
-				"ArgentAdept"
+				"TheArgentAdept"
 			],
 			"incapacitatedAbilities": [
 				"One player may play a card.",
@@ -386,7 +386,7 @@
 			],
 			"flippedIcons": [
 				"PlayCardNow",
-				"Manipulation"
+				"Manipulate"
 			],
 			"complexity": 2,
 			"openingLines": {

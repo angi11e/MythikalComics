@@ -462,36 +462,36 @@
 	  "flavorText": "“it was different from the{BR}others, symmetrical, the alterations{BR}flowing into each other better.”",
 	  "flavorReference": "Weaver, Scarab 25.6"
 	},
-	{
-	  "identifier": "Bentley",
-	  "count": 1,
-	  "title": "Bentley",
-	  "keywords": [
-		"dog"
-	  ],
-	  "hitpoints": 12,
-	  "body": [
-		"At the end of the villain turn, this card deals the hero target with the highest HP {H - 1} melee damage."
-	  ],
-	  "activatableAbilities": [
 		{
-		  "name": "{Dog}:",
-		  "text": "This card is immune to melee damage."
+			"identifier": "Bentley",
+			"count": 1,
+			"title": "Bentley",
+			"keywords": [
+				"dog"
+			],
+			"hitpoints": 12,
+			"body": [
+				"At the end of the villain turn, this card deals the hero target with the highest HP {H - 1} melee damage."
+			],
+			"activatableAbilities": [
+				{
+					"name": "{Dog}:",
+					"text": "This card is immune to melee damage."
+				},
+				{
+					"name": "{Mask}:",
+					"text": "At the end of the villain turn, move {ImpCharacter} to the hero play area with the highest HP. She deals that hero 1 projectile damage."
+				}
+			],
+			"icons": [
+				"EndOfTurnAction",
+				"DealDamage",
+				"Angille.Dog",
+				"Angille.Mask"
+			],
+			"flavorText": "“Bentley.{BR}[b]Kill.”[/b]",
+			"flavorReference": "Bitch, Scourge 19.1"
 		},
-		{
-		  "name": "{Mask}:",
-		  "text": "At the end of the villain turn, move {ImpCharacter} to the hero play area with the highest HP. She deals that hero 1 projectile damage."
-		}
-	  ],
-	  "icons": [
-		"EndOfTurnAction",
-		"DealDamage",
-		"Angille.Dog",
-		"Angille.Mask"
-	  ],
-	  "flavorText": "“Bentley. Kill.”",
-	  "flavorReference": "Bitch, Scourge 19.1"
-	},
 	{
 	  "identifier": "ClothGolem",
 	  "count": 2,
@@ -551,35 +551,35 @@
 	  "flavorText": "“All I know is that I was{BR}suddenly blind and deaf, and when I{BR}tried to move, everything bent the wrong{BR}way. Then I think I got tasered.”",
 	  "flavorReference": "Browbeat, interlude 3"
 	},
-	{
-	  "identifier": "DescentOfTheSwarm",
-	  "count": 2,
-	  "title": "Descent of the Swarm",
-	  "keywords": [
-		"one-shot"
-	  ],
-	  "body": [
-		"Put all the swarm cards from the villain trash into play."
-	  ],
-	  "activatableAbilities": [
 		{
-		  "name": "{Spider}:",
-		  "text": "Reveal cards from the top of the villain deck until a swarm card is revealed. Put it into play. Shuffle the other revealed cards back into the villain deck."
+			"identifier": "DescentOfTheSwarm",
+			"count": 2,
+			"title": "Descent of the Swarm",
+			"keywords": [
+				"one-shot"
+			],
+			"body": [
+				"Put all the swarm cards from the villain trash into play."
+			],
+			"activatableAbilities": [
+				{
+					"name": "{Spider}:",
+					"text": "Reveal cards from the top of the villain deck until a swarm card is revealed. Put it into play. Shuffle the other revealed cards back into the villain deck."
+				},
+				{
+					"name": "{Skull}:",
+					"text": "Each villain character card regains {H} HP."
+				}
+			],
+			"icons": [
+				"Manipulate",
+				"GainHP",
+				"Angille.Spider",
+				"Angille.Skull"
+			],
+			"flavorText": "“My bugs can devour a cow to{BR}the bone in 90 seconds. I have a{BR}million eyes to watch you with.{BR}[b]go elsewhere.[/b]”",
+			"flavorReference": "Skitter, infestation 11.2"
 		},
-		{
-		  "name": "{Skull}:",
-		  "text": "Each villain character card regains {H} HP."
-		}
-	  ],
-	  "icons": [
-		"Manipulate",
-		"GainHP",
-		"Angille.Spider",
-		"Angille.Skull"
-	  ],
-	  "flavorText": "“My bugs can devour a cow{BR}to the bone in 90 seconds. I have a million{BR}eyes to watch you with. [b]go elsewhere.[/b]”",
-	  "flavorReference": "Skitter, infestation 11.2"
-	},
 	{
 	  "identifier": "ForgottenAssailant",
 	  "count": 2,
@@ -637,36 +637,36 @@
 	  "flavorText": "“She can punch a few holes in{BR}Crimson while he's trapped.”",
 	  "flavorReference": "Weaver, Sting 26.2"
 	},
-	{
-	  "identifier": "ImperiousControl",
-	  "count": 2,
-	  "title": "Imperious Control",
-	  "keywords": [
-		"ongoing"
-	  ],
-	  "body": [
-		"When this card enters play, move it next to the hero character with the fewest cards in play.",
-		"Whenever that hero uses a power, they must discard a card."
-	  ],
-	  "activatableAbilities": [
 		{
-		  "name": "{Crown}:",
-		  "text": "Whenever that hero plays a card, they deal themself 2 psychic damage."
+			"identifier": "ImperiousControl",
+			"count": 2,
+			"title": "Imperious Control",
+			"keywords": [
+				"ongoing"
+			],
+			"body": [
+				"When this card enters play, move it next to the hero character with the fewest cards in play.",
+				"Whenever that hero uses a power, they must discard a card."
+			],
+			"activatableAbilities": [
+				{
+					"name": "{Crown}:",
+					"text": "Whenever that hero plays a card, they deal themself 2 psychic damage."
+				},
+				{
+					"name": "{Mask}:",
+					"text": "Whenever that hero draws a card, {ImpCharacter} deals them 2 melee damage."
+				}
+			],
+			"icons": [
+				"Discard",
+				"DealDamage",
+				"Angille.Crown",
+				"Angille.Mask"
+			],
+			"flavorText": "“Funny thing about having this{BR}control over you, I can feel your{BR}emotions, your body's reactions.{BR}like a really good polygraph test.”",
+			"flavorReference": "Regent, interlude 10"
 		},
-		{
-		  "name": "{Mask}:",
-		  "text": "Whenever that hero draws a card, {ImpCharacter} deals them 2 melee damage."
-		}
-	  ],
-	  "icons": [
-		"Discard",
-		"DealDamage",
-		"Angille.Crown",
-		"Angille.Mask"
-	  ],
-	  "flavorText": "“Funny thing about having this control{BR}over you, I can feel your emotions, your body's{BR}reactions. like a really good polygraph test.”",
-	  "flavorReference": "Regent, interlude 10"
-	},
 	{
 	  "identifier": "StingingSwarm",
 	  "count": 3,

@@ -152,10 +152,10 @@ namespace Angille.Theurgy
 					}
 					break;
 				case 1:
-					// Destroy an ongoing card.
+					// Destroy an environment card.
 					IEnumerator destroyOngoingCR = this.GameController.SelectAndDestroyCard(
 						this.DecisionMaker,
-						new LinqCardCriteria((Card c) => c.IsOngoing && c.IsInPlay, "ongoing"),
+						new LinqCardCriteria((Card c) => c.IsEnvironment && c.IsInPlay, "environment"),
 						false,
 						cardSource: GetCardSource()
 					);
