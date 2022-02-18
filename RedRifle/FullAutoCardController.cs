@@ -14,8 +14,7 @@ namespace Angille.RedRifle
 		 * 
 		 * POWER
 		 * Remove any number of tokens from your trueshot pool.
-		 * For each token removed, increase a numeral in this power by one.
-		 * {RedRifle} deals up to 1 target 1 projectile damage.
+		 * {RedRifle} deals up to that many targets that much Projectile damage, evenly distributed.
 		 */
 
 		public FullAutoCardController(
@@ -51,9 +50,10 @@ namespace Angille.RedRifle
 
 		public override IEnumerator UsePower(int index = 0)
 		{
-			int targetCount = GetPowerNumeral(0, 1);
-			int extraTargets = 0;
-			int damageAmount = GetPowerNumeral(1, 1);
+			int totalTargets = 0;
+			int lowDamageTargets = 0;
+			int highDamageTargets = 0;
+			int damageValue = 0;
 			int tokensRemoved = 0;
 			string message = null;
 			TokenPool trueshotPool = RedRifleTrueshotPoolUtility.GetTrueshotPool(this);
@@ -108,63 +108,113 @@ namespace Angille.RedRifle
 				tokensRemoved = tokensToRemove.FirstOrDefault()?.SelectedNumber ?? 0;
 			}
 
-			// For each token removed, increase a numeral in this power by one.
+			// Deal up to that many targets that much Projectile damage, evenly distributed.
 			if (tokensRemoved > 0)
 			{
 				IEnumerator removeTokensCR = RedRifleTrueshotPoolUtility.RemoveTrueshotTokens<GameAction>(this, tokensRemoved);
 
-				List<SelectNumberDecision> extraTargetsToHit = new List<SelectNumberDecision>();
+				if (base.UseUnityCoroutines)
+				{
+					yield return base.GameController.StartCoroutine(removeTokensCR);
+				}
+				else
+				{
+					base.GameController.ExhaustCoroutine(removeTokensCR);
+				}
+
+				IEnumerator targetMessageCR = GameController.SendMessageAction(
+					"Choose the number of targets to hit.",
+					Priority.Medium,
+					GetCardSource()
+				);
+
+				List<SelectNumberDecision> totalTargetsToHit = new List<SelectNumberDecision>();
 				IEnumerator extraTargetsCR = GameController.SelectNumber(
 					DecisionMaker,
-					SelectionType.MakeTarget,
-					0,
+					SelectionType.SelectNumeral,
+					1,
 					tokensRemoved,
-					storedResults: extraTargetsToHit,
+					storedResults: totalTargetsToHit,
 					cardSource: GetCardSource()
 				);
 
 				if (base.UseUnityCoroutines)
 				{
-					yield return base.GameController.StartCoroutine(removeTokensCR);
+					yield return base.GameController.StartCoroutine(targetMessageCR);
 					yield return base.GameController.StartCoroutine(extraTargetsCR);
 				}
 				else
 				{
-					base.GameController.ExhaustCoroutine(removeTokensCR);
+					base.GameController.ExhaustCoroutine(targetMessageCR);
 					base.GameController.ExhaustCoroutine(extraTargetsCR);
 				}
 
-				extraTargets = extraTargetsToHit.FirstOrDefault()?.SelectedNumber ?? 0;
-				if (extraTargets > 0)
+				totalTargets = totalTargetsToHit.FirstOrDefault()?.SelectedNumber ?? 0;
+				if (totalTargets > 0)
 				{
-					targetCount += extraTargets;
+					highDamageTargets = tokensRemoved % totalTargets;
+					lowDamageTargets = totalTargets - highDamageTargets;
+					damageValue = tokensRemoved / totalTargets;
 				}
-
-				if (extraTargets < tokensRemoved)
+				else
 				{
-					damageAmount += (tokensRemoved - extraTargets);
+					yield break;
 				}
 			}
 
-			// {RedRifle} deals up to 1 target 1 projectile damage.
-			IEnumerator dealDamageCR = GameController.SelectTargetsAndDealDamage(
-				DecisionMaker,
-				new DamageSource(GameController, base.CharacterCard),
-				damageAmount,
-				DamageType.Projectile,
-				targetCount,
-				false,
-				0,
-				cardSource: GetCardSource()
-			);
+			// {RedRifle} deals up to that many targets that much Projectile damage, evenly distributed.
+			List<SelectCardDecision> attacks = new List<SelectCardDecision>();
+			if (highDamageTargets > 0)
+			{
+				IEnumerator dealHighDamageCR = GameController.SelectTargetsAndDealDamage(
+					DecisionMaker,
+					new DamageSource(GameController, base.CharacterCard),
+					damageValue + 1,
+					DamageType.Projectile,
+					highDamageTargets,
+					false,
+					highDamageTargets,
+					storedResultsDecisions: attacks,
+					cardSource: GetCardSource()
+				);
 
-			if (base.UseUnityCoroutines)
-			{
-				yield return base.GameController.StartCoroutine(dealDamageCR);
+				if (base.UseUnityCoroutines)
+				{
+					yield return base.GameController.StartCoroutine(dealHighDamageCR);
+				}
+				else
+				{
+					base.GameController.ExhaustCoroutine(dealHighDamageCR);
+				}
 			}
-			else
+			if (lowDamageTargets > 0)
 			{
-				base.GameController.ExhaustCoroutine(dealDamageCR);
+				System.Func<Card, bool> criteria = null;
+				if (attacks.Count() > 0)
+				{
+					criteria = (Card c) => !(from scd in attacks select scd.SelectedCard).Distinct().ToList().Contains(c);
+				}
+
+				IEnumerator dealLowDamageCR = GameController.SelectTargetsAndDealDamage(
+					DecisionMaker,
+					new DamageSource(GameController, base.CharacterCard),
+					damageValue,
+					DamageType.Projectile,
+					lowDamageTargets,
+					false,
+					lowDamageTargets,
+					additionalCriteria: criteria,
+					cardSource: GetCardSource()
+				);
+
+				if (base.UseUnityCoroutines)
+				{
+					yield return base.GameController.StartCoroutine(dealLowDamageCR);
+				}
+				else
+				{
+					base.GameController.ExhaustCoroutine(dealLowDamageCR);
+				}
 			}
 
 			yield break;

@@ -1,0 +1,91 @@
+Created game with random seed: 17
+================================ START GAME ================================
+GameController moves 8 cards cards to the top of Warlords of Brockton's UnderCard.
+The Undersiders shuffles their under Warlords of Brockton.
+Went to The Undersiders's Start phase.
+Created decision [SelectFunction/SelectFunction D1]
+MakeDecisions: [SelectFunction/SelectFunction D1]
+Make a SelectFunctionDecision: [Randomize villains, masters, thinkers, strangers, strikers]
+Selected: Randomize villains
+GameController puts Imp into play.
+Imp was moved to Legacy's play area.
+GameController puts Foil into play.
+GameController puts Parian into play.
+Message: Parian puts Cloth Golem into play from the villain deck... [ Parian ]
+Parian puts Cloth Golem into play.
+The Undersiders shuffles their the villain deck.
+Legacy initiates 2 Melee damage to Imp.
+Legacy deals Imp 2 Melee damage.
+Imp is now at -1 HP.
+Legacy moved Imp to The Undersiders' play area.
+Imp is no longer a target.
+Imp was flipped to its back side.
+GameController moved Inspiring Presence from Legacy's deck to Legacy's trash.
+GameController moved Bolster Allies from Legacy's deck to Legacy's trash.
+GameController moved Surge of Strength from Legacy's deck to Legacy's trash.
+GameController moved Flying Smash from Legacy's deck to Legacy's trash.
+GameController moved Lead from the Front from Legacy's deck to Legacy's trash.
+GameController moved Haka of Battle from Haka's deck to Haka's trash.
+GameController moved Mere from Haka's deck to Haka's trash.
+GameController moved Elbow Smash from Haka's deck to Haka's trash.
+GameController moved Taiaha from Haka's deck to Haka's trash.
+GameController moved Elbow Smash from Haka's deck to Haka's trash.
+Went from The Undersiders's Start phase to PlayCard phase. 
+Went from The Undersiders's PlayCard phase to End phase. 
+The Undersiders plays the top card of the environment deck...
+The Undersiders plays the top card of the environment deck.
+Message: The Undersiders plays the top card of the environment deck... [ The Undersiders ]
+The Undersiders plays Impending Casualty.
+The Undersiders was flipped to its back side.
+Created decision [SelectTargets/None D2]
+Created decision [SelectTarget/None D2-1]
+Foil initiates 2 Melee damage to Haka.
+Foil makes the damage irreducible.
+Foil deals Haka 2 Melee damage.
+Haka is now at 32 HP.
+Created decision [SelectTarget/None D2-2]
+Foil initiates 1 Projectile damage to The Wraith.
+Foil makes the damage irreducible.
+The Wraith is a nemesis of Foil. Damage dealt increased by 1.
+Foil deals The Wraith 2 Projectile damage.
+The Wraith is now at 24 HP.
+Created decision [SelectCard/None D3]
+MakeDecisions: [SelectCard/HighestHP D3]
+[Cloth Golem] Everybody, Make a SelectCardDecision of type HighestHP (First) : [Legacy, Haka])
+Selected: Legacy
+Created decision [SelectTargets/None D4]
+Created decision [SelectTarget/None D4-1]
+Cloth Golem initiates 3 Melee damage to Legacy.
+Cloth Golem deals Legacy 3 Melee damage.
+Legacy is now at 29 HP.
+Created decision [SelectTarget/None D4-2]
+Went from The Undersiders's End phase to Legacy's Start phase. 
+Went from Legacy's Start phase to PlayCard phase. 
+Went from Legacy's PlayCard phase to UsePower phase. 
+Legacy did not play a card or use a power this turn. Increasing draw count by 1.
+Went from Legacy's UsePower phase to DrawCard phase. (Count: 2)
+Went from Legacy's DrawCard phase to End phase. 
+Message: Legacy reshuffles their trash into their deck. [  ]
+GameController moves 5 cards cards to the top of Legacy's Deck.
+Legacy shuffles their Legacy's deck.
+--- Legacy's End phase ---
+Went from Legacy's End phase to Haka's Start phase. 
+Went from Haka's Start phase to PlayCard phase. 
+Went from Haka's PlayCard phase to UsePower phase. 
+--- Haka's UsePower phase ---
+Haka uses the power on Haka.
+Created decision [SelectTargets/None D5 Haka]
+Created decision [SelectTarget/None D5-1 Haka]
+MakeDecisions: [SelectTarget/SelectTarget D5-1 Haka]
+[Haka] Haka, Make a SelectCardDecision of type SelectTarget: [Legacy, Haka, The Wraith, Bunker, Foil, Parian, Cloth Golem])
+--- BEGIN PREVIEW ---
+Selected Target: Foil
+Final Result: Haka deals 2 Melee damage to Foil.
+--- END PREVIEW ---
+Selected: Foil
+Haka initiates 2 Melee damage to Foil.
+Haka deals Foil 2 Melee damage.
+Foil is now at 20 HP.
+Went from Haka's UsePower phase to DrawCard phase. 
+Went from Haka's DrawCard phase to End phase. 
+--- Haka's End phase ---

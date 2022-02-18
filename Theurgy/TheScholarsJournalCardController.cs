@@ -12,38 +12,24 @@ namespace Angille.Theurgy
 		// When this card is destroyed, select a deck.
 		//  Cards from that deck cannot be played until the start of your next turn.
 		//  Remove this card from the game."
-		// Power: Destroy a [u]charm[/u] card.
-		//  Search your trash or deck for a [u]charm[/u] card.
+		// Power: Search your trash or deck for a [u]charm[/u] card.
 		//  Put it into play or in your hand.
+		//  Destroy a [u]charm[/u] card.
 
 		public TheScholarsJournalCardController(
 			Card card,
 			TurnTakerController turnTakerController
 		) : base(card, turnTakerController)
 		{
-			base.SpecialStringMaker.ShowNumberOfCardsInPlay(IsCharmCriteria());
-			base.SpecialStringMaker.ShowNumberOfCardsAtLocation(HeroTurnTaker.Hand, IsCharmCriteria());
-			base.SpecialStringMaker.ShowNumberOfCardsAtLocation(HeroTurnTaker.Deck, IsCharmCriteria());
+			SpecialStringMaker.ShowNumberOfCardsInPlay(IsCharmCriteria());
+			SpecialStringMaker.ShowNumberOfCardsAtLocation(HeroTurnTaker.Hand, IsCharmCriteria());
+			SpecialStringMaker.ShowNumberOfCardsAtLocation(HeroTurnTaker.Deck, IsCharmCriteria());
 		}
 
 		public override IEnumerator Play()
 		{
 			// Theurgy draws 2 cards
-			IEnumerator drawCR = DrawCards(
-				base.HeroTurnTakerController,
-				2
-			);
-
-			if (base.UseUnityCoroutines)
-			{
-				yield return base.GameController.StartCoroutine(drawCR);
-			}
-			else
-			{
-				base.GameController.ExhaustCoroutine(drawCR);
-			}
-
-			yield break;
+			return DrawCards(HeroTurnTakerController, 2);
 		}
 
 		public override void AddTriggers()
@@ -65,7 +51,7 @@ namespace Angille.Theurgy
 			// select a deck.
 			List<SelectLocationDecision> storedResultsDeck = new List<SelectLocationDecision>();
 
-			IEnumerator selectDeckCR = base.GameController.SelectADeck(
+			IEnumerator selectDeckCR = GameController.SelectADeck(
 				DecisionMaker,
 				SelectionType.CannotPlayCards,
 				(Location deck) => true,
@@ -74,13 +60,13 @@ namespace Angille.Theurgy
 				cardSource: GetCardSource()
 			);
 
-			if (base.UseUnityCoroutines)
+			if (UseUnityCoroutines)
 			{
-				yield return base.GameController.StartCoroutine(selectDeckCR);
+				yield return GameController.StartCoroutine(selectDeckCR);
 			}
 			else
 			{
-				base.GameController.ExhaustCoroutine(selectDeckCR);
+				GameController.ExhaustCoroutine(selectDeckCR);
 			}
 			if (!DidSelectDeck(storedResultsDeck))
 			{
@@ -95,13 +81,13 @@ namespace Angille.Theurgy
 			cannotPlayCardsStatusEffect.UntilStartOfNextTurn(base.TurnTaker);
 			IEnumerator inhibitorCR = AddStatusEffect(cannotPlayCardsStatusEffect);
 			
-			if (base.UseUnityCoroutines)
+			if (UseUnityCoroutines)
 			{
-				yield return base.GameController.StartCoroutine(inhibitorCR);
+				yield return GameController.StartCoroutine(inhibitorCR);
 			}
 			else
 			{
-				base.GameController.ExhaustCoroutine(inhibitorCR);
+				GameController.ExhaustCoroutine(inhibitorCR);
 			}
 
 			if (!location.Location.IsSubDeck)
@@ -112,61 +98,27 @@ namespace Angille.Theurgy
 				preventPhaseActionStatusEffect.UntilStartOfNextTurn(base.TurnTaker);
 				IEnumerator inhibitSubdeckCR = AddStatusEffect(preventPhaseActionStatusEffect);
 			
-				if (base.UseUnityCoroutines)
+				if (UseUnityCoroutines)
 				{
-					yield return base.GameController.StartCoroutine(inhibitSubdeckCR);
+					yield return GameController.StartCoroutine(inhibitSubdeckCR);
 				}
 				else
 				{
-					base.GameController.ExhaustCoroutine(inhibitSubdeckCR);
+					GameController.ExhaustCoroutine(inhibitSubdeckCR);
 				}
 			}
 
 			// remove this card from the game
-			IEnumerator cancelCR = CancelAction(d, false);
-			IEnumerator moveThisCardCR = GameController.MoveCard(
-				base.TurnTakerController,
-				base.Card,
-				base.TurnTaker.OutOfGame,
-				cardSource: GetCardSource()
-			);
-
-			if (base.UseUnityCoroutines)
-			{
-				yield return base.GameController.StartCoroutine(cancelCR);
-				yield return base.GameController.StartCoroutine(moveThisCardCR);
-			}
-			else
-			{
-				base.GameController.ExhaustCoroutine(cancelCR);
-				base.GameController.ExhaustCoroutine(moveThisCardCR);
-			}
+			d.SetPostDestroyDestination(base.HeroTurnTaker.OutOfGame);
 
 			yield break;
 		}
 
 		public override IEnumerator UsePower(int index = 0)
 		{
-			// destroy a charm card.
-			IEnumerator destroyCR = base.GameController.SelectAndDestroyCard(
-				DecisionMaker,
-				IsCharmCriteria(),
-				false,
-				cardSource: GetCardSource()
-			);
-
-			if (base.UseUnityCoroutines)
-			{
-				yield return base.GameController.StartCoroutine(destroyCR);
-			}
-			else
-			{
-				base.GameController.ExhaustCoroutine(destroyCR);
-			}
-
 			// Search your trash or deck for a charm card. Put it into play or in your hand.
 			IEnumerator discoverCharmCR = SearchForCards(
-				base.HeroTurnTakerController,
+				HeroTurnTakerController,
 				searchDeck: true,
 				searchTrash: true,
 				1,
@@ -177,13 +129,30 @@ namespace Angille.Theurgy
 				putOnDeck: false
 			);
 			
-			if (base.UseUnityCoroutines)
+			if (UseUnityCoroutines)
 			{
-				yield return base.GameController.StartCoroutine(discoverCharmCR);
+				yield return GameController.StartCoroutine(discoverCharmCR);
 			}
 			else
 			{
-				base.GameController.ExhaustCoroutine(discoverCharmCR);
+				GameController.ExhaustCoroutine(discoverCharmCR);
+			}
+
+			// destroy a charm card.
+			IEnumerator destroyCR = GameController.SelectAndDestroyCard(
+				DecisionMaker,
+				IsCharmCriteria(),
+				false,
+				cardSource: GetCardSource()
+			);
+
+			if (UseUnityCoroutines)
+			{
+				yield return GameController.StartCoroutine(destroyCR);
+			}
+			else
+			{
+				GameController.ExhaustCoroutine(destroyCR);
 			}
 
 			yield break;

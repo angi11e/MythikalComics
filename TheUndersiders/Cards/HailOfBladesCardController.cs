@@ -23,9 +23,11 @@ namespace Angille.TheUndersiders
 
 		public override IEnumerator Play()
 		{
-			// Bear: Targets dealt damage by the results of this card cannot deal damage until the start of the villain turn.
+			// Bear: Targets dealt damage by the main text of this card cannot deal
+			//  damage until the start of the villain turn.
 
-			// The villain character card with the highest HP deals the {H - 1} hero targets with the highest HP {H - 2} projectile damage.
+			// The villain character card with the highest HP deals the {H - 1}
+			//  hero targets with the highest HP {H - 2} projectile damage.
 			List<DealDamageAction> storedResults = new List<DealDamageAction>();
 			IEnumerator mainDamageCR = DealDamageToHighestHP(
 				null,
@@ -89,7 +91,7 @@ namespace Angille.TheUndersiders
 
 					IEnumerator foilDamage = DealDamage(
 						maybeFoil,
-						(Card c) => !affectedList.Contains(c) && c.IsHero,
+						(Card c) => !affectedList.Contains(c) && c.IsHero && c.IsCharacter,
 						2,
 						DamageType.Projectile,
 						isIrreducible: true

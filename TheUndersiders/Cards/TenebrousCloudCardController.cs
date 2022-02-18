@@ -25,10 +25,12 @@ namespace Angille.TheUndersiders
 			return IsEnabled("skull") && card == base.Card;
 		}
 
+		/* is this necessary?
 		public override bool CanBeDestroyed
 		{
 			get { return !IsEnabled("skull"); }
 		}
+		*/
 
 		public override void AddTriggers()
 		{
@@ -72,8 +74,8 @@ namespace Angille.TheUndersiders
 					&& dd.Target.IsVillain
 					&& dd.DidDealDamage,
 				HealingResponse,
-				TriggerType.RedirectDamage,
-				TriggerTiming.Before
+				TriggerType.GainHP,
+				TriggerTiming.After
 			);
 
 			AddAfterLeavesPlayAction(

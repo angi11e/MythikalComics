@@ -57,7 +57,7 @@ namespace Angille.Theurgy
 			}
 
 			// play that many
-			int cardsToPlay = storedResults.Count();
+			int cardsToPlay = storedResults.Where((SelectCardDecision scd) => scd.SelectedCard != null).Count();
 			if (cardsToPlay > 0)
 			{
 				IEnumerator playCardsCR = GameController.SelectAndPlayCardsFromHand(

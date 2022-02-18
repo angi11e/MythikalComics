@@ -10,12 +10,10 @@ namespace Angille.Theurgy
 	public class ConvertTheEnergyCardController : CharmBaseCardController
 	{
 		// Play this card next to a hero character card.
-		// At the start of their turn, they may select a damage type.
-		//  Until the start of their next turn, all damage they deal is that type.
-		// That hero gains the following power:
-		// Power: Play 1 card or use 1 power.
-		//  If doing so deals damage, that damage is irreducible.
-		//  Destroy this card..
+		//  Their player selects a damage type. Damage of that type dealt by or to this hero is irreducible.
+		// That hero gains the [b]power:[/b] destroy this card.
+		// Before this card is destroyed, the hero it's next to may play 1 card or use 1 power.
+		//  All damage is irreducible until this card leaves play.
 
 		public ConvertTheEnergyCardController(
 			Card card,
@@ -24,31 +22,20 @@ namespace Angille.Theurgy
 		{
 		}
 
-		protected override string CharmPowerText => "Play 1 card or use 1 power. All damage is irreducible until this card leaves play. Destroy convert the energy.";
-
-		public override void AddTriggers()
+		public override IEnumerator Play()
 		{
-			base.AddTriggers();
+			// Their player selects a damage type.
+			Card targetHero = CharmedHero();
+			HeroTurnTaker htt = targetHero.Owner.ToHero();
+			HeroTurnTakerController httc = FindHeroTurnTakerController(htt);
 
-			// At the start of their turn, they may select a damage type.
-			AddStartOfTurnTrigger(
-				(TurnTaker tt) => tt == base.Card.Location.OwnerTurnTaker,
-				SelectDamageTypeResponse,
-				TriggerType.SelectDamageType
-			);
-		}
-
-		private IEnumerator SelectDamageTypeResponse(PhaseChangeAction phaseChange)
-		{
-			HeroTurnTakerController httc = phaseChange.DecisionMaker;
-
-			// At the start of their turn, they may select a damage type.
 			List<SelectDamageTypeDecision> storedResults = new List<SelectDamageTypeDecision>();
 			IEnumerator chooseDamageCR = base.GameController.SelectDamageType(
 				httc,
 				storedResults,
 				cardSource: GetCardSource()
 			);
+
 			if (base.UseUnityCoroutines)
 			{
 				yield return base.GameController.StartCoroutine(chooseDamageCR);
@@ -58,40 +45,45 @@ namespace Angille.Theurgy
 				base.GameController.ExhaustCoroutine(chooseDamageCR);
 			}
 
-			// should handle both SW Sentinels and Guise
-			Card targetHero = GetCardThisCardIsNextTo();
-			if ( !targetHero.IsHeroCharacterCard )
+			DamageType? damageType = storedResults.First(
+				(SelectDamageTypeDecision d) => d.Completed
+			).SelectedDamageType;
+
+			// Damage of that type dealt by or to this hero is irreducible.
+			if (damageType != null)
 			{
-				targetHero = base.Card.Location.OwnerTurnTaker.CharacterCard;
+				MakeDamageIrreducibleStatusEffect dealtToSE = new MakeDamageIrreducibleStatusEffect();
+				MakeDamageIrreducibleStatusEffect dealtBySE = new MakeDamageIrreducibleStatusEffect();
+				dealtToSE.UntilCardLeavesPlay(base.Card);
+				dealtBySE.UntilCardLeavesPlay(base.Card);
+				dealtToSE.CreateImplicitExpiryConditions();
+				dealtBySE.CreateImplicitExpiryConditions();
+				dealtToSE.DamageTypeCriteria.AddType(damageType.Value);
+				dealtBySE.DamageTypeCriteria.AddType(damageType.Value);
+				dealtToSE.TargetCriteria.IsSpecificCard = targetHero;
+				dealtBySE.SourceCriteria.IsSpecificCard = targetHero;
+
+				IEnumerator dealtToCR = AddStatusEffect(dealtToSE);
+				IEnumerator dealtByCR = AddStatusEffect(dealtBySE);
+
+				if (UseUnityCoroutines)
+				{
+					yield return GameController.StartCoroutine(dealtToCR);
+					yield return GameController.StartCoroutine(dealtByCR);
+				}
+				else
+				{
+					GameController.ExhaustCoroutine(dealtToCR);
+					GameController.ExhaustCoroutine(dealtByCR);
+				}
 			}
 
-			// Until the start of their next turn, all damage they deal is that type.
-			DamageType? damageType = storedResults.First((SelectDamageTypeDecision d) => d.Completed).SelectedDamageType;
-
-			ChangeDamageTypeStatusEffect changeDamageTypeStatusEffect = new ChangeDamageTypeStatusEffect(damageType.Value);
-			changeDamageTypeStatusEffect.SourceCriteria.IsSpecificCard = targetHero;
-			changeDamageTypeStatusEffect.UntilStartOfNextTurn(targetHero.Owner);
-			changeDamageTypeStatusEffect.BeforeOrAfter = BeforeOrAfter.Before;
-			changeDamageTypeStatusEffect.CardDestroyedExpiryCriteria.Card = targetHero;
-
-			IEnumerator changeTypeCR = AddStatusEffect(changeDamageTypeStatusEffect);
-			if (base.UseUnityCoroutines)
-			{
-				yield return base.GameController.StartCoroutine(changeTypeCR);
-			}
-			else
-			{
-				base.GameController.ExhaustCoroutine(changeTypeCR);
-			}
 			yield break;
 		}
 
-		protected override IEnumerator CharmPowerResponse(CardController cc)
+		protected override IEnumerator CharmDestroyResponse(GameAction ga)
 		{
-			int playNumeral = GetPowerNumeral(0, 1);
-			int powerNumeral = GetPowerNumeral(1, 1);
-
-			HeroTurnTakerController httc = cc.DecisionMaker;
+			HeroTurnTakerController httc = FindHeroTurnTakerController(CharmedHero().Owner.ToHero());
 
 			// make all damage irreducible
 			MakeDamageIrreducibleStatusEffect effect = new MakeDamageIrreducibleStatusEffect();
@@ -115,11 +107,11 @@ namespace Angille.Theurgy
 			functionList.Add(
 				new Function(
 					this.DecisionMaker,
-					"Play " + playNumeral + " card" + (playNumeral != 1 ? "s" : ""),
+					"Play a card",
 					SelectionType.PlayCard,
 					() => base.SelectAndPlayCardsFromHand(
 						httc,
-						playNumeral
+						1
 					)
 				)
 			);
@@ -128,12 +120,9 @@ namespace Angille.Theurgy
 			functionList.Add(
 				new Function(
 					this.DecisionMaker,
-					"Use " + powerNumeral + " power" + (powerNumeral != 1 ? "s" : ""),
+					"Use a power",
 					SelectionType.UsePower,
-					() => SelectAndUsePowers(
-						cc,
-						playNumeral
-					)
+					() => SelectAndUsePower(FindCardController(CharmedHero()))
 				)
 			);
 
@@ -154,47 +143,6 @@ namespace Angille.Theurgy
 			else
 			{
 				base.GameController.ExhaustCoroutine(selectFunctionCR);
-			}
-
-			// reverse irreducible condition
-			// which, uh, hopefully happens on destruction?
-			// think it might get weird with Null Point, but should also destroy at the end of the phase
-
-			// destroy this card
-			IEnumerator destructionCR = GameController.DestroyCard(
-				httc,
-				base.Card,
-				cardSource: GetCardSource()
-			);
-
-			if (UseUnityCoroutines)
-			{
-				yield return GameController.StartCoroutine(destructionCR);
-			}
-			else
-			{
-				GameController.ExhaustCoroutine(destructionCR);
-			}
-			yield break;
-		}
-
-		private IEnumerator SelectAndUsePowers(CardController cc, int powerQuantity)
-		{
-			IEnumerator powerCR = null;
-
-			while (powerQuantity > 0)
-			{
-				powerCR = base.SelectAndUsePower(cc);
-
-				if (UseUnityCoroutines)
-				{
-					yield return GameController.StartCoroutine(powerCR);
-				}
-				else
-				{
-					GameController.ExhaustCoroutine(powerCR);
-				}
-				powerQuantity--;
 			}
 
 			yield break;

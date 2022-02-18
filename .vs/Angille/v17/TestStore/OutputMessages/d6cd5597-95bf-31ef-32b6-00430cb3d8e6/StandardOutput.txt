@@ -1,0 +1,73 @@
+Created game with random seed: 257008357
+================================ START GAME ================================
+Baron Blade puts Mobile Defense Platform into play.
+Baron Blade shuffles their the villain deck.
+Went to Baron Blade's Start phase.
+GameController moved Solar Flare from Ra's deck to Ra's trash.
+GameController plays Sell the Grift.
+Created decision [SelectCard/None D1 Theurgy]
+MakeDecisions: [SelectCard/MoveCardNextToCard D1 Theurgy]
+[Sell the Grift] Theurgy, Make a SelectCardDecision of type MoveCardNextToCard: [Ra, Theurgy, Bunker])
+Selected: Ra
+GameController moved Sell the Grift from Theurgy's deck next to Ra.
+Created decision [SelectCards/None D2 Ra]
+Created decision [YesNoAmount/None D3 Ra]
+MakeDecisions: [YesNoAmount/DiscardCard D3 Ra]
+[Sell the Grift] Ra, Make a YesNoDecision of type DiscardCard
+Selected: True
+Created decision [SelectCard/None D2-1 Ra]
+MakeDecisions: [SelectCard/DiscardCard D2-1 Ra]
+[Sell the Grift] Ra, Make a SelectCardDecision of type DiscardCard: [Drawn to the Flame, Flame Spike, Flesh of the Sun God, Scorched Earth, Skip])
+Selected: Drawn to the Flame
+Ra discards Drawn to the Flame.
+Sell the Grift moved Drawn to the Flame from Ra's hand to Ra's trash.
+Created decision [SelectCard/None D4 Ra]
+MakeDecisions: [SelectCard/MoveCard D4 Ra]
+[Sell the Grift] Ra, Make a SelectCardDecision of type MoveCard: [Drawn to the Flame, Solar Flare])
+Selected: Solar Flare
+Sell the Grift moved Solar Flare from Ra's trash to Ra's hand.
+GameController moved Flesh of the Sun God from Ra's deck to Ra's trash.
+GameController moved Flesh of the Sun God from Ra's deck to Ra's trash.
+GameController moved Wrathful Gaze from Ra's deck to Ra's hand.
+Went from Baron Blade's Start phase to PlayCard phase. 
+Went from Baron Blade's PlayCard phase to End phase. 
+Went from Baron Blade's End phase to Ra's Start phase. 
+Went from Ra's Start phase to PlayCard phase. 
+Went from Ra's PlayCard phase to UsePower phase. 
+--- Ra's UsePower phase ---
+Ra uses the power on Ra (contributed by Sell the Grift).
+Created decision [SelectCards/None D5 Ra]
+Created decision [SelectCard/None D5-1 Ra]
+MakeDecisions: [SelectCard/DiscardCard D5-1 Ra]
+[Sell the Grift] Ra, Make a SelectCardDecision of type DiscardCard: [Flame Spike, Flesh of the Sun God, Scorched Earth, Solar Flare, Wrathful Gaze, Skip])
+Selected: Flame Spike
+Ra discards Flame Spike.
+Sell the Grift moved Flame Spike from Ra's hand to Ra's trash.
+Created decision [SelectCard/None D5-2 Ra]
+MakeDecisions: [SelectCard/DiscardCard D5-2 Ra]
+[Sell the Grift] Ra, Make a SelectCardDecision of type DiscardCard: [Flesh of the Sun God, Scorched Earth, Solar Flare, Wrathful Gaze, Skip])
+Selected: Scorched Earth
+Ra discards Scorched Earth.
+Sell the Grift moved Scorched Earth from Ra's hand to Ra's trash.
+Created decision [SelectCard/None D5-3 Ra]
+MakeDecisions: [SelectCard/DiscardCard D5-3 Ra]
+[Sell the Grift] Ra, Make a SelectCardDecision of type DiscardCard: [Flesh of the Sun God, Solar Flare, Wrathful Gaze, Skip])
+WARNING: No card selected.
+Created decision [SelectCards/None D6 Ra]
+Created decision [SelectCard/None D6-1 Ra]
+MakeDecisions: [SelectCard/ReturnToHand D6-1 Ra]
+[Sell the Grift] Ra, Make a SelectCardDecision of type ReturnToHand: [Drawn to the Flame, Flame Spike, Flesh of the Sun God, Flesh of the Sun God, Scorched Earth])
+Selected: Flesh of the Sun God
+Sell the Grift moved Flesh of the Sun God from Ra's trash to Ra's hand.
+Created decision [SelectCard/None D6-2 Ra]
+MakeDecisions: [SelectCard/ReturnToHand D6-2 Ra]
+[Sell the Grift] Ra, Make a SelectCardDecision of type ReturnToHand: [Drawn to the Flame, Flame Spike, Flesh of the Sun God, Scorched Earth])
+Selected: Flesh of the Sun God
+Sell the Grift moved Flesh of the Sun God from Ra's trash to Ra's hand.
+Created decision [SelectCard/None D7 Ra]
+MakeDecisions: [SelectCard/PlayCard D7 Ra]
+[Sell the Grift] Ra, Make a SelectCardDecision of type PlayCard: [Flesh of the Sun God, Solar Flare, Wrathful Gaze, Flesh of the Sun God, Flesh of the Sun God])
+Selected: Wrathful Gaze
+Sell the Grift plays Wrathful Gaze.
+Sell the Grift destroys itself!
+GameController moved Sell the Grift to Theurgy's trash.

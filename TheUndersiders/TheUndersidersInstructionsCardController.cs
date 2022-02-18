@@ -34,6 +34,7 @@ namespace Angille.TheUndersiders
 			// Whenever there are no villain character targets in play, the heroes win.
 			AddSideTrigger(AddTrigger(
 				(GameAction g) => base.GameController.HasGameStarted
+					&& base.Game.Round > 1
 					&& !(g is GameOverAction)
 					&& !(g is IncrementAchievementAction)
 					&& FindCardsWhere(
@@ -50,6 +51,13 @@ namespace Angille.TheUndersiders
 
 			if (!base.Card.IsFlipped)
 			{
+				// At the start of the first Villain turn, move H-2 cards from warlords into play
+				AddSideTrigger(AddStartOfTurnTrigger(
+					(TurnTaker tt) => tt == base.TurnTaker && base.Game.Round == 1,
+					(PhaseChangeAction p) => StartOfGamePlayVillains(p),
+					TriggerType.PlayCard
+				));
+
 				// At the start of the Villain turn, move the top card from beneath Warlords of Brockton into the villain play area.
 				AddSideTrigger(AddStartOfTurnTrigger(
 					(TurnTaker tt) => tt == base.TurnTaker,
@@ -104,7 +112,7 @@ namespace Angille.TheUndersiders
 					},
 					TriggerTiming.After
 				));
-
+				
 				// Advanced: Increase damage taken by hero targets by 1.
 				if (base.GameController.Game.IsAdvanced)
 				{
@@ -112,6 +120,162 @@ namespace Angille.TheUndersiders
 						(DealDamageAction dd) => dd.Target.IsHero,
 						1
 					));
+				}
+			}
+		}
+
+		private IEnumerator StartOfGamePlayVillains(PhaseChangeAction pca)
+		{
+			Card warlords = FindCard("WarlordsOfBrockton");
+			List<Function> functionList = new List<Function>();
+
+			// randomize
+			functionList.Add(
+				new Function(
+					FindHeroTurnTakerController(Game.HeroTurnTakers.FirstOrDefault()),
+					"Randomize villains",
+					SelectionType.ShuffleDeck,
+					() => DoNothing()
+				)
+			);
+
+			// masters
+			functionList.Add(
+				new Function(
+					DecisionMaker,
+					"masters",
+					SelectionType.MoveCardBelowCard,
+					() => ReorderWarlords(new List<string>
+					{
+						"ImpCharacter",
+						"FoilCharacter",
+						"GrueCharacter",
+						"TattletaleCharacter",
+						"RegentCharacter",
+						"ParianCharacter",
+						"BitchCharacter",
+						"SkitterCharacter"
+					})
+				)
+			);
+
+			// thinkers
+			functionList.Add(
+				new Function(
+					DecisionMaker,
+					"thinkers",
+					SelectionType.MoveCardBelowCard,
+					() => ReorderWarlords(new List<string>
+					{
+						"BitchCharacter",
+						"FoilCharacter",
+						"ParianCharacter",
+						"GrueCharacter",
+						"ImpCharacter",
+						"RegentCharacter",
+						"SkitterCharacter",
+						"TattletaleCharacter"
+					})
+				)
+			);
+
+			// strangers
+			functionList.Add(
+				new Function(
+					DecisionMaker,
+					"strangers",
+					SelectionType.MoveCardBelowCard,
+					() => ReorderWarlords(new List<string>
+					{
+						"BitchCharacter",
+						"ParianCharacter",
+						"FoilCharacter",
+						"TattletaleCharacter",
+						"SkitterCharacter",
+						"RegentCharacter",
+						"GrueCharacter",
+						"ImpCharacter"
+					})
+				)
+			);
+			
+			// strikers
+			functionList.Add(
+				new Function(
+					DecisionMaker,
+					"strikers",
+					SelectionType.MoveCardBelowCard,
+					() => ReorderWarlords(new List<string>
+					{
+						"ParianCharacter",
+						"TattletaleCharacter",
+						"ImpCharacter",
+						"RegentCharacter",
+						"SkitterCharacter",
+						"BitchCharacter",
+						"GrueCharacter",
+						"FoilCharacter"
+					})
+				)
+			);
+
+			// ask for which one
+			SelectFunctionDecision selectFunction = new SelectFunctionDecision(
+				base.GameController,
+				this.DecisionMaker,
+				functionList,
+				false,
+				cardSource: GetCardSource() // new CardSource(FindCardController(FindCard("TheUndersidersInstructions")))
+			);
+
+			IEnumerator selectFunctionCR = base.GameController.SelectAndPerformFunction(selectFunction);
+			if (UseUnityCoroutines)
+			{
+				yield return base.GameController.StartCoroutine(selectFunctionCR);
+			}
+			else
+			{
+				base.GameController.ExhaustCoroutine(selectFunctionCR);
+			}
+
+			for (int i = 0; i < base.H - 2; i++)
+			{
+				IEnumerator playVillainCR = base.GameController.PlayCard(
+					TurnTakerController,
+					warlords.UnderLocation.TopCard,
+					true
+				);
+
+				if (base.UseUnityCoroutines)
+				{
+					yield return base.GameController.StartCoroutine(playVillainCR);
+				}
+				else
+				{
+					base.GameController.ExhaustCoroutine(playVillainCR);
+				}
+			}
+		}
+
+		private IEnumerator ReorderWarlords(List<string> order)
+		{
+			Card warlords = FindCard("WarlordsOfBrockton");
+			for (int i = order.Count() - 1; i >= 0; i--)
+			{
+				Log.Debug("moving " + order[i]);
+				IEnumerator moveCardCR = GameController.MoveCard(
+					TurnTakerController,
+					FindCard(order[i]),
+					warlords.UnderLocation,
+					true
+				);
+				if (base.UseUnityCoroutines)
+				{
+					yield return base.GameController.StartCoroutine(moveCardCR);
+				}
+				else
+				{
+					base.GameController.ExhaustCoroutine(moveCardCR);
 				}
 			}
 		}

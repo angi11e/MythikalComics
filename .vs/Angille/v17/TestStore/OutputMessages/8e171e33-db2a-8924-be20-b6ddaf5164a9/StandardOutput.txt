@@ -1,0 +1,150 @@
+Created game with random seed: 12
+================================ START GAME ================================
+GameController moves 8 cards cards to the top of Warlords of Brockton's UnderCard.
+The Undersiders shuffles their under Warlords of Brockton.
+Went to The Undersiders's Start phase.
+Created decision [SelectFunction/SelectFunction D1]
+MakeDecisions: [SelectFunction/SelectFunction D1]
+Make a SelectFunctionDecision: [Randomize villains, masters, thinkers, strangers, strikers]
+Selected: Randomize villains
+GameController puts Skitter into play.
+Revealed matching card: Watchful Swarm
+Skitter puts Watchful Swarm into play.
+Message: Skitter plays the top card of the villain deck... [ Skitter ]
+Created decision [SelectLocation/None D2]
+Skitter plays Angelica.
+Skitter moves 0 cards cards to the top of The Undersiders's Deck.
+The Undersiders shuffles their the villain deck.
+GameController puts Bitch into play.
+Revealed card: Forgotten Assailant
+Revealed card: Hail of Blades
+Revealed card: Cloth Golem
+Revealed card: Advance Planning
+Revealed card: Stinging Swarm
+Revealed card: Advance Planning
+Revealed card: Watchful Swarm
+Revealed card: Imperious Control
+Revealed card: Stinging Swarm
+Revealed card: Coordinated Blitz
+Revealed card: Imperious Control
+Revealed card: Coordinated Blitz
+Revealed card: Watchful Swarm
+Revealed card: Hail of Blades
+Revealed card: Forgotten Assailant
+Revealed matching card: Bastard
+Bitch puts Bastard into play.
+Bitch moves 15 cards cards to the top of The Undersiders's Deck.
+The Undersiders shuffles their the villain deck.
+Created decision [SelectCards/None D3]
+Created decision [SelectCard/None D3-1]
+Watchful Swarm regained no HP from Skitter.
+Created decision [SelectCard/None D3-2]
+Bastard tried to increase Bastard's HP, but they are already at their maximum HP.
+GameController destroys Watchful Swarm!
+GameController moved Watchful Swarm to the villain trash.
+Went from The Undersiders's Start phase to PlayCard phase. 
+Went from The Undersiders's PlayCard phase to End phase. 
+The Undersiders plays the top card of the environment deck...
+The Undersiders plays the top card of the environment deck.
+Message: The Undersiders plays the top card of the environment deck... [ The Undersiders ]
+The Undersiders plays Impending Casualty.
+The Undersiders was flipped to its back side.
+Message: There are no hero equipment cards in play for Skitter to destroy. [ Skitter ]
+Created decision [SelectTargets/None D4]
+Created decision [SelectTarget/None D4-1]
+MakeDecisions: [SelectTarget/SelectTarget D4-1]
+[Angelica] Everybody, Make a SelectCardDecision of type SelectTarget: [Legacy, Bunker, The Wraith, Auto])
+--- BEGIN PREVIEW ---
+Selected Target: Legacy
+Final Result: Angelica deals 2 Melee damage to Legacy.
+Bitch: +1.
+--- END PREVIEW ---
+Selected: Legacy
+Angelica initiates 1 Melee damage to Legacy.
+Bitch increases the damage dealt by Angelica by 1.
+Angelica deals Legacy 2 Melee damage.
+Legacy is now at 30 HP.
+Created decision [SelectTarget/None D4-2]
+MakeDecisions: [SelectTarget/SelectTarget D4-2]
+[Angelica] Everybody, Make a SelectCardDecision of type SelectTarget: [Bunker, The Wraith, Auto])
+--- BEGIN PREVIEW ---
+Selected Target: Bunker
+Final Result: Angelica deals 2 Melee damage to Bunker.
+Bitch: +1.
+--- END PREVIEW ---
+Selected: Bunker
+Angelica initiates 1 Melee damage to Bunker.
+Bitch increases the damage dealt by Angelica by 1.
+Angelica deals Bunker 2 Melee damage.
+Bunker is now at 26 HP.
+Created decision [SelectTarget/None D4-3]
+Angelica initiates 1 Melee damage to The Wraith.
+Bitch increases the damage dealt by Angelica by 1.
+Angelica deals The Wraith 2 Melee damage.
+The Wraith is now at 24 HP.
+Created decision [SelectTarget/None D4-4]
+Created decision [SelectTargets/None D5]
+Created decision [SelectTarget/None D5-1]
+MakeDecisions: [SelectTarget/SelectTarget D5-1]
+[Bastard] Everybody, Make a SelectCardDecision of type SelectTarget: [Bunker, The Wraith, Auto])
+--- BEGIN PREVIEW ---
+Selected Target: Bunker
+Final Result: Bastard deals 3 Melee damage to Bunker.
+Bitch: +1.
+--- END PREVIEW ---
+Selected: Bunker
+Bastard initiates 2 Melee damage to Bunker.
+Bitch increases the damage dealt by Bastard by 1.
+Bastard deals Bunker 3 Melee damage.
+Bunker is now at 23 HP.
+Created decision [SelectTarget/None D5-2]
+Bastard initiates 2 Melee damage to The Wraith.
+Bitch increases the damage dealt by Bastard by 1.
+Bastard deals The Wraith 3 Melee damage.
+The Wraith is now at 21 HP.
+--- The Undersiders's End phase ---
+GameController destroys Bastard!
+GameController moved Bastard to the villain trash.
+GameController destroys Angelica!
+GameController moved Angelica to the villain trash.
+GameController destroys Impending Casualty!
+GameController moved Impending Casualty to the environment trash.
+GameController moved Tenebrous Cloud from the villain deck to the villain deck.
+Went from The Undersiders's End phase to Legacy's Start phase. 
+Went from Legacy's Start phase to PlayCard phase. 
+Went from Legacy's PlayCard phase to UsePower phase. 
+Legacy did not play a card or use a power this turn. Increasing draw count by 1.
+Went from Legacy's UsePower phase to DrawCard phase. (Count: 2)
+Went from Legacy's DrawCard phase to End phase. 
+Went from Legacy's End phase to Bunker's Start phase. 
+Went from Bunker's Start phase to PlayCard phase. 
+Went from Bunker's PlayCard phase to UsePower phase. 
+Bunker did not play a card or use a power this turn. Increasing draw count by 1.
+Went from Bunker's UsePower phase to DrawCard phase. (Count: 2)
+Went from Bunker's DrawCard phase to End phase. 
+Went from Bunker's End phase to The Wraith's Start phase. 
+Went from The Wraith's Start phase to PlayCard phase. 
+Went from The Wraith's PlayCard phase to UsePower phase. 
+The Wraith did not play a card or use a power this turn. Increasing draw count by 1.
+Went from The Wraith's UsePower phase to DrawCard phase. (Count: 2)
+Went from The Wraith's DrawCard phase to End phase. 
+Went from The Wraith's End phase to Megalopolis's Start phase. 
+Went from Megalopolis's Start phase to PlayCard phase. 
+Went from Megalopolis's PlayCard phase to End phase. 
+Went from Megalopolis's End phase to The Undersiders's Start phase. 
+Message: The Undersiders plays the top card of the villain deck... [ The Undersiders ]
+Created decision [SelectLocation/None D6]
+The Undersiders plays Tenebrous Cloud.
+Created decision [SelectCards/None D7]
+Created decision [SelectCard/None D7-1]
+Message: Bitch takes 1 dog card from the villain trash and puts them into play! [  ]
+Bitch takes 1 dog card from the villain trash and puts them into play!
+Created decision [SelectCards/None D8]
+Created decision [SelectCard/None D8-1]
+MakeDecisions: [SelectCard/PutIntoPlay D8-1]
+[Bitch] Everybody, Make a SelectCardDecision of type PutIntoPlay: [Angelica, Bastard, Auto])
+Selected: Bastard
+Bitch puts Bastard into play.
+Tenebrous Cloud increases the HP gained by Bastard by 1.
+Bastard tried to increase Bastard's HP, but they are already at their maximum HP.
+--- The Undersiders's Start phase ---

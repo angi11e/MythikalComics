@@ -16,49 +16,59 @@ namespace Angille.TheUndersiders
 		{
 		}
 
-		public override void AddTriggers()
-		{
-			base.AddTriggers();
-		}
-
 		public override IEnumerator Play()
 		{
 			// The villain character card with the lowest HP deals the hero character card with the most cards in their trash {H - 2} melee damage.
-			List<TurnTaker> heroList = new List<TurnTaker>();
-			IEnumerator trashHeroCR = FindHeroWithMostCardsInTrash(heroList);
+			List<Card> lowestVillain = new List<Card>();
+			IEnumerator findLowestCR = GameController.FindTargetWithLowestHitPoints(
+				1,
+				(Card c) => c.IsVillainCharacterCard && !c.IsIncapacitatedOrOutOfGame,
+				lowestVillain,
+				cardSource: GetCardSource()
+			);
 
 			if (base.UseUnityCoroutines)
 			{
-				yield return base.GameController.StartCoroutine(trashHeroCR);
+				yield return base.GameController.StartCoroutine(findLowestCR);
 			}
 			else
 			{
-				base.GameController.ExhaustCoroutine(trashHeroCR);
+				base.GameController.ExhaustCoroutine(findLowestCR);
 			}
-			Card trashHero = heroList.FirstOrDefault().CharacterCard;
 
-			if (trashHero.IsTarget)
+			Card lowestVillainCard = lowestVillain.FirstOrDefault();
+			if (lowestVillainCard != null)
 			{
-				IEnumerator trashDamageCR = DealDamage(
-					null,
-					trashHero,
-					base.H - 2,
-					DamageType.Melee,
-					damageSourceInfo: new TargetInfo(
-						HighestLowestHP.LowestHP,
-						1,
-						1,
-						new LinqCardCriteria((Card c) => c.IsVillainTarget, "The villain target with the lowest HP")
-					)
-				);
+				List<TurnTaker> heroList = new List<TurnTaker>();
+				IEnumerator trashHeroCR = FindHeroWithMostCardsInTrash(heroList);
 
 				if (base.UseUnityCoroutines)
 				{
-					yield return base.GameController.StartCoroutine(trashDamageCR);
+					yield return base.GameController.StartCoroutine(trashHeroCR);
 				}
 				else
 				{
-					base.GameController.ExhaustCoroutine(trashDamageCR);
+					base.GameController.ExhaustCoroutine(trashHeroCR);
+				}
+				Card trashHero = heroList.FirstOrDefault().CharacterCard;
+
+				if (trashHero.IsTarget)
+				{
+					IEnumerator trashDamageCR = DealDamage(
+						lowestVillainCard,
+						trashHero,
+						base.H - 2,
+						DamageType.Melee
+					);
+
+					if (base.UseUnityCoroutines)
+					{
+						yield return base.GameController.StartCoroutine(trashDamageCR);
+					}
+					else
+					{
+						base.GameController.ExhaustCoroutine(trashDamageCR);
+					}
 				}
 			}
 

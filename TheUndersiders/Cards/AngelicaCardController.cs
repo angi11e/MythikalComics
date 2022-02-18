@@ -36,6 +36,14 @@ namespace Angille.TheUndersiders
 			);
 
 			// Dog: The first time each turn a villain character card would be dealt damage, redirect it to this card.
+			AddFirstTimePerTurnRedirectTrigger(
+				(DealDamageAction dd) => dd.Target.IsVillainCharacterCard && IsEnabled("dog"),
+				FirstDamageToVCC,
+				TargetType.HighestHP,
+				(Card c) => c == base.Card
+			);
+
+			/* the old one didn't work?
 			AddTrigger(
 				(DealDamageAction dd) =>
 					!IsPropertyTrue(FirstDamageToVCC)
@@ -45,6 +53,7 @@ namespace Angille.TheUndersiders
 				TriggerType.RedirectDamage,
 				TriggerTiming.Before
 			);
+			*/
 
 			AddAfterLeavesPlayAction(
 				(GameAction ga) => ResetFlagAfterLeavesPlay(FirstDamageToVCC),

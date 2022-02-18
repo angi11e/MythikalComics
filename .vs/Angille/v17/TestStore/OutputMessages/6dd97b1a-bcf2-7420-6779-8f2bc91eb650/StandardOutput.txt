@@ -1,0 +1,88 @@
+Created game with random seed: 20
+================================ START GAME ================================
+GameController moves 8 cards cards to the top of Warlords of Brockton's UnderCard.
+The Undersiders shuffles their under Warlords of Brockton.
+Went to The Undersiders's Start phase.
+Created decision [SelectFunction/SelectFunction D1]
+MakeDecisions: [SelectFunction/SelectFunction D1]
+Make a SelectFunctionDecision: [Randomize villains, masters, thinkers, strangers, strikers]
+Selected: Randomize villains
+GameController puts Skitter into play.
+Revealed card: Hail of Blades
+Revealed card: Hail of Blades
+Revealed card: Imperious Control
+Revealed matching card: Watchful Swarm
+Skitter puts Watchful Swarm into play.
+Message: Skitter plays the top card of the villain deck... [ Skitter ]
+Created decision [SelectLocation/None D2]
+Skitter plays Bastard.
+Skitter moves 3 cards cards to the top of The Undersiders's Deck.
+The Undersiders shuffles their the villain deck.
+GameController puts Foil into play.
+Created decision [SelectCards/None D3]
+Created decision [SelectCard/None D3-1]
+Watchful Swarm regained no HP from Skitter.
+Created decision [SelectCard/None D3-2]
+GameController plays Fortitude.
+GameController plays Hail of Blades.
+Created decision [SelectTargets/None D4]
+Created decision [SelectTarget/None D4-1]
+MakeDecisions: [SelectTarget/SelectTarget D4-1]
+[Hail of Blades] Everybody, Make a SelectCardDecision of type SelectTarget: [Legacy, Bunker, Auto])
+--- BEGIN PREVIEW ---
+Selected Target: Legacy
+Final Result: Skitter deals 0 Projectile damage to Legacy.
+Fortitude: -1.
+--- END PREVIEW ---
+Selected: Legacy
+Skitter initiates 1 Projectile damage to Legacy.
+Fortitude reduces the damage dealt to Legacy by Skitter by 1.
+Damage amount was 0, so no damage was dealt.
+Created decision [SelectTarget/None D4-2]
+Skitter initiates 1 Projectile damage to Bunker.
+Skitter deals Bunker 1 Projectile damage.
+Bunker is now at 27 HP.
+Created decision [SelectTargets/None D5]
+Created decision [SelectTarget/None D5-1]
+MakeDecisions: [SelectTarget/SelectTarget D5-1]
+[Hail of Blades] Everybody, Make a SelectCardDecision of type SelectTarget: [Legacy, The Wraith, Auto])
+--- BEGIN PREVIEW ---
+Selected Target: Legacy
+Final Result: Foil deals 2 Projectile damage to Legacy.
+--- END PREVIEW ---
+Selected: Legacy
+Foil initiates 2 Projectile damage to Legacy.
+Fortitude cannot reduce the damage, because it is irreducible.
+Foil deals Legacy 2 Projectile damage.
+Legacy is now at 30 HP.
+Created decision [SelectTarget/None D5-2]
+Foil initiates 2 Projectile damage to The Wraith.
+The Wraith is a nemesis of Foil. Damage dealt increased by 1.
+Foil deals The Wraith 3 Projectile damage.
+The Wraith is now at 23 HP.
+Created decision [SelectTarget/None D5-3]
+GameController moved Hail of Blades to the villain trash.
+GameController destroys Bastard!
+GameController moved Bastard to the villain trash.
+Went from The Undersiders's Start phase to PlayCard phase. 
+Went from The Undersiders's PlayCard phase to End phase. 
+The Undersiders plays the top card of the environment deck...
+The Undersiders plays the top card of the environment deck.
+Message: The Undersiders plays the top card of the environment deck... [ The Undersiders ]
+The Undersiders plays Impending Casualty.
+The Undersiders was flipped to its back side.
+Message: There are no hero equipment cards in play for Skitter to destroy. [ Skitter ]
+Created decision [SelectTargets/None D6]
+Created decision [SelectTarget/None D6-1]
+Foil initiates 1 Melee damage to Legacy.
+Foil makes the damage irreducible.
+Fortitude cannot reduce the damage, because it is irreducible.
+Foil deals Legacy 1 Melee damage.
+Legacy is now at 29 HP.
+Created decision [SelectTarget/None D6-2]
+Foil initiates 1 Projectile damage to The Wraith.
+Foil makes the damage irreducible.
+The Wraith is a nemesis of Foil. Damage dealt increased by 1.
+Foil deals The Wraith 2 Projectile damage.
+The Wraith is now at 21 HP.
+--- The Undersiders's End phase ---

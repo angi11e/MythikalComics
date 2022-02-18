@@ -13,8 +13,8 @@ namespace Angille.NightMare
 		 * When any damage is redirected to {NightMare}, reduce it by 1.
 		 * 
 		 * POWER
-		 * {NightMare} deals 1 target 1 Melee damage.
-		 * Targets dealt Damage this way cannot deal Damage until the start of your next turn.
+		 * {NightMare} deals 1 target 3 Melee damage.
+		 * Reduce the next damage dealt by targets dealt damage this way by the damage they take.
 		 * 
 		 * DISCARD
 		 * One hero target regains 1 HP.
@@ -53,9 +53,10 @@ namespace Angille.NightMare
 		public override IEnumerator UsePower(int index = 0)
 		{
 			int targetNumeral = GetPowerNumeral(0, 1);
-			int damageNumeral = GetPowerNumeral(1, 1);
+			int damageNumeral = GetPowerNumeral(1, 3);
+			int reduceNumeral = GetPowerNumeral(2, 0);
 
-			// {NightMare} deals 1 target 1 Melee damage.
+			// {NightMare} deals 1 target 3 Melee damage.
 			IEnumerator dealDamageCR = GameController.SelectTargetsAndDealDamage(
 				DecisionMaker,
 				new DamageSource(GameController, base.CharacterCard),
@@ -64,8 +65,8 @@ namespace Angille.NightMare
 				targetNumeral,
 				false,
 				targetNumeral,
-				// Targets dealt Damage this way cannot deal Damage until the start of your next turn.
-				addStatusEffect: TargetsDealtDamageCannotDealDamageUntilTheStartOfNextTurnResponse,
+				// Reduce the next damage dealt by targets dealt damage this way by the damage they take.
+				addStatusEffect: ReduceNextDamageByDamageResponse,
 				cardSource: GetCardSource()
 			);
 
@@ -79,6 +80,28 @@ namespace Angille.NightMare
 			}
 
 			yield break;
+		}
+
+		private IEnumerator ReduceNextDamageByDamageResponse(DealDamageAction dda)
+		{
+			// Reduce the next damage dealt by targets dealt damage this way by the damage they take.
+			if (dda.DidDealDamage)
+			{
+				ReduceDamageStatusEffect reduceDamageSE = new ReduceDamageStatusEffect(dda.Amount);
+				reduceDamageSE.SourceCriteria.IsSpecificCard = dda.Target;
+				reduceDamageSE.NumberOfUses = 1;
+				reduceDamageSE.UntilCardLeavesPlay(dda.Target);
+
+				IEnumerator reduceDamageCR = AddStatusEffect(reduceDamageSE);
+				if (UseUnityCoroutines)
+				{
+					yield return GameController.StartCoroutine(reduceDamageCR);
+				}
+				else
+				{
+					GameController.ExhaustCoroutine(reduceDamageCR);
+				}
+			}
 		}
 
 		protected override IEnumerator DiscardResponse(GameAction ga)

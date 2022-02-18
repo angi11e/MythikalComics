@@ -117,7 +117,7 @@
 	  ],
 	  "gameplay": [
 		"Damage dealt by {FoilCharacter} is irreducible.",
-		"At the end of the villain turn, {Foil} deals the hero target with the most HP {H - 2} melee damage, and the hero target with the least HP 1 projectile damage.",
+		"At the end of the villain turn, {FoilCharacter} deals the hero target with the most HP {H - 2} melee damage, and the hero target with the least HP 1 projectile damage.",
 		"Treat {Blade} effects as active."
 	  ],
 	  "icons": [
@@ -131,7 +131,7 @@
 	  "flippedKeywords": [
 	  ],
 	  "flippedGameplay": [
-		"Damage dealt by villain targets is irreducible."
+		"Damage dealt by villain character targets is irreducible."
 	  ],
 	  "flippedChallengeText": "Treat {Blade} effects as active.",
 	  "flippedIcons": [
@@ -152,11 +152,11 @@
 	  "nemesisIdentifiers": [
 		"Fanatic"
 	  ],
-	  "gameplay": [
-		"When this card enters play, if it's not already in play, search the villain trash and deck for the card Tenebrous Cloud and put it into play. if the villain deck was searched, shuffle it.",
-		"At the end of the villain turn, {GrueCharacter} deals the hero character with the most cards in their play area 1 melee damage and 1 infernal damage.",
-		"Treat {Skull} effects as active."
-	  ],
+		"gameplay": [
+			"When this card enters play, if the card Tenebrous Cloud is not already in play, search the villain trash and deck for it and put it into play. if the villain deck was searched, shuffle it.",
+			"At the end of the villain turn, {GrueCharacter} deals the hero character with the most cards in their play area 1 melee damage and 1 infernal damage.",
+			"Treat {Skull} effects as active."
+		],
 	  "icons": [
 		"Search",
 		"EndOfTurnAction",
@@ -308,15 +308,19 @@
 	  "nemesisIdentifiers": [
 		"MrFixer"
 	  ],
-	  "gameplay": [
-		"When this card enters play, reveal cards from the top of the villain deck until {H - 2} swarm cards are revealed. Put them into play. Shuffle the other revealed cards back into the villain deck.",
-		"At the start of the villain turn, restore all villain swarm targets to 3 HP.",
-		"Treat {Spider} effects as active."
-	  ],
+		"gameplay": [
+			"When this card enters play, reveal cards from the top of the villain deck until {H - 2} swarm cards are revealed. Put them into play. Shuffle the other revealed cards back into the villain deck.",
+			"The first time each turn a villain swarm target enters play, play the top card of the villain deck.",
+			"Reduce damage taken by villain character targets by 1.",
+			"At the start of the villain turn, restore all villain swarm targets to 3 HP.",
+			"At the end of the villain turn, destroy X hero equipment cards, where X = the number of villain swarm cards in play.",
+			"Treat {Spider} effects as active."
+		],
 	  "icons": [
-		"Search",
-		"GainHP",
-		"Angille.Spider"
+			"Search",
+			"PlayCardNow",
+			"ReduceDamageTaken",
+			"Angille.Spider"
 	  ],
 	  "flippedShowHitpoints": false,
 	  "flippedBody": "incapacitated",
@@ -347,15 +351,15 @@
 	  "nemesisIdentifiers": [
 		"Tachyon"
 	  ],
-	  "gameplay": [
-		"increase damage dealt by villain character targets by 1. Reduce damage taken by villain character targets by 1.",
-		"At the end of the villain turn, destroy {H} hero ongoing and/or equipment cards. The villain target with the highest HP deals 1 projectile damage to each hero with any ongoing or equipment cards in play.",
-		"Treat {Tattle} effects as active."
-	  ],
+		"gameplay": [
+			"increase damage dealt by villain character targets by 1.",
+			"At the end of the villain turn, destroy {H - 2} hero ongoing cards. The villain target with the highest HP deals 2 projectile damage to each hero with any ongoing cards in play.",
+			"Treat {Tattle} effects as active."
+		],
 	  "icons": [
 		"IncreaseDamageDealt",
-		"ReduceDamageTaken",
 		"EndOfTurnAction",
+		"DestroyOngoing",
 		"Angille.Tattle"
 	  ],
 	  "flippedShowHitpoints": false,
@@ -471,7 +475,7 @@
 			],
 			"hitpoints": 12,
 			"body": [
-				"At the end of the villain turn, this card deals the hero target with the highest HP {H - 1} melee damage."
+				"At the end of the villain turn, this card deals the hero target with the highest HP {H - 1} toxic damage."
 			],
 			"activatableAbilities": [
 				{
@@ -621,11 +625,11 @@
 	  "activatableAbilities": [
 		{
 		  "name": "{Blade}:",
-		  "text": "{FoilCharacter} deals any hero targets not dealt damage this turn 2 projectile damage."
+		  "text": "{FoilCharacter} deals hero character targets not dealt damage this turn 2 projectile damage."
 		},
 		{
 		  "name": "{Bear}:",
-		  "text": "Targets dealt damage by the results of this card cannot deal damage until the start of the villain turn."
+		  "text": "Targets dealt damage by the main text of this card cannot deal damage until the start of the villain turn."
 		}
 	  ],
 	  "icons": [
@@ -727,36 +731,36 @@
 	  "flavorText": "“You can't hear in there either. and it{BR}feels strange too. there's resistance, like{BR}you're underwater, but not floating.”",
 	  "flavorReference": "Browbeat, interlude 3"
 	},
-	{
-	  "identifier": "WatchfulSwarm",
-	  "count": 3,
-	  "title": "Watchful Swarm",
-	  "keywords": [
-		"swarm"
-	  ],
-	  "hitpoints": 3,
-	  "body": [
-		"Whenever a villain character target would take damage, redirect it to the {WatchfulSwarm} card with the lowest HP."
-	  ],
-	  "activatableAbilities": [
 		{
-		  "name": "{Spider}:",
-		  "text": "This card is immune to melee and projectile damage."
+			"identifier": "WatchfulSwarm",
+			"count": 3,
+			"title": "Watchful Swarm",
+			"keywords": [
+				"swarm"
+			],
+			"hitpoints": 3,
+			"body": [
+				"Whenever a villain character target would take damage, redirect it to the {WatchfulSwarm} card with the lowest HP."
+			],
+			"activatableAbilities": [
+				{
+					"name": "{Spider}:",
+					"text": "This card is immune to melee and projectile damage."
+				},
+				{
+					"name": "{Tattle}:",
+					"text": "When this card is destroyed, the hero with the most cards in hand must discard a card."
+				}
+			],
+			"icons": [
+				"RedirectDamage",
+				"Discard",
+				"Angille.Spider",
+				"Angille.Tattle"
+			],
+			"flavorText": "“Not a promise.{BR}not an oath. or a malediction.{BR}or a curse. [b]inevitable.[/b]”",
+			"flavorReference": "Skitter, Cell 22.4"
 		},
-		{
-		  "name": "{Tattle}:",
-		  "text": "When this card is destroyed, the hero with the most cards in hand must discard a card."
-		}
-	  ],
-	  "icons": [
-		"RedirectDamage",
-		"Discard",
-		"Angille.Spider",
-		"Angille.Tattle"
-	  ],
-	  "flavorText": "“Threads, Skitter? These{BR}yours, or leftovers from before?”",
-	  "flavorReference": "Bonesaw, Snare 13.9"
-	},
 	{
 	  "identifier": "WarlordsOfBrockton",
 	  "count": 1,

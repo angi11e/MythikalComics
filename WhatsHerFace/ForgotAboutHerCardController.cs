@@ -72,7 +72,7 @@ namespace Angille.WhatsHerFace
 			AddTrigger(
 				(MakeDecisionsAction md) =>
 					md.CardSource != null
-					&& md.CardSource.Card.Owner.IsHero,
+					&& (md.CardSource.Card.Owner == TurnTaker || md.CardSource.Card == GetCardThisCardIsNextTo()),
 				RemoveDecisionsFromMakeDecisionsResponse,
 				TriggerType.RemoveDecision,
 				TriggerTiming.Before
@@ -90,33 +90,21 @@ namespace Angille.WhatsHerFace
 
 		public override bool AskIfActionCanBePerformed(GameAction g)
 		{
-			if (GetForgettingCard() != null)
+			if (GetCardThisCardIsNextTo() != null)
 			{
 				bool? flag = g.DoesFirstCardAffectSecondCard(
-					(Card c) => c.Owner == GetForgettingCard(),
-					(Card c) => c.Owner != GetForgettingCard() && c.Owner.IsHero
+					(Card c) => c.Owner == TurnTaker && c != base.Card,
+					(Card c) => c == GetCardThisCardIsNextTo()
 				);
-				
+
 				bool? flag2 = g.DoesFirstCardAffectSecondCard(
-					(Card c) => c.Owner != GetForgettingCard() && c.Owner.IsHero,
-					(Card c) => c.Owner == GetForgettingCard()
+					(Card c) => c == GetCardThisCardIsNextTo(),
+					(Card c) => c.Owner == TurnTaker && c != base.Card
 				);
-				
-				bool? flag3 = g.DoesFirstTurnTakerAffectSecondTurnTaker(
-					(TurnTaker tt) => tt == GetForgettingCard(),
-					(TurnTaker tt) => tt != GetForgettingCard() && tt.IsHero
-				);
-				
-				bool? flag4 = g.DoesFirstTurnTakerAffectSecondTurnTaker(
-					(TurnTaker tt) => tt != GetForgettingCard() && tt.IsHero,
-					(TurnTaker tt) => tt == GetForgettingCard()
-				);
-				
+
 				if (
 					(flag.HasValue && flag.Value)
 					|| (flag2.HasValue && flag2.Value)
-					|| (flag3.HasValue && flag3.Value)
-					|| (flag4.HasValue && flag4.Value)
 				)
 				{
 					return false;
@@ -129,14 +117,15 @@ namespace Angille.WhatsHerFace
 		{
 			md.RemoveDecisions(
 				(IDecision d) =>
-					d.CardSource.Card.Owner != GetForgettingCard()
-					&& d.HeroTurnTakerController.TurnTaker == GetForgettingCard()
+					d.SelectedCard == GetCardThisCardIsNextTo()
+					&& d.HeroTurnTakerController.TurnTaker == TurnTaker
 			);
 
 			md.RemoveDecisions(
 				(IDecision d) =>
-					d.CardSource.Card.Owner == GetForgettingCard()
-					&& d.HeroTurnTakerController.TurnTaker != GetForgettingCard()
+					d.SelectedCard.Owner == TurnTaker
+					&& d.SelectedCard != base.Card
+					&& d.CardSource.Card == GetCardThisCardIsNextTo()
 			);
 
 			yield return DoNothing();
@@ -151,20 +140,11 @@ namespace Angille.WhatsHerFace
 			return null;
 		}
 
-		public override bool? AskIfCardIsVisibleToCardSource(Card card, CardSource cardSource)
-		{
-			return AskIfTurnTakerIsVisibleToCardSource(card.Owner, cardSource);
-		}
-
 		public override bool? AskIfTurnTakerIsVisibleToCardSource(TurnTaker tt, CardSource cardSource)
 		{
-			if (cardSource != null && cardSource.Card.IsHero && tt.IsHero)
+			if (cardSource != null && cardSource.Card == GetCardThisCardIsNextTo() && tt == TurnTaker)
 			{
-				if (cardSource.Card.Owner == GetForgettingCard())
-				{
-					return tt == GetForgettingCard();
-				}
-				return tt != GetForgettingCard();
+				return false;
 			}
 			return true;
 		}

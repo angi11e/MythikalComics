@@ -1,0 +1,146 @@
+Created game with random seed: 878336124
+================================ START GAME ================================
+The Matriarch puts Mask of the Matriarch into play.
+The Matriarch shuffles their the villain deck.
+Went to The Matriarch's Start phase.
+Mask of the Matriarch tried to increase The Matriarch's HP, but they are already at their maximum HP.
+GameController plays Trap Door.
+Created decision [SelectTargets/None D1 Theurgy]
+Created decision [SelectTarget/None D1-1 Theurgy]
+MakeDecisions: [SelectTarget/SelectTarget D1-1 Theurgy]
+[Trap Door] Theurgy, Make a SelectCardDecision of type SelectTarget: [The Matriarch, Haka, Theurgy, Bunker, Mask of the Matriarch])
+--- BEGIN PREVIEW ---
+Selected Target: The Matriarch
+Final Result: Theurgy deals 3 Projectile damage to The Matriarch.
+--- END PREVIEW ---
+Selected: The Matriarch
+Theurgy initiates 3 Projectile damage to The Matriarch.
+Theurgy deals The Matriarch 3 Projectile damage.
+The Matriarch is now at 67 HP.
+Created decision [SelectTargets/None D2 Theurgy]
+Created decision [SelectTarget/None D2-1 Theurgy]
+MakeDecisions: [SelectTarget/SelectTarget D2-1 Theurgy]
+[Trap Door] Theurgy, Make a SelectCardDecision of type SelectTarget: [The Matriarch, Haka, Theurgy, Bunker, Mask of the Matriarch, Skip])
+--- BEGIN PREVIEW ---
+Selected Target: The Matriarch
+Final Result: The Matriarch deals 2 Melee damage to The Matriarch.
+--- END PREVIEW ---
+Selected: The Matriarch
+The Matriarch initiates 2 Melee damage to The Matriarch.
+The Matriarch deals The Matriarch 2 Melee damage.
+The Matriarch is now at 65 HP.
+Message: There are no charm cards in play for Trap Door to destroy. [  ]
+GameController moved Trap Door to Theurgy's trash.
+GameController plays Building of Rooks.
+Created decision [SelectLocation/None D3]
+The Matriarch plays Darken the Sky.
+Message: Mask of the Matriarch plays the top card of the villain deck... [ Mask of the Matriarch ]
+Created decision [SelectLocation/None D4]
+Mask of the Matriarch plays Kettle of Vultures.
+Created decision [SelectLocation/None D5]
+The Matriarch plays Clattering of Jackdaws.
+Created decision [SelectLocation/None D6]
+The Matriarch plays Huginn.
+Message: There are no fowl cards in the villain trash to put into play. [  ]
+There are no fowl cards in the villain trash to put into play.
+Message: Mask of the Matriarch was not found in the villain trash. [ Darken the Sky ]
+GameController moved Darken the Sky to the villain trash.
+GameController plays Follow the Path.
+Created decision [SelectCard/None D7 Theurgy]
+MakeDecisions: [SelectCard/MoveCardNextToCard D7 Theurgy]
+[Follow the Path] Theurgy, Make a SelectCardDecision of type MoveCardNextToCard: [Haka, Theurgy, Bunker])
+Selected: Bunker
+GameController moved Follow the Path from Theurgy's deck next to Bunker.
+Bunker draws Auxiliary Power Source.
+GameController plays Guide the Strike.
+Created decision [SelectCard/None D8 Theurgy]
+MakeDecisions: [SelectCard/MoveCardNextToCard D8 Theurgy]
+[Guide the Strike] Theurgy, Make a SelectCardDecision of type MoveCardNextToCard: [Haka, Theurgy, Bunker])
+Selected: Bunker
+GameController moved Guide the Strike from Theurgy's deck next to Bunker.
+Applying ongoing effect: Increase the next damage dealt by Bunker by 3.
+Message: Increase the next damage dealt by Bunker by 3. [  ]
+GameController plays Weather the Hits.
+Created decision [SelectCard/None D9 Theurgy]
+MakeDecisions: [SelectCard/MoveCardNextToCard D9 Theurgy]
+[Weather the Hits] Theurgy, Make a SelectCardDecision of type MoveCardNextToCard: [Haka, Theurgy, Bunker])
+Selected: Bunker
+GameController moved Weather the Hits from Theurgy's deck next to Bunker.
+Applying ongoing effect: Reduce the next damage dealt to Bunker by 3.
+Message: Reduce the next damage dealt to Bunker by 3. [  ]
+GameController plays Trap Door.
+Created decision [SelectTargets/None D10 Theurgy]
+Created decision [SelectTarget/None D10-1 Theurgy]
+MakeDecisions: [SelectTarget/SelectTarget D10-1 Theurgy]
+[Trap Door] Theurgy, Make a SelectCardDecision of type SelectTarget: [The Matriarch, Haka, Theurgy, Bunker, Mask of the Matriarch, Building of Rooks, Kettle of Vultures, Clattering of Jackdaws, Huginn])
+Selected: Huginn
+Theurgy initiates 3 Projectile damage to Huginn.
+Theurgy deals Huginn 3 Projectile damage.
+Huginn is now at 4 HP.
+Created decision [SelectTargets/None D11 Theurgy]
+Created decision [SelectTarget/None D11-1 Theurgy]
+MakeDecisions: [SelectTarget/SelectTarget D11-1 Theurgy]
+[Trap Door] Theurgy, Make a SelectCardDecision of type SelectTarget: [The Matriarch, Haka, Theurgy, Bunker, Mask of the Matriarch, Building of Rooks, Kettle of Vultures, Clattering of Jackdaws, Huginn, Skip])
+Selected: Building of Rooks
+Huginn initiates 2 Melee damage to Building of Rooks.
+Huginn deals Building of Rooks 2 Melee damage.
+Building of Rooks is now at -1 HP.
+Huginn destroys Building of Rooks!
+Message: Haka has no ongoing or equipment cards in play to destroy. [ The Matriarch ]
+The Matriarch initiates 1 Psychic damage to Haka.
+The Matriarch deals Haka 1 Psychic damage.
+Haka is now at 33 HP.
+GameController moved Building of Rooks to the villain trash.
+Created decision [SelectTarget/None D11-2 Theurgy]
+MakeDecisions: [SelectTarget/SelectTarget D11-2 Theurgy]
+[Trap Door] Theurgy, Make a SelectCardDecision of type SelectTarget: [The Matriarch, Haka, Theurgy, Bunker, Mask of the Matriarch, Kettle of Vultures, Clattering of Jackdaws, Huginn, Skip])
+Selected: Clattering of Jackdaws
+Huginn initiates 2 Melee damage to Clattering of Jackdaws.
+Huginn deals Clattering of Jackdaws 2 Melee damage.
+Clattering of Jackdaws is now at -1 HP.
+Huginn destroys Clattering of Jackdaws!
+Message: Haka has no ongoing or equipment cards in play to destroy. [ The Matriarch ]
+The Matriarch initiates 1 Psychic damage to Haka.
+The Matriarch deals Haka 1 Psychic damage.
+Haka is now at 32 HP.
+GameController moved Clattering of Jackdaws to the villain trash.
+Created decision [SelectTarget/None D11-3 Theurgy]
+MakeDecisions: [SelectTarget/SelectTarget D11-3 Theurgy]
+[Trap Door] Theurgy, Make a SelectCardDecision of type SelectTarget: [The Matriarch, Haka, Theurgy, Bunker, Mask of the Matriarch, Kettle of Vultures, Huginn, Skip])
+Selected: Kettle of Vultures
+Huginn initiates 2 Melee damage to Kettle of Vultures.
+Huginn deals Kettle of Vultures 2 Melee damage.
+Kettle of Vultures is now at -1 HP.
+Huginn destroys Kettle of Vultures!
+Message: Haka has no ongoing or equipment cards in play to destroy. [ The Matriarch ]
+The Matriarch initiates 1 Psychic damage to Haka.
+The Matriarch deals Haka 1 Psychic damage.
+Haka is now at 31 HP.
+GameController moved Kettle of Vultures to the villain trash.
+Created decision [SelectTarget/None D11-4 Theurgy]
+MakeDecisions: [SelectTarget/SelectTarget D11-4 Theurgy]
+[Trap Door] Theurgy, Make a SelectCardDecision of type SelectTarget: [The Matriarch, Haka, Theurgy, Bunker, Mask of the Matriarch, Huginn, Skip])
+Selected: Huginn
+Huginn initiates 2 Melee damage to Huginn.
+Huginn deals Huginn 2 Melee damage.
+Huginn is now at 2 HP.
+Created decision [SelectCard/None D12 Theurgy]
+MakeDecisions: [SelectCard/DestroyCard D12 Theurgy]
+[Trap Door] Theurgy, Make a SelectCardDecision of type DestroyCard: [Follow the Path, Guide the Strike, Weather the Hits])
+Selected: Guide the Strike
+Created decision [SelectDamageType/None D13 Bunker]
+MakeDecisions: [SelectDamageType/DamageType D13 Bunker]
+Bunker, Make a SelectDamageTypeDecision: [Melee or Projectile]
+No damage type provided. Selected: Melee
+Created decision [SelectTargets/None D14 Bunker]
+Created decision [SelectTarget/None D14-1 Bunker]
+MakeDecisions: [SelectTarget/SelectTarget D14-1 Bunker]
+[Guide the Strike] Bunker, Make a SelectCardDecision of type SelectTarget: [The Matriarch, Haka, Theurgy, Bunker, Mask of the Matriarch, Huginn])
+Selected: The Matriarch
+Bunker initiates 5 Melee damage to The Matriarch.
+Guide the Strike increases the damage dealt by Bunker by 3.
+Bunker deals The Matriarch 8 Melee damage.
+The Matriarch is now at 57 HP.
+Trap Door destroys Guide the Strike!
+GameController moved Guide the Strike to Theurgy's trash.
+GameController moved Trap Door to Theurgy's trash.

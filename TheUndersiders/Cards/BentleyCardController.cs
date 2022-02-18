@@ -25,7 +25,7 @@ namespace Angille.TheUndersiders
 				(Card c) => c.IsHero,
 				TargetType.HighestHP,
 				base.H - 1,
-				DamageType.Melee
+				DamageType.Toxic
 			);
 
 			// Dog: This card is immune to melee damage.

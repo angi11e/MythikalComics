@@ -10,13 +10,14 @@ namespace Angille.Theurgy
 	{
 		// Reveal X cards from the top of any deck, where X = the number of charm cards in play plus 1.
 		// Put them back in any order.
+		// Destroy a [u]charm[/u] card.
 
 		public ClairvoyanceCardController(
 			Card card,
 			TurnTakerController turnTakerController
 		) : base(card, turnTakerController)
 		{
-			base.SpecialStringMaker.ShowNumberOfCardsInPlay(IsCharmCriteria());
+			SpecialStringMaker.ShowNumberOfCardsInPlay(IsCharmCriteria());
 		}
 
 		public override IEnumerator Play()
@@ -26,7 +27,7 @@ namespace Angille.Theurgy
 
 			// choose the deck
 			List<SelectTurnTakerDecision> storedResults = new List<SelectTurnTakerDecision>();
-			IEnumerator selectTurnTakerCR = base.GameController.SelectTurnTaker(
+			IEnumerator selectTurnTakerCR = GameController.SelectTurnTaker(
 				DecisionMaker,
 				SelectionType.RevealCardsFromDeck,
 				storedResults,
@@ -35,13 +36,13 @@ namespace Angille.Theurgy
 				cardSource: GetCardSource()
 			);
 
-			if (base.UseUnityCoroutines)
+			if (UseUnityCoroutines)
 			{
-				yield return base.GameController.StartCoroutine(selectTurnTakerCR);
+				yield return GameController.StartCoroutine(selectTurnTakerCR);
 			}
 			else
 			{
-				base.GameController.ExhaustCoroutine(selectTurnTakerCR);
+				GameController.ExhaustCoroutine(selectTurnTakerCR);
 			}
 
 			// reveal X cards, put back in any order
@@ -56,19 +57,19 @@ namespace Angille.Theurgy
 						selectedTurnTaker,
 						drawNumeral
 					);
-					if (base.UseUnityCoroutines)
+					if (UseUnityCoroutines)
 					{
-						yield return base.GameController.StartCoroutine(revealCardsCR);
+						yield return GameController.StartCoroutine(revealCardsCR);
 					}
 					else
 					{
-						base.GameController.ExhaustCoroutine(revealCardsCR);
+						GameController.ExhaustCoroutine(revealCardsCR);
 					}
 				}
 				else
 				{
 					TurnTaker selectedTurnTaker = GetSelectedTurnTaker(storedResults);
-					IEnumerator revealCardsCR = base.GameController.RevealCards(
+					IEnumerator revealCardsCR = GameController.RevealCards(
 						DecisionMaker,
 						selectedTurnTaker.Deck,
 						null,
@@ -77,16 +78,34 @@ namespace Angille.Theurgy
 						RevealedCardDisplay.ShowRevealedCards,
 						GetCardSource()
 					);
-					if (base.UseUnityCoroutines)
+					if (UseUnityCoroutines)
 					{
-						yield return base.GameController.StartCoroutine(revealCardsCR);
+						yield return GameController.StartCoroutine(revealCardsCR);
 					}
 					else
 					{
-						base.GameController.ExhaustCoroutine(revealCardsCR);
+						GameController.ExhaustCoroutine(revealCardsCR);
 					}
 				}
 			}
+
+			// Destroy a [u]charm[/u] card.
+			IEnumerator destroyCR = GameController.SelectAndDestroyCard(
+				DecisionMaker,
+				IsCharmCriteria(),
+				false,
+				cardSource: GetCardSource()
+			);
+
+			if (UseUnityCoroutines)
+			{
+				yield return GameController.StartCoroutine(destroyCR);
+			}
+			else
+			{
+				GameController.ExhaustCoroutine(destroyCR);
+			}
+
 			yield break;
 		}
 	}

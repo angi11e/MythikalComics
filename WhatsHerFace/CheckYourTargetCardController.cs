@@ -14,59 +14,11 @@ namespace Angille.WhatsHerFace
 		 * If that target leaves play, return this card to your hand.
 		 */
 
-		private ITrigger _redirectTrigger;
 		private const string FirstDamageFromThis = "FirstDamageFromThis";
+
+		/* ok, does this not work????
+		private ITrigger _redirectTrigger;
 		public bool? PerformRedirect { get; set; }
-
-		public override bool AllowFastCoroutinesDuringPretend {
-			get
-			{
-				if (!GameController.PreviewMode)
-				{
-					return IsHighestHitPointsUnique((Card c) => IsVillainTarget(c));
-				}
-				return true;
-			}
-		}
-
-		public CheckYourTargetCardController(
-			Card card,
-			TurnTakerController turnTakerController
-		) : base(card, turnTakerController)
-		{
-			PerformRedirect = null;
-			base.SpecialStringMaker.ShowVillainTargetWithHighestHP();
-		}
-
-		// Play this card next to a non-hero target.
-		protected override LinqCardCriteria CustomCriteria => new LinqCardCriteria(
-			(Card c) => !c.IsHero && c.IsTarget && c.IsInPlayAndHasGameText,
-			"non-hero target"
-		);
-
-		public override void AddTriggers()
-		{
-			// Redirect the first damage dealt by that target each turn to the villain target with the highest HP.
-			_redirectTrigger = AddTrigger(
-				(DealDamageAction dd) =>
-					dd.DamageSource.IsCard
-					&& dd.DamageSource.Card == GetCardThisCardIsNextTo()
-					&& !IsPropertyTrue(FirstDamageFromThis),
-				RedirectToHighest,
-				TriggerType.RedirectDamage,
-				TriggerTiming.Before
-			);
-
-			// If that target leaves play, return this card to your hand.
-			AddIfTheCardThatThisCardIsNextToLeavesPlayMoveItToYourHandTrigger();
-
-			AddAfterLeavesPlayAction(
-				(GameAction ga) => ResetFlagAfterLeavesPlay(FirstDamageFromThis),
-				TriggerType.Hidden
-			);
-
-			base.AddTriggers();
-		}
 
 		private IEnumerator RedirectToHighest(DealDamageAction dd)
 		{
@@ -97,6 +49,7 @@ namespace Angille.WhatsHerFace
 				if (villainList.Count() > 0)
 				{
 					theTarget = villainList.FirstOrDefault();
+					PerformRedirect = true;
 				}
 				else
 				{
@@ -128,5 +81,68 @@ namespace Angille.WhatsHerFace
 
 			yield break;
 		}
+
+		public override bool AllowFastCoroutinesDuringPretend {
+			get
+			{
+				if (!GameController.PreviewMode)
+				{
+					return IsHighestHitPointsUnique((Card c) => IsVillainTarget(c));
+				}
+				return true;
+			}
+		}
+		*/
+
+		public CheckYourTargetCardController(
+			Card card,
+			TurnTakerController turnTakerController
+		) : base(card, turnTakerController)
+		{
+			// PerformRedirect = null;
+			base.SpecialStringMaker.ShowVillainTargetWithHighestHP();
+		}
+
+		// Play this card next to a non-hero target.
+		protected override LinqCardCriteria CustomCriteria => new LinqCardCriteria(
+			(Card c) => !c.IsHero && c.IsTarget && c.IsInPlayAndHasGameText,
+			"non-hero target"
+		);
+
+		public override void AddTriggers()
+		{
+			// Redirect the first damage dealt by that target each turn to the villain target with the highest HP.
+			AddFirstTimePerTurnRedirectTrigger(
+				(DealDamageAction dd) =>
+					dd.DamageSource.IsTarget
+					&& dd.DamageSource.Card == GetCardThisCardIsNextTo(),
+				FirstDamageFromThis,
+				TargetType.HighestHP,
+				(Card c) => IsVillainTarget(c) && GameController.IsCardVisibleToCardSource(c, GetCardSource())
+			);
+
+			/* old code doesn't work???
+			_redirectTrigger = AddTrigger(
+				(DealDamageAction dd) =>
+					!IsPropertyTrue(FirstDamageFromThis)
+					&& dd.DamageSource.IsCard
+					&& dd.DamageSource.Card == GetCardThisCardIsNextTo(),
+				RedirectToHighest,
+				TriggerType.RedirectDamage,
+				TriggerTiming.Before
+			);
+			*/
+
+			// If that target leaves play, return this card to your hand.
+			AddIfTheCardThatThisCardIsNextToLeavesPlayMoveItToYourHandTrigger();
+
+			AddAfterLeavesPlayAction(
+				(GameAction ga) => ResetFlagAfterLeavesPlay(FirstDamageFromThis),
+				TriggerType.Hidden
+			);
+
+			base.AddTriggers();
+		}
+
 	}
 }

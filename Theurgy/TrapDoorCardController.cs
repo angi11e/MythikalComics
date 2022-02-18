@@ -8,9 +8,10 @@ namespace Angille.Theurgy
 {
 	public class TrapDoorCardController : TheurgyBaseCardController
 	{
-		// Theurgy deals 1 target 3 melee damage.
-		// That target deals up to X targets 2 projectile damage,
+		// Theurgy deals 1 target 3 projectile damage.
+		// That target deals up to X targets 2 melee damage,
 		//  where X = the number of charm cards in play plus 1.
+		// Destroy a [u]charm[/u] card.
 
 		public TrapDoorCardController(
 			Card card,
@@ -22,13 +23,13 @@ namespace Angille.Theurgy
 
 		public override IEnumerator Play()
 		{
-			// deal 1 target 3 melee damage
+			// deal 1 target 3 projectile damage
 			List<SelectCardDecision> storedResults = new List<SelectCardDecision>();
 			IEnumerator firstDamageCR = GameController.SelectTargetsAndDealDamage(
 				DecisionMaker,
-				new DamageSource(base.GameController, base.CharacterCard),
+				new DamageSource(GameController, base.CharacterCard),
 				3,
-				DamageType.Melee,
+				DamageType.Projectile,
 				1,
 				false,
 				1,
@@ -36,19 +37,19 @@ namespace Angille.Theurgy
 				cardSource: GetCardSource()
 			);
 
-			if (base.UseUnityCoroutines)
+			if (UseUnityCoroutines)
 			{
-				yield return base.GameController.StartCoroutine(firstDamageCR);
+				yield return GameController.StartCoroutine(firstDamageCR);
 			}
 			else
 			{
-				base.GameController.ExhaustCoroutine(firstDamageCR);
+				GameController.ExhaustCoroutine(firstDamageCR);
 			}
 
 			// count the charm cards
 			int numberOfTargets = FindCardsWhere((Card c) => c.IsInPlayAndHasGameText && IsCharm(c)).Count() + 1;
 
-			// target deals up to that many targets 2 projectile damage
+			// target deals up to that many targets 2 melee damage
 			List<Card> affectedCards = storedResults.Select((SelectCardDecision sc) => sc.SelectedCard).ToList();
 			if (affectedCards != null && affectedCards.Count() > 0)
 			{
@@ -57,9 +58,9 @@ namespace Angille.Theurgy
 				{
 					IEnumerator splashDamageCR = GameController.SelectTargetsAndDealDamage(
 						DecisionMaker,
-						new DamageSource(base.GameController, poorSchmuck),
+						new DamageSource(GameController, poorSchmuck),
 						2,
-						DamageType.Projectile,
+						DamageType.Melee,
 						numberOfTargets,
 						optional: false,
 						requiredTargets: 0,
@@ -68,13 +69,30 @@ namespace Angille.Theurgy
 
 					if (base.UseUnityCoroutines)
 					{
-						yield return base.GameController.StartCoroutine(splashDamageCR);
+						yield return GameController.StartCoroutine(splashDamageCR);
 					}
 					else
 					{
-						base.GameController.ExhaustCoroutine(splashDamageCR);
+						GameController.ExhaustCoroutine(splashDamageCR);
 					}
 				}
+			}
+
+			// Destroy a [u]charm[/u] card.
+			IEnumerator destroyCR = GameController.SelectAndDestroyCard(
+				DecisionMaker,
+				IsCharmCriteria(),
+				false,
+				cardSource: GetCardSource()
+			);
+
+			if (UseUnityCoroutines)
+			{
+				yield return GameController.StartCoroutine(destroyCR);
+			}
+			else
+			{
+				GameController.ExhaustCoroutine(destroyCR);
 			}
 
 			yield break;

@@ -104,7 +104,7 @@
 				"At the end of your turn, if your trueshot pool is smaller than 5, destroy this card."
 			],
 			"powers": [
-				"Remove any number of tokens from your trueshot pool. For each token removed, increase a numeral in this power by one. {RedRifle} deals up to 1 target 1 projectile damage."
+				"Remove any number of tokens from your trueshot pool. {RedRifle} deals up to that many targets that much Projectile damage, evenly distributed."
 			],
 			"icons": [
 				"HasPower",

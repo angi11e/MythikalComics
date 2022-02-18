@@ -73,6 +73,7 @@ namespace Angille.TheUndersiders
 					1,
 					optional: false,
 					1,
+					additionalCriteria: (Card c) => c == GetCardThisCardIsNextTo(),
 					cardSource: GetCardSource()
 				),
 				TriggerType.DealDamage,

@@ -1,0 +1,69 @@
+Created game with random seed: 244374483
+================================ START GAME ================================
+Baron Blade puts Mobile Defense Platform into play.
+Baron Blade shuffles their the villain deck.
+Went to Baron Blade's Start phase.
+GameController plays Weather the Hits.
+Created decision [SelectCard/None D1 Theurgy]
+MakeDecisions: [SelectCard/MoveCardNextToCard D1 Theurgy]
+[Weather the Hits] Theurgy, Make a SelectCardDecision of type MoveCardNextToCard: [Ra, Theurgy, Bunker])
+Selected: Ra
+GameController moved Weather the Hits from Theurgy's deck next to Ra.
+Applying ongoing effect: Reduce the next damage dealt to Ra by 3.
+Message: Reduce the next damage dealt to Ra by 3. [  ]
+GameController plays Guide the Strike.
+Created decision [SelectCard/None D2 Theurgy]
+MakeDecisions: [SelectCard/MoveCardNextToCard D2 Theurgy]
+[Guide the Strike] Theurgy, Make a SelectCardDecision of type MoveCardNextToCard: [Ra, Theurgy, Bunker])
+Selected: Ra
+GameController moved Guide the Strike from Theurgy's deck next to Ra.
+Applying ongoing effect: Increase the next damage dealt by Ra by 3.
+Message: Increase the next damage dealt by Ra by 3. [  ]
+GameController plays Follow the Path.
+Created decision [SelectCard/None D3 Theurgy]
+MakeDecisions: [SelectCard/MoveCardNextToCard D3 Theurgy]
+[Follow the Path] Theurgy, Make a SelectCardDecision of type MoveCardNextToCard: [Ra, Theurgy, Bunker])
+Selected: Ra
+GameController moved Follow the Path from Theurgy's deck next to Ra.
+Ra draws Living Conflagration.
+GameController plays Clairvoyance.
+Created decision [SelectTurnTaker/None D4 Theurgy]
+MakeDecisions: [SelectTurnTaker/RevealCardsFromDeck D4 Theurgy]
+Theurgy, Make a SelectTurnTakerDecision (RevealCardsFromDeck, Fourth): [Baron Blade, Ra, Theurgy, Bunker, The Temple of Zhu Long]
+Selected: Bunker
+Revealed card: Upgrade Mode
+Revealed card: Decommissioned Hardware
+Revealed card: Turret Mode
+Revealed card: Adhesive Foam Grenade
+Created decision [SelectCards/None D5 Theurgy]
+Created decision [SelectCard/None D5-1 Theurgy]
+MakeDecisions: [SelectCard/MoveCardOnDeck D5-1 Theurgy]
+[Clairvoyance] Theurgy, Make a SelectCardDecision of type MoveCardOnDeck (Zeroth) : [Adhesive Foam Grenade, Decommissioned Hardware, Turret Mode, Upgrade Mode, Auto])
+Selected: Turret Mode
+Clairvoyance moved Turret Mode from Bunker's revealed cards to Bunker's deck.
+Created decision [SelectCard/None D5-2 Theurgy]
+MakeDecisions: [SelectCard/MoveCardOnDeck D5-2 Theurgy]
+[Clairvoyance] Theurgy, Make a SelectCardDecision of type MoveCardOnDeck (First) : [Adhesive Foam Grenade, Decommissioned Hardware, Upgrade Mode, Auto])
+Selected: Decommissioned Hardware
+Clairvoyance moved Decommissioned Hardware from Bunker's revealed cards to Bunker's deck.
+Created decision [SelectCard/None D5-3 Theurgy]
+MakeDecisions: [SelectCard/MoveCardOnDeck D5-3 Theurgy]
+[Clairvoyance] Theurgy, Make a SelectCardDecision of type MoveCardOnDeck (Second) : [Adhesive Foam Grenade, Upgrade Mode, Auto])
+Selected: Adhesive Foam Grenade
+Clairvoyance moved Adhesive Foam Grenade from Bunker's revealed cards to Bunker's deck.
+Created decision [SelectCard/None D5-4 Theurgy]
+Clairvoyance moved Upgrade Mode from Bunker's revealed cards to Bunker's deck.
+Created decision [SelectCard/None D6 Theurgy]
+MakeDecisions: [SelectCard/DestroyCard D6 Theurgy]
+[Clairvoyance] Theurgy, Make a SelectCardDecision of type DestroyCard: [Weather the Hits, Guide the Strike, Follow the Path])
+Selected: Weather the Hits
+Weather the Hits tried to increase Ra's HP, but they are already at their maximum HP.
+Created decision [SelectCards/None D7 Ra]
+Created decision [SelectCard/None D7-1 Ra]
+Weather the Hits tried to increase Theurgy's HP, but they are already at their maximum HP.
+Created decision [SelectCard/None D7-2 Ra]
+Weather the Hits tried to increase Bunker's HP, but they are already at their maximum HP.
+Created decision [SelectCard/None D7-3 Ra]
+Clairvoyance destroys Weather the Hits!
+GameController moved Weather the Hits to Theurgy's trash.
+GameController moved Clairvoyance to Theurgy's trash.

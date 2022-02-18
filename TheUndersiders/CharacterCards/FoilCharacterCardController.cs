@@ -43,9 +43,9 @@ namespace Angille.TheUndersiders
 			}
 			else
 			{
-				// Damage dealt by villain targets is irreducible.
+				// Damage dealt by villain character targets is irreducible.
 				AddSideTrigger(AddMakeDamageIrreducibleTrigger(
-					(DealDamageAction dd) => dd.DamageSource.Card.IsVillainTarget
+					(DealDamageAction dd) => dd.DamageSource.Card.IsVillainCharacterCard
 				));
 			}
 			base.AddSideTriggers();

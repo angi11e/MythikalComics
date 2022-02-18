@@ -1,0 +1,70 @@
+Created game with random seed: 256528086
+================================ START GAME ================================
+Baron Blade puts Mobile Defense Platform into play.
+Baron Blade shuffles their the villain deck.
+Went to Baron Blade's Start phase.
+GameController moved Focusing Crystal from Theurgy's deck to Theurgy's hand.
+GameController moved The Scholar's Journal from Theurgy's deck to Theurgy's hand.
+GameController moved Legerdemain from Theurgy's deck to Theurgy's hand.
+GameController plays Weather the Hits.
+Created decision [SelectCard/None D1 Theurgy]
+MakeDecisions: [SelectCard/MoveCardNextToCard D1 Theurgy]
+[Weather the Hits] Theurgy, Make a SelectCardDecision of type MoveCardNextToCard: [Ra, Theurgy, Bunker])
+Selected: Theurgy
+GameController moved Weather the Hits from Theurgy's deck next to Theurgy.
+Applying ongoing effect: Reduce the next damage dealt to Theurgy by 3.
+Message: Reduce the next damage dealt to Theurgy by 3. [  ]
+GameController plays Guide the Strike.
+Created decision [SelectCard/None D2 Theurgy]
+MakeDecisions: [SelectCard/MoveCardNextToCard D2 Theurgy]
+[Guide the Strike] Theurgy, Make a SelectCardDecision of type MoveCardNextToCard: [Ra, Theurgy, Bunker])
+Selected: Theurgy
+GameController moved Guide the Strike from Theurgy's deck next to Theurgy.
+Applying ongoing effect: Increase the next damage dealt by Theurgy by 3.
+Message: Increase the next damage dealt by Theurgy by 3. [  ]
+GameController plays Follow the Path.
+Created decision [SelectCard/None D3 Theurgy]
+MakeDecisions: [SelectCard/MoveCardNextToCard D3 Theurgy]
+[Follow the Path] Theurgy, Make a SelectCardDecision of type MoveCardNextToCard: [Ra, Theurgy, Bunker])
+Selected: Theurgy
+GameController moved Follow the Path from Theurgy's deck next to Theurgy.
+Theurgy draws Trap Door.
+GameController plays Legerdemain.
+Created decision [SelectCards/None D4 Theurgy]
+Created decision [SelectCard/None D4-1 Theurgy]
+MakeDecisions: [SelectCard/ReturnToHand D4-1 Theurgy]
+[Legerdemain] Theurgy, Make a SelectCardDecision of type ReturnToHand: [Weather the Hits, Guide the Strike, Follow the Path])
+Selected: Follow the Path
+Legerdemain moved Follow the Path to Theurgy's hand.
+Follow the Path cannot do anything else: Handelabra.Sentinels.Engine.Controller.RevealCardsAction
+Created decision [SelectCard/None D4-2 Theurgy]
+MakeDecisions: [SelectCard/ReturnToHand D4-2 Theurgy]
+[Legerdemain] Theurgy, Make a SelectCardDecision of type ReturnToHand: [Weather the Hits, Guide the Strike, Skip])
+Selected: Weather the Hits
+Legerdemain moved Weather the Hits to Theurgy's hand.
+Weather the Hits cannot do anything else: [GainHPAction: Source=Weather the Hits, HpGainer=TheurgyCharacter, Amount=5, AmountActuallyGained=0]
+Created decision [SelectCards/None D5 Theurgy]
+Weather the Hits's remaining actions are cancelled.
+Created decision [SelectCard/None D4-3 Theurgy]
+MakeDecisions: [SelectCard/ReturnToHand D4-3 Theurgy]
+[Legerdemain] Theurgy, Make a SelectCardDecision of type ReturnToHand: [Guide the Strike, Skip])
+WARNING: No card selected.
+Created decision [SelectCards/None D6 Theurgy]
+Created decision [YesNoAmount/None D7 Theurgy]
+MakeDecisions: [YesNoAmount/PlayCard D7 Theurgy]
+[GameController] Theurgy, Make a YesNoDecision of type PlayCard
+Selected: True
+Created decision [SelectCard/None D6-1 Theurgy]
+MakeDecisions: [SelectCard/PlayCard D6-1 Theurgy]
+[Legerdemain] Theurgy, Make a SelectCardDecision of type PlayCard: [Convert the Energy, Delight In Discovery, Focusing Crystal, Follow the Path, The Scholar's Journal, Trap Door, Weather the Hits, Weather the Hits, Weather the Hits])
+Selected: Focusing Crystal
+Legerdemain plays Focusing Crystal.
+Focusing Crystal tried to increase Theurgy's HP, but they are already at their maximum HP.
+Created decision [SelectCard/None D6-2 Theurgy]
+MakeDecisions: [SelectCard/PlayCard D6-2 Theurgy]
+[Legerdemain] Theurgy, Make a SelectCardDecision of type PlayCard: [Convert the Energy, Delight In Discovery, Follow the Path, The Scholar's Journal, Trap Door, Weather the Hits, Weather the Hits, Weather the Hits])
+Selected: The Scholar's Journal
+Legerdemain plays The Scholar's Journal.
+Theurgy draws Legerdemain.
+Theurgy draws Convert the Energy.
+GameController moved Legerdemain to Theurgy's trash.

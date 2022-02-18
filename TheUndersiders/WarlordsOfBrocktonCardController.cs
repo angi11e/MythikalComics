@@ -22,8 +22,9 @@ namespace Angille.TheUndersiders
 		{
 			AddTrigger(
 				(MoveCardAction m) => m.CardToMove == base.Card || (
-					m.Origin == base.Card.UnderLocation &&
-					m.Destination != base.TurnTaker.PlayArea
+					m.Origin == base.Card.UnderLocation
+					&& m.Destination != base.TurnTaker.PlayArea
+					&& base.Game.Round > 1
 				),
 				(MoveCardAction m) => CancelAction(m),
 				TriggerType.CancelAction,

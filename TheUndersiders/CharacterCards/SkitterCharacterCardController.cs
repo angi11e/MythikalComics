@@ -60,6 +60,32 @@ namespace Angille.TheUndersiders
 					TriggerType.GainHP
 				));
 
+				// Reduce damage taken by villain targets by 1.
+				AddSideTrigger(AddReduceDamageTrigger(
+					(Card c) => c.IsVillainTarget && c.IsCharacter,
+					1
+				));
+
+				// The first time each turn a villain swarm target enters play, play the top card of the villain deck.
+				AddSideTrigger(AddTrigger(
+					(CardEntersPlayAction p) => IsFirstTimeCardPlayedThisTurn(
+						p.CardEnteringPlay,
+						(Card c) => c.IsVillain && c.DoKeywordsContain("swarm"),
+						TriggerTiming.After
+					),
+					PlayTheTopCardOfTheVillainDeckWithMessageResponse,
+					TriggerType.PlayCard,
+					TriggerTiming.After
+				));
+
+				// At the end of the villain turn, destroy X hero equipment cards,
+				// where X = the number of villain swarm cards in play.
+				AddSideTrigger(AddEndOfTurnTrigger(
+					(TurnTaker tt) => tt == base.TurnTaker,
+					RuinToysResponse,
+					TriggerType.DestroyCard
+				));
+
 				// Treat {Spider} effects as active. (taken care of by the cards)
 			}
 			else
@@ -88,6 +114,19 @@ namespace Angille.TheUndersiders
 			base.AddSideTriggers();
 		}
 
+		private IEnumerator RuinToysResponse(PhaseChangeAction p)
+		{
+			return GameController.SelectAndDestroyCards(
+				DecisionMaker,
+				new LinqCardCriteria((Card c) =>
+					c.IsHero && IsEquipment(c),
+					"hero equipment"
+				),
+				FindCardsWhere((Card c) => c.IsInPlayAndHasGameText && c.DoKeywordsContain("swarm")).Count(),
+				cardSource: GetCardSource()
+			);
+		}
+
 		private IEnumerator TerrifyResponse(PhaseChangeAction p)
 		{
 			List<Card> storedResults = new List<Card>();
@@ -98,13 +137,13 @@ namespace Angille.TheUndersiders
 				cardSource: GetCardSource()
 			);
 
-			if (base.UseUnityCoroutines)
+			if (UseUnityCoroutines)
 			{
-				yield return base.GameController.StartCoroutine(getHighestCR);
+				yield return GameController.StartCoroutine(getHighestCR);
 			}
 			else
 			{
-				base.GameController.ExhaustCoroutine(getHighestCR);
+				GameController.ExhaustCoroutine(getHighestCR);
 			}
 
 			Card poorSap = storedResults.FirstOrDefault();
@@ -117,13 +156,13 @@ namespace Angille.TheUndersiders
 					DamageType.Psychic
 				);
 
-				if (base.UseUnityCoroutines)
+				if (UseUnityCoroutines)
 				{
-					yield return base.GameController.StartCoroutine(terrifyCR);
+					yield return GameController.StartCoroutine(terrifyCR);
 				}
 				else
 				{
-					base.GameController.ExhaustCoroutine(terrifyCR);
+					GameController.ExhaustCoroutine(terrifyCR);
 				}
 			}
 

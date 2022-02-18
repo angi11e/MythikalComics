@@ -11,10 +11,10 @@ namespace Angille.Theurgy
 	internal class WeatherTheHitsCardController : CharmBaseCardController
 	{
 		// Play this card next to a hero character card.
-		// Reduce damage taken by hero targets in that hero's play area by 1.
-		// That hero gains the following power:
-		// Power: this hero regains 5 hp. All other hero targets regain 1 hp.
-		//  Destroy this card.
+		// Reduce the next damage taken by that hero by 3.
+		// That hero gains the [b]power:[/b] destroy this card.
+		// Before this card is destroyed, the hero it's next to regains 5 hp.
+		// All other hero targets regain 1 hp.
 
 		public WeatherTheHitsCardController(
 			Card card,
@@ -23,81 +23,46 @@ namespace Angille.Theurgy
 		{
 		}
 
-		protected override string CharmPowerText => "This hero regains 5 hp. All other hero targets regain 1 hp. Destroy Weather the Hits.";
-
-		public override void AddTriggers()
+		public override IEnumerator Play()
 		{
-			base.AddTriggers();
+			ReduceDamageStatusEffect reduceDamageSE = new ReduceDamageStatusEffect(3);
+			reduceDamageSE.NumberOfUses = 1;
+			reduceDamageSE.TargetCriteria.IsSpecificCard = CharmedHero();
+			reduceDamageSE.CardDestroyedExpiryCriteria.Card = CharmedHero();
 
-			// reduce damage taken by hero targets in that hero's play area by 1.
-			AddReduceDamageTrigger(
-				(Card c) =>
-					c.IsInLocation(base.Card.Location.OwnerTurnTaker.PlayArea) &&
-					c.IsHero,
-				1
-			);
+			return AddStatusEffect(reduceDamageSE);
 		}
 
-		protected override IEnumerator CharmPowerResponse(CardController cc)
+		protected override IEnumerator CharmDestroyResponse(GameAction ga)
 		{
-			int heroHealNumeral = GetPowerNumeral(0, 5);
-			int groupHealNumeral = GetPowerNumeral(1, 1);
-
-			HeroTurnTakerController httc = cc.HeroTurnTakerController;
-
-			// should handle both SW Sentinels and Guise
-			Card targetHero = GetCardThisCardIsNextTo();
-			if (targetHero == null)
-			{
-				targetHero = base.Card.Location.OwnerTurnTaker.CharacterCard;
-			}
+			HeroTurnTakerController httc = FindHeroTurnTakerController(CharmedHero().Owner.ToHero());
 
 			// heal this hero for 5
-			IEnumerator healTargetCR = base.GameController.GainHP(
-				targetHero,
-				heroHealNumeral,
-				cardSource: base.GetCardSource()
+			IEnumerator healTargetCR = GameController.GainHP(
+				CharmedHero(),
+				5,
+				cardSource: GetCardSource()
 			);
-			if (UseUnityCoroutines)
-			{
-				yield return base.GameController.StartCoroutine(healTargetCR);
-			}
-			else
-			{
-				base.GameController.ExhaustCoroutine(healTargetCR);
-			}
 
 			// heal other hero targets for 1
-			IEnumerator healTargetsCR = base.GameController.GainHP(
+			IEnumerator healTargetsCR = GameController.GainHP(
 				httc,
-				(Card c) => c.IsHero && (c != targetHero),
-				groupHealNumeral,
-				cardSource: base.GetCardSource()
-			);
-			if (UseUnityCoroutines)
-			{
-				yield return base.GameController.StartCoroutine(healTargetsCR);
-			}
-			else
-			{
-				base.GameController.ExhaustCoroutine(healTargetsCR);
-			}
-
-			// destroy this card.
-			IEnumerator destructionCR = GameController.DestroyCard(
-				httc,
-				base.Card,
+				(Card c) => c.IsHero && (c != CharmedHero()),
+				1,
 				cardSource: GetCardSource()
 			);
 
 			if (UseUnityCoroutines)
 			{
-				yield return GameController.StartCoroutine(destructionCR);
+				yield return GameController.StartCoroutine(healTargetCR);
+				yield return GameController.StartCoroutine(healTargetsCR);
 			}
 			else
 			{
-				GameController.ExhaustCoroutine(destructionCR);
+				GameController.ExhaustCoroutine(healTargetCR);
+				GameController.ExhaustCoroutine(healTargetsCR);
 			}
+
 			yield break;
 		}
 	}

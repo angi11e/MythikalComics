@@ -51,9 +51,11 @@
 			],
 			"body": [
 				"Reveal X cards from the top of any deck, where X = the number of [u]charm[/u] cards in play plus 1.",
-				"Put them back in any order."
+				"Put them back in any order.",
+				"Destroy a [u]charm[/u] card."
 			],
 			"icons": [
+				"DestroyCard",
 				"Manipulate"
 			],
 			"flavorText": "“I've almost got her. . .{BR}[b]that[/b] way!”",
@@ -69,15 +71,15 @@
 			],
 			"body": [
 				"Play this card next to a hero character card.",
-				"At the start of their turn, they may select a damage type. Until the start of their next turn, all damage they deal is that type.",
-				"That hero gains the following power:",
-				"[b]Power:[/b] Play 1 card or use 1 power. All damage is irreducible until this card leaves play. destroy [i]Convert the Energy[/i]."
+				"Their player selects a damage type. Damage of that type dealt by or to this hero is irreducible.",
+				"That hero gains the [b]power:[/b] destroy this card.",
+				"Before this card is destroyed, the hero it's next to may play 1 card or use 1 power. All damage is irreducible until this card leaves play."
 			],
 			"icons": [
-				"StartOfTurnAction",
 				"HasPower",
 				"MakeDamageIrreducible",
-				"DestroySelf"
+				"DestroySelf",
+				"PlayCardNow"
 			],
 			"flavorText": "“How do you like [b]fire[/b] hooves?”",
 			"flavorReference": "Night Mare, First Day Tremors (EC #3)"
@@ -91,9 +93,11 @@
 			],
 			"body": [
 				"Draw X cards, where X = the number of [u]charm[/u] cards in play plus 1.",
-				"if {Theurgy} has no [u]charm[/u] cards in her play area, play a card."
+				"if {Theurgy} has no [u]charm[/u] cards in her play area, play a card.",
+				"Destroy a [u]charm[/u] card."
 			],
 			"icons": [
+				"DestroyCard",
 				"DrawCardNow",
 				"PlayCardNow"
 			],
@@ -153,10 +157,9 @@
 				"charm"
 			],
 			"body": [
-				"Play this card next to a hero character card.",
-				"At the start of that hero's turn, their player may draw a card.",
-				"That hero gains the following power:",
-				"[b]Power:[/b] Reveal the top 4 cards of your deck. Put 1 in your hand. Put 1 on top of your deck. Play 1. Discard the rest. Destroy [i]Follow the Path[/i]."
+				"Play this card next to a hero character card. That hero draws a card.",
+				"That hero gains the [b]power:[/b] destroy this card.",
+				"Before this card is destroyed, the hero it's next to Reveals the top 4 cards of their deck. Put 1 in their hand. Put 1 on top of their deck. Discard 1. Play 1."
 			],
 			"icons": [
 				"StartOfTurnAction",
@@ -176,16 +179,15 @@
 				"charm"
 			],
 			"body": [
-				"Play this card next to a hero character card.",
-				"increase damage dealt by hero targets in that hero's play area by 1.",
-				"That hero gains the following power:",
-				"[b]Power:[/b] this hero deals 1 target 5 melee or projectile damage. Destroy [i]Guide the Strike[/i]."
+				"Play this card next to a hero character card. increase the next damage dealt by that hero by 3.",
+				"That hero gains the [b]power:[/b] destroy this card.",
+				"Before this card is destroyed, the hero it's next to deals 1 target 5 melee or projectile damage."
 			],
 			"icons": [
 				"IncreaseDamageDealt",
 				"HasPower",
-				"DealDamage",
-				"DestroySelf"
+				"DestroySelf",
+				"DealDamage"
 			],
 			"flavorText": "“oh, I could get [b]used[/b] to this.”",
 			"flavorReference": "Red Rifle, Major imp-ediment (EC #9)"
@@ -236,10 +238,9 @@
 				"charm"
 			],
 			"body": [
-				"Play this card next to a hero character card.",
-				"At the start of their turn, they may discard a card. If they do, they may put a card from their trash into their hand.",
-				"That hero gains the following power:",
-				"[b]Power:[/b] Discard any number of cards. Move up to that many cards from your trash to your hand. Play 1 card. Destroy [i]Sell the Grift[/i]."
+				"Play this card next to a hero character card. They may discard a card. If they do, they move a card from their trash into their hand.",
+				"That hero gains the [b]power:[/b] destroy this card.",
+				"Before this card is destroyed, the hero it's next to Discards any number of cards. Move up to that many cards from their trash to their hand. That hero plays a card."
 			],
 			"icons": [
 				"Manipulate",
@@ -282,7 +283,7 @@
 				"When this card is destroyed, select a deck. cards from that deck cannot be played until the start of your next turn. Remove this card from the game."
 			],
 			"powers": [
-				"Destroy a [u]charm[/u] card. Search your trash or deck for a [u]charm[/u] card. Put it into play or in your hand."
+				"Search your trash or deck for a [u]charm[/u] card. Put it into play or in your hand. Destroy a [u]charm[/u] card."
 			],
 			"icons": [
 				"DrawCardNow",
@@ -302,7 +303,8 @@
 			],
 			"body": [
 				"{Theurgy} deals 1 target 3 melee damage.",
-				"That target deals up to X targets 2 projectile damage, where X = the number of [u]charm[/u] cards in play plus 1."
+				"That target deals up to X targets 2 projectile damage, where X = the number of [u]charm[/u] cards in play plus 1.",
+				"Destroy a [u]charm[/u] card."
 			],
 			"icons": [
 				"DealDamageMelee",
@@ -320,10 +322,9 @@
 				"charm"
 			],
 			"body": [
-				"Play this card next to a hero character card.",
-				"Reduce damage taken by hero targets in that hero's play area by 1.",
-				"That hero gains the following power:",
-				"[b]Power:[/b] this hero regains 5 hp. All other hero targets regain 1 hp. Destroy [i]Weather the Hits[/i]."
+				"Play this card next to a hero character card. Reduce the next damage taken by that hero by 3.",
+				"That hero gains the [b]power:[/b] destroy this card.",
+				"Before this card is destroyed, the hero it's next to regains 5 hp. All other hero targets regain 1 hp."
 			],
 			"icons": [
 				"ReduceDamageTaken",

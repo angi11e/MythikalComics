@@ -1,0 +1,88 @@
+Created game with random seed: 228878126
+================================ START GAME ================================
+Baron Blade puts Mobile Defense Platform into play.
+Baron Blade shuffles their the villain deck.
+Went to Baron Blade's Start phase.
+GameController plays Hold Yer Horses.
+Went from Baron Blade's Start phase to PlayCard phase. 
+Went from Baron Blade's PlayCard phase to End phase. 
+Went from Baron Blade's End phase to NightMare's Start phase. 
+Went from NightMare's Start phase to PlayCard phase. 
+Went from NightMare's PlayCard phase to UsePower phase. 
+--- NightMare's UsePower phase ---
+NightMare uses the power on Hold Yer Horses.
+Created decision [SelectTargets/None D1 NightMare]
+Created decision [SelectTarget/None D1-1 NightMare]
+MakeDecisions: [SelectTarget/SelectTarget D1-1 NightMare]
+[Hold Yer Horses] NightMare, Make a SelectCardDecision of type SelectTarget: [Baron Blade, NightMare, Legacy, Bunker, The Wraith, Mobile Defense Platform])
+--- BEGIN PREVIEW ---
+Selected Target: Mobile Defense Platform
+Final Result: NightMare deals 3 Melee damage to Mobile Defense Platform.
+--- END PREVIEW ---
+Selected: Mobile Defense Platform
+NightMare initiates 3 Melee damage to Mobile Defense Platform.
+NightMare deals Mobile Defense Platform 3 Melee damage.
+Mobile Defense Platform is now at 7 HP.
+Applying ongoing effect: Reduce the next damage dealt by Mobile Defense Platform to a card by 3.
+Message: Reduce the next damage dealt by Mobile Defense Platform to a card by 3. [  ]
+Mobile Defense Platform initiates 5 Melee damage to Legacy.
+Hold Yer Horses reduces the damage dealt to Legacy by Mobile Defense Platform by 3.
+Mobile Defense Platform deals Legacy 2 Melee damage.
+Legacy is now at 30 HP.
+Mobile Defense Platform initiates 5 Melee damage to Legacy.
+Mobile Defense Platform deals Legacy 5 Melee damage.
+Legacy is now at 25 HP.
+GameController plays Kelpie Magic.
+Went from NightMare's UsePower phase to DrawCard phase. 
+Went from NightMare's DrawCard phase to End phase. 
+Went from NightMare's End phase to Legacy's Start phase. 
+Went from Legacy's Start phase to PlayCard phase. 
+Went from Legacy's PlayCard phase to UsePower phase. 
+Legacy did not play a card or use a power this turn. Increasing draw count by 1.
+Went from Legacy's UsePower phase to DrawCard phase. (Count: 2)
+Went from Legacy's DrawCard phase to End phase. 
+Went from Legacy's End phase to Bunker's Start phase. 
+Went from Bunker's Start phase to PlayCard phase. 
+Went from Bunker's PlayCard phase to UsePower phase. 
+Bunker did not play a card or use a power this turn. Increasing draw count by 1.
+Went from Bunker's UsePower phase to DrawCard phase. (Count: 2)
+Went from Bunker's DrawCard phase to End phase. 
+Went from Bunker's End phase to The Wraith's Start phase. 
+Went from The Wraith's Start phase to PlayCard phase. 
+Went from The Wraith's PlayCard phase to UsePower phase. 
+The Wraith did not play a card or use a power this turn. Increasing draw count by 1.
+Went from The Wraith's UsePower phase to DrawCard phase. (Count: 2)
+Went from The Wraith's DrawCard phase to End phase. 
+Went from The Wraith's End phase to Megalopolis's Start phase. 
+Went from Megalopolis's Start phase to PlayCard phase. 
+Went from Megalopolis's PlayCard phase to End phase. 
+Went from Megalopolis's End phase to Baron Blade's Start phase. 
+Went from Baron Blade's Start phase to PlayCard phase. 
+Went from Baron Blade's PlayCard phase to End phase. 
+Went from Baron Blade's End phase to NightMare's Start phase. 
+Went from NightMare's Start phase to PlayCard phase. 
+Went from NightMare's PlayCard phase to UsePower phase. 
+--- NightMare's UsePower phase ---
+NightMare uses the power on Hold Yer Horses.
+Created decision [SelectTargets/None D2 NightMare]
+Created decision [SelectTarget/None D2-1 NightMare]
+MakeDecisions: [SelectTarget/SelectTarget D2-1 NightMare]
+[Hold Yer Horses] NightMare, Make a SelectCardDecision of type SelectTarget: [Baron Blade, NightMare, Legacy, Bunker, The Wraith, Mobile Defense Platform])
+--- BEGIN PREVIEW ---
+Selected Target: Mobile Defense Platform
+Final Result: NightMare deals 4 Infernal damage to Mobile Defense Platform.
+Kelpie Magic: Change type to Infernal.
+Kelpie Magic: +1.
+--- END PREVIEW ---
+Selected: Mobile Defense Platform
+NightMare initiates 3 Melee damage to Mobile Defense Platform.
+Kelpie Magic changes the damage type to Infernal.
+Kelpie Magic increases the damage dealt by NightMare by 1.
+NightMare deals Mobile Defense Platform 4 Infernal damage.
+Mobile Defense Platform is now at 3 HP.
+Applying ongoing effect: Reduce the next damage dealt by Mobile Defense Platform to a card by 4.
+Message: Reduce the next damage dealt by Mobile Defense Platform to a card by 4. [  ]
+Mobile Defense Platform initiates 5 Melee damage to Legacy.
+Hold Yer Horses reduces the damage dealt to Legacy by Mobile Defense Platform by 4.
+Mobile Defense Platform deals Legacy 1 Melee damage.
+Legacy is now at 24 HP.

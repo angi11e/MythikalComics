@@ -11,11 +11,10 @@ namespace Angille.Theurgy
 	internal class SellTheGriftCardController : CharmBaseCardController
 	{
 		// Play this card next to a hero character card.
-		// At the start of their turn, they may discard a card.
-		//  If they do, they may put a card from their trash into their hand.
-		// That hero gains the following power:
-		// Power: discard any number of cards. Move up to that many cards from your trash to your hand.
-		//  Play 1 card. Destroy Sell the Grift.
+		// They may discard a card. If they do, they move a card from their trash into their hand.
+		// That hero gains the [b]power:[/b] destroy this card.
+		// Before this card is destroyed, the hero it's next to Discards any number of cards.
+		// Move up to that many cards from their trash to their hand. That hero plays a card."
 
 		public SellTheGriftCardController(
 			Card card,
@@ -24,25 +23,11 @@ namespace Angille.Theurgy
 		{
 		}
 
-		protected override string CharmPowerText => "Discard any number of cards. Move up to that many cards from your trash to your hand. Play 1 card. Destroy Sell the Grift.";
-
-		public override void AddTriggers()
+		public override IEnumerator Play()
 		{
-			base.AddTriggers();
+			HeroTurnTakerController httc = FindHeroTurnTakerController(CharmedHero().Owner.ToHero());
 
-			// at the start of their turn...
-			AddStartOfTurnTrigger(
-				(TurnTaker tt) => tt == base.Card.Location.OwnerTurnTaker,
-				RecoverCardResponse,
-				TriggerType.MoveCard
-			);
-		}
-
-		private IEnumerator RecoverCardResponse(PhaseChangeAction phaseChange)
-		{
-			HeroTurnTakerController httc = FindHeroTurnTakerController(base.Card.Location.OwnerTurnTaker.ToHero());
-
-			// At the start of their turn, they may discard a card.
+			// They may discard a card.
 			List<DiscardCardAction> storedResults = new List<DiscardCardAction>();
 			IEnumerator discardCR = SelectAndDiscardCards(
 				httc,
@@ -52,13 +37,13 @@ namespace Angille.Theurgy
 				storedResults
 			);
 
-			if (base.UseUnityCoroutines)
+			if (UseUnityCoroutines)
 			{
-				yield return base.GameController.StartCoroutine(discardCR);
+				yield return GameController.StartCoroutine(discardCR);
 			}
 			else
 			{
-				base.GameController.ExhaustCoroutine(discardCR);
+				GameController.ExhaustCoroutine(discardCR);
 			}
 
 			int numberOfCards = storedResults.Count();
@@ -67,9 +52,8 @@ namespace Angille.Theurgy
 				// If they do, they may put a card from their trash into their hand.
 				IEnumerator recoverCR = GameController.SelectAndMoveCard(
 					httc,
-					(Card c) => c.IsInTrash && c.Owner == base.Card.Location.OwnerTurnTaker,
-					base.Card.Location.OwnerTurnTaker.ToHero().Hand,
-					optional: true,
+					(Card c) => c.IsInTrash && c.Owner == CharmedHero().Owner,
+					httc.HeroTurnTaker.Hand,
 					cardSource: GetCardSource()
 				);
 				if (UseUnityCoroutines)
@@ -84,9 +68,9 @@ namespace Angille.Theurgy
 			yield break;
 		}
 
-		protected override IEnumerator CharmPowerResponse(CardController cc)
+		protected override IEnumerator CharmDestroyResponse(GameAction ga)
 		{
-			HeroTurnTakerController httc = cc.HeroTurnTakerController;
+			HeroTurnTakerController httc = FindHeroTurnTakerController(CharmedHero().Owner.ToHero());
 
 			// discard any number of cards
 			List<DiscardCardAction> storedResults = new List<DiscardCardAction>();
@@ -114,14 +98,14 @@ namespace Angille.Theurgy
 			IEnumerable<MoveCardDestination> heroHand = new MoveCardDestination[] {
 				new MoveCardDestination(httc.HeroTurnTaker.Hand)
 			};
-			IEnumerator recoverCR = base.GameController.SelectCardsFromLocationAndMoveThem(
+			IEnumerator recoverCR = GameController.SelectCardsFromLocationAndMoveThem(
 				httc,
 				httc.TurnTaker.Trash,
 				null,
 				numberOfCards,
 				new LinqCardCriteria(
 					(Card c) => c.IsInTrash
-					&& this.GameController.IsLocationVisibleToSource(c.Location, base.GetCardSource(null))
+					&& GameController.IsLocationVisibleToSource(c.Location, GetCardSource())
 				),
 				heroHand,
 				selectionType: SelectionType.ReturnToHand,
@@ -148,21 +132,6 @@ namespace Angille.Theurgy
 				base.GameController.ExhaustCoroutine(playCardCR);
 			}
 
-			// destroy this card.
-			IEnumerator destructionCR = GameController.DestroyCard(
-				httc,
-				base.Card,
-				cardSource: GetCardSource()
-			);
-
-			if (UseUnityCoroutines)
-			{
-				yield return GameController.StartCoroutine(destructionCR);
-			}
-			else
-			{
-				GameController.ExhaustCoroutine(destructionCR);
-			}
 			yield break;
 		}
 	}

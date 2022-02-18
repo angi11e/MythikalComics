@@ -35,6 +35,56 @@ namespace Angille
 			}
 		}
 
+		/* FAILED EXPERIMENT
+		[Serializable]
+		public class ReduceDamageToSetAmountStatusEffect : DealDamageStatusEffect
+		{
+			public int Amount { get; private set; }
+
+			public override bool CombineWithExistingInstance
+			{
+				get
+				{
+					if (base.NumberOfUses.HasValue)
+					{
+						return true;
+					}
+					return false;
+				}
+			}
+
+			public ReduceDamageToSetAmountStatusEffect(int amount)
+			{
+				Amount = amount;
+			}
+
+			public override bool IsSameAs(StatusEffect other)
+			{
+				if (other is ReduceDamageToSetAmountStatusEffect)
+				{
+					ReduceDamageToSetAmountStatusEffect otherEffect = other as ReduceDamageToSetAmountStatusEffect;
+					if (
+						base.CardSource.Identifier == otherEffect.CardSource.Identifier
+						&& base.TargetCriteria.IsSpecificCard == otherEffect.TargetCriteria.IsSpecificCard
+					)
+					{
+						return base.SourceCriteria.IsSpecificCard == otherEffect.SourceCriteria.IsSpecificCard;
+					}
+					return false;
+				}
+				return false;
+			}
+
+			public override string ToString()
+			{
+				bool plural = ((!base.NumberOfUses.HasValue || base.NumberOfUses.Value != 1) ? true : false);
+				string text = $"Reduce {TheNextString()}{base.DamageTypeCriteria.DamageString()} dealt {base.SourceCriteria.ByWhoString()} {base.TargetCriteria.ToWhoString(plural)} to {Amount}.".TrimExtraSpaces();
+				return text;
+
+			}
+		}
+		*/
+
 		/* ended up putting this in a BaseCardController instead
 		public static IEnumerator DiscardResponse(this CardController card)
 		{

@@ -127,7 +127,7 @@
 				"When any damage is redirected to {NightMare}, reduce it by 1."
 			],
 			"powers": [
-				"{NightMare} deals 1 target 1 Melee damage. Targets dealt Damage this way cannot deal Damage until the start of your next turn."
+				"{NightMare} deals 1 target 3 Melee damage. Reduce the next damage dealt by targets dealt damage this way by the damage they take."
 			],
 			"activatableAbilities": [
 				{

@@ -38,10 +38,43 @@ namespace Angille.WhatsHerFace
 				priority: TriggerPriority.High
 			);
 
+			// it's possible for this to cause an unwinnable state
+			AddTrigger(
+				(GameAction a) => !(a is MessageAction) && !GameController.IsGameWinnable(),
+				UnwinnableGameOver,
+				TriggerType.Hidden,
+				TriggerTiming.After
+			);
+
 			// If that card leaves play in any other way, return this card to your hand.
 			AddIfTheCardThatThisCardIsNextToLeavesPlayMoveItToYourHandTrigger();
 
 			base.AddTriggers();
+		}
+
+		private IEnumerator UnwinnableGameOver(GameAction a)
+		{
+			IEnumerator messageCR = GameController.SendMessageAction(
+				"Victory is now impossible for the heroes, as the fog of forgotten memories takes over...",
+				Priority.Critical,
+				GetCardSource()
+			);
+			IEnumerator endGameCR = GameController.GameOver(
+				EndingResult.AlternateDefeat,
+				"The heroes have doomed themselves to be forgotten.",
+				cardSource: GetCardSource()
+			);
+
+			if (UseUnityCoroutines)
+			{
+				yield return GameController.StartCoroutine(messageCR);
+				yield return GameController.StartCoroutine(endGameCR);
+			}
+			else
+			{
+				GameController.ExhaustCoroutine(messageCR);
+				GameController.ExhaustCoroutine(endGameCR);
+			}
 		}
 
 		private IEnumerator DestroyRemoveResponse(DestroyCardAction dca)

@@ -8,10 +8,9 @@ namespace Angille.Theurgy
 	public class GuideTheStrikeCardController : CharmBaseCardController
 	{
 		// Play this card next to a hero character card.
-		// Increase damage dealt by hero targets in that hero's play area by 1.
-		// That hero gains the following power:
-		// Power: This hero deals 1 target 5 melee or projectile damage.
-		//  Destroy this card.
+		// increase the next damage dealt by that hero by 3.
+		// That hero gains the [b]power:[/b] destroy this card.
+		// Before this card is destroyed, the hero it's next to deals 1 target 5 melee or projectile damage.
 
 		public GuideTheStrikeCardController(
 			Card card,
@@ -20,26 +19,20 @@ namespace Angille.Theurgy
 		{
 		}
 
-		protected override string CharmPowerText => "This hero deals 1 target 5 melee or projectile damage. Destroy Guide the Strike.";
-		
-		public override void AddTriggers()
+		public override IEnumerator Play()
 		{
-			base.AddTriggers();
+			IncreaseDamageStatusEffect increaseDamageSE = new IncreaseDamageStatusEffect(3);
+			increaseDamageSE.NumberOfUses = 1;
+			increaseDamageSE.SourceCriteria.IsSpecificCard = CharmedHero();
+			increaseDamageSE.CardDestroyedExpiryCriteria.Card = CharmedHero();
 
-			AddIncreaseDamageTrigger(
-				(DealDamageAction dd) =>
-					dd.DamageSource.Card.IsHero && dd.DamageSource.Card.IsTarget &&
-					dd.DamageSource.IsOneOfTheseCards(base.Card.Location.OwnerTurnTaker.GetPlayAreaCards()),
-				1
-			);
+			return AddStatusEffect(increaseDamageSE);
 		}
 
-		protected override IEnumerator CharmPowerResponse(CardController cc)
+		protected override IEnumerator CharmDestroyResponse(GameAction ga)
 		{
-			int targetNumeral = GetPowerNumeral(0, 1);
-			int damageNumeral = GetPowerNumeral(1, 5);
+			HeroTurnTakerController httc = FindHeroTurnTakerController(CharmedHero().Owner.ToHero());
 
-			HeroTurnTakerController httc = cc.HeroTurnTakerController;
 			//Select a damage type
 			List<SelectDamageTypeDecision> chosenType = new List<SelectDamageTypeDecision>();
 			IEnumerator chooseTypeCR = GameController.SelectDamageType(
@@ -49,52 +42,40 @@ namespace Angille.Theurgy
 				cardSource: GetCardSource()
 			);
 			
-			if (UseUnityCoroutines) {
+			if (UseUnityCoroutines)
+			{
 				yield return GameController.StartCoroutine(chooseTypeCR);
-			} else {
+			}
+			else
+			{
 				GameController.ExhaustCoroutine(chooseTypeCR);
 			}
 
 			DamageType? damageType = GetSelectedDamageType(chosenType);
 			if (damageType != null)
 			{
-				// should handle both SW Sentinels and Guise
-				Card targetHero = GetCardThisCardIsNextTo();
-				if (targetHero == null)
-				{
-					targetHero = base.Card.Location.OwnerTurnTaker.CharacterCard;
-				}
-
 				// Hit 1 target for 5 damage of chosen type
 				IEnumerator strikeCR = GameController.SelectTargetsAndDealDamage(
 					httc,
-					new DamageSource(GameController, targetHero),
-					damageNumeral,
+					new DamageSource(GameController, CharmedHero()),
+					5,
 					damageType.Value,
-					targetNumeral,
+					1,
 					false,
-					targetNumeral,
+					1,
 					cardSource: GetCardSource()
 				);
 				
-				if (UseUnityCoroutines) {
+				if (UseUnityCoroutines)
+				{
 					yield return GameController.StartCoroutine(strikeCR);
-				} else {
+				}
+				else
+				{
 					GameController.ExhaustCoroutine(strikeCR);
 				}
 			}
 
-			IEnumerator destructionCR = GameController.DestroyCard(
-				httc,
-				base.Card,
-				cardSource: GetCardSource()
-			);
-
-			if (UseUnityCoroutines) {
-				yield return GameController.StartCoroutine(destructionCR);
-			} else {
-				GameController.ExhaustCoroutine(destructionCR);
-			}
 			yield break;
 		}
 	}

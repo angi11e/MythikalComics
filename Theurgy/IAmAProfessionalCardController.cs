@@ -51,6 +51,10 @@ namespace Angille.Theurgy
 				base.GameController.ExhaustCoroutine(revealCR);
 			}
 			Card revealedCard = GetRevealedCard(cards);
+			if (revealedCard == null)
+			{
+				yield break;
+			}
 
 			// You may switch it with one card from your hand or your trash.
 			List<Function> functionList = new List<Function>();
@@ -59,7 +63,7 @@ namespace Angille.Theurgy
 			functionList.Add(
 				new Function(
 					this.DecisionMaker,
-					"Return the card",
+					"Return " + revealedCard.Title,
 					SelectionType.ReturnToDeck,
 					() => base.GameController.MoveCard(
 						base.TurnTakerController,
@@ -96,10 +100,14 @@ namespace Angille.Theurgy
 				this.DecisionMaker,
 				functionList,
 				false,
+				associatedCards: new Card[1] { revealedCard },
 				cardSource: base.GetCardSource()
 			);
 
-			IEnumerator selectFunctionCR = base.GameController.SelectAndPerformFunction(selectFunction);
+			IEnumerator selectFunctionCR = base.GameController.SelectAndPerformFunction(
+				selectFunction,
+				associatedCards: new Card[1] { revealedCard }
+			);
 			if (UseUnityCoroutines)
 			{
 				yield return base.GameController.StartCoroutine(selectFunctionCR);

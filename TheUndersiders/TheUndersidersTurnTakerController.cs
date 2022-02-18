@@ -24,23 +24,8 @@ namespace Angille.TheUndersiders
 			// The top {H - 2} cards from beneath Warlords of Brockton are moved into the villain play area.
 
 			List<Card> villains = (from c in base.TurnTaker.GetAllCards()
-				where c.IsVillainCharacterCard && !c.Location.IsOutOfGame
-				select c).ToList();
-			List<Card> list = villains.TakeRandom(base.GameController.Game.H - 2, base.GameController.Game.RNG).ToList();
-
-			foreach (Card villain in list)
-			{
-				IEnumerator playVillainCR = base.GameController.PlayCard(this, villain, true);
-				if (base.UseUnityCoroutines)
-				{
-					yield return base.GameController.StartCoroutine(playVillainCR);
-				}
-				else
-				{
-					base.GameController.ExhaustCoroutine(playVillainCR);
-				}
-				villains.Remove(villain);
-			}
+				where c.IsVillainCharacterCard && !c.Location.IsOutOfGame select c
+			).ToList();
 
 			Card warlords = base.TurnTaker.FindCard("WarlordsOfBrockton");
 			IEnumerator moveCR = base.GameController.BulkMoveCards(this, villains, warlords.UnderLocation);
