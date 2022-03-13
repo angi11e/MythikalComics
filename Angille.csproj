@@ -97,7 +97,7 @@
     <Compile Include="TheUndersiders\Cards\BastardCardController.cs" />
     <Compile Include="TheUndersiders\Cards\BentleyCardController.cs" />
     <Compile Include="TheUndersiders\CharacterCards\BitchCharacterCardController.cs" />
-    <Compile Include="TheUndersiders\Cards\ClothGolemCardController.cs" />
+    <Compile Include="TheUndersiders\Cards\AnimatePlushCardController.cs" />
     <Compile Include="TheUndersiders\Cards\CoordinatedBlitzCardController.cs" />
     <Compile Include="TheUndersiders\Cards\DescentOfTheSwarmCardController.cs" />
     <Compile Include="TheUndersiders\CharacterCards\FoilCharacterCardController.cs" />

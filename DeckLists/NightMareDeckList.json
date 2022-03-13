@@ -14,6 +14,9 @@
 			"foilBackgroundColor": "302E71",
 			"hitpointsColor": "302E71",
 			"character": true,
+			"gameplay": [
+				"when you discard a card, activate its [u]discard[/u] text."
+			],
 			"powers": [
 				"Draw a card. Discard a card. Deal 1 target 1 Melee damage."
 			],
@@ -211,7 +214,7 @@
 			"activatableAbilities": [
 				{
 					"name": "discard",
-					"text": "Choose a hero target. Reduce the next damage that would be dealt to that target by 2."
+					"text": "Choose a hero target. Reduce the next damage dealt to that target by 2."
 				}
 			],
 			"icons": [
@@ -269,14 +272,13 @@
 			"activatableAbilities": [
 				{
 					"name": "discard",
-					"text": "Choose a target. Until the start of your next turn, damage dealt by and to that target is irreducible."
+					"text": "Choose a target. the next damage dealt to that target is irreducible."
 				}
 			],
 			"icons": [
-				"HasPower",
 				"MakeDamageIrreducible",
 				"RedirectDamage",
-				"DealDamageMelee"
+				"DestroySelf"
 			],
 			"flavorText": "“”",
 			"flavorReference": ""
@@ -375,15 +377,18 @@
 			"body": "Gallop",
 			"icons": [
 				"HasPower",
-				"AddOrRemoveTokens",
+				"Discard",
 				"PlayCardNow"
 			],
 			"backgroundColor": "302E71",
 			"foilBackgroundColor": "302E71",
 			"hitpointsColor": "302E71",
 			"character": true,
+			"gameplay": [
+				"when you discard a card, activate its [u]discard[/u] text."
+			],
 			"powers": [
-				"Discard a card, then play it from your trash."
+				"Discard 1 card. play any cards discarded this way from your trash."
 			],
 			"hitpoints": 32,
 			"nemesisIdentifiers": [

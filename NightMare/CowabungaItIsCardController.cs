@@ -50,43 +50,62 @@ namespace Angille.NightMare
 		protected override IEnumerator DiscardResponse(GameAction ga)
 		{
 			// Select a card from your trash and discard it.
-			List<MoveCardAction> storedResults = new List<MoveCardAction>();
-			IEnumerator moveCardCR = GameController.SelectCardFromLocationAndMoveIt(
-				DecisionMaker,
-				TurnTaker.Trash,
-				new LinqCardCriteria((Card c) => true),
-				new MoveCardDestination[] { new MoveCardDestination(HeroTurnTaker.Hand) },
-				storedResultsMove: storedResults,
-				cardSource: new CardSource(FindCardController(base.CharacterCard))
-			);
-
-			if (UseUnityCoroutines)
+			if (TurnTaker.Trash.IsEmpty)
 			{
-				yield return GameController.StartCoroutine(moveCardCR);
+				IEnumerator promptCR = GameController.SendMessageAction(
+					"No cards in the trash to discard",
+					Priority.Medium,
+					GetCardSource()
+				);
+				if (base.UseUnityCoroutines)
+				{
+					yield return base.GameController.StartCoroutine(promptCR);
+				}
+				else
+				{
+					base.GameController.ExhaustCoroutine(promptCR);
+				}
 			}
 			else
 			{
-				GameController.ExhaustCoroutine(moveCardCR);
-			}
-
-			Card theCard = storedResults.FirstOrDefault().CardToMove;
-			if (theCard != null && theCard.Location != TurnTaker.Trash)
-			{
-				IEnumerator discardCR = GameController.MoveCard(
+				List<MoveCardAction> storedResults = new List<MoveCardAction>();
+				IEnumerator moveCardCR = GameController.SelectCardFromLocationAndMoveIt(
 					DecisionMaker,
-					theCard,
 					TurnTaker.Trash,
-					isDiscard: true,
-					cardSource: GetCardSource()
+					new LinqCardCriteria((Card c) => true),
+					new MoveCardDestination[] { new MoveCardDestination(HeroTurnTaker.Hand) },
+					storedResultsMove: storedResults,
+					cardSource: new CardSource(FindCardController(base.CharacterCard))
 				);
 
 				if (UseUnityCoroutines)
 				{
-					yield return GameController.StartCoroutine(discardCR);
+					yield return GameController.StartCoroutine(moveCardCR);
 				}
 				else
 				{
-					GameController.ExhaustCoroutine(discardCR);
+					GameController.ExhaustCoroutine(moveCardCR);
+				}
+
+				Card theCard = storedResults.FirstOrDefault().CardToMove;
+				if (theCard != null && theCard.Location != TurnTaker.Trash)
+				{
+					IEnumerator discardCR = GameController.MoveCard(
+						DecisionMaker,
+						theCard,
+						TurnTaker.Trash,
+						isDiscard: true,
+						cardSource: GetCardSource()
+					);
+
+					if (UseUnityCoroutines)
+					{
+						yield return GameController.StartCoroutine(discardCR);
+					}
+					else
+					{
+						GameController.ExhaustCoroutine(discardCR);
+					}
 				}
 			}
 

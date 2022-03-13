@@ -2,7 +2,6 @@
 *.ini
 obj/Debug/DesignTimeResolveAssemblyReferencesInput.cache
 obj/Debug/Angille.csproj.AssemblyReference.cache
-.vs/slnx.sqlite
-.vs/Angille/v17/.suo
+.vs/
 obj/
 bin/

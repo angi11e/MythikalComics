@@ -18,11 +18,12 @@ namespace Angille.NightMare
 
 		public override IEnumerator UsePower(int index = 0)
 		{
-			// Discard a card...
+			// Discard 1 card...
+			int discardNumeral = GetPowerNumeral(0, 1);
 			List<DiscardCardAction> storedResults = new List<DiscardCardAction>();
 			IEnumerator discardCR = SelectAndDiscardCards(
 				DecisionMaker,
-				1,
+				discardNumeral,
 				storedResults: storedResults
 			);
 
@@ -35,24 +36,27 @@ namespace Angille.NightMare
 				GameController.ExhaustCoroutine(discardCR);
 			}
 
-			// ...then play it from your trash.
-			Card theCard = storedResults.FirstOrDefault().CardToDiscard;
-			if (DidDiscardCards(storedResults) && theCard != null)
+			// ...play any cards discarded this way from your trash.
+			for (int i = storedResults.Count() - 1; i >= 0; i--)
 			{
-				IEnumerator playCardCR = GameController.MoveCard(
-					DecisionMaker,
-					theCard,
-					TurnTaker.PlayArea,
-					cardSource: GetCardSource()
-				);
+				Card theCard = storedResults.ElementAt(i).CardToDiscard;
+				if (DidDiscardCards(storedResults) && theCard != null)
+				{
+					IEnumerator playCardCR = GameController.MoveCard(
+						DecisionMaker,
+						theCard,
+						TurnTaker.PlayArea,
+						cardSource: GetCardSource()
+					);
 
-				if (UseUnityCoroutines)
-				{
-					yield return GameController.StartCoroutine(playCardCR);
-				}
-				else
-				{
-					GameController.ExhaustCoroutine(playCardCR);
+					if (UseUnityCoroutines)
+					{
+						yield return GameController.StartCoroutine(playCardCR);
+					}
+					else
+					{
+						GameController.ExhaustCoroutine(playCardCR);
+					}
 				}
 			}
 

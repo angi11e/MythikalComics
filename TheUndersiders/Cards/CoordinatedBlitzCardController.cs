@@ -60,13 +60,13 @@ namespace Angille.TheUndersiders
 				base.GameController.ExhaustCoroutine(mainDamageCR);
 			}
 
-			// Dog: Each dog, construct, and swarm card deals the non-villain target with the highest HP 1 toxic damage, one at a time.
+			// Dog: Each dog, plush, and swarm card deals the non-villain target with the highest HP 1 toxic damage, one at a time.
 			if (IsEnabled("dog"))
 			{
 				IEnumerator petDamageCR = MultipleDamageSourcesDealDamage(
 					new LinqCardCriteria((Card c) =>
 						c.IsInPlayAndHasGameText && c.IsVillain
-						&& (c.DoKeywordsContain("dog") || c.DoKeywordsContain("construct") || c.DoKeywordsContain("swarm"))
+						&& (c.DoKeywordsContain("dog") || c.DoKeywordsContain("plush") || c.DoKeywordsContain("swarm"))
 					),
 					TargetType.HighestHP,
 					1,

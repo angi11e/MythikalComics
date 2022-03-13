@@ -25,11 +25,11 @@ namespace Angille.RedRifle
 		public override IEnumerator UsePower(int index = 0)
 		{
 			TokenPool trueshotPool = RedRifleTrueshotPoolUtility.GetTrueshotPool(this);
-			int addNumeral = GetPowerNumeral(0, 2);
+			int addNumeral = GetPowerNumeral(0, 3);
 			int cardNumeral = GetPowerNumeral(1, 1);
-			int removeNumeral = GetPowerNumeral(2, 3);
+			int removeNumeral = GetPowerNumeral(2, 2);
 
-			// Add 2 tokens to your trueshot pool.
+			// Add 3 tokens to your trueshot pool.
 			IEnumerator addTokensCR = RedRifleTrueshotPoolUtility.AddTrueshotTokens(this, addNumeral);
 
 			// Play 1 one-shot card.
@@ -50,7 +50,7 @@ namespace Angille.RedRifle
 				base.GameController.ExhaustCoroutine(playCardsCR);
 			}
 
-			// Remove 3 tokens from your trueshot pool.
+			// Remove 2 tokens from your trueshot pool.
 			if (removeNumeral > trueshotPool.CurrentValue)
 			{
 				removeNumeral = trueshotPool.CurrentValue;

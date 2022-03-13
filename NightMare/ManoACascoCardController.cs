@@ -16,7 +16,7 @@ namespace Angille.NightMare
 		 * 
 		 * DISCARD
 		 * Choose a target.
-		 * Until the start of your next turn, damage dealt by and to that target is irreducible.
+		 * Choose a target. the next damage dealt to that target is irreducible.
 		 */
 
 		public ManoACascoCardController(
@@ -95,7 +95,7 @@ namespace Angille.NightMare
 				DecisionMaker,
 				targetList,
 				targets,
-				selectionType: SelectionType.CardToDealDamage,
+				selectionType: SelectionType.IncreaseNextDamage,
 				cardSource: GetCardSource()
 			);
 
@@ -108,29 +108,23 @@ namespace Angille.NightMare
 				GameController.ExhaustCoroutine(selectTargetCR);
 			}
 
-			// Until the start of your next turn, damage dealt by and to that target is irreducible.
+			// The next damage dealt to that target is irreducible.
 			Card theTarget = targets.FirstOrDefault().SelectedCard;
 			if (theTarget.IsTarget)
 			{
 				MakeDamageIrreducibleStatusEffect dealtToSE = new MakeDamageIrreducibleStatusEffect();
-				MakeDamageIrreducibleStatusEffect dealtBySE = new MakeDamageIrreducibleStatusEffect();
-				dealtToSE.UntilStartOfNextTurn(TurnTaker);
-				dealtBySE.UntilStartOfNextTurn(TurnTaker);
+				dealtToSE.NumberOfUses = 1;
 				dealtToSE.TargetCriteria.IsSpecificCard = theTarget;
-				dealtBySE.SourceCriteria.IsSpecificCard = theTarget;
 
 				IEnumerator dealtToCR = AddStatusEffect(dealtToSE);
-				IEnumerator dealtByCR = AddStatusEffect(dealtBySE);
 
 				if (UseUnityCoroutines)
 				{
 					yield return GameController.StartCoroutine(dealtToCR);
-					yield return GameController.StartCoroutine(dealtByCR);
 				}
 				else
 				{
 					GameController.ExhaustCoroutine(dealtToCR);
-					GameController.ExhaustCoroutine(dealtByCR);
 				}
 			}
 

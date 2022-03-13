@@ -48,47 +48,6 @@ namespace Angille.TheUndersiders
 			base.AddTriggers();
 		}
 
-		/*
-		private IEnumerator RedirectResponse(DealDamageAction dd)
-		{
-			List<Card> storedResults = new List<Card>();
-			IEnumerator getTargetSwarmCR = GameController.FindTargetWithLowestHitPoints(
-				1,
-				(Card c) => c.IsVillain && c.DoKeywordsContain("swarm"),
-				storedResults,
-				dd,
-				cardSource: GetCardSource()
-			);
-
-			if (base.UseUnityCoroutines)
-			{
-				yield return base.GameController.StartCoroutine(getTargetSwarmCR);
-			}
-			else
-			{
-				base.GameController.ExhaustCoroutine(getTargetSwarmCR);
-			}
-
-			Card targetSwarm = storedResults.FirstOrDefault();
-			IEnumerator redirectCR = GameController.RedirectDamage(
-				dd,
-				targetSwarm,
-				cardSource: GetCardSource()
-			);
-
-			if (base.UseUnityCoroutines)
-			{
-				yield return base.GameController.StartCoroutine(redirectCR);
-			}
-			else
-			{
-				base.GameController.ExhaustCoroutine(redirectCR);
-			}
-
-			yield break;
-		}
-		*/
-
 		private IEnumerator BugsEatThingsResponse(DestroyCardAction d)
 		{
 			List<TurnTaker> storedResults = new List<TurnTaker>();

@@ -58,7 +58,10 @@ namespace Angille.NightMare
 		{
 			// If {NightMare} would be dealt irreducible damage...
 			AddTrigger(
-				(DealDamageAction dda) => dda.IsIrreducible && dda.Target == base.CharacterCard,
+				(DealDamageAction dda) =>
+					dda.IsIrreducible
+					&& dda.Target == base.CharacterCard
+					&& dda.DamageSource.Card != base.CharacterCard,
 				ConvertDamageResponse,
 				new TriggerType[3] {
 					TriggerType.WouldBeDealtDamage,

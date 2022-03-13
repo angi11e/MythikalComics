@@ -139,10 +139,11 @@
 			],
 			"body": [
 				"Play this card next to a non-hero target.",
-				"That target cannot affect or be affected by any of your cards or effects, aside from this one.",
-				"At the start of your turn, you may destroy this card."
+				"{WhatsHerFace} is immune to damage dealt by that target.",
+				"If {WhatsHerFace} deals damage to that target, or If that target leaves play, destroy this card."
 			],
 			"icons": [
+				"ImmuneToDamage",
 				"DestroySelf"
 			],
 			"flavorText": "“”",
@@ -254,7 +255,7 @@
 				"Play this card next to a character card.",
 				"increase damage taken by targets in that character's play area by 1.",
 				"reduce damage dealt by targets in that character's play area by 1.",
-				"If that target leaves play, destroy this card."
+				"At the start of your turn, either discard a card or destroy this card."
 			],
 			"icons": [
 				"IncreaseDamageTaken",

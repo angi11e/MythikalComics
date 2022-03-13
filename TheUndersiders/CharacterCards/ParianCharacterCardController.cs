@@ -18,9 +18,9 @@ namespace Angille.TheUndersiders
 
 		public override IEnumerator Play()
 		{
-			// When this card enters play, restore all villain construct targets to 6 HP. if there are non in play, search the villain trash and deck for a construct card and put it into play. if the villain deck was searched, shuffle it.
+			// When this card enters play, restore all villain plush targets to 6 HP. if there are non in play, search the villain trash and deck for a plush card and put it into play. if the villain deck was searched, shuffle it.
 			if (FindCardsWhere((Card c) =>
-				c.DoKeywordsContain("construct")
+				c.DoKeywordsContain("plush")
 				&& c.IsVillainTarget
 				&& c.IsInPlayAndHasGameText
 			).Count() == 0)
@@ -47,7 +47,7 @@ namespace Angille.TheUndersiders
 			{
 				IEnumerator restoreCR = GameController.GainHP(
 					DecisionMaker,
-					(Card c) => c.DoKeywordsContain("construct") && c.IsVillainTarget,
+					(Card c) => c.DoKeywordsContain("plush") && c.IsVillainTarget,
 					(Card c) => c.MaximumHitPoints.Value - c.HitPoints.Value,
 					cardSource: GetCardSource()
 				);

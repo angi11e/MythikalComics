@@ -105,6 +105,15 @@ namespace Angille.TheUndersiders
 						cardSource: GetCardSource()
 					);
 
+					if (base.UseUnityCoroutines)
+					{
+						yield return base.GameController.StartCoroutine(pickHeroCR);
+					}
+					else
+					{
+						base.GameController.ExhaustCoroutine(pickHeroCR);
+					}
+
 					heroTarget = storedResults.FirstOrDefault().SelectedCard;
 
 					List<Card> villainList = new List<Card>();

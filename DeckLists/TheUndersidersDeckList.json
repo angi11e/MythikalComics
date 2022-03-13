@@ -231,7 +231,7 @@
 		"TheSentinels"
 	  ],
 	  "gameplay": [
-		"When this card enters play, restore all villain construct targets to 6 HP. if there are none in play, search the villain trash and deck for a construct card and put it into play. if the villain deck was searched, shuffle it.",
+		"When this card enters play, restore all villain plush targets to 6 HP. if there are none in play, search the villain trash and deck for a plush card and put it into play. if the villain deck was searched, shuffle it.",
 		"Villain targets are immune to damage from environment cards.",
 		"Treat {Bear} effects as active."
 	  ],
@@ -497,11 +497,11 @@
 			"flavorReference": "Bitch, Scourge 19.1"
 		},
 	{
-	  "identifier": "ClothGolem",
+	  "identifier": "AnimatePlush",
 	  "count": 2,
-	  "title": "Cloth Golem",
+	  "title": "Animate Plush",
 	  "keywords": [
-		"construct"
+		"plush"
 	  ],
 	  "hitpoints": 6,
 	  "body": [
@@ -539,7 +539,7 @@
 	  "activatableAbilities": [
 		{
 		  "name": "{Dog}:",
-		  "text": "Each dog, construct, and swarm card deals the non-villain target with the highest HP 1 toxic damage, one at a time."
+		  "text": "Each dog, plush, and swarm card deals the non-villain target with the highest HP 1 toxic damage, one at a time."
 		},
 		{
 		  "name": "{Blade}:",

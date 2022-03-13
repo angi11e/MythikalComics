@@ -55,8 +55,8 @@
 				"Destroy a [u]charm[/u] card."
 			],
 			"icons": [
-				"DestroyCard",
-				"Manipulate"
+				"Manipulate",
+				"Destroy"
 			],
 			"flavorText": "“I've almost got her. . .{BR}[b]that[/b] way!”",
 			"flavorReference": "Theurgy, Book Report (EC #5)"
@@ -97,9 +97,9 @@
 				"Destroy a [u]charm[/u] card."
 			],
 			"icons": [
-				"DestroyCard",
 				"DrawCardNow",
-				"PlayCardNow"
+				"PlayCardNow",
+				"Destroy"
 			],
 			"flavorText": "“Not gonna lie,{BR}that was a f***in' blast!”",
 			"flavorReference": "Salem, Part Timers (EC #7)"
@@ -302,13 +302,14 @@
 				"one-shot"
 			],
 			"body": [
-				"{Theurgy} deals 1 target 3 melee damage.",
-				"That target deals up to X targets 2 projectile damage, where X = the number of [u]charm[/u] cards in play plus 1.",
+				"{Theurgy} deals 1 target 3 projectile damage.",
+				"That target deals up to X targets 2 melee damage, where X = the number of [u]charm[/u] cards in play plus 1.",
 				"Destroy a [u]charm[/u] card."
 			],
 			"icons": [
 				"DealDamageMelee",
-				"DealDamageProjectile"
+				"DealDamageProjectile",
+				"Destroy"
 			],
 			"flavorText": "“Now you're thinkin' with portals.”",
 			"flavorReference": "Red Rifle, Demonology (EC #10)"
@@ -387,6 +388,7 @@
 			],
 			"flippedIcons": [
 				"PlayCardNow",
+				"Discard",
 				"Manipulate"
 			],
 			"complexity": 2,

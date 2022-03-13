@@ -67,8 +67,8 @@
 				"DestroyOngoing",
 				"DestroyEnvironment"
 			],
-			"flavorText": "“”",
-			"flavorReference": ""
+			"flavorText": "“She only built that thing today.{BR}There's [b]gotta[/b] be a weak spot.”",
+			"flavorReference": "Theurgy, Science Fair (EC #8)"
 		},
 		{
 			"identifier": "EnergyBurst",
@@ -88,8 +88,8 @@
 				"DestroyOngoing",
 				"DestroyEquipment"
 			],
-			"flavorText": "“”",
-			"flavorReference": ""
+			"flavorText": "“If you could [b]warn[/b] us next time you{BR}do that, it would be really [b]really[/b] nice.”",
+			"flavorReference": "What's-Her-Face, Crystal Chronicles (EC #11)"
 		},
 		{
 			"identifier": "FullAuto",
@@ -112,8 +112,8 @@
 				"DestroySelf",
 				"DealDamageProjectile"
 			],
-			"flavorText": "“”",
-			"flavorReference": ""
+			"flavorText": "“How did the bear get in the{BR}factory sounds like a joke,{BR}but I assure you it is [b]not.[/b]”",
+			"flavorReference": "D.D.O.S., Part Timers (EC #7)"
 		},
 		{
 			"identifier": "HairTrigger",
@@ -131,8 +131,8 @@
 				"DealDamageProjectile",
 				"AddTokens"
 			],
-			"flavorText": "“”",
-			"flavorReference": ""
+			"flavorText": "“Where do these yeasty bastards{BR}keep coming from!? I swear{BR}I've picked off like thirty of 'em.”",
+			"flavorReference": "Red Rifle, Knead to Know (EC #14)"
 		},
 		{
 			"identifier": "IndescriminateFabrication",
@@ -150,8 +150,8 @@
 				"Discard",
 				"AddTokens"
 			],
-			"flavorText": "“”",
-			"flavorReference": ""
+			"flavorText": "“And you get a scanner.{BR}And you get a scanner!{BR}And you get a scanner?”",
+			"flavorReference": "Red Rifle, First Day Tremors (EC #3)"
 		},
 		{
 			"identifier": "NanoPlate",
@@ -170,8 +170,8 @@
 				"GainHP",
 				"ReduceDamageTaken"
 			],
-			"flavorText": "“”",
-			"flavorReference": ""
+			"flavorText": "“Oh. Oh!? Oh yeah!{BR}See, [b]that's[/b] why you don't mess{BR}with the guy wearing an armor suit!”",
+			"flavorReference": "Red Rifle, Elementary (EC #4)"
 		},
 		{
 			"identifier": "Overclocking",
@@ -194,8 +194,8 @@
 				"PlayCardNow",
 				"AddTokens"
 			],
-			"flavorText": "“”",
-			"flavorReference": ""
+			"flavorText": "“Is this... normal behavior for him?”",
+			"flavorReference": "Patina, Fish Out of Water (EC #13)"
 		},
 		{
 			"identifier": "PoweredShot",
@@ -214,8 +214,8 @@
 				"DealDamage",
 				"RemoveTokens"
 			],
-			"flavorText": "“”",
-			"flavorReference": ""
+			"flavorText": "“He's [b]already[/b] dead. Dude's{BR}probably gonna think this tickles.”",
+			"flavorReference": "Red Rifle, Stage Fright (EC #15)"
 		},
 		{
 			"identifier": "PreciseShot",
@@ -232,8 +232,8 @@
 				"DealDamageProjectile",
 				"MakeDamageUnredirectable"
 			],
-			"flavorText": "“”",
-			"flavorReference": ""
+			"flavorText": "“No. Nope.{BR}That was [b]absolutely[/b] uncalled for.”",
+			"flavorReference": "NightMare, Seeing Red (EC #12)"
 		},
 		{
 			"identifier": "Ricochet",
@@ -248,8 +248,8 @@
 			"icons": [
 				"AddTokens"
 			],
-			"flavorText": "“”",
-			"flavorReference": ""
+			"flavorText": "“[b]ow!![/b] hey!{BR}oh wait, now I know{BR}where that shot came from.”",
+			"flavorReference": "Red Rifle, Major imp-ediment (EC #9)"
 		},
 		{
 			"identifier": "SilverTongue",
@@ -268,8 +268,8 @@
 				"GainHP",
 				"ReduceDamageDealt"
 			],
-			"flavorText": "“”",
-			"flavorReference": ""
+			"flavorText": "“Hey! Fox lady! Back off.{BR}This, uh, [b]Alkaline[/b] lady can{BR}make her own decisions.”",
+			"flavorReference": "Red Rifle, Mist By An inch (EC #16)"
 		},
 		{
 			"identifier": "SituationalAwareness",
@@ -289,8 +289,8 @@
 				"DrawCardNow",
 				"PlayCardNow"
 			],
-			"flavorText": "“”",
-			"flavorReference": ""
+			"flavorText": "“If you kids hadn't shown up...{BR}Mister Vargas there would have{BR}overloaded my nervous system.”",
+			"flavorReference": "The Wraith, Setting Up Shop (EC #2)"
 		},
 		{
 			"identifier": "TechNerd",
@@ -310,8 +310,8 @@
 				"AddTokens",
 				"DrawCardNow"
 			],
-			"flavorText": "“”",
-			"flavorReference": ""
+			"flavorText": "“Check this out! Nobody, and I{BR}mean nobody, is gonna have{BR}a project [b]this[/b] awesome!”",
+			"flavorReference": "Red Rifle, Science Fair (EC #8)"
 		},
 		{
 			"identifier": "YellingInformation",
@@ -333,8 +333,8 @@
 				"AddTokens",
 				"DestroySelf"
 			],
-			"flavorText": "“”",
-			"flavorReference": ""
+			"flavorText": "“Hey, ugly! Yeah, I'm talkin' to you.{BR}Look, we're just gonna have to ask you{BR}to leave. This plane of existence. Now!”",
+			"flavorReference": "Red Rifle, Demonology (EC #10)"
 		}
 	],
 	"promoCards": [
@@ -364,7 +364,7 @@
 			"hitpointsColor": "F41A18",
 			"character": true,
 			"powers": [
-				"Add 2 tokens to your trueshot pool. Play 1 one-shot card. Remove 3 tokens from your trueshot pool."
+				"Add 3 tokens to your trueshot pool. Play 1 one-shot card. Remove 2 tokens from your trueshot pool."
 			],
 			"hitpoints": 29,
 			"nemesisIdentifiers": [

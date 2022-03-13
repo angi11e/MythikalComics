@@ -96,6 +96,7 @@ namespace Angille.Theurgy
 				base.HeroTurnTakerController,
 				choices,
 				selectedTarget,
+				optional: true,
 				selectionType: SelectionType.GainHP,
 				cardSource: base.GetCardSource()
 			);

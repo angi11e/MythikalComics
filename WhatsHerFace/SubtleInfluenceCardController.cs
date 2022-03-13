@@ -44,10 +44,55 @@ namespace Angille.WhatsHerFace
 				(DealDamageAction dd) => 1
 			);
 
-			// If that target leaves play, destroy this card.
-			AddIfTheTargetThatThisCardIsNextToLeavesPlayDestroyThisCardTrigger();
+			// At the start of your turn, either discard a card or destroy this card.
+			AddStartOfTurnTrigger(
+				(TurnTaker tt) => tt == base.TurnTaker,
+				DiscardOrDestroyResponse,
+				new TriggerType[2] { TriggerType.DiscardCard, TriggerType.DestroySelf }
+			);
+
+			// If that target leaves play, destroy this card. (removed from card)
+			// AddIfTheTargetThatThisCardIsNextToLeavesPlayDestroyThisCardTrigger();
 
 			base.AddTriggers();
+		}
+
+		private IEnumerator DiscardOrDestroyResponse(PhaseChangeAction pca)
+		{
+			List<DiscardCardAction> storedResults = new List<DiscardCardAction>();
+			IEnumerator discardCR = GameController.SelectAndDiscardCard(
+				DecisionMaker,
+				optional: true,
+				storedResults: storedResults,
+				cardSource: GetCardSource()
+			);
+
+			if (UseUnityCoroutines)
+			{
+				yield return GameController.StartCoroutine(discardCR);
+			}
+			else
+			{
+				GameController.ExhaustCoroutine(discardCR);
+			}
+
+			if (!DidDiscardCards(storedResults))
+			{
+				IEnumerator destroyCR = GameController.DestroyCard(
+					DecisionMaker,
+					base.Card,
+					cardSource: GetCardSource()
+				);
+
+				if (UseUnityCoroutines)
+				{
+					yield return GameController.StartCoroutine(destroyCR);
+				}
+				else
+				{
+					GameController.ExhaustCoroutine(destroyCR);
+				}
+			}
 		}
 	}
 }

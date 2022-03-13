@@ -1162,6 +1162,12 @@
             <param name="powerIndex">The index of the Power. Usually 0, unless the Power has more than 1 option.</param>
             <returns>Whether or not this Card has Power Numerals.</returns>
         </member>
+        <member name="M:Handelabra.Sentinels.Engine.Controller.CardController.GetDeckDestination">
+            <summary>
+            Returns the MoveCardDestination that this Card should go to when it goes to its "associated Deck". Unless overridden, this will return its OwnerTurnTaker's Deck.
+            </summary>
+            <returns></returns>
+        </member>
         <member name="M:Handelabra.Sentinels.Engine.Controller.CardController.GetTrashDestination">
             <summary>
             Returns the MoveCardDestination that this Card should go to when it goes to "the Trash". Unless overridden, this will return its OwnerTurnTaker's Trash.
@@ -1200,6 +1206,14 @@
             </summary>
             <param name="decision">The decision that has <see cref="F:Handelabra.Sentinels.Engine.Controller.SelectionType.Custom"/> and the UI wants text for.</param>
             <returns>A populated CustomDecisionText object for UI display, or null to let the UI show whatever it would by default.</returns>
+        </member>
+        <member name="M:Handelabra.Sentinels.Engine.Controller.CardController.GetNativeDeck(Handelabra.Sentinels.Engine.Model.Card)">
+            <summary>
+            Returns the Native Deck to the Card provided (that is, the Deck to which the Card originally belonged).
+            Some cards, such as Mission Cards, are special, in that their Native Deck is the Mission Deck while they are Missions, and their Hero deck when they become rewards.
+            </summary>
+            <param name="card">The Card whose NativeDeck will be returned.</param>
+            <returns>The Native Deck to the Card provided.</returns>
         </member>
         <member name="P:Handelabra.Sentinels.Engine.Controller.CardController.DoesHaveActivePlayMethod">
             <summary>
@@ -5707,6 +5721,14 @@
             </summary>
             <param name="hero">The HeroCharacterCardController that may or may not be able to use powers.</param>
             <returns>Whether or not the provided HeroCharacterCardController is able to use Powers.</returns>
+        </member>
+        <member name="M:Handelabra.Sentinels.Engine.Controller.GameController.GetNativeDeck(Handelabra.Sentinels.Engine.Model.Card)">
+            <summary>
+            Returns the Native Deck to the Card provided (that is, the Deck to which the Card originally belonged).
+            Some cards, such as Mission Cards, are special, in that their Native Deck is the Mission Deck while they are Missions, and their Hero deck when they become rewards.
+            </summary>
+            <param name="card">The Card whose NativeDeck will be returned.</param>
+            <returns>The Native Deck to the Card provided.</returns>
         </member>
         <member name="T:Handelabra.Sentinels.Engine.Controller.CancelAction">
             <summary>
