@@ -1,0 +1,20 @@
+{"frames": {
+
+"AthenaCharacter.png":
+{
+	"frame": {"x":0,"y":0,"w":178,"h":256},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":178,"h":256},
+	"sourceSize": {"w":178,"h":256}
+}},
+"meta": {
+	"app": "https://www.codeandweb.com/texturepacker",
+	"version": "1.0",
+	"image": "AthenaAtlas0.png",
+	"format": "RGBA8888",
+	"size": {"w":256,"h":256},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:a307c48b654613744435565a34ceaf74:13eb02ecd1a68eb7065ff7b9740cfb97:e9835dc773f63afacc1b817d8239b437$"
+}
+}

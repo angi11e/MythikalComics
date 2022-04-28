@@ -14,7 +14,6 @@ namespace Angille.Theurgy
 		//  Remove this card from the game."
 		// Power: Search your trash or deck for a [u]charm[/u] card.
 		//  Put it into play or in your hand.
-		//  Destroy a [u]charm[/u] card.
 
 		public TheScholarsJournalCardController(
 			Card card,
@@ -138,6 +137,7 @@ namespace Angille.Theurgy
 				GameController.ExhaustCoroutine(discoverCharmCR);
 			}
 
+			/*
 			// destroy a charm card.
 			IEnumerator destroyCR = GameController.SelectAndDestroyCard(
 				DecisionMaker,
@@ -154,6 +154,7 @@ namespace Angille.Theurgy
 			{
 				GameController.ExhaustCoroutine(destroyCR);
 			}
+			*/
 
 			yield break;
 		}

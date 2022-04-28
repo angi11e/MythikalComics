@@ -19,6 +19,13 @@ namespace Angille.Theurgy
 		{
 		}
 
+		protected override TriggerType[] DestructionTriggers => new TriggerType[4] {
+			TriggerType.RevealCard,
+			TriggerType.DrawCard,
+			TriggerType.DiscardCard,
+			TriggerType.PlayCard
+		};
+
 		public override IEnumerator Play()
 		{
 			return DrawCard(CharmedHero().Owner.ToHero());

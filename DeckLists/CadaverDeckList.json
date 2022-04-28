@@ -1,0 +1,282 @@
+﻿{
+  "name": "Cadaver",
+  "sortName": "Cadaver",
+  "isPlural": true,
+  "kind": "Villain",
+  "expansionIdentifier": "Angille",
+  "initialCardIdentifiers": [
+		"CadaverCharacter"
+  ],
+	"cards": [
+		{
+			"identifier": "CadaverCharacter",
+			"count": 1,
+			"title": "Cadaver",
+			"keywords": [
+				"villain"
+			],
+			"body": "What A Show",
+			"backgroundColor": "4E266F",
+			"foilBackgroundColor": "4E266F",
+			"character": true,
+			"hitpoints": 50,
+			"nemesisIdentifiers": [
+				"NightMist"
+			],
+			"setup": [
+				"At the start of the game, this card enters play “What A Show” side up.",
+				"Put Lynne into play. Put {H + 1} Mesmerized Public into play.",
+				"Shuffle the 6 undead cards, place {H + 1} under this card, and the rest in the Villain trash. shuffle The Villain deck."
+			],
+			"gameplay": [
+				"",
+				"",
+				""
+			],
+			"advanced": "",
+			"icons": [
+				"StartAndEndOfTurnAction",
+				"PlayCardNow"
+			],
+			"advancedIcons": [
+				"PlayCardNow"
+			],
+			"flippedBody": "The Final Act",
+			"flippedGameplay": [
+				"",
+				"",
+				""
+			],
+			"flippedAdvanced": "",
+			"flippedIcons": [
+				"StartOfTurnAction",
+				"PlayCardNow",
+				"DestroyEnvironment",
+				"DealDamageMelee"
+			],
+			"flippedAdvancedIcons": [
+				"IncreaseDamageTaken"
+			],
+			"difficulty": 2,
+			"challengeTitle": "Dark Vitality",
+			"challengeText": "",
+			"flippedChallengeText": "",
+			"challengeIcons": [
+			],
+			"openingLines": {
+				"default": "Come one, come all! Keep your eyes peeled and your mind open!"
+			}
+		},
+		{
+			"identifier": "Lynne",
+			"count": 1,
+			"title": "Lynne",
+			"keywords": [
+				"assistant"
+			],
+			"hitpoints": 25,
+			"body": [
+				""
+			],
+			"icons": [
+				"Discard",
+				"PlayCardNow"
+			],
+			"flavorText": "“”",
+			"flavorReference": ""
+		},
+		{
+			"identifier": "SpookySpecter",
+			"count": 2,
+			"title": "Spooky Specter",
+			"keywords": [
+				"undead"
+			],
+			"hitpoints": 14,
+			"body": [
+				""
+			],
+			"icons": [
+				"Discard",
+				"PlayCardNow"
+			],
+			"flavorText": "“”",
+			"flavorReference": ""
+		},
+		{
+			"identifier": "FrightfulPhantom",
+			"count": 2,
+			"title": "Frightful Phantom",
+			"keywords": [
+				"undead"
+			],
+			"hitpoints": 15,
+			"body": [
+				""
+			],
+			"icons": [
+				"Discard",
+				"PlayCardNow"
+			],
+			"flavorText": "“”",
+			"flavorReference": ""
+		},
+		{
+			"identifier": "ShockingShade",
+			"count": 2,
+			"title": "Shocking Shade",
+			"keywords": [
+				"undead"
+			],
+			"hitpoints": 13,
+			"body": [
+				""
+			],
+			"icons": [
+				"Discard",
+				"PlayCardNow"
+			],
+			"flavorText": "“”",
+			"flavorReference": ""
+		},
+		{
+			"identifier": "MesmerizedPublic",
+			"count": 6,
+			"title": "Mesmerized Public",
+			"keywords": [
+				"bystander"
+			],
+			"hitpoints": 2,
+			"body": [
+				"When this card is destroyed, "
+			],
+			"icons": [
+				"Discard",
+				"PlayCardNow"
+			],
+			"flavorText": "“”",
+			"flavorReference": ""
+		},
+		{
+			"identifier": "Levitation",
+			"count": 2,
+			"title": "Levitation",
+			"keywords": [
+				"trick"
+			],
+			"body": [
+				""
+			],
+			"icons": [
+				"Discard",
+				"PlayCardNow"
+			],
+			"flavorText": "“”",
+			"flavorReference": ""
+		},
+		{
+			"identifier": "SawingInHalf",
+			"count": 2,
+			"title": "Sawing In Half",
+			"keywords": [
+				"trick"
+			],
+			"body": [
+				""
+			],
+			"icons": [
+				"Discard",
+				"PlayCardNow"
+			],
+			"flavorText": "“”",
+			"flavorReference": ""
+		},
+		{
+			"identifier": "IsThisYourCard",
+			"count": 2,
+			"title": "Is This Your Card?",
+			"keywords": [
+				"trick"
+			],
+			"body": [
+				""
+			],
+			"icons": [
+				"Discard",
+				"PlayCardNow"
+			],
+			"flavorText": "“”",
+			"flavorReference": ""
+		},
+		{
+			"identifier": "KnifeThrow",
+			"count": 2,
+			"title": "Knife Throw",
+			"keywords": [
+				"trick"
+			],
+			"body": [
+				""
+			],
+			"icons": [
+				"Discard",
+				"PlayCardNow"
+			],
+			"flavorText": "“”",
+			"flavorReference": ""
+		},
+		{
+			"identifier": "Hypnosis",
+			"count": 2,
+			"title": "Hypnosis",
+			"keywords": [
+				"trick"
+			],
+			"body": [
+				""
+			],
+			"icons": [
+				"Discard",
+				"PlayCardNow"
+			],
+			"flavorText": "“”",
+			"flavorReference": ""
+		},
+		{
+			"identifier": "MagiciansHat",
+			"count": 1,
+			"title": "Magician's Hat",
+			"keywords": [
+				"ongoing",
+				"prop"
+			],
+			"body": [
+				""
+			],
+			"icons": [
+				"Discard",
+				"PlayCardNow"
+			],
+			"flavorText": "“”",
+			"flavorReference": ""
+		},
+		{
+			"identifier": "MagiciansWand",
+			"count": 1,
+			"title": "Magician's Wand",
+			"keywords": [
+				"ongoing",
+				"prop"
+			],
+			"body": [
+				""
+			],
+			"icons": [
+				"Discard",
+				"PlayCardNow"
+			],
+			"flavorText": "“”",
+			"flavorReference": ""
+		}
+	]
+}

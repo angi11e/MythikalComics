@@ -25,7 +25,7 @@
 			],
 			"hitpoints": 27,
 			"nemesisIdentifiers": [
-				"Nightmist"
+				"NightMist"
 			],
 			"incapacitatedAbilities": [
 				"One player may draw a card.",
@@ -73,7 +73,7 @@
 				"Play this card next to a hero character card.",
 				"Their player selects a damage type. Damage of that type dealt by or to this hero is irreducible.",
 				"That hero gains the [b]power:[/b] destroy this card.",
-				"Before this card is destroyed, the hero it's next to may play 1 card or use 1 power. All damage is irreducible until this card leaves play."
+				"When this card is destroyed, the hero it's next to may play 1 card or use 1 power. All damage is irreducible until this card leaves play."
 			],
 			"icons": [
 				"HasPower",
@@ -159,7 +159,7 @@
 			"body": [
 				"Play this card next to a hero character card. That hero draws a card.",
 				"That hero gains the [b]power:[/b] destroy this card.",
-				"Before this card is destroyed, the hero it's next to Reveals the top 4 cards of their deck. Put 1 in their hand. Put 1 on top of their deck. Discard 1. Play 1."
+				"When this card is destroyed, the hero it's next to Reveals the top 4 cards of their deck. Put 1 in their hand. Put 1 on top of their deck. Discard 1. Play 1."
 			],
 			"icons": [
 				"StartOfTurnAction",
@@ -181,7 +181,7 @@
 			"body": [
 				"Play this card next to a hero character card. increase the next damage dealt by that hero by 3.",
 				"That hero gains the [b]power:[/b] destroy this card.",
-				"Before this card is destroyed, the hero it's next to deals 1 target 5 melee or projectile damage."
+				"When this card is destroyed, the hero it's next to deals 1 target 5 melee or projectile damage."
 			],
 			"icons": [
 				"IncreaseDamageDealt",
@@ -240,7 +240,7 @@
 			"body": [
 				"Play this card next to a hero character card. They may discard a card. If they do, they move a card from their trash into their hand.",
 				"That hero gains the [b]power:[/b] destroy this card.",
-				"Before this card is destroyed, the hero it's next to Discards any number of cards. Move up to that many cards from their trash to their hand. That hero plays a card."
+				"When this card is destroyed, the hero it's next to Discards any number of cards. Move up to that many cards from their trash to their hand. That hero plays a card."
 			],
 			"icons": [
 				"Manipulate",
@@ -275,15 +275,14 @@
 			"title": "The Scholar's Journal",
 			"keywords": [
 				"equipment",
-				"relic",
-				"limited"
+				"relic"
 			],
 			"body": [
 				"when this card enters play, draw 2 cards.",
 				"When this card is destroyed, select a deck. cards from that deck cannot be played until the start of your next turn. Remove this card from the game."
 			],
 			"powers": [
-				"Search your trash or deck for a [u]charm[/u] card. Put it into play or in your hand. Destroy a [u]charm[/u] card."
+				"Search your trash or deck for a [u]charm[/u] card. Put it into play or in your hand."
 			],
 			"icons": [
 				"DrawCardNow",
@@ -325,7 +324,7 @@
 			"body": [
 				"Play this card next to a hero character card. Reduce the next damage taken by that hero by 3.",
 				"That hero gains the [b]power:[/b] destroy this card.",
-				"Before this card is destroyed, the hero it's next to regains 5 hp. All other hero targets regain 1 hp."
+				"When this card is destroyed, the hero it's next to regains 5 hp. All other hero targets regain 1 hp."
 			],
 			"icons": [
 				"ReduceDamageTaken",
@@ -394,6 +393,45 @@
 			"complexity": 2,
 			"openingLines": {
 				"default": "I will tear you from the Tapestry."
+			}
+		},
+		{
+			"identifier": "TheurgyCharacter",
+			"promoIdentifier": "SalemCharacter",
+			"count": 1,
+			"title": "Salem",
+			"promoTitle": "Salem",
+			"body": "Discordant Riff",
+			"icons": [
+				"HasPower",
+				"DealDamageSonic",
+				"PlayCardNow"
+			],
+			"backgroundColor": "B4002E",
+			"foilBackgroundColor": "B4002E",
+			"hitpointsColor": "B4002E",
+			"character": true,
+			"powers": [
+				"{Theurgy} deals 1 target X sonic damage, where X = the number of [u]charm[/u] cards in play plus 1. If that damage destroys a target, you may move a [u]charm[/u] card from your trash into play."
+			],
+			"hitpoints": 26,
+			"nemesisIdentifiers": [
+				"OblivAeon"
+			],
+			"incapacitatedAbilities": [
+				"One hero may use a power now.",
+				"Up to 2 hero targets deal 1 target 1 sonic damage each.",
+				"Each player may discard 2 cards. Any player that does may play a card."
+			],
+			"flippedIcons": [
+				"UsePowerNow",
+				"DealDamageSonic",
+				"Discard",
+				"PlayCardNow"
+			],
+			"complexity": 2,
+			"openingLines": {
+				"default": "Are you ready to rock!?"
 			}
 		}
 	]

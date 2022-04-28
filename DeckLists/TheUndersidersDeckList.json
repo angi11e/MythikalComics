@@ -60,7 +60,12 @@
 			"challengeIcons": [
 			],
 			"openingLines": {
-				"default": "Are these guys the PRT or the Merchants? Ya know what, I don't care, it doesn't matter. Take 'em out."
+				"default": "Are these guys the PRT or the Merchants? Ya know what, I don't care, it doesn't matter. Take 'em out.",
+				"Jp.ParahumansOfTheWormverse.BitchCharacter": "Think about what you're doing, Rachel.",
+				"Jp.ParahumansOfTheWormverse.GrueCharacter": "And to think. You thought you were protecting Aisha. Brian, you fool.",
+				"Jp.ParahumansOfTheWormverse.TattletaleCharacter": "Thinker's headaches suck, and this one's going to be a doozy.",
+				"Jp.ParahumansOfTheWormverse.Armsmaster": "You had your chance. You failed. Heroes play the game, and you play dirty.",
+				"Jp.ParahumansOfTheWormverse.Dragon": "Those Dragon suits are back. Good thing we have countermeasures this time."
 			}
 		},
 	{

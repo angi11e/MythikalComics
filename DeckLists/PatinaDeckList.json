@@ -1,0 +1,320 @@
+﻿{
+	"name": "Patina",
+	"kind": "Hero",
+	"initialCardIdentifiers": [
+		"PatinaCharacter"
+	],
+	"cards": [
+		{
+			"identifier": "PatinaCharacter",
+			"count": 1,
+			"title": "Patina",
+			"body": "Soothing Mist",
+			"backgroundColor": "20CD8B",
+			"foilBackgroundColor": "20CD8B",
+			"hitpointsColor": "20CD8B",
+			"character": true,
+			"powers": [
+				"Up to 3 hero targets regain 1 HP each. a player may draw 1 card."
+			],
+			"icons": [
+				"HasPower",
+				"GainHP",
+				"DrawCardNow"
+			],
+			"hitpoints": 26,
+			"nemesisIdentifiers": [
+				"Tempest"
+			],
+			"incapacitatedAbilities": [
+				"One target regains 2 HP.",
+				"One player may draw a card.",
+				"One hero may use a power now."
+			],
+			"flippedIcons": [
+				"GainHP",
+				"DrawCardNow",
+				"UsePowerNow"
+			],
+			"openingLines": {
+				"default": ""
+			},
+			"complexity": 1
+		},
+		{
+			"identifier": "FishOutOfWater",
+			"count": 4,
+			"title": "Fish Out of Water",
+			"keywords": [
+				"one-shot",
+				"water"
+			],
+			"body": [
+				"Reveal cards from the top of your deck until you reveal 2 [u]water[/u] cards. Put them into your hand. Shuffle the rest of the revealed cards into your deck.",
+				"Play 1 [u]water[/u] card."
+			],
+			"icons": [
+				"Search",
+				"PlayCardNow"
+			],
+			"flavorText": "“I never quite fit in.{BR}now there's no hiding it.”",
+			"flavorReference": ""
+		},
+		{
+			"identifier": "HealingSpritz",
+			"count": 3,
+			"title": "Healing Spritz",
+			"keywords": [
+				"ongoing",
+				"limited",
+				"water"
+			],
+			"body": [
+				"increase HP recovery caused by your cards and Powers by 1."
+			],
+			"powers": [
+				"1 target regains 2 HP. The next time that target is dealt damage, they regain 2 HP."
+			],
+			"icons": [
+				"HasPower",
+				"IncreaseGainHP",
+				"GainHP"
+			],
+			"flavorText": "“it's ok! I'm a biologist!{BR}...intern.”",
+			"flavorReference": ""
+		},
+		{
+			"identifier": "HybridSurvivor",
+			"count": 4,
+			"title": "Hybrid Survivor",
+			"keywords": [
+				"one-shot"
+			],
+			"body": [
+				"{Patina} deals 1 target 2 melee damage, then deals 1 target 1 cold damage.",
+				"{Patina} regains 2 HP.",
+				"draw a card or play a card."
+			],
+			"icons": [
+				"DealDamage",
+				"GainHP",
+				"DrawCardNow",
+				"PlayCardNow"
+			],
+			"flavorText": "“”",
+			"flavorReference": ""
+		},
+		{
+			"identifier": "Impermeable",
+			"count": 2,
+			"title": "Impermeable",
+			"keywords": [
+				"ongoing",
+				"limited",
+				"water"
+			],
+			"body": [
+				"Reduce cold, energy, fire, and radiant damage dealt to hero targets by the number of [u]water[/u] cards in play.",
+				"At the end of your turn, {Patina} deals up to 2 targets 1 fire damage each.",
+				"When {Patina} would be dealt damage of a type reduced by this card, you may destroy this card. If you do, you may redirect that Damage to a Target of your choice."
+			],
+			"icons": [
+				"ReduceDamageTaken",
+				"DealDamageFire",
+				"RedirectDamage",
+				"DestroySelf"
+			],
+			"flavorText": "“”",
+			"flavorReference": ""
+		},
+		{
+			"identifier": "LabAssist",
+			"count": 2,
+			"title": "Lab Assist",
+			"keywords": [
+				"equipment",
+				"limited"
+			],
+			"body": [
+				"Whenever a hero uses a Power on an equipment card, you may increase by 1 or reduce by 1 one of the numerals in the text of that Power."
+			],
+			"powers": [
+				"1 player may discard 2 cards. Any who do so may use 1 power."
+			],
+			"icons": [
+				"HasPower",
+				"Discard",
+				"UsePowerNow"
+			],
+			"flavorText": "“this time, with{BR}[b]science![/b]”",
+			"flavorReference": ""
+		},
+		{
+			"identifier": "LabCoat",
+			"count": 2,
+			"title": "Lab Coat",
+			"keywords": [
+				"equipment",
+				"limited"
+			],
+			"body": [
+				"Whenever you play an equipment card from your hand, you may draw a card."
+			],
+			"powers": [
+				"Move 1 equipment card from your trash into play. If no cards enter play this way, 1 hero other than {Patina} may play 1 card now."
+			],
+			"icons": [
+				"DrawCardNow",
+				"Manipulate",
+				"PlayCardNow"
+			],
+			"flavorText": "“Always helps to bag things up.”",
+			"flavorReference": ""
+		},
+		{
+			"identifier": "MaerynianImmunity",
+			"count": 2,
+			"title": "Maerynian Immunity",
+			"keywords": [
+				"ongoing",
+				"limited"
+			],
+			"body": [
+				"After {Patina} deals Damage, she becomes immune to that type of Damage. Whenever {Patina} deals a different type of Damage, her Damage immunity changes to that type.",
+				"Whenever a hero target would be dealt damage {Patina} is immune to, you may redirect it to {Patina}. If you do so, destroy a [u]water[/u] card or this card."
+			],
+			"icons": [
+				"ImmuneToDamage",
+				"RedirectDamage",
+				"DestroySelf"
+			],
+			"flavorText": "“They can't hurt me now.”",
+			"flavorReference": ""
+		},
+		{
+			"identifier": "SprayBack",
+			"count": 4,
+			"title": "Spray Back",
+			"keywords": [
+				"ongoing",
+				"water"
+			],
+			"body": [
+				"When a villain target deals damage to a hero target, you may destroy this card. If you do so, {Patina} deals the source of that damage X projectile damage, where X = the number of [u]water[/u] cards in play plus 1."
+			],
+			"icons": [
+				"DestroySelf",
+				"DealDamageProjectile"
+			],
+			"flavorText": "“”",
+			"flavorReference": ""
+		},
+		{
+			"identifier": "SurgeWave",
+			"count": 3,
+			"title": "Surge Wave",
+			"keywords": [
+				"one-shot",
+				"water"
+			],
+			"body": [
+				"{Patina} deals each target X cold or melee damage, where X = the number of [u]water[/u] cards in play plus 1.",
+				"Destroy an environment card."
+			],
+			"icons": [
+				"DealDamageCold",
+				"DealDamageMelee",
+				"DestroyEnvironment"
+			],
+			"flavorText": "“”",
+			"flavorReference": ""
+		},
+		{
+			"identifier": "TempestuousToss",
+			"count": 3,
+			"title": "Tempestuous Toss",
+			"keywords": [
+				"one-shot",
+				"water"
+			],
+			"body": [
+				"Discard the top card of each deck.",
+				"Each player may discard a card. Those who do may draw a card.",
+				"You may destroy a hero ongoing or equipment card. If you do so, {Patina} deals up to X targets 3 projectile damage each, where X = the number of [u]water[/u] cards in play plus 1."
+			],
+			"icons": [
+				"Discard",
+				"DrawCardNow",
+				"Destroy",
+				"DealDamageProjectile"
+			],
+			"flavorText": "“”",
+			"flavorReference": ""
+		},
+		{
+			"identifier": "Undertow",
+			"count": 3,
+			"title": "Undertow",
+			"keywords": [
+				"one-shot",
+				"water"
+			],
+			"body": [
+				"Destroy an ongoing or equipment card.",
+				"If it was a hero card, {Patina} deals 1 target 1 cold damage and X psychic damage in either order, where X = the number of [u]water[/u] cards in play plus 1."
+			],
+			"icons": [
+				"DestroyOngoing",
+				"DestroyEquipment",
+				"DealDamageCold",
+				"DealDamagePsychic"
+			],
+			"flavorText": "“”",
+			"flavorReference": ""
+		},
+		{
+			"identifier": "WaterPunch",
+			"count": 4,
+			"title": "Water Punch",
+			"keywords": [
+				"one-shot",
+				"water"
+			],
+			"body": [
+				"{Patina} deals 1 target 1 melee damage and 1 cold damage, in either order.",
+				"A Non-Character Target dealt damage this way loses any End of Turn effects on its card until the start of {Patina}'s next turn."
+			],
+			"icons": [
+				"DealDamageMelee",
+				"DealDamageCold"
+			],
+			"flavorText": "“”",
+			"flavorReference": ""
+		},
+		{
+			"identifier": "WhipSplash",
+			"count": 4,
+			"title": "Whip Splash",
+			"keywords": [
+				"equipment",
+				"water"
+			],
+			"body": [
+				"Whenever a villain card would be played, you may destroy this card. If you do so, one player other than {Patina} may draw a card instead."
+			],
+			"powers": [
+				"Deal 1 target X cold or melee damage, where X = the number of [u]water[/u] cards in play plus 1."
+			],
+			"icons": [
+				"Manipulate",
+				"DestroySelf",
+				"DrawCardNow",
+				"DealDamage"
+			],
+			"flavorText": "“”",
+			"flavorReference": ""
+		}
+	],
+	"promoCards": [
+	]
+}

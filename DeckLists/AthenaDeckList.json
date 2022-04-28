@@ -1,0 +1,380 @@
+﻿{
+	"name": "Athena",
+	"kind": "Hero",
+	"initialCardIdentifiers": [
+		"AthenaCharacter"
+	],
+	"cards": [
+		{
+			"identifier": "AthenaCharacter",
+			"count": 1,
+			"title": "Athena",
+			"body": "Apotheosis",
+			"backgroundColor": "FFA600",
+			"foilBackgroundColor": "FFA600",
+			"hitpointsColor": "FFA600",
+			"character": true,
+			"powers": [
+				"You may move one [u]aspect[/u] card from your trash into play. {Athena} deals 1 target 1 radiant damage."
+			],
+			"icons": [
+				"HasPower",
+				"Manipulate",
+				"DealDamageRadiant"
+			],
+			"hitpoints": 32,
+			"nemesisIdentifiers": [
+				"Ra"
+			],
+			"incapacitatedAbilities": [
+				"One hero may deal 1 target 1 radiant damage.",
+				"Select a target. Reduce the next damage dealt to that target by 2.",
+				"One hero may use a power now."
+			],
+			"flippedIcons": [
+				"DealDamageRadiant",
+				"ReduceDamageTaken",
+				"UsePowerNow"
+			],
+			"openingLines": {
+				"default": "Brace yourself against the might of the goddess of wisdom!",
+				"TheEnneadInstructions": "You guys again? I thought we settled this centuries ago."
+			},
+			"complexity": 1
+		},
+		{
+			"identifier": "AdamantSpear",
+			"count": 3,
+			"title": "Adamant Spear",
+			"keywords": [
+				"equipment",
+				"limited"
+			],
+			"body": [
+				"increase damage dealt by {Athena} by 1."
+			],
+			"powers": [
+				"{Athena} deals 1 target 2 melee damage."
+			],
+			"icons": [
+				"IncreaseDamageDealt",
+				"DealDamageMelee"
+			],
+			"flavorText": "“Reforged by Hephaestus in 2138.{BR}and it's yours, I believe.”",
+			"flavorReference": "Spoiler, Anachronists #1"
+		},
+		{
+			"identifier": "AegisOfAmalthea",
+			"count": 3,
+			"title": "Aegis of Amalthea",
+			"hitpoints": 6,
+			"keywords": [
+				"legend",
+				"limited"
+			],
+			"body": [
+				"Reduce Damage dealt to this card by 1.",
+				"Whenever a Hero Target in your play area would be dealt Damage, you may redirect it to this card."
+			],
+			"icons": [
+				"ReduceDamageTaken",
+				"RedirectDamage"
+			],
+			"flavorText": "“Get behind me.”",
+			"flavorReference": "Athena, Forged Comics #521"
+		},
+		{
+			"identifier": "DivinePhalanx",
+			"count": 4,
+			"title": "Divine Phalanx",
+			"keywords": [
+				"one-shot"
+			],
+			"body": [
+				"Choose a target. {Athena} and up to 2 other hero targets deal that target 1 radiant damage each. If there is an [u]aspect[/u] card in play, this damage is irreducible."
+			],
+			"icons": [
+				"DealDamageRadiant",
+				"MakeDamageIrreducible"
+			],
+			"flavorText": "“You are all imbued.{BR}[b]now strike![/b]”",
+			"flavorReference": "Athena, Anachronists #2"
+		},
+		{
+			"identifier": "Erichthonius",
+			"count": 2,
+			"title": "Erichthonius",
+			"hitpoints": 3,
+			"keywords": [
+				"legend",
+				"limited"
+			],
+			"body": [
+				"This card is immune to toxic damage.",
+				"The first time each turn {Athena} deals damage to a villain target, this card deals 1 target 1 melee damage.",
+				"At the end of your turn, if there is an [u]aspect[/u] card in play, this card deals 1 target 1 toxic damage."
+			],
+			"icons": [
+				"ImmuneToDamageToxic",
+				"DealDamageMelee",
+				"DealDamageToxic"
+			],
+			"flavorText": "“I wasss a king, onssse.{BR}Long ago. Lossst to time.”",
+			"flavorReference": "Erichthonius, Forged Comics #86"
+		},
+		{
+			"identifier": "Glaukopis",
+			"count": 1,
+			"title": "Glaukopis",
+			"keywords": [
+				"ongoing",
+				"aspect"
+			],
+			"body": [
+				"When this card enters play, destroy any other [u]aspect[/u] cards.",
+				"You may look at the top card of your deck at any time."
+			],
+			"powers": [
+				"Reveal the top 2 cards of any 2 decks. Put them back on top of their decks in any order. 1 player may draw 1 card."
+			],
+			"icons": [
+				"DestroyOngoing",
+				"Manipulate",
+				"DrawCardNow"
+			],
+			"flavorText": "“She sees more than I ever,{BR}or never for that matter, could.”",
+			"flavorReference": "Tiresias, Forged Comics #38"
+		},
+		{
+			"identifier": "HopliteAdvance",
+			"count": 4,
+			"title": "Hoplite Advance",
+			"keywords": [
+				"one-shot"
+			],
+			"body": [
+				"{Athena} deals up to 3 targets 2 melee damage each."
+			],
+			"icons": [
+				"DealDamageMelee"
+			],
+			"flavorText": "“all my officers...{BR}in [b]one move!?[/b]{BR}this cannot be.”",
+			"flavorReference": "Sheriff Stone, Anachronists #1"
+		},
+		{
+			"identifier": "HornOfAmalthea",
+			"count": 3,
+			"title": "Horn of Amalthea",
+			"keywords": [
+				"equipment",
+				"limited"
+			],
+			"body": [
+				"You may draw an additional card during your draw phase."
+			],
+			"powers": [
+				"Discard 3 cards. If you do so, draw 4 cards. then, if no [u]aspect[/u] cards are in play, destroy this card."
+			],
+			"icons": [
+				"DrawCardExtra",
+				"Discard",
+				"DrawCardNow",
+				"DestroySelf"
+			],
+			"flavorText": "“I trust you will have the wisdom{BR}to use this only when necessary?”",
+			"flavorReference": "Hestia, Forged Comics #40"
+		},
+		{
+			"identifier": "LightOfOlympus",
+			"count": 4,
+			"title": "Light of Olympus",
+			"keywords": [
+				"one-shot"
+			],
+			"body": [
+				"Each hero target regains 1 HP.",
+				"If there is an [u]aspect[/u] card in play, {Athena} deals each non-hero target 1 radiant damage."
+			],
+			"icons": [
+				"GainHP",
+				"DealDamageRadiant"
+			],
+			"flavorText": "“Does she have to be so gol-derned{BR}[b]shiny[/b] when she does that?”",
+			"flavorReference": "Pecos Bill, Anachronists #2"
+		},
+		{
+			"identifier": "Nyctimene",
+			"count": 2,
+			"title": "Nyctimene",
+			"hitpoints": 3,
+			"keywords": [
+				"legend",
+				"limited"
+			],
+			"body": [
+				"This card is immune to psychic damage.",
+				"The first time each turn {Athena} deals damage to a villain target, this card deals 1 target 1 projectile damage.",
+				"At the end of your turn, if there is an [u]aspect[/u] card in play, this card deals 1 target 1 psychic damage."
+			],
+			"icons": [
+				"ImmuneToDamagePsychic",
+				"DealDamageProjectile",
+				"DealDamagePsychic"
+			],
+			"flavorText": "“Forever your faithful servant of{BR}the night, my lady goddess.”",
+			"flavorReference": "Nyctimene, Forged Comics #86"
+		},
+		{
+			"identifier": "Oracle",
+			"count": 4,
+			"title": "Oracle",
+			"keywords": [
+				"one-shot"
+			],
+			"body": [
+				"Reveal the top 2 cards of the Villain deck. Put 1 of them on top of the Villain deck and the other on the bottom."
+			],
+			"icons": [
+				"Manipulate"
+			],
+			"flavorText": "“When shines the third moon upon{BR}this realm; only then should{BR}you seek the wytch-helm.”",
+			"flavorReference": "Pythia, Forged Comics #312"
+		},
+		{
+			"identifier": "Pallas",
+			"count": 1,
+			"title": "Pallas",
+			"keywords": [
+				"ongoing",
+				"aspect"
+			],
+			"body": [
+				"When this card enters play, destroy any other [u]aspect[/u] cards.",
+				"The first time each turn a villain target deals damage to a hero character other than {Athena}, {Athena} deals that target 2 melee damage."
+			],
+			"powers": [
+				"{Athena} deals 1 target 3 melee damage. If that Target dealt a hero target Damage since your last turn, this damage is irreducible."
+			],
+			"icons": [
+				"DestroyOngoing",
+				"CounterDamage",
+				"DealDamageMelee",
+				"MakeDamageIrreducible"
+			],
+			"flavorText": "“Excellent, Minnie! embrace the light{BR}and it shall always shield your allies.”",
+			"flavorReference": "Astarte, Anachronists Promo"
+		},
+		{
+			"identifier": "Parthenos",
+			"count": 1,
+			"title": "Parthenos",
+			"keywords": [
+				"ongoing",
+				"aspect"
+			],
+			"body": [
+				"When this card enters play, destroy any other [u]aspect[/u] cards.",
+				"At the end of your turn, {Athena} regains 1 HP."
+			],
+			"powers": [
+				"Search your Deck or Trash for a [u]legend[/u] and put it into Play. If you searched your Deck, shuffle your Deck."
+			],
+			"icons": [
+				"DestroyOngoing",
+				"GainHP",
+				"Search"
+			],
+			"flavorText": "“You think me unarmed, uncle?{BR}Clearly your wits left with the tide.”",
+			"flavorReference": "Athena, Anachronists #3"
+		},
+		{
+			"identifier": "PatronOfHeroes",
+			"count": 4,
+			"title": "Patron of Heroes",
+			"keywords": [
+				"one-shot"
+			],
+			"body": [
+				"You may discard a card. If you do, one player other than you may draw 2 cards.",
+				"{Athena} may deal herself 2 irreducible psychic damage. If she does, one hero target other than {Athena} may regain 4 HP.",
+				"{Athena} may deal 1 hero character target 2 irreducible radiant damage. If she does, that hero may play a card or use a power now."
+			],
+			"icons": [
+				"DrawCardNow",
+				"GainHP",
+				"PlayCardNow",
+				"UsePowerNow"
+			],
+			"flavorText": "“What [b]is[/b] this sensation!?{BR}is it... could it be [b]your[/b] doing?”",
+			"flavorReference": "Captain Cain, Anachronists #2"
+		},
+		{
+			"identifier": "Promachos",
+			"count": 1,
+			"title": "Promachos",
+			"keywords": [
+				"ongoing",
+				"aspect"
+			],
+			"body": [
+				"When this card enters play, destroy any other [u]aspect[/u] cards.",
+				"Whenever a hero target is dealt damage, you may redirect it to {Athena}. Reduce damage redirected to {Athena} by 1."
+			],
+			"powers": [
+				"{Athena} deals each non-hero target 1 sonic damage. Destroy 1 environment card."
+			],
+			"icons": [
+				"DestroyOngoing",
+				"RedirectDamage",
+				"DealDamageSonic",
+				"DestroyEnvironment"
+			],
+			"flavorText": "“That colossus was still but a{BR}moment ago. [b]run!![/b]”",
+			"flavorReference": "Duke Destiny, Forged Comics #184"
+		},
+		{
+			"identifier": "SkinOfMarble",
+			"count": 2,
+			"title": "Skin of Marble",
+			"keywords": [
+				"ongoing",
+				"limited"
+			],
+			"body": [
+				"Reduce damage dealt to {Athena} by 1.",
+				"After {Athena} is dealt damage by a non-Hero target, if there is an [u]aspect[/u] card in play, she deals that target 2 melee Damage."
+			],
+			"icons": [
+				"ReduceDamageTaken",
+				"CounterDamage"
+			],
+			"flavorText": "“[b]ooh![/b]{BR}Nice no-sell!”",
+			"flavorReference": "Spoiler, Anachronists Promo"
+		},
+		{
+			"identifier": "Theonosis",
+			"count": 1,
+			"title": "Theonosis",
+			"keywords": [
+				"ongoing",
+				"aspect"
+			],
+			"body": [
+				"When this card enters play, destroy any other [u]aspect[/u] cards.",
+				"You may play an additional card during your play phase."
+			],
+			"powers": [
+				"Destroy 1 non-character hero card. If you do so, destroy 1 ongoing card."
+			],
+			"icons": [
+				"DestroyOngoing",
+				"PlayCardExtra",
+				"DestroyHero"
+			],
+			"flavorText": "“All the power of making.{BR}and [b]unmaking.[/b]”",
+			"flavorReference": "prof. julian fernsly, Forged Comics #313"
+		}
+	],
+	"promoCards": [
+	]
+}

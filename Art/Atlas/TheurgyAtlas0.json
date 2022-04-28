@@ -72,6 +72,22 @@
 	"spriteSourceSize": {"x":0,"y":0,"w":256,"h":198},
 	"sourceSize": {"w":256,"h":198}
 },
+"SalemCharacter.png":
+{
+	"frame": {"x":259,"y":402,"w":178,"h":256},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":178,"h":256},
+	"sourceSize": {"w":178,"h":256}
+},
+"SalemCharacterBack.png":
+{
+	"frame": {"x":440,"y":402,"w":178,"h":256},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":178,"h":256},
+	"sourceSize": {"w":178,"h":256}
+},
 "SellTheGrift.jpg":
 {
 	"frame": {"x":518,"y":201,"w":256,"h":198},
@@ -96,23 +112,7 @@
 	"spriteSourceSize": {"x":0,"y":0,"w":256,"h":198},
 	"sourceSize": {"w":256,"h":198}
 },
-"TheurgyCharacter.jpg":
-{
-	"frame": {"x":259,"y":402,"w":178,"h":256},
-	"rotated": false,
-	"trimmed": false,
-	"spriteSourceSize": {"x":0,"y":0,"w":178,"h":256},
-	"sourceSize": {"w":178,"h":256}
-},
-"TheurgyCharacterBack.jpg":
-{
-	"frame": {"x":440,"y":402,"w":178,"h":256},
-	"rotated": false,
-	"trimmed": false,
-	"spriteSourceSize": {"x":0,"y":0,"w":178,"h":256},
-	"sourceSize": {"w":178,"h":256}
-},
-"TheurgyDeckBack.jpg":
+"TheurgyCharacter.png":
 {
 	"frame": {"x":621,"y":402,"w":178,"h":256},
 	"rotated": false,
@@ -120,7 +120,7 @@
 	"spriteSourceSize": {"x":0,"y":0,"w":178,"h":256},
 	"sourceSize": {"w":178,"h":256}
 },
-"TheurgyFateweaverCharacter.jpg":
+"TheurgyCharacterBack.jpg":
 {
 	"frame": {"x":802,"y":402,"w":178,"h":256},
 	"rotated": false,
@@ -128,9 +128,25 @@
 	"spriteSourceSize": {"x":0,"y":0,"w":178,"h":256},
 	"sourceSize": {"w":178,"h":256}
 },
-"TheurgyFateweaverCharacterBack.jpg":
+"TheurgyDeckBack.jpg":
 {
 	"frame": {"x":983,"y":402,"w":178,"h":256},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":178,"h":256},
+	"sourceSize": {"w":178,"h":256}
+},
+"TheurgyFateweaverCharacter.png":
+{
+	"frame": {"x":1164,"y":402,"w":178,"h":256},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":178,"h":256},
+	"sourceSize": {"w":178,"h":256}
+},
+"TheurgyFateweaverCharacterBack.jpg":
+{
+	"frame": {"x":1345,"y":402,"w":178,"h":256},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":178,"h":256},
@@ -167,6 +183,6 @@
 	"format": "RGBA8888",
 	"size": {"w":2048,"h":2048},
 	"scale": "1",
-	"smartupdate": "$TexturePacker:SmartUpdate:788bd4048b9881fffe7e17c9595db5a0:bdfd74494a275be6d1a8191da8b375c9:385491a5ad7cd24465aa0ee5f104b9d5$"
+	"smartupdate": "$TexturePacker:SmartUpdate:e8e7b821ccdd794479a9eae6de6d5a68:49b615706456a14bf72ec264bada3824:385491a5ad7cd24465aa0ee5f104b9d5$"
 }
 }

@@ -81,14 +81,14 @@ namespace Angille.RedRifle
 			{
 				case 0:
 					// One hero may use a power.
-					IEnumerator playCardCR = GameController.SelectHeroToUsePower(DecisionMaker);
+					IEnumerator usePowerCR = GameController.SelectHeroToUsePower(DecisionMaker);
 					if (base.UseUnityCoroutines)
 					{
-						yield return base.GameController.StartCoroutine(playCardCR);
+						yield return base.GameController.StartCoroutine(usePowerCR);
 					}
 					else
 					{
-						base.GameController.ExhaustCoroutine(playCardCR);
+						base.GameController.ExhaustCoroutine(usePowerCR);
 					}
 					break;
 

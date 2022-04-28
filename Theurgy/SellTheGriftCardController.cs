@@ -23,6 +23,12 @@ namespace Angille.Theurgy
 		{
 		}
 
+		protected override TriggerType[] DestructionTriggers => new TriggerType[3] {
+			TriggerType.DiscardCard,
+			TriggerType.DrawCard,
+			TriggerType.PlayCard
+		};
+
 		public override IEnumerator Play()
 		{
 			HeroTurnTakerController httc = FindHeroTurnTakerController(CharmedHero().Owner.ToHero());

@@ -19,6 +19,10 @@ namespace Angille.Theurgy
 		{
 		}
 
+		protected override TriggerType[] DestructionTriggers => new TriggerType[1] {
+			TriggerType.DealDamage
+		};
+
 		public override IEnumerator Play()
 		{
 			IncreaseDamageStatusEffect increaseDamageSE = new IncreaseDamageStatusEffect(3);

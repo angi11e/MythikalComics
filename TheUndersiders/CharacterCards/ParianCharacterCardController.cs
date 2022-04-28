@@ -31,7 +31,7 @@ namespace Angille.TheUndersiders
 						base.TurnTaker.Deck,
 						base.TurnTaker.Trash
 					},
-					"ClothGolem"
+					"AnimatePlush"
 				);
 
 				if (base.UseUnityCoroutines)

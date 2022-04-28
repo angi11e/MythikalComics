@@ -1,6 +1,6 @@
 {"frames": {
 
-"TheurgyCharacter.png":
+"AthenaCharacter.png":
 {
 	"frame": {"x":0,"y":0,"w":400,"h":200},
 	"rotated": false,
@@ -8,7 +8,7 @@
 	"spriteSourceSize": {"x":0,"y":0,"w":400,"h":200},
 	"sourceSize": {"w":400,"h":200}
 },
-"TheurgyCharacterFlipped.png":
+"NightMareCharacter.png":
 {
 	"frame": {"x":403,"y":0,"w":400,"h":200},
 	"rotated": false,
@@ -16,7 +16,31 @@
 	"spriteSourceSize": {"x":0,"y":0,"w":400,"h":200},
 	"sourceSize": {"w":400,"h":200}
 },
-"TheurgyFateweaverCharacter.png":
+"NightMareCharacterFlipped.png":
+{
+	"frame": {"x":806,"y":0,"w":400,"h":200},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":400,"h":200},
+	"sourceSize": {"w":400,"h":200}
+},
+"NightMareWholeHorseCharacter.png":
+{
+	"frame": {"x":1209,"y":0,"w":400,"h":200},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":400,"h":200},
+	"sourceSize": {"w":400,"h":200}
+},
+"NightMareWholeHorseCharacterFlipped.png":
+{
+	"frame": {"x":1612,"y":0,"w":400,"h":200},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":400,"h":200},
+	"sourceSize": {"w":400,"h":200}
+},
+"PatinaCharacter.png":
 {
 	"frame": {"x":0,"y":203,"w":400,"h":200},
 	"rotated": false,
@@ -24,9 +48,113 @@
 	"spriteSourceSize": {"x":0,"y":0,"w":400,"h":200},
 	"sourceSize": {"w":400,"h":200}
 },
-"TheurgyFateweaverCharacterFlipped.png":
+"RedRifleCharacter.png":
 {
 	"frame": {"x":403,"y":203,"w":400,"h":200},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":400,"h":200},
+	"sourceSize": {"w":400,"h":200}
+},
+"RedRifleCharacterFlipped.png":
+{
+	"frame": {"x":806,"y":203,"w":400,"h":200},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":400,"h":200},
+	"sourceSize": {"w":400,"h":200}
+},
+"SalemCharacter.png":
+{
+	"frame": {"x":1209,"y":203,"w":400,"h":200},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":400,"h":200},
+	"sourceSize": {"w":400,"h":200}
+},
+"SalemCharacterFlipped.png":
+{
+	"frame": {"x":1612,"y":203,"w":400,"h":200},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":400,"h":200},
+	"sourceSize": {"w":400,"h":200}
+},
+"SeeingRedRedRifleCharacter.png":
+{
+	"frame": {"x":0,"y":406,"w":400,"h":200},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":400,"h":200},
+	"sourceSize": {"w":400,"h":200}
+},
+"SeeingRedRedRifleCharacterFlipped.png":
+{
+	"frame": {"x":403,"y":406,"w":400,"h":200},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":400,"h":200},
+	"sourceSize": {"w":400,"h":200}
+},
+"TheurgyCharacter.png":
+{
+	"frame": {"x":806,"y":406,"w":400,"h":200},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":400,"h":200},
+	"sourceSize": {"w":400,"h":200}
+},
+"TheurgyCharacterFlipped.png":
+{
+	"frame": {"x":1209,"y":406,"w":400,"h":200},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":400,"h":200},
+	"sourceSize": {"w":400,"h":200}
+},
+"TheurgyFateweaverCharacter.png":
+{
+	"frame": {"x":1612,"y":406,"w":400,"h":200},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":400,"h":200},
+	"sourceSize": {"w":400,"h":200}
+},
+"TheurgyFateweaverCharacterFlipped.png":
+{
+	"frame": {"x":0,"y":609,"w":400,"h":200},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":400,"h":200},
+	"sourceSize": {"w":400,"h":200}
+},
+"WhatsHerFaceCharacter.png":
+{
+	"frame": {"x":403,"y":609,"w":400,"h":200},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":400,"h":200},
+	"sourceSize": {"w":400,"h":200}
+},
+"WhatsHerFaceCharacterFlipped.png":
+{
+	"frame": {"x":806,"y":609,"w":400,"h":200},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":400,"h":200},
+	"sourceSize": {"w":400,"h":200}
+},
+"WhatsHerFaceGadgeteerCharacter.png":
+{
+	"frame": {"x":1209,"y":609,"w":400,"h":200},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":400,"h":200},
+	"sourceSize": {"w":400,"h":200}
+},
+"WhatsHerFaceGadgeteerCharacterFlipped.png":
+{
+	"frame": {"x":1612,"y":609,"w":400,"h":200},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":400,"h":200},
@@ -37,8 +165,8 @@
 	"version": "1.0",
 	"image": "EndGameHeroes0.png",
 	"format": "RGBA8888",
-	"size": {"w":1024,"h":1024},
+	"size": {"w":2048,"h":2048},
 	"scale": "1",
-	"smartupdate": "$TexturePacker:SmartUpdate:d5c8c100b18923973654b46b9ce965b4:d4834116d4bb2d951f66bf54e8c22695:e92652cff04ed6c8e37f7bc0458ec814$"
+	"smartupdate": "$TexturePacker:SmartUpdate:7407f1e5d5946cc25cce7852dad72ef9:7629013c51621fac87a9e3dcd292cb2c:e92652cff04ed6c8e37f7bc0458ec814$"
 }
 }

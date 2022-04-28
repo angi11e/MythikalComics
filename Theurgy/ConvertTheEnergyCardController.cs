@@ -22,6 +22,12 @@ namespace Angille.Theurgy
 		{
 		}
 
+		protected override TriggerType[] DestructionTriggers => new TriggerType[3] {
+			TriggerType.MakeDamageIrreducible,
+			TriggerType.PlayCard,
+			TriggerType.UsePower
+		};
+
 		public override IEnumerator Play()
 		{
 			// Their player selects a damage type.

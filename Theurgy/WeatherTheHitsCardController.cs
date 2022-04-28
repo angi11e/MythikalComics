@@ -23,6 +23,10 @@ namespace Angille.Theurgy
 		{
 		}
 
+		protected override TriggerType[] DestructionTriggers => new TriggerType[1] {
+			TriggerType.GainHP
+		};
+
 		public override IEnumerator Play()
 		{
 			ReduceDamageStatusEffect reduceDamageSE = new ReduceDamageStatusEffect(3);

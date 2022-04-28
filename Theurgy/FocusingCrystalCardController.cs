@@ -81,6 +81,7 @@ namespace Angille.Theurgy
 
 			yield break;
 		}
+
 		public override IEnumerator UsePower(int index = 0)
 		{
 			int targetNumeral = GetPowerNumeral(0, 1);

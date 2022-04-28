@@ -22,12 +22,15 @@ namespace Angille.Theurgy
 			AddAsPowerContributor();
 		}
 
+		protected abstract TriggerType[] DestructionTriggers { get; }
+
 		public override void AddTriggers()
 		{
 			base.AddTriggers();
 
 			// when this card is destroyed...
-			AddBeforeDestroyAction(CharmDestroyResponse);
+			AddWhenDestroyedTrigger(CharmDestroyResponse, DestructionTriggers);
+			// AddBeforeDestroyAction(CharmDestroyResponse);
 
 			AddIfTheCardThatThisCardIsNextToLeavesPlayMoveItToYourHandTrigger();
 		}
