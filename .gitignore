@@ -2,6 +2,6 @@
 *.ini
 obj/Debug/DesignTimeResolveAssemblyReferencesInput.cache
 obj/Debug/Angille.csproj.AssemblyReference.cache
-.vs/
-obj/
-bin/
+.vs/**
+obj/**
+bin/**

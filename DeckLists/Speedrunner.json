@@ -18,25 +18,27 @@
 				"The next time {Speedrunner} would be dealt damage, reduce it by 1 and draw 1 card."
 			],
 			"icons": [
-				"",
-				""
+				"HasPower",
+				"ReduceDamageTaken",
+				"DrawCardNow"
 			],
 			"hitpoints": 25,
 			"nemesisIdentifiers": [
 				"Parse"
 			],
 			"incapacitatedAbilities": [
-				"",
-				"",
-				""
+				"One Player may Play a card now.",
+				"One Player may Discard 2 cards. If they do, they may Draw 2 cards.",
+				"Reveal the Top card of the Villain Deck, then replace it."
 			],
 			"flippedIcons": [
-				"",
-				"",
-				""
+				"PlayCardNow",
+				"Discard",
+				"DrawCardNow",
+				"Manipulate"
 			],
 			"openingLines": {
-				"default": ""
+				"default": "going for a pb this time, don't forget to subscribe!"
 			},
 			"complexity": 3
 		},
@@ -57,8 +59,10 @@
 				"Put 1 card from your hand under this card. Destroy this card."
 			],
 			"icons": [
-				"",
-				""
+				"Manipulate",
+				"HasPower",
+				"DestroySelf",
+				"PlayCardNow"
 			],
 			"flavorText": "“”",
 			"flavorReference": ""
@@ -78,8 +82,10 @@
 				"{Speedrunner} deals 1 target 1 irreducible melee damage. This damage cannot be redirected."
 			],
 			"icons": [
-				"",
-				""
+				"RedirectDamage",
+				"DestroySelf",
+				"HasPower",
+				"DealDamageMelee"
 			],
 			"flavorText": "“”",
 			"flavorReference": ""
@@ -90,17 +96,22 @@
 			"title": "Half A Press",
 			"keywords": [
 				"ongoing",
+				"limited",
 				"strat"
 			],
 			"body": [
-				""
+				"When you move a card to your trash, place it under this card instead.",
+				"When you use a power or draw a card, add 1 token to this card.",
+				"When this card is destroyed, {Speedrunner} deals 1 target X projectile damage, and that target deals {Speedrunner} Y radiant damage, where X = the number of cards under this one, and Y = the number of tokens on this card."
 			],
 			"powers": [
-				""
+				"Destroy this card."
 			],
 			"icons": [
-				"",
-				""
+				"Manipulate",
+				"AddTokens",
+				"DealDamageProjectile",
+				"DestroySelf"
 			],
 			"flavorText": "“”",
 			"flavorReference": ""
@@ -114,14 +125,16 @@
 				"limited"
 			],
 			"body": [
-				"When this card is destroyed, destroy 1 ongoing card and {Speedrunner} deals up to 2 targets 3 fire damage."
+				"When this card is destroyed, destroy 1 ongoing card and {Speedrunner} deals up to 2 targets 3 fire damage each."
 			],
 			"powers": [
 				"{Speedrunner} deals each non-hero target 1 projectile damage. You may destroy this card."
 			],
 			"icons": [
-				"",
-				""
+				"DestroyOngoing",
+				"DealDamageFire",
+				"HasPower",
+				"DealDamageProjectile"
 			],
 			"flavorText": "“”",
 			"flavorReference": ""
@@ -141,8 +154,10 @@
 				"Discard any number of cards. Deal 1 target 2 energy damage, plus 1 for each card discarded this way."
 			],
 			"icons": [
-				"",
-				""
+				"DrawCardNow",
+				"HasPower",
+				"Discard",
+				"DealDamageEnergy"
 			],
 			"flavorText": "“”",
 			"flavorReference": ""
@@ -160,8 +175,8 @@
 				"One player may play a card now."
 			],
 			"icons": [
-				"",
-				""
+				"Manipulate",
+				"PlayCardNow"
 			],
 			"flavorText": "“”",
 			"flavorReference": ""
@@ -175,11 +190,13 @@
 				"glitch"
 			],
 			"body": [
-				"Destroy 1 environment card. If you do so, {Speedrunner} regains 2 HP. If not, play the top card of the environment deck, then use a power."
+				"Destroy 1 environment card. If you do so, {Speedrunner} regains 2 HP. If not, play the top card of the environment deck, then you may use a power."
 			],
 			"icons": [
-				"",
-				""
+				"DestroyEnvironment",
+				"GainHP",
+				"PlayCardNow",
+				"UsePowerNow"
 			],
 			"flavorText": "“”",
 			"flavorReference": ""
@@ -193,14 +210,16 @@
 				"limited"
 			],
 			"body": [
-				"Decrease damage dealt to {Speedrunner} by 1."
+				"Reduce damage dealt to {Speedrunner} by 1."
 			],
 			"powers": [
 				"Discard a glitch or strat card. Search your deck for a card with the chosen keyword and either put it in your hand or into play, then shuffle your deck."
 			],
 			"icons": [
-				"",
-				""
+				"ReduceDamageTaken",
+				"HasPower",
+				"Discard",
+				"Search"
 			],
 			"flavorText": "“”",
 			"flavorReference": ""
@@ -221,8 +240,9 @@
 				"Swap the locations of an environment card in play with a card under this card. Then {Speedrunner} deals 1 target 2 psychic damage."
 			],
 			"icons": [
-				"",
-				""
+				"Manipulate",
+				"DealDamagePsychic",
+				"HasPower"
 			],
 			"flavorText": "“”",
 			"flavorReference": ""
@@ -241,8 +261,10 @@
 				"One player other than {Speedrunner} may use a power now."
 			],
 			"icons": [
-				"",
-				""
+				"DrawCardNow",
+				"Discard",
+				"PlayCardNow",
+				"UsePowerNow"
 			],
 			"flavorText": "“”",
 			"flavorReference": ""
@@ -259,8 +281,10 @@
 				"Discard your hand. Draw 5 cards. Play 1 card. {Speedrunner} regains 2 HP."
 			],
 			"icons": [
-				"",
-				""
+				"Discard",
+				"DrawCardNow",
+				"PlayCardNow",
+				"GainHP"
 			],
 			"flavorText": "“”",
 			"flavorReference": ""
@@ -282,8 +306,10 @@
 				"Move 1 card from the villain trash or the top card of the villain deck under this card."
 			],
 			"icons": [
-				"",
-				""
+				"Manipulate",
+				"DealDamageMelee",
+				"DestroySelf",
+				"HasPower"
 			],
 			"flavorText": "“”",
 			"flavorReference": ""
@@ -293,15 +319,20 @@
 			"count": 3,
 			"title": "Sequence Break",
 			"keywords": [
-				"one-shot",
+				"ongoing",
+				"limited",
 				"glitch"
 			],
 			"body": [
-				""
+				"Whenever a Hero target would be dealt damage by a non-hero card, you may redirect it to {Speedrunner}. If you do, one player may draw a card.",
+				"When this card is destroyed, one player may play a card.",
+				"At the start of your turn, destroy this card."
 			],
 			"icons": [
-				"",
-				""
+				"Redirect",
+				"DrawCardNow",
+				"PlayCardNow",
+				"DestroySelf"
 			],
 			"flavorText": "“”",
 			"flavorReference": ""
@@ -321,8 +352,10 @@
 				"One player draws 1 card, a second player plays 1 card, and a third player uses 1 power. Damage dealt while this power resolves is irreducible."
 			],
 			"icons": [
-				"",
-				""
+				"IncreaseDamageDealt",
+				"HasPower",
+				"UsePowerNow",
+				"MakeDamageIrreducible"
 			],
 			"flavorText": "“”",
 			"flavorReference": ""
@@ -344,8 +377,10 @@
 				"{Speedrunner} deals 1 target 1 melee damage X times, where X = the number of your glitch and strat cards in play."
 			],
 			"icons": [
-				"",
-				""
+				"PlayCardNow",
+				"DealDamageFire",
+				"HasPower",
+				"DealDamageMelee"
 			],
 			"flavorText": "“”",
 			"flavorReference": ""
