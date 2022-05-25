@@ -31,7 +31,7 @@ namespace Angille.Patina
 				DecisionMaker,
 				gainNumeral,
 				false,
-				(Card c) => c.IsTarget,
+				(Card c) => c.IsTarget && c.IsHero,
 				targetNumeral,
 				0,
 				cardSource: GetCardSource()

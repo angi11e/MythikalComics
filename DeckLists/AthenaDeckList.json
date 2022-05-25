@@ -81,7 +81,7 @@
 				"RedirectDamage"
 			],
 			"flavorText": "“Get behind me.”",
-			"flavorReference": "Athena, Forged Comics #521"
+			"flavorReference": "Athena, Mythikal Comics #521"
 		},
 		{
 			"identifier": "DivinePhalanx",
@@ -120,7 +120,7 @@
 				"DealDamageToxic"
 			],
 			"flavorText": "“I wasss a king, onssse.{BR}Long ago. Lossst to time.”",
-			"flavorReference": "Erichthonius, Forged Comics #86"
+			"flavorReference": "Erichthonius, Mythikal Comics #86"
 		},
 		{
 			"identifier": "Glaukopis",
@@ -143,7 +143,7 @@
 				"DrawCardNow"
 			],
 			"flavorText": "“She sees more than I ever,{BR}or never for that matter, could.”",
-			"flavorReference": "Tiresias, Forged Comics #38"
+			"flavorReference": "Tiresias, Mythikal Comics #38"
 		},
 		{
 			"identifier": "HopliteAdvance",
@@ -182,7 +182,7 @@
 				"DestroySelf"
 			],
 			"flavorText": "“I trust you will have the wisdom{BR}to use this only when necessary?”",
-			"flavorReference": "Hestia, Forged Comics #40"
+			"flavorReference": "Hestia, Mythikal Comics #40"
 		},
 		{
 			"identifier": "LightOfOlympus",
@@ -222,7 +222,7 @@
 				"DealDamagePsychic"
 			],
 			"flavorText": "“Forever your faithful servant of{BR}the night, my lady goddess.”",
-			"flavorReference": "Nyctimene, Forged Comics #86"
+			"flavorReference": "Nyctimene, Mythikal Comics #86"
 		},
 		{
 			"identifier": "Oracle",
@@ -238,7 +238,7 @@
 				"Manipulate"
 			],
 			"flavorText": "“When shines the third moon upon{BR}this realm; only then should{BR}you seek the wytch-helm.”",
-			"flavorReference": "Pythia, Forged Comics #312"
+			"flavorReference": "Pythia, Mythikal Comics #312"
 		},
 		{
 			"identifier": "Pallas",
@@ -330,7 +330,7 @@
 				"DestroyEnvironment"
 			],
 			"flavorText": "“That colossus was still but a{BR}moment ago. [b]run!![/b]”",
-			"flavorReference": "Duke Destiny, Forged Comics #184"
+			"flavorReference": "Duke Destiny, Mythikal Comics #184"
 		},
 		{
 			"identifier": "SkinOfMarble",
@@ -372,7 +372,7 @@
 				"DestroyHero"
 			],
 			"flavorText": "“All the power of making.{BR}and [b]unmaking.[/b]”",
-			"flavorReference": "prof. julian fernsly, Forged Comics #313"
+			"flavorReference": "prof. julian fernsly, Mythikal Comics #313"
 		}
 	],
 	"promoCards": [

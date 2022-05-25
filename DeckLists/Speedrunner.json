@@ -1,0 +1,356 @@
+﻿{
+	"name": "Speedrunner",
+	"kind": "Hero",
+	"initialCardIdentifiers": [
+		"SpeedrunnerCharacter"
+	],
+	"cards": [
+		{
+			"identifier": "SpeedrunnerCharacter",
+			"count": 1,
+			"title": "Speedrunner",
+			"body": "Damage Boost",
+			"backgroundColor": "A29CCD",
+			"foilBackgroundColor": "522F85",
+			"hitpointsColor": "522F85",
+			"character": true,
+			"powers": [
+				"The next time {Speedrunner} would be dealt damage, reduce it by 1 and draw 1 card."
+			],
+			"icons": [
+				"",
+				""
+			],
+			"hitpoints": 25,
+			"nemesisIdentifiers": [
+				"Parse"
+			],
+			"incapacitatedAbilities": [
+				"",
+				"",
+				""
+			],
+			"flippedIcons": [
+				"",
+				"",
+				""
+			],
+			"openingLines": {
+				"default": ""
+			},
+			"complexity": 3
+		},
+		{
+			"identifier": "ArbitraryCodeExecution",
+			"count": 3,
+			"title": "Arbitrary Code Execution",
+			"keywords": [
+				"ongoing",
+				"limited",
+				"glitch"
+			],
+			"body": [
+				"When this card enters play, put one one-shot card from each trash under it.",
+				"When this card is destroyed, first play each card from under it, in any order."
+			],
+			"powers": [
+				"Put 1 card from your hand under this card. Destroy this card."
+			],
+			"icons": [
+				"",
+				""
+			],
+			"flavorText": "“”",
+			"flavorReference": ""
+		},
+		{
+			"identifier": "FrameperfectTiming",
+			"count": 3,
+			"title": "Frame-perfect Timing",
+			"keywords": [
+				"ongoing",
+				"strat"
+			],
+			"body": [
+				"When {Speedrunner} would be dealt damage, you may redirect that damage to the villain target with the lowest HP. If you do so, you may either increase it by 2, draw 1 card, or play 1 card. Then destroy this card."
+			],
+			"powers": [
+				"{Speedrunner} deals 1 target 1 irreducible melee damage. This damage cannot be redirected."
+			],
+			"icons": [
+				"",
+				""
+			],
+			"flavorText": "“”",
+			"flavorReference": ""
+		},
+		{
+			"identifier": "HalfAPress",
+			"count": 3,
+			"title": "Half A Press",
+			"keywords": [
+				"ongoing",
+				"strat"
+			],
+			"body": [
+				""
+			],
+			"powers": [
+				""
+			],
+			"icons": [
+				"",
+				""
+			],
+			"flavorText": "“”",
+			"flavorReference": ""
+		},
+		{
+			"identifier": "HOTAS",
+			"count": 2,
+			"title": "HOTAS",
+			"keywords": [
+				"equipment",
+				"limited"
+			],
+			"body": [
+				"When this card is destroyed, destroy 1 ongoing card and {Speedrunner} deals up to 2 targets 3 fire damage."
+			],
+			"powers": [
+				"{Speedrunner} deals each non-hero target 1 projectile damage. You may destroy this card."
+			],
+			"icons": [
+				"",
+				""
+			],
+			"flavorText": "“”",
+			"flavorReference": ""
+		},
+		{
+			"identifier": "InputBuffer",
+			"count": 3,
+			"title": "Input Buffer",
+			"keywords": [
+				"ongoing",
+				"strat"
+			],
+			"body": [
+				"When this card enters play, draw 2 cards."
+			],
+			"powers": [
+				"Discard any number of cards. Deal 1 target 2 energy damage, plus 1 for each card discarded this way."
+			],
+			"icons": [
+				"",
+				""
+			],
+			"flavorText": "“”",
+			"flavorReference": ""
+		},
+		{
+			"identifier": "InventoryOverrun",
+			"count": 3,
+			"title": "Inventory Overrun",
+			"keywords": [
+				"one-shot",
+				"glitch"
+			],
+			"body": [
+				"Each player reveals cards from the top of their deck until an equipment card is revealed. They put that card in their hand and shuffle the other revealed cards back into their deck.",
+				"One player may play a card now."
+			],
+			"icons": [
+				"",
+				""
+			],
+			"flavorText": "“”",
+			"flavorReference": ""
+		},
+		{
+			"identifier": "NoClipping",
+			"count": 3,
+			"title": "No Clipping",
+			"keywords": [
+				"one-shot",
+				"glitch"
+			],
+			"body": [
+				"Destroy 1 environment card. If you do so, {Speedrunner} regains 2 HP. If not, play the top card of the environment deck, then use a power."
+			],
+			"icons": [
+				"",
+				""
+			],
+			"flavorText": "“”",
+			"flavorReference": ""
+		},
+		{
+			"identifier": "OriginalHardware",
+			"count": 2,
+			"title": "Original Hardware",
+			"keywords": [
+				"equipment",
+				"limited"
+			],
+			"body": [
+				"Decrease damage dealt to {Speedrunner} by 1."
+			],
+			"powers": [
+				"Discard a glitch or strat card. Search your deck for a card with the chosen keyword and either put it in your hand or into play, then shuffle your deck."
+			],
+			"icons": [
+				"",
+				""
+			],
+			"flavorText": "“”",
+			"flavorReference": ""
+		},
+		{
+			"identifier": "OutOfBounds",
+			"count": 3,
+			"title": "Out of Bounds",
+			"keywords": [
+				"ongoing",
+				"limited",
+				"glitch"
+			],
+			"body": [
+				"When this card enters play, move the top card of the environment deck under it. Then {Speedrunner} deals 1 target 2 psychic damage."
+			],
+			"powers": [
+				"Swap the locations of an environment card in play with a card under this card. Then {Speedrunner} deals 1 target 2 psychic damage."
+			],
+			"icons": [
+				"",
+				""
+			],
+			"flavorText": "“”",
+			"flavorReference": ""
+		},
+		{
+			"identifier": "RepeatedBackflips",
+			"count": 3,
+			"title": "Repeated Backflips",
+			"keywords": [
+				"one-shot",
+				"strat"
+			],
+			"body": [
+				"Draw a card. Discard a card. Play a card.",
+				"Draw a card. Discard a card. Play a card.",
+				"One player other than {Speedrunner} may use a power now."
+			],
+			"icons": [
+				"",
+				""
+			],
+			"flavorText": "“”",
+			"flavorReference": ""
+		},
+		{
+			"identifier": "ResetWarp",
+			"count": 3,
+			"title": "Reset Warp",
+			"keywords": [
+				"one-shot",
+				"strat"
+			],
+			"body": [
+				"Discard your hand. Draw 5 cards. Play 1 card. {Speedrunner} regains 2 HP."
+			],
+			"icons": [
+				"",
+				""
+			],
+			"flavorText": "“”",
+			"flavorReference": ""
+		},
+		{
+			"identifier": "RNGManipulation",
+			"count": 2,
+			"title": "RNG Manipulation",
+			"keywords": [
+				"ongoing",
+				"limited",
+				"strat"
+			],
+			"body": [
+				"When a villain card would be played, you may play a card from under this card instead.",
+				"At the start of your turn, if there are no cards under this card, one villain target deals themself 2 melee damage, then destroy this card."
+			],
+			"powers": [
+				"Move 1 card from the villain trash or the top card of the villain deck under this card."
+			],
+			"icons": [
+				"",
+				""
+			],
+			"flavorText": "“”",
+			"flavorReference": ""
+		},
+		{
+			"identifier": "SequenceBreak",
+			"count": 3,
+			"title": "Sequence Break",
+			"keywords": [
+				"one-shot",
+				"glitch"
+			],
+			"body": [
+				""
+			],
+			"icons": [
+				"",
+				""
+			],
+			"flavorText": "“”",
+			"flavorReference": ""
+		},
+		{
+			"identifier": "TAS",
+			"count": 2,
+			"title": "TAS",
+			"keywords": [
+				"equipment",
+				"limited"
+			],
+			"body": [
+				"increase damage dealt by {Speedrunner} by 1."
+			],
+			"powers": [
+				"One player draws 1 card, a second player plays 1 card, and a third player uses 1 power. Damage dealt while this power resolves is irreducible."
+			],
+			"icons": [
+				"",
+				""
+			],
+			"flavorText": "“”",
+			"flavorReference": ""
+		},
+		{
+			"identifier": "TurboController",
+			"count": 2,
+			"title": "Turbo Controller",
+			"keywords": [
+				"equipment",
+				"limited"
+			],
+			"body": [
+				"If you draw a card outside of your draw phase, you may play a card.",
+				"If you play a card outside of your play phase, you may use a power.",
+				"If you use a power outside of your power phase, {Speedrunner} deals 1 target 2 fire damage."
+			],
+			"powers": [
+				"{Speedrunner} deals 1 target 1 melee damage X times, where X = the number of your glitch and strat cards in play."
+			],
+			"icons": [
+				"",
+				""
+			],
+			"flavorText": "“”",
+			"flavorReference": ""
+		}
+	],
+	"promoCards": [
+	]
+}

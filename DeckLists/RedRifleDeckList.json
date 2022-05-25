@@ -353,7 +353,9 @@
 					"name": "Red Rifle's Trueshot Pool",
 					"initialValue": 0,
 					"minimumValue": 0,
-					"color": "D1426D"
+					"labelTopColor": "91022D",
+					"labelBottomColor": "D1426D",
+					"icon": "Angille.Bullethole"
 				}
 			],
 			"icons": [

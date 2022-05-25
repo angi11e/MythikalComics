@@ -33,7 +33,7 @@ namespace Angille.NightMare
 					dca.WasCardDestroyed
 					&& dca.CardToDestroy.Card.IsTarget
 					&& dca.CardSource != null
-					&& dca.CardSource.Card == base.CharacterCard,
+					&& dca.CardSource.Card.Owner == this.Card.Owner,
 				DestroyTargetResponse,
 				TriggerType.DealDamage,
 				TriggerTiming.After

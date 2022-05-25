@@ -7,14 +7,30 @@
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":178,"h":256},
 	"sourceSize": {"w":178,"h":256}
+},
+"PatinaCharacterBack.png":
+{
+	"frame": {"x":181,"y":0,"w":178,"h":256},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":178,"h":256},
+	"sourceSize": {"w":178,"h":256}
+},
+"PatinaDeckBack.png":
+{
+	"frame": {"x":362,"y":0,"w":178,"h":256},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":178,"h":256},
+	"sourceSize": {"w":178,"h":256}
 }},
 "meta": {
 	"app": "https://www.codeandweb.com/texturepacker",
 	"version": "1.0",
 	"image": "PatinaAtlas0.png",
 	"format": "RGBA8888",
-	"size": {"w":256,"h":256},
+	"size": {"w":1024,"h":1024},
 	"scale": "1",
-	"smartupdate": "$TexturePacker:SmartUpdate:750f460f8e654c41b67fff59b31964ee:810d7ee518e0059d87e936176ca0e51a:e9a28bec129259f897ba616a4da8a62e$"
+	"smartupdate": "$TexturePacker:SmartUpdate:5e04319a1a78e58e9a44c909d8d644e2:a222798ef93f5c73935226e9e03eef65:e9a28bec129259f897ba616a4da8a62e$"
 }
 }
