@@ -64,8 +64,8 @@
 				"DestroySelf",
 				"PlayCardNow"
 			],
-			"flavorText": "“”",
-			"flavorReference": ""
+			"flavorText": "“And if we kick that blade{BR}battalion at exactly this position,{BR}[b]bam![/b] early mdp bridge.”",
+			"flavorReference": "Speedrunner, AGDQ 2019"
 		},
 		{
 			"identifier": "FrameperfectTiming",
@@ -87,8 +87,8 @@
 				"HasPower",
 				"DealDamageMelee"
 			],
-			"flavorText": "“”",
-			"flavorReference": ""
+			"flavorText": "“You fools!{BR}Can you not hit one tiny human!?”",
+			"flavorReference": "Grand Warlord Voss, Mythikal Multiverse #12"
 		},
 		{
 			"identifier": "HalfAPress",
@@ -100,8 +100,7 @@
 				"strat"
 			],
 			"body": [
-				"When you move a card to your trash, place it under this card instead.",
-				"When you use a power or draw a card, add 1 token to this card.",
+				"When you move a card to your trash, place it under this card instead. When you use a power or draw a card, add 1 token to this card.",
 				"When this card is destroyed, {Speedrunner} deals 1 target X projectile damage, and that target deals {Speedrunner} Y radiant damage, where X = the number of cards under this one, and Y = the number of tokens on this card."
 			],
 			"powers": [
@@ -113,8 +112,17 @@
 				"DealDamageProjectile",
 				"DestroySelf"
 			],
-			"flavorText": "“”",
-			"flavorReference": ""
+			"tokenPools": [
+				{
+					"identifier": "HalfAPressPool",
+					"name": "Half A Press Pool",
+					"initialValue": 0,
+					"minimumValue": 0,
+					"color": "EE1100"
+				}
+			],
+			"flavorText": "“The existence of quad-parallel{BR}universes is only theoretical.”",
+			"flavorReference": "Tachyon, Mythikal Multiverse #8"
 		},
 		{
 			"identifier": "HOTAS",
@@ -136,8 +144,17 @@
 				"HasPower",
 				"DealDamageProjectile"
 			],
-			"flavorText": "“”",
-			"flavorReference": ""
+			"flavorQuotes": [
+				{
+					"identifier": "Speedrunner",
+					"text": "Grapes and vapes,{BR}cherubs eight."
+				},
+				{
+					"identifier": "Bunker",
+					"text": "No. Just... don't."
+				}
+			],
+			"flavorReference": "Mythikal Multiverse #18"
 		},
 		{
 			"identifier": "InputBuffer",
@@ -159,8 +176,8 @@
 				"Discard",
 				"DealDamageEnergy"
 			],
-			"flavorText": "“”",
-			"flavorReference": ""
+			"flavorText": "“Hey kid, that's not even hairtrigger.{BR}You're somethin' else.”",
+			"flavorReference": "Expatriette, Mythikal Multiverse #6"
 		},
 		{
 			"identifier": "InventoryOverrun",
@@ -178,8 +195,17 @@
 				"Manipulate",
 				"PlayCardNow"
 			],
-			"flavorText": "“”",
-			"flavorReference": ""
+			"flavorQuotes": [
+				{
+					"identifier": "Benchmark",
+					"text": "what does 'idkfa' mean?"
+				},
+				{
+					"identifier": "Speedrunner",
+					"text": "No clue. works though!"
+				}
+			],
+			"flavorReference": "Mythikal Multiverse #33"
 		},
 		{
 			"identifier": "NoClipping",
@@ -198,8 +224,8 @@
 				"PlayCardNow",
 				"UsePowerNow"
 			],
-			"flavorText": "“”",
-			"flavorReference": ""
+			"flavorText": "“just a quick trip through hell.{BR}normal Tuesday for the doom slayer, right?”",
+			"flavorReference": "Speedrunner, AGDQ 2020"
 		},
 		{
 			"identifier": "OriginalHardware",
@@ -221,8 +247,8 @@
 				"Discard",
 				"Search"
 			],
-			"flavorText": "“”",
-			"flavorReference": ""
+			"flavorText": "“You've made my glasses rude again.”",
+			"flavorReference": "Parse, Mythikal Multiverse #3"
 		},
 		{
 			"identifier": "OutOfBounds",
@@ -244,8 +270,8 @@
 				"DealDamagePsychic",
 				"HasPower"
 			],
-			"flavorText": "“”",
-			"flavorReference": ""
+			"flavorText": "“Are you sure this is the way?{br}my eyes and ears don't match.”",
+			"flavorReference": "Cricket, Mythikal Multiverse #19"
 		},
 		{
 			"identifier": "RepeatedBackflips",
@@ -266,8 +292,17 @@
 				"PlayCardNow",
 				"UsePowerNow"
 			],
-			"flavorText": "“”",
-			"flavorReference": ""
+			"flavorQuotes": [
+				{
+					"identifier": "Drift",
+					"text": "I don't think ze's{br}going any faster."
+				},
+				{
+					"identifier": "The Knight",
+					"text": "The distraction{br}is welcome, however."
+				}
+			],
+			"flavorReference": "Mythikal Multiverse #41"
 		},
 		{
 			"identifier": "ResetWarp",
@@ -278,7 +313,10 @@
 				"strat"
 			],
 			"body": [
-				"Discard your hand. Draw 5 cards. Play 1 card. {Speedrunner} regains 2 HP."
+				"Discard your hand.",
+				"Draw 5 cards.",
+				"Play 1 card.",
+				"{Speedrunner} regains 2 HP."
 			],
 			"icons": [
 				"Discard",
@@ -286,8 +324,8 @@
 				"PlayCardNow",
 				"GainHP"
 			],
-			"flavorText": "“”",
-			"flavorReference": ""
+			"flavorText": "“I quit.{br}No I don't.{br}just faster to reload.”",
+			"flavorReference": "Speedrunner, AGDQ 2018"
 		},
 		{
 			"identifier": "RNGManipulation",
@@ -311,8 +349,8 @@
 				"DestroySelf",
 				"HasPower"
 			],
-			"flavorText": "“”",
-			"flavorReference": ""
+			"flavorText": "“engage delta 3//rescind{br}recalculating{br}engage omega 8//execute”",
+			"flavorReference": "Halcyon-R43 System Log, Mythikal Multiverse #23"
 		},
 		{
 			"identifier": "SequenceBreak",
@@ -329,13 +367,13 @@
 				"At the start of your turn, destroy this card."
 			],
 			"icons": [
-				"Redirect",
+				"RedirectDamage",
 				"DrawCardNow",
 				"PlayCardNow",
 				"DestroySelf"
 			],
-			"flavorText": "“”",
-			"flavorReference": ""
+			"flavorText": "“How'd you get past security!?{br}and you think [b]that's[/b] a weapon?”",
+			"flavorReference": "Graham Pike, Mythikal Multiverse #2"
 		},
 		{
 			"identifier": "TAS",
@@ -349,16 +387,16 @@
 				"increase damage dealt by {Speedrunner} by 1."
 			],
 			"powers": [
-				"One player draws 1 card, a second player plays 1 card, and a third player uses 1 power. Damage dealt while this power resolves is irreducible."
+				"One player draws 1 card, a second player plays 1 card, and a third player uses 1 power. Destroy this card."
 			],
 			"icons": [
 				"IncreaseDamageDealt",
 				"HasPower",
 				"UsePowerNow",
-				"MakeDamageIrreducible"
+				"DestroySelf"
 			],
-			"flavorText": "“”",
-			"flavorReference": ""
+			"flavorText": "“When ze is prepared,{br}zir reflexes may even match my own.”",
+			"flavorReference": "Tachyon, Mythikal Multiverse #8"
 		},
 		{
 			"identifier": "TurboController",
@@ -369,8 +407,7 @@
 				"limited"
 			],
 			"body": [
-				"If you draw a card outside of your draw phase, you may play a card.",
-				"If you play a card outside of your play phase, you may use a power.",
+				"If you play a card outside of your play phase, you may draw a card.",
 				"If you use a power outside of your power phase, {Speedrunner} deals 1 target 2 fire damage."
 			],
 			"powers": [
@@ -382,8 +419,8 @@
 				"HasPower",
 				"DealDamageMelee"
 			],
-			"flavorText": "“”",
-			"flavorReference": ""
+			"flavorText": "“[b]hadouken![/b]{br}I always wanted to say that.”",
+			"flavorReference": "Speedrunner, Mythikal Multiverse #1"
 		}
 	],
 	"promoCards": [

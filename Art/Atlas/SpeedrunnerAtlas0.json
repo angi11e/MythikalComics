@@ -1,0 +1,20 @@
+{"frames": {
+
+"SpeedrunnerCharacter.png":
+{
+	"frame": {"x":0,"y":0,"w":178,"h":256},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":178,"h":256},
+	"sourceSize": {"w":178,"h":256}
+}},
+"meta": {
+	"app": "https://www.codeandweb.com/texturepacker",
+	"version": "1.0",
+	"image": "SpeedrunnerAtlas0.png",
+	"format": "RGBA8888",
+	"size": {"w":256,"h":256},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:2553bd0a2298d32db0f7a5ed7730ce36:6eb76e79eda6fa2a9130dd8e67983ac2:06a06e6ccc3569d1eba9907742e7be6f$"
+}
+}

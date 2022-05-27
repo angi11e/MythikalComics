@@ -118,6 +118,24 @@
     <Compile Include="RedRifle\SituationalAwarenessCardController.cs" />
     <Compile Include="RedRifle\TechNerdCardController.cs" />
     <Compile Include="RedRifle\YellingInformationCardController.cs" />
+    <Compile Include="Speedrunner\TurboControllerCardController.cs" />
+    <Compile Include="Speedrunner\TASCardController.cs" />
+    <Compile Include="Speedrunner\SequenceBreakCardController.cs" />
+    <Compile Include="Speedrunner\RNGManipulationCardController.cs" />
+    <Compile Include="Speedrunner\ResetWarpCardController.cs" />
+    <Compile Include="Speedrunner\RepeatedBackflipsCardController.cs" />
+    <Compile Include="Speedrunner\OutOfBoundsCardController.cs" />
+    <Compile Include="Speedrunner\OriginalHardwareCardController.cs" />
+    <Compile Include="Speedrunner\NoClippingCardController.cs" />
+    <Compile Include="Speedrunner\InventoryOverrunCardController.cs" />
+    <Compile Include="Speedrunner\InputBufferCardController.cs" />
+    <Compile Include="Speedrunner\HOTASCardController.cs" />
+    <Compile Include="Speedrunner\HalfAPressCardController.cs" />
+    <Compile Include="Speedrunner\FrameperfectTimingCardController.cs" />
+    <Compile Include="Speedrunner\ArbitraryCodeExecutionCardController.cs" />
+    <Compile Include="Speedrunner\SpeedrunnerBaseCardController.cs" />
+    <Compile Include="Speedrunner\SpeedrunnerCharacterCardController.cs" />
+    <Compile Include="Speedrunner\SpeedrunnerTurnTakerController.cs" />
     <Compile Include="TheUndersiders\Cards\AdvancePlanningCardController.cs" />
     <Compile Include="TheUndersiders\Cards\AngelicaCardController.cs" />
     <Compile Include="TheUndersiders\Cards\BastardCardController.cs" />
@@ -219,6 +237,9 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="DeckLists\CadaverDeckList.json" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="DeckLists\SpeedrunnerDeckList.json" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

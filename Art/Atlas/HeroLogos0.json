@@ -56,7 +56,7 @@
 	"spriteSourceSize": {"x":0,"y":0,"w":330,"h":260},
 	"sourceSize": {"w":330,"h":260}
 },
-"TheurgyCharacter.png":
+"SpeedrunnerCharacter.png":
 {
 	"frame": {"x":333,"y":263,"w":330,"h":260},
 	"rotated": false,
@@ -64,7 +64,7 @@
 	"spriteSourceSize": {"x":0,"y":0,"w":330,"h":260},
 	"sourceSize": {"w":330,"h":260}
 },
-"TheurgyFateweaverCharacter.png":
+"TheurgyCharacter.png":
 {
 	"frame": {"x":666,"y":263,"w":330,"h":260},
 	"rotated": false,
@@ -72,7 +72,7 @@
 	"spriteSourceSize": {"x":0,"y":0,"w":330,"h":260},
 	"sourceSize": {"w":330,"h":260}
 },
-"WhatsHerFaceCharacter.png":
+"TheurgyFateweaverCharacter.png":
 {
 	"frame": {"x":999,"y":263,"w":330,"h":260},
 	"rotated": false,
@@ -80,9 +80,17 @@
 	"spriteSourceSize": {"x":0,"y":0,"w":330,"h":260},
 	"sourceSize": {"w":330,"h":260}
 },
-"WhatsHerFaceGadgeteerCharacter.png":
+"WhatsHerFaceCharacter.png":
 {
 	"frame": {"x":1332,"y":263,"w":330,"h":260},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":330,"h":260},
+	"sourceSize": {"w":330,"h":260}
+},
+"WhatsHerFaceGadgeteerCharacter.png":
+{
+	"frame": {"x":1665,"y":263,"w":330,"h":260},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":330,"h":260},
@@ -95,6 +103,6 @@
 	"format": "RGBA8888",
 	"size": {"w":2048,"h":2048},
 	"scale": "1",
-	"smartupdate": "$TexturePacker:SmartUpdate:d375275026f38d8eb467780c239ec64c:7af487e5634f0271da79b22dd17d7dce:abd76add2ce06cabb8b0a8e056eb9b47$"
+	"smartupdate": "$TexturePacker:SmartUpdate:c0595c7da36aba406df81583c639607d:cd01a71092a88f64c8f9db2f57923616:abd76add2ce06cabb8b0a8e056eb9b47$"
 }
 }

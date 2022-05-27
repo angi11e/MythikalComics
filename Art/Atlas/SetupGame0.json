@@ -56,7 +56,7 @@
 	"spriteSourceSize": {"x":0,"y":0,"w":178,"h":256},
 	"sourceSize": {"w":178,"h":256}
 },
-"TheUndersidersInstructions.png":
+"SpeedrunnerCharacter.png":
 {
 	"frame": {"x":362,"y":259,"w":178,"h":256},
 	"rotated": false,
@@ -64,7 +64,7 @@
 	"spriteSourceSize": {"x":0,"y":0,"w":178,"h":256},
 	"sourceSize": {"w":178,"h":256}
 },
-"TheurgyCharacter.png":
+"TheUndersidersInstructions.png":
 {
 	"frame": {"x":543,"y":259,"w":178,"h":256},
 	"rotated": false,
@@ -72,7 +72,7 @@
 	"spriteSourceSize": {"x":0,"y":0,"w":178,"h":256},
 	"sourceSize": {"w":178,"h":256}
 },
-"TheurgyFateweaverCharacter.png":
+"TheurgyCharacter.png":
 {
 	"frame": {"x":724,"y":259,"w":178,"h":256},
 	"rotated": false,
@@ -80,7 +80,7 @@
 	"spriteSourceSize": {"x":0,"y":0,"w":178,"h":256},
 	"sourceSize": {"w":178,"h":256}
 },
-"WhatsHerFaceCharacter.png":
+"TheurgyFateweaverCharacter.png":
 {
 	"frame": {"x":0,"y":518,"w":178,"h":256},
 	"rotated": false,
@@ -88,9 +88,17 @@
 	"spriteSourceSize": {"x":0,"y":0,"w":178,"h":256},
 	"sourceSize": {"w":178,"h":256}
 },
-"WhatsHerFaceGadgeteerCharacter.png":
+"WhatsHerFaceCharacter.png":
 {
 	"frame": {"x":181,"y":518,"w":178,"h":256},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":178,"h":256},
+	"sourceSize": {"w":178,"h":256}
+},
+"WhatsHerFaceGadgeteerCharacter.png":
+{
+	"frame": {"x":362,"y":518,"w":178,"h":256},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":178,"h":256},
@@ -103,6 +111,6 @@
 	"format": "RGBA8888",
 	"size": {"w":1024,"h":1024},
 	"scale": "1",
-	"smartupdate": "$TexturePacker:SmartUpdate:aedef5b40408c35288e915c8933bac80:70fa55780a85a0357a94953c1b839191:4ee285c32a91b7652e02ac049f918b2a$"
+	"smartupdate": "$TexturePacker:SmartUpdate:ca0a1314f16d59dcaa84e51f2193fbb0:d04f1574cdd2e6765d510cb5dd3b60ee:4ee285c32a91b7652e02ac049f918b2a$"
 }
 }
