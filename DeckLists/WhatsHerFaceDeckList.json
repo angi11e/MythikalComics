@@ -10,9 +10,9 @@
 			"count": 1,
 			"title": "What's-Her-Face",
 			"body": "Unnoticed Scout",
-			"backgroundColor": "8888AA",
-			"foilBackgroundColor": "8888AA",
-			"hitpointsColor": "8888AA",
+			"backgroundColor": "AAAA88",
+			"foilBackgroundColor": "AAAA88",
+			"hitpointsColor": "AAAA88",
 			"character": true,
 			"powers": [
 				"Reveal the top card of the villain deck. Discard it or put it into play. If you put it into play, you may play a [u]recall[/u] card now."

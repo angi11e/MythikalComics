@@ -176,7 +176,16 @@
 				"Discard",
 				"DealDamageEnergy"
 			],
-			"flavorText": "“Hey kid, that's not even hairtrigger.{BR}You're somethin' else.”",
+			"flavorQuotes": [
+				{
+					"identifier": "Expatriette",
+					"text": "hey. nice shot."
+				},
+				{
+					"identifier": "Speedrunner",
+					"text": "thanks! awesome hair, btw."
+				}
+			],
 			"flavorReference": "Expatriette, Mythikal Multiverse #6"
 		},
 		{
@@ -224,7 +233,7 @@
 				"PlayCardNow",
 				"UsePowerNow"
 			],
-			"flavorText": "“just a quick trip through hell.{BR}normal Tuesday for the doom slayer, right?”",
+			"flavorText": "“just a quick trip through hell.{BR}normal Tuesday for{BR}the doom slayer, right?”",
 			"flavorReference": "Speedrunner, AGDQ 2020"
 		},
 		{

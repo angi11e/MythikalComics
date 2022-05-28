@@ -33,6 +33,7 @@ namespace Angille.Speedrunner
 		public override void AddTriggers()
 		{
 			// When this card is destroyed...
+			AddWhenDestroyedTrigger(DestructionResponse, new TriggerType[1] { TriggerType.PlayCard });
 
 			this.AddTriggers();
 		}
@@ -46,10 +47,27 @@ namespace Angille.Speedrunner
 
 		public override IEnumerator UsePower(int index = 0)
 		{
+			int extraNumeral = GetPowerNumeral(0, 1);
+
 			// Put 1 card from your hand under this card.
-			
+
 			// Destroy this card.
-			
+			IEnumerator destroyCR = GameController.DestroyCard(
+				DecisionMaker,
+				this.Card,
+				optional: false,
+				cardSource: GetCardSource()
+			);
+
+			if (UseUnityCoroutines)
+			{
+				yield return GameController.StartCoroutine(destroyCR);
+			}
+			else
+			{
+				GameController.ExhaustCoroutine(destroyCR);
+			}
+
 			yield break;
 		}
 	}
