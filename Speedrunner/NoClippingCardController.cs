@@ -24,12 +24,68 @@ namespace Angille.Speedrunner
 		public override IEnumerator Play()
 		{
 			// Destroy 1 environment card.
+			List<DestroyCardAction> storedResults = new List<DestroyCardAction>();
+			IEnumerator destroyCR = GameController.SelectAndDestroyCard(
+				DecisionMaker,
+				new LinqCardCriteria((Card c) => c.IsEnvironment, "environment"),
+				false,
+				storedResults,
+				cardSource: GetCardSource()
+			);
+
+			if (UseUnityCoroutines)
+			{
+				yield return GameController.StartCoroutine(destroyCR);
+			}
+			else
+			{
+				GameController.ExhaustCoroutine(destroyCR);
+			}
 
 			// If you do so, {Speedrunner} regains 2 HP.
+			if (DidDestroyCard(storedResults))
+			{
+				IEnumerator healCR = GameController.GainHP(
+					this.CharacterCard,
+					2,
+					cardSource: GetCardSource()
+				);
 
-			// If not, play the top card of the environment deck...
+				if (UseUnityCoroutines)
+				{
+					yield return GameController.StartCoroutine(healCR);
+				}
+				else
+				{
+					GameController.ExhaustCoroutine(healCR);
+				}
+			}
+			else
+			{
+				// If not, play the top card of the environment deck...
+				IEnumerator enviroCR = GameController.PlayTopCard(
+					DecisionMaker,
+					FindEnvironment(),
+					cardSource: GetCardSource()
+				);
 
-			// ...then you may use a power.
+				// ...then you may use a power.
+				IEnumerator usePowerCR = GameController.SelectAndUsePower(
+					DecisionMaker,
+					cardSource: GetCardSource()
+				);
+
+				if (UseUnityCoroutines)
+				{
+					yield return GameController.StartCoroutine(enviroCR);
+					yield return GameController.StartCoroutine(usePowerCR);
+				}
+				else
+				{
+					GameController.ExhaustCoroutine(enviroCR);
+					GameController.ExhaustCoroutine(usePowerCR);
+				}
+			}
 
 			yield break;
 		}

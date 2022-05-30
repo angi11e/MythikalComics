@@ -40,7 +40,7 @@ namespace Angille.Speedrunner
 				ActionDescription.DamageTaken
 			);
 
-			this.AddTriggers();
+			base.AddTriggers();
 		}
 
 		private IEnumerator RedirectResponse(DealDamageAction dda)

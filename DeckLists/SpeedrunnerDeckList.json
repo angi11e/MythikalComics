@@ -186,7 +186,7 @@
 					"text": "thanks! awesome hair, btw."
 				}
 			],
-			"flavorReference": "Expatriette, Mythikal Multiverse #6"
+			"flavorReference": "Mythikal Multiverse #6"
 		},
 		{
 			"identifier": "InventoryOverrun",
@@ -207,7 +207,7 @@
 			"flavorQuotes": [
 				{
 					"identifier": "Benchmark",
-					"text": "what does 'idkfa' mean?"
+					"text": "what does ‘idkfa’ mean?"
 				},
 				{
 					"identifier": "Speedrunner",
@@ -396,7 +396,7 @@
 				"increase damage dealt by {Speedrunner} by 1."
 			],
 			"powers": [
-				"One player draws 1 card, a second player plays 1 card, and a third player uses 1 power. Destroy this card."
+				"One player may draw a card, a second player may play a card, and a third player may use a power. Destroy this card."
 			],
 			"icons": [
 				"IncreaseDamageDealt",

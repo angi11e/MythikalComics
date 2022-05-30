@@ -26,6 +26,32 @@ namespace Angille.Speedrunner
 		public override IEnumerator Play()
 		{
 			// When this card enters play, put one one-shot card from each trash under it.
+			IEnumerator grabCardCR = GameController.SelectTurnTakersAndDoAction(
+				DecisionMaker,
+				new LinqTurnTakerCriteria(
+					(TurnTaker tt) => tt.Trash.Cards.Where((Card c) => c.IsOneShot).Any()
+				),
+				SelectionType.MoveCardToUnderCard,
+				(TurnTaker tt) => GameController.SelectCardsFromLocationAndMoveThem(
+					DecisionMaker,
+					tt.Trash,
+					1,
+					1,
+					new LinqCardCriteria((Card c) => c.IsOneShot),
+					new MoveCardDestination[] { new MoveCardDestination(this.Card.UnderLocation) },
+					cardSource: GetCardSource()
+				),
+				cardSource: GetCardSource()
+			);
+
+			if (UseUnityCoroutines)
+			{
+				yield return GameController.StartCoroutine(grabCardCR);
+			}
+			else
+			{
+				GameController.ExhaustCoroutine(grabCardCR);
+			}
 
 			yield break;
 		}
@@ -35,12 +61,31 @@ namespace Angille.Speedrunner
 			// When this card is destroyed...
 			AddWhenDestroyedTrigger(DestructionResponse, new TriggerType[1] { TriggerType.PlayCard });
 
-			this.AddTriggers();
+			base.AddTriggers();
 		}
 
 		private IEnumerator DestructionResponse(DestroyCardAction dca)
 		{
 			// ...first play each card from under it, in any order.
+			while (this.Card.UnderLocation.Cards.Count() > 0)
+			{
+				IEnumerator playCR = GameController.SelectCardFromLocationAndMoveIt(
+					DecisionMaker,
+					this.Card.UnderLocation,
+					new LinqCardCriteria((Card c) => true),
+					new MoveCardDestination[] { new MoveCardDestination(this.TurnTaker.PlayArea) },
+					cardSource: GetCardSource()
+				);
+
+				if (UseUnityCoroutines)
+				{
+					yield return GameController.StartCoroutine(playCR);
+				}
+				else
+				{
+					GameController.ExhaustCoroutine(playCR);
+				}
+			}
 
 			yield break;
 		}
@@ -50,6 +95,24 @@ namespace Angille.Speedrunner
 			int extraNumeral = GetPowerNumeral(0, 1);
 
 			// Put 1 card from your hand under this card.
+			IEnumerator moveCardCR = GameController.SelectCardsFromLocationAndMoveThem(
+				DecisionMaker,
+				this.HeroTurnTaker.Hand,
+				extraNumeral,
+				extraNumeral,
+				new LinqCardCriteria((Card c) => true),
+				new MoveCardDestination[] { new MoveCardDestination(this.Card.UnderLocation) },
+				cardSource: GetCardSource()
+			);
+
+			if (UseUnityCoroutines)
+			{
+				yield return GameController.StartCoroutine(moveCardCR);
+			}
+			else
+			{
+				GameController.ExhaustCoroutine(moveCardCR);
+			}
 
 			// Destroy this card.
 			IEnumerator destroyCR = GameController.DestroyCard(
