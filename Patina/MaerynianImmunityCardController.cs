@@ -27,13 +27,13 @@ namespace Angille.Patina
 			SpecialStringMaker.ShowSpecialString(
 				() => "Patina has not dealt damage since " + this.Card.Title + " entered play.",
 				IsFirstOrOnlyCopyOfThisCardInPlay
-			).Condition = () => this.CharacterCard.IsInPlayAndHasGameText && !GetDamageTypeThatPatinaIsImmuneTo().HasValue;
+			).Condition = () => this.Card.IsInPlayAndHasGameText && !GetDamageTypeThatPatinaIsImmuneTo().HasValue;
 
 			SpecialStringMaker.ShowSpecialString(
 				() => "Patina is currently immune to " + GetDamageTypeThatPatinaIsImmuneTo().ToString() + " damage.",
 				IsFirstOrOnlyCopyOfThisCardInPlay,
 				() => new Card[1] { this.CharacterCard }
-			).Condition = () => this.CharacterCard.IsInPlayAndHasGameText && GetDamageTypeThatPatinaIsImmuneTo().HasValue;
+			).Condition = () => this.Card.IsInPlayAndHasGameText && GetDamageTypeThatPatinaIsImmuneTo().HasValue;
 		}
 
 		public override void AddTriggers()

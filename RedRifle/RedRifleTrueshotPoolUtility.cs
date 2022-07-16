@@ -232,6 +232,7 @@ namespace Angille.RedRifle
 				yield break;
 			}
 
+			int currentTokens = GetTrueshotPool(cardController).CurrentValue;
 			coroutine = cardController.GameController.AddTokensToPool(
 				GetTrueshotPool(cardController),
 				amountToAdd,
@@ -246,7 +247,10 @@ namespace Angille.RedRifle
 				cardController.GameController.ExhaustCoroutine(coroutine);
 			}
 
-			coroutine = SendMessageTrueshotTokensAdded(cardController, amountToAdd);
+			coroutine = SendMessageTrueshotTokensAdded(
+				cardController,
+				GetTrueshotPool(cardController).CurrentValue - currentTokens
+			);
 			if (cardController.UseUnityCoroutines)
 			{
 				yield return cardController.GameController.StartCoroutine(coroutine);

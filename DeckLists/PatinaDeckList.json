@@ -24,7 +24,7 @@
 			],
 			"hitpoints": 26,
 			"nemesisIdentifiers": [
-				"Tempest"
+				"Angille.Patina"
 			],
 			"incapacitatedAbilities": [
 				"One target regains 2 HP.",
@@ -316,5 +316,84 @@
 		}
 	],
 	"promoCards": [
+		{
+			"identifier": "PatinaCharacter",
+			"promoIdentifier": "InternPatinaCharacter",
+			"count": 1,
+			"title": "Patina",
+			"promoTitle": "Intern of Science Patina",
+			"body": "lab tests",
+			"icons": [
+				"HasPower",
+				"Discard",
+				"DrawCardNow",
+				"PlayCardNow"
+			],
+			"backgroundColor": "20CD8B",
+			"foilBackgroundColor": "20CD8B",
+			"hitpointsColor": "20CD8B",
+			"character": true,
+			"powers": [
+				"Discard up to 3 [u]water[/u] cards. For each card discarded this way, draw 1 card or play 1 non-[u]water[/u] card."
+			],
+			"hitpoints": 27,
+			"nemesisIdentifiers": [
+				"Angille.Patina"
+			],
+			"incapacitatedAbilities": [
+				"",
+				"",
+				""
+			],
+			"flippedIcons": [
+				"",
+				"",
+				"",
+				""
+			],
+			"complexity": 1,
+			"openingLines": {
+				"default": "hypothesis! experiment! conclusion!"
+			}
+		},
+		{
+			"identifier": "WhatsHerFaceCharacter",
+			"promoIdentifier": "VerdigrisCharacter",
+			"count": 1,
+			"title": "Verdigris",
+			"promoTitle": "Verdigris",
+			"body": "Water Slam",
+			"icons": [
+				"HasPower",
+				"DealDamageMelee",
+				"DealDamageCold"
+			],
+			"backgroundColor": "55802B",
+			"foilBackgroundColor": "55802B",
+			"hitpointsColor": "55802B",
+			"character": true,
+			"powers": [
+				"[i]Verdigris[i] deals 1 target 2 melee damage and 2 cold damage, in either order. That target deals [i]Verdigris[/i] 3 melee damage."
+			],
+			"hitpoints": 28,
+			"nemesisIdentifiers": [
+				"Angille.Patina"
+			],
+			"incapacitatedAbilities": [
+				"One player may play a card.",
+				"",
+				""
+			],
+			"flippedIcons": [
+				"",
+				"",
+				"",
+				""
+			],
+			"complexity": 1,
+			"openingLines": {
+				"default": "the ocean floor is too good for you."
+			}
+		}
 	]
 }

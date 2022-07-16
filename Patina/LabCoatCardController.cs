@@ -30,6 +30,7 @@ namespace Angille.Patina
 				(CardEntersPlayAction p) =>
 					!p.IsPutIntoPlay
 					&& p.TurnTakerController == this.TurnTakerController
+					&& p.Origin == this.HeroTurnTaker.Hand
 					&& IsEquipment(p.CardEnteringPlay),
 				DrawCardResponse,
 				TriggerType.DrawCard,

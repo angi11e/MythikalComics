@@ -166,6 +166,25 @@ namespace Angille.Speedrunner
 					GameController.ExhaustCoroutine(returnCR);
 				}
 			}
+
+			TokenPool localPool = this.Card.FindTokenPool("HalfAPressPool");
+			if (localPool != null)
+			{
+				IEnumerator clearTokensCR = GameController.RemoveTokensFromPool(
+					localPool,
+					localPool.CurrentValue,
+					cardSource: GetCardSource()
+				);
+
+				if (UseUnityCoroutines)
+				{
+					yield return GameController.StartCoroutine(clearTokensCR);
+				}
+				else
+				{
+					GameController.ExhaustCoroutine(clearTokensCR);
+				}
+			}
 		}
 
 		public override IEnumerator UsePower(int index = 0)

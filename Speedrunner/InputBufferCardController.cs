@@ -13,7 +13,7 @@ namespace Angille.Speedrunner
 		 * 
 		 * POWER
 		 * Discard any number of cards.
-		 * Deal 1 target 2 energy damage, plus 1 for each card discarded this way.
+		 * Deal 1 target X energy damage, where X = the number of cards discarded this way plus 2.
 		 */
 
 		public InputBufferCardController(

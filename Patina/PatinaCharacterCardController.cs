@@ -53,41 +53,6 @@ namespace Angille.Patina
 				GameController.ExhaustCoroutine(drawCR);
 			}
 
-			/* old version that was super TLT
-			List<GainHPAction> gainHPActions = new List<GainHPAction>();
-			IEnumerator healCR = GameController.GainHP(
-				DecisionMaker,
-				(Card c) => c.IsHeroCharacterCard && c.IsInPlay && !c.IsIncapacitatedOrOutOfGame,
-				1,
-				storedResultsAction: gainHPActions,
-				cardSource: GetCardSource()
-			);
-			if (UseUnityCoroutines)
-			{
-				yield return GameController.StartCoroutine(healCR);
-			}
-			else
-			{
-				GameController.ExhaustCoroutine(healCR);
-			}
-
-			foreach (GainHPAction item in gainHPActions)
-			{
-				if (item.AmountActuallyGained < 1)
-				{
-					IEnumerator drawCR = DrawCard(item.HpGainer.Owner.ToHero(), optional: true);
-					if (UseUnityCoroutines)
-					{
-						yield return GameController.StartCoroutine(drawCR);
-					}
-					else
-					{
-						GameController.ExhaustCoroutine(drawCR);
-					}
-				}
-			}
-			*/
-
 			yield break;
 		}
 

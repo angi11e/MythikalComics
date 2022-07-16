@@ -1,0 +1,20 @@
+{"frames": {
+
+"CadaverTeamCharacter.png":
+{
+	"frame": {"x":0,"y":0,"w":320,"h":240},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":320,"h":240},
+	"sourceSize": {"w":320,"h":240}
+}},
+"meta": {
+	"app": "https://www.codeandweb.com/texturepacker",
+	"version": "1.0",
+	"image": "VillainTeamIntro0.png",
+	"format": "RGBA8888",
+	"size": {"w":512,"h":512},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:e7871ed12978f3d0270da38d0b91eb0b:bcd6b05a0ec88161d551187acf53938d:c417f19ea71f1ec6cee1263a97c885e5$"
+}
+}

@@ -33,7 +33,12 @@ namespace Angille.NightMare
 					m.CardToMove == Card
 					&& m.Destination == HeroTurnTaker.Trash
 					&& (m.Origin.IsHand || m.Origin.IsDeck || m.Origin.IsRevealed)
-					&& m.IsDiscard && m.CanChangeDestination,
+					&& m.IsDiscard && m.CanChangeDestination
+					&& !(
+						FindCard("Gust") != null
+						&& FindCard("Gust").Owner.Identifier == "CadaverTeam"
+						&& FindCard("Gust").IsInPlayAndNotUnderCard
+					),
 				DiscardResponse,
 				TriggerType.Other,
 				TriggerTiming.Before,

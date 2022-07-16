@@ -56,7 +56,7 @@ namespace Angille.Speedrunner
 
 			if (DidDiscardCards(storedResults))
 			{
-				bool isGlitch = IsGlitch(storedResults.FirstOrDefault().CardToDiscard);
+				bool isGlitch = IsGlitch(storedResults.FirstOrDefault().CardToDiscard, true, true);
 
 				// Search your deck for a card with the chosen keyword and
 				// either put it in your hand or into play, then shuffle your deck.

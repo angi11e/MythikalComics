@@ -14,21 +14,21 @@ namespace Angille.TheUndersiders
 		public BitchCharacterCardController(Card card, TurnTakerController turnTakerController)
 			: base(card, turnTakerController)
 		{
-			base.SpecialStringMaker.ShowNumberOfCardsInPlay(
+			SpecialStringMaker.ShowNumberOfCardsInPlay(
 				new LinqCardCriteria((Card c) => c.DoKeywordsContain("dog") && c.IsVillain,"dog")
 			);
-			base.SpecialStringMaker.ShowNumberOfCardsAtLocation(
-				base.Card.Owner.Trash,
+			SpecialStringMaker.ShowNumberOfCardsAtLocation(
+				this.Card.Owner.Trash,
 				new LinqCardCriteria((Card c) => c.DoKeywordsContain("dog") && c.IsVillain, "dog")
-			).Condition = () => !base.Card.IsFlipped;
+			).Condition = () => !this.Card.IsFlipped;
 		}
 
 		public override IEnumerator Play()
 		{
 			// When this card enters play, reveal cards from the top of the villain deck until a dog card is revealed. Put it into play. Shuffle the other revealed cards back into the villain deck.
 			IEnumerator getDogCR = RevealCards_MoveMatching_ReturnNonMatchingCards(
-				base.TurnTakerController,
-				base.TurnTaker.Deck,
+				this.TurnTakerController,
+				this.TurnTaker.Deck,
 				playMatchingCards: false,
 				putMatchingCardsIntoPlay: true,
 				moveMatchingCardsToHand: false,
@@ -36,13 +36,13 @@ namespace Angille.TheUndersiders
 				1
 			);
 
-			if (base.UseUnityCoroutines)
+			if (UseUnityCoroutines)
 			{
-				yield return base.GameController.StartCoroutine(getDogCR);
+				yield return GameController.StartCoroutine(getDogCR);
 			}
 			else
 			{
-				base.GameController.ExhaustCoroutine(getDogCR);
+				GameController.ExhaustCoroutine(getDogCR);
 			}
 
 			yield break;
@@ -50,11 +50,11 @@ namespace Angille.TheUndersiders
 
 		public override void AddSideTriggers()
 		{
-			if (!base.Card.IsFlipped)
+			if (!this.Card.IsFlipped)
 			{
 				// At the start of the villain turn, if there are no dog targets in play, move 1 dog card from the villain trash into play.
 				AddSideTrigger(AddStartOfTurnTrigger(
-					(TurnTaker tt) => tt == base.TurnTaker,
+					(TurnTaker tt) => tt == this.TurnTaker,
 					RecoverDogResponse,
 					TriggerType.MoveCard
 				));
@@ -73,6 +73,7 @@ namespace Angille.TheUndersiders
 				AddSideTrigger(AddTrigger<DealDamageAction>(
 					dda => dda.Target.DoKeywordsContain("dog")
 						&& dda.Target.HitPoints <= dda.Amount
+						&& dda.DamageSource.IsTarget
 						&& dda.Target != dda.DamageSource.Card,
 					RetaliationResponse,
 					new[] { TriggerType.DealDamage },
@@ -85,21 +86,23 @@ namespace Angille.TheUndersiders
 
 		private IEnumerator RecoverDogResponse(PhaseChangeAction p)
 		{
-			if (FindCardsWhere((Card c) => c.DoKeywordsContain("dog") && c.IsInPlayAndHasGameText).Count() == 0)
+			if (FindCardsWhere(
+				(Card c) => c.DoKeywordsContain("dog") && c.IsVillain && c.IsInPlayAndHasGameText
+			).Count() == 0)
 			{
 				IEnumerator recoverDogCR = PlayCardsFromLocation(
-					base.TurnTaker.Trash,
+					this.TurnTaker.Trash,
 					new LinqCardCriteria((Card c) => c.DoKeywordsContain("dog"), "dog"),
 					numberOfCards: 1
 				);
 
-				if (base.UseUnityCoroutines)
+				if (UseUnityCoroutines)
 				{
-					yield return base.GameController.StartCoroutine(recoverDogCR);
+					yield return GameController.StartCoroutine(recoverDogCR);
 				}
 				else
 				{
-					base.GameController.ExhaustCoroutine(recoverDogCR);
+					GameController.ExhaustCoroutine(recoverDogCR);
 				}
 			}
 
@@ -111,19 +114,19 @@ namespace Angille.TheUndersiders
 			IEnumerator retaliateCR = DealDamage(
 				dda.Target,
 				dda.DamageSource.Card,
-				base.Game.H - 1,
+				Game.H - 1,
 				DamageType.Melee,
 				isCounterDamage: true,
 				cardSource: GetCardSource()
 			);
 
-			if (base.UseUnityCoroutines)
+			if (UseUnityCoroutines)
 			{
-				yield return base.GameController.StartCoroutine(retaliateCR);
+				yield return GameController.StartCoroutine(retaliateCR);
 			}
 			else
 			{
-				base.GameController.ExhaustCoroutine(retaliateCR);
+				GameController.ExhaustCoroutine(retaliateCR);
 			}
 
 			yield break;

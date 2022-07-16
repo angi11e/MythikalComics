@@ -43,18 +43,6 @@ namespace Angille.TheUndersiders
 				(Card c) => c == base.Card
 			);
 
-			/* the old one didn't work?
-			AddTrigger(
-				(DealDamageAction dd) =>
-					!IsPropertyTrue(FirstDamageToVCC)
-					&& dd.Target.IsVillainCharacterCard
-					&& dd.DidDealDamage,
-				RedirectResponse,
-				TriggerType.RedirectDamage,
-				TriggerTiming.Before
-			);
-			*/
-
 			AddAfterLeavesPlayAction(
 				(GameAction ga) => ResetFlagAfterLeavesPlay(FirstDamageToVCC),
 				TriggerType.Hidden
@@ -76,31 +64,6 @@ namespace Angille.TheUndersiders
 			);
 
 			base.AddTriggers();
-		}
-
-		private IEnumerator RedirectResponse(DealDamageAction dd)
-		{
-			SetCardPropertyToTrueIfRealAction(FirstDamageToVCC);
-
-			if (IsEnabled("dog"))
-			{
-				IEnumerator redirectCR = GameController.RedirectDamage(
-					dd,
-					base.Card,
-					cardSource: GetCardSource()
-				);
-
-				if (base.UseUnityCoroutines)
-				{
-					yield return base.GameController.StartCoroutine(redirectCR);
-				}
-				else
-				{
-					base.GameController.ExhaustCoroutine(redirectCR);
-				}
-			}
-
-			yield break;
 		}
 
 		public override IEnumerator Play()

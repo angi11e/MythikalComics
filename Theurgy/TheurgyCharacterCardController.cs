@@ -201,7 +201,7 @@ namespace Angille.Theurgy
 
 					List<MoveCardDestination> list = new List<MoveCardDestination>
 					{
-						new MoveCardDestination(GetSelectedCard(selectCardDecision).NativeDeck, true)
+						new MoveCardDestination(GetSelectedCard(selectCardDecision).NativeDeck)
 					};
 
 					// move the card

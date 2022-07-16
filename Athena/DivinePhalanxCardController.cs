@@ -120,32 +120,6 @@ namespace Angille.Athena
 							}
 						}
 					}
-					/* old version with all hero characters
-					IEnumerator mainDamageCR = MultipleDamageSourcesDealDamage(
-						new LinqCardCriteria((Card c) =>
-							c.IsHeroCharacterCard
-							&& c.IsTarget
-							&& !c.IsFlipped
-							&& c.IsInPlayAndNotUnderCard
-						),
-						TargetType.All,
-						1,
-						new LinqCardCriteria((Card c) => c == theCard),
-						1,
-						DamageType.Radiant,
-						// If there is an [u]aspect[/u] card in play, this damage is irreducible.
-						isIrreducible: AspectInPlay
-					);
-
-					if (UseUnityCoroutines)
-					{
-						yield return GameController.StartCoroutine(mainDamageCR);
-					}
-					else
-					{
-						GameController.ExhaustCoroutine(mainDamageCR);
-					}
-					*/
 				}
 			}
 

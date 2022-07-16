@@ -28,7 +28,11 @@ namespace Angille.Speedrunner
 		{
 			// When a villain card would be played, you may play a card from under this card instead.
 			AddTrigger(
-				(PlayCardAction pc) => IsVillain(pc.CardToPlay) && !pc.IsPutIntoPlay && this.Card.UnderLocation.HasCards,
+				(PlayCardAction pc) =>
+					IsVillain(pc.CardToPlay)
+					&& !pc.IsPutIntoPlay
+					&& this.Card.UnderLocation.HasCards
+					&& pc.CardToPlay.Location != this.Card.UnderLocation,
 				VillainPlayResponse,
 				new TriggerType[2]
 				{

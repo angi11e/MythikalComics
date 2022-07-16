@@ -45,13 +45,16 @@ namespace Angille.Speedrunner
 
 		private IEnumerator RedirectResponse(DealDamageAction dda)
 		{
+			IEnumerable<Card> possibleTargets = FindAllTargetsWithLowestHitPoints((Card c) => c.IsVillain, 1);
+
 			var storedYesNo = new List<YesNoCardDecision> { };
 			IEnumerator yesOrNoCR = GameController.MakeYesNoCardDecision(
 				DecisionMaker,
-				SelectionType.RedirectDamage,
+				SelectionType.RedirectDamageDirectedAtTarget,
 				dda.Target,
 				action: dda,
 				storedResults: storedYesNo,
+				associatedCards: possibleTargets,
 				cardSource: GetCardSource()
 			);
 			if (UseUnityCoroutines)

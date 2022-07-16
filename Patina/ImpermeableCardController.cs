@@ -86,7 +86,7 @@ namespace Angille.Patina
 			var storedYesNo = new List<YesNoCardDecision> { };
 			IEnumerator yesOrNoCR = GameController.MakeYesNoCardDecision(
 				DecisionMaker,
-				SelectionType.RedirectDamage,
+				SelectionType.RedirectDamageDirectedAtTarget,
 				dd.Target,
 				action: dd,
 				storedResults: storedYesNo,

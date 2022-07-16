@@ -12,7 +12,8 @@ namespace Angille.Theurgy
 		// When this card is destroyed, select a deck.
 		//  Cards from that deck cannot be played until the start of your next turn.
 		//  Remove this card from the game."
-		// Power: Search your trash or deck for a [u]charm[/u] card.
+		// Power: Discard a [u]charm[/u] card.
+		//  If you do, search your trash or deck for a different [u]charm[/u] card.
 		//  Put it into play or in your hand.
 
 		public TheScholarsJournalCardController(
@@ -21,7 +22,7 @@ namespace Angille.Theurgy
 		) : base(card, turnTakerController)
 		{
 			SpecialStringMaker.ShowNumberOfCardsInPlay(IsCharmCriteria());
-			SpecialStringMaker.ShowNumberOfCardsAtLocation(HeroTurnTaker.Hand, IsCharmCriteria());
+			SpecialStringMaker.ShowNumberOfCardsAtLocation(HeroTurnTaker.Trash, IsCharmCriteria());
 			SpecialStringMaker.ShowNumberOfCardsAtLocation(HeroTurnTaker.Deck, IsCharmCriteria());
 		}
 
@@ -115,46 +116,51 @@ namespace Angille.Theurgy
 
 		public override IEnumerator UsePower(int index = 0)
 		{
-			// Search your trash or deck for a charm card. Put it into play or in your hand.
-			IEnumerator discoverCharmCR = SearchForCards(
-				HeroTurnTakerController,
-				searchDeck: true,
-				searchTrash: true,
-				1,
-				1,
-				IsCharmCriteria(),
-				putIntoPlay: true,
-				putInHand: true,
-				putOnDeck: false
-			);
-			
-			if (UseUnityCoroutines)
-			{
-				yield return GameController.StartCoroutine(discoverCharmCR);
-			}
-			else
-			{
-				GameController.ExhaustCoroutine(discoverCharmCR);
-			}
-
-			/*
-			// destroy a charm card.
-			IEnumerator destroyCR = GameController.SelectAndDestroyCard(
+			// Discard a [u]charm[/u] card.
+			List<DiscardCardAction> storedResults = new List<DiscardCardAction>();
+			IEnumerator discardCR = SelectAndDiscardCards(
 				DecisionMaker,
-				IsCharmCriteria(),
-				false,
-				cardSource: GetCardSource()
+				1,
+				optional: false,
+				1,
+				storedResults,
+				cardCriteria: IsCharmCriteria()
 			);
 
 			if (UseUnityCoroutines)
 			{
-				yield return GameController.StartCoroutine(destroyCR);
+				yield return GameController.StartCoroutine(discardCR);
 			}
 			else
 			{
-				GameController.ExhaustCoroutine(destroyCR);
+				GameController.ExhaustCoroutine(discardCR);
 			}
-			*/
+
+			// If you do...
+			if (DidDiscardCards(storedResults))
+			{ 
+				// ...search your trash or deck for a different charm card. Put it into play or in your hand.
+				IEnumerator discoverCharmCR = SearchForCards(
+					HeroTurnTakerController,
+					searchDeck: true,
+					searchTrash: true,
+					1,
+					1,
+					IsCharmCriteria((Card c) => c.Identifier != storedResults.FirstOrDefault().CardToDiscard.Identifier),
+					putIntoPlay: true,
+					putInHand: true,
+					putOnDeck: false
+				);
+
+				if (UseUnityCoroutines)
+				{
+					yield return GameController.StartCoroutine(discoverCharmCR);
+				}
+				else
+				{
+					GameController.ExhaustCoroutine(discoverCharmCR);
+				}
+			}
 
 			yield break;
 		}

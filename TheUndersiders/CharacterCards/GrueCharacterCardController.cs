@@ -14,8 +14,8 @@ namespace Angille.TheUndersiders
 		public GrueCharacterCardController(Card card, TurnTakerController turnTakerController)
 			: base(card, turnTakerController)
 		{
-			base.SpecialStringMaker.ShowHeroWithMostCards(false).Condition = () => !base.Card.IsFlipped;
-			base.SpecialStringMaker.ShowVillainTargetWithLowestHP().Condition = () => base.Card.IsFlipped;
+			SpecialStringMaker.ShowHeroWithMostCards(false).Condition = () => !this.Card.IsFlipped;
+			SpecialStringMaker.ShowVillainTargetWithLowestHP().Condition = () => this.Card.IsFlipped;
 		}
 
 		public override IEnumerator Play()
@@ -24,19 +24,19 @@ namespace Angille.TheUndersiders
 			IEnumerator getCloudCR = PlayCardFromLocations(
 				new Location[2]
 				{
-					base.TurnTaker.Deck,
-					base.TurnTaker.Trash
+					this.TurnTaker.Trash,
+					this.TurnTaker.Deck
 				},
 				"TenebrousCloud"
 			);
 
-			if (base.UseUnityCoroutines)
+			if (UseUnityCoroutines)
 			{
-				yield return base.GameController.StartCoroutine(getCloudCR);
+				yield return GameController.StartCoroutine(getCloudCR);
 			}
 			else
 			{
-				base.GameController.ExhaustCoroutine(getCloudCR);
+				GameController.ExhaustCoroutine(getCloudCR);
 			}
 
 			yield break;
@@ -44,11 +44,11 @@ namespace Angille.TheUndersiders
 
 		public override void AddSideTriggers()
 		{
-			if (!base.Card.IsFlipped)
+			if (!this.Card.IsFlipped)
 			{
 				// At the end of the villain turn, {Grue} deals the hero character with the most cards in their play area 1 melee damage and 1 infernal damage.
 				AddSideTrigger(AddEndOfTurnTrigger(
-					(TurnTaker tt) => tt == base.TurnTaker,
+					(TurnTaker tt) => tt == this.TurnTaker,
 					InfernalStrikeResponse,
 					TriggerType.DealDamage
 				));
@@ -59,7 +59,7 @@ namespace Angille.TheUndersiders
 			{
 				// At the end of the villain turn, the villain target with the lowest HP deals the {H - 1} hero targets with the lowest HP 1 infernal damage.
 				AddSideTrigger(AddEndOfTurnTrigger(
-					(TurnTaker tt) => tt == base.TurnTaker,
+					(TurnTaker tt) => tt == this.TurnTaker,
 					FromDarknessResponse,
 					TriggerType.DealDamage
 				));
@@ -73,14 +73,14 @@ namespace Angille.TheUndersiders
 			{
 				new DealDamageAction(
 					GetCardSource(),
-					new DamageSource(base.GameController, this.Card),
+					new DamageSource(GameController, this.Card),
 					null,
 					1,
 					DamageType.Melee
 				),
 				new DealDamageAction(
 					GetCardSource(),
-					new DamageSource(base.GameController, this.Card),
+					new DamageSource(GameController, this.Card),
 					null,
 					1,
 					DamageType.Infernal
@@ -94,13 +94,13 @@ namespace Angille.TheUndersiders
 				damageInfo: damageInfo.First()
 			);
 
-			if (base.UseUnityCoroutines)
+			if (UseUnityCoroutines)
 			{
-				yield return base.GameController.StartCoroutine(findTargetCR);
+				yield return GameController.StartCoroutine(findTargetCR);
 			}
 			else
 			{
-				base.GameController.ExhaustCoroutine(findTargetCR);
+				GameController.ExhaustCoroutine(findTargetCR);
 			}
 
 			IEnumerator infernalStrikeCR = DealMultipleInstancesOfDamage(
@@ -109,13 +109,13 @@ namespace Angille.TheUndersiders
 				numberOfTargets: 1
 			);
 
-			if (base.UseUnityCoroutines)
+			if (UseUnityCoroutines)
 			{
-				yield return base.GameController.StartCoroutine(infernalStrikeCR);
+				yield return GameController.StartCoroutine(infernalStrikeCR);
 			}
 			else
 			{
-				base.GameController.ExhaustCoroutine(infernalStrikeCR);
+				GameController.ExhaustCoroutine(infernalStrikeCR);
 			}
 
 			yield break;
@@ -129,7 +129,7 @@ namespace Angille.TheUndersiders
 				(Card c) => c.IsHero,
 				(Card c) => 1,
 				DamageType.Infernal,
-				numberOfTargets: base.H - 1,
+				numberOfTargets: Game.H - 1,
 				damageSourceInfo: new TargetInfo(
 					HighestLowestHP.LowestHP,
 					1,
@@ -138,13 +138,13 @@ namespace Angille.TheUndersiders
 				)
 			);
 
-			if (base.UseUnityCoroutines)
+			if (UseUnityCoroutines)
 			{
-				yield return base.GameController.StartCoroutine(dealDamageCR);
+				yield return GameController.StartCoroutine(dealDamageCR);
 			}
 			else
 			{
-				base.GameController.ExhaustCoroutine(dealDamageCR);
+				GameController.ExhaustCoroutine(dealDamageCR);
 			}
 
 			yield break;

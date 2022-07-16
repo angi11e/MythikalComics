@@ -28,16 +28,27 @@ namespace Angille.TheUndersiders
 			if (!base.Card.IsFlipped)
 			{
 				// The first time {RegentCharacter} is dealt damage by a target each turn, he deals that target 2 lightning damage.
+				AddSideTrigger(AddCounterDamageTrigger(
+					(DealDamageAction dda) => dda.Target == this.Card && dda.DidDealDamage,
+					() => this.Card,
+					() => this.Card,
+					oncePerTargetPerTurn: true,
+					2,
+					DamageType.Lightning
+				));
+				/* old version
 				AddSideTrigger(AddTrigger(
 					(DealDamageAction dd) =>
 						dd.Target == base.Card
 						&& dd.DidDealDamage
+						&& dd.DamageSource.IsTarget
 						&& !HasBeenSetToTrueThisTurn(HasBeenDealtDamage),
 					TaserSceptreResponse,
 					TriggerType.DealDamage,
 					TriggerTiming.After,
 					ActionDescription.DamageTaken
 				));
+				*/
 
 				// At the end of the villain turn, the hero with the least cards in their play area deals themself 2 melee damage.
 				AddSideTrigger(AddEndOfTurnTrigger(

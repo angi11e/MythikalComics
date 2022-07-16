@@ -24,6 +24,7 @@ namespace Angille.TheUndersiders
 		public override IEnumerator Play()
 		{
 			// Blade: Damage done while this card resolves is irreducible.
+			/* old version - new version is integrated into the deal damage CRs
 			if (IsEnabled("blade"))
 			{
 				MakeDamageIrreducibleStatusEffect effect = new MakeDamageIrreducibleStatusEffect();
@@ -40,6 +41,7 @@ namespace Angille.TheUndersiders
 					base.GameController.ExhaustCoroutine(makeIrreducibleCR);
 				}
 			}
+			*/
 
 			// Each villain character card deals the non-villain target with the highest HP 2 projectile damage, one at a time.
 			IEnumerator mainDamageCR = MultipleDamageSourcesDealDamage(
@@ -48,7 +50,8 @@ namespace Angille.TheUndersiders
 				1,
 				new LinqCardCriteria((Card c) => !c.IsVillain, "non-villain"),
 				2,
-				DamageType.Projectile
+				DamageType.Projectile,
+				IsEnabled("blade")
 			);
 
 			if (base.UseUnityCoroutines)
@@ -72,7 +75,8 @@ namespace Angille.TheUndersiders
 					1,
 					new LinqCardCriteria((Card c) => !c.IsVillain, "non-villain"),
 					1,
-					DamageType.Toxic
+					DamageType.Toxic,
+					IsEnabled("blade")
 				);
 
 				if (base.UseUnityCoroutines)

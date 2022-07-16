@@ -1,0 +1,435 @@
+﻿{
+	"name": "Cadaver",
+	"sortName": "Cadaver",
+	"kind": "VillainTeam",
+	"initialCardIdentifiers": [
+		"CadaverTeamCharacter"
+	],
+	"cards": [
+		{
+			"identifier": "CadaverTeamCharacter",
+			"count": 1,
+			"title": "Cadaver",
+			"keywords": [
+				"villain",
+				"haunt"
+			],
+			"icons": [
+				"EndOfTurnAction",
+				"DealDamageInfernal",
+				"PlayCardNow"
+			],
+			"advancedIcons": [
+				"Indestructible"
+			],
+			"challengeIcons": [
+				"ImmuneToDamageMelee",
+				"ImmuneToDamageProjectile"
+			],
+			"body": "Corrupted Conjurer",
+			"backgroundColor": "597881",
+			"foilBackgroundColor": "596148",
+			"character": true,
+			"hitpoints": 27,
+			"nemesisIdentifiers": [
+				"Angille.Theurgy"
+			],
+			"setup": [
+				"At the start of the game, {CadaverTeam} enters play “Corrupted Conjurer” side up.",
+				"{H - 3} copies of [i]Mesmerized Audience[/i] are put into play. The villain deck is shuffled."
+			],
+			"gameplay": [
+				"At the end of {CadaverTeam}'s turn, this card deals the hero with the most cards in play 2 infernal damage. Then, if there are no non-character targets in {CadaverTeam}'s play area, play the top card of {CadaverTeam}'s deck."
+			],
+			"advanced": "Villain Prop cards are indestructible.",
+			"challengeTitle": "Will of the Grave",
+			"challengeText": [
+				"Villain Haunt cards are immune to melee and projectile damage."
+			],
+			"flippedShowHitpoints": false,
+			"flippedBody": "Incapacitated",
+			"flippedKeywords": [
+
+			],
+			"flippedGameplay": [
+				"At the start of {CadaverTeam}'s turn, the hero target with the highest HP deals themself 2 psychic damage, then deals the hero target with the lowest HP 1 infernal damage."
+			],
+			"flippedIcons": [
+				"StartOfTurnAction",
+				"DealDamagePsychic",
+				"DealDamageInfernal"
+			],
+			"difficulty": 1,
+			"openingLines": {
+				"default": "Enjoy the show everyone's dying to see!",
+				"Angille.TheurgyCharacter": "Ah my dear Lynsey. Glad you could make it. Too bad nobody else will. Make it. That is.",
+				"Angille.TheurgyFateweaverCharacter": "Oh, you've learned some things, haven't you? Well you can't possibly upstage me!",
+				"Angille.SalemCharacter": "I love the new look! Join me, put on the greatest show!"
+			}
+		},
+		{
+			"identifier": "CadaverousHat",
+			"count": 1,
+			"title": "Cadaverous Hat",
+			"keywords": [
+				"ongoing",
+				"prop"
+			],
+			"icons": [
+				"ReduceDamageTaken",
+				"Discard"
+			],
+			"body": [
+				"Reduce damage dealt to haunt cards by 1.",
+				"Whenever a villain ongoing is destroyed, discard the top card of each hero deck.",
+				"At the end of their turn, a player may destroy one of their equipment cards. If they do so, destroy this card."
+			],
+			"flavorQuotes": [
+				{
+					"identifier": "DanaBertrand",
+					"text": "Who's his tailor?{BR}never mind, I don't care.{BR}That material's atrocious."
+				}
+			],
+			"flavorReference": "Dana Bertrand, a night to forget (sof #23)"
+		},
+		{
+			"identifier": "CadaverousWand",
+			"count": 1,
+			"title": "Cadaverous Wand",
+			"keywords": [
+				"ongoing",
+				"prop"
+			],
+			"icons": [
+				"IncreaseDamageDealt",
+				"DealDamageInfernal"
+			],
+			"body": [
+				"Increase damage dealt by haunt cards by 1.",
+				"Whenever a villain target is destroyed, {CadaverTeam} deals the hero target with the highest HP 1 infernal damage.",
+				"Whenever a villain character is incapacitated, destroy this card."
+			],
+			"flavorQuotes": [
+				{
+					"identifier": "Theurgy",
+					"text": "Ok, he's good. I have no{BR}clue how he's doing some of these."
+				}
+			],
+			"flavorReference": "Theurgy, Stage Fright (EC #15)"
+		},
+		{
+			"identifier": "CardChicanery",
+			"count": 2,
+			"title": "Card Chicanery",
+			"keywords": [
+				"one-shot"
+			],
+			"icons": [
+				"Manipulate",
+				"PlayCardNow",
+				"DealDamagePsychic",
+				"Discard"
+			],
+			"body": [
+				"Reveal the top card of each villain deck. Put any revealed targets into play and discard the rest. Targets that enter play this way deal themselves 1 irreducible psychic damage.",
+				"The player with the most cards in their trash shuffles their trash into their deck, then discards 2 cards."
+			],
+			"flavorQuotes": [
+				{
+					"identifier": "CadaverTeam",
+					"text": "Pick a card.{BR}Any card."
+				}
+			],
+			"flavorReference": "Cadaver, a night to forget (sof #23)"
+		},
+		{
+			"identifier": "DemonDon",
+			"count": 1,
+			"title": "Demon Don",
+			"hitpoints": 12,
+			"keywords": [
+				"nemesis"
+			],
+			"nemesisIdentifiers": [
+				"Angille.RedRifle"
+			],
+			"icons": [
+				"IncreaseDamageDealtInfernal",
+				"EndOfTurnAction",
+				"DealDamage",
+				"AddOrRemoveTokens"
+			],
+			"body": [
+				"Increase infernal damage by 1.",
+				"At the end of {CadaverTeam}'s turn, this card deals the hero target with the second highest HP 3 fire damage and 1 infernal damage.",
+				"If [i]Red Rifle[/i] is active in this game, he cannot add tokens to his trueshot pool."
+			],
+			"flavorQuotes": [
+				{
+					"identifier": "RedRifle",
+					"text": "Hey bud! Crime's a bad look.{BR}Demonic summoning is, frankly, worse."
+				}
+			],
+			"flavorReference": "Red Rifle, Seeing Red (EC #12)"
+		},
+		{
+			"identifier": "Ditch",
+			"count": 1,
+			"title": "Ditch",
+			"hitpoints": 6,
+			"keywords": [
+				"nemesis"
+			],
+			"nemesisIdentifiers": [
+				"Angille.Patina"
+			],
+			"icons": [
+				"ImmuneToDamageCold",
+				"EndOfTurnAction",
+				"DealDamageMelee",
+				"DestroyHero"
+			],
+			"body": [
+				"This card is immune to cold damage.",
+				"At the end of {CadaverTeam}'s turn, this card deals the 2 hero targets with the lowest HP {H - 2} melee damage. Then, if [i]Patina[/i] is active in this game, destroy 1 hero ongoing card and 1 hero equipment card."
+			],
+			"flavorQuotes": [
+				{
+					"identifier": "Patina",
+					"text": "He's flooded downtown.{BR}we have to get there. [b]fast.[/b]"
+				}
+			],
+			"flavorReference": "Patina, Last Ditch Effort (EC #17)"
+		},
+		{
+			"identifier": "DokuMogura",
+			"count": 1,
+			"title": "Doku Mogura",
+			"hitpoints": 12,
+			"keywords": [
+				"nemesis"
+			],
+			"nemesisIdentifiers": [
+				"Angille.WhatsHerFace"
+			],
+			"icons": [
+				"EndOfTurnAction",
+				"DealDamageToxic",
+				"DealDamageMelee",
+				"RedirectDamage"
+			],
+			"body": [
+				"At the end of {CadaverTeam}'s turn, this card deals each hero target 1 toxic and 1 melee damage.",
+				"If [i]What's-Her-Face[/i] is active in this game, the first time each turn this card would be dealt damage, redirect it to the villain target with the lowest HP outside of {CadaverTeam}'s play area."
+			],
+			"flavorQuotes": [
+				{
+					"identifier": "WhatsHerFace",
+					"text": "Great. earthquakes, and now{BR}ninja moles. w. t. f."
+				}
+			],
+			"flavorReference": "What's-Her-Face, First Day Tremors (EC #3)"
+		},
+		{
+			"identifier": "Gust",
+			"count": 1,
+			"title": "Gust",
+			"hitpoints": 3,
+			"keywords": [
+				"nemesis"
+			],
+			"nemesisIdentifiers": [
+				"Angille.NightMare"
+			],
+			"icons": [
+				"ReduceDamageTaken",
+				"EndOfTurnAction",
+				"DealDamageProjectile",
+				"Manipulate"
+			],
+			"body": [
+				"Reduce damage dealt to this card to 0.",
+				"At the end of {CadaverTeam}'s turn, this card deals X projectile damage to the hero character with the most cards in their hand, where X = the lower of {H + 1} or the number of cards in their hand.",
+				"If [i]NightMare[/i] is active in this game, whenever a card would be discarded move it to the bottom of its deck instead."
+			],
+			"flavorQuotes": [
+				{
+					"identifier": "NightMare",
+					"text": "I cannae hit this one!{BR}ye wanna take a try?"
+				}
+			],
+			"flavorReference": "NightMare, Just Swamped (EC #6)"
+		},
+		{
+			"identifier": "HypnoticPendulum",
+			"count": 1,
+			"title": "Hypnotic Pendulum",
+			"keywords": [
+				"ongoing",
+				"prop"
+			],
+			"icons": [
+				"Discard",
+				"PlayCardNow"
+			],
+			"body": [
+				"The first time each turn a hero card enters play, its player must either discard 2 cards or play the top card of a villain deck.",
+				"If a hero target deals itself damage, destroy this card."
+			],
+			"flavorQuotes": [
+				{
+					"identifier": "Bunker",
+					"text": "It's... so...{BR}[b]shiny...[/b]"
+				}
+			],
+			"flavorReference": "Tyler Vance, a night to forget (sof #23)"
+		},
+		{
+			"identifier": "KnifeSpinwheel",
+			"count": 2,
+			"title": "Knife Spinwheel",
+			"keywords": [
+				"one-shot"
+			],
+			"icons": [
+				"DealDamageProjectile"
+			],
+			"body": [
+				"{CadaverTeam} deals the hero target with the highest HP {H - 1} projectile damage.",
+				"[i]Lynne[/i] deals the hero target with the second highest HP {H - 1} projectile damage."
+			],
+			"flavorQuotes": [
+				{
+					"identifier": "TheWraith",
+					"text": "oh, so [b]that's[/b] what{BR}that feels like."
+				}
+			],
+			"flavorReference": "Maia Montgomery, a night to forget (sof #23)"
+		},
+		{
+			"identifier": "Lynne",
+			"count": 1,
+			"title": "Lynne",
+			"hitpoints": 8,
+			"keywords": [
+				"nemesis"
+			],
+			"nemesisIdentifiers": [
+				"Angille.Theurgy"
+			],
+			"icons": [
+				"GainHP",
+				"Manipulate",
+				"PlayCardNow",
+				"DealDamageLightning"
+			],
+			"body": [
+				"At the start of {CadaverTeam}'s turn, each target in his play area gains 2 HP.",
+				"At the end of {CadaverTeam}'s turn, reveal the top card of {CadaverTeam}'s deck. If it is a one-shot, put it into play. Otherwise, discard it.",
+				"If [i]Theurgy[/i] is active in this game, whenever a hero card is played outside that hero's play area, this card deals each hero target 1 lightning damage."
+			],
+			"flavorQuotes": [
+				{
+					"identifier": "CadaverTeam",
+					"text": "put your hands together{BR}for my lovely assistant,{BR}[b]Lynne![/b]"
+				}
+			],
+			"flavorReference": "Cadaver, Stage Fright (EC #15)"
+		},
+		{
+			"identifier": "MesmerizedAudience",
+			"count": 2,
+			"title": "Mesmerized Audience",
+			"keywords": [
+				"ongoing"
+			],
+			"icons": [
+				"ReduceDamageTaken",
+				"Manipulate",
+				"DealDamagePsychic"
+			],
+			"body": [
+				"Play this card in the villain play area with the fewest copies of this card.",
+				"Reduce damage dealt to targets in this play area by 2.",
+				"At the end of their turn, if a player has skipped their play and power phases, they may discard a card to destroy this card. If this card is destroyed any other way, each hero target deals itself 2 psychic damage."
+			],
+			"flavorQuotes": [
+				{
+					"identifier": "Lynne",
+					"text": "Any volunteers?{BR}Oh. [b]all[/b] of you?"
+				}
+			],
+			"flavorReference": "Lynne, a night to forget (sof #23)"
+		},
+		{
+			"identifier": "PhantomFright",
+			"count": 2,
+			"title": "Phantom Fright",
+			"hitpoints": 5,
+			"keywords": [
+				"haunt"
+			],
+			"icons": [
+				"DealDamageInfernal",
+				"DealDamagePsychic"
+			],
+			"body": [
+				"The first time each turn a hero target deals damage to a villain target, this card deals that hero target 1 infernal and 1 psychic damage."
+			],
+			"flavorQuotes": [
+				{
+					"identifier": "TheHarpy",
+					"text": "you ran into a [b]what!?[/b]{BR}I'm surprised you still have hair."
+				}
+			],
+			"flavorReference": "Pinion, Mist by an inch (EC #16)"
+		},
+		{
+			"identifier": "SawbladeTable",
+			"count": 2,
+			"title": "Sawblade Table",
+			"keywords": [
+				"one-shot"
+			],
+			"icons": [
+				"DealDamageMelee",
+				"Manipulate",
+				"PlayCardNow"
+			],
+			"body": [
+				"{CadaverTeam} deals the non-haunt target with the lowest HP 5 melee damage.",
+				"If that target is destroyed this way, reveal cards from the top of {CadaverTeam}'s deck until a haunt card is revealed. Put it into play. Shuffle the other revealed cards back into {CadaverTeam}'s deck."
+			],
+			"flavorQuotes": [
+				{
+					"identifier": "Legacy",
+					"text": "do you expect me to talk,{BR}mister cadaver?"
+				}
+			],
+			"flavorReference": "Felicia Fields, a night to forget (sof #23)"
+		},
+		{
+			"identifier": "SpectrousSpook",
+			"count": 2,
+			"title": "Spectrous Spook",
+			"hitpoints": 6,
+			"keywords": [
+				"haunt"
+			],
+			"icons": [
+				"DealDamageInfernal",
+				"DealDamageToxic"
+			],
+			"body": [
+				"The first time each turn a villain target deals damage to a hero target, this card deals that hero target 1 infernal and 1 toxic damage."
+			],
+			"flavorQuotes": [
+				{
+					"identifier": "Theurgy",
+					"text": "elementals. furries.{BR}demons. dough monsters.{BR}ghosts seem almost tame now."
+				}
+			],
+			"flavorReference": "Theurgy, Stage Fright (EC #15)"
+		}
+	]
+}

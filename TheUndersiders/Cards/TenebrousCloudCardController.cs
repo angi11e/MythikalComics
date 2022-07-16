@@ -25,13 +25,6 @@ namespace Angille.TheUndersiders
 			return IsEnabled("skull") && card == base.Card;
 		}
 
-		/* is this necessary?
-		public override bool CanBeDestroyed
-		{
-			get { return !IsEnabled("skull"); }
-		}
-		*/
-
 		public override void AddTriggers()
 		{
 			// Reduce HP recovery for hero targets by 1.

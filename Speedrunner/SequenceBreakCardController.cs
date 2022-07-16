@@ -9,7 +9,7 @@ namespace Angille.Speedrunner
 	public class SequenceBreakCardController : SpeedrunnerBaseCardController
 	{
 		/*
-		 * Whenever a Hero target would be dealt damage by a non-hero card,
+		 * When a Hero target other than {Speedrunner} would be dealt damage by a non-hero card,
 		 *  you may redirect it to {Speedrunner}. If you do, one player may draw a card.
 		 * When this card is destroyed, one player may play a card.
 		 * At the start of your turn, destroy this card.
@@ -24,11 +24,13 @@ namespace Angille.Speedrunner
 
 		public override void AddTriggers()
 		{
-			// Whenever a Hero target would be dealt damage by a non-hero card, you may redirect it to {Speedrunner}.
+			// When a Hero target other than {Speedrunner} would be dealt damage by a non-hero card,
+			// you may redirect it to {Speedrunner}.
 			// If you do, one player may draw a card.
 			AddTrigger(
 				(DealDamageAction dd) =>
 					dd.Target.IsHero
+					&& dd.Target != this.CharacterCard
 					&& !dd.DamageSource.IsHero
 					&& dd.Amount > 0,
 				RedirectResponse,
@@ -62,10 +64,11 @@ namespace Angille.Speedrunner
 			var storedYesNo = new List<YesNoCardDecision> { };
 			IEnumerator yesOrNoCR = GameController.MakeYesNoCardDecision(
 				DecisionMaker,
-				SelectionType.RedirectDamage,
+				SelectionType.RedirectDamageDirectedAtTarget,
 				dda.Target,
 				action: dda,
 				storedResults: storedYesNo,
+				associatedCards: new List<Card> { this.CharacterCard },
 				cardSource: GetCardSource()
 			);
 			if (UseUnityCoroutines)
@@ -80,10 +83,10 @@ namespace Angille.Speedrunner
 			if (DidPlayerAnswerYes(storedYesNo))
 			{
 				// If you do so...
-				IEnumerator redirectCR = RedirectDamage(
+				IEnumerator redirectCR = GameController.RedirectDamage(
 					dda,
-					TargetType.All,
-					(Card c) => c == this.CharacterCard
+					this.CharacterCard,
+					cardSource: GetCardSource()
 				);
 				IEnumerator drawCR = GameController.SelectHeroToDrawCard(
 					DecisionMaker,

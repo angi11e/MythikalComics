@@ -11,7 +11,7 @@ namespace Angille.Theurgy
 		// Theurgy deals 1 target 3 projectile damage.
 		// That target deals up to X targets 2 melee damage,
 		//  where X = the number of charm cards in play plus 1.
-		// Destroy a [u]charm[/u] card.
+		// You may destroy a [u]charm[/u] card.
 
 		public TrapDoorCardController(
 			Card card,
@@ -78,11 +78,11 @@ namespace Angille.Theurgy
 				}
 			}
 
-			// Destroy a [u]charm[/u] card.
+			// You may destroy a [u]charm[/u] card.
 			IEnumerator destroyCR = GameController.SelectAndDestroyCard(
 				DecisionMaker,
 				IsCharmCriteria(),
-				false,
+				true,
 				cardSource: GetCardSource()
 			);
 

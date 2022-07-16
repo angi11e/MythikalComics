@@ -65,6 +65,22 @@
     <Compile Include="Athena\AthenaTurnTakerController.cs" />
     <Compile Include="Athena\AdamantSpearCardController.cs" />
     <Compile Include="Athena\AthenaBaseCardController.cs" />
+    <Compile Include="CadaverTeam\CadaverousWandCardController.cs" />
+    <Compile Include="CadaverTeam\CardChicaneryCardController.cs" />
+    <Compile Include="CadaverTeam\DemonDonCardController.cs" />
+    <Compile Include="CadaverTeam\DitchCardController.cs" />
+    <Compile Include="CadaverTeam\DokuMoguraCardController.cs" />
+    <Compile Include="CadaverTeam\HypnoticPendulumCardController.cs" />
+    <Compile Include="CadaverTeam\SpectrousSpookCardController.cs" />
+    <Compile Include="CadaverTeam\SawbladeTableCardController.cs" />
+    <Compile Include="CadaverTeam\PhantomFrightCardController.cs" />
+    <Compile Include="CadaverTeam\MesmerizedAudienceCardController.cs" />
+    <Compile Include="CadaverTeam\LynneCardController.cs" />
+    <Compile Include="CadaverTeam\KnifeSpinwheelCardController.cs" />
+    <Compile Include="CadaverTeam\GustCardController.cs" />
+    <Compile Include="CadaverTeam\CadaverousHatCardController.cs" />
+    <Compile Include="CadaverTeam\CadaverTeamCharacterCardController.cs" />
+    <Compile Include="CadaverTeam\CadaverTeamTurnTakerController.cs" />
     <Compile Include="NightMare\BringAnotherCardController.cs" />
     <Compile Include="NightMare\CowabungaItIsCardController.cs" />
     <Compile Include="NightMare\DynamicEntryCardController.cs" />
@@ -81,6 +97,8 @@
     <Compile Include="NightMare\ReinedCombatCardController.cs" />
     <Compile Include="NightMare\StampedeCardController.cs" />
     <Compile Include="NightMare\TwoTrickPonyCardController.cs" />
+    <Compile Include="Patina\VerdigrisCharacterCardController.cs" />
+    <Compile Include="Patina\InternPatinaCharacterCardController.cs" />
     <Compile Include="Patina\SurgeWaveCardController.cs" />
     <Compile Include="Patina\PatinaBaseCardController.cs" />
     <Compile Include="Patina\UndertowCardController.cs" />
@@ -118,6 +136,7 @@
     <Compile Include="RedRifle\SituationalAwarenessCardController.cs" />
     <Compile Include="RedRifle\TechNerdCardController.cs" />
     <Compile Include="RedRifle\YellingInformationCardController.cs" />
+    <Compile Include="Speedrunner\GunClubSpeedrunnerCharacterCardController.cs" />
     <Compile Include="Speedrunner\TurboControllerCardController.cs" />
     <Compile Include="Speedrunner\TASCardController.cs" />
     <Compile Include="Speedrunner\SequenceBreakCardController.cs" />
@@ -201,6 +220,7 @@
     <Compile Include="WhatsHerFace\WatchYourStepCardController.cs" />
     <Compile Include="WhatsHerFace\WhatsHerFaceBaseCardController.cs" />
     <Compile Include="WhatsHerFace\WhatsHerFaceBaseCharacterCardController.cs" />
+    <Compile Include="WhatsHerFace\UmbraCharacterCardController.cs" />
     <Compile Include="WhatsHerFace\WhatsHerFaceGadgeteerCharacterCardController.cs" />
     <Compile Include="WhatsHerFace\WhatsHerFaceCharacterCardController.cs" />
     <Compile Include="WhatsHerFace\WhatsHerFaceTurnTakerController.cs" />
@@ -240,6 +260,9 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="DeckLists\SpeedrunnerDeckList.json" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="DeckLists\CadaverTeamDeckList.json" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

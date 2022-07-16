@@ -9,7 +9,7 @@ namespace Angille.Speedrunner
 	public class NoClippingCardController : SpeedrunnerBaseCardController
 	{
 		/*
-		 * Destroy 1 environment card.
+		 * You may destroy 1 environment card.
 		 * If you do so, {Speedrunner} regains 2 HP.
 		 * If not, play the top card of the environment deck, then you may use a power.
 		 */
@@ -23,12 +23,12 @@ namespace Angille.Speedrunner
 
 		public override IEnumerator Play()
 		{
-			// Destroy 1 environment card.
+			// You may destroy 1 environment card.
 			List<DestroyCardAction> storedResults = new List<DestroyCardAction>();
 			IEnumerator destroyCR = GameController.SelectAndDestroyCard(
 				DecisionMaker,
 				new LinqCardCriteria((Card c) => c.IsEnvironment, "environment"),
-				false,
+				true,
 				storedResults,
 				cardSource: GetCardSource()
 			);

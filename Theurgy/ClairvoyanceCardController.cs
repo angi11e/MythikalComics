@@ -10,7 +10,7 @@ namespace Angille.Theurgy
 	{
 		// Reveal X cards from the top of any deck, where X = the number of charm cards in play plus 1.
 		// Put them back in any order.
-		// Destroy a [u]charm[/u] card.
+		// You may estroy a [u]charm[/u] card.
 
 		public ClairvoyanceCardController(
 			Card card,
@@ -93,7 +93,7 @@ namespace Angille.Theurgy
 			IEnumerator destroyCR = GameController.SelectAndDestroyCard(
 				DecisionMaker,
 				IsCharmCriteria(),
-				false,
+				true,
 				cardSource: GetCardSource()
 			);
 

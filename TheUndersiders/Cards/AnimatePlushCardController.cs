@@ -36,6 +36,7 @@ namespace Angille.TheUndersiders
 			AddTrigger(
 				(DealDamageAction dd) =>
 					!IsPropertyTrue(FirstDamageToThis)
+					&& dd.Target == this.Card
 					&& dd.DidDealDamage,
 				RedirectResponse,
 				TriggerType.RedirectDamage,

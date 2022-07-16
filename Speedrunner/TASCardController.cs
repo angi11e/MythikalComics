@@ -33,12 +33,12 @@ namespace Angille.Speedrunner
 
 		public override IEnumerator UsePower(int index = 0)
 		{
-			List<SelectTurnTakerDecision> thePlayers = new List<SelectTurnTakerDecision>();
+			List<SelectTurnTakerDecision> storedTurnTaker = new List<SelectTurnTakerDecision>();
 
 			// One player may draw a card...
 			IEnumerator drawCR = GameController.SelectHeroToDrawCard(
 				DecisionMaker,
-				storedResults: thePlayers,
+				storedResults: storedTurnTaker,
 				cardSource: GetCardSource()
 			);
 
@@ -50,14 +50,16 @@ namespace Angille.Speedrunner
 			{
 				GameController.ExhaustCoroutine(drawCR);
 			}
+			TurnTaker firstTT = storedTurnTaker.FirstOrDefault().SelectedTurnTaker;
 
 			// ...a second player may play a card...
+			storedTurnTaker = new List<SelectTurnTakerDecision>();
 			IEnumerator playCR = GameController.SelectHeroToPlayCard(
 				DecisionMaker,
 				additionalCriteria: new LinqTurnTakerCriteria(
-					(TurnTaker tt) => !thePlayers.Select((SelectTurnTakerDecision sttd) => sttd.SelectedTurnTaker).Contains(tt)
+					(TurnTaker tt) => tt != firstTT
 				),
-				storedResultsTurnTaker: thePlayers,
+				storedResultsTurnTaker: storedTurnTaker,
 				cardSource: GetCardSource()
 			);
 
@@ -69,13 +71,15 @@ namespace Angille.Speedrunner
 			{
 				GameController.ExhaustCoroutine(playCR);
 			}
+			TurnTaker secondTT = storedTurnTaker.FirstOrDefault().SelectedTurnTaker;
 
 			// ...and a third player may use a power.
+			storedTurnTaker = new List<SelectTurnTakerDecision>();
 			IEnumerator powerCR = GameController.SelectHeroToUsePower(
 				DecisionMaker,
-				storedResultsDecision: thePlayers,
+				storedResultsDecision: storedTurnTaker,
 				additionalCriteria: new LinqTurnTakerCriteria(
-					(TurnTaker tt) => !thePlayers.Select((SelectTurnTakerDecision sttd) => sttd.SelectedTurnTaker).Contains(tt)
+					(TurnTaker tt) => tt != firstTT && tt != secondTT
 				),
 				cardSource: GetCardSource()
 			);

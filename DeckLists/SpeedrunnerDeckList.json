@@ -24,7 +24,7 @@
 			],
 			"hitpoints": 25,
 			"nemesisIdentifiers": [
-				"Parse"
+				"Angille.Speedrunner"
 			],
 			"incapacitatedAbilities": [
 				"One Player may Play a card now.",
@@ -38,13 +38,14 @@
 				"Manipulate"
 			],
 			"openingLines": {
-				"default": "going for a pb this time, don't forget to subscribe!"
+				"default": "going for a pb this time, don't forget to subscribe!",
+				"Menagerie.UnmuteCharacter": "you're not wrong. hey wait. do you see aiden too? he's a wizard with clippers and shears."
 			},
 			"complexity": 3
 		},
 		{
 			"identifier": "ArbitraryCodeExecution",
-			"count": 3,
+			"count": 2,
 			"title": "Arbitrary Code Execution",
 			"keywords": [
 				"ongoing",
@@ -52,11 +53,11 @@
 				"glitch"
 			],
 			"body": [
-				"When this card enters play, put one one-shot card from each trash under it.",
-				"When this card is destroyed, first play each card from under it, in any order."
+				"When this card enters play, put a one-shot card from each trash under it.",
+				"When this card is destroyed, first put each card from under it into play, in any order."
 			],
 			"powers": [
-				"Put 1 card from your hand under this card. Destroy this card."
+				"Put 1 one-shot card from your hand under this card. Destroy this card."
 			],
 			"icons": [
 				"Manipulate",
@@ -76,7 +77,7 @@
 				"strat"
 			],
 			"body": [
-				"When {Speedrunner} would be dealt damage, you may redirect that damage to the villain target with the lowest HP. If you do so, you may either increase it by 2, draw 1 card, or play 1 card. Then destroy this card."
+				"When {Speedrunner} would be dealt damage, you may redirect that damage to the villain target with the lowest HP. If you do, either increase it by 2, draw 1 card, or play 1 card. Then destroy this card."
 			],
 			"powers": [
 				"{Speedrunner} deals 1 target 1 irreducible melee damage. This damage cannot be redirected."
@@ -92,8 +93,8 @@
 		},
 		{
 			"identifier": "HalfAPress",
-			"count": 3,
-			"title": "Half A Press",
+			"count": 2,
+			"title": "Half A-Press",
 			"keywords": [
 				"ongoing",
 				"limited",
@@ -101,7 +102,7 @@
 			],
 			"body": [
 				"When you move a card to your trash, place it under this card instead. When you use a power or draw a card, add 1 token to this card.",
-				"When this card is destroyed, {Speedrunner} deals 1 target X projectile damage, and that target deals {Speedrunner} Y radiant damage, where X = the number of cards under this one, and Y = the number of tokens on this card."
+				"When this card is destroyed, {Speedrunner} deals 1 target projectile damage equal to the number of cards under this card, then that target deals {Speedrunner} radiant damage equal to the number of tokens on this card."
 			],
 			"powers": [
 				"Destroy this card."
@@ -118,7 +119,9 @@
 					"name": "Half A Press Pool",
 					"initialValue": 0,
 					"minimumValue": 0,
-					"color": "EE1100"
+					"labelTopColor": "91022D",
+					"labelBottomColor": "D1426D",
+					"icon": "Angille.AButton"
 				}
 			],
 			"flavorText": "“The existence of quad-parallel{BR}universes is only theoretical.”",
@@ -126,8 +129,8 @@
 		},
 		{
 			"identifier": "HOTAS",
-			"count": 2,
-			"title": "HOTAS",
+			"count": 3,
+			"title": "H.O.T.A.S.",
 			"keywords": [
 				"equipment",
 				"limited"
@@ -168,7 +171,7 @@
 				"When this card enters play, draw 2 cards."
 			],
 			"powers": [
-				"Discard any number of cards. Deal 1 target 2 energy damage, plus 1 for each card discarded this way."
+				"Discard any number of cards. {Speedrunner} deals 1 target X energy damage, where X = the number of cards discarded this way plus 2."
 			],
 			"icons": [
 				"DrawCardNow",
@@ -190,7 +193,7 @@
 		},
 		{
 			"identifier": "InventoryOverrun",
-			"count": 3,
+			"count": 4,
 			"title": "Inventory Overrun",
 			"keywords": [
 				"one-shot",
@@ -207,7 +210,7 @@
 			"flavorQuotes": [
 				{
 					"identifier": "Benchmark",
-					"text": "what does ‘idkfa’ mean?"
+					"text": "what does 'idkfa’ mean?"
 				},
 				{
 					"identifier": "Speedrunner",
@@ -225,7 +228,7 @@
 				"glitch"
 			],
 			"body": [
-				"Destroy 1 environment card. If you do so, {Speedrunner} regains 2 HP. If not, play the top card of the environment deck, then you may use a power."
+				"You may destroy an environment card. If you do, {Speedrunner} regains 2 HP. If not, play the top card of the environment deck, then you may use a power."
 			],
 			"icons": [
 				"DestroyEnvironment",
@@ -248,7 +251,7 @@
 				"Reduce damage dealt to {Speedrunner} by 1."
 			],
 			"powers": [
-				"Discard a glitch or strat card. Search your deck for a card with the chosen keyword and either put it in your hand or into play, then shuffle your deck."
+				"Choose glitch or strat. Discard a card with that keyword. If you do, search your deck for a card with that keyword, put it in your hand or into play, then shuffle your deck."
 			],
 			"icons": [
 				"ReduceDamageTaken",
@@ -269,10 +272,10 @@
 				"glitch"
 			],
 			"body": [
-				"When this card enters play, move the top card of the environment deck under it. Then {Speedrunner} deals 1 target 2 psychic damage."
+				"When this card enters play, reveal the top card of the environment deck and place it under this card. Then {Speedrunner} deals 1 target 2 psychic damage."
 			],
 			"powers": [
-				"Swap the locations of an environment card in play with a card under this card. Then {Speedrunner} deals 1 target 2 psychic damage."
+				"Move an environment card in play under this card. If you do, put a different card from under this card into play. If you do, {Speedrunner} deals 1 target 2 psychic damage."
 			],
 			"icons": [
 				"Manipulate",
@@ -292,8 +295,8 @@
 			],
 			"body": [
 				"Draw a card. Discard a card. Play a card.",
-				"Draw a card. Discard a card. Play a card.",
-				"One player other than {Speedrunner} may use a power now."
+				"{Speedrunner} may deal zirself 2 irreducible melee damage. If ze does, repeat the above text.",
+				"Another player may use a power now."
 			],
 			"icons": [
 				"DrawCardNow",
@@ -323,7 +326,7 @@
 			],
 			"body": [
 				"Discard your hand.",
-				"Draw 5 cards.",
+				"Draw 4 cards.",
 				"Play 1 card.",
 				"{Speedrunner} regains 2 HP."
 			],
@@ -333,13 +336,13 @@
 				"PlayCardNow",
 				"GainHP"
 			],
-			"flavorText": "“I quit.{br}No I don't.{br}just faster to reload.”",
+			"flavorText": "“I quit.{br}Ha, no I don't.{br}it's just faster to reload.”",
 			"flavorReference": "Speedrunner, AGDQ 2018"
 		},
 		{
 			"identifier": "RNGManipulation",
 			"count": 2,
-			"title": "RNG Manipulation",
+			"title": "R.N.G. Manipulation",
 			"keywords": [
 				"ongoing",
 				"limited",
@@ -371,7 +374,7 @@
 				"glitch"
 			],
 			"body": [
-				"Whenever a Hero target would be dealt damage by a non-hero card, you may redirect it to {Speedrunner}. If you do, one player may draw a card.",
+				"When a Hero target other than {Speedrunner} would be dealt damage by a non-hero card, you may redirect it to {Speedrunner}. If you do, one player may draw a card.",
 				"When this card is destroyed, one player may play a card.",
 				"At the start of your turn, destroy this card."
 			],
@@ -387,7 +390,7 @@
 		{
 			"identifier": "TAS",
 			"count": 2,
-			"title": "TAS",
+			"title": "T.A.S.",
 			"keywords": [
 				"equipment",
 				"limited"
@@ -416,11 +419,10 @@
 				"limited"
 			],
 			"body": [
-				"If you play a card outside of your play phase, you may draw a card.",
-				"If you use a power outside of your power phase, {Speedrunner} deals 1 target 2 fire damage."
+				"When you play a card outside of your play phase, you may draw a card. When you use a power outside of your power phase, {Speedrunner} deals 1 target 2 fire damage."
 			],
 			"powers": [
-				"{Speedrunner} deals 1 target 1 melee damage X times, where X = the number of your glitch and strat cards in play."
+				"{Speedrunner} deals 1 target 1 melee damage X times, where X = the number of your glitch and strat cards in play. If this damage destroys that target, destroy this card."
 			],
 			"icons": [
 				"PlayCardNow",
@@ -433,5 +435,44 @@
 		}
 	],
 	"promoCards": [
+		{
+			"identifier": "SpeedrunnerCharacter",
+			"promoIdentifier": "GunClubSpeedrunnerCharacter",
+			"count": 1,
+			"title": "Speedrunner",
+			"promoTitle": "Gun Club Speedrunner",
+			"body": "aimbot",
+			"icons": [
+				"HasPower",
+				"DealDamageProjectile",
+				"MakeDamageUnredirectable",
+				"MakeDamageIrreducible"
+			],
+			"backgroundColor": "A29CCD",
+			"foilBackgroundColor": "522F85",
+			"hitpointsColor": "522F85",
+			"character": true,
+			"powers": [
+				"Until the start of your next turn, when {Speedrunner} would be dealt damage by a target, ze first deals that target 1 projectile damage."
+			],
+			"hitpoints": 26,
+			"nemesisIdentifiers": [
+				"Angille.Speedrunner"
+			],
+			"incapacitatedAbilities": [
+				"One hero may use a power.",
+				"Until the start of your turn, increase all projectile damage by 2.",
+				"Put one card from the villain or environment trash into play."
+			],
+			"flippedIcons": [
+				"UsePowerNow",
+				"IncreaseDamageDealtProjectile",
+				"PlayCardNow"
+			],
+			"complexity": 3,
+			"openingLines": {
+				"default": "if you don't have perfect reflexes, store bought is fine."
+			}
+		}
 	]
 }

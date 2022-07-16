@@ -10,7 +10,7 @@ namespace Angille.Theurgy
 	{
 		// Draw X cards, where X = the number of [u]charm[/u] cards in play plus 1.
 		// if {Theurgy} has no [u]charm[/u] cards in her play area, play a card.
-		// Destroy a [u]charm[/u] card.
+		// You may destroy a [u]charm[/u] card.
 
 		public DelightInDiscoveryCardController(
 			Card card,
@@ -50,11 +50,11 @@ namespace Angille.Theurgy
 				}
 			}
 
-			// Destroy a [u]charm[/u] card.
+			// You may destroy a [u]charm[/u] card.
 			IEnumerator destroyCR = base.GameController.SelectAndDestroyCard(
 				DecisionMaker,
 				IsCharmCriteria(),
-				false,
+				true,
 				cardSource: GetCardSource()
 			);
 

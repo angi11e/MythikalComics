@@ -13,7 +13,7 @@ namespace Angille.Speedrunner
 		 * When this card is destroyed, first play each card from under it, in any order.
 		 * 
 		 * POWER
-		 * Put 1 card from your hand under this card. Destroy this card.
+		 * Put 1 one-shot card from your hand under this card. Destroy this card.
 		 */
 
 		public ArbitraryCodeExecutionCardController(
@@ -69,6 +69,7 @@ namespace Angille.Speedrunner
 			// ...first play each card from under it, in any order.
 			while (this.Card.UnderLocation.Cards.Count() > 0)
 			{
+				int cardCheck = this.Card.UnderLocation.Cards.Count();
 				IEnumerator playCR = GameController.SelectCardFromLocationAndMoveIt(
 					DecisionMaker,
 					this.Card.UnderLocation,
@@ -85,6 +86,11 @@ namespace Angille.Speedrunner
 				{
 					GameController.ExhaustCoroutine(playCR);
 				}
+
+				if (this.Card.UnderLocation.Cards.Count() == cardCheck)
+				{
+					break;
+				}
 			}
 
 			yield break;
@@ -94,13 +100,13 @@ namespace Angille.Speedrunner
 		{
 			int extraNumeral = GetPowerNumeral(0, 1);
 
-			// Put 1 card from your hand under this card.
+			// Put 1 one-shot card from your hand under this card.
 			IEnumerator moveCardCR = GameController.SelectCardsFromLocationAndMoveThem(
 				DecisionMaker,
 				this.HeroTurnTaker.Hand,
 				extraNumeral,
 				extraNumeral,
-				new LinqCardCriteria((Card c) => true),
+				new LinqCardCriteria((Card c) => c.IsOneShot),
 				new MoveCardDestination[] { new MoveCardDestination(this.Card.UnderLocation) },
 				cardSource: GetCardSource()
 			);

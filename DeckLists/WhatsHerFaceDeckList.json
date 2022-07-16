@@ -24,7 +24,7 @@
 			],
 			"hitpoints": 25,
 			"nemesisIdentifiers": [
-				"Setback"
+				"Angille.WhatsHerFace"
 			],
 			"incapacitatedAbilities": [
 				"One Player may draw a card.",
@@ -37,7 +37,7 @@
 				"ReduceDamageTaken"
 			],
 			"openingLines": {
-				"default": ""
+				"default": "don't remember me? that's ok, you still won't even after we beat you."
 			},
 			"complexity": 2
 		},
@@ -63,8 +63,8 @@
 				"DrawCardNow",
 				"DealDamageMelee"
 			],
-			"flavorText": "“”",
-			"flavorReference": ""
+			"flavorText": "“ms. montgomery asked me to{BR}give you this access card.”",
+			"flavorReference": "intern, Seeing Red (EC #12)"
 		},
 		{
 			"identifier": "AntiAntimemetics",
@@ -84,8 +84,17 @@
 				"RedirectDamage",
 				"DestroySelf"
 			],
-			"flavorText": "“”",
-			"flavorReference": ""
+			"flavorQuotes": [
+				{
+					"identifier": "WhatsHerFace",
+					"text": "so if I{BR}'tug' on this 'string'..."
+				},
+				{
+					"identifier": "Theurgy",
+					"text": "oh. all eyes on [b]you[/b]. wild!"
+				}
+			],
+			"flavorReference": "Crystal Chronicles (EC #11)"
 		},
 		{
 			"identifier": "CheckYourTarget",
@@ -104,8 +113,8 @@
 				"RedirectDamage",
 				"Manipulate"
 			],
-			"flavorText": "“”",
-			"flavorReference": ""
+			"flavorText": "“What are you [b]doing[/b],{BR}you imbecile!?”",
+			"flavorReference": "Bogan Croc, Knead to Know (EC #14)"
 		},
 		{
 			"identifier": "FlourishAndVanish",
@@ -125,8 +134,8 @@
 				"GainHP",
 				"DrawCardNow"
 			],
-			"flavorText": "“”",
-			"flavorReference": ""
+			"flavorText": "“really!?{BR}she was [b]just[/b] here!”",
+			"flavorReference": "Green, Elementary (EC #4)"
 		},
 		{
 			"identifier": "ForgotAboutHer",
@@ -146,8 +155,8 @@
 				"ImmuneToDamage",
 				"DestroySelf"
 			],
-			"flavorText": "“”",
-			"flavorReference": ""
+			"flavorText": "“ain't nobody here, boss.”",
+			"flavorReference": "a river pirate, Fish Out of Water (EC #13)"
 		},
 		{
 			"identifier": "JustWhatYouNeeded",
@@ -164,8 +173,8 @@
 			"icons": [
 				"Search"
 			],
-			"flavorText": "“”",
-			"flavorReference": ""
+			"flavorText": "“a... carrot peeler?{BR}[b]yes![/b] a carrot peeler!”",
+			"flavorReference": "Guise, Best Halloween Ever One-shot"
 		},
 		{
 			"identifier": "LostAndForgotten",
@@ -184,8 +193,17 @@
 				"RemoveFromGame",
 				"Manipulate"
 			],
-			"flavorText": "“”",
-			"flavorReference": ""
+			"flavorQuotes": [
+				{
+					"identifier": "Patina",
+					"text": "is... is that everyone?"
+				},
+				{
+					"identifier": "NightMare",
+					"text": "Aye. looks it."
+				}
+			],
+			"flavorReference": "Last Ditch Effort (EC #17)"
 		},
 		{
 			"identifier": "MissedByThatMuch",
@@ -203,8 +221,8 @@
 			"icons": [
 				"DestroySelf"
 			],
-			"flavorText": "“”",
-			"flavorReference": ""
+			"flavorText": "“those things are [b]not[/b]{BR}messing around.”",
+			"flavorReference": "What's-Her-Face, Science Fair (EC #8)"
 		},
 		{
 			"identifier": "NotQuiteSureWhatThisDoes",
@@ -222,8 +240,8 @@
 				"Manipulate",
 				"DrawCardNow"
 			],
-			"flavorText": "“”",
-			"flavorReference": ""
+			"flavorText": "“it'll either neutralize the{BR}radiation, or... make it worse.{BR}either way, problem solved?”",
+			"flavorReference": "What's-Her-Face, Mist By an Inch (EC #16)"
 		},
 		{
 			"identifier": "PullThePins",
@@ -239,8 +257,8 @@
 				"DestroyOngoing",
 				"DealDamageFire"
 			],
-			"flavorText": "“”",
-			"flavorReference": ""
+			"flavorText": "“they won't know what hit them.”",
+			"flavorReference": "What's-Her-Face, Demonology (EC #10)"
 		},
 		{
 			"identifier": "SubtleInfluence",
@@ -261,8 +279,8 @@
 				"IncreaseDamageTaken",
 				"ReduceDamageDealt"
 			],
-			"flavorText": "“”",
-			"flavorReference": ""
+			"flavorText": "“remember your training!{BR}they are but children.”",
+			"flavorReference": "Doku Mogura, First Day Tremors (EC #3)"
 		},
 		{
 			"identifier": "ThoroughAnalysis",
@@ -283,8 +301,8 @@
 				"DealDamagePsychic",
 				"Manipulate"
 			],
-			"flavorText": "“”",
-			"flavorReference": ""
+			"flavorText": "“why a pawn shop?{BR}what are these demons taking?”",
+			"flavorReference": "What's-Her-Face, Major Imp-ediment (EC #9)"
 		},
 		{
 			"identifier": "VisualCalculus",
@@ -302,8 +320,17 @@
 			"icons": [
 				"Manipulate"
 			],
-			"flavorText": "“”",
-			"flavorReference": ""
+			"flavorQuotes": [
+				{
+					"identifier": "What's-Her-Face",
+					"text": "those robots{BR}came from somewhere."
+				},
+				{
+					"identifier": "NightMare",
+					"text": "follow th' trail then. got it."
+				}
+			],
+			"flavorReference": "Playing Hooky (EC #1)"
 		},
 		{
 			"identifier": "WatchYourStep",
@@ -318,8 +345,8 @@
 			"icons": [
 				"DealDamageMelee"
 			],
-			"flavorText": "“”",
-			"flavorReference": ""
+			"flavorText": "“you can't just go--{BR}[b]whaaaa!!!![/b]”",
+			"flavorReference": "Steel, Book Report (EC #5)"
 		},
 		{
 			"identifier": "WhereDidSheComeFrom",
@@ -340,8 +367,17 @@
 				"DealDamageProjectile",
 				"DestroySelf"
 			],
-			"flavorText": "“”",
-			"flavorReference": ""
+			"flavorQuotes": [
+				{
+					"identifier": "mob goon",
+					"text": "what... even are you?"
+				},
+				{
+					"identifier": "Umbra",
+					"text": "your fear. your dread."
+				}
+			],
+			"flavorReference": "Part Timers (EC #7)"
 		}
 	],
 	"promoCards": [
@@ -362,11 +398,11 @@
 			"hitpointsColor": "779999",
 			"character": true,
 			"powers": [
-				"Destroy a [u]recall[/u] card. If you do so, deal 1 target 3 sonic damage."
+				"Destroy a [u]recall[/u] card. If you do so, {WhatsHerFace} deals 1 target 3 sonic damage."
 			],
 			"hitpoints": 27,
 			"nemesisIdentifiers": [
-				"TheWraith"
+				"Angille.WhatsHerFace"
 			],
 			"incapacitatedAbilities": [
 				"Move an equipment card from a hero trash into play.",
@@ -381,7 +417,46 @@
 			],
 			"complexity": 2,
 			"openingLines": {
-				"default": ""
+				"default": "time to see what all these new toys can do."
+			}
+		},
+		{
+			"identifier": "WhatsHerFaceCharacter",
+			"promoIdentifier": "UmbraCharacter",
+			"count": 1,
+			"title": "Umbra",
+			"promoTitle": "Umbra",
+			"body": "envelop",
+			"icons": [
+				"HasPower",
+				"DrawCardNow",
+				"PlayCardNow"
+			],
+			"backgroundColor": "4E7086",
+			"foilBackgroundColor": "4E7086",
+			"hitpointsColor": "314655",
+			"character": true,
+			"powers": [
+				"Reveal the top 2 cards of your deck. Play 1 of them and put the rest in your hand."
+			],
+			"hitpoints": 26,
+			"nemesisIdentifiers": [
+				"Angille.WhatsHerFace"
+			],
+			"incapacitatedAbilities": [
+				"Discard the top 3 cards of 1 deck.",
+				"Select a target. Increase the next damage dealt to that target by 1 and reduce the next damage dealt by that target by 1.",
+				"Destroy up to two ongoing cards. Only one may be a villain card."
+			],
+			"flippedIcons": [
+				"Search",
+				"Discard",
+				"DrawCardNow",
+				"ReduceDamageTaken"
+			],
+			"complexity": 2,
+			"openingLines": {
+				"default": "I am shadow. even light just ends up making more shadow. too bad for you."
 			}
 		}
 	]

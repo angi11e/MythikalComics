@@ -32,6 +32,7 @@ namespace Angille.Athena
 			AddCounterDamageTrigger(
 				(DealDamageAction dd) =>
 					dd.Target == base.CharacterCard
+					&& dd.DamageSource.IsTarget
 					&& !dd.DamageSource.IsHero
 					&& dd.DidDealDamage
 					&& AspectInPlay,

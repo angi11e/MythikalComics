@@ -25,7 +25,7 @@
 			],
 			"hitpoints": 27,
 			"nemesisIdentifiers": [
-				"NightMist"
+				"Angille.Theurgy"
 			],
 			"incapacitatedAbilities": [
 				"One player may draw a card.",
@@ -38,7 +38,8 @@
 				"Manipulate"
 			],
 			"openingLines": {
-				"default": "I've already seen your defeat through the Tapestry."
+				"default": "I've already seen your defeat through the Tapestry.",
+				"Angille.CadaverTeamCharacter": "Get off the stage, you dusty has-been!"
 			},
 			"complexity": 2
 		},
@@ -52,7 +53,7 @@
 			"body": [
 				"Reveal X cards from the top of any deck, where X = the number of [u]charm[/u] cards in play plus 1.",
 				"Put them back in any order.",
-				"Destroy a [u]charm[/u] card."
+				"You may destroy a [u]charm[/u] card."
 			],
 			"icons": [
 				"Manipulate",
@@ -82,7 +83,7 @@
 				"PlayCardNow"
 			],
 			"flavorText": "“How do you like [b]fire[/b] hooves?”",
-			"flavorReference": "Night Mare, First Day Tremors (EC #3)"
+			"flavorReference": "NightMare, First Day Tremors (EC #3)"
 		},
 		{
 			"identifier": "DelightInDiscovery",
@@ -94,7 +95,7 @@
 			"body": [
 				"Draw X cards, where X = the number of [u]charm[/u] cards in play plus 1.",
 				"if {Theurgy} has no [u]charm[/u] cards in her play area, play a card.",
-				"Destroy a [u]charm[/u] card."
+				"You may destroy a [u]charm[/u] card."
 			],
 			"icons": [
 				"DrawCardNow",
@@ -219,7 +220,7 @@
 				"one-shot"
 			],
 			"body": [
-				"Put any number of [u]charm[/u] cards back into your hand from play.",
+				"Put any number of your [u]charm[/u] cards back into your hand from play.",
 				"You may play up to that many cards now."
 			],
 			"icons": [
@@ -282,7 +283,7 @@
 				"When this card is destroyed, select a deck. cards from that deck cannot be played until the start of your next turn. Remove this card from the game."
 			],
 			"powers": [
-				"Search your trash or deck for a [u]charm[/u] card. Put it into play or in your hand."
+				"Discard a [u]charm[/u] card. If you do, search your trash or deck for a different [u]charm[/u] card. Put it into play or in your hand."
 			],
 			"icons": [
 				"DrawCardNow",
@@ -303,7 +304,7 @@
 			"body": [
 				"{Theurgy} deals 1 target 3 projectile damage.",
 				"That target deals up to X targets 2 melee damage, where X = the number of [u]charm[/u] cards in play plus 1.",
-				"Destroy a [u]charm[/u] card."
+				"You may destroy a [u]charm[/u] card."
 			],
 			"icons": [
 				"DealDamageMelee",
@@ -378,7 +379,7 @@
 			],
 			"hitpoints": 25,
 			"nemesisIdentifiers": [
-				"TheArgentAdept"
+				"Angille.Theurgy"
 			],
 			"incapacitatedAbilities": [
 				"One player may play a card.",
@@ -392,7 +393,8 @@
 			],
 			"complexity": 2,
 			"openingLines": {
-				"default": "I will tear you from the Tapestry."
+				"default": "I will tear you from the Tapestry.",
+				"Angille.CadaverTeamCharacter": "It's curtains for you, bud. And all your... costars."
 			}
 		},
 		{
@@ -412,11 +414,11 @@
 			"hitpointsColor": "B4002E",
 			"character": true,
 			"powers": [
-				"{Theurgy} deals 1 target X sonic damage, where X = the number of [u]charm[/u] cards in play plus 1. If that damage destroys a target, you may move a [u]charm[/u] card from your trash into play."
+				"[i]Salem[/i] deals 1 target X sonic damage, where X = the number of [u]charm[/u] cards in play plus 1. If that damage destroys a target, you may move a [u]charm[/u] card from your trash into play."
 			],
 			"hitpoints": 26,
 			"nemesisIdentifiers": [
-				"OblivAeon"
+				"Angille.Theurgy"
 			],
 			"incapacitatedAbilities": [
 				"One hero may use a power now.",
@@ -431,7 +433,8 @@
 			],
 			"complexity": 2,
 			"openingLines": {
-				"default": "Are you ready to rock!?"
+				"default": "Are you ready to rock!?",
+				"Angille.CadaverTeamCharacter": "You couldn't handle my riffs, dust-bucket. Go play with your magic wand somewhere else."
 			}
 		}
 	]

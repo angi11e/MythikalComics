@@ -16,84 +16,6 @@ namespace Angille.WhatsHerFace
 
 		private const string FirstDamageFromThis = "FirstDamageFromThis";
 
-		/* ok, does this not work????
-		private ITrigger _redirectTrigger;
-		public bool? PerformRedirect { get; set; }
-
-		private IEnumerator RedirectToHighest(DealDamageAction dd)
-		{
-			SetCardPropertyToTrueIfRealAction(FirstDamageFromThis);
-			Card theTarget = null;
-
-			// using OverchargedNullShield as an example
-			if (GameController.PretendMode)
-			{
-				// find villain target with highest hp
-				List<Card> villainList = new List<Card>();
-				IEnumerator findVillainCR = GameController.FindTargetWithHighestHitPoints(
-					1,
-					(Card c) => c.IsVillain,
-					villainList,
-					cardSource: GetCardSource()
-				);
-
-				if (base.UseUnityCoroutines)
-				{
-					yield return base.GameController.StartCoroutine(findVillainCR);
-				}
-				else
-				{
-					base.GameController.ExhaustCoroutine(findVillainCR);
-				}
-
-				if (villainList.Count() > 0)
-				{
-					theTarget = villainList.FirstOrDefault();
-					PerformRedirect = true;
-				}
-				else
-				{
-					PerformRedirect = null;
-				}
-			}
-			if (PerformRedirect.HasValue && PerformRedirect.Value && theTarget.IsTarget)
-			{
-				// redirect to that target
-				IEnumerator redirectCR = GameController.RedirectDamage(
-					dd,
-					theTarget,
-					cardSource: GetCardSource()
-				);
-
-				if (base.UseUnityCoroutines)
-				{
-					yield return base.GameController.StartCoroutine(redirectCR);
-				}
-				else
-				{
-					base.GameController.ExhaustCoroutine(redirectCR);
-				}
-			}
-			if (!GameController.PretendMode)
-			{
-				PerformRedirect = null;
-			}
-
-			yield break;
-		}
-
-		public override bool AllowFastCoroutinesDuringPretend {
-			get
-			{
-				if (!GameController.PreviewMode)
-				{
-					return IsHighestHitPointsUnique((Card c) => IsVillainTarget(c));
-				}
-				return true;
-			}
-		}
-		*/
-
 		public CheckYourTargetCardController(
 			Card card,
 			TurnTakerController turnTakerController
@@ -120,18 +42,6 @@ namespace Angille.WhatsHerFace
 				TargetType.HighestHP,
 				(Card c) => IsVillainTarget(c) && GameController.IsCardVisibleToCardSource(c, GetCardSource())
 			);
-
-			/* old code doesn't work???
-			_redirectTrigger = AddTrigger(
-				(DealDamageAction dd) =>
-					!IsPropertyTrue(FirstDamageFromThis)
-					&& dd.DamageSource.IsCard
-					&& dd.DamageSource.Card == GetCardThisCardIsNextTo(),
-				RedirectToHighest,
-				TriggerType.RedirectDamage,
-				TriggerTiming.Before
-			);
-			*/
 
 			// If that target leaves play, return this card to your hand.
 			AddIfTheCardThatThisCardIsNextToLeavesPlayMoveItToYourHandTrigger();

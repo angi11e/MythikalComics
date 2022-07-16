@@ -28,7 +28,7 @@ namespace Angille.Speedrunner
 			// If you play a card outside of your play phase, you may draw a card.
 			AddTrigger(
 				(PlayCardAction pca) =>
-					pca.DecisionMaker == DecisionMaker
+					pca.ResponsibleTurnTaker == this.HeroTurnTaker
 					&& (Game.ActiveTurnPhase.TurnTaker != TurnTaker || Game.ActiveTurnPhase.Phase != Phase.PlayCard),
 				(PlayCardAction pca) => DrawCard(HeroTurnTaker, true),
 				TriggerType.DrawCard,
@@ -38,7 +38,7 @@ namespace Angille.Speedrunner
 			// If you use a power outside of your power phase, {Speedrunner} deals 1 target 2 fire damage.
 			AddTrigger(
 				(UsePowerAction upa) =>
-					upa.HeroUsingPower == DecisionMaker
+					upa.HeroUsingPower == this.HeroTurnTakerController
 					&& (Game.ActiveTurnPhase.TurnTaker != TurnTaker || Game.ActiveTurnPhase.Phase != Phase.UsePower),
 				(UsePowerAction upa) => GameController.SelectTargetsAndDealDamage(
 					DecisionMaker,
@@ -69,34 +69,83 @@ namespace Angille.Speedrunner
 
 			if (strikeNumeral > 0)
 			{
-				List<DealDamageAction> damageInfo = new List<DealDamageAction>();
-				DealDamageAction plink = new DealDamageAction(
-					GetCardSource(),
-					new DamageSource(GameController, this.CharacterCard),
-					null,
-					damageNumeral,
-					DamageType.Melee
-				);
+				List<DealDamageAction> storedDamage = new List<DealDamageAction>();
 
-				for (int i = 0; i < strikeNumeral; i++)
+				if (strikeNumeral == 1)
 				{
-					damageInfo.Add(plink);
-				}
-			
-				// {Speedrunner} deals 1 target 1 melee damage X times...
-				IEnumerator dealDamageCR = SelectTargetsAndDealMultipleInstancesOfDamage(
-					damageInfo,
-					minNumberOfTargets: targetNumeral,
-					maxNumberOfTargets: targetNumeral
-				);
+					// not sure why, but SelectTargetsAndDealMultipleInstancesOfDamage() doesn't seem to like one instance?
+					IEnumerator dealDamageCR = GameController.SelectTargetsAndDealDamage(
+						DecisionMaker,
+						new DamageSource(GameController, this.CharacterCard),
+						damageNumeral,
+						DamageType.Melee,
+						1,
+						false,
+						1,
+						storedResultsDamage: storedDamage,
+						cardSource: GetCardSource()
+					);
 
-				if (UseUnityCoroutines)
-				{
-					yield return GameController.StartCoroutine(dealDamageCR);
+					if (UseUnityCoroutines)
+					{
+						yield return GameController.StartCoroutine(dealDamageCR);
+					}
+					else
+					{
+						GameController.ExhaustCoroutine(dealDamageCR);
+					}
 				}
 				else
 				{
-					GameController.ExhaustCoroutine(dealDamageCR);
+					List<DealDamageAction> damageInfo = new List<DealDamageAction>();
+					DealDamageAction plink = new DealDamageAction(
+						GetCardSource(),
+						new DamageSource(GameController, this.CharacterCard),
+						null,
+						damageNumeral,
+						DamageType.Melee
+					);
+
+					for (int i = 0; i < strikeNumeral; i++)
+					{
+						damageInfo.Add(plink);
+					}
+			
+					// {Speedrunner} deals 1 target 1 melee damage X times...
+					IEnumerator dealDamageCR = SelectTargetsAndDealMultipleInstancesOfDamage(
+						damageInfo,
+						minNumberOfTargets: targetNumeral,
+						maxNumberOfTargets: targetNumeral,
+						storedResultsAction: storedDamage
+					);
+
+					if (UseUnityCoroutines)
+					{
+						yield return GameController.StartCoroutine(dealDamageCR);
+					}
+					else
+					{
+						GameController.ExhaustCoroutine(dealDamageCR);
+					}
+				}
+
+				// If this damage destroys that target, destroy this card.
+				if (storedDamage.Any((DealDamageAction dd) => dd.DidDestroyTarget))
+				{
+					IEnumerator destroyCR = GameController.DestroyCard(
+						DecisionMaker,
+						this.Card,
+						cardSource: GetCardSource()
+					);
+
+					if (UseUnityCoroutines)
+					{
+						yield return GameController.StartCoroutine(destroyCR);
+					}
+					else
+					{
+						GameController.ExhaustCoroutine(destroyCR);
+					}
 				}
 			}
 			else

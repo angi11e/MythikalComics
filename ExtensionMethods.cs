@@ -35,6 +35,38 @@ namespace Angille
 			}
 		}
 
+		public static IEnumerator AugmentNemesisBugs(
+			IEnumerable<string> villainsToAugment,
+			CardController nemesisSource
+		)
+		{
+			for (int i = 0; i < villainsToAugment.Count(); i++)
+			{
+				Card newNemesis = nemesisSource.FindCardsWhere(
+					(Card c) => c.Identifier == villainsToAugment.ElementAt(i),
+					ignoreBattleZone: true
+				).FirstOrDefault();
+				if (newNemesis != null)
+				{
+					IEnumerator addNemesisCR = nemesisSource.GameController.UpdateNemesisIdentifiers(
+						nemesisSource.GameController.FindCardController(newNemesis),
+						nemesisSource.Card.NemesisIdentifiers,
+						nemesisSource.GetCardSource()
+					);
+
+					if (nemesisSource.UseUnityCoroutines)
+					{
+						yield return nemesisSource.GameController.StartCoroutine(addNemesisCR);
+					}
+					else
+					{
+						nemesisSource.GameController.ExhaustCoroutine(addNemesisCR);
+					}
+				}
+			}
+			yield break;
+		}
+
 		/* FAILED EXPERIMENT
 		[Serializable]
 		public class ReduceDamageToSetAmountStatusEffect : DealDamageStatusEffect
