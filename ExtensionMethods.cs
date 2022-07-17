@@ -34,94 +34,77 @@ namespace Angille
 				tokenPools[0] = newFirst;
 			}
 		}
+	}
 
-		public static IEnumerator AugmentNemesisBugs(
-			IEnumerable<string> villainsToAugment,
-			CardController nemesisSource
-		)
+	public abstract class AngilleHeroTurnTakerController : HeroTurnTakerController
+	{
+		protected abstract IEnumerable<string> VillainsToAugment { get; }
+
+		public AngilleHeroTurnTakerController(
+			TurnTaker turnTaker,
+			GameController gameController
+		) : base(turnTaker, gameController)
 		{
+		}
+
+		public override IEnumerator StartGame()
+		{
+			// IEnumerable<string> villainsToAugment = new[] { "GloomWeaverCharacter", "AkashBhutaCharacter" };
+
+			/* copy-to-hero version
 			for (int i = 0; i < villainsToAugment.Count(); i++)
 			{
-				Card newNemesis = nemesisSource.FindCardsWhere(
-					(Card c) => c.Identifier == villainsToAugment.ElementAt(i),
-					ignoreBattleZone: true
+				Card newNemesis = FindCardsWhere(
+					(Card c) => c.Identifier == villainsToAugment.ElementAt(i)
 				).FirstOrDefault();
 				if (newNemesis != null)
 				{
-					IEnumerator addNemesisCR = nemesisSource.GameController.UpdateNemesisIdentifiers(
-						nemesisSource.GameController.FindCardController(newNemesis),
-						nemesisSource.Card.NemesisIdentifiers,
-						nemesisSource.GetCardSource()
+					CardController thisCCC = FindCardController(TurnTaker.CharacterCard);
+					IEnumerator addNemesisCR = GameController.UpdateNemesisIdentifiers(
+						thisCCC,
+						newNemesis.NemesisIdentifiers,
+						thisCCC.GetCardSource()
 					);
 
-					if (nemesisSource.UseUnityCoroutines)
+					if (thisCCC.UseUnityCoroutines)
 					{
-						yield return nemesisSource.GameController.StartCoroutine(addNemesisCR);
+						yield return thisCCC.GameController.StartCoroutine(addNemesisCR);
 					}
 					else
 					{
-						nemesisSource.GameController.ExhaustCoroutine(addNemesisCR);
+						thisCCC.GameController.ExhaustCoroutine(addNemesisCR);
 					}
 				}
 			}
+			*/
+
+			/* copy-to-villain version */
+			for (int i = 0; i < VillainsToAugment.Count(); i++)
+			{
+				Card newNemesis = FindCardsWhere(
+					(Card c) => c.Identifier == VillainsToAugment.ElementAt(i)
+				).FirstOrDefault();
+				if (newNemesis != null)
+				{
+					CardController thisCCC = FindCardController(TurnTaker.CharacterCard);
+					IEnumerator addNemesisCR = GameController.UpdateNemesisIdentifiers(
+						GameController.FindCardController(newNemesis),
+						TurnTaker.CharacterCard.NemesisIdentifiers.Concat(newNemesis.NemesisIdentifiers),
+						thisCCC.GetCardSource()
+					);
+
+					if (thisCCC.UseUnityCoroutines)
+					{
+						yield return thisCCC.GameController.StartCoroutine(addNemesisCR);
+					}
+					else
+					{
+						thisCCC.GameController.ExhaustCoroutine(addNemesisCR);
+					}
+				}
+			}
+
 			yield break;
 		}
-
-		/* FAILED EXPERIMENT
-		[Serializable]
-		public class ReduceDamageToSetAmountStatusEffect : DealDamageStatusEffect
-		{
-			public int Amount { get; private set; }
-
-			public override bool CombineWithExistingInstance
-			{
-				get
-				{
-					if (base.NumberOfUses.HasValue)
-					{
-						return true;
-					}
-					return false;
-				}
-			}
-
-			public ReduceDamageToSetAmountStatusEffect(int amount)
-			{
-				Amount = amount;
-			}
-
-			public override bool IsSameAs(StatusEffect other)
-			{
-				if (other is ReduceDamageToSetAmountStatusEffect)
-				{
-					ReduceDamageToSetAmountStatusEffect otherEffect = other as ReduceDamageToSetAmountStatusEffect;
-					if (
-						base.CardSource.Identifier == otherEffect.CardSource.Identifier
-						&& base.TargetCriteria.IsSpecificCard == otherEffect.TargetCriteria.IsSpecificCard
-					)
-					{
-						return base.SourceCriteria.IsSpecificCard == otherEffect.SourceCriteria.IsSpecificCard;
-					}
-					return false;
-				}
-				return false;
-			}
-
-			public override string ToString()
-			{
-				bool plural = ((!base.NumberOfUses.HasValue || base.NumberOfUses.Value != 1) ? true : false);
-				string text = $"Reduce {TheNextString()}{base.DamageTypeCriteria.DamageString()} dealt {base.SourceCriteria.ByWhoString()} {base.TargetCriteria.ToWhoString(plural)} to {Amount}.".TrimExtraSpaces();
-				return text;
-
-			}
-		}
-		*/
-
-		/* ended up putting this in a BaseCardController instead
-		public static IEnumerator DiscardResponse(this CardController card)
-		{
-			yield break;
-		}
-		*/
 	}
 }

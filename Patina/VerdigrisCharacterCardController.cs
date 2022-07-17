@@ -19,7 +19,9 @@ namespace Angille.Patina
 		public override IEnumerator UsePower(int index = 0)
 		{
 			/*
-			 * 
+			 * [i]Verdigris[i] deals 1 target 2 melee damage and 2 cold damage,
+			 * in either order.
+			 * That target deals [i]Verdigris[/i] 3 melee damage.
 			 */
 
 			yield break;
@@ -27,25 +29,17 @@ namespace Angille.Patina
 
 		public override IEnumerator UseIncapacitatedAbility(int index)
 		{
-			IEnumerator incapCR = null;
-
 			switch (index)
 			{
 				case 0:
+					// One player may play a card.
 					break;
 				case 1:
+					// One hero deals 1 target 1 melee damage. A different hero deals 1 target 1 cold damage.
 					break;
 				case 2:
+					// Each Hero may deal themselves 3 Cold damage. A Hero dealt damage this way may use a Power.
 					break;
-			}
-
-			if (UseUnityCoroutines)
-			{
-				yield return GameController.StartCoroutine(incapCR);
-			}
-			else
-			{
-				GameController.ExhaustCoroutine(incapCR);
 			}
 
 			yield break;

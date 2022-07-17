@@ -389,6 +389,56 @@
 			"openingLines": {
 				"default": "Oh, you're dead."
 			}
+		},
+		{
+			"identifier": "RedRifleCharacter",
+			"promoIdentifier": "DDOSCharacter",
+			"count": 1,
+			"title": "D.D.O.S.",
+			"promoTitle": "D.D.O.S.",
+			"body": "Dispersal Shot",
+			"tokenPools": [
+				{
+					"identifier": "RedRifleTrueshotPool",
+					"name": "DDOS's Trueshot Pool",
+					"initialValue": 0,
+					"minimumValue": 0,
+					"labelTopColor": "69FF00",
+					"labelBottomColor": "49AF00",
+					"icon": "Angille.Bullethole"
+				}
+			],
+			"icons": [
+				"HasPower",
+				"DealDamageProjectile",
+				"AddTokens"
+			],
+			"backgroundColor": "69FF00",
+			"foilBackgroundColor": "69FF00",
+			"hitpointsColor": "69FF00",
+			"character": true,
+			"powers": [
+				"[i]D.D.O.S.[/i] deals up to 3 targets 1 projectile damage each. For each target destroyed this way, add 2 tokens to your trueshot pool."
+			],
+			"hitpoints": 28,
+			"nemesisIdentifiers": [
+				"Angille.RedRifle"
+			],
+			"incapacitatedAbilities": [
+				"One player may play a card.",
+				"One hero destroys one of their Equipment cards. If they do, they deal 1 target 4 energy damage.",
+				"Until the start of your turn, increase all projectile damage by 2."
+			],
+			"flippedIcons": [
+				"PlayCardNow",
+				"DestroyEquipment",
+				"DealDamageEnergy",
+				"IncreaseDamageDealtProjectile"
+			],
+			"complexity": 2,
+			"openingLines": {
+				"default": "*modem noises*"
+			}
 		}
 	]
 }

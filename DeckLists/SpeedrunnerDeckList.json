@@ -471,7 +471,8 @@
 			],
 			"complexity": 3,
 			"openingLines": {
-				"default": "if you don't have perfect reflexes, store bought is fine."
+				"default": "if you don't have perfect reflexes, store bought is fine.",
+				"Menagerie.UnmuteCharacter": "have you seen vtubers though? maybe we both take a shot at them instead."
 			}
 		}
 	]

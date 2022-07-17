@@ -58,7 +58,7 @@
 				"PlayCardNow"
 			],
 			"flavorText": "“I never quite fit in.{BR}now there's no hiding it.”",
-			"flavorReference": ""
+			"flavorReference": "Patina, Fish Out of Water (EC #13)"
 		},
 		{
 			"identifier": "HealingSpritz",
@@ -81,7 +81,7 @@
 				"GainHP"
 			],
 			"flavorText": "“it's ok! I'm a biologist!{BR}...intern.”",
-			"flavorReference": ""
+			"flavorReference": "Patina, Stage Fright (EC #15)"
 		},
 		{
 			"identifier": "HybridSurvivor",
@@ -101,8 +101,8 @@
 				"DrawCardNow",
 				"PlayCardNow"
 			],
-			"flavorText": "“”",
-			"flavorReference": ""
+			"flavorText": "“Every time I squash one,{BR}another crops up!”",
+			"flavorReference": "Patina, Best Halloween Ever One-shot"
 		},
 		{
 			"identifier": "Impermeable",
@@ -124,8 +124,8 @@
 				"RedirectDamage",
 				"DestroySelf"
 			],
-			"flavorText": "“”",
-			"flavorReference": ""
+			"flavorText": "“oh hey wow, that's{BR}[b]a lot[/b] of water.”",
+			"flavorReference": "Theurgy, Fish Out of Water (EC #13)"
 		},
 		{
 			"identifier": "LabAssist",
@@ -147,7 +147,7 @@
 				"UsePowerNow"
 			],
 			"flavorText": "“this time, with{BR}[b]science![/b]”",
-			"flavorReference": ""
+			"flavorReference": "Patina, Knead to Know (EC #14)"
 		},
 		{
 			"identifier": "LabCoat",
@@ -169,7 +169,7 @@
 				"PlayCardNow"
 			],
 			"flavorText": "“Always helps to bag things up.”",
-			"flavorReference": ""
+			"flavorReference": "Patina, Mist By an inch (EC #16)"
 		},
 		{
 			"identifier": "MaerynianImmunity",
@@ -189,7 +189,7 @@
 				"DestroySelf"
 			],
 			"flavorText": "“They can't hurt me now.”",
-			"flavorReference": ""
+			"flavorReference": "Patina, Mist By an inch (EC #16)"
 		},
 		{
 			"identifier": "SprayBack",
@@ -206,8 +206,8 @@
 				"DestroySelf",
 				"DealDamageProjectile"
 			],
-			"flavorText": "“”",
-			"flavorReference": ""
+			"flavorText": "“ey, cheri?{BR}ah did not see you zer.”",
+			"flavorReference": "Cajun Gator, Fish Out of Water (EC #13)"
 		},
 		{
 			"identifier": "SurgeWave",
@@ -226,8 +226,8 @@
 				"DealDamageMelee",
 				"DestroyEnvironment"
 			],
-			"flavorText": "“”",
-			"flavorReference": ""
+			"flavorText": "“oh, I am glad I'm not{BR}[b]down there[/b] right now!”",
+			"flavorReference": "Red Rifle, Last Ditch Effort (EC #17)"
 		},
 		{
 			"identifier": "TempestuousToss",
@@ -248,8 +248,8 @@
 				"Destroy",
 				"DealDamageProjectile"
 			],
-			"flavorText": "“”",
-			"flavorReference": ""
+			"flavorText": "“no! this ain't how{BR}it's s'posed to go!”",
+			"flavorReference": "Ditch, Last Ditch Effort (EC #17)"
 		},
 		{
 			"identifier": "Undertow",
@@ -269,8 +269,8 @@
 				"DealDamageCold",
 				"DealDamagePsychic"
 			],
-			"flavorText": "“”",
-			"flavorReference": ""
+			"flavorText": "“*burble*{BR}*burble*”",
+			"flavorReference": "summoned troopers, Fish Out of Water (EC #13)"
 		},
 		{
 			"identifier": "WaterPunch",
@@ -288,8 +288,8 @@
 				"DealDamageMelee",
 				"DealDamageCold"
 			],
-			"flavorText": "“”",
-			"flavorReference": ""
+			"flavorText": "“I think I at least{BR}trapped that one. ish.”",
+			"flavorReference": "Patina, Knead to Know (EC #14)"
 		},
 		{
 			"identifier": "WhipSplash",
@@ -311,8 +311,8 @@
 				"DrawCardNow",
 				"DealDamage"
 			],
-			"flavorText": "“”",
-			"flavorReference": ""
+			"flavorText": "“More of that, if ye please.{BR}cannae hypnotize without{BR}that amulet!”",
+			"flavorReference": "NightMare, Stage Fright (EC #15)"
 		}
 	],
 	"promoCards": [
@@ -341,15 +341,14 @@
 				"Angille.Patina"
 			],
 			"incapacitatedAbilities": [
-				"",
-				"",
-				""
+				"One player may draw a card.",
+				"One player plays up to 2 equipment cards.",
+				"Each hero target with an equipment card in their play area regains 1 HP."
 			],
 			"flippedIcons": [
-				"",
-				"",
-				"",
-				""
+				"DrawCardNow",
+				"PlayCardNow",
+				"GainHP"
 			],
 			"complexity": 1,
 			"openingLines": {
@@ -357,7 +356,7 @@
 			}
 		},
 		{
-			"identifier": "WhatsHerFaceCharacter",
+			"identifier": "PatinaCharacter",
 			"promoIdentifier": "VerdigrisCharacter",
 			"count": 1,
 			"title": "Verdigris",
@@ -373,7 +372,7 @@
 			"hitpointsColor": "55802B",
 			"character": true,
 			"powers": [
-				"[i]Verdigris[i] deals 1 target 2 melee damage and 2 cold damage, in either order. That target deals [i]Verdigris[/i] 3 melee damage."
+				"[i]Verdigris[/i] deals 1 target 2 melee damage and 2 cold damage, in either order. That target deals [i]Verdigris[/i] 3 melee damage."
 			],
 			"hitpoints": 28,
 			"nemesisIdentifiers": [
@@ -381,14 +380,14 @@
 			],
 			"incapacitatedAbilities": [
 				"One player may play a card.",
-				"",
-				""
+				"One hero deals 1 target 1 melee damage. A different hero deals 1 target 1 cold damage.",
+				"Each Hero may deal themselves 3 Cold damage. A Hero dealt damage this way may use a Power."
 			],
 			"flippedIcons": [
-				"",
-				"",
-				"",
-				""
+				"PlayCardNow",
+				"DealDamageMelee",
+				"DealDamageCold",
+				"UsePowerNow"
 			],
 			"complexity": 1,
 			"openingLines": {

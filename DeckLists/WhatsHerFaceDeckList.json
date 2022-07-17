@@ -271,7 +271,7 @@
 			],
 			"body": [
 				"Play this card next to a character card.",
-				"increase damage taken by targets in that character's play area by 1.",
+				"increase damage dealt to targets in that character's play area by 1.",
 				"reduce damage dealt by targets in that character's play area by 1.",
 				"At the start of your turn, either discard a card or destroy this card."
 			],
@@ -426,7 +426,7 @@
 			"count": 1,
 			"title": "Umbra",
 			"promoTitle": "Umbra",
-			"body": "envelop",
+			"body": "from shadow",
 			"icons": [
 				"HasPower",
 				"DrawCardNow",

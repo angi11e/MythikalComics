@@ -91,6 +91,7 @@
     <Compile Include="NightMare\KelpieMagicCardController.cs" />
     <Compile Include="NightMare\ManoACascoCardController.cs" />
     <Compile Include="NightMare\NightMareBaseCardController.cs" />
+    <Compile Include="NightMare\MoonStalkerCharacterCardController.cs" />
     <Compile Include="NightMare\NightMareCharacterCardController.cs" />
     <Compile Include="NightMare\NightMareWholeHorseCharacterCardController.cs" />
     <Compile Include="NightMare\NightMareTurnTakerController.cs" />
@@ -127,6 +128,7 @@
     <Compile Include="RedRifle\PoweredShotCardController.cs" />
     <Compile Include="RedRifle\PreciseShotCardController.cs" />
     <Compile Include="RedRifle\RedRifleBaseCardController.cs" />
+    <Compile Include="RedRifle\DDOSCharacterCardController.cs" />
     <Compile Include="RedRifle\SeeingRedRedRifleCharacterCardController.cs" />
     <Compile Include="RedRifle\RedRifleCharacterCardController.cs" />
     <Compile Include="RedRifle\RedRifleTrueshotPoolUtility.cs" />

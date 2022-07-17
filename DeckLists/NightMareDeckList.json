@@ -41,7 +41,7 @@
 				"IncreaseDamageDealt"
 			],
 			"openingLines": {
-				"default": ""
+				"default": "ye dennae stand a chance. ye best just stand down now."
 			},
 			"complexity": 1
 		},
@@ -67,8 +67,8 @@
 				"Discard",
 				"Manipulate"
 			],
-			"flavorText": "“”",
-			"flavorReference": ""
+			"flavorText": "“and look!{BR}[b]more[/b] robots!”",
+			"flavorReference": "NightMare, Playing Hooky (EC #1)"
 		},
 		{
 			"identifier": "CowabungaItIs",
@@ -91,8 +91,8 @@
 				"Manipulate",
 				"Discard"
 			],
-			"flavorText": "“”",
-			"flavorReference": ""
+			"flavorText": "“Oh, she just ran{BR}right in, didn't she?”",
+			"flavorReference": "Theurgy, Elementary (EC #4)"
 		},
 		{
 			"identifier": "DynamicEntry",
@@ -114,8 +114,8 @@
 				"DestroyEnvironment",
 				"DestroyOngoing"
 			],
-			"flavorText": "“”",
-			"flavorReference": ""
+			"flavorText": "“See? there? go through the{BR}hole the nice horsey made.”",
+			"flavorReference": "Red Rifle, Science Fair (EC #8)"
 		},
 		{
 			"identifier": "HoldYerHorses",
@@ -144,8 +144,8 @@
 				"DealDamageMelee",
 				"CannotDealDamage"
 			],
-			"flavorText": "“”",
-			"flavorReference": ""
+			"flavorText": "“I get the plant one,{BR}you get the burney one.”",
+			"flavorReference": "NightMare, Book Report (EC #5)"
 		},
 		{
 			"identifier": "HoofLoose",
@@ -170,8 +170,8 @@
 				"ReduceDamageTaken",
 				"DestroySelf"
 			],
-			"flavorText": "“”",
-			"flavorReference": ""
+			"flavorText": "“That the best ye got?”",
+			"flavorReference": "Moon Stalker, Fish Out of Water (EC #13)"
 		},
 		{
 			"identifier": "HoofStomp",
@@ -193,8 +193,8 @@
 				"DealDamageSonic",
 				"DealDamageMelee"
 			],
-			"flavorText": "“”",
-			"flavorReference": ""
+			"flavorText": "“Forget the gunman.{BR}get the [b]horse![/b]”",
+			"flavorReference": "demonic hulk, Demonology (EC #10)"
 		},
 		{
 			"identifier": "HotToTrot",
@@ -223,8 +223,8 @@
 				"CancelledDamageGreen",
 				"DrawCardNow"
 			],
-			"flavorText": "“”",
-			"flavorReference": ""
+			"flavorText": "“yeah, stay off the water until{BR}I get this spell figured out.”",
+			"flavorReference": "Theurgy, Setting Up Shop (EC #2)"
 		},
 		{
 			"identifier": "KelpieMagic",
@@ -253,8 +253,8 @@
 				"DrawCardNow",
 				"PlayCardNow"
 			],
-			"flavorText": "“”",
-			"flavorReference": ""
+			"flavorText": "“lookae me!{BR}I'm a faerie princess.”",
+			"flavorReference": "NightMare, Best Halloween Ever One-shot"
 		},
 		{
 			"identifier": "ManoACasco",
@@ -280,8 +280,8 @@
 				"RedirectDamage",
 				"DestroySelf"
 			],
-			"flavorText": "“”",
-			"flavorReference": ""
+			"flavorText": "“oh nae ye don't.{BR}ye can't hide from me.”",
+			"flavorReference": "NightMare, Mist By an inch (EC #16)"
 		},
 		{
 			"identifier": "ReinedCombat",
@@ -309,8 +309,8 @@
 				"DealDamageMelee",
 				"ReduceDamageTaken"
 			],
-			"flavorText": "“”",
-			"flavorReference": ""
+			"flavorText": "“is this what passes{BR}for street fighting?{BR}you must be joking.”",
+			"flavorReference": "Moon Stalker, Part Timers (EC #7)"
 		},
 		{
 			"identifier": "Stampede",
@@ -333,8 +333,17 @@
 				"DealDamageMelee",
 				"DealDamageInfernal"
 			],
-			"flavorText": "“”",
-			"flavorReference": ""
+			"flavorQuotes": [
+				{
+					"identifier": "What's-Her-Face",
+					"text": "they're everywhere."
+				},
+				{
+					"identifier": "NightMare",
+					"text": "nae for long.{BR}watch this."
+				}
+			],
+			"flavorReference": "First Day Tremors (EC #3)"
 		},
 		{
 			"identifier": "TwoTrickPony",
@@ -363,8 +372,17 @@
 				"Discard",
 				"PlayCardNow"
 			],
-			"flavorText": "“”",
-			"flavorReference": ""
+			"flavorQuotes": [
+				{
+					"identifier": "Red Rifle",
+					"text": "Thanks for the lift."
+				},
+				{
+					"identifier": "NightMare",
+					"text": "if'n ye weren't{BR}as heavy, I'd say no problem."
+				}
+			],
+			"flavorReference": "Last Ditch Effort (EC #17)"
 		}
 	],
 	"promoCards": [
@@ -407,7 +425,49 @@
 			],
 			"complexity": 1,
 			"openingLines": {
-				"default": ""
+				"default": "*kaclop kaclop kaclop* *snort* *whinny*"
+			}
+		},
+		{
+			"identifier": "NightMareCharacter",
+			"promoIdentifier": "MoonStalkerCharacter",
+			"count": 1,
+			"title": "Moon Stalker",
+			"promoTitle": "Moon Stalker",
+			"body": "open a can",
+			"icons": [
+				"HasPower",
+				"DealDamageMelee",
+				"DrawCardNow",
+				"Discard"
+			],
+			"backgroundColor": "504E40",
+			"foilBackgroundColor": "504E40",
+			"hitpointsColor": "504E40",
+			"character": true,
+			"gameplay": [
+				"when you discard a card, activate its [u]discard[/u] text."
+			],
+			"powers": [
+				"[i]Moon Stalker[/i] deals up to 3 targets 1 melee damage each. Each time a target is destroyed this way, draw or discard a card."
+			],
+			"hitpoints": 31,
+			"nemesisIdentifiers": [
+				"Angille.NightMare"
+			],
+			"incapacitatedAbilities": [
+				"One player may play a card.",
+				"Destroy an ongoing card.",
+				"Move a card from a trash to under its associated deck."
+			],
+			"flippedIcons": [
+				"PlayCardNow",
+				"DestroyOngoing",
+				"Manipulate"
+			],
+			"complexity": 1,
+			"openingLines": {
+				"default": "Come and get it. don't worry, I'm not as fragile as I look."
 			}
 		}
 	]

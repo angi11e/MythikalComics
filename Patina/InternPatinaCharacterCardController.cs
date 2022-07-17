@@ -19,7 +19,9 @@ namespace Angille.Patina
 		public override IEnumerator UsePower(int index = 0)
 		{
 			/*
-			 * 
+			 * Discard up to 3 [u]water[/u] cards.
+			 * For each card discarded this way,
+			 * draw 1 card or play 1 non-[u]water[/u] card.
 			 */
 
 			yield break;
@@ -32,10 +34,13 @@ namespace Angille.Patina
 			switch (index)
 			{
 				case 0:
+					// One player may draw a card.
 					break;
 				case 1:
+					// One player plays up to 2 equipment cards.
 					break;
 				case 2:
+					// Each hero target with an equipment card in their play area regains 1 HP.
 					break;
 			}
 

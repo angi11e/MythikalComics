@@ -8,7 +8,7 @@ using System.Text;
 
 namespace Angille.Theurgy
 {
-	public class TheurgyTurnTakerController : HeroTurnTakerController
+	public class TheurgyTurnTakerController : AngilleHeroTurnTakerController
 	{
 		public TheurgyTurnTakerController(
 			TurnTaker turnTaker,
@@ -17,35 +17,16 @@ namespace Angille.Theurgy
 		{
 		}
 
-		public override IEnumerator StartGame()
-		{
-			IEnumerable<string> villainsToAugment = new[] { "GloomWeaverCharacter", "AkashBhutaCharacter" };
-			for (int i = 0; i < villainsToAugment.Count(); i++)
-			{
-				Card newNemesis = FindCardsWhere(
-					(Card c) => c.Identifier == villainsToAugment.ElementAt(i)
-				).FirstOrDefault();
-				if (newNemesis != null)
-				{
-					CardController thisCCC = FindCardController(TurnTaker.CharacterCard);
-					IEnumerator addNemesisCR = GameController.UpdateNemesisIdentifiers(
-						GameController.FindCardController(newNemesis),
-						TurnTaker.CharacterCard.NemesisIdentifiers,
-						thisCCC.GetCardSource()
-					);
-
-					if (thisCCC.UseUnityCoroutines)
-					{
-						yield return thisCCC.GameController.StartCoroutine(addNemesisCR);
-					}
-					else
-					{
-						thisCCC.GameController.ExhaustCoroutine(addNemesisCR);
-					}
-				}
-			}
-
-			yield break;
-		}
+		protected override IEnumerable<string> VillainsToAugment => new[] {
+			"AkashBhutaCharacter",
+			"GloomWeaverCharacter",
+			"BugbearTeamCharacter",
+			"Balarian",
+			"Heartbreaker",
+			"ManGrove",
+			"Ruin",
+			"VoidsoulCharacter",
+			"TheInfernalChoirCharacter"
+		};
 	}
 }

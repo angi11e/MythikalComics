@@ -2,10 +2,11 @@
 using Handelabra.Sentinels.Engine.Controller;
 using Handelabra.Sentinels.Engine.Model;
 using System.Collections;
+using System.Collections.Generic;
 
 namespace Angille.Athena
 {
-	public class AthenaTurnTakerController : HeroTurnTakerController
+	public class AthenaTurnTakerController : AngilleHeroTurnTakerController
 	{
 		public AthenaTurnTakerController(
 			TurnTaker turnTaker,
@@ -13,5 +14,16 @@ namespace Angille.Athena
 		) : base(turnTaker, gameController)
 		{
 		}
+
+		protected override IEnumerable<string> VillainsToAugment => new[] {
+			"Atum", "Geb", "Isis", "Nephthys", "Nuit", "Osiris", "Set", "Shu", "Tefnut",
+			"KaargraWarfangCharacter",
+			"NixiousTheChosenCharacter",
+			"Ammit",
+			"Anubis",
+			"Calypso",
+			"Tantrum",
+			"CeladrochCharacter"
+		};
 	}
 }
