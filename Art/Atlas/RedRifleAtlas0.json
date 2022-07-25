@@ -2,15 +2,23 @@
 
 "CalledShot.png":
 {
-	"frame": {"x":0,"y":0,"w":256,"h":198},
+	"frame": {"x":1086,"y":0,"w":256,"h":198},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":256,"h":198},
 	"sourceSize": {"w":256,"h":198}
 },
+"DDOSCharacter.png":
+{
+	"frame": {"x":0,"y":0,"w":178,"h":256},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":178,"h":256},
+	"sourceSize": {"w":178,"h":256}
+},
 "EnergyBurst.png":
 {
-	"frame": {"x":259,"y":0,"w":256,"h":198},
+	"frame": {"x":1345,"y":0,"w":256,"h":198},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":256,"h":198},
@@ -18,7 +26,7 @@
 },
 "FullAuto.png":
 {
-	"frame": {"x":518,"y":0,"w":256,"h":198},
+	"frame": {"x":1604,"y":0,"w":256,"h":198},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":256,"h":198},
@@ -26,7 +34,7 @@
 },
 "HairTrigger.png":
 {
-	"frame": {"x":777,"y":0,"w":256,"h":198},
+	"frame": {"x":0,"y":259,"w":256,"h":198},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":256,"h":198},
@@ -34,7 +42,7 @@
 },
 "IndescriminateFabrication.png":
 {
-	"frame": {"x":1036,"y":0,"w":256,"h":198},
+	"frame": {"x":259,"y":259,"w":256,"h":198},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":256,"h":198},
@@ -42,7 +50,7 @@
 },
 "NanoPlate.png":
 {
-	"frame": {"x":1295,"y":0,"w":256,"h":198},
+	"frame": {"x":518,"y":259,"w":256,"h":198},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":256,"h":198},
@@ -50,7 +58,7 @@
 },
 "Overclocking.png":
 {
-	"frame": {"x":1554,"y":0,"w":256,"h":198},
+	"frame": {"x":777,"y":259,"w":256,"h":198},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":256,"h":198},
@@ -58,7 +66,7 @@
 },
 "PoweredShot.png":
 {
-	"frame": {"x":0,"y":201,"w":256,"h":198},
+	"frame": {"x":1036,"y":259,"w":256,"h":198},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":256,"h":198},
@@ -66,7 +74,7 @@
 },
 "PreciseShot.png":
 {
-	"frame": {"x":259,"y":201,"w":256,"h":198},
+	"frame": {"x":1295,"y":259,"w":256,"h":198},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":256,"h":198},
@@ -74,7 +82,7 @@
 },
 "RedRifleCharacter.png":
 {
-	"frame": {"x":518,"y":201,"w":178,"h":256},
+	"frame": {"x":181,"y":0,"w":178,"h":256},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":178,"h":256},
@@ -82,7 +90,7 @@
 },
 "RedRifleCharacterBack.png":
 {
-	"frame": {"x":699,"y":201,"w":178,"h":256},
+	"frame": {"x":362,"y":0,"w":178,"h":256},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":178,"h":256},
@@ -90,7 +98,7 @@
 },
 "RedRifleDeckBack.png":
 {
-	"frame": {"x":880,"y":201,"w":178,"h":256},
+	"frame": {"x":543,"y":0,"w":178,"h":256},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":178,"h":256},
@@ -98,7 +106,7 @@
 },
 "Ricochet.png":
 {
-	"frame": {"x":1061,"y":201,"w":256,"h":198},
+	"frame": {"x":1554,"y":259,"w":256,"h":198},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":256,"h":198},
@@ -106,7 +114,7 @@
 },
 "SeeingRedRedRifleCharacter.png":
 {
-	"frame": {"x":1320,"y":201,"w":178,"h":256},
+	"frame": {"x":724,"y":0,"w":178,"h":256},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":178,"h":256},
@@ -114,7 +122,7 @@
 },
 "SeeingRedRedRifleCharacterBack.png":
 {
-	"frame": {"x":1501,"y":201,"w":178,"h":256},
+	"frame": {"x":905,"y":0,"w":178,"h":256},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":178,"h":256},
@@ -122,7 +130,7 @@
 },
 "SilverTongue.png":
 {
-	"frame": {"x":1682,"y":201,"w":256,"h":198},
+	"frame": {"x":0,"y":460,"w":256,"h":198},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":256,"h":198},
@@ -130,7 +138,7 @@
 },
 "SituationalAwareness.png":
 {
-	"frame": {"x":0,"y":460,"w":256,"h":198},
+	"frame": {"x":259,"y":460,"w":256,"h":198},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":256,"h":198},
@@ -138,7 +146,7 @@
 },
 "TechNerd.png":
 {
-	"frame": {"x":259,"y":460,"w":256,"h":198},
+	"frame": {"x":518,"y":460,"w":256,"h":198},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":256,"h":198},
@@ -146,7 +154,7 @@
 },
 "YellingInformation.png":
 {
-	"frame": {"x":518,"y":460,"w":256,"h":198},
+	"frame": {"x":777,"y":460,"w":256,"h":198},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":256,"h":198},
@@ -159,6 +167,6 @@
 	"format": "RGBA8888",
 	"size": {"w":2048,"h":2048},
 	"scale": "1",
-	"smartupdate": "$TexturePacker:SmartUpdate:6b2003e97457a9758dadc8160ffcd9df:fa73c4a7250867949f90af6c4208fbf5:f0ca4854047c5ca7f476d9a69a982013$"
+	"smartupdate": "$TexturePacker:SmartUpdate:455faf4360c5584cfd48dcb0e83ffc3f:6ffb83899462a637c7d23e5010a4f913:f0ca4854047c5ca7f476d9a69a982013$"
 }
 }

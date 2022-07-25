@@ -9,7 +9,7 @@ namespace Angille.Speedrunner
 	public class ResetWarpCardController : SpeedrunnerBaseCardController
 	{
 		/*
-		 * Discard your hand. Draw 5 cards. Play 1 card. {Speedrunner} regains 2 HP.
+		 * Discard your hand. Draw 4 cards. Play 1 card. {Speedrunner} regains 2 HP.
 		 */
 
 		public ResetWarpCardController(
@@ -31,8 +31,8 @@ namespace Angille.Speedrunner
 				GetCardSource()
 			);
 
-			// Draw 5 cards.
-			IEnumerator drawCR = DrawCards(DecisionMaker, 5);
+			// Draw 4 cards.
+			IEnumerator drawCR = DrawCards(DecisionMaker, 4);
 
 			// Play 1 card.
 			IEnumerator playCR = GameController.SelectAndPlayCardFromHand(

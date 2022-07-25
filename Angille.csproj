@@ -46,6 +46,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Athena\AspectBaseCardController.cs" />
+    <Compile Include="Athena\BrandNewAthenaCharacterCardController.cs" />
+    <Compile Include="Athena\ClassicAthenaCharacterCardController.cs" />
     <Compile Include="Athena\TheonosisCardController.cs" />
     <Compile Include="Athena\SkinOfMarbleCardController.cs" />
     <Compile Include="Athena\PromachosCardController.cs" />
@@ -138,6 +140,7 @@
     <Compile Include="RedRifle\SituationalAwarenessCardController.cs" />
     <Compile Include="RedRifle\TechNerdCardController.cs" />
     <Compile Include="RedRifle\YellingInformationCardController.cs" />
+    <Compile Include="Speedrunner\RetroSpeedrunnerCharacterCardController.cs" />
     <Compile Include="Speedrunner\GunClubSpeedrunnerCharacterCardController.cs" />
     <Compile Include="Speedrunner\TurboControllerCardController.cs" />
     <Compile Include="Speedrunner\TASCardController.cs" />
@@ -265,6 +268,9 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="DeckLists\CadaverTeamDeckList.json" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="DeckLists\CaptainCainDeckList.json" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

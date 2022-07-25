@@ -64,13 +64,13 @@ namespace Angille.RedRifle
 				case 0:
 					// One hero may use a power.
 					IEnumerator playCardCR = GameController.SelectHeroToUsePower(DecisionMaker);
-					if (base.UseUnityCoroutines)
+					if (UseUnityCoroutines)
 					{
-						yield return base.GameController.StartCoroutine(playCardCR);
+						yield return GameController.StartCoroutine(playCardCR);
 					}
 					else
 					{
-						base.GameController.ExhaustCoroutine(playCardCR);
+						GameController.ExhaustCoroutine(playCardCR);
 					}
 					break;
 
@@ -82,13 +82,13 @@ namespace Angille.RedRifle
 						DamageType.Projectile,
 						cardSource: GetCardSource()
 					);
-					if (base.UseUnityCoroutines)
+					if (UseUnityCoroutines)
 					{
-						yield return base.GameController.StartCoroutine(dealDamageCR);
+						yield return GameController.StartCoroutine(dealDamageCR);
 					}
 					else
 					{
-						base.GameController.ExhaustCoroutine(dealDamageCR);
+						GameController.ExhaustCoroutine(dealDamageCR);
 					}
 					break;
 
@@ -102,13 +102,13 @@ namespace Angille.RedRifle
 						2,
 						cardSource: GetCardSource()
 					);
-					if (base.UseUnityCoroutines)
+					if (UseUnityCoroutines)
 					{
-						yield return base.GameController.StartCoroutine(playOngoingCR);
+						yield return GameController.StartCoroutine(playOngoingCR);
 					}
 					else
 					{
-						base.GameController.ExhaustCoroutine(playOngoingCR);
+						GameController.ExhaustCoroutine(playOngoingCR);
 					}
 					break;
 			}
@@ -121,13 +121,13 @@ namespace Angille.RedRifle
 				FindHeroTurnTakerController(tt.ToHero()),
 				cardCriteria: new LinqCardCriteria((Card c) => c.IsOngoing)
 			);
-			if (base.UseUnityCoroutines)
+			if (UseUnityCoroutines)
 			{
-				yield return base.GameController.StartCoroutine(playOngoingCR);
+				yield return GameController.StartCoroutine(playOngoingCR);
 			}
 			else
 			{
-				base.GameController.ExhaustCoroutine(playOngoingCR);
+				GameController.ExhaustCoroutine(playOngoingCR);
 			}
 			yield break;
 		}

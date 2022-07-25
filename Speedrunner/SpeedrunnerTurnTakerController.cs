@@ -24,7 +24,8 @@ namespace Angille.Speedrunner
 			"GreenGrosser",
 			"Highbrow",
 			"Rahazar",
-			"SwarmEaterCharacter"
+			"SwarmEaterCharacter",
+			"UnmuteCharacter"
 		};
 	}
 }

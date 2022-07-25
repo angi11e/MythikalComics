@@ -48,7 +48,7 @@
 				"PlayCardNow"
 			],
 			"openingLines": {
-				"default": ""
+				"default": "what, [b]another[/b] villain? these guys grow on trees now!"
 			},
 			"complexity": 1
 		},
@@ -437,7 +437,7 @@
 			],
 			"complexity": 2,
 			"openingLines": {
-				"default": "*modem noises*"
+				"default": "[b]*modem noises*[/b]"
 			}
 		}
 	]

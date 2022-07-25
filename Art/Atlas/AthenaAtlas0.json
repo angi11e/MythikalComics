@@ -40,6 +40,22 @@
 	"spriteSourceSize": {"x":0,"y":0,"w":178,"h":256},
 	"sourceSize": {"w":178,"h":256}
 },
+"BrandNewAthenaCharacter.png":
+{
+	"frame": {"x":1061,"y":402,"w":178,"h":256},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":178,"h":256},
+	"sourceSize": {"w":178,"h":256}
+},
+"ClassicAthenaCharacter.png":
+{
+	"frame": {"x":1242,"y":402,"w":178,"h":256},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":178,"h":256},
+	"sourceSize": {"w":178,"h":256}
+},
 "DivinePhalanx.png":
 {
 	"frame": {"x":518,"y":0,"w":256,"h":198},
@@ -159,6 +175,6 @@
 	"format": "RGBA8888",
 	"size": {"w":2048,"h":2048},
 	"scale": "1",
-	"smartupdate": "$TexturePacker:SmartUpdate:298cf0418a8f1668a1b700884c51f126:d2c684016dd887e27c2478a1eba1e9bc:e9835dc773f63afacc1b817d8239b437$"
+	"smartupdate": "$TexturePacker:SmartUpdate:64d04b895b9ea1e85045f9186016f18d:1a136336d772df9b9e21e93a1485d1a0:e9835dc773f63afacc1b817d8239b437$"
 }
 }

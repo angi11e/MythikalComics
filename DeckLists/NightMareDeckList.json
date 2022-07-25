@@ -18,7 +18,7 @@
 				"when you discard a card, activate its [u]discard[/u] text."
 			],
 			"powers": [
-				"Draw a card. Discard a card. Deal 1 target 1 Melee damage."
+				"Draw a card. Discard a card. {NightMare} deals 1 target 1 Melee damage."
 			],
 			"icons": [
 				"HasPower",
@@ -54,7 +54,7 @@
 				"limited"
 			],
 			"body": [
-				"Whenever {NightMare} destroys a target, she may deal 1 target 2 Melee damage. Discard the top card of your deck."
+				"Whenever {NightMare} destroys a target, she may deal 1 target 2 Melee damage, then discard the top card of your deck."
 			],
 			"activatableAbilities": [
 				{
@@ -425,7 +425,7 @@
 			],
 			"complexity": 1,
 			"openingLines": {
-				"default": "*kaclop kaclop kaclop* *snort* *whinny*"
+				"default": "*kaclop kaclop kaclop* [b]*snort*[/b] [i]*whinny*[/i]"
 			}
 		},
 		{

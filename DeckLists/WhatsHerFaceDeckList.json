@@ -262,7 +262,7 @@
 		},
 		{
 			"identifier": "SubtleInfluence",
-			"count": 3,
+			"count": 2,
 			"title": "Subtle Influence",
 			"keywords": [
 				"ongoing",
@@ -306,7 +306,7 @@
 		},
 		{
 			"identifier": "VisualCalculus",
-			"count": 2,
+			"count": 3,
 			"title": "Visual Calculus",
 			"keywords": [
 				"ongoing",
@@ -398,7 +398,7 @@
 			"hitpointsColor": "779999",
 			"character": true,
 			"powers": [
-				"Destroy a [u]recall[/u] card. If you do so, {WhatsHerFace} deals 1 target 3 sonic damage."
+				"Destroy a [u]recall[/u] card. If you do, {WhatsHerFace} deals 1 target 3 sonic damage."
 			],
 			"hitpoints": 27,
 			"nemesisIdentifiers": [

@@ -16,6 +16,22 @@
 	"spriteSourceSize": {"x":0,"y":0,"w":256,"h":198},
 	"sourceSize": {"w":256,"h":198}
 },
+"GunClubSpeedrunnerCharacter.png":
+{
+	"frame": {"x":259,"y":402,"w":178,"h":256},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":178,"h":256},
+	"sourceSize": {"w":178,"h":256}
+},
+"GunClubSpeedrunnerCharacterBack.png":
+{
+	"frame": {"x":440,"y":402,"w":178,"h":256},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":178,"h":256},
+	"sourceSize": {"w":178,"h":256}
+},
 "HalfAPress.png":
 {
 	"frame": {"x":777,"y":0,"w":256,"h":198},
@@ -88,6 +104,14 @@
 	"spriteSourceSize": {"x":0,"y":0,"w":256,"h":198},
 	"sourceSize": {"w":256,"h":198}
 },
+"RetroSpeedrunnerCharacter.png":
+{
+	"frame": {"x":621,"y":402,"w":178,"h":256},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":178,"h":256},
+	"sourceSize": {"w":178,"h":256}
+},
 "RNGManipulation.png":
 {
 	"frame": {"x":518,"y":201,"w":256,"h":198},
@@ -106,7 +130,7 @@
 },
 "SpeedrunnerCharacter.png":
 {
-	"frame": {"x":259,"y":402,"w":178,"h":256},
+	"frame": {"x":802,"y":402,"w":178,"h":256},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":178,"h":256},
@@ -114,7 +138,7 @@
 },
 "SpeedrunnerCharacterBack.png":
 {
-	"frame": {"x":440,"y":402,"w":178,"h":256},
+	"frame": {"x":983,"y":402,"w":178,"h":256},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":178,"h":256},
@@ -122,7 +146,7 @@
 },
 "SpeedrunnerDeckBack.png":
 {
-	"frame": {"x":621,"y":402,"w":178,"h":256},
+	"frame": {"x":1164,"y":402,"w":178,"h":256},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":178,"h":256},
@@ -151,6 +175,6 @@
 	"format": "RGBA8888",
 	"size": {"w":2048,"h":2048},
 	"scale": "1",
-	"smartupdate": "$TexturePacker:SmartUpdate:9ccb3dc625c6a3bb05693f44d0b73875:9ccbea985be70abf9afb072a5de3ba48:06a06e6ccc3569d1eba9907742e7be6f$"
+	"smartupdate": "$TexturePacker:SmartUpdate:eb72beb5263d6246b74d5ae8fe130fa2:0c75c0221209b9927a497c62906484ae:06a06e6ccc3569d1eba9907742e7be6f$"
 }
 }

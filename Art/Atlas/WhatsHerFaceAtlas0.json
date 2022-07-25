@@ -1,6 +1,6 @@
 {"frames": {
 
-"WhatsHerFaceCharacter.png":
+"UmbraCharacter.png":
 {
 	"frame": {"x":0,"y":0,"w":178,"h":256},
 	"rotated": false,
@@ -8,7 +8,7 @@
 	"spriteSourceSize": {"x":0,"y":0,"w":178,"h":256},
 	"sourceSize": {"w":178,"h":256}
 },
-"WhatsHerFaceCharacterBack.png":
+"WhatsHerFaceCharacter.png":
 {
 	"frame": {"x":181,"y":0,"w":178,"h":256},
 	"rotated": false,
@@ -16,7 +16,7 @@
 	"spriteSourceSize": {"x":0,"y":0,"w":178,"h":256},
 	"sourceSize": {"w":178,"h":256}
 },
-"WhatsHerFaceDeckBack.png":
+"WhatsHerFaceCharacterBack.png":
 {
 	"frame": {"x":362,"y":0,"w":178,"h":256},
 	"rotated": false,
@@ -24,7 +24,7 @@
 	"spriteSourceSize": {"x":0,"y":0,"w":178,"h":256},
 	"sourceSize": {"w":178,"h":256}
 },
-"WhatsHerFaceGadgeteerCharacter.png":
+"WhatsHerFaceDeckBack.png":
 {
 	"frame": {"x":543,"y":0,"w":178,"h":256},
 	"rotated": false,
@@ -32,9 +32,17 @@
 	"spriteSourceSize": {"x":0,"y":0,"w":178,"h":256},
 	"sourceSize": {"w":178,"h":256}
 },
-"WhatsHerFaceGadgeteerCharacterBack.png":
+"WhatsHerFaceGadgeteerCharacter.png":
 {
 	"frame": {"x":724,"y":0,"w":178,"h":256},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":178,"h":256},
+	"sourceSize": {"w":178,"h":256}
+},
+"WhatsHerFaceGadgeteerCharacterBack.png":
+{
+	"frame": {"x":0,"y":259,"w":178,"h":256},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":178,"h":256},
@@ -47,6 +55,6 @@
 	"format": "RGBA8888",
 	"size": {"w":1024,"h":1024},
 	"scale": "1",
-	"smartupdate": "$TexturePacker:SmartUpdate:5057b8766f8447b488cfdf7b3d4f6da4:9c60ad405de67f37a24a8debccafd594:16081a511bde3d8814ec9863cc97f84b$"
+	"smartupdate": "$TexturePacker:SmartUpdate:b359785425fea86fc19f84765737d7ed:934ed3b138fb09c83f02d81c591e8a7b:16081a511bde3d8814ec9863cc97f84b$"
 }
 }

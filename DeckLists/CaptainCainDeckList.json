@@ -1,0 +1,520 @@
+﻿{
+	"name": "Captain Cain",
+	"kind": "Hero",
+	"initialCardIdentifiers": [
+		"CaptainCainCharacter",
+		"CaptainCainRules"
+	],
+	"cards": [
+		{
+			"identifier": "CaptainCainCharacter",
+			"count": 1,
+			"title": "Cain",
+			"alternateTitle": "Captain Cain",
+			"body": "Jawbreaker",
+			"backgroundColor": "FF6633",
+			"foilBackgroundColor": "EE7744",
+			"hitpointsColor": "886633",
+			"character": true,
+			"powers": [
+				"Either {CaptainCainCharacter} deals 1 target 1 melee damage, then -1{Blood}, or {CaptainCainCharacter} deals 1 target 1 infernal damage, then +1{Blood}."
+			],
+			"tokenPools": [
+				{
+					"identifier": "CaptainCainBloodPool",
+					"name": "Captain Cain's Blood Pool",
+					"initialValue": 0,
+					"minimumValue": 0,
+					"labelTopColor": "FFAAAA",
+					"labelBottomColor": "886633",
+					"icon": "Angille.Blooddrop"
+				}
+			],
+			"icons": [
+				"HasPower",
+				"DealDamageMelee",
+				"DealDamageInfernal",
+				"AddOrRemoveTokens"
+			],
+			"hitpoints": 28,
+			"nemesisIdentifiers": [
+				"Angille.CaptainCain"
+			],
+			"incapacitatedAbilities": [
+				"",
+				"",
+				""
+			],
+			"flippedIcons": [
+				"",
+				"",
+				""
+			],
+			"openingLines": {
+				"default": ""
+			},
+			"complexity": 2
+		},
+		{
+			"identifier": "CaptainCainRules",
+			"count": 1,
+			"isReal": false,
+			"title": "Additional Rules",
+			"body": [
+				"{CaptainCainCharacter} uses some shorthand to make working with the token pool more succinct.",
+				"the notation “-2{Blood}” or “+3{Blood}” means “remove 2 tokens from your blood pool” or “add 3 tokens to your blood pool” respectively.",
+				"conditionals like “{Blood} < 3:” are considered active text on a card if the conditional is met. in this example, that's “If your blood pool contains less than 3 tokens...”.",
+				"{Blood} all by itself represents the number of tokens in your blood pool."
+			],
+			"flavorText": "“”",
+			"flavorReference": ""
+		},
+		{
+			"identifier": "AllIn",
+			"count": 3,
+			"title": "All In!",
+			"keywords": [
+				"one-shot"
+			],
+			"body": [
+				""
+			],
+			"activatableAbilities": [
+				{
+					"name": "{Blood} < 3",
+					"text": ""
+				},
+				{
+					"name": "{Blood} > 5",
+					"text": ""
+				}
+			],
+			"icons": [
+				"",
+				"",
+				"",
+				""
+			],
+			"flavorText": "“”",
+			"flavorReference": ""
+		},
+		{
+			"identifier": "DoubleEnhancerGloves",
+			"count": 3,
+			"title": "Double Enhancer-Gloves",
+			"keywords": [
+				"equipment",
+				"limited"
+			],
+			"body": [
+				""
+			],
+			"powers": [
+				""
+			],
+			"activatableAbilities": [
+				{
+					"name": "{Blood} < 3",
+					"text": ""
+				},
+				{
+					"name": "{Blood} > 5",
+					"text": ""
+				}
+			],
+			"icons": [
+				"",
+				"",
+				"",
+				""
+			],
+			"flavorText": "“”",
+			"flavorReference": ""
+		},
+		{
+			"identifier": "EndlessHunger",
+			"count": 3,
+			"title": "Endless Hunger",
+			"keywords": [
+				"ongoing",
+				"limited"
+			],
+			"body": [
+				""
+			],
+			"powers": [
+				""
+			],
+			"activatableAbilities": [
+				{
+					"name": "{Blood} < 3",
+					"text": ""
+				},
+				{
+					"name": "{Blood} > 5",
+					"text": ""
+				}
+			],
+			"icons": [
+				"",
+				"",
+				"",
+				""
+			],
+			"flavorText": "“”",
+			"flavorReference": ""
+		},
+		{
+			"identifier": "HeartflowInducer",
+			"count": 3,
+			"title": "Heartflow Inducer",
+			"keywords": [
+				"equipment",
+				"limited"
+			],
+			"body": [
+				""
+			],
+			"powers": [
+				""
+			],
+			"activatableAbilities": [
+				{
+					"name": "{Blood} < 3",
+					"text": ""
+				},
+				{
+					"name": "{Blood} > 5",
+					"text": ""
+				}
+			],
+			"icons": [
+				"",
+				"",
+				"",
+				""
+			],
+			"flavorText": "“”",
+			"flavorReference": ""
+		},
+		{
+			"identifier": "InTheNickOfTime",
+			"count": 3,
+			"title": "In the Nick of Time!",
+			"keywords": [
+				"ongoing"
+			],
+			"body": [
+				""
+			],
+			"powers": [
+				""
+			],
+			"activatableAbilities": [
+				{
+					"name": "{Blood} < 3",
+					"text": ""
+				},
+				{
+					"name": "{Blood} > 5",
+					"text": ""
+				}
+			],
+			"icons": [
+				"",
+				"",
+				"",
+				""
+			],
+			"flavorText": "“”",
+			"flavorReference": ""
+		},
+		{
+			"identifier": "ItsJustAScratch",
+			"count": 2,
+			"title": "It's Just a Scratch!",
+			"keywords": [
+				"ongoing",
+				"limited"
+			],
+			"body": [
+				""
+			],
+			"powers": [
+				""
+			],
+			"activatableAbilities": [
+				{
+					"name": "{Blood} < 3",
+					"text": ""
+				},
+				{
+					"name": "{Blood} > 5",
+					"text": ""
+				}
+			],
+			"icons": [
+				"",
+				"",
+				"",
+				""
+			],
+			"flavorText": "“”",
+			"flavorReference": ""
+		},
+		{
+			"identifier": "ManOfAction",
+			"count": 3,
+			"title": "Man of Action!",
+			"keywords": [
+				"one-shot"
+			],
+			"body": [
+				""
+			],
+			"activatableAbilities": [
+				{
+					"name": "{Blood} < 3",
+					"text": ""
+				},
+				{
+					"name": "{Blood} > 5",
+					"text": ""
+				}
+			],
+			"icons": [
+				"",
+				"",
+				"",
+				""
+			],
+			"flavorText": "“”",
+			"flavorReference": ""
+		},
+		{
+			"identifier": "ManOfThePeople",
+			"count": 3,
+			"title": "Man of the People",
+			"keywords": [
+				"ongoing",
+				"limited"
+			],
+			"body": [
+				""
+			],
+			"powers": [
+				""
+			],
+			"activatableAbilities": [
+				{
+					"name": "{Blood} < 3",
+					"text": ""
+				},
+				{
+					"name": "{Blood} > 5",
+					"text": ""
+				}
+			],
+			"icons": [
+				"",
+				"",
+				"",
+				""
+			],
+			"flavorText": "“”",
+			"flavorReference": ""
+		},
+		{
+			"identifier": "ManOutOfTime",
+			"count": 3,
+			"title": "Man Out of Time",
+			"keywords": [
+				"ongoing",
+				"limited"
+			],
+			"body": [
+				""
+			],
+			"powers": [
+				""
+			],
+			"activatableAbilities": [
+				{
+					"name": "{Blood} < 3",
+					"text": ""
+				},
+				{
+					"name": "{Blood} > 5",
+					"text": ""
+				}
+			],
+			"icons": [
+				"",
+				"",
+				"",
+				""
+			],
+			"flavorText": "“”",
+			"flavorReference": ""
+		},
+		{
+			"identifier": "NoMoreTricks",
+			"count": 3,
+			"title": "No More Tricks...",
+			"keywords": [
+				"one-shot"
+			],
+			"body": [
+				""
+			],
+			"activatableAbilities": [
+				{
+					"name": "{Blood} < 3",
+					"text": ""
+				},
+				{
+					"name": "{Blood} > 5",
+					"text": ""
+				}
+			],
+			"icons": [
+				"",
+				"",
+				"",
+				""
+			],
+			"flavorText": "“”",
+			"flavorReference": ""
+		},
+		{
+			"identifier": "PatentedDesolidifier",
+			"count": 3,
+			"title": "Patented De-Solidifier",
+			"keywords": [
+				"equipment",
+				"limited"
+			],
+			"body": [
+				""
+			],
+			"powers": [
+				""
+			],
+			"activatableAbilities": [
+				{
+					"name": "{Blood} < 3",
+					"text": ""
+				},
+				{
+					"name": "{Blood} > 5",
+					"text": ""
+				}
+			],
+			"icons": [
+				"",
+				"",
+				"",
+				""
+			],
+			"flavorText": "“”",
+			"flavorReference": ""
+		},
+		{
+			"identifier": "TwoFistedJustice",
+			"count": 3,
+			"title": "Two-Fisted Justice!",
+			"keywords": [
+				"one-shot"
+			],
+			"body": [
+				""
+			],
+			"activatableAbilities": [
+				{
+					"name": "{Blood} < 3",
+					"text": ""
+				},
+				{
+					"name": "{Blood} > 5",
+					"text": ""
+				}
+			],
+			"icons": [
+				"",
+				"",
+				"",
+				""
+			],
+			"flavorText": "“”",
+			"flavorReference": ""
+		},
+		{
+			"identifier": "VampirePrince",
+			"count": 2,
+			"title": "Vampire Prince",
+			"keywords": [
+				"ongoing",
+				"limited"
+			],
+			"body": [
+				""
+			],
+			"powers": [
+				""
+			],
+			"activatableAbilities": [
+				{
+					"name": "{Blood} < 3",
+					"text": ""
+				},
+				{
+					"name": "{Blood} > 5",
+					"text": ""
+				}
+			],
+			"icons": [
+				"",
+				"",
+				"",
+				""
+			],
+			"flavorText": "“”",
+			"flavorReference": ""
+		},
+		{
+			"identifier": "YouveMadeMeMadBuster",
+			"count": 3,
+			"title": "You've Made Me Mad, Buster!",
+			"keywords": [
+				"ongoing",
+				"limited"
+			],
+			"body": [
+				""
+			],
+			"powers": [
+				""
+			],
+			"activatableAbilities": [
+				{
+					"name": "{Blood} < 3",
+					"text": ""
+				},
+				{
+					"name": "{Blood} > 5",
+					"text": ""
+				}
+			],
+			"icons": [
+				"",
+				"",
+				"",
+				""
+			],
+			"flavorText": "“”",
+			"flavorReference": ""
+		}
+	],
+	"promoCards": [
+	]
+}

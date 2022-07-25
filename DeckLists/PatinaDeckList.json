@@ -37,7 +37,7 @@
 				"UsePowerNow"
 			],
 			"openingLines": {
-				"default": ""
+				"default": "if you don't back down, you're going to be all washed up!"
 			},
 			"complexity": 1
 		},
@@ -180,8 +180,8 @@
 				"limited"
 			],
 			"body": [
-				"After {Patina} deals Damage, she becomes immune to that type of Damage. Whenever {Patina} deals a different type of Damage, her Damage immunity changes to that type.",
-				"Whenever a hero target would be dealt damage {Patina} is immune to, you may redirect it to {Patina}. If you do so, destroy a [u]water[/u] card or this card."
+				"After {Patina} deals Damage, she becomes immune to that type of Damage. After {Patina} deals a different type of Damage, her Damage immunity changes to that type.",
+				"Whenever a hero target would be dealt damage {Patina} is immune to, you may redirect it to {Patina}. If you do, destroy a [u]water[/u] card or this card."
 			],
 			"icons": [
 				"ImmuneToDamage",

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using Handelabra;
 using Handelabra.Sentinels.Engine.Controller;
 using Handelabra.Sentinels.Engine.Model;
 
@@ -150,7 +151,9 @@ namespace Angille.Patina
 			int discardNumeral = GetPowerNumeral(1, 2);
 			int powerNumeral = GetPowerNumeral(2, 1);
 
-			return GameController.SelectTurnTakersAndDoAction(
+			Log.Debug( "hero: " + heroNumeral + "; discard: " + discardNumeral + "; power: " + powerNumeral);
+
+			IEnumerator selectPlayersCR = GameController.SelectTurnTakersAndDoAction(
 				DecisionMaker,
 				new LinqTurnTakerCriteria((TurnTaker tt) => tt.IsHero && tt.ToHero().HasCardsInHand),
 				SelectionType.DiscardCard,
@@ -160,6 +163,17 @@ namespace Angille.Patina
 				heroNumeral,
 				cardSource: GetCardSource()
 			);
+
+			if (UseUnityCoroutines)
+			{
+				yield return GameController.StartCoroutine(selectPlayersCR);
+			}
+			else
+			{
+				GameController.ExhaustCoroutine(selectPlayersCR);
+			}
+
+			yield break;
 		}
 
 		private IEnumerator DiscardForPower(TurnTaker tt, int discardNumeral, int powerNumeral)

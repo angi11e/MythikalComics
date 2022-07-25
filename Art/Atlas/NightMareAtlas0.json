@@ -1,6 +1,6 @@
 {"frames": {
 
-"NightMareCharacter.png":
+"MoonStalkerCharacter.png":
 {
 	"frame": {"x":0,"y":0,"w":178,"h":256},
 	"rotated": false,
@@ -8,7 +8,7 @@
 	"spriteSourceSize": {"x":0,"y":0,"w":178,"h":256},
 	"sourceSize": {"w":178,"h":256}
 },
-"NightMareCharacterBack.png":
+"NightMareCharacter.png":
 {
 	"frame": {"x":181,"y":0,"w":178,"h":256},
 	"rotated": false,
@@ -16,7 +16,7 @@
 	"spriteSourceSize": {"x":0,"y":0,"w":178,"h":256},
 	"sourceSize": {"w":178,"h":256}
 },
-"NightMareDeckBack.png":
+"NightMareCharacterBack.png":
 {
 	"frame": {"x":362,"y":0,"w":178,"h":256},
 	"rotated": false,
@@ -24,7 +24,7 @@
 	"spriteSourceSize": {"x":0,"y":0,"w":178,"h":256},
 	"sourceSize": {"w":178,"h":256}
 },
-"NightMareWholeHorseCharacter.png":
+"NightMareDeckBack.png":
 {
 	"frame": {"x":543,"y":0,"w":178,"h":256},
 	"rotated": false,
@@ -32,9 +32,17 @@
 	"spriteSourceSize": {"x":0,"y":0,"w":178,"h":256},
 	"sourceSize": {"w":178,"h":256}
 },
-"NightMareWholeHorseCharacterBack.png":
+"NightMareWholeHorseCharacter.png":
 {
 	"frame": {"x":724,"y":0,"w":178,"h":256},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":178,"h":256},
+	"sourceSize": {"w":178,"h":256}
+},
+"NightMareWholeHorseCharacterBack.png":
+{
+	"frame": {"x":0,"y":259,"w":178,"h":256},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":178,"h":256},
@@ -47,6 +55,6 @@
 	"format": "RGBA8888",
 	"size": {"w":1024,"h":1024},
 	"scale": "1",
-	"smartupdate": "$TexturePacker:SmartUpdate:4b1d77ca74b4f14d917ea307476da92c:8339049c6a697048fb36e203b525e30b:fa6a18437993e4cc06147a9534aaf34a$"
+	"smartupdate": "$TexturePacker:SmartUpdate:059b7e7ac1c63d8c7414295cc8bc2ce2:13c1468a2a3ba050bc2b9002dc1f9acc:fa6a18437993e4cc06147a9534aaf34a$"
 }
 }

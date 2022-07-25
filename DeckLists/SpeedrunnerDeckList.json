@@ -445,8 +445,7 @@
 			"icons": [
 				"HasPower",
 				"DealDamageProjectile",
-				"MakeDamageUnredirectable",
-				"MakeDamageIrreducible"
+				"CounterDamage"
 			],
 			"backgroundColor": "A29CCD",
 			"foilBackgroundColor": "522F85",
@@ -473,6 +472,46 @@
 			"openingLines": {
 				"default": "if you don't have perfect reflexes, store bought is fine.",
 				"Menagerie.UnmuteCharacter": "have you seen vtubers though? maybe we both take a shot at them instead."
+			}
+		},
+		{
+			"identifier": "SpeedrunnerCharacter",
+			"promoIdentifier": "RetroSpeedrunnerCharacter",
+			"count": 1,
+			"title": "Speedrunner",
+			"promoTitle": "Retro Speedrunner",
+			"body": "nostalgia",
+			"icons": [
+				"HasPower",
+				"PlayCardNow",
+				"Manipulate"
+			],
+			"backgroundColor": "A29CCD",
+			"foilBackgroundColor": "522F85",
+			"hitpointsColor": "522F85",
+			"character": true,
+			"powers": [
+				"put a one-shot card from a hero trash into play. when that card finishes resolving, move it to the bottom of its deck."
+			],
+			"hitpoints": 27,
+			"nemesisIdentifiers": [
+				"Angille.Speedrunner"
+			],
+			"incapacitatedAbilities": [
+				"One player may draw or play a card.",
+				"One Player may take a card from their trash into their hand.",
+				"One player discards 1 card. If the discarded card was a one-shot, that player may draw 2 cards. If the discarded card was an ongoing or equipment card, 1 hero target regains 2 HP."
+			],
+			"flippedIcons": [
+				"DrawCardNow",
+				"PlayCardNow",
+				"Discard",
+				"GainHP"
+			],
+			"complexity": 3,
+			"openingLines": {
+				"default": "load “speedrunner”, 8, 1",
+				"Menagerie.UnmuteCharacter": "as opposed to what? politi-bloggers? don't make me lol."
 			}
 		}
 	]
