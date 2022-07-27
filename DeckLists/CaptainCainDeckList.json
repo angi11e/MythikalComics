@@ -64,10 +64,8 @@
 				"{CaptainCainCharacter} uses some shorthand to make working with the token pool more succinct.",
 				"the notation “-2{Blood}” or “+3{Blood}” means “remove 2 tokens from your blood pool” or “add 3 tokens to your blood pool” respectively.",
 				"conditionals like “{Blood} < 3:” are considered active text on a card if the conditional is met. in this example, that's “If your blood pool contains less than 3 tokens...”.",
-				"{Blood} all by itself represents the number of tokens in your blood pool."
-			],
-			"flavorText": "“”",
-			"flavorReference": ""
+				"{Blood} all by itself represents the total number of tokens in your blood pool."
+			]
 		},
 		{
 			"identifier": "AllIn",
@@ -77,23 +75,22 @@
 				"one-shot"
 			],
 			"body": [
-				""
+				"{CaptainCainCharacter} deals 1 target 3 melee damage. That target deals {CaptainCainCharacter} 2 melee damage. +{Blood} equal to the damage {CaptainCainCharacter} takes this way."
 			],
 			"activatableAbilities": [
 				{
 					"name": "{Blood} < 3",
-					"text": ""
+					"text": "{CaptainCainCharacter} may deal up to 2 additional targets 1 melee damage each. +{Blood} equal to the number of targets dealt damage this way."
 				},
 				{
 					"name": "{Blood} > 5",
-					"text": ""
+					"text": "When {CaptainCainCharacter} would take damage, he regains that many HP instead. -{Blood} equal to the HP regained this way."
 				}
 			],
 			"icons": [
-				"",
-				"",
-				"",
-				""
+				"DealDamageMelee",
+				"AddOrRemoveTokens",
+				"GainHP"
 			],
 			"flavorText": "“”",
 			"flavorReference": ""
@@ -107,26 +104,22 @@
 				"limited"
 			],
 			"body": [
-				""
+				"increase melee damage dealt by {CaptainCainCharacter} by 1."
 			],
 			"powers": [
-				""
+				"increase the next damage dealt by {CaptainCainCharacter} by 2. either +1{Blood} and play 1 card, or -1{Blood} and draw 1 card."
 			],
 			"activatableAbilities": [
 				{
-					"name": "{Blood} < 3",
-					"text": ""
-				},
-				{
 					"name": "{Blood} > 5",
-					"text": ""
+					"text": "increase infernal damage dealt by {CaptainCainCharacter} by 1."
 				}
 			],
 			"icons": [
-				"",
-				"",
-				"",
-				""
+				"IncreaseDamageDealt",
+				"AddOrRemoveTokens",
+				"PlayCardNow",
+				"DrawCardNow"
 			],
 			"flavorText": "“”",
 			"flavorReference": ""
@@ -140,26 +133,22 @@
 				"limited"
 			],
 			"body": [
-				""
+				"When you draw or play a card, +1{Blood}. When you use a power, -1{Blood}."
 			],
 			"powers": [
-				""
+				"{CaptainCainCharacter} deals 1 hero target 2 irreducible infernal damage, then deals 1 target {Blood} toxic damage. -10{Blood}."
 			],
 			"activatableAbilities": [
 				{
 					"name": "{Blood} < 3",
-					"text": ""
-				},
-				{
-					"name": "{Blood} > 5",
-					"text": ""
+					"text": "When {CaptainCainCharacter} deals damage, he deals himself 1 irreducible psychic damage, then +1{Blood}."
 				}
 			],
 			"icons": [
-				"",
-				"",
-				"",
-				""
+				"AddOrRemoveTokens",
+				"HasPower",
+				"DealDamage",
+				"MakeDamageIrreducible"
 			],
 			"flavorText": "“”",
 			"flavorReference": ""
@@ -173,26 +162,15 @@
 				"limited"
 			],
 			"body": [
-				""
+				"When this card enters play, either +2{Blood} or -2{Blood}.",
+				"Whenever you evaluate {Blood}, you may treat it as 2 higher or 2 lower than it is."
 			],
 			"powers": [
-				""
-			],
-			"activatableAbilities": [
-				{
-					"name": "{Blood} < 3",
-					"text": ""
-				},
-				{
-					"name": "{Blood} > 5",
-					"text": ""
-				}
+				"either +2{Blood} or -2{Blood}."
 			],
 			"icons": [
-				"",
-				"",
-				"",
-				""
+				"HasPower",
+				"AddOrRemoveTokens"
 			],
 			"flavorText": "“”",
 			"flavorReference": ""
@@ -205,26 +183,23 @@
 				"ongoing"
 			],
 			"body": [
-				""
-			],
-			"powers": [
-				""
+				"When a hero target would be dealt damage, you may destroy this card. If you do, redirect the damage to another target. If the new target is a hero target, +2{Blood}. Otherwise, -5{Blood}."
 			],
 			"activatableAbilities": [
 				{
 					"name": "{Blood} < 3",
-					"text": ""
+					"text": "When this card is destroyed, {CaptainCainCharacter} deals 1 target 3 melee damage, then +1{Blood}."
 				},
 				{
 					"name": "{Blood} > 5",
-					"text": ""
+					"text": "When this card is destroyed, {CaptainCainCharacter} deals 1 hero target 2 infernal damage and 1 target 2 toxic damage, then -2{Blood}."
 				}
 			],
 			"icons": [
-				"",
-				"",
-				"",
-				""
+				"RedirectDamage",
+				"AddOrRemoveTokens",
+				"DealDamage",
+				"DestroySelf"
 			],
 			"flavorText": "“”",
 			"flavorReference": ""
@@ -238,26 +213,19 @@
 				"limited"
 			],
 			"body": [
-				""
-			],
-			"powers": [
-				""
+				"When {CaptainCainCharacter} drops to 0 or fewer HP, restore him to {Blood} HP, even if that puts him above his maximum. Then, destroy this card and -all{Blood}."
 			],
 			"activatableAbilities": [
 				{
-					"name": "{Blood} < 3",
-					"text": ""
-				},
-				{
-					"name": "{Blood} > 5",
-					"text": ""
+					"name": "{Blood} > 10",
+					"text": "When this card would be destroyed, remove it from the game instead."
 				}
 			],
 			"icons": [
-				"",
-				"",
-				"",
-				""
+				"GainHP",
+				"RemoveTokens",
+				"DestroySelf",
+				"RemoveFromGame"
 			],
 			"flavorText": "“”",
 			"flavorReference": ""
@@ -270,23 +238,22 @@
 				"one-shot"
 			],
 			"body": [
-				""
+				"{CaptainCainCharacter} deals 1 target 2 melee damage, then deals a second target melee damage equal to the amount of damage dealt to the first target. +2{Blood} each time a target is destroyed this way."
 			],
 			"activatableAbilities": [
 				{
 					"name": "{Blood} < 3",
-					"text": ""
+					"text": "{CaptainCainCharacter} may deal a third target melee damage equal to the amount of damage dealt to the second target."
 				},
 				{
 					"name": "{Blood} > 5",
-					"text": ""
+					"text": "The first target must be a hero target, and that damage is infernal."
 				}
 			],
 			"icons": [
-				"",
-				"",
-				"",
-				""
+				"DealDamageMelee",
+				"AddTokens",
+				"DealDamageInfernal"
 			],
 			"flavorText": "“”",
 			"flavorReference": ""
@@ -300,26 +267,26 @@
 				"limited"
 			],
 			"body": [
-				""
+				"The first time each turn {CaptainCainCharacter} draws a card, another player may draw a card."
 			],
 			"powers": [
-				""
+				"Draw 1 card. Another player may play 1 card. -1{Blood}."
 			],
 			"activatableAbilities": [
 				{
 					"name": "{Blood} < 3",
-					"text": ""
+					"text": "When this power is used, another player may use a power."
 				},
 				{
 					"name": "{Blood} > 5",
-					"text": ""
+					"text": "At the start of your turn, destroy this card."
 				}
 			],
 			"icons": [
-				"",
-				"",
-				"",
-				""
+				"DrawCardNow",
+				"PlayCardNow",
+				"UsePowerNow",
+				"DestroySelf"
 			],
 			"flavorText": "“”",
 			"flavorReference": ""
@@ -329,30 +296,26 @@
 			"count": 3,
 			"title": "Man Out of Time",
 			"keywords": [
-				"ongoing",
-				"limited"
+				"one-shot"
 			],
 			"body": [
-				""
-			],
-			"powers": [
-				""
+				"Reveal the top card of your deck. If it's a one-shot, -2{Blood}. If it's an ongoing, +2{Blood}. Put the revealed card into play. If it's an equipment, you may use a power on that card now."
 			],
 			"activatableAbilities": [
 				{
-					"name": "{Blood} < 3",
-					"text": ""
+					"name": "{Blood} < 5",
+					"text": "You may destroy an ongoing card."
 				},
 				{
-					"name": "{Blood} > 5",
-					"text": ""
+					"name": "{Blood} > 3",
+					"text": "You may destroy an environment card."
 				}
 			],
 			"icons": [
-				"",
-				"",
-				"",
-				""
+				"AddOrRemoveTokens",
+				"PlayCardNow",
+				"UsePowerNow",
+				"Destroy"
 			],
 			"flavorText": "“”",
 			"flavorReference": ""
@@ -365,23 +328,22 @@
 				"one-shot"
 			],
 			"body": [
-				""
+				"{CaptainCainCharacter} deals himself and 1 other target 2 irreducible psychic damage each."
 			],
 			"activatableAbilities": [
 				{
 					"name": "{Blood} < 3",
-					"text": ""
+					"text": "{CaptainCainCharacter} deals that target 1 melee damage. +1{Blood}."
 				},
 				{
 					"name": "{Blood} > 5",
-					"text": ""
+					"text": "{CaptainCainCharacter} deals that target 1 infernal damage. -1{Blood}."
 				}
 			],
 			"icons": [
-				"",
-				"",
-				"",
-				""
+				"DealDamage",
+				"AddOrRemoveTokens",
+				"MakeDamageIrreducible"
 			],
 			"flavorText": "“”",
 			"flavorReference": ""
@@ -395,26 +357,21 @@
 				"limited"
 			],
 			"body": [
-				""
+				"reduce damage dealt to {CaptainCainCharacter} by 1."
 			],
 			"powers": [
-				""
+				"The next time damage would be dealt to {CaptainCainCharacter}, prevent it. Until then, {CaptainCainCharacter} cannot deal damage."
 			],
 			"activatableAbilities": [
 				{
-					"name": "{Blood} < 3",
-					"text": ""
-				},
-				{
 					"name": "{Blood} > 5",
-					"text": ""
+					"text": "{CaptainCainCharacter} may deal damage while this power is in effect."
 				}
 			],
 			"icons": [
-				"",
-				"",
-				"",
-				""
+				"ReduceDamageTaken",
+				"CancelledDamageGreen",
+				"CannotDealDamage"
 			],
 			"flavorText": "“”",
 			"flavorReference": ""
@@ -427,23 +384,22 @@
 				"one-shot"
 			],
 			"body": [
-				""
+				"{CaptainCainCharacter} deals up to 5 targets 1 melee damage each."
 			],
 			"activatableAbilities": [
 				{
 					"name": "{Blood} < 3",
-					"text": ""
+					"text": "This damage is irreducible."
 				},
 				{
 					"name": "{Blood} > 5",
-					"text": ""
+					"text": "{CaptainCainCharacter} regains 1 HP each time a target takes damage this way."
 				}
 			],
 			"icons": [
-				"",
-				"",
-				"",
-				""
+				"DealDamageMelee",
+				"MakeDamageIrreducible",
+				"GainHP"
 			],
 			"flavorText": "“”",
 			"flavorReference": ""
@@ -456,27 +412,24 @@
 				"ongoing",
 				"limited"
 			],
-			"body": [
-				""
-			],
 			"powers": [
-				""
+				"-5{Blood}. If {Blood} < 5, draw 3 cards and discard 2 cards. Otherwise, reveal cards from the top of your deck until you reveal 2 ongoing cards, put 1 into play or your hand, and shuffle the rest into your deck."
 			],
 			"activatableAbilities": [
 				{
 					"name": "{Blood} < 3",
-					"text": ""
+					"text": "At the start of your turn, destroy this card."
 				},
 				{
 					"name": "{Blood} > 5",
-					"text": ""
+					"text": "At the start of your turn, {CaptainCainCharacter} regains 1 HP."
 				}
 			],
 			"icons": [
-				"",
-				"",
-				"",
-				""
+				"RemoveTokens",
+				"Manipulate",
+				"DestroySelf",
+				"GainHP"
 			],
 			"flavorText": "“”",
 			"flavorReference": ""
@@ -490,26 +443,23 @@
 				"limited"
 			],
 			"body": [
-				""
-			],
-			"powers": [
-				""
+				"You may use an additional power during your power phase."
 			],
 			"activatableAbilities": [
 				{
 					"name": "{Blood} < 3",
-					"text": ""
+					"text": "When {CaptainCainCharacter} destroys a target, he may deal 1 target 1 melee damage, then +1{Blood}."
 				},
 				{
 					"name": "{Blood} > 5",
-					"text": ""
+					"text": "When {CaptainCainCharacter} deals melee damage, he also deals that target 1 infernal damage."
 				}
 			],
 			"icons": [
-				"",
-				"",
-				"",
-				""
+				"UsePowerExtra",
+				"DealDamageMelee",
+				"DealDamageInfernal",
+				"AddTokens"
 			],
 			"flavorText": "“”",
 			"flavorReference": ""
