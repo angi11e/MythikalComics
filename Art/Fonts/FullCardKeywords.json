@@ -16,15 +16,7 @@
 	"spriteSourceSize": {"x":0,"y":0,"w":70,"h":70},
 	"sourceSize": {"w":70,"h":70}
 },
-"card-keywords-full.png":
-{
-	"frame": {"x":0,"y":73,"w":520,"h":527},
-	"rotated": false,
-	"trimmed": false,
-	"spriteSourceSize": {"x":0,"y":0,"w":520,"h":527},
-	"sourceSize": {"w":520,"h":527}
-},
-"Crown.png":
+"Blood.png":
 {
 	"frame": {"x":146,"y":0,"w":70,"h":70},
 	"rotated": false,
@@ -32,7 +24,15 @@
 	"spriteSourceSize": {"x":0,"y":0,"w":70,"h":70},
 	"sourceSize": {"w":70,"h":70}
 },
-"Dog.png":
+"card-keywords-full.png":
+{
+	"frame": {"x":0,"y":73,"w":529,"h":528},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":529,"h":528},
+	"sourceSize": {"w":529,"h":528}
+},
+"Crown.png":
 {
 	"frame": {"x":219,"y":0,"w":70,"h":70},
 	"rotated": false,
@@ -40,7 +40,7 @@
 	"spriteSourceSize": {"x":0,"y":0,"w":70,"h":70},
 	"sourceSize": {"w":70,"h":70}
 },
-"Mask.png":
+"Dog.png":
 {
 	"frame": {"x":292,"y":0,"w":70,"h":70},
 	"rotated": false,
@@ -48,7 +48,7 @@
 	"spriteSourceSize": {"x":0,"y":0,"w":70,"h":70},
 	"sourceSize": {"w":70,"h":70}
 },
-"Skull.png":
+"Mask.png":
 {
 	"frame": {"x":365,"y":0,"w":70,"h":70},
 	"rotated": false,
@@ -56,7 +56,7 @@
 	"spriteSourceSize": {"x":0,"y":0,"w":70,"h":70},
 	"sourceSize": {"w":70,"h":70}
 },
-"Spider.png":
+"Skull.png":
 {
 	"frame": {"x":438,"y":0,"w":70,"h":70},
 	"rotated": false,
@@ -64,7 +64,7 @@
 	"spriteSourceSize": {"x":0,"y":0,"w":70,"h":70},
 	"sourceSize": {"w":70,"h":70}
 },
-"Tattle.png":
+"Spider.png":
 {
 	"frame": {"x":511,"y":0,"w":70,"h":70},
 	"rotated": false,
@@ -72,7 +72,7 @@
 	"spriteSourceSize": {"x":0,"y":0,"w":70,"h":70},
 	"sourceSize": {"w":70,"h":70}
 },
-"Whatever.png":
+"Tattle.png":
 {
 	"frame": {"x":584,"y":0,"w":70,"h":70},
 	"rotated": false,
@@ -87,6 +87,6 @@
 	"format": "RGBA8888",
 	"size": {"w":1024,"h":1024},
 	"scale": "1",
-	"smartupdate": "$TexturePacker:SmartUpdate:9312a592b25f5ad9713b4d7001312e46:6c4363f25381efb822846ec802f85aca:78a8fe050ee96964a4e5b33f95cb8cbd$"
+	"smartupdate": "$TexturePacker:SmartUpdate:6b5a1f9a633a8e012263d1955d13e4d7:966152411d48f8c9703b99d4ae0e183b:78a8fe050ee96964a4e5b33f95cb8cbd$"
 }
 }

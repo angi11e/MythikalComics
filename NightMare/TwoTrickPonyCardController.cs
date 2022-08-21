@@ -101,6 +101,7 @@ namespace Angille.NightMare
 			if (yesOrNo.Count > 0 && yesOrNo.FirstOrDefault().Answer == true)
 			{
 				// If you do...
+				/* old code using Timing.Before
 				if (ga is DiscardCardAction)
 				{
 					(ga as DiscardCardAction).SetDestination(base.HeroTurnTaker.Hand);
@@ -112,6 +113,24 @@ namespace Angille.NightMare
 				else if (ga is DestroyCardAction)
 				{
 					(ga as DestroyCardAction).SetPostDestroyDestination(base.HeroTurnTaker.Hand);
+				}
+				*/
+
+				// new code using Timing.After
+				IEnumerator moveCardCR = GameController.MoveCard(
+					this.TurnTakerController,
+					this.Card,
+					this.HeroTurnTaker.Hand,
+					cardSource: GetCardSource()
+				);
+
+				if (UseUnityCoroutines)
+				{
+					yield return GameController.StartCoroutine(moveCardCR);
+				}
+				else
+				{
+					GameController.ExhaustCoroutine(moveCardCR);
 				}
 			}
 

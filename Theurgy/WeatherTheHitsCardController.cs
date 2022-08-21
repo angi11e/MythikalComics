@@ -11,9 +11,9 @@ namespace Angille.Theurgy
 	internal class WeatherTheHitsCardController : CharmBaseCardController
 	{
 		// Play this card next to a hero character card.
-		// Reduce the next damage taken by that hero by 3.
+		// Reduce the next damage taken by that hero by 2.
 		// That hero gains the [b]power:[/b] destroy this card.
-		// Before this card is destroyed, the hero it's next to regains 5 hp.
+		// Before this card is destroyed, the hero it's next to regains 4 hp.
 		// All other hero targets regain 1 hp.
 
 		public WeatherTheHitsCardController(
@@ -29,7 +29,7 @@ namespace Angille.Theurgy
 
 		public override IEnumerator Play()
 		{
-			ReduceDamageStatusEffect reduceDamageSE = new ReduceDamageStatusEffect(3);
+			ReduceDamageStatusEffect reduceDamageSE = new ReduceDamageStatusEffect(2);
 			reduceDamageSE.NumberOfUses = 1;
 			reduceDamageSE.TargetCriteria.IsSpecificCard = CharmedHero();
 			reduceDamageSE.CardDestroyedExpiryCriteria.Card = CharmedHero();
@@ -44,7 +44,7 @@ namespace Angille.Theurgy
 			// heal this hero for 5
 			IEnumerator healTargetCR = GameController.GainHP(
 				CharmedHero(),
-				5,
+				4,
 				cardSource: GetCardSource()
 			);
 

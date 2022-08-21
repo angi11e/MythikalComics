@@ -33,12 +33,17 @@
 				"Move a card from a trash to the top of its deck."
 			],
 			"flippedIcons": [
+				"HasPower",
 				"DrawCardNow",
 				"DestroyOngoing",
 				"Manipulate"
 			],
 			"openingLines": {
 				"default": "I've already seen your defeat through the Tapestry.",
+				"AkashBhutaCharacter": "so which is it. order or chaos? that doesn't even make sense.",
+				"GloomWeaverCharacter": "and what [i]does[/i] despair taste like?",
+				"BugbearTeamCharacter": "ew! do you literally... eat... people?",
+				"Cauldron.TheInfernalChoirCharacter": "oh, your threads are all... [i]weird...[i]",
 				"Angille.CadaverTeamCharacter": "Get off the stage, you dusty has-been!"
 			},
 			"complexity": 2
@@ -73,8 +78,8 @@
 			"body": [
 				"Play this card next to a hero character card.",
 				"Their player selects a damage type. Damage of that type dealt by or to this hero is irreducible.",
-				"That hero gains the [b]power:[/b] destroy this card.",
-				"When this card is destroyed, the hero it's next to may play 1 card or use 1 power. All damage is irreducible until this card leaves play."
+				"This hero gains the [b]power:[/b] destroy this card.",
+				"When this card is destroyed, this hero may play 1 card or use 1 power. All damage is irreducible until this card leaves play."
 			],
 			"icons": [
 				"HasPower",
@@ -82,8 +87,8 @@
 				"DestroySelf",
 				"PlayCardNow"
 			],
-			"flavorText": "“How do you like [b]fire[/b] hooves?”",
-			"flavorReference": "NightMare, First Day Tremors (EC #3)"
+			"flavorText": "“[b]now[/b] we're cookin' with fire!”",
+			"flavorReference": "NightMare, Knead to Know (EC #14)"
 		},
 		{
 			"identifier": "DelightInDiscovery",
@@ -114,12 +119,11 @@
 				"limited"
 			],
 			"body": [
-				"Whenever you discard a card, you may put it into your hand instead.",
-				"if you do, either destroy this card or {Theurgy} deals herself 2 irreducible psychic damage."
+				"When you discard a [u]charm[/u] card, {Theurgy} may deal herself 3 irreducible psychic damage. If she takes damage this way, put the [u]charm[/u] card into play instead."
 			],
 			"icons": [
 				"Manipulate",
-				"DestroySelf",
+				"PlayCardNow",
 				"DealDamagePsychic"
 			],
 			"flavorText": "“Where are my hostages!?“",
@@ -134,8 +138,8 @@
 				"limited"
 			],
 			"body": [
-				"When this card enters play, {Theurgy} regains 2 hp.",
-				"The first time a [u]charm[/u] card is destroyed each turn, {Theurgy} regains 1 hp."
+				"When this card enters play, {Theurgy} regains 1 hp.",
+				"The first time a [u]charm[/u] card is destroyed each turn, {Theurgy} regains 2 hp."
 			],
 			"powers": [
 				"{Theurgy} deals 1 target X energy damage, where X = the number of [u]charm[/u] cards in play times 2. Destroy this card."
@@ -158,18 +162,18 @@
 				"charm"
 			],
 			"body": [
-				"Play this card next to a hero character card. That hero draws a card.",
-				"That hero gains the [b]power:[/b] destroy this card.",
-				"When this card is destroyed, the hero it's next to Reveals the top 4 cards of their deck. Put 1 in their hand. Put 1 on top of their deck. Discard 1. Play 1."
+				"Play this card next to a hero character card. This hero draws a card.",
+				"This hero gains the [b]power:[/b] destroy this card.",
+				"When this card is destroyed, this hero Reveals the top 4 cards of their deck. Put 1 in their hand. Put 1 on top of their deck. Discard 1. Play 1."
 			],
 			"icons": [
-				"StartOfTurnAction",
 				"HasPower",
+				"DrawCardNow",
 				"Manipulate",
 				"DestroySelf"
 			],
 			"flavorText": "“Found the place.{BR}it's pretty quiet.”",
-			"flavorReference": "What's-her-face, Elementary (EC #4)"
+			"flavorReference": "What's-her-face, Mist By an inch (EC #16)"
 		},
 		{
 			"identifier": "GuideTheStrike",
@@ -180,9 +184,9 @@
 				"charm"
 			],
 			"body": [
-				"Play this card next to a hero character card. increase the next damage dealt by that hero by 3.",
-				"That hero gains the [b]power:[/b] destroy this card.",
-				"When this card is destroyed, the hero it's next to deals 1 target 5 melee or projectile damage."
+				"Play this card next to a hero character card. increase the next damage dealt by this hero by 2.",
+				"This hero gains the [b]power:[/b] destroy this card.",
+				"When this card is destroyed, this hero deals 1 target 4 melee or projectile damage."
 			],
 			"icons": [
 				"IncreaseDamageDealt",
@@ -240,8 +244,8 @@
 			],
 			"body": [
 				"Play this card next to a hero character card. They may discard a card. If they do, they move a card from their trash into their hand.",
-				"That hero gains the [b]power:[/b] destroy this card.",
-				"When this card is destroyed, the hero it's next to Discards any number of cards. Move up to that many cards from their trash to their hand. That hero plays a card."
+				"This hero gains the [b]power:[/b] destroy this card.",
+				"When this card is destroyed, this hero may Discard any number of cards. Move up to that many cards from their trash to their hand. This hero plays a card."
 			],
 			"icons": [
 				"Manipulate",
@@ -283,7 +287,7 @@
 				"When this card is destroyed, select a deck. cards from that deck cannot be played until the start of your next turn. Remove this card from the game."
 			],
 			"powers": [
-				"Discard a [u]charm[/u] card. If you do, search your trash or deck for a different [u]charm[/u] card. Put it into play or in your hand."
+				"Discard a [u]charm[/u] card. If you do, search your deck or trash for a different [u]charm[/u] card. Put it into play or in your hand."
 			],
 			"icons": [
 				"DrawCardNow",
@@ -303,7 +307,7 @@
 			],
 			"body": [
 				"{Theurgy} deals 1 target 3 projectile damage.",
-				"That target deals up to X targets 2 melee damage, where X = the number of [u]charm[/u] cards in play plus 1.",
+				"That target deals up to X other targets 2 melee damage, where X = the number of [u]charm[/u] cards in play plus 1.",
 				"You may destroy a [u]charm[/u] card."
 			],
 			"icons": [
@@ -323,9 +327,9 @@
 				"charm"
 			],
 			"body": [
-				"Play this card next to a hero character card. Reduce the next damage taken by that hero by 3.",
-				"That hero gains the [b]power:[/b] destroy this card.",
-				"When this card is destroyed, the hero it's next to regains 5 hp. All other hero targets regain 1 hp."
+				"Play this card next to a hero character card. Reduce the next damage dealt to this hero by 2.",
+				"This hero gains the [b]power:[/b] destroy this card.",
+				"When this card is destroyed, this hero regains 4 hp. All other hero targets regain 1 hp."
 			],
 			"icons": [
 				"ReduceDamageTaken",
@@ -340,6 +344,7 @@
 			"identifier": "Yoink",
 			"count": 2,
 			"title": "Yoink!",
+			"italicizeTitle": true,
 			"keywords": [
 				"one-shot"
 			],
@@ -394,6 +399,10 @@
 			"complexity": 2,
 			"openingLines": {
 				"default": "I will tear you from the Tapestry.",
+				"AkashBhutaCharacter": "and that is why we spin order [i]from[/i] chaos. we will see who is temporary.",
+				"GloomWeaverCharacter": "We cannot allow the Tapestry to be ripped, just for you.",
+				"BugbearTeamCharacter": "you'll find this one... a bit too stringy.",
+				"Cauldron.TheInfernalChoirCharacter": "ghosts don't bother me. in fact, I find some... charming.",
 				"Angille.CadaverTeamCharacter": "It's curtains for you, bud. And all your... costars."
 			}
 		},
@@ -434,6 +443,10 @@
 			"complexity": 2,
 			"openingLines": {
 				"default": "Are you ready to rock!?",
+				"AkashBhutaCharacter": "yeah, lady, I'm hearin' what you're putting down. wait, ‘temporary’?",
+				"GloomWeaverCharacter": "ugh, the emo is a bit much, but I'll play along.",
+				"BugbearTeamCharacter": "whoah, that's [b]so[/b] metal!",
+				"Cauldron.TheInfernalChoirCharacter": "ok, but that's a great band name though.",
 				"Angille.CadaverTeamCharacter": "You couldn't handle my riffs, dust-bucket. Go play with your magic wand somewhere else."
 			}
 		}

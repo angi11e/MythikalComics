@@ -2,7 +2,7 @@
 
 "CalledShot.png":
 {
-	"frame": {"x":1086,"y":0,"w":256,"h":198},
+	"frame": {"x":1267,"y":0,"w":256,"h":198},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":256,"h":198},
@@ -16,9 +16,17 @@
 	"spriteSourceSize": {"x":0,"y":0,"w":178,"h":256},
 	"sourceSize": {"w":178,"h":256}
 },
+"DDOSCharacterBack.png":
+{
+	"frame": {"x":181,"y":0,"w":178,"h":256},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":178,"h":256},
+	"sourceSize": {"w":178,"h":256}
+},
 "EnergyBurst.png":
 {
-	"frame": {"x":1345,"y":0,"w":256,"h":198},
+	"frame": {"x":1526,"y":0,"w":256,"h":198},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":256,"h":198},
@@ -26,7 +34,7 @@
 },
 "FullAuto.png":
 {
-	"frame": {"x":1604,"y":0,"w":256,"h":198},
+	"frame": {"x":1785,"y":0,"w":256,"h":198},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":256,"h":198},
@@ -82,7 +90,7 @@
 },
 "RedRifleCharacter.png":
 {
-	"frame": {"x":181,"y":0,"w":178,"h":256},
+	"frame": {"x":362,"y":0,"w":178,"h":256},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":178,"h":256},
@@ -90,7 +98,7 @@
 },
 "RedRifleCharacterBack.png":
 {
-	"frame": {"x":362,"y":0,"w":178,"h":256},
+	"frame": {"x":543,"y":0,"w":178,"h":256},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":178,"h":256},
@@ -98,7 +106,7 @@
 },
 "RedRifleDeckBack.png":
 {
-	"frame": {"x":543,"y":0,"w":178,"h":256},
+	"frame": {"x":724,"y":0,"w":178,"h":256},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":178,"h":256},
@@ -114,7 +122,7 @@
 },
 "SeeingRedRedRifleCharacter.png":
 {
-	"frame": {"x":724,"y":0,"w":178,"h":256},
+	"frame": {"x":905,"y":0,"w":178,"h":256},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":178,"h":256},
@@ -122,7 +130,7 @@
 },
 "SeeingRedRedRifleCharacterBack.png":
 {
-	"frame": {"x":905,"y":0,"w":178,"h":256},
+	"frame": {"x":1086,"y":0,"w":178,"h":256},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":178,"h":256},
@@ -167,6 +175,6 @@
 	"format": "RGBA8888",
 	"size": {"w":2048,"h":2048},
 	"scale": "1",
-	"smartupdate": "$TexturePacker:SmartUpdate:455faf4360c5584cfd48dcb0e83ffc3f:6ffb83899462a637c7d23e5010a4f913:f0ca4854047c5ca7f476d9a69a982013$"
+	"smartupdate": "$TexturePacker:SmartUpdate:fdc32c7043ebe32bf2dda81ea4c436e4:2bff35d84f29689968d94210384c0700:f0ca4854047c5ca7f476d9a69a982013$"
 }
 }

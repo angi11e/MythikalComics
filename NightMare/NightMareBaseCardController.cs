@@ -39,13 +39,37 @@ namespace Angille.NightMare
 						&& FindCard("Gust").Owner.Identifier == "CadaverTeam"
 						&& FindCard("Gust").IsInPlayAndNotUnderCard
 					),
-				DiscardResponse,
+				DiscardWrapper,
 				TriggerType.Other,
-				TriggerTiming.Before,
+				// TriggerTiming.Before, // some bugs from this
+				TriggerTiming.After, // gonna try this instead
 				outOfPlayTrigger: true
 			);
 
 			base.AddStartOfGameTriggers();
+		}
+
+		private IEnumerator DiscardWrapper(GameAction ga)
+		{
+			IEnumerator messageCR = GameController.SendMessageAction(
+				$"Discarding {this.Card.Title} activates its discard text.",
+				Priority.Medium,
+				GetCardSource(),
+				showCardSource: true
+			);
+
+			if (UseUnityCoroutines)
+			{
+				yield return GameController.StartCoroutine(messageCR);
+				yield return GameController.StartCoroutine(DiscardResponse(ga));
+			}
+			else
+			{
+				GameController.ExhaustCoroutine(messageCR);
+				GameController.ExhaustCoroutine(DiscardResponse(ga));
+			}
+
+			yield break;
 		}
 
 		protected abstract IEnumerator DiscardResponse(GameAction ga);

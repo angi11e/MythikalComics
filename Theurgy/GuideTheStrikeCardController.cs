@@ -8,9 +8,9 @@ namespace Angille.Theurgy
 	public class GuideTheStrikeCardController : CharmBaseCardController
 	{
 		// Play this card next to a hero character card.
-		// increase the next damage dealt by that hero by 3.
+		// increase the next damage dealt by that hero by 2.
 		// That hero gains the [b]power:[/b] destroy this card.
-		// Before this card is destroyed, the hero it's next to deals 1 target 5 melee or projectile damage.
+		// Before this card is destroyed, the hero it's next to deals 1 target 4 melee or projectile damage.
 
 		public GuideTheStrikeCardController(
 			Card card,
@@ -25,7 +25,7 @@ namespace Angille.Theurgy
 
 		public override IEnumerator Play()
 		{
-			IncreaseDamageStatusEffect increaseDamageSE = new IncreaseDamageStatusEffect(3);
+			IncreaseDamageStatusEffect increaseDamageSE = new IncreaseDamageStatusEffect(2);
 			increaseDamageSE.NumberOfUses = 1;
 			increaseDamageSE.SourceCriteria.IsSpecificCard = CharmedHero();
 			increaseDamageSE.CardDestroyedExpiryCriteria.Card = CharmedHero();
@@ -62,7 +62,7 @@ namespace Angille.Theurgy
 				IEnumerator strikeCR = GameController.SelectTargetsAndDealDamage(
 					httc,
 					new DamageSource(GameController, CharmedHero()),
-					5,
+					4,
 					damageType.Value,
 					1,
 					false,

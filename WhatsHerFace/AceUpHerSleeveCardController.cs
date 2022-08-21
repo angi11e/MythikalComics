@@ -33,23 +33,23 @@ namespace Angille.WhatsHerFace
 				SelectionType.UsePower,
 				new LinqCardCriteria(
 					(Card c) => c.IsHeroCharacterCard
-						&& c != base.CharacterCard
+						&& c != this.CharacterCard
 						&& c.IsInPlayAndHasGameText
 						&& !c.IsIncapacitatedOrOutOfGame,
-					"hero character card other than " + base.CharacterCard.Title
+					"hero character card other than " + this.CharacterCard.Title
 				),
 				cards,
 				false,
 				cardSource: GetCardSource()
 			);
 
-			if (base.UseUnityCoroutines)
+			if (UseUnityCoroutines)
 			{
-				yield return base.GameController.StartCoroutine(selectHeroCR);
+				yield return GameController.StartCoroutine(selectHeroCR);
 			}
 			else
 			{
-				base.GameController.ExhaustCoroutine(selectHeroCR);
+				GameController.ExhaustCoroutine(selectHeroCR);
 			}
 
 			SelectCardDecision selected = cards.FirstOrDefault();
@@ -59,13 +59,13 @@ namespace Angille.WhatsHerFace
 					FindCardController(selected.SelectedCard)
 				);
 
-				if (base.UseUnityCoroutines)
+				if (UseUnityCoroutines)
 				{
-					yield return base.GameController.StartCoroutine(grantPowerCR);
+					yield return GameController.StartCoroutine(grantPowerCR);
 				}
 				else
 				{
-					base.GameController.ExhaustCoroutine(grantPowerCR);
+					GameController.ExhaustCoroutine(grantPowerCR);
 				}
 			}
 
@@ -79,28 +79,28 @@ namespace Angille.WhatsHerFace
 				case 0:
 					// Draw 1 card.
 					int drawNumeral = GetPowerNumeral(0, 1);
-					IEnumerator drawCardCR = DrawCards(base.HeroTurnTakerController, drawNumeral);
-					if (base.UseUnityCoroutines)
+					IEnumerator drawCardCR = DrawCards(this.HeroTurnTakerController, drawNumeral);
+					if (UseUnityCoroutines)
 					{
-						yield return base.GameController.StartCoroutine(drawCardCR);
+						yield return GameController.StartCoroutine(drawCardCR);
 					}
 					else
 					{
-						base.GameController.ExhaustCoroutine(drawCardCR);
+						GameController.ExhaustCoroutine(drawCardCR);
 					}
 					break;
 
 				case 1:
 					// Play 1 card.
 					int playNumeral = GetPowerNumeral(0, 1);
-					IEnumerator playCardCR = SelectAndPlayCardsFromHand(base.HeroTurnTakerController, playNumeral);
-					if (base.UseUnityCoroutines)
+					IEnumerator playCardCR = SelectAndPlayCardsFromHand(this.HeroTurnTakerController, playNumeral);
+					if (UseUnityCoroutines)
 					{
-						yield return base.GameController.StartCoroutine(playCardCR);
+						yield return GameController.StartCoroutine(playCardCR);
 					}
 					else
 					{
-						base.GameController.ExhaustCoroutine(playCardCR);
+						GameController.ExhaustCoroutine(playCardCR);
 					}
 					break;
 
@@ -110,7 +110,7 @@ namespace Angille.WhatsHerFace
 					int damageNumeral = GetPowerNumeral(1, 2);
 					IEnumerator dealDamageCR = GameController.SelectTargetsAndDealDamage(
 						DecisionMaker,
-						new DamageSource(GameController, base.Card),
+						new DamageSource(GameController, this.CharacterCard),
 						damageNumeral,
 						DamageType.Melee,
 						targetNumeral,
@@ -118,13 +118,13 @@ namespace Angille.WhatsHerFace
 						targetNumeral,
 						cardSource: GetCardSource()
 					);
-					if (base.UseUnityCoroutines)
+					if (UseUnityCoroutines)
 					{
-						yield return base.GameController.StartCoroutine(dealDamageCR);
+						yield return GameController.StartCoroutine(dealDamageCR);
 					}
 					else
 					{
-						base.GameController.ExhaustCoroutine(dealDamageCR);
+						GameController.ExhaustCoroutine(dealDamageCR);
 					}
 					break;
 			}

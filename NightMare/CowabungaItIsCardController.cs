@@ -27,7 +27,7 @@ namespace Angille.NightMare
 			// {NightMare} deals up to 3 targets 2 Melee damage each.
 			IEnumerator dealDamageCR = GameController.SelectTargetsAndDealDamage(
 				DecisionMaker,
-				new DamageSource(GameController, base.CharacterCard),
+				new DamageSource(GameController, this.CharacterCard),
 				2,
 				DamageType.Melee,
 				3,
@@ -57,13 +57,13 @@ namespace Angille.NightMare
 					Priority.Medium,
 					GetCardSource()
 				);
-				if (base.UseUnityCoroutines)
+				if (UseUnityCoroutines)
 				{
-					yield return base.GameController.StartCoroutine(promptCR);
+					yield return GameController.StartCoroutine(promptCR);
 				}
 				else
 				{
-					base.GameController.ExhaustCoroutine(promptCR);
+					GameController.ExhaustCoroutine(promptCR);
 				}
 			}
 			else
@@ -74,8 +74,9 @@ namespace Angille.NightMare
 					TurnTaker.Trash,
 					new LinqCardCriteria((Card c) => true),
 					new MoveCardDestination[] { new MoveCardDestination(HeroTurnTaker.Hand) },
+					optional: true,
 					storedResultsMove: storedResults,
-					cardSource: new CardSource(FindCardController(base.CharacterCard))
+					cardSource: new CardSource(FindCardController(this.CharacterCard))
 				);
 
 				if (UseUnityCoroutines)

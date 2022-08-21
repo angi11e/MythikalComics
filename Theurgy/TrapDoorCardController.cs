@@ -18,7 +18,7 @@ namespace Angille.Theurgy
 			TurnTakerController turnTakerController
 		) : base(card, turnTakerController)
 		{
-			base.SpecialStringMaker.ShowNumberOfCardsInPlay(IsCharmCriteria());
+			SpecialStringMaker.ShowNumberOfCardsInPlay(IsCharmCriteria());
 		}
 
 		public override IEnumerator Play()
@@ -27,7 +27,7 @@ namespace Angille.Theurgy
 			List<SelectCardDecision> storedResults = new List<SelectCardDecision>();
 			IEnumerator firstDamageCR = GameController.SelectTargetsAndDealDamage(
 				DecisionMaker,
-				new DamageSource(GameController, base.CharacterCard),
+				new DamageSource(GameController, this.CharacterCard),
 				3,
 				DamageType.Projectile,
 				1,
@@ -64,10 +64,11 @@ namespace Angille.Theurgy
 						numberOfTargets,
 						optional: false,
 						requiredTargets: 0,
+						additionalCriteria: (Card c) => c != poorSchmuck,
 						cardSource: GetCardSource()
 					);
 
-					if (base.UseUnityCoroutines)
+					if (UseUnityCoroutines)
 					{
 						yield return GameController.StartCoroutine(splashDamageCR);
 					}

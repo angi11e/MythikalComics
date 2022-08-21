@@ -10,15 +10,15 @@
 			"count": 1,
 			"title": "NightMare",
 			"body": "Canter",
-			"backgroundColor": "302E71",
-			"foilBackgroundColor": "302E71",
+			"backgroundColor": "403E81",
+			"foilBackgroundColor": "403E81",
 			"hitpointsColor": "302E71",
 			"character": true,
 			"gameplay": [
 				"when you discard a card, activate its [u]discard[/u] text."
 			],
 			"powers": [
-				"Draw a card. Discard a card. {NightMare} deals 1 target 1 Melee damage."
+				"Draw a card. Discard a card. {NightMare} deals 1 target 1 melee damage."
 			],
 			"icons": [
 				"HasPower",
@@ -41,7 +41,12 @@
 				"IncreaseDamageDealt"
 			],
 			"openingLines": {
-				"default": "ye dennae stand a chance. ye best just stand down now."
+				"default": "ye dennae stand a chance. ye best just stand down now.",
+				"ProgenyCharacter": "Ach, ye dennae like me accent? I cannae imagine why.",
+				"TheChairmanCharacter": "we're bringin' a new ‘league’ t' ye then.",
+				"SergeantSteelTeamCharacter": "if'n it's ‘quick and brutal’ ye want, we got that in spades.",
+				"TheOperativeTeamCharacter": "what about the kelpie's will? pick yer fav'rit fae creature.",
+				"Cauldron.DynamoCharacter": "pain? bring it on, sparky!"
 			},
 			"complexity": 1
 		},
@@ -54,7 +59,7 @@
 				"limited"
 			],
 			"body": [
-				"Whenever {NightMare} destroys a target, she may deal 1 target 2 Melee damage, then discard the top card of your deck."
+				"Whenever {NightMare} destroys a target, she may deal 1 target 2 Melee damage. If she does, discard the top card of your deck."
 			],
 			"activatableAbilities": [
 				{
@@ -83,7 +88,7 @@
 			"activatableAbilities": [
 				{
 					"name": "discard",
-					"text": "Select a card from your trash and discard it."
+					"text": "You may select a card from your trash and discard it."
 				}
 			],
 			"icons": [
@@ -127,10 +132,10 @@
 			],
 			"body": [
 				"Reduce damage taken by {NightMare} by 1.",
-				"When any damage is redirected to {NightMare}, reduce it by 1."
+				"When damage is redirected to {NightMare}, reduce it by 1."
 			],
 			"powers": [
-				"{NightMare} deals 1 target 3 Melee damage. Reduce the next damage dealt by targets dealt damage this way by the damage they take."
+				"{NightMare} deals 1 target 3 melee damage. Reduce the next damage dealt by targets dealt damage this way by the damage they take."
 			],
 			"activatableAbilities": [
 				{
@@ -295,7 +300,7 @@
 				"When this card enters play, Draw a card then Discard a card."
 			],
 			"powers": [
-				"{NightMare} deals 1 target 5 Melee damage. increase the next damage dealt by that target by 5."
+				"{NightMare} deals 1 target 5 melee damage. increase the next damage dealt by that target by 5."
 			],
 			"activatableAbilities": [
 				{
@@ -425,7 +430,12 @@
 			],
 			"complexity": 1,
 			"openingLines": {
-				"default": "*kaclop kaclop kaclop* [b]*snort*[/b] [i]*whinny*[/i]"
+				"default": "*kaclop kaclop kaclop* [b]*snort*[/b] [i]*whinny*[/i]",
+				"ProgenyCharacter": "...",
+				"TheChairmanCharacter": "[b]*angry snort*[/b] *clop clop*",
+				"SergeantSteelTeamCharacter": "*clop clop* [b]*angry snort*[/b] [i]*equine stare*[/i]",
+				"TheOperativeTeamCharacter": "[i]*tentative whinny*[/i] *prance* [b]*nicker*[/b]",
+				"Cauldron.DynamoCharacter": "[b]*snort*[/b] *kaclop kaclop kaclop* [i]*trample*[/i]"
 			}
 		},
 		{
@@ -458,7 +468,7 @@
 			"incapacitatedAbilities": [
 				"One player may play a card.",
 				"Destroy an ongoing card.",
-				"Move a card from a trash to under its associated deck."
+				"Move a card from a trash pile to the bottom of its deck."
 			],
 			"flippedIcons": [
 				"PlayCardNow",
@@ -467,7 +477,12 @@
 			],
 			"complexity": 1,
 			"openingLines": {
-				"default": "Come and get it. don't worry, I'm not as fragile as I look."
+				"default": "Come and get it. don't worry, I'm not as fragile as I look.",
+				"ProgenyCharacter": "not one for talking, huh. right to it then.",
+				"TheChairmanCharacter": "you heard of the ‘Part Timers’? maybe we could work a deal.",
+				"SergeantSteelTeamCharacter": "now [b]that's[/b] what I'm talking about.",
+				"TheOperativeTeamCharacter": "dragon's got nothin' on me, sister.",
+				"Cauldron.DynamoCharacter": "pain? bring it on, sparky!"
 			}
 		}
 	]

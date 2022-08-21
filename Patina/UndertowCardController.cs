@@ -109,7 +109,9 @@ namespace Angille.Patina
 						);
 
 						// ...where X = the number of water cards in play plus 1.
-						int damageNumeral = FindCardsWhere((Card c) => c.IsInPlayAndHasGameText && IsWater(c)).Count() + 1;
+						int damageNumeral = FindCardsWhere(
+							(Card c) => c.IsInPlayAndHasGameText && IsWater(c) && !c.IsOneShot
+						).Count() + 1;
 						IEnumerator dealPsychicCR = DealDamage(
 							this.CharacterCard,
 							(Card c) => c == theCard,

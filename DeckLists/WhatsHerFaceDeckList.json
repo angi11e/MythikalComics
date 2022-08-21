@@ -37,7 +37,14 @@
 				"ReduceDamageTaken"
 			],
 			"openingLines": {
-				"default": "don't remember me? that's ok, you still won't even after we beat you."
+				"default": "don't remember me? that's ok, you still won't even after we beat you.",
+				"IronLegacyCharacter": "if there's anything people are good at around me, it's letting down their guard.",
+				"KismetCharacter": "that's what you said last time. don't you remember?",
+				"SpiteCharacter": "won't work. nobody gets to know me at all.",
+				"ErmineTeamCharacter": "you'd have to remember my stuff exists first.",
+				"MissInformationTeamCharacter": "look lady, that's just a Tuesday for me.",
+				"PlagueRatTeamCharacter": "well. he might not even [b]notice[/b] me.",
+				"Cauldron.TheMistressOfFateCharacter": "oh, you won't even notice I'm here."
 			},
 			"complexity": 2
 		},
@@ -55,7 +62,7 @@
 			"powers": [
 				"Draw 1 card.",
 				"Play 1 card.",
-				"Deal 1 target 2 melee damage."
+				"{WhatsHerFace} deals 1 target 2 melee damage."
 			],
 			"icons": [
 				"UsePowerNow",
@@ -222,7 +229,7 @@
 				"DestroySelf"
 			],
 			"flavorText": "“those things are [b]not[/b]{BR}messing around.”",
-			"flavorReference": "What's-Her-Face, Science Fair (EC #8)"
+			"flavorReference": "What's-Her-Face, Playing Hooky (EC #1)"
 		},
 		{
 			"identifier": "NotQuiteSureWhatThisDoes",
@@ -417,7 +424,14 @@
 			],
 			"complexity": 2,
 			"openingLines": {
-				"default": "time to see what all these new toys can do."
+				"default": "time to see what all these new toys can do.",
+				"IronLegacyCharacter": "oh, no need, I've got a ‘justice dispenser’ right here.",
+				"KismetCharacter": "I make my own luck. um, with [i]this[/i] handy dandy little tool!",
+				"SpiteCharacter": "this scanner seems to know you well enough already, Jack.",
+				"ErmineTeamCharacter": "oh no! what if it blows up in your face?",
+				"MissInformationTeamCharacter": "oh, [i]that's[/i] what this ‘reality solidifier’ is for!",
+				"PlagueRatTeamCharacter": "rat spray, rat spray, I know I've got some somewhere...",
+				"Cauldron.TheMistressOfFateCharacter": "we'll see about that. now let's see, time manipulation, what have we got...?"
 			}
 		},
 		{
@@ -437,7 +451,7 @@
 			"hitpointsColor": "314655",
 			"character": true,
 			"powers": [
-				"Reveal the top 2 cards of your deck. Play 1 of them and put the rest in your hand."
+				"Reveal the top 2 cards of your deck. Play one of them and put the rest in your hand."
 			],
 			"hitpoints": 26,
 			"nemesisIdentifiers": [
@@ -456,7 +470,14 @@
 			],
 			"complexity": 2,
 			"openingLines": {
-				"default": "I am shadow. even light just ends up making more shadow. too bad for you."
+				"default": "I am shadow. even light just ends up making more shadow. too bad for you.",
+				"IronLegacyCharacter": "even justice cannot escape shadow.",
+				"KismetCharacter": "lucky? unlucky? both fade within darkness.",
+				"SpiteCharacter": "good idea. the better to envelop you with darkness.",
+				"ErmineTeamCharacter": "do I look like I have... ‘stuff’?",
+				"MissInformationTeamCharacter": "and you face a darkness that does. not. care.",
+				"PlagueRatTeamCharacter": "release him then. oblivion awaits us all.",
+				"Cauldron.TheMistressOfFateCharacter": "Struggle is unnecessary. I am shadow."
 			}
 		}
 	]

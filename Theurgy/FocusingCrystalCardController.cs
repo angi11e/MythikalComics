@@ -8,8 +8,8 @@ namespace Angille.Theurgy
 {
 	public class FocusingCrystalCardController : TheurgyBaseCardController
 	{
-		// When this card enters play, Theurgy regains 2 hp.
-		// The first time a charm card is destroyed each turn, Theurgy regains 1 hp.
+		// When this card enters play, Theurgy regains 1 hp.
+		// The first time a charm card is destroyed each turn, Theurgy regains 2 hp.
 		// Power: Theurgy deals 1 target X energy damage,
 		//  where X = the number of charm cards in play times 2.
 		//  Destroy this card.
@@ -24,10 +24,10 @@ namespace Angille.Theurgy
 
 		public override IEnumerator Play()
 		{
-			// Theurgy regains 2 hp
+			// Theurgy regains 1 hp
 			IEnumerator healTargetCR = base.GameController.GainHP(
 				base.CharacterCard,
-				2,
+				1,
 				cardSource: base.GetCardSource()
 			);
 			if (UseUnityCoroutines)
@@ -64,10 +64,10 @@ namespace Angille.Theurgy
 		private IEnumerator GainHPResponse(GameAction d)
 		{
 			SetCardPropertyToTrueIfRealAction("FirstTimeCharmCardDestroyed");
-			// Theurgy regains 1 hp
+			// Theurgy regains 2 hp
 			IEnumerator healTargetCR = base.GameController.GainHP(
 				base.CharacterCard,
-				1,
+				2,
 				cardSource: base.GetCardSource()
 			);
 			if (UseUnityCoroutines)

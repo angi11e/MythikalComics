@@ -31,7 +31,7 @@ namespace Angille.Patina
 		{
 			// Reduce cold, energy, fire, and radiant damage dealt to hero targets by the number of water cards in play.
 			Func<DealDamageAction, int> amountToDecrease = (DealDamageAction dd) => FindCardsWhere(
-				(Card c) => c.IsInPlayAndHasGameText && IsWater(c)
+				(Card c) => c.IsInPlayAndHasGameText && IsWater(c) && !c.IsOneShot
 			).Count();
 
 			AddReduceDamageTrigger(
@@ -46,10 +46,10 @@ namespace Angille.Patina
 
 			// At the end of your turn, {Patina} deals up to 2 targets 1 fire damage each.
 			AddEndOfTurnTrigger(
-				(TurnTaker tt) => tt == base.TurnTaker,
+				(TurnTaker tt) => tt == this.TurnTaker,
 				(PhaseChangeAction p) => GameController.SelectTargetsAndDealDamage(
 					DecisionMaker,
-					new DamageSource(GameController, base.CharacterCard),
+					new DamageSource(GameController, this.CharacterCard),
 					1,
 					DamageType.Fire,
 					2,
@@ -63,7 +63,7 @@ namespace Angille.Patina
 			// When {Patina} would be dealt damage of a type reduced by this card...
 			AddTrigger(
 				(DealDamageAction dd) =>
-					dd.Target == base.CharacterCard
+					dd.Target == this.CharacterCard
 					&& dd.Amount > 0
 					&& (
 						dd.DamageType == DamageType.Cold
@@ -111,7 +111,7 @@ namespace Angille.Patina
 				);
 				IEnumerator destroyCR = GameController.DestroyCard(
 					DecisionMaker,
-					base.Card,
+					this.Card,
 					cardSource: GetCardSource()
 				);
 

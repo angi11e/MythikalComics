@@ -12,43 +12,33 @@
 			"title": "Cain",
 			"alternateTitle": "Captain Cain",
 			"body": "Jawbreaker",
-			"backgroundColor": "FF6633",
-			"foilBackgroundColor": "EE7744",
-			"hitpointsColor": "886633",
+			"backgroundColor": "E6C82E",
+			"foilBackgroundColor": "E6C82E",
+			"hitpointsColor": "E6C82E",
 			"character": true,
 			"powers": [
-				"Either {CaptainCainCharacter} deals 1 target 1 melee damage, then -1{Blood}, or {CaptainCainCharacter} deals 1 target 1 infernal damage, then +1{Blood}."
-			],
-			"tokenPools": [
-				{
-					"identifier": "CaptainCainBloodPool",
-					"name": "Captain Cain's Blood Pool",
-					"initialValue": 0,
-					"minimumValue": 0,
-					"labelTopColor": "FFAAAA",
-					"labelBottomColor": "886633",
-					"icon": "Angille.Blooddrop"
-				}
+				"{CaptainCainCharacter} deals 1 target 1 infernal damage. If {Fist} is active, he deals that target 1 melee damage. If {Blood} is active, he regains 1 HP."
 			],
 			"icons": [
 				"HasPower",
-				"DealDamageMelee",
 				"DealDamageInfernal",
-				"AddOrRemoveTokens"
+				"DealDamageMelee",
+				"GainHP"
 			],
-			"hitpoints": 28,
+			"hitpoints": 22,
 			"nemesisIdentifiers": [
 				"Angille.CaptainCain"
 			],
 			"incapacitatedAbilities": [
-				"",
-				"",
-				""
+				"One hero may use a power now.",
+				"One player may play a card.",
+				"Each hero may deal themself 1 toxic damage. Any who take damage this way each deal 1 target 1 infernal damage."
 			],
 			"flippedIcons": [
-				"",
-				"",
-				""
+				"UsePowerNow",
+				"PlayCardNow",
+				"DealDamageToxic",
+				"DealDamageInfernal"
 			],
 			"openingLines": {
 				"default": ""
@@ -56,44 +46,32 @@
 			"complexity": 2
 		},
 		{
-			"identifier": "CaptainCainRules",
-			"count": 1,
-			"isReal": false,
-			"title": "Additional Rules",
-			"body": [
-				"{CaptainCainCharacter} uses some shorthand to make working with the token pool more succinct.",
-				"the notation “-2{Blood}” or “+3{Blood}” means “remove 2 tokens from your blood pool” or “add 3 tokens to your blood pool” respectively.",
-				"conditionals like “{Blood} < 3:” are considered active text on a card if the conditional is met. in this example, that's “If your blood pool contains less than 3 tokens...”.",
-				"{Blood} all by itself represents the total number of tokens in your blood pool."
-			]
-		},
-		{
 			"identifier": "AllIn",
-			"count": 3,
+			"count": 4,
 			"title": "All In!",
 			"keywords": [
 				"one-shot"
 			],
 			"body": [
-				"{CaptainCainCharacter} deals 1 target 3 melee damage. That target deals {CaptainCainCharacter} 2 melee damage. +{Blood} equal to the damage {CaptainCainCharacter} takes this way."
+				"{CaptainCainCharacter} deals 1 target 3 melee damage. That target deals {CaptainCainCharacter} 2 melee damage."
 			],
 			"activatableAbilities": [
 				{
-					"name": "{Blood} < 3",
-					"text": "{CaptainCainCharacter} may deal up to 2 additional targets 1 melee damage each. +{Blood} equal to the number of targets dealt damage this way."
+					"name": "{Fist}:",
+					"text": "{CaptainCainCharacter} may deal up to 2 additional targets 1 melee damage each."
 				},
 				{
-					"name": "{Blood} > 5",
-					"text": "When {CaptainCainCharacter} would take damage, he regains that many HP instead. -{Blood} equal to the HP regained this way."
+					"name": "{Blood}:",
+					"text": "When {CaptainCainCharacter} would take damage, he regains that many HP instead."
 				}
 			],
 			"icons": [
 				"DealDamageMelee",
-				"AddOrRemoveTokens",
+				"CancelledDamageGreen",
 				"GainHP"
 			],
-			"flavorText": "“”",
-			"flavorReference": ""
+			"flavorText": "“You pack a surprising left hook{BR}for a pile of melty rubber, chum.”",
+			"flavorReference": "Captain Cain, Anachronists #2"
 		},
 		{
 			"identifier": "DoubleEnhancerGloves",
@@ -104,25 +82,20 @@
 				"limited"
 			],
 			"body": [
-				"increase melee damage dealt by {CaptainCainCharacter} by 1."
+				"increase damage dealt by {CaptainCainCharacter} by 1."
 			],
 			"powers": [
-				"increase the next damage dealt by {CaptainCainCharacter} by 2. either +1{Blood} and play 1 card, or -1{Blood} and draw 1 card."
-			],
-			"activatableAbilities": [
-				{
-					"name": "{Blood} > 5",
-					"text": "increase infernal damage dealt by {CaptainCainCharacter} by 1."
-				}
+				"{Fist}: increase the next damage dealt by {CaptainCainCharacter} by 2. Play 1 card.",
+				"{Blood}: the next time {CaptainCainCharacter} would deal damage to a hero target, that target regains that many HP instead."
 			],
 			"icons": [
 				"IncreaseDamageDealt",
-				"AddOrRemoveTokens",
 				"PlayCardNow",
-				"DrawCardNow"
+				"CancelledDamageGreen",
+				"GainHP"
 			],
-			"flavorText": "“”",
-			"flavorReference": ""
+			"flavorText": "“with these, nobody could suspect{BR}me of being...more than human.”",
+			"flavorReference": "Captain Cain, All-star Comics #108"
 		},
 		{
 			"identifier": "EndlessHunger",
@@ -130,79 +103,67 @@
 			"title": "Endless Hunger",
 			"keywords": [
 				"ongoing",
-				"limited"
+				"limited",
+				"blood"
 			],
 			"body": [
-				"When you draw or play a card, +1{Blood}. When you use a power, -1{Blood}."
-			],
-			"powers": [
-				"{CaptainCainCharacter} deals 1 hero target 2 irreducible infernal damage, then deals 1 target {Blood} toxic damage. -10{Blood}."
-			],
-			"activatableAbilities": [
-				{
-					"name": "{Blood} < 3",
-					"text": "When {CaptainCainCharacter} deals damage, he deals himself 1 irreducible psychic damage, then +1{Blood}."
-				}
+				"When this card enters play, destroy any of your [u]fist[/u] cards in play. When this card is destroyed, you may move a [u]blood[/u] card from your trash to your hand.",
+				"Treat {Blood} effects as active.",
+				"increase HP recovery by {CaptainCainCharacter} by 1."
 			],
 			"icons": [
-				"AddOrRemoveTokens",
-				"HasPower",
-				"DealDamage",
-				"MakeDamageIrreducible"
+				"DestroyOngoing",
+				"Manipulate",
+				"IncreaseGainHP",
+				"Angille.Blood"
 			],
-			"flavorText": "“”",
-			"flavorReference": ""
+			"flavorText": "“Good. [b]yes.[/b]{BR}give in to the temptation.”",
+			"flavorReference": "Despair, Anachronists #3"
 		},
 		{
 			"identifier": "HeartflowInducer",
-			"count": 3,
+			"count": 2,
 			"title": "Heartflow Inducer",
 			"keywords": [
 				"equipment",
 				"limited"
 			],
 			"body": [
-				"When this card enters play, either +2{Blood} or -2{Blood}.",
-				"Whenever you evaluate {Blood}, you may treat it as 2 higher or 2 lower than it is."
+				"When you play an ongoing card from your hand, you may draw a card."
 			],
 			"powers": [
-				"either +2{Blood} or -2{Blood}."
+				"your ongoing cards are indestructible while this power resolves. Play 1 card."
 			],
 			"icons": [
+				"DrawCardNow",
 				"HasPower",
-				"AddOrRemoveTokens"
+				"Indestructible",
+				"PlayCardNow"
 			],
-			"flavorText": "“”",
-			"flavorReference": ""
+			"flavorText": "“don't overdo it.{BR}I cannot guarantee the results.”",
+			"flavorReference": "Dr. Nicole Jekyll, All-star Comics #110"
 		},
 		{
 			"identifier": "InTheNickOfTime",
 			"count": 3,
 			"title": "In the Nick of Time!",
 			"keywords": [
-				"ongoing"
+				"ongoing",
+				"limited",
+				"fist"
 			],
 			"body": [
-				"When a hero target would be dealt damage, you may destroy this card. If you do, redirect the damage to another target. If the new target is a hero target, +2{Blood}. Otherwise, -5{Blood}."
-			],
-			"activatableAbilities": [
-				{
-					"name": "{Blood} < 3",
-					"text": "When this card is destroyed, {CaptainCainCharacter} deals 1 target 3 melee damage, then +1{Blood}."
-				},
-				{
-					"name": "{Blood} > 5",
-					"text": "When this card is destroyed, {CaptainCainCharacter} deals 1 hero target 2 infernal damage and 1 target 2 toxic damage, then -2{Blood}."
-				}
+				"When this card enters play, destroy any of your [u]blood[/u] cards in play. When this card is destroyed, you may destroy an ongoing card.",
+				"Treat {Fist} effects as active.",
+				"When a hero target would be dealt damage, you may redirect the damage to {CaptainCainCharacter}."
 			],
 			"icons": [
+				"DestroyOngoing",
 				"RedirectDamage",
-				"AddOrRemoveTokens",
-				"DealDamage",
-				"DestroySelf"
+				"Angille.Fist"
 			],
-			"flavorText": "“”",
-			"flavorReference": ""
+			"flavorText": "“your predictability is{BR}comforting, old man.”",
+			"flavorReference": "Spoiler, Anachronists Promo"
 		},
 		{
 			"identifier": "ItsJustAScratch",
@@ -210,53 +171,49 @@
 			"title": "It's Just a Scratch!",
 			"keywords": [
 				"ongoing",
-				"limited"
+				"limited",
+				"blood"
 			],
 			"body": [
-				"When {CaptainCainCharacter} drops to 0 or fewer HP, restore him to {Blood} HP, even if that puts him above his maximum. Then, destroy this card and -all{Blood}."
-			],
-			"activatableAbilities": [
-				{
-					"name": "{Blood} > 10",
-					"text": "When this card would be destroyed, remove it from the game instead."
-				}
+				"When this card enters play, destroy any of your [u]fist[/u] cards in play. When this card is destroyed, {CaptainCainCharacter} regains 4 HP.",
+				"Treat {Blood} effects as active.",
+				"When {CaptainCainCharacter} drops to 0 or fewer HP, restore {CaptainCainCharacter} to 10 HP. Then, move this card to the bottom of your deck."
 			],
 			"icons": [
+				"DestroyOngoing",
 				"GainHP",
-				"RemoveTokens",
-				"DestroySelf",
-				"RemoveFromGame"
+				"Manipulate",
+				"Angille.Blood"
 			],
-			"flavorText": "“”",
-			"flavorReference": ""
+			"flavorText": "“[b]impossible![/b]{BR}I saw your body.{BR}I was there.”",
+			"flavorReference": "shrieking shrike, All-star Comics #86"
 		},
 		{
 			"identifier": "ManOfAction",
-			"count": 3,
+			"count": 4,
 			"title": "Man of Action!",
 			"keywords": [
 				"one-shot"
 			],
 			"body": [
-				"{CaptainCainCharacter} deals 1 target 2 melee damage, then deals a second target melee damage equal to the amount of damage dealt to the first target. +2{Blood} each time a target is destroyed this way."
+				"{CaptainCainCharacter} deals 1 target 2 melee damage, then deals a second target melee damage equal to the amount of damage dealt to the first target."
 			],
 			"activatableAbilities": [
 				{
-					"name": "{Blood} < 3",
-					"text": "{CaptainCainCharacter} may deal a third target melee damage equal to the amount of damage dealt to the second target."
+					"name": "{Fist}:",
+					"text": "{CaptainCainCharacter} may deal a third target projectile damage equal to the amount of damage dealt to the second target."
 				},
 				{
-					"name": "{Blood} > 5",
-					"text": "The first target must be a hero target, and that damage is infernal."
+					"name": "{Blood}:",
+					"text": "When a target is destroyed this way, you may draw a card."
 				}
 			],
 			"icons": [
 				"DealDamageMelee",
-				"AddTokens",
-				"DealDamageInfernal"
+				"DrawCardNow"
 			],
-			"flavorText": "“”",
-			"flavorReference": ""
+			"flavorText": "“a fascinating strategy,{BR}striking one copy of Murk with another.”",
+			"flavorReference": "Supplicate, Anachronists #3"
 		},
 		{
 			"identifier": "ManOfThePeople",
@@ -264,65 +221,26 @@
 			"title": "Man of the People",
 			"keywords": [
 				"ongoing",
-				"limited"
+				"limited",
+				"fist"
 			],
 			"body": [
-				"The first time each turn {CaptainCainCharacter} draws a card, another player may draw a card."
-			],
-			"powers": [
-				"Draw 1 card. Another player may play 1 card. -1{Blood}."
-			],
-			"activatableAbilities": [
-				{
-					"name": "{Blood} < 3",
-					"text": "When this power is used, another player may use a power."
-				},
-				{
-					"name": "{Blood} > 5",
-					"text": "At the start of your turn, destroy this card."
-				}
+				"When this card enters play, destroy any of your [u]blood[/u] cards in play. When this card is destroyed, another player may play a card.",
+				"Treat {Fist} effects as active.",
+				"When you draw a card, another player may draw a card."
 			],
 			"icons": [
+				"DestroyOngoing",
+				"PlayCardNow",
 				"DrawCardNow",
-				"PlayCardNow",
-				"UsePowerNow",
-				"DestroySelf"
+				"Angille.Fist"
 			],
-			"flavorText": "“”",
-			"flavorReference": ""
-		},
-		{
-			"identifier": "ManOutOfTime",
-			"count": 3,
-			"title": "Man Out of Time",
-			"keywords": [
-				"one-shot"
-			],
-			"body": [
-				"Reveal the top card of your deck. If it's a one-shot, -2{Blood}. If it's an ongoing, +2{Blood}. Put the revealed card into play. If it's an equipment, you may use a power on that card now."
-			],
-			"activatableAbilities": [
-				{
-					"name": "{Blood} < 5",
-					"text": "You may destroy an ongoing card."
-				},
-				{
-					"name": "{Blood} > 3",
-					"text": "You may destroy an environment card."
-				}
-			],
-			"icons": [
-				"AddOrRemoveTokens",
-				"PlayCardNow",
-				"UsePowerNow",
-				"Destroy"
-			],
-			"flavorText": "“”",
-			"flavorReference": ""
+			"flavorText": "“Working through the night,{BR}the mysterious hero rebuilt the{BR}shelter on his own!”",
+			"flavorReference": "The Daily Spin, All-star comics #23"
 		},
 		{
 			"identifier": "NoMoreTricks",
-			"count": 3,
+			"count": 4,
 			"title": "No More Tricks...",
 			"keywords": [
 				"one-shot"
@@ -332,21 +250,22 @@
 			],
 			"activatableAbilities": [
 				{
-					"name": "{Blood} < 3",
-					"text": "{CaptainCainCharacter} deals that target 1 melee damage. +1{Blood}."
+					"name": "{Fist}:",
+					"text": "{CaptainCainCharacter} deals that target 2 melee damage."
 				},
 				{
-					"name": "{Blood} > 5",
-					"text": "{CaptainCainCharacter} deals that target 1 infernal damage. -1{Blood}."
+					"name": "{Blood}:",
+					"text": "{CaptainCainCharacter} deals that target 1 infernal damage, then regains 2 HP."
 				}
 			],
 			"icons": [
-				"DealDamage",
-				"AddOrRemoveTokens",
-				"MakeDamageIrreducible"
+				"DealDamagePsychic",
+				"MakeDamageIrreducible",
+				"DealDamageMelee",
+				"GainHP"
 			],
-			"flavorText": "“”",
-			"flavorReference": ""
+			"flavorText": "“This ends [b]now[/b], Stone.”",
+			"flavorReference": "Captain Cain, Anachronists #1"
 		},
 		{
 			"identifier": "PatentedDesolidifier",
@@ -360,25 +279,21 @@
 				"reduce damage dealt to {CaptainCainCharacter} by 1."
 			],
 			"powers": [
-				"The next time damage would be dealt to {CaptainCainCharacter}, prevent it. Until then, {CaptainCainCharacter} cannot deal damage."
-			],
-			"activatableAbilities": [
-				{
-					"name": "{Blood} > 5",
-					"text": "{CaptainCainCharacter} may deal damage while this power is in effect."
-				}
+				"{Fist}: Destroy an environment card.",
+				"{Blood}: The next time damage would be dealt to {CaptainCainCharacter}, prevent it. Until then, {CaptainCainCharacter} cannot deal damage."
 			],
 			"icons": [
 				"ReduceDamageTaken",
+				"DestroyEnvironment",
 				"CancelledDamageGreen",
 				"CannotDealDamage"
 			],
-			"flavorText": "“”",
-			"flavorReference": ""
+			"flavorText": "“turn to mist?{BR}don't be silly.{BR}it's just science.”",
+			"flavorReference": "Captain Cain, All-star Comics #107"
 		},
 		{
 			"identifier": "TwoFistedJustice",
-			"count": 3,
+			"count": 4,
 			"title": "Two-Fisted Justice!",
 			"keywords": [
 				"one-shot"
@@ -388,11 +303,11 @@
 			],
 			"activatableAbilities": [
 				{
-					"name": "{Blood} < 3",
+					"name": "{Fist}:",
 					"text": "This damage is irreducible."
 				},
 				{
-					"name": "{Blood} > 5",
+					"name": "{Blood}:",
 					"text": "{CaptainCainCharacter} regains 1 HP each time a target takes damage this way."
 				}
 			],
@@ -401,68 +316,54 @@
 				"MakeDamageIrreducible",
 				"GainHP"
 			],
-			"flavorText": "“”",
-			"flavorReference": ""
+			"flavorText": "“hoo-whee, that boy moves fast!”",
+			"flavorReference": "Pecos Bill, Anachronists Promo"
 		},
 		{
 			"identifier": "VampirePrince",
-			"count": 2,
+			"count": 3,
 			"title": "Vampire Prince",
 			"keywords": [
 				"ongoing",
-				"limited"
+				"limited",
+				"blood"
 			],
-			"powers": [
-				"-5{Blood}. If {Blood} < 5, draw 3 cards and discard 2 cards. Otherwise, reveal cards from the top of your deck until you reveal 2 ongoing cards, put 1 into play or your hand, and shuffle the rest into your deck."
-			],
-			"activatableAbilities": [
-				{
-					"name": "{Blood} < 3",
-					"text": "At the start of your turn, destroy this card."
-				},
-				{
-					"name": "{Blood} > 5",
-					"text": "At the start of your turn, {CaptainCainCharacter} regains 1 HP."
-				}
+			"body": [
+				"When this card enters play, destroy any of your [u]fist[/u] cards in play. When this card is destroyed, reveal the top card of each Hero deck and either discard it or replace it.",
+				"Treat {Blood} effects as active.",
+				"You may draw an extra card during your draw phase."
 			],
 			"icons": [
-				"RemoveTokens",
+				"DestroyOngoing",
 				"Manipulate",
-				"DestroySelf",
-				"GainHP"
+				"DrawCardExtra",
+				"Angille.Blood"
 			],
-			"flavorText": "“”",
-			"flavorReference": ""
+			"flavorText": "“Ah, Cristian. you always were{BR}such a sentimental fool.”",
+			"flavorReference": "Lady Satanna, All-star Comics #238"
 		},
 		{
 			"identifier": "YouveMadeMeMadBuster",
-			"count": 3,
+			"count": 2,
 			"title": "You've Made Me Mad, Buster!",
 			"keywords": [
 				"ongoing",
-				"limited"
+				"limited",
+				"fist"
 			],
 			"body": [
+				"When this card enters play, destroy any of your [u]blood[/u] cards in play. When this card is destroyed, {CaptainCainCharacter} deals each non-hero target 1 melee damage.",
+				"Treat {Fist} effects as active.",
 				"You may use an additional power during your power phase."
 			],
-			"activatableAbilities": [
-				{
-					"name": "{Blood} < 3",
-					"text": "When {CaptainCainCharacter} destroys a target, he may deal 1 target 1 melee damage, then +1{Blood}."
-				},
-				{
-					"name": "{Blood} > 5",
-					"text": "When {CaptainCainCharacter} deals melee damage, he also deals that target 1 infernal damage."
-				}
-			],
 			"icons": [
-				"UsePowerExtra",
+				"DestroyOngoing",
 				"DealDamageMelee",
-				"DealDamageInfernal",
-				"AddTokens"
+				"UsePowerExtra",
+				"Angille.Fist"
 			],
-			"flavorText": "“”",
-			"flavorReference": ""
+			"flavorText": "“//Refocus targetting protocol//{BR}////{BR}//pugilist, designation: Cain//”",
+			"flavorReference": "Amalgor, Anachronists #2"
 		}
 	],
 	"promoCards": [

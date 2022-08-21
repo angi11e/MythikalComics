@@ -38,7 +38,7 @@ namespace Angille.RedRifle
 
 			// Whenever a non-hero target enters play, {RedRifle} may deal that target 1 projectile damage.
 			IEnumerator dealDamageCR = DealDamage(
-				base.CharacterCard,
+				this.CharacterCard,
 				target,
 				1,
 				DamageType.Projectile,
@@ -47,27 +47,27 @@ namespace Angille.RedRifle
 				cardSource: GetCardSource()
 			);
 
-			if (base.UseUnityCoroutines)
+			if (UseUnityCoroutines)
 			{
-				yield return base.GameController.StartCoroutine(dealDamageCR);
+				yield return GameController.StartCoroutine(dealDamageCR);
 			}
 			else
 			{
-				base.GameController.ExhaustCoroutine(dealDamageCR);
+				GameController.ExhaustCoroutine(dealDamageCR);
 			}
 
 			// If that target takes no damage, add 1 token to your trueshot pool.
-			if (!storedResults.FirstOrDefault().DidDealDamage)
+			if (!storedResults.Any() || !storedResults.FirstOrDefault().DidDealDamage)
 			{
 				IEnumerator addTokenCR = RedRifleTrueshotPoolUtility.AddTrueshotTokens(this, 1);
 
-				if (base.UseUnityCoroutines)
+				if (UseUnityCoroutines)
 				{
-					yield return base.GameController.StartCoroutine(addTokenCR);
+					yield return GameController.StartCoroutine(addTokenCR);
 				}
 				else
 				{
-					base.GameController.ExhaustCoroutine(addTokenCR);
+					GameController.ExhaustCoroutine(addTokenCR);
 				}
 			}
 

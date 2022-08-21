@@ -101,7 +101,9 @@ namespace Angille.Patina
 			if (DidDestroyCards(destroyResults, 1))
 			{
 				// ...where X = the number of water cards in play plus 1.
-				int damageNumeral = FindCardsWhere((Card c) => c.IsInPlayAndHasGameText && IsWater(c)).Count() + 1;
+				int damageNumeral = FindCardsWhere(
+					(Card c) => c.IsInPlayAndHasGameText && IsWater(c) && !c.IsOneShot
+				).Count() + 1;
 
 				// ...{Patina} deals up to X targets 3 projectile damage each...
 				IEnumerator damageCR = GameController.SelectTargetsAndDealDamage(

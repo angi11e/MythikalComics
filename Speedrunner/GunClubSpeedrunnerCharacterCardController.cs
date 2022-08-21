@@ -65,7 +65,7 @@ namespace Angille.Speedrunner
 				num = 1;
 			}
 
-			if (dd.DamageSource.IsCard)
+			if (dd.DamageSource.IsTarget)
 			{
 				Card source = this.Card;
 				if (hero != null && hero.IsHero)
@@ -127,11 +127,44 @@ namespace Angille.Speedrunner
 						GameController.ExhaustCoroutine(playCardCR);
 					}
 					break;
+
 				case 1:
 					// Until the start of your turn, increase all projectile damage by 2.
+					IncreaseDamageStatusEffect increaseDamageStatusEffect = new IncreaseDamageStatusEffect(2);
+					increaseDamageStatusEffect.UntilStartOfNextTurn(this.TurnTaker);
+					increaseDamageStatusEffect.DamageTypeCriteria.AddType(DamageType.Projectile);
+					IEnumerator effectCR = AddStatusEffect(increaseDamageStatusEffect);
+
+					if (UseUnityCoroutines)
+					{
+						yield return GameController.StartCoroutine(effectCR);
+					}
+					else
+					{
+						GameController.ExhaustCoroutine(effectCR);
+					}
 					break;
+
 				case 2:
 					// Put one card from the villain or environment trash into play.
+					string text = (IsVillain(this.TurnTaker) ? "hero" : "villain");
+					IEnumerator fromTrashCR = GameController.SelectAndPlayCard(
+						DecisionMaker,
+						(Card c) => c.Location.IsTrash
+							&& (IsVillain(c.Location.OwnerTurnTaker) || c.Location.IsEnvironment)
+							&& GameController.IsCardVisibleToCardSource(c, GetCardSource()),
+						isPutIntoPlay: true,
+						noValidCardsMessage: "There are no cards in the " + text + " nor the environment trashes.",
+						cardSource: GetCardSource());
+
+					if (UseUnityCoroutines)
+					{
+						yield return GameController.StartCoroutine(fromTrashCR);
+					}
+					else
+					{
+						GameController.ExhaustCoroutine(fromTrashCR);
+					}
 					break;
 			}
 			yield break;

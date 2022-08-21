@@ -9,7 +9,7 @@ namespace Angille.RedRifle
 {
 	public class RedRifleCharacterCardController : HeroCharacterCardController
 	{
-		private int AddTokensNumeral => GetPowerNumeral(0, 1);
+		// private int AddTokensNumeral => GetPowerNumeral(0, 1);
 
 		public RedRifleCharacterCardController(
 			Card card,
@@ -29,29 +29,31 @@ namespace Angille.RedRifle
 		public override IEnumerator UsePower(int index = 0)
 		{
 			TokenPool trueshotPool = RedRifleTrueshotPoolUtility.GetTrueshotPool(this);
+			int tokenNumeral = GetPowerNumeral(0, 1);
+			int drawNumeral = GetPowerNumeral(1, 1);
 			
 			// Add 1 token to your trueshot pool. Draw a card.
 			if (trueshotPool != null)
 			{
-				IEnumerator addTokensCR = RedRifleTrueshotPoolUtility.AddTrueshotTokens(this, AddTokensNumeral);
-				if (base.UseUnityCoroutines)
+				IEnumerator addTokensCR = RedRifleTrueshotPoolUtility.AddTrueshotTokens(this, tokenNumeral);
+				if (UseUnityCoroutines)
 				{
-					yield return base.GameController.StartCoroutine(addTokensCR);
+					yield return GameController.StartCoroutine(addTokensCR);
 				}
 				else
 				{
-					base.GameController.ExhaustCoroutine(addTokensCR);
+					GameController.ExhaustCoroutine(addTokensCR);
 				}
 			}
 
-			IEnumerator drawCardCR = DrawCard(base.HeroTurnTaker);
-			if (base.UseUnityCoroutines)
+			IEnumerator drawCardCR = DrawCards(this.HeroTurnTakerController, drawNumeral);
+			if (UseUnityCoroutines)
 			{
-				yield return base.GameController.StartCoroutine(drawCardCR);
+				yield return GameController.StartCoroutine(drawCardCR);
 			}
 			else
 			{
-				base.GameController.ExhaustCoroutine(drawCardCR);
+				GameController.ExhaustCoroutine(drawCardCR);
 			}
 
 			yield break;

@@ -2,7 +2,7 @@
 
 "Bear.png":
 {
-	"frame": {"x":48,"y":0,"w":56,"h":56},
+	"frame": {"x":0,"y":0,"w":56,"h":56},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":56,"h":56},
@@ -10,7 +10,15 @@
 },
 "Blade.png":
 {
-	"frame": {"x":107,"y":0,"w":56,"h":56},
+	"frame": {"x":59,"y":0,"w":56,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":56,"h":56},
+	"sourceSize": {"w":56,"h":56}
+},
+"Blood.png":
+{
+	"frame": {"x":118,"y":0,"w":56,"h":56},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":56,"h":56},
@@ -18,15 +26,15 @@
 },
 "cardbodies_full.png":
 {
-	"frame": {"x":59,"y":59,"w":391,"h":342},
+	"frame": {"x":59,"y":59,"w":401,"h":344},
 	"rotated": false,
 	"trimmed": false,
-	"spriteSourceSize": {"x":0,"y":0,"w":391,"h":342},
-	"sourceSize": {"w":391,"h":342}
+	"spriteSourceSize": {"x":0,"y":0,"w":401,"h":344},
+	"sourceSize": {"w":401,"h":344}
 },
 "Crown.png":
 {
-	"frame": {"x":166,"y":0,"w":56,"h":56},
+	"frame": {"x":177,"y":0,"w":56,"h":56},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":56,"h":56},
@@ -34,7 +42,7 @@
 },
 "Dog.png":
 {
-	"frame": {"x":225,"y":0,"w":56,"h":56},
+	"frame": {"x":236,"y":0,"w":56,"h":56},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":56,"h":56},
@@ -42,7 +50,7 @@
 },
 "Mask.png":
 {
-	"frame": {"x":284,"y":0,"w":56,"h":56},
+	"frame": {"x":295,"y":0,"w":56,"h":56},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":56,"h":56},
@@ -50,7 +58,7 @@
 },
 "Skull.png":
 {
-	"frame": {"x":343,"y":0,"w":56,"h":56},
+	"frame": {"x":354,"y":0,"w":56,"h":56},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":56,"h":56},
@@ -58,7 +66,7 @@
 },
 "Spider.png":
 {
-	"frame": {"x":402,"y":0,"w":56,"h":56},
+	"frame": {"x":413,"y":0,"w":56,"h":56},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":56,"h":56},
@@ -71,14 +79,6 @@
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":56,"h":56},
 	"sourceSize": {"w":56,"h":56}
-},
-"Whatever.png":
-{
-	"frame": {"x":0,"y":0,"w":45,"h":45},
-	"rotated": false,
-	"trimmed": false,
-	"spriteSourceSize": {"x":0,"y":0,"w":45,"h":45},
-	"sourceSize": {"w":45,"h":45}
 }},
 "meta": {
 	"app": "https://www.codeandweb.com/texturepacker",
@@ -87,6 +87,6 @@
 	"format": "RGBA8888",
 	"size": {"w":512,"h":512},
 	"scale": "1",
-	"smartupdate": "$TexturePacker:SmartUpdate:04f5ec5f6691803ee1b8561d7f7acc9c:5cbfc429d7d84ccb329be2adf5d44fd8:89c55f552016e3f6c8c145d926629d90$"
+	"smartupdate": "$TexturePacker:SmartUpdate:c9703a3703d54d78599389930b032b90:cbbcbee905998a9cca805e1c78060578:89c55f552016e3f6c8c145d926629d90$"
 }
 }

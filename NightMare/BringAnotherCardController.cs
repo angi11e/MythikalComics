@@ -45,6 +45,7 @@ namespace Angille.NightMare
 		private IEnumerator DestroyTargetResponse(DestroyCardAction dca)
 		{
 			// Whenever {NightMare} destroys a target, she may deal 1 target 2 Melee damage.
+			List<DealDamageAction> storedResults = new List<DealDamageAction>();
 			IEnumerator dealDamageCR = GameController.SelectTargetsAndDealDamage(
 				DecisionMaker,
 				new DamageSource(GameController, base.CharacterCard),
@@ -53,6 +54,7 @@ namespace Angille.NightMare
 				1,
 				true,
 				1,
+				storedResultsDamage: storedResults,
 				cardSource: GetCardSource()
 			);
 
@@ -65,22 +67,25 @@ namespace Angille.NightMare
 				GameController.ExhaustCoroutine(dealDamageCR);
 			}
 
-			// Discard the top card of your deck.
-			IEnumerator discardTopCR = GameController.DiscardTopCard(
-				TurnTaker.Deck,
-				null,
-				(Card c) => true,
-				TurnTaker,
-				GetCardSource()
-			);
+			if (storedResults.FirstOrDefault().DidDealDamage)
+			{
+				// Discard the top card of your deck.
+				IEnumerator discardTopCR = GameController.DiscardTopCard(
+					TurnTaker.Deck,
+					null,
+					(Card c) => true,
+					TurnTaker,
+					GetCardSource()
+				);
 
-			if (UseUnityCoroutines)
-			{
-				yield return GameController.StartCoroutine(discardTopCR);
-			}
-			else
-			{
-				GameController.ExhaustCoroutine(discardTopCR);
+				if (UseUnityCoroutines)
+				{
+					yield return GameController.StartCoroutine(discardTopCR);
+				}
+				else
+				{
+					GameController.ExhaustCoroutine(discardTopCR);
+				}
 			}
 
 			yield break;

@@ -39,7 +39,9 @@
 			],
 			"openingLines": {
 				"default": "going for a pb this time, don't forget to subscribe!",
-				"Menagerie.UnmuteCharacter": "you're not wrong. hey wait. do you see aiden too? he's a wizard with clippers and shears."
+				"MissInformationCharacter": "oh great. a long drawn-out fetch quest first.",
+				"Menagerie.UnmuteCharacter": "you're not wrong. hey wait. do you see aiden too? he's a wizard with clippers and shears.",
+				"Cauldron.SwarmEaterCharacter": "oh good, maybe you can help me upgrade my rig."
 			},
 			"complexity": 3
 		},
@@ -67,6 +69,37 @@
 			],
 			"flavorText": "“And if we kick that blade{BR}battalion at exactly this position,{BR}[b]bam![/b] early mdp bridge.”",
 			"flavorReference": "Speedrunner, AGDQ 2019"
+		},
+		{
+			"identifier": "BunnyHopping",
+			"count": 3,
+			"title": "Bunny Hopping",
+			"keywords": [
+				"one-shot",
+				"strat"
+			],
+			"body": [
+				"Draw a card. Discard a card. Play a card.",
+				"{Speedrunner} may deal zirself 2 irreducible melee damage. If ze does, repeat the above text.",
+				"Another player may use a power now."
+			],
+			"icons": [
+				"DrawCardNow",
+				"Discard",
+				"PlayCardNow",
+				"UsePowerNow"
+			],
+			"flavorQuotes": [
+				{
+					"identifier": "Drift",
+					"text": "I don't think ze's{br}going any faster."
+				},
+				{
+					"identifier": "The Knight",
+					"text": "The distraction{br}is welcome, however."
+				}
+			],
+			"flavorReference": "Mythikal Multiverse #41"
 		},
 		{
 			"identifier": "FrameperfectTiming",
@@ -286,37 +319,6 @@
 			"flavorReference": "Cricket, Mythikal Multiverse #19"
 		},
 		{
-			"identifier": "RepeatedBackflips",
-			"count": 3,
-			"title": "Repeated Backflips",
-			"keywords": [
-				"one-shot",
-				"strat"
-			],
-			"body": [
-				"Draw a card. Discard a card. Play a card.",
-				"{Speedrunner} may deal zirself 2 irreducible melee damage. If ze does, repeat the above text.",
-				"Another player may use a power now."
-			],
-			"icons": [
-				"DrawCardNow",
-				"Discard",
-				"PlayCardNow",
-				"UsePowerNow"
-			],
-			"flavorQuotes": [
-				{
-					"identifier": "Drift",
-					"text": "I don't think ze's{br}going any faster."
-				},
-				{
-					"identifier": "The Knight",
-					"text": "The distraction{br}is welcome, however."
-				}
-			],
-			"flavorReference": "Mythikal Multiverse #41"
-		},
-		{
 			"identifier": "ResetWarp",
 			"count": 3,
 			"title": "Reset Warp",
@@ -471,7 +473,9 @@
 			"complexity": 3,
 			"openingLines": {
 				"default": "if you don't have perfect reflexes, store bought is fine.",
-				"Menagerie.UnmuteCharacter": "have you seen vtubers though? maybe we both take a shot at them instead."
+				"MissInformationCharacter": "fine. just lemme know when I can shoot something.",
+				"Menagerie.UnmuteCharacter": "have you seen vtubers though? maybe we both take a shot at them instead.",
+				"Cauldron.SwarmEaterCharacter": "I'll take my nanites shaken, not stirred."
 			}
 		},
 		{
@@ -511,7 +515,9 @@
 			"complexity": 3,
 			"openingLines": {
 				"default": "load “speedrunner”, 8, 1",
-				"Menagerie.UnmuteCharacter": "as opposed to what? politi-bloggers? don't make me lol."
+				"MissInformationCharacter": "then why do you have theme music?",
+				"Menagerie.UnmuteCharacter": "as opposed to what? politi-bloggers? don't make me lol.",
+				"Cauldron.SwarmEaterCharacter": "whoah, they went a very different direction with the latest pac-man."
 			}
 		}
 	]

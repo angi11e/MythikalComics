@@ -63,7 +63,7 @@ namespace Angille.TheUndersiders
 			{
 				// At the end of each hero's turn, they may discard a card. If that hero does not do so they deal themself 1 melee damage.
 				AddSideTrigger(AddEndOfTurnTrigger(
-					(TurnTaker tt) => tt.IsHero,
+					(TurnTaker tt) => tt.IsHero && !tt.IsIncapacitatedOrOutOfGame,
 					DiscardOrPainResponse,
 					new TriggerType[] {
 						TriggerType.DiscardCard,

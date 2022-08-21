@@ -37,7 +37,13 @@
 				"UsePowerNow"
 			],
 			"openingLines": {
-				"default": "if you don't back down, you're going to be all washed up!"
+				"default": "if you don't back down, you're going to be all washed up!",
+				"GrandWarlordVossCharacter": "we're just going to have to sink that fleet then.",
+				"IronLegacyCharacter": "your ‘justice’ is misplaced, mister mean legacy.",
+				"TheMatriarchCharacter": "how are you with, uh, waterfowl?",
+				"FrictionTeamCharacter": "don't need speed. the ocean is inevitable.",
+				"MissInformationTeamCharacter": "rewritten how? ok, that's just very unhelpful.",
+				"Cauldron.MenagerieCharacter": "well ok. hey wait a second! that's a hero!"
 			},
 			"complexity": 1
 		},
@@ -65,7 +71,7 @@
 			"count": 3,
 			"title": "Healing Spritz",
 			"keywords": [
-				"ongoing",
+				"equipment",
 				"limited",
 				"water"
 			],
@@ -139,7 +145,7 @@
 				"Whenever a hero uses a Power on an equipment card, you may increase by 1 or reduce by 1 one of the numerals in the text of that Power."
 			],
 			"powers": [
-				"1 player may discard 2 cards. Any who do so may use 1 power."
+				"1 player may discard 2 cards. Any who do may use 1 power."
 			],
 			"icons": [
 				"HasPower",
@@ -200,7 +206,7 @@
 				"water"
 			],
 			"body": [
-				"When a villain target deals damage to a hero target, you may destroy this card. If you do so, {Patina} deals the source of that damage X projectile damage, where X = the number of [u]water[/u] cards in play plus 1."
+				"When a villain target deals damage to a hero target, you may destroy this card. If you do, {Patina} deals the source of that damage X projectile damage, where X = the number of [u]water[/u] cards in play plus 1."
 			],
 			"icons": [
 				"DestroySelf",
@@ -240,7 +246,7 @@
 			"body": [
 				"Discard the top card of each deck.",
 				"Each player may discard a card. Those who do may draw a card.",
-				"You may destroy a hero ongoing or equipment card. If you do so, {Patina} deals up to X targets 3 projectile damage each, where X = the number of [u]water[/u] cards in play plus 1."
+				"You may destroy a hero ongoing or equipment card. If you do, {Patina} deals up to X targets 3 projectile damage each, where X = the number of [u]water[/u] cards in play plus 1."
 			],
 			"icons": [
 				"Discard",
@@ -300,7 +306,7 @@
 				"water"
 			],
 			"body": [
-				"Whenever a villain card would be played, you may destroy this card. If you do so, one player other than {Patina} may draw a card instead."
+				"Whenever a villain card would be played, you may destroy this card. If you do, one player other than {Patina} may draw a card instead."
 			],
 			"powers": [
 				"Deal 1 target X cold or melee damage, where X = the number of [u]water[/u] cards in play plus 1."
@@ -342,7 +348,7 @@
 			],
 			"incapacitatedAbilities": [
 				"One player may draw a card.",
-				"One player plays up to 2 equipment cards.",
+				"Up to two hero equipment cards may be played now.",
 				"Each hero target with an equipment card in their play area regains 1 HP."
 			],
 			"flippedIcons": [
@@ -352,7 +358,13 @@
 			],
 			"complexity": 1,
 			"openingLines": {
-				"default": "hypothesis! experiment! conclusion!"
+				"default": "hypothesis! experiment! conclusion!",
+				"GrandWarlordVossCharacter": "why can't aliens show up for discovery? it's always conquer conquer conquer.",
+				"IronLegacyCharacter": "‘never’ is such a limiting word. let's test that hypothesis, shall we?",
+				"TheMatriarchCharacter": "‘corvus’? but that one there is [i]cathartidae[/i]. oh, do you find this cathartic?",
+				"FrictionTeamCharacter": "I doubt you can either. Physics just isn't on your side.",
+				"MissInformationTeamCharacter": "this is a remnant of the multiverse theory, yes? fascinating.",
+				"Cauldron.MenagerieCharacter": "my scientific curiosity forbids me from saying no."
 			}
 		},
 		{
@@ -372,7 +384,7 @@
 			"hitpointsColor": "55802B",
 			"character": true,
 			"powers": [
-				"[i]Verdigris[/i] deals 1 target 2 melee damage and 2 cold damage, in either order. That target deals [i]Verdigris[/i] 3 melee damage."
+				"[i]Verdigris[/i] deals a target 2 melee damage and 2 cold damage, in either order. That target deals [i]Verdigris[/i] 3 melee damage."
 			],
 			"hitpoints": 28,
 			"nemesisIdentifiers": [
@@ -380,8 +392,8 @@
 			],
 			"incapacitatedAbilities": [
 				"One player may play a card.",
-				"One hero deals 1 target 1 melee damage. A different hero deals 1 target 1 cold damage.",
-				"Each Hero may deal themselves 3 Cold damage. A Hero dealt damage this way may use a Power."
+				"One hero target deals 1 target 1 melee damage. A different hero target deals 1 target 1 cold damage.",
+				"Each hero character may deal themselves 3 cold damage to use a power now."
 			],
 			"flippedIcons": [
 				"PlayCardNow",
@@ -391,7 +403,13 @@
 			],
 			"complexity": 1,
 			"openingLines": {
-				"default": "the ocean floor is too good for you."
+				"default": "the ocean floor is too good for you.",
+				"GrandWarlordVossCharacter": "oh good, I needed some punching bags.",
+				"IronLegacyCharacter": "don't hold back, old man.",
+				"TheMatriarchCharacter": "you've gone and put me in a foul mood.",
+				"FrictionTeamCharacter": "just... stand still... for a moment and we'll see!",
+				"MissInformationTeamCharacter": "yeah. kinda used to that at this point.",
+				"Cauldron.MenagerieCharacter": "just don't try to catch me. you'll have your hands full."
 			}
 		}
 	]

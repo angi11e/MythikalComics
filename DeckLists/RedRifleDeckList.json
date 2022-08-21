@@ -15,7 +15,7 @@
 			"hitpointsColor": "E42A28",
 			"character": true,
 			"powers": [
-				"Add 1 token to your trueshot pool. Draw a card."
+				"Add 1 token to your trueshot pool. Draw 1 card."
 			],
 			"tokenPools": [
 				{
@@ -48,7 +48,10 @@
 				"PlayCardNow"
 			],
 			"openingLines": {
-				"default": "what, [b]another[/b] villain? these guys grow on trees now!"
+				"default": "what, [b]another[/b] villain? these guys grow on trees now!",
+				"ApostateCharacter": "big black wings. creepy red eyes. I think we've got ourselves another demon.",
+				"CitizenDawnCharacter": "couldn't you live on the sun if you're citizens? wait, if you're living here, does that make you... expats?",
+				"AnathemaCharacter": "chance has nothing to do with it, you, uh, blob... armor... guy."
 			},
 			"complexity": 1
 		},
@@ -185,7 +188,7 @@
 			],
 			"body": [
 				"Increase damage dealt by {RedRifle} by 1.",
-				"When this card is destroyed, {RedRifle} deals himself 2 energy damage. Add 3 tokens to your trueshot pool."
+				"When this card is destroyed, {RedRifle} deals himself 2 energy damage, then Add 3 tokens to your trueshot pool."
 			],
 			"powers": [
 				"Play 2 one-shot cards now. Destroy this card."
@@ -227,7 +230,7 @@
 				"one-shot"
 			],
 			"body": [
-				"{RedRifle} deals 1 target X projectile damage, where X equals the number of villain and environment targets in play, to a maximum of the number of tokens in your trueshot pool.",
+				"{RedRifle} deals 1 target X projectile damage, where X = the number of villain and environment targets in play, to a maximum of the number of tokens in your trueshot pool.",
 				"This damage cannot be redirected."
 			],
 			"icons": [
@@ -262,7 +265,7 @@
 				"limited"
 			],
 			"body": [
-				"When this card enters play, add 2 tokens to your trueshot pool. Each hero target gains 1 HP.",
+				"When this card enters play, add 2 tokens to your trueshot pool, then Each hero target gains 1 HP.",
 				"Whenever a villain target deals a non-villain target damage, you may remove any number of tokens from your trueshot pool. Reduce that damage by that amount."
 			],
 			"icons": [
@@ -387,7 +390,10 @@
 			],
 			"complexity": 2,
 			"openingLines": {
-				"default": "Oh, you're dead."
+				"default": "Oh, you're dead.",
+				"ApostateCharacter": "I believe in sending demon thingies right back to hell.",
+				"CitizenDawnCharacter": "well, my friend Amanda gave me this bullet, and I gather it has your name on it.",
+				"AnathemaCharacter": "evolution's just survival of the fittest. try this on for size."
 			}
 		},
 		{
@@ -426,7 +432,7 @@
 			],
 			"incapacitatedAbilities": [
 				"One player may play a card.",
-				"One hero destroys one of their Equipment cards. If they do, they deal 1 target 4 energy damage.",
+				"One hero may destroy one of their Equipment cards. If they do, they deal 1 target 4 energy damage.",
 				"Until the start of your turn, increase all projectile damage by 2."
 			],
 			"flippedIcons": [
@@ -437,7 +443,10 @@
 			],
 			"complexity": 2,
 			"openingLines": {
-				"default": "[b]*modem noises*[/b]"
+				"default": "[b]*modem noises*[/b]",
+				"ApostateCharacter": "sudo killall -9 daemon",
+				"CitizenDawnCharacter": "what, like Solaris? SPARC? wow, that's old news, lady.",
+				"AnathemaCharacter": "well you're absolutely not the pinnacle of beauty, wow."
 			}
 		}
 	]

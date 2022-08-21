@@ -1,6 +1,6 @@
 {"frames": {
 
-"Clairvoyance.jpg":
+"Clairvoyance.png":
 {
 	"frame": {"x":0,"y":0,"w":256,"h":198},
 	"rotated": false,
@@ -8,7 +8,7 @@
 	"spriteSourceSize": {"x":0,"y":0,"w":256,"h":198},
 	"sourceSize": {"w":256,"h":198}
 },
-"ConvertTheEnergy.jpg":
+"ConvertTheEnergy.png":
 {
 	"frame": {"x":259,"y":0,"w":256,"h":198},
 	"rotated": false,
@@ -16,7 +16,7 @@
 	"spriteSourceSize": {"x":0,"y":0,"w":256,"h":198},
 	"sourceSize": {"w":256,"h":198}
 },
-"DelightInDiscovery.jpg":
+"DelightInDiscovery.png":
 {
 	"frame": {"x":518,"y":0,"w":256,"h":198},
 	"rotated": false,
@@ -24,7 +24,7 @@
 	"spriteSourceSize": {"x":0,"y":0,"w":256,"h":198},
 	"sourceSize": {"w":256,"h":198}
 },
-"EyesOnTheHands.jpg":
+"EyesOnTheHands.png":
 {
 	"frame": {"x":777,"y":0,"w":256,"h":198},
 	"rotated": false,
@@ -32,7 +32,7 @@
 	"spriteSourceSize": {"x":0,"y":0,"w":256,"h":198},
 	"sourceSize": {"w":256,"h":198}
 },
-"FocusingCrystal.jpg":
+"FocusingCrystal.png":
 {
 	"frame": {"x":1036,"y":0,"w":256,"h":198},
 	"rotated": false,
@@ -40,7 +40,7 @@
 	"spriteSourceSize": {"x":0,"y":0,"w":256,"h":198},
 	"sourceSize": {"w":256,"h":198}
 },
-"FollowThePath.jpg":
+"FollowThePath.png":
 {
 	"frame": {"x":1295,"y":0,"w":256,"h":198},
 	"rotated": false,
@@ -48,7 +48,7 @@
 	"spriteSourceSize": {"x":0,"y":0,"w":256,"h":198},
 	"sourceSize": {"w":256,"h":198}
 },
-"GuideTheStrike.jpg":
+"GuideTheStrike.png":
 {
 	"frame": {"x":1554,"y":0,"w":256,"h":198},
 	"rotated": false,
@@ -56,7 +56,7 @@
 	"spriteSourceSize": {"x":0,"y":0,"w":256,"h":198},
 	"sourceSize": {"w":256,"h":198}
 },
-"IAmAProfessional.jpg":
+"IAmAProfessional.png":
 {
 	"frame": {"x":0,"y":201,"w":256,"h":198},
 	"rotated": false,
@@ -64,7 +64,7 @@
 	"spriteSourceSize": {"x":0,"y":0,"w":256,"h":198},
 	"sourceSize": {"w":256,"h":198}
 },
-"Legerdemain.jpg":
+"Legerdemain.png":
 {
 	"frame": {"x":259,"y":201,"w":256,"h":198},
 	"rotated": false,
@@ -88,7 +88,7 @@
 	"spriteSourceSize": {"x":0,"y":0,"w":178,"h":256},
 	"sourceSize": {"w":178,"h":256}
 },
-"SellTheGrift.jpg":
+"SellTheGrift.png":
 {
 	"frame": {"x":518,"y":201,"w":256,"h":198},
 	"rotated": false,
@@ -96,7 +96,7 @@
 	"spriteSourceSize": {"x":0,"y":0,"w":256,"h":198},
 	"sourceSize": {"w":256,"h":198}
 },
-"Teleportation.jpg":
+"Teleportation.png":
 {
 	"frame": {"x":777,"y":201,"w":256,"h":198},
 	"rotated": false,
@@ -104,7 +104,7 @@
 	"spriteSourceSize": {"x":0,"y":0,"w":256,"h":198},
 	"sourceSize": {"w":256,"h":198}
 },
-"TheScholarsJournal.jpg":
+"TheScholarsJournal.png":
 {
 	"frame": {"x":1036,"y":201,"w":256,"h":198},
 	"rotated": false,
@@ -120,7 +120,7 @@
 	"spriteSourceSize": {"x":0,"y":0,"w":178,"h":256},
 	"sourceSize": {"w":178,"h":256}
 },
-"TheurgyCharacterBack.jpg":
+"TheurgyCharacterBack.png":
 {
 	"frame": {"x":802,"y":402,"w":178,"h":256},
 	"rotated": false,
@@ -144,7 +144,7 @@
 	"spriteSourceSize": {"x":0,"y":0,"w":178,"h":256},
 	"sourceSize": {"w":178,"h":256}
 },
-"TheurgyFateweaverCharacterBack.jpg":
+"TheurgyFateweaverCharacterBack.png":
 {
 	"frame": {"x":1345,"y":402,"w":178,"h":256},
 	"rotated": false,
@@ -152,7 +152,7 @@
 	"spriteSourceSize": {"x":0,"y":0,"w":178,"h":256},
 	"sourceSize": {"w":178,"h":256}
 },
-"TrapDoor.jpg":
+"TrapDoor.png":
 {
 	"frame": {"x":1295,"y":201,"w":256,"h":198},
 	"rotated": false,
@@ -160,7 +160,7 @@
 	"spriteSourceSize": {"x":0,"y":0,"w":256,"h":198},
 	"sourceSize": {"w":256,"h":198}
 },
-"WeatherTheHits.jpg":
+"WeatherTheHits.png":
 {
 	"frame": {"x":1554,"y":201,"w":256,"h":198},
 	"rotated": false,
@@ -168,7 +168,7 @@
 	"spriteSourceSize": {"x":0,"y":0,"w":256,"h":198},
 	"sourceSize": {"w":256,"h":198}
 },
-"Yoink.jpg":
+"Yoink.png":
 {
 	"frame": {"x":0,"y":402,"w":256,"h":198},
 	"rotated": false,
@@ -183,6 +183,6 @@
 	"format": "RGBA8888",
 	"size": {"w":2048,"h":2048},
 	"scale": "1",
-	"smartupdate": "$TexturePacker:SmartUpdate:2d4a529dd65fd9ceab6e3d26cda376ed:9e51fd02d835c1f241e01914d1e3aab7:385491a5ad7cd24465aa0ee5f104b9d5$"
+	"smartupdate": "$TexturePacker:SmartUpdate:1ee8266488fdb3c64392a70cbfe4c85f:49d78919aee5f3f6128122895f762e69:385491a5ad7cd24465aa0ee5f104b9d5$"
 }
 }

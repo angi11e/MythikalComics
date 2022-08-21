@@ -83,6 +83,24 @@
     <Compile Include="CadaverTeam\CadaverousHatCardController.cs" />
     <Compile Include="CadaverTeam\CadaverTeamCharacterCardController.cs" />
     <Compile Include="CadaverTeam\CadaverTeamTurnTakerController.cs" />
+    <Compile Include="CaptainCain\CaptainCainSetupCardController.cs" />
+    <Compile Include="CaptainCain\CaptainCainEquipmentCardController.cs" />
+    <Compile Include="CaptainCain\DoubleEnhancerGlovesCardController.cs" />
+    <Compile Include="CaptainCain\EndlessHungerCardController.cs" />
+    <Compile Include="CaptainCain\HeartflowInducerCardController.cs" />
+    <Compile Include="CaptainCain\InTheNickOfTimeCardController.cs" />
+    <Compile Include="CaptainCain\ItsJustAScratchCardController.cs" />
+    <Compile Include="CaptainCain\ManOfActionCardController.cs" />
+    <Compile Include="CaptainCain\ManOfThePeopleCardController.cs" />
+    <Compile Include="CaptainCain\NoMoreTricksCardController.cs" />
+    <Compile Include="CaptainCain\PatentedDesolidifierCardController.cs" />
+    <Compile Include="CaptainCain\TwoFistedJusticeCardController.cs" />
+    <Compile Include="CaptainCain\VampirePrinceCardController.cs" />
+    <Compile Include="CaptainCain\YouveMadeMeMadBusterCardController.cs" />
+    <Compile Include="CaptainCain\CaptainCainCharacterCardController.cs" />
+    <Compile Include="CaptainCain\CaptainCainTurnTakerController.cs" />
+    <Compile Include="CaptainCain\AllInCardController.cs" />
+    <Compile Include="CaptainCain\CaptainCainBaseCardController.cs" />
     <Compile Include="NightMare\BringAnotherCardController.cs" />
     <Compile Include="NightMare\CowabungaItIsCardController.cs" />
     <Compile Include="NightMare\DynamicEntryCardController.cs" />
@@ -147,7 +165,7 @@
     <Compile Include="Speedrunner\SequenceBreakCardController.cs" />
     <Compile Include="Speedrunner\RNGManipulationCardController.cs" />
     <Compile Include="Speedrunner\ResetWarpCardController.cs" />
-    <Compile Include="Speedrunner\RepeatedBackflipsCardController.cs" />
+    <Compile Include="Speedrunner\BunnyHoppingCardController.cs" />
     <Compile Include="Speedrunner\OutOfBoundsCardController.cs" />
     <Compile Include="Speedrunner\OriginalHardwareCardController.cs" />
     <Compile Include="Speedrunner\NoClippingCardController.cs" />
@@ -251,7 +269,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Cadaver\" />
-    <Folder Include="CaptainCain\" />
     <Folder Include="OrbitalAtlantis\" />
     <Folder Include="PecosBill\" />
     <Folder Include="Spoiler\" />

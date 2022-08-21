@@ -6,7 +6,7 @@ using Handelabra.Sentinels.Engine.Model;
 
 namespace Angille.Speedrunner
 {
-	public class RepeatedBackflipsCardController : SpeedrunnerBaseCardController
+	public class BunnyHoppingCardController : SpeedrunnerBaseCardController
 	{
 		/*
 		 * Draw a card. Discard a card. Play a card.
@@ -14,7 +14,7 @@ namespace Angille.Speedrunner
 		 * One player other than {Speedrunner} may use a power now.
 		 */
 
-		public RepeatedBackflipsCardController(
+		public BunnyHoppingCardController(
 			Card card,
 			TurnTakerController turnTakerController
 		) : base(card, turnTakerController)

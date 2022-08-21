@@ -23,6 +23,7 @@ namespace Angille.Speedrunner
 			"Cueball",
 			"GreenGrosser",
 			"Highbrow",
+			"Larry",
 			"Rahazar",
 			"SwarmEaterCharacter",
 			"UnmuteCharacter"

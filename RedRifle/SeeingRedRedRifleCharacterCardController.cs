@@ -36,6 +36,8 @@ namespace Angille.RedRifle
 			IEnumerator playCardsCR = SelectAndPlayCardsFromHand(
 				DecisionMaker,
 				cardNumeral,
+				false,
+				cardNumeral,
 				cardCriteria: new LinqCardCriteria((Card c) => c.IsOneShot, "one-shot")
 			);
 

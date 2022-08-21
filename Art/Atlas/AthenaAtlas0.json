@@ -40,7 +40,7 @@
 	"spriteSourceSize": {"x":0,"y":0,"w":178,"h":256},
 	"sourceSize": {"w":178,"h":256}
 },
-"BrandNewAthenaCharacter.png":
+"BrandNewAthenaBack.png":
 {
 	"frame": {"x":1061,"y":402,"w":178,"h":256},
 	"rotated": false,
@@ -48,9 +48,25 @@
 	"spriteSourceSize": {"x":0,"y":0,"w":178,"h":256},
 	"sourceSize": {"w":178,"h":256}
 },
-"ClassicAthenaCharacter.png":
+"BrandNewAthenaCharacter.png":
 {
 	"frame": {"x":1242,"y":402,"w":178,"h":256},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":178,"h":256},
+	"sourceSize": {"w":178,"h":256}
+},
+"ClassicAthenaCharacter.png":
+{
+	"frame": {"x":1423,"y":402,"w":178,"h":256},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":178,"h":256},
+	"sourceSize": {"w":178,"h":256}
+},
+"ClassicAthenaCharacterBack.png":
+{
+	"frame": {"x":1604,"y":402,"w":178,"h":256},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":178,"h":256},
@@ -175,6 +191,6 @@
 	"format": "RGBA8888",
 	"size": {"w":2048,"h":2048},
 	"scale": "1",
-	"smartupdate": "$TexturePacker:SmartUpdate:64d04b895b9ea1e85045f9186016f18d:1a136336d772df9b9e21e93a1485d1a0:e9835dc773f63afacc1b817d8239b437$"
+	"smartupdate": "$TexturePacker:SmartUpdate:327b4529d52f2ffd97dd3974db3b7528:0551f582b734f8368d22907434ff6b13:e9835dc773f63afacc1b817d8239b437$"
 }
 }
