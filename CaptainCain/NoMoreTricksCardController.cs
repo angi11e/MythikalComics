@@ -13,7 +13,7 @@ namespace Angille.CaptainCain
 		 * 
 		 * 👊: {CaptainCainCharacter} deals that target 2 melee damage.
 		 * 
-		 * 💧: {CaptainCainCharacter} deals that target 1 infernal damage, then regains 1 HP.
+		 * 💧: {CaptainCainCharacter} deals that target 1 infernal damage, then regains 2 HP.
 		 */
 
 		public NoMoreTricksCardController(

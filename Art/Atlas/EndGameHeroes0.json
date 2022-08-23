@@ -32,7 +32,7 @@
 	"spriteSourceSize": {"x":0,"y":0,"w":400,"h":200},
 	"sourceSize": {"w":400,"h":200}
 },
-"ClassicAthenaCharacter.png":
+"CaptainCainCharacter.png":
 {
 	"frame": {"x":1612,"y":0,"w":400,"h":200},
 	"rotated": false,
@@ -40,7 +40,7 @@
 	"spriteSourceSize": {"x":0,"y":0,"w":400,"h":200},
 	"sourceSize": {"w":400,"h":200}
 },
-"ClassicAthenaCharacterFlipped.png":
+"CaptainCainCharacterFlipped.png":
 {
 	"frame": {"x":0,"y":203,"w":400,"h":200},
 	"rotated": false,
@@ -48,7 +48,7 @@
 	"spriteSourceSize": {"x":0,"y":0,"w":400,"h":200},
 	"sourceSize": {"w":400,"h":200}
 },
-"DDOSCharacter.png":
+"ClassicAthenaCharacter.png":
 {
 	"frame": {"x":403,"y":203,"w":400,"h":200},
 	"rotated": false,
@@ -56,7 +56,7 @@
 	"spriteSourceSize": {"x":0,"y":0,"w":400,"h":200},
 	"sourceSize": {"w":400,"h":200}
 },
-"DDOSCharacterFlipped.png":
+"ClassicAthenaCharacterFlipped.png":
 {
 	"frame": {"x":806,"y":203,"w":400,"h":200},
 	"rotated": false,
@@ -64,7 +64,7 @@
 	"spriteSourceSize": {"x":0,"y":0,"w":400,"h":200},
 	"sourceSize": {"w":400,"h":200}
 },
-"GunClubSpeedrunnerCharacter.png":
+"DDOSCharacter.png":
 {
 	"frame": {"x":1209,"y":203,"w":400,"h":200},
 	"rotated": false,
@@ -72,7 +72,7 @@
 	"spriteSourceSize": {"x":0,"y":0,"w":400,"h":200},
 	"sourceSize": {"w":400,"h":200}
 },
-"GunClubSpeedrunnerCharacterFlipped.png":
+"DDOSCharacterFlipped.png":
 {
 	"frame": {"x":1612,"y":203,"w":400,"h":200},
 	"rotated": false,
@@ -80,7 +80,7 @@
 	"spriteSourceSize": {"x":0,"y":0,"w":400,"h":200},
 	"sourceSize": {"w":400,"h":200}
 },
-"InternPatinaCharacter.png":
+"GunClubSpeedrunnerCharacter.png":
 {
 	"frame": {"x":0,"y":406,"w":400,"h":200},
 	"rotated": false,
@@ -88,7 +88,7 @@
 	"spriteSourceSize": {"x":0,"y":0,"w":400,"h":200},
 	"sourceSize": {"w":400,"h":200}
 },
-"InternPatinaCharacterFlipped.png":
+"GunClubSpeedrunnerCharacterFlipped.png":
 {
 	"frame": {"x":403,"y":406,"w":400,"h":200},
 	"rotated": false,
@@ -96,7 +96,7 @@
 	"spriteSourceSize": {"x":0,"y":0,"w":400,"h":200},
 	"sourceSize": {"w":400,"h":200}
 },
-"MoonStalkerCharacter.png":
+"InternPatinaCharacter.png":
 {
 	"frame": {"x":806,"y":406,"w":400,"h":200},
 	"rotated": false,
@@ -104,7 +104,7 @@
 	"spriteSourceSize": {"x":0,"y":0,"w":400,"h":200},
 	"sourceSize": {"w":400,"h":200}
 },
-"MoonStalkerCharacterFlipped.png":
+"InternPatinaCharacterFlipped.png":
 {
 	"frame": {"x":1209,"y":406,"w":400,"h":200},
 	"rotated": false,
@@ -112,7 +112,7 @@
 	"spriteSourceSize": {"x":0,"y":0,"w":400,"h":200},
 	"sourceSize": {"w":400,"h":200}
 },
-"NightMareCharacter.png":
+"MoonStalkerCharacter.png":
 {
 	"frame": {"x":1612,"y":406,"w":400,"h":200},
 	"rotated": false,
@@ -120,7 +120,7 @@
 	"spriteSourceSize": {"x":0,"y":0,"w":400,"h":200},
 	"sourceSize": {"w":400,"h":200}
 },
-"NightMareCharacterFlipped.png":
+"MoonStalkerCharacterFlipped.png":
 {
 	"frame": {"x":0,"y":609,"w":400,"h":200},
 	"rotated": false,
@@ -128,7 +128,7 @@
 	"spriteSourceSize": {"x":0,"y":0,"w":400,"h":200},
 	"sourceSize": {"w":400,"h":200}
 },
-"NightMareWholeHorseCharacter.png":
+"NightMareCharacter.png":
 {
 	"frame": {"x":403,"y":609,"w":400,"h":200},
 	"rotated": false,
@@ -136,7 +136,7 @@
 	"spriteSourceSize": {"x":0,"y":0,"w":400,"h":200},
 	"sourceSize": {"w":400,"h":200}
 },
-"NightMareWholeHorseCharacterFlipped.png":
+"NightMareCharacterFlipped.png":
 {
 	"frame": {"x":806,"y":609,"w":400,"h":200},
 	"rotated": false,
@@ -144,7 +144,7 @@
 	"spriteSourceSize": {"x":0,"y":0,"w":400,"h":200},
 	"sourceSize": {"w":400,"h":200}
 },
-"PatinaCharacter.png":
+"NightMareWholeHorseCharacter.png":
 {
 	"frame": {"x":1209,"y":609,"w":400,"h":200},
 	"rotated": false,
@@ -152,7 +152,7 @@
 	"spriteSourceSize": {"x":0,"y":0,"w":400,"h":200},
 	"sourceSize": {"w":400,"h":200}
 },
-"PatinaCharacterFlipped.png":
+"NightMareWholeHorseCharacterFlipped.png":
 {
 	"frame": {"x":1612,"y":609,"w":400,"h":200},
 	"rotated": false,
@@ -160,7 +160,7 @@
 	"spriteSourceSize": {"x":0,"y":0,"w":400,"h":200},
 	"sourceSize": {"w":400,"h":200}
 },
-"RedRifleCharacter.png":
+"PatinaCharacter.png":
 {
 	"frame": {"x":0,"y":812,"w":400,"h":200},
 	"rotated": false,
@@ -168,7 +168,7 @@
 	"spriteSourceSize": {"x":0,"y":0,"w":400,"h":200},
 	"sourceSize": {"w":400,"h":200}
 },
-"RedRifleCharacterFlipped.png":
+"PatinaCharacterFlipped.png":
 {
 	"frame": {"x":403,"y":812,"w":400,"h":200},
 	"rotated": false,
@@ -176,7 +176,7 @@
 	"spriteSourceSize": {"x":0,"y":0,"w":400,"h":200},
 	"sourceSize": {"w":400,"h":200}
 },
-"RetroSpeedrunnerCharacter.png":
+"RedRifleCharacter.png":
 {
 	"frame": {"x":806,"y":812,"w":400,"h":200},
 	"rotated": false,
@@ -184,7 +184,7 @@
 	"spriteSourceSize": {"x":0,"y":0,"w":400,"h":200},
 	"sourceSize": {"w":400,"h":200}
 },
-"RetroSpeedrunnerCharacterFlipped.png":
+"RedRifleCharacterFlipped.png":
 {
 	"frame": {"x":1209,"y":812,"w":400,"h":200},
 	"rotated": false,
@@ -192,7 +192,7 @@
 	"spriteSourceSize": {"x":0,"y":0,"w":400,"h":200},
 	"sourceSize": {"w":400,"h":200}
 },
-"SalemCharacter.png":
+"RetroSpeedrunnerCharacter.png":
 {
 	"frame": {"x":1612,"y":812,"w":400,"h":200},
 	"rotated": false,
@@ -200,7 +200,7 @@
 	"spriteSourceSize": {"x":0,"y":0,"w":400,"h":200},
 	"sourceSize": {"w":400,"h":200}
 },
-"SalemCharacterFlipped.png":
+"RetroSpeedrunnerCharacterFlipped.png":
 {
 	"frame": {"x":0,"y":1015,"w":400,"h":200},
 	"rotated": false,
@@ -208,7 +208,7 @@
 	"spriteSourceSize": {"x":0,"y":0,"w":400,"h":200},
 	"sourceSize": {"w":400,"h":200}
 },
-"SeeingRedRedRifleCharacter.png":
+"SalemCharacter.png":
 {
 	"frame": {"x":403,"y":1015,"w":400,"h":200},
 	"rotated": false,
@@ -216,7 +216,7 @@
 	"spriteSourceSize": {"x":0,"y":0,"w":400,"h":200},
 	"sourceSize": {"w":400,"h":200}
 },
-"SeeingRedRedRifleCharacterFlipped.png":
+"SalemCharacterFlipped.png":
 {
 	"frame": {"x":806,"y":1015,"w":400,"h":200},
 	"rotated": false,
@@ -224,7 +224,7 @@
 	"spriteSourceSize": {"x":0,"y":0,"w":400,"h":200},
 	"sourceSize": {"w":400,"h":200}
 },
-"SpeedrunnerCharacter.png":
+"SeeingRedRedRifleCharacter.png":
 {
 	"frame": {"x":1209,"y":1015,"w":400,"h":200},
 	"rotated": false,
@@ -232,7 +232,7 @@
 	"spriteSourceSize": {"x":0,"y":0,"w":400,"h":200},
 	"sourceSize": {"w":400,"h":200}
 },
-"SpeedrunnerCharacterFlipped.png":
+"SeeingRedRedRifleCharacterFlipped.png":
 {
 	"frame": {"x":1612,"y":1015,"w":400,"h":200},
 	"rotated": false,
@@ -240,7 +240,7 @@
 	"spriteSourceSize": {"x":0,"y":0,"w":400,"h":200},
 	"sourceSize": {"w":400,"h":200}
 },
-"TheurgyCharacter.png":
+"SpeedrunnerCharacter.png":
 {
 	"frame": {"x":0,"y":1218,"w":400,"h":200},
 	"rotated": false,
@@ -248,7 +248,7 @@
 	"spriteSourceSize": {"x":0,"y":0,"w":400,"h":200},
 	"sourceSize": {"w":400,"h":200}
 },
-"TheurgyCharacterFlipped.png":
+"SpeedrunnerCharacterFlipped.png":
 {
 	"frame": {"x":403,"y":1218,"w":400,"h":200},
 	"rotated": false,
@@ -256,7 +256,7 @@
 	"spriteSourceSize": {"x":0,"y":0,"w":400,"h":200},
 	"sourceSize": {"w":400,"h":200}
 },
-"TheurgyFateweaverCharacter.png":
+"TheurgyCharacter.png":
 {
 	"frame": {"x":806,"y":1218,"w":400,"h":200},
 	"rotated": false,
@@ -264,7 +264,7 @@
 	"spriteSourceSize": {"x":0,"y":0,"w":400,"h":200},
 	"sourceSize": {"w":400,"h":200}
 },
-"TheurgyFateweaverCharacterFlipped.png":
+"TheurgyCharacterFlipped.png":
 {
 	"frame": {"x":1209,"y":1218,"w":400,"h":200},
 	"rotated": false,
@@ -272,7 +272,7 @@
 	"spriteSourceSize": {"x":0,"y":0,"w":400,"h":200},
 	"sourceSize": {"w":400,"h":200}
 },
-"UmbraCharacter.png":
+"TheurgyFateweaverCharacter.png":
 {
 	"frame": {"x":1612,"y":1218,"w":400,"h":200},
 	"rotated": false,
@@ -280,7 +280,7 @@
 	"spriteSourceSize": {"x":0,"y":0,"w":400,"h":200},
 	"sourceSize": {"w":400,"h":200}
 },
-"UmbraCharacterFlipped.png":
+"TheurgyFateweaverCharacterFlipped.png":
 {
 	"frame": {"x":0,"y":1421,"w":400,"h":200},
 	"rotated": false,
@@ -288,7 +288,7 @@
 	"spriteSourceSize": {"x":0,"y":0,"w":400,"h":200},
 	"sourceSize": {"w":400,"h":200}
 },
-"VerdigrisCharacter.png":
+"UmbraCharacter.png":
 {
 	"frame": {"x":403,"y":1421,"w":400,"h":200},
 	"rotated": false,
@@ -296,7 +296,7 @@
 	"spriteSourceSize": {"x":0,"y":0,"w":400,"h":200},
 	"sourceSize": {"w":400,"h":200}
 },
-"VerdigrisCharacterFlipped.png":
+"UmbraCharacterFlipped.png":
 {
 	"frame": {"x":806,"y":1421,"w":400,"h":200},
 	"rotated": false,
@@ -304,7 +304,7 @@
 	"spriteSourceSize": {"x":0,"y":0,"w":400,"h":200},
 	"sourceSize": {"w":400,"h":200}
 },
-"WhatsHerFaceCharacter.png":
+"VerdigrisCharacter.png":
 {
 	"frame": {"x":1209,"y":1421,"w":400,"h":200},
 	"rotated": false,
@@ -312,7 +312,7 @@
 	"spriteSourceSize": {"x":0,"y":0,"w":400,"h":200},
 	"sourceSize": {"w":400,"h":200}
 },
-"WhatsHerFaceCharacterFlipped.png":
+"VerdigrisCharacterFlipped.png":
 {
 	"frame": {"x":1612,"y":1421,"w":400,"h":200},
 	"rotated": false,
@@ -320,7 +320,7 @@
 	"spriteSourceSize": {"x":0,"y":0,"w":400,"h":200},
 	"sourceSize": {"w":400,"h":200}
 },
-"WhatsHerFaceGadgeteerCharacter.png":
+"WhatsHerFaceCharacter.png":
 {
 	"frame": {"x":0,"y":1624,"w":400,"h":200},
 	"rotated": false,
@@ -328,9 +328,25 @@
 	"spriteSourceSize": {"x":0,"y":0,"w":400,"h":200},
 	"sourceSize": {"w":400,"h":200}
 },
-"WhatsHerFaceGadgeteerCharacterFlipped.png":
+"WhatsHerFaceCharacterFlipped.png":
 {
 	"frame": {"x":403,"y":1624,"w":400,"h":200},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":400,"h":200},
+	"sourceSize": {"w":400,"h":200}
+},
+"WhatsHerFaceGadgeteerCharacter.png":
+{
+	"frame": {"x":806,"y":1624,"w":400,"h":200},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":400,"h":200},
+	"sourceSize": {"w":400,"h":200}
+},
+"WhatsHerFaceGadgeteerCharacterFlipped.png":
+{
+	"frame": {"x":1209,"y":1624,"w":400,"h":200},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":400,"h":200},
@@ -343,6 +359,6 @@
 	"format": "RGBA8888",
 	"size": {"w":2048,"h":2048},
 	"scale": "1",
-	"smartupdate": "$TexturePacker:SmartUpdate:5676a4e1d084efa3f920dde7c5d37cc7:3d7d0fd039d977a296c68189d983fce6:e92652cff04ed6c8e37f7bc0458ec814$"
+	"smartupdate": "$TexturePacker:SmartUpdate:b44da77839bfdef74b5b643986a7b1fc:b176691ce1f25f0aa7bd12480735c631:e92652cff04ed6c8e37f7bc0458ec814$"
 }
 }

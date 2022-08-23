@@ -2,8 +2,7 @@
 	"name": "Captain Cain",
 	"kind": "Hero",
 	"initialCardIdentifiers": [
-		"CaptainCainCharacter",
-		"CaptainCainRules"
+		"CaptainCainCharacter"
 	],
 	"cards": [
 		{
@@ -17,7 +16,7 @@
 			"hitpointsColor": "E6C82E",
 			"character": true,
 			"powers": [
-				"{CaptainCainCharacter} deals 1 target 1 infernal damage. If {Fist} is active, he deals that target 1 melee damage. If {Blood} is active, he regains 1 HP."
+				"{CaptainCainCharacter} deals 1 target 1 infernal damage. If {Fist} is active, {CaptainCainCharacter} deals that target 1 melee damage. If {Blood} is active, {CaptainCainCharacter} regains 1 HP."
 			],
 			"icons": [
 				"HasPower",
@@ -107,7 +106,7 @@
 				"blood"
 			],
 			"body": [
-				"When this card enters play, destroy any of your [u]fist[/u] cards in play. When this card is destroyed, you may move a [u]blood[/u] card from your trash to your hand.",
+				"When this card enters play, destroy all of your [u]fist[/u] cards in play. When this card is destroyed, you may move a [u]blood[/u] card from your trash to your hand.",
 				"Treat {Blood} effects as active.",
 				"increase HP recovery by {CaptainCainCharacter} by 1."
 			],
@@ -153,7 +152,7 @@
 				"fist"
 			],
 			"body": [
-				"When this card enters play, destroy any of your [u]blood[/u] cards in play. When this card is destroyed, you may destroy an ongoing card.",
+				"When this card enters play, destroy all of your [u]blood[/u] cards in play. When this card is destroyed, you may destroy an ongoing card.",
 				"Treat {Fist} effects as active.",
 				"When a hero target would be dealt damage, you may redirect the damage to {CaptainCainCharacter}."
 			],
@@ -175,7 +174,7 @@
 				"blood"
 			],
 			"body": [
-				"When this card enters play, destroy any of your [u]fist[/u] cards in play. When this card is destroyed, {CaptainCainCharacter} regains 4 HP.",
+				"When this card enters play, destroy all of your [u]fist[/u] cards in play. When this card is destroyed, {CaptainCainCharacter} regains 4 HP.",
 				"Treat {Blood} effects as active.",
 				"When {CaptainCainCharacter} drops to 0 or fewer HP, restore {CaptainCainCharacter} to 10 HP. Then, move this card to the bottom of your deck."
 			],
@@ -196,6 +195,7 @@
 				"one-shot"
 			],
 			"body": [
+
 				"{CaptainCainCharacter} deals 1 target 2 melee damage, then deals a second target melee damage equal to the amount of damage dealt to the first target."
 			],
 			"activatableAbilities": [
@@ -225,7 +225,7 @@
 				"fist"
 			],
 			"body": [
-				"When this card enters play, destroy any of your [u]blood[/u] cards in play. When this card is destroyed, another player may play a card.",
+				"When this card enters play, destroy all of your [u]blood[/u] cards in play. When this card is destroyed, another player may play a card.",
 				"Treat {Fist} effects as active.",
 				"When you draw a card, another player may draw a card."
 			],
@@ -308,7 +308,7 @@
 				},
 				{
 					"name": "{Blood}:",
-					"text": "{CaptainCainCharacter} regains 1 HP each time a target takes damage this way."
+					"text": "each time a target takes damage this way, {CaptainCainCharacter} regains 1 HP."
 				}
 			],
 			"icons": [
@@ -329,7 +329,7 @@
 				"blood"
 			],
 			"body": [
-				"When this card enters play, destroy any of your [u]fist[/u] cards in play. When this card is destroyed, reveal the top card of each Hero deck and either discard it or replace it.",
+				"When this card enters play, destroy all of your [u]fist[/u] cards in play. When this card is destroyed, reveal the top card of each Hero deck and either discard it or replace it.",
 				"Treat {Blood} effects as active.",
 				"You may draw an extra card during your draw phase."
 			],
@@ -352,7 +352,7 @@
 				"fist"
 			],
 			"body": [
-				"When this card enters play, destroy any of your [u]blood[/u] cards in play. When this card is destroyed, {CaptainCainCharacter} deals each non-hero target 1 melee damage.",
+				"When this card enters play, destroy all of your [u]blood[/u] cards in play. When this card is destroyed, {CaptainCainCharacter} deals each non-hero target 1 melee damage.",
 				"Treat {Fist} effects as active.",
 				"You may use an additional power during your power phase."
 			],
@@ -362,7 +362,7 @@
 				"UsePowerExtra",
 				"Angille.Fist"
 			],
-			"flavorText": "“//Refocus targetting protocol//{BR}////{BR}//pugilist, designation: Cain//”",
+			"flavorText": "“//Refocus targeting protocol//{BR}////{BR}//pugilist, designation: Cain//”",
 			"flavorReference": "Amalgor, Anachronists #2"
 		}
 	],
