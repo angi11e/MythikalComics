@@ -33,23 +33,35 @@ namespace Angille.WhatsHerFace
 			// increase damage taken by targets in that character's play area by 1.
 			AddIncreaseDamageTrigger(
 				(DealDamageAction dd) =>
-					dd.Target.Location.OwnerTurnTaker == base.Card.Location.OwnerTurnTaker,
+					dd.Target.Location.OwnerTurnTaker == this.Card.Location.OwnerTurnTaker,
 				1
 			);
 
 			// reduce damage dealt by targets in that character's play area by 1.
 			AddReduceDamageTrigger(
 				(DealDamageAction dd) =>
-					dd.DamageSource.IsOneOfTheseCards(base.Card.Location.OwnerTurnTaker.GetPlayAreaCards()),
+					dd.DamageSource.IsOneOfTheseCards(this.Card.Location.OwnerTurnTaker.GetPlayAreaCards()),
 				(DealDamageAction dd) => 1
 			);
 
+			AddStartOfTurnTrigger(
+				(TurnTaker tt) => tt == this.TurnTaker,
+				(PhaseChangeAction p) => GameController.DestroyCard(
+					this.DecisionMaker,
+					this.Card,
+					cardSource: GetCardSource()
+				),
+				TriggerType.DestroySelf
+			);
+
+			/* switched for balance
 			// At the start of your turn, either discard a card or destroy this card.
 			AddStartOfTurnTrigger(
 				(TurnTaker tt) => tt == base.TurnTaker,
 				DiscardOrDestroyResponse,
 				new TriggerType[2] { TriggerType.DiscardCard, TriggerType.DestroySelf }
 			);
+			*/
 
 			// If that target leaves play, destroy this card. (removed from card)
 			// AddIfTheTargetThatThisCardIsNextToLeavesPlayDestroyThisCardTrigger();
@@ -57,6 +69,7 @@ namespace Angille.WhatsHerFace
 			base.AddTriggers();
 		}
 
+		/*
 		private IEnumerator DiscardOrDestroyResponse(PhaseChangeAction pca)
 		{
 			List<DiscardCardAction> storedResults = new List<DiscardCardAction>();
@@ -94,5 +107,6 @@ namespace Angille.WhatsHerFace
 				}
 			}
 		}
+		*/
 	}
 }

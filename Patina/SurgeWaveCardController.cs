@@ -20,7 +20,7 @@ namespace Angille.Patina
 			TurnTakerController turnTakerController
 		) : base(card, turnTakerController)
 		{
-			SpecialStringMaker.ShowNumberOfCardsInPlay(IsWaterCriteria());
+			SpecialStringMaker.ShowNumberOfCardsInPlay(IsWaterCriteria((Card c) => !c.IsOneShot));
 		}
 
 		public override IEnumerator Play()

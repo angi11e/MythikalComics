@@ -13,7 +13,7 @@ namespace Angille.Speedrunner
 		 * 
 		 * POWER
 		 * Discard any number of cards.
-		 * Deal 1 target X energy damage, where X = the number of cards discarded this way plus 2.
+		 * Deal 1 target X energy damage, where X = the number of cards discarded this way plus 1.
 		 */
 
 		public InputBufferCardController(
@@ -32,8 +32,8 @@ namespace Angille.Speedrunner
 		public override IEnumerator UsePower(int index = 0)
 		{
 			int targetNumeral = GetPowerNumeral(0, 1);
-			int damageNumeral = GetPowerNumeral(1, 2);
-			int extraNumeral = GetPowerNumeral(2, 1);
+			int damageNumeral = GetPowerNumeral(1, 1);
+			// int extraNumeral = GetPowerNumeral(2, 1);
 
 			// Discard any number of cards.
 			List<DiscardCardAction> storedResults = new List<DiscardCardAction>();
@@ -54,14 +54,14 @@ namespace Angille.Speedrunner
 				GameController.ExhaustCoroutine(discardCR);
 			}
 
-			// ...plus 1 for each card discarded this way.
-			int adjustmentNumeral = extraNumeral * storedResults.Count();
+			// int adjustmentNumeral = extraNumeral * storedResults.Count();
 
-			// Deal 1 target 2 energy damage...
+			// Deal 1 target X energy damage...
 			IEnumerator dealDamageCR = GameController.SelectTargetsAndDealDamage(
 				DecisionMaker,
 				new DamageSource(GameController, this.CharacterCard),
-				damageNumeral + adjustmentNumeral,
+				// ...where X = the number of cards discarded this way plus 1.
+				damageNumeral + storedResults.Count(),
 				DamageType.Energy,
 				targetNumeral,
 				false,

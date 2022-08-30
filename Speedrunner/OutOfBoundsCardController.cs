@@ -10,12 +10,12 @@ namespace Angille.Speedrunner
 	{
 		/*
 		 * When this card enters play, move the top card of the environment deck under it.
-		 * Then {Speedrunner} deals 1 target 2 psychic damage.
+		 * Then {Speedrunner} deals 1 target 1 psychic damage.
 		 * 
 		 * POWER
 		 * Move an environment card in play under this card.
 		 *  If you do so, you may play a different card from under this card,
-		 *  then {Speedrunner} deals 1 target 2 psychic damage.
+		 *  then {Speedrunner} deals 1 target 1 psychic damage.
 		 */
 
 		public OutOfBoundsCardController(
@@ -44,11 +44,11 @@ namespace Angille.Speedrunner
 				cardSource: GetCardSource()
 			);
 
-			// Then {Speedrunner} deals 1 target 2 psychic damage.
+			// Then {Speedrunner} deals 1 target 1 psychic damage.
 			IEnumerator dealDamageCR = GameController.SelectTargetsAndDealDamage(
 				DecisionMaker,
 				new DamageSource(GameController, this.CharacterCard),
-				2,
+				1,
 				DamageType.Psychic,
 				1,
 				false,
@@ -73,7 +73,7 @@ namespace Angille.Speedrunner
 		public override IEnumerator UsePower(int index = 0)
 		{
 			int targetNumeral = GetPowerNumeral(0, 1);
-			int damageNumeral = GetPowerNumeral(1, 2);
+			int damageNumeral = GetPowerNumeral(1, 1);
 
 			if (AllCards.Where((Card c) => c.IsInPlayAndNotUnderCard && c.IsEnvironment).Any())
 			{
@@ -141,7 +141,7 @@ namespace Angille.Speedrunner
 							GameController.ExhaustCoroutine(playUnderCR);
 						}
 
-						// If you do, {Speedrunner} deals 1 target 2 psychic damage.
+						// If you do, {Speedrunner} deals 1 target 1 psychic damage.
 						if (selectedUnderCard != null && selectedUnderCard.Any())
 						{
 							IEnumerator dealDamageCR = GameController.SelectTargetsAndDealDamage(

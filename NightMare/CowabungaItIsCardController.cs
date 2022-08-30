@@ -88,7 +88,12 @@ namespace Angille.NightMare
 					GameController.ExhaustCoroutine(moveCardCR);
 				}
 
-				Card theCard = storedResults.FirstOrDefault().CardToMove;
+				Card theCard = null;
+				if (storedResults.Any())
+				{
+					theCard = storedResults.FirstOrDefault().CardToMove;
+				}
+
 				if (theCard != null && theCard.Location != TurnTaker.Trash)
 				{
 					IEnumerator discardCR = GameController.MoveCard(

@@ -136,6 +136,28 @@
     <Compile Include="Patina\MaerynianImmunityCardController.cs" />
     <Compile Include="Patina\PatinaCharacterCardController.cs" />
     <Compile Include="Patina\PatinaTurnTakerController.cs" />
+    <Compile Include="PecosBill\BigManOnTheSceneCardController.cs" />
+    <Compile Include="PecosBill\PecosBillTurnTakerController.cs" />
+    <Compile Include="PecosBill\PecosBillCharacterCardController.cs" />
+    <Compile Include="PecosBill\WidowMakerCardController.cs" />
+    <Compile Include="PecosBill\UnraveledShakeCardController.cs" />
+    <Compile Include="PecosBill\TwisterOfFateCardController.cs" />
+    <Compile Include="PecosBill\TamedTwisterCardController.cs" />
+    <Compile Include="PecosBill\TallTaleJusticeCardController.cs" />
+    <Compile Include="PecosBill\ShakeEmUpCardController.cs" />
+    <Compile Include="PecosBill\ShakeTheSnakeCardController.cs" />
+    <Compile Include="PecosBill\RustlinCardController.cs" />
+    <Compile Include="PecosBill\ReadyToRasselCardController.cs" />
+    <Compile Include="PecosBill\NotRoundMeYouDontCardController.cs" />
+    <Compile Include="PecosBill\LoyalLightningCardController.cs" />
+    <Compile Include="PecosBill\JustYouNMePardnerCardController.cs" />
+    <Compile Include="PecosBill\GoDownFightinCardController.cs" />
+    <Compile Include="PecosBill\DunGetTwistedCardController.cs" />
+    <Compile Include="PecosBill\CoyoteRaisedCardController.cs" />
+    <Compile Include="PecosBill\FolkBaseCardController.cs" />
+    <Compile Include="PecosBill\BigColtCardController.cs" />
+    <Compile Include="PecosBill\HyperboleBaseCardController.cs" />
+    <Compile Include="PecosBill\PecosBillBaseCardController.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RedRifle\CalledShotCardController.cs" />
     <Compile Include="RedRifle\EnergyBurstCardController.cs" />
@@ -270,7 +292,6 @@
   <ItemGroup>
     <Folder Include="Cadaver\" />
     <Folder Include="OrbitalAtlantis\" />
-    <Folder Include="PecosBill\" />
     <Folder Include="Spoiler\" />
     <Folder Include="Supplicate\" />
   </ItemGroup>
@@ -288,6 +309,9 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="DeckLists\CaptainCainDeckList.json" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="DeckLists\PecosBillDeckList.json" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

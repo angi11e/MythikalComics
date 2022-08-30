@@ -9,12 +9,12 @@ namespace Angille.NightMare
 	public class BringAnotherCardController : NightMareBaseCardController
 	{
 		/*
-		 * Whenever {NightMare} destroys a target, she may deal 1 target 2 Melee damage.
+		 * Whenever {NightMare} destroys a target, she may deal 1 target 1 Melee damage.
 		 * Discard the top card of your deck.
 		 * 
 		 * DISCARD
 		 * Reveal the top card of the villain deck.
-		 * If it is a target, put it into play and increase the next damage {NightMare} deals it by 3.
+		 * If it is a target, put it into play and increase the next damage {NightMare} deals it by 2.
 		 * Otherwise, discard it.
 		 */
 
@@ -44,12 +44,12 @@ namespace Angille.NightMare
 
 		private IEnumerator DestroyTargetResponse(DestroyCardAction dca)
 		{
-			// Whenever {NightMare} destroys a target, she may deal 1 target 2 Melee damage.
+			// Whenever {NightMare} destroys a target, she may deal 1 target 1 Melee damage.
 			List<DealDamageAction> storedResults = new List<DealDamageAction>();
 			IEnumerator dealDamageCR = GameController.SelectTargetsAndDealDamage(
 				DecisionMaker,
 				new DamageSource(GameController, base.CharacterCard),
-				2,
+				1,
 				DamageType.Melee,
 				1,
 				true,
@@ -67,7 +67,7 @@ namespace Angille.NightMare
 				GameController.ExhaustCoroutine(dealDamageCR);
 			}
 
-			if (storedResults.FirstOrDefault().DidDealDamage)
+			if (storedResults.Any() && storedResults.FirstOrDefault().DidDealDamage)
 			{
 				// Discard the top card of your deck.
 				IEnumerator discardTopCR = GameController.DiscardTopCard(
@@ -117,7 +117,7 @@ namespace Angille.NightMare
 			if (villainDeck != null && villainDeck.SelectedLocation.Location != null)
 			{
 				List<Card> storedResults = new List<Card>();
-				// If it is a target, put it into play and increase the next damage {NightMare} deals it by 3.
+				// If it is a target, put it into play and increase the next damage {NightMare} deals it by 2.
 				// Otherwise, discard it.
 				IEnumerator revealCR = RevealCards_PutSomeIntoPlay_DiscardRemaining(
 					TurnTakerController,
@@ -140,7 +140,7 @@ namespace Angille.NightMare
 				Card card = storedResults.FirstOrDefault();
 				if (card != null && card.IsTarget)
 				{
-					IncreaseDamageStatusEffect increaseDamageSE = new IncreaseDamageStatusEffect(3);
+					IncreaseDamageStatusEffect increaseDamageSE = new IncreaseDamageStatusEffect(2);
 					increaseDamageSE.NumberOfUses = 1;
 					increaseDamageSE.TargetCriteria.IsSpecificCard = card;
 					increaseDamageSE.SourceCriteria.IsSpecificCard = base.CharacterCard;

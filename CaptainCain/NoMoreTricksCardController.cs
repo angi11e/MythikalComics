@@ -85,7 +85,7 @@ namespace Angille.CaptainCain
 
 			if (IsBloodActive && theDamage != null && !theDamage.Target.IsIncapacitatedOrOutOfGame)
 			{
-				// 💧: {CaptainCainCharacter} deals that target 1 infernal damage, then regains 2 HP.
+				// 💧: {CaptainCainCharacter} deals that target 1 infernal damage...
 				IEnumerator bloodDamageCR = DealDamage(
 					this.CharacterCard,
 					theDamage.Target,
@@ -93,6 +93,20 @@ namespace Angille.CaptainCain
 					DamageType.Infernal,
 					cardSource: GetCardSource()
 				);
+
+				if (UseUnityCoroutines)
+				{
+					yield return GameController.StartCoroutine(bloodDamageCR);
+				}
+				else
+				{
+					GameController.ExhaustCoroutine(bloodDamageCR);
+				}
+			}
+
+			if (IsBloodActive)
+			{
+				// 💧: ...then regains 2 HP.
 				IEnumerator healingCR = GameController.GainHP(
 					this.CharacterCard,
 					2,
@@ -101,12 +115,10 @@ namespace Angille.CaptainCain
 
 				if (UseUnityCoroutines)
 				{
-					yield return GameController.StartCoroutine(bloodDamageCR);
 					yield return GameController.StartCoroutine(healingCR);
 				}
 				else
 				{
-					GameController.ExhaustCoroutine(bloodDamageCR);
 					GameController.ExhaustCoroutine(healingCR);
 				}
 			}

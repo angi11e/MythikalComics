@@ -59,12 +59,12 @@
 				"limited"
 			],
 			"body": [
-				"Whenever {NightMare} destroys a target, she may deal 1 target 2 Melee damage. If she does, discard the top card of your deck."
+				"Whenever {NightMare} destroys a target, she may deal 1 target 1 Melee damage. If she does, discard the top card of your deck."
 			],
 			"activatableAbilities": [
 				{
 					"name": "discard",
-					"text": "Reveal the top card of the villain deck. If it is a target, put it into play and increase the next damage {NightMare} deals it by 3. Otherwise, discard it."
+					"text": "Reveal the top card of the villain deck. If it is a target, put it into play and increase the next damage {NightMare} deals it by 2. Otherwise, discard it."
 				}
 			],
 			"icons": [
@@ -131,11 +131,10 @@
 				"limited"
 			],
 			"body": [
-				"Reduce damage taken by {NightMare} by 1.",
-				"When damage is redirected to {NightMare}, reduce it by 1."
+				"Reduce damage taken by {NightMare} by 1."
 			],
 			"powers": [
-				"{NightMare} deals 1 target 3 melee damage. Reduce the next damage dealt by targets dealt damage this way by the damage they take."
+				"{NightMare} deals 1 target 2 melee damage. Reduce the next damage dealt by targets dealt damage this way by the damage they take."
 			],
 			"activatableAbilities": [
 				{
@@ -191,7 +190,7 @@
 			"activatableAbilities": [
 				{
 					"name": "discard",
-					"text": "Until the start of your next turn, increase the damage {NightMare} deals to targets at full HP by 3."
+					"text": "Until the start of your next turn, increase the damage {NightMare} deals to targets at full HP by 2."
 				}
 			],
 			"icons": [
@@ -300,7 +299,7 @@
 				"When this card enters play, Draw a card then Discard a card."
 			],
 			"powers": [
-				"{NightMare} deals 1 target 5 melee damage. increase the next damage dealt by that target by 5."
+				"{NightMare} deals 1 target 4 melee damage. increase the next damage dealt by that target by 5."
 			],
 			"activatableAbilities": [
 				{

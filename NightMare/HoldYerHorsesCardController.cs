@@ -13,14 +13,15 @@ namespace Angille.NightMare
 		 * When any damage is redirected to {NightMare}, reduce it by 1.
 		 * 
 		 * POWER
-		 * {NightMare} deals 1 target 3 Melee damage.
+		 * {NightMare} deals 1 target 2 Melee damage.
 		 * Reduce the next damage dealt by targets dealt damage this way by the damage they take.
 		 * 
 		 * DISCARD
 		 * One hero target regains 1 HP.
 		 */
 
-		private ITrigger _reduceTrigger;
+		// removed for balance
+		// private ITrigger _reduceTrigger;
 
 		public HoldYerHorsesCardController(
 			Card card,
@@ -32,8 +33,9 @@ namespace Angille.NightMare
 		public override void AddTriggers()
 		{
 			// Reduce damage taken by {NightMare} by 1.
-			AddReduceDamageTrigger((Card c) => c == base.CharacterCard, 1);
+			AddReduceDamageTrigger((Card c) => c == this.CharacterCard, 1);
 
+			/* removed for balance
 			// When any damage is redirected to {NightMare}, reduce it by 1.
 			_reduceTrigger = AddTrigger(
 				(RedirectDamageAction rda) => rda.NewTarget == base.CharacterCard,
@@ -46,6 +48,7 @@ namespace Angille.NightMare
 				TriggerType.ReduceDamage,
 				TriggerTiming.Before
 			);
+			*/
 
 			base.AddTriggers();
 		}
@@ -53,13 +56,13 @@ namespace Angille.NightMare
 		public override IEnumerator UsePower(int index = 0)
 		{
 			int targetNumeral = GetPowerNumeral(0, 1);
-			int damageNumeral = GetPowerNumeral(1, 3);
+			int damageNumeral = GetPowerNumeral(1, 2);
 			int reduceNumeral = GetPowerNumeral(2, 0);
 
-			// {NightMare} deals 1 target 3 Melee damage.
+			// {NightMare} deals 1 target 2 Melee damage.
 			IEnumerator dealDamageCR = GameController.SelectTargetsAndDealDamage(
 				DecisionMaker,
-				new DamageSource(GameController, base.CharacterCard),
+				new DamageSource(GameController, this.CharacterCard),
 				damageNumeral,
 				DamageType.Melee,
 				targetNumeral,

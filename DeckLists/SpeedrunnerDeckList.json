@@ -131,7 +131,7 @@
 			"keywords": [
 				"ongoing",
 				"limited",
-				"strat"
+				"glitch"
 			],
 			"body": [
 				"When you move a card to your trash, place it under this card instead. When you use a power or draw a card, add 1 token to this card.",
@@ -204,7 +204,7 @@
 				"When this card enters play, draw 2 cards."
 			],
 			"powers": [
-				"Discard any number of cards. {Speedrunner} deals 1 target X energy damage, where X = the number of cards discarded this way plus 2."
+				"Discard any number of cards. {Speedrunner} deals 1 target X energy damage, where X = the number of cards discarded this way plus 1."
 			],
 			"icons": [
 				"DrawCardNow",
@@ -301,14 +301,14 @@
 			"title": "Out of Bounds",
 			"keywords": [
 				"ongoing",
-				"limited",
-				"glitch"
+				"glitch",
+				"limited"
 			],
 			"body": [
-				"When this card enters play, reveal the top card of the environment deck and place it under this card. Then {Speedrunner} deals 1 target 2 psychic damage."
+				"When this card enters play, reveal the top card of the environment deck and place it under this card. Then {Speedrunner} deals 1 target 1 psychic damage."
 			],
 			"powers": [
-				"Move an environment card in play under this card. If you do, put a different card from under this card into play. If you do, {Speedrunner} deals 1 target 2 psychic damage."
+				"Move an environment card in play under this card. If you do, put a different card from under this card into play. If you do, {Speedrunner} deals 1 target 1 psychic damage."
 			],
 			"icons": [
 				"Manipulate",
@@ -347,8 +347,8 @@
 			"title": "R.N.G. Manipulation",
 			"keywords": [
 				"ongoing",
-				"limited",
-				"strat"
+				"strat",
+				"limited"
 			],
 			"body": [
 				"When a villain card would be played, you may play a card from under this card instead.",
@@ -372,8 +372,8 @@
 			"title": "Sequence Break",
 			"keywords": [
 				"ongoing",
-				"limited",
-				"glitch"
+				"glitch",
+				"limited"
 			],
 			"body": [
 				"When a Hero target other than {Speedrunner} would be dealt damage by a non-hero card, you may redirect it to {Speedrunner}. If you do, one player may draw a card.",

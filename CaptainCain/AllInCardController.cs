@@ -66,11 +66,18 @@ namespace Angille.CaptainCain
 			}
 
 			Card damageSource = null;
-
-			// That target deals {CaptainCainCharacter} 2 melee damage.
-			if (theTarget.Any() && !theTarget.FirstOrDefault().DidDestroyTarget)
+			if (theTarget.Any())
 			{
 				damageSource = theTarget.FirstOrDefault().Target;
+				if (!damageSource.IsInPlayAndHasGameText || damageSource.IsIncapacitatedOrOutOfGame)
+				{
+					damageSource = null;
+				}
+			}
+
+			// That target deals {CaptainCainCharacter} 2 melee damage.
+			if (damageSource != null)
+			{
 				IEnumerator reflectDamageCR = DealDamage(
 					damageSource,
 					this.CharacterCard,

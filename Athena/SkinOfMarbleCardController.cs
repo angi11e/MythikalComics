@@ -12,7 +12,7 @@ namespace Angille.Athena
 		 * Reduce damage dealt to {Athena} by 1.
 		 * 
 		 * After {Athena} is dealt damage by a non-Hero target,
-		 *  if there is an [u]aspect[/u] card in play, she deals that target 2 melee Damage.
+		 *  if there is an [u]aspect[/u] card in play, she deals that target 1 melee Damage.
 		 */
 
 		public SkinOfMarbleCardController(
@@ -25,21 +25,21 @@ namespace Angille.Athena
 		public override void AddTriggers()
 		{
 			// Reduce damage dealt to {Athena} by 1.
-			AddReduceDamageTrigger((Card c) => c == base.CharacterCard, 1);
+			AddReduceDamageTrigger((Card c) => c == this.CharacterCard, 1);
 
 			// After {Athena} is dealt damage by a non-Hero target,
-			// if there is an [u]aspect[/u] card in play, she deals that target 2 melee Damage.
+			// if there is an [u]aspect[/u] card in play, she deals that target 1 melee Damage.
 			AddCounterDamageTrigger(
 				(DealDamageAction dd) =>
-					dd.Target == base.CharacterCard
+					dd.Target == this.CharacterCard
 					&& dd.DamageSource.IsTarget
 					&& !dd.DamageSource.IsHero
 					&& dd.DidDealDamage
 					&& AspectInPlay,
-				() => base.CharacterCard,
-				() => base.CharacterCard,
+				() => this.CharacterCard,
+				() => this.CharacterCard,
 				oncePerTargetPerTurn: false,
-				2,
+				1,
 				DamageType.Melee
 			);
 

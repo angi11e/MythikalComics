@@ -9,8 +9,8 @@ namespace Angille.Patina
 	public class HybridSurvivorCardController : PatinaBaseCardController
 	{
 		/*
-		 * {Patina} deals 1 target 2 melee damage, then deals 1 target 1 cold damage.
-		 * {Patina} regains 2 HP.
+		 * {Patina} deals 1 target 1 melee damage, then deals 1 target 1 cold damage.
+		 * {Patina} regains 1 HP.
 		 * draw a card or play a card.
 		 */
 
@@ -23,11 +23,11 @@ namespace Angille.Patina
 
 		public override IEnumerator Play()
 		{
-			// {Patina} deals 1 target 2 melee damage...
+			// {Patina} deals 1 target 1 melee damage...
 			IEnumerator dealMeleeCR = GameController.SelectTargetsAndDealDamage(
 				DecisionMaker,
-				new DamageSource(GameController, base.CharacterCard),
-				2,
+				new DamageSource(GameController, this.CharacterCard),
+				1,
 				DamageType.Melee,
 				1,
 				false,
@@ -38,7 +38,7 @@ namespace Angille.Patina
 			// ...then deals 1 target 1 cold damage.
 			IEnumerator dealColdCR = GameController.SelectTargetsAndDealDamage(
 				DecisionMaker,
-				new DamageSource(GameController, base.CharacterCard),
+				new DamageSource(GameController, this.CharacterCard),
 				1,
 				DamageType.Cold,
 				1,
@@ -47,10 +47,10 @@ namespace Angille.Patina
 				cardSource: GetCardSource()
 			);
 
-			// {Patina} regains 2 HP.
+			// {Patina} regains 1 HP.
 			IEnumerator healingCR = GameController.GainHP(
-				base.CharacterCard,
-				2,
+				this.CharacterCard,
+				1,
 				cardSource: GetCardSource()
 			);
 

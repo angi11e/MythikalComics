@@ -22,7 +22,7 @@ namespace Angille.Patina
 			TurnTakerController turnTakerController
 		) : base(card, turnTakerController)
 		{
-			SpecialStringMaker.ShowNumberOfCardsInPlay(IsWaterCriteria());
+			SpecialStringMaker.ShowNumberOfCardsInPlay(IsWaterCriteria((Card c) => !c.IsOneShot));
 		}
 
 		public override void AddTriggers()
@@ -33,8 +33,8 @@ namespace Angille.Patina
 				DestructionResponse,
 				new TriggerType[3]
 				{
-					TriggerType.DestroySelf,
 					TriggerType.CancelAction,
+					TriggerType.DestroySelf,
 					TriggerType.DrawCard
 				},
 				TriggerTiming.Before,

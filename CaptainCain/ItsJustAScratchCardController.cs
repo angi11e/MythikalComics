@@ -10,7 +10,7 @@ namespace Angille.CaptainCain
 	{
 		/*
 		 * When this card enters play, destroy any of your [u]fist[/u] cards in play.
-		 * When this card is destroyed, {CaptainCainCharacter} regains 4 HP.
+		 * When this card is destroyed, {CaptainCainCharacter} regains 3 HP.
 		 * 
 		 * Treat {Blood} effects as active.
 		 * 
@@ -68,10 +68,10 @@ namespace Angille.CaptainCain
 
 		protected override IEnumerator SetupDestroyResponse(GameAction ga)
 		{
-			// When this card is destroyed, {CaptainCainCharacter} regains 4 HP.
+			// When this card is destroyed, {CaptainCainCharacter} regains 3 HP.
 			IEnumerator healingCR = GameController.GainHP(
 				this.CharacterCard,
-				4,
+				3,
 				cardSource: GetCardSource()
 			);
 

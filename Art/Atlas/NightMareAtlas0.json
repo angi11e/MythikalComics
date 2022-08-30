@@ -6,151 +6,417 @@
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":256,"h":198},
-	"sourceSize": {"w":256,"h":198}
+	"sourceSize": {"w":256,"h":198},
+	"vertices": [ [256,198], [0,198], [0,0], [256,0] ],
+	"verticesUV": [ [256,198], [0,198], [0,0], [256,0] ],
+	"triangles": [ [1,2,3], [0,1,3] ]
+},
+"BringAnotherMicro.png":
+{
+	"frame": {"x":0,"y":920,"w":108,"h":108},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":108,"h":108},
+	"sourceSize": {"w":108,"h":108},
+	"vertices": [ [108,108], [0,108], [0,0], [108,0] ],
+	"verticesUV": [ [108,1028], [0,1028], [0,920], [108,920] ],
+	"triangles": [ [1,2,3], [0,1,3] ]
 },
 "CowabungaItIs.png":
 {
-	"frame": {"x":259,"y":0,"w":256,"h":198},
+	"frame": {"x":181,"y":259,"w":256,"h":198},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":256,"h":198},
-	"sourceSize": {"w":256,"h":198}
+	"sourceSize": {"w":256,"h":198},
+	"vertices": [ [256,198], [0,198], [0,0], [256,0] ],
+	"verticesUV": [ [437,457], [181,457], [181,259], [437,259] ],
+	"triangles": [ [1,2,3], [0,1,3] ]
+},
+"CowabungaItIsMicro.png":
+{
+	"frame": {"x":111,"y":920,"w":108,"h":108},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":108,"h":108},
+	"sourceSize": {"w":108,"h":108},
+	"vertices": [ [108,108], [0,108], [0,0], [108,0] ],
+	"verticesUV": [ [219,1028], [111,1028], [111,920], [219,920] ],
+	"triangles": [ [1,2,3], [0,1,3] ]
 },
 "DynamicEntry.png":
-{
-	"frame": {"x":518,"y":0,"w":256,"h":198},
-	"rotated": false,
-	"trimmed": false,
-	"spriteSourceSize": {"x":0,"y":0,"w":256,"h":198},
-	"sourceSize": {"w":256,"h":198}
-},
-"HoldYerHorses.png":
-{
-	"frame": {"x":777,"y":0,"w":256,"h":198},
-	"rotated": false,
-	"trimmed": false,
-	"spriteSourceSize": {"x":0,"y":0,"w":256,"h":198},
-	"sourceSize": {"w":256,"h":198}
-},
-"HoofLoose.png":
-{
-	"frame": {"x":1036,"y":0,"w":256,"h":198},
-	"rotated": false,
-	"trimmed": false,
-	"spriteSourceSize": {"x":0,"y":0,"w":256,"h":198},
-	"sourceSize": {"w":256,"h":198}
-},
-"HoofStomp.png":
-{
-	"frame": {"x":1295,"y":0,"w":256,"h":198},
-	"rotated": false,
-	"trimmed": false,
-	"spriteSourceSize": {"x":0,"y":0,"w":256,"h":198},
-	"sourceSize": {"w":256,"h":198}
-},
-"HotToTrot.png":
-{
-	"frame": {"x":1554,"y":0,"w":256,"h":198},
-	"rotated": false,
-	"trimmed": false,
-	"spriteSourceSize": {"x":0,"y":0,"w":256,"h":198},
-	"sourceSize": {"w":256,"h":198}
-},
-"KelpieMagic.png":
-{
-	"frame": {"x":0,"y":201,"w":256,"h":198},
-	"rotated": false,
-	"trimmed": false,
-	"spriteSourceSize": {"x":0,"y":0,"w":256,"h":198},
-	"sourceSize": {"w":256,"h":198}
-},
-"ManoACasco.png":
-{
-	"frame": {"x":259,"y":201,"w":256,"h":198},
-	"rotated": false,
-	"trimmed": false,
-	"spriteSourceSize": {"x":0,"y":0,"w":256,"h":198},
-	"sourceSize": {"w":256,"h":198}
-},
-"MoonStalkerCharacter.png":
-{
-	"frame": {"x":518,"y":201,"w":178,"h":256},
-	"rotated": false,
-	"trimmed": false,
-	"spriteSourceSize": {"x":0,"y":0,"w":178,"h":256},
-	"sourceSize": {"w":178,"h":256}
-},
-"MoonStalkerCharacterBack.png":
-{
-	"frame": {"x":699,"y":201,"w":178,"h":256},
-	"rotated": false,
-	"trimmed": false,
-	"spriteSourceSize": {"x":0,"y":0,"w":178,"h":256},
-	"sourceSize": {"w":178,"h":256}
-},
-"NightMareCharacter.png":
-{
-	"frame": {"x":880,"y":201,"w":178,"h":256},
-	"rotated": false,
-	"trimmed": false,
-	"spriteSourceSize": {"x":0,"y":0,"w":178,"h":256},
-	"sourceSize": {"w":178,"h":256}
-},
-"NightMareCharacterBack.png":
-{
-	"frame": {"x":1061,"y":201,"w":178,"h":256},
-	"rotated": false,
-	"trimmed": false,
-	"spriteSourceSize": {"x":0,"y":0,"w":178,"h":256},
-	"sourceSize": {"w":178,"h":256}
-},
-"NightMareDeckBack.png":
-{
-	"frame": {"x":1242,"y":201,"w":178,"h":256},
-	"rotated": false,
-	"trimmed": false,
-	"spriteSourceSize": {"x":0,"y":0,"w":178,"h":256},
-	"sourceSize": {"w":178,"h":256}
-},
-"NightMareWholeHorseCharacter.png":
-{
-	"frame": {"x":1423,"y":201,"w":178,"h":256},
-	"rotated": false,
-	"trimmed": false,
-	"spriteSourceSize": {"x":0,"y":0,"w":178,"h":256},
-	"sourceSize": {"w":178,"h":256}
-},
-"NightMareWholeHorseCharacterBack.png":
-{
-	"frame": {"x":1604,"y":201,"w":178,"h":256},
-	"rotated": false,
-	"trimmed": false,
-	"spriteSourceSize": {"x":0,"y":0,"w":178,"h":256},
-	"sourceSize": {"w":178,"h":256}
-},
-"ReinedCombat.png":
-{
-	"frame": {"x":1785,"y":201,"w":256,"h":198},
-	"rotated": false,
-	"trimmed": false,
-	"spriteSourceSize": {"x":0,"y":0,"w":256,"h":198},
-	"sourceSize": {"w":256,"h":198}
-},
-"Stampede.png":
 {
 	"frame": {"x":0,"y":460,"w":256,"h":198},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":256,"h":198},
-	"sourceSize": {"w":256,"h":198}
+	"sourceSize": {"w":256,"h":198},
+	"vertices": [ [256,198], [0,198], [0,0], [256,0] ],
+	"verticesUV": [ [256,658], [0,658], [0,460], [256,460] ],
+	"triangles": [ [1,2,3], [0,1,3] ]
 },
-"TwoTrickPony.png":
+"DynamicEntryMicro.png":
+{
+	"frame": {"x":880,"y":603,"w":108,"h":108},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":108,"h":108},
+	"sourceSize": {"w":108,"h":108},
+	"vertices": [ [108,108], [0,108], [0,0], [108,0] ],
+	"verticesUV": [ [988,711], [880,711], [880,603], [988,603] ],
+	"triangles": [ [1,2,3], [0,1,3] ]
+},
+"HoldYerHorses.png":
 {
 	"frame": {"x":259,"y":460,"w":256,"h":198},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":256,"h":198},
-	"sourceSize": {"w":256,"h":198}
+	"sourceSize": {"w":256,"h":198},
+	"vertices": [ [256,198], [0,198], [0,0], [256,0] ],
+	"verticesUV": [ [515,658], [259,658], [259,460], [515,460] ],
+	"triangles": [ [1,2,3], [0,1,3] ]
+},
+"HoldYerHorsesMicro.png":
+{
+	"frame": {"x":222,"y":862,"w":108,"h":108},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":108,"h":108},
+	"sourceSize": {"w":108,"h":108},
+	"vertices": [ [108,108], [0,108], [0,0], [108,0] ],
+	"verticesUV": [ [330,970], [222,970], [222,862], [330,862] ],
+	"triangles": [ [1,2,3], [0,1,3] ]
+},
+"HoofLoose.png":
+{
+	"frame": {"x":440,"y":0,"w":256,"h":198},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":256,"h":198},
+	"sourceSize": {"w":256,"h":198},
+	"vertices": [ [256,198], [0,198], [0,0], [256,0] ],
+	"verticesUV": [ [696,198], [440,198], [440,0], [696,0] ],
+	"triangles": [ [1,2,3], [0,1,3] ]
+},
+"HoofLooseMicro.png":
+{
+	"frame": {"x":222,"y":973,"w":108,"h":108},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":108,"h":108},
+	"sourceSize": {"w":108,"h":108},
+	"vertices": [ [108,108], [0,108], [0,0], [108,0] ],
+	"verticesUV": [ [330,1081], [222,1081], [222,973], [330,973] ],
+	"triangles": [ [1,2,3], [0,1,3] ]
+},
+"HoofStomp.png":
+{
+	"frame": {"x":440,"y":201,"w":256,"h":198},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":256,"h":198},
+	"sourceSize": {"w":256,"h":198},
+	"vertices": [ [256,198], [0,198], [0,0], [256,0] ],
+	"verticesUV": [ [696,399], [440,399], [440,201], [696,201] ],
+	"triangles": [ [1,2,3], [0,1,3] ]
+},
+"HoofStompMicro.png":
+{
+	"frame": {"x":0,"y":1031,"w":108,"h":108},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":108,"h":108},
+	"sourceSize": {"w":108,"h":108},
+	"vertices": [ [108,108], [0,108], [0,0], [108,0] ],
+	"verticesUV": [ [108,1139], [0,1139], [0,1031], [108,1031] ],
+	"triangles": [ [1,2,3], [0,1,3] ]
+},
+"HotToTrot.png":
+{
+	"frame": {"x":181,"y":661,"w":256,"h":198},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":256,"h":198},
+	"sourceSize": {"w":256,"h":198},
+	"vertices": [ [256,198], [0,198], [0,0], [256,0] ],
+	"verticesUV": [ [437,859], [181,859], [181,661], [437,661] ],
+	"triangles": [ [1,2,3], [0,1,3] ]
+},
+"HotToTrotMicro.png":
+{
+	"frame": {"x":111,"y":1031,"w":108,"h":108},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":108,"h":108},
+	"sourceSize": {"w":108,"h":108},
+	"vertices": [ [108,108], [0,108], [0,0], [108,0] ],
+	"verticesUV": [ [219,1139], [111,1139], [111,1031], [219,1031] ],
+	"triangles": [ [1,2,3], [0,1,3] ]
+},
+"KelpieMagic.png":
+{
+	"frame": {"x":440,"y":661,"w":256,"h":198},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":256,"h":198},
+	"sourceSize": {"w":256,"h":198},
+	"vertices": [ [256,198], [0,198], [0,0], [256,0] ],
+	"verticesUV": [ [696,859], [440,859], [440,661], [696,661] ],
+	"triangles": [ [1,2,3], [0,1,3] ]
+},
+"KelpieMagicMicro.png":
+{
+	"frame": {"x":333,"y":862,"w":108,"h":108},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":108,"h":108},
+	"sourceSize": {"w":108,"h":108},
+	"vertices": [ [108,108], [0,108], [0,0], [108,0] ],
+	"verticesUV": [ [441,970], [333,970], [333,862], [441,862] ],
+	"triangles": [ [1,2,3], [0,1,3] ]
+},
+"ManoACasco.png":
+{
+	"frame": {"x":699,"y":777,"w":256,"h":198},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":256,"h":198},
+	"sourceSize": {"w":256,"h":198},
+	"vertices": [ [256,198], [0,198], [0,0], [256,0] ],
+	"verticesUV": [ [955,975], [699,975], [699,777], [955,777] ],
+	"triangles": [ [1,2,3], [0,1,3] ]
+},
+"ManoACascoMicro.png":
+{
+	"frame": {"x":333,"y":973,"w":108,"h":108},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":108,"h":108},
+	"sourceSize": {"w":108,"h":108},
+	"vertices": [ [108,108], [0,108], [0,0], [108,0] ],
+	"verticesUV": [ [441,1081], [333,1081], [333,973], [441,973] ],
+	"triangles": [ [1,2,3], [0,1,3] ]
+},
+"MoonStalkerCharacter.png":
+{
+	"frame": {"x":259,"y":0,"w":178,"h":256},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":178,"h":256},
+	"sourceSize": {"w":178,"h":256},
+	"vertices": [ [178,256], [0,256], [0,0], [178,0] ],
+	"verticesUV": [ [437,256], [259,256], [259,0], [437,0] ],
+	"triangles": [ [1,2,3], [0,1,3] ]
+},
+"MoonStalkerCharacterBack.png":
+{
+	"frame": {"x":0,"y":201,"w":178,"h":256},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":178,"h":256},
+	"sourceSize": {"w":178,"h":256},
+	"vertices": [ [178,256], [0,256], [0,0], [178,0] ],
+	"verticesUV": [ [178,457], [0,457], [0,201], [178,201] ],
+	"triangles": [ [1,2,3], [0,1,3] ]
+},
+"MoonStalkerCharacterBackMicro.png":
+{
+	"frame": {"x":444,"y":862,"w":108,"h":108},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":108,"h":108},
+	"sourceSize": {"w":108,"h":108},
+	"vertices": [ [108,108], [0,108], [0,0], [108,0] ],
+	"verticesUV": [ [552,970], [444,970], [444,862], [552,862] ],
+	"triangles": [ [1,2,3], [0,1,3] ]
+},
+"MoonStalkerCharacterMicro.png":
+{
+	"frame": {"x":444,"y":973,"w":108,"h":108},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":108,"h":108},
+	"sourceSize": {"w":108,"h":108},
+	"vertices": [ [108,108], [0,108], [0,0], [108,0] ],
+	"verticesUV": [ [552,1081], [444,1081], [444,973], [552,973] ],
+	"triangles": [ [1,2,3], [0,1,3] ]
+},
+"NightMareCharacter.png":
+{
+	"frame": {"x":518,"y":402,"w":178,"h":256},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":178,"h":256},
+	"sourceSize": {"w":178,"h":256},
+	"vertices": [ [178,256], [0,256], [0,0], [178,0] ],
+	"verticesUV": [ [696,658], [518,658], [518,402], [696,402] ],
+	"triangles": [ [1,2,3], [0,1,3] ]
+},
+"NightMareCharacterBack.png":
+{
+	"frame": {"x":699,"y":0,"w":178,"h":256},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":178,"h":256},
+	"sourceSize": {"w":178,"h":256},
+	"vertices": [ [178,256], [0,256], [0,0], [178,0] ],
+	"verticesUV": [ [877,256], [699,256], [699,0], [877,0] ],
+	"triangles": [ [1,2,3], [0,1,3] ]
+},
+"NightMareCharacterBackMicro.png":
+{
+	"frame": {"x":555,"y":862,"w":108,"h":108},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":108,"h":108},
+	"sourceSize": {"w":108,"h":108},
+	"vertices": [ [108,108], [0,108], [0,0], [108,0] ],
+	"verticesUV": [ [663,970], [555,970], [555,862], [663,862] ],
+	"triangles": [ [1,2,3], [0,1,3] ]
+},
+"NightMareCharacterMicro.png":
+{
+	"frame": {"x":555,"y":973,"w":108,"h":108},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":108,"h":108},
+	"sourceSize": {"w":108,"h":108},
+	"vertices": [ [108,108], [0,108], [0,0], [108,0] ],
+	"verticesUV": [ [663,1081], [555,1081], [555,973], [663,973] ],
+	"triangles": [ [1,2,3], [0,1,3] ]
+},
+"NightMareDeckBack.png":
+{
+	"frame": {"x":699,"y":259,"w":178,"h":256},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":178,"h":256},
+	"sourceSize": {"w":178,"h":256},
+	"vertices": [ [178,256], [0,256], [0,0], [178,0] ],
+	"verticesUV": [ [877,515], [699,515], [699,259], [877,259] ],
+	"triangles": [ [1,2,3], [0,1,3] ]
+},
+"NightMareDeckBackMicro.png":
+{
+	"frame": {"x":958,"y":714,"w":108,"h":108},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":108,"h":108},
+	"sourceSize": {"w":108,"h":108},
+	"vertices": [ [108,108], [0,108], [0,0], [108,0] ],
+	"verticesUV": [ [1066,822], [958,822], [958,714], [1066,714] ],
+	"triangles": [ [1,2,3], [0,1,3] ]
+},
+"NightMareWholeHorseCharacter.png":
+{
+	"frame": {"x":699,"y":518,"w":178,"h":256},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":178,"h":256},
+	"sourceSize": {"w":178,"h":256},
+	"vertices": [ [178,256], [0,256], [0,0], [178,0] ],
+	"verticesUV": [ [877,774], [699,774], [699,518], [877,518] ],
+	"triangles": [ [1,2,3], [0,1,3] ]
+},
+"NightMareWholeHorseCharacterBack.png":
+{
+	"frame": {"x":0,"y":661,"w":178,"h":256},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":178,"h":256},
+	"sourceSize": {"w":178,"h":256},
+	"vertices": [ [178,256], [0,256], [0,0], [178,0] ],
+	"verticesUV": [ [178,917], [0,917], [0,661], [178,661] ],
+	"triangles": [ [1,2,3], [0,1,3] ]
+},
+"NightMareWholeHorseCharacterBackMicro.png":
+{
+	"frame": {"x":991,"y":603,"w":108,"h":108},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":108,"h":108},
+	"sourceSize": {"w":108,"h":108},
+	"vertices": [ [108,108], [0,108], [0,0], [108,0] ],
+	"verticesUV": [ [1099,711], [991,711], [991,603], [1099,603] ],
+	"triangles": [ [1,2,3], [0,1,3] ]
+},
+"NightMareWholeHorseCharacterMicro.png":
+{
+	"frame": {"x":958,"y":825,"w":108,"h":108},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":108,"h":108},
+	"sourceSize": {"w":108,"h":108},
+	"vertices": [ [108,108], [0,108], [0,0], [108,0] ],
+	"verticesUV": [ [1066,933], [958,933], [958,825], [1066,825] ],
+	"triangles": [ [1,2,3], [0,1,3] ]
+},
+"ReinedCombat.png":
+{
+	"frame": {"x":880,"y":0,"w":256,"h":198},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":256,"h":198},
+	"sourceSize": {"w":256,"h":198},
+	"vertices": [ [256,198], [0,198], [0,0], [256,0] ],
+	"verticesUV": [ [1136,198], [880,198], [880,0], [1136,0] ],
+	"triangles": [ [1,2,3], [0,1,3] ]
+},
+"ReinedCombatMicro.png":
+{
+	"frame": {"x":958,"y":936,"w":108,"h":108},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":108,"h":108},
+	"sourceSize": {"w":108,"h":108},
+	"vertices": [ [108,108], [0,108], [0,0], [108,0] ],
+	"verticesUV": [ [1066,1044], [958,1044], [958,936], [1066,936] ],
+	"triangles": [ [1,2,3], [0,1,3] ]
+},
+"Stampede.png":
+{
+	"frame": {"x":880,"y":201,"w":256,"h":198},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":256,"h":198},
+	"sourceSize": {"w":256,"h":198},
+	"vertices": [ [256,198], [0,198], [0,0], [256,0] ],
+	"verticesUV": [ [1136,399], [880,399], [880,201], [1136,201] ],
+	"triangles": [ [1,2,3], [0,1,3] ]
+},
+"StampedeMicro.png":
+{
+	"frame": {"x":666,"y":978,"w":108,"h":108},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":108,"h":108},
+	"sourceSize": {"w":108,"h":108},
+	"vertices": [ [108,108], [0,108], [0,0], [108,0] ],
+	"verticesUV": [ [774,1086], [666,1086], [666,978], [774,978] ],
+	"triangles": [ [1,2,3], [0,1,3] ]
+},
+"TwoTrickPony.png":
+{
+	"frame": {"x":880,"y":402,"w":256,"h":198},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":256,"h":198},
+	"sourceSize": {"w":256,"h":198},
+	"vertices": [ [256,198], [0,198], [0,0], [256,0] ],
+	"verticesUV": [ [1136,600], [880,600], [880,402], [1136,402] ],
+	"triangles": [ [1,2,3], [0,1,3] ]
+},
+"TwoTrickPonyMicro.png":
+{
+	"frame": {"x":222,"y":1084,"w":108,"h":108},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":108,"h":108},
+	"sourceSize": {"w":108,"h":108},
+	"vertices": [ [108,108], [0,108], [0,0], [108,0] ],
+	"verticesUV": [ [330,1192], [222,1192], [222,1084], [330,1084] ],
+	"triangles": [ [1,2,3], [0,1,3] ]
 }},
 "meta": {
 	"app": "https://www.codeandweb.com/texturepacker",
@@ -159,6 +425,6 @@
 	"format": "RGBA8888",
 	"size": {"w":2048,"h":2048},
 	"scale": "1",
-	"smartupdate": "$TexturePacker:SmartUpdate:229f1b8a8a3ec0b011c87df0837c24a8:fba2ae26f60c4a0cfdfc6d1ca881b254:fa6a18437993e4cc06147a9534aaf34a$"
+	"smartupdate": "$TexturePacker:SmartUpdate:c53744595d0c069ca36dd68022a5d920:2186aaa32f2436c56cff984751cdfff1:fa6a18437993e4cc06147a9534aaf34a$"
 }
 }

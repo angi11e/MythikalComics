@@ -8,97 +8,193 @@
 	"spriteSourceSize": {"x":0,"y":0,"w":256,"h":198},
 	"sourceSize": {"w":256,"h":198}
 },
+"AceUpHerSleeveMicro.png":
+{
+	"frame": {"x":880,"y":603,"w":108,"h":108},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":108,"h":108},
+	"sourceSize": {"w":108,"h":108}
+},
 "AntiAntimemetics.png":
 {
-	"frame": {"x":259,"y":0,"w":256,"h":198},
+	"frame": {"x":181,"y":259,"w":256,"h":198},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":256,"h":198},
 	"sourceSize": {"w":256,"h":198}
+},
+"AntiAntimemeticsMicro.png":
+{
+	"frame": {"x":518,"y":862,"w":108,"h":108},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":108,"h":108},
+	"sourceSize": {"w":108,"h":108}
 },
 "CheckYourTarget.png":
 {
-	"frame": {"x":518,"y":0,"w":256,"h":198},
+	"frame": {"x":0,"y":460,"w":256,"h":198},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":256,"h":198},
 	"sourceSize": {"w":256,"h":198}
+},
+"CheckYourTargetMicro.png":
+{
+	"frame": {"x":518,"y":973,"w":108,"h":108},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":108,"h":108},
+	"sourceSize": {"w":108,"h":108}
 },
 "FlourishAndVanish.png":
 {
-	"frame": {"x":777,"y":0,"w":256,"h":198},
+	"frame": {"x":259,"y":460,"w":256,"h":198},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":256,"h":198},
 	"sourceSize": {"w":256,"h":198}
+},
+"FlourishAndVanishMicro.png":
+{
+	"frame": {"x":0,"y":1121,"w":108,"h":108},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":108,"h":108},
+	"sourceSize": {"w":108,"h":108}
 },
 "ForgotAboutHer.png":
 {
-	"frame": {"x":1036,"y":0,"w":256,"h":198},
+	"frame": {"x":440,"y":0,"w":256,"h":198},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":256,"h":198},
 	"sourceSize": {"w":256,"h":198}
+},
+"ForgotAboutHerMicro.png":
+{
+	"frame": {"x":0,"y":1232,"w":108,"h":108},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":108,"h":108},
+	"sourceSize": {"w":108,"h":108}
 },
 "JustWhatYouNeeded.png":
 {
-	"frame": {"x":1295,"y":0,"w":256,"h":198},
+	"frame": {"x":440,"y":201,"w":256,"h":198},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":256,"h":198},
 	"sourceSize": {"w":256,"h":198}
+},
+"JustWhatYouNeededMicro.png":
+{
+	"frame": {"x":111,"y":1121,"w":108,"h":108},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":108,"h":108},
+	"sourceSize": {"w":108,"h":108}
 },
 "LostAndForgotten.png":
 {
-	"frame": {"x":1554,"y":0,"w":256,"h":198},
+	"frame": {"x":181,"y":661,"w":256,"h":198},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":256,"h":198},
 	"sourceSize": {"w":256,"h":198}
+},
+"LostAndForgottenMicro.png":
+{
+	"frame": {"x":111,"y":1232,"w":108,"h":108},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":108,"h":108},
+	"sourceSize": {"w":108,"h":108}
 },
 "MissedByThatMuch.png":
 {
-	"frame": {"x":0,"y":201,"w":256,"h":198},
+	"frame": {"x":440,"y":661,"w":256,"h":198},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":256,"h":198},
 	"sourceSize": {"w":256,"h":198}
+},
+"MissedByThatMuchMicro.png":
+{
+	"frame": {"x":958,"y":714,"w":108,"h":108},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":108,"h":108},
+	"sourceSize": {"w":108,"h":108}
 },
 "NotQuiteSureWhatThisDoes.png":
 {
-	"frame": {"x":259,"y":201,"w":256,"h":198},
+	"frame": {"x":699,"y":777,"w":256,"h":198},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":256,"h":198},
 	"sourceSize": {"w":256,"h":198}
+},
+"NotQuiteSureWhatThisDoesMicro.png":
+{
+	"frame": {"x":991,"y":603,"w":108,"h":108},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":108,"h":108},
+	"sourceSize": {"w":108,"h":108}
 },
 "PullThePins.png":
 {
-	"frame": {"x":518,"y":201,"w":256,"h":198},
+	"frame": {"x":880,"y":0,"w":256,"h":198},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":256,"h":198},
 	"sourceSize": {"w":256,"h":198}
+},
+"PullThePinsMicro.png":
+{
+	"frame": {"x":958,"y":825,"w":108,"h":108},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":108,"h":108},
+	"sourceSize": {"w":108,"h":108}
 },
 "SubtleInfluence.png":
 {
-	"frame": {"x":777,"y":201,"w":256,"h":198},
+	"frame": {"x":880,"y":201,"w":256,"h":198},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":256,"h":198},
 	"sourceSize": {"w":256,"h":198}
+},
+"SubtleInfluenceMicro.png":
+{
+	"frame": {"x":958,"y":936,"w":108,"h":108},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":108,"h":108},
+	"sourceSize": {"w":108,"h":108}
 },
 "ThoroughAnalysis.png":
 {
-	"frame": {"x":1036,"y":201,"w":256,"h":198},
+	"frame": {"x":880,"y":402,"w":256,"h":198},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":256,"h":198},
 	"sourceSize": {"w":256,"h":198}
 },
+"ThoroughAnalysisMicro.png":
+{
+	"frame": {"x":629,"y":978,"w":108,"h":108},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":108,"h":108},
+	"sourceSize": {"w":108,"h":108}
+},
 "UmbraCharacter.png":
 {
-	"frame": {"x":259,"y":402,"w":178,"h":256},
+	"frame": {"x":259,"y":0,"w":178,"h":256},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":178,"h":256},
@@ -106,31 +202,63 @@
 },
 "UmbraCharacterBack.png":
 {
-	"frame": {"x":440,"y":402,"w":178,"h":256},
+	"frame": {"x":0,"y":201,"w":178,"h":256},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":178,"h":256},
 	"sourceSize": {"w":178,"h":256}
 },
+"UmbraCharacterBackMicro.png":
+{
+	"frame": {"x":518,"y":1084,"w":108,"h":108},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":108,"h":108},
+	"sourceSize": {"w":108,"h":108}
+},
+"UmbraCharacterMicro.png":
+{
+	"frame": {"x":740,"y":978,"w":108,"h":108},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":108,"h":108},
+	"sourceSize": {"w":108,"h":108}
+},
 "VisualCalculus.png":
 {
-	"frame": {"x":1295,"y":201,"w":256,"h":198},
+	"frame": {"x":0,"y":920,"w":256,"h":198},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":256,"h":198},
 	"sourceSize": {"w":256,"h":198}
+},
+"VisualCalculusMicro.png":
+{
+	"frame": {"x":851,"y":1047,"w":108,"h":108},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":108,"h":108},
+	"sourceSize": {"w":108,"h":108}
 },
 "WatchYourStep.png":
 {
-	"frame": {"x":1554,"y":201,"w":256,"h":198},
+	"frame": {"x":259,"y":862,"w":256,"h":198},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":256,"h":198},
 	"sourceSize": {"w":256,"h":198}
 },
+"WatchYourStepMicro.png":
+{
+	"frame": {"x":629,"y":1089,"w":108,"h":108},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":108,"h":108},
+	"sourceSize": {"w":108,"h":108}
+},
 "WhatsHerFaceCharacter.png":
 {
-	"frame": {"x":621,"y":402,"w":178,"h":256},
+	"frame": {"x":518,"y":402,"w":178,"h":256},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":178,"h":256},
@@ -138,23 +266,47 @@
 },
 "WhatsHerFaceCharacterBack.png":
 {
-	"frame": {"x":802,"y":402,"w":178,"h":256},
+	"frame": {"x":699,"y":0,"w":178,"h":256},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":178,"h":256},
 	"sourceSize": {"w":178,"h":256}
+},
+"WhatsHerFaceCharacterMicro.png":
+{
+	"frame": {"x":518,"y":1195,"w":108,"h":108},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":108,"h":108},
+	"sourceSize": {"w":108,"h":108}
+},
+"WhatsHerFaceCharacterMicroBack.png":
+{
+	"frame": {"x":222,"y":1264,"w":108,"h":108},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":108,"h":108},
+	"sourceSize": {"w":108,"h":108}
 },
 "WhatsHerFaceDeckBack.png":
 {
-	"frame": {"x":983,"y":402,"w":178,"h":256},
+	"frame": {"x":699,"y":259,"w":178,"h":256},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":178,"h":256},
 	"sourceSize": {"w":178,"h":256}
 },
+"WhatsHerFaceDeckBackMicro.png":
+{
+	"frame": {"x":0,"y":1343,"w":108,"h":108},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":108,"h":108},
+	"sourceSize": {"w":108,"h":108}
+},
 "WhatsHerFaceGadgeteerCharacter.png":
 {
-	"frame": {"x":1164,"y":402,"w":178,"h":256},
+	"frame": {"x":699,"y":518,"w":178,"h":256},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":178,"h":256},
@@ -162,19 +314,43 @@
 },
 "WhatsHerFaceGadgeteerCharacterBack.png":
 {
-	"frame": {"x":1345,"y":402,"w":178,"h":256},
+	"frame": {"x":0,"y":661,"w":178,"h":256},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":178,"h":256},
 	"sourceSize": {"w":178,"h":256}
 },
+"WhatsHerFaceGadgeteerCharacterBackMicro.png":
+{
+	"frame": {"x":111,"y":1343,"w":108,"h":108},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":108,"h":108},
+	"sourceSize": {"w":108,"h":108}
+},
+"WhatsHerFaceGadgeteerCharacterMicro.png":
+{
+	"frame": {"x":333,"y":1264,"w":108,"h":108},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":108,"h":108},
+	"sourceSize": {"w":108,"h":108}
+},
 "WhereDidSheComeFrom.png":
 {
-	"frame": {"x":0,"y":402,"w":256,"h":198},
+	"frame": {"x":259,"y":1063,"w":256,"h":198},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":256,"h":198},
 	"sourceSize": {"w":256,"h":198}
+},
+"WhereDidSheComeFromMicro.png":
+{
+	"frame": {"x":740,"y":1089,"w":108,"h":108},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":108,"h":108},
+	"sourceSize": {"w":108,"h":108}
 }},
 "meta": {
 	"app": "https://www.codeandweb.com/texturepacker",
@@ -183,6 +359,6 @@
 	"format": "RGBA8888",
 	"size": {"w":2048,"h":2048},
 	"scale": "1",
-	"smartupdate": "$TexturePacker:SmartUpdate:50749a825e46300d22edd7b45b74a330:d48cb5d740d10eec89b098676328e259:16081a511bde3d8814ec9863cc97f84b$"
+	"smartupdate": "$TexturePacker:SmartUpdate:0463b4433237e89bf36745553e36f7f6:47558d40a9f4df2dd814559c1c525ede:16081a511bde3d8814ec9863cc97f84b$"
 }
 }

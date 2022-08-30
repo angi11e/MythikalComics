@@ -8,17 +8,33 @@
 	"spriteSourceSize": {"x":0,"y":0,"w":256,"h":198},
 	"sourceSize": {"w":256,"h":198}
 },
+"AdamantSpearMicro.png":
+{
+	"frame": {"x":880,"y":603,"w":108,"h":108},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":108,"h":108},
+	"sourceSize": {"w":108,"h":108}
+},
 "AegisOfAmalthea.png":
 {
-	"frame": {"x":259,"y":0,"w":256,"h":198},
+	"frame": {"x":181,"y":259,"w":256,"h":198},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":256,"h":198},
 	"sourceSize": {"w":256,"h":198}
 },
+"AegisOfAmaltheaMicro.png":
+{
+	"frame": {"x":518,"y":862,"w":108,"h":108},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":108,"h":108},
+	"sourceSize": {"w":108,"h":108}
+},
 "AthenaCharacter.png":
 {
-	"frame": {"x":518,"y":402,"w":178,"h":256},
+	"frame": {"x":259,"y":0,"w":178,"h":256},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":178,"h":256},
@@ -26,39 +42,79 @@
 },
 "AthenaCharacterBack.png":
 {
-	"frame": {"x":699,"y":402,"w":178,"h":256},
+	"frame": {"x":0,"y":201,"w":178,"h":256},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":178,"h":256},
 	"sourceSize": {"w":178,"h":256}
+},
+"AthenaCharacterBackMicro.png":
+{
+	"frame": {"x":518,"y":973,"w":108,"h":108},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":108,"h":108},
+	"sourceSize": {"w":108,"h":108}
+},
+"AthenaCharacterMicro.png":
+{
+	"frame": {"x":958,"y":714,"w":108,"h":108},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":108,"h":108},
+	"sourceSize": {"w":108,"h":108}
 },
 "AthenaDeckBack.png":
 {
-	"frame": {"x":880,"y":402,"w":178,"h":256},
+	"frame": {"x":518,"y":402,"w":178,"h":256},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":178,"h":256},
 	"sourceSize": {"w":178,"h":256}
+},
+"AthenaDeckBackMicro.png":
+{
+	"frame": {"x":991,"y":603,"w":108,"h":108},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":108,"h":108},
+	"sourceSize": {"w":108,"h":108}
 },
 "BrandNewAthenaBack.png":
 {
-	"frame": {"x":1061,"y":402,"w":178,"h":256},
+	"frame": {"x":699,"y":0,"w":178,"h":256},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":178,"h":256},
 	"sourceSize": {"w":178,"h":256}
+},
+"BrandNewAthenaBackMicro.png":
+{
+	"frame": {"x":958,"y":825,"w":108,"h":108},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":108,"h":108},
+	"sourceSize": {"w":108,"h":108}
 },
 "BrandNewAthenaCharacter.png":
 {
-	"frame": {"x":1242,"y":402,"w":178,"h":256},
+	"frame": {"x":699,"y":259,"w":178,"h":256},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":178,"h":256},
 	"sourceSize": {"w":178,"h":256}
 },
+"BrandNewAthenaCharacterMicro.png":
+{
+	"frame": {"x":958,"y":936,"w":108,"h":108},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":108,"h":108},
+	"sourceSize": {"w":108,"h":108}
+},
 "ClassicAthenaCharacter.png":
 {
-	"frame": {"x":1423,"y":402,"w":178,"h":256},
+	"frame": {"x":699,"y":518,"w":178,"h":256},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":178,"h":256},
@@ -66,123 +122,251 @@
 },
 "ClassicAthenaCharacterBack.png":
 {
-	"frame": {"x":1604,"y":402,"w":178,"h":256},
+	"frame": {"x":0,"y":661,"w":178,"h":256},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":178,"h":256},
 	"sourceSize": {"w":178,"h":256}
 },
+"ClassicAthenaCharacterBackMicro.png":
+{
+	"frame": {"x":629,"y":978,"w":108,"h":108},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":108,"h":108},
+	"sourceSize": {"w":108,"h":108}
+},
+"ClassicAthenaCharacterMicro.png":
+{
+	"frame": {"x":518,"y":1084,"w":108,"h":108},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":108,"h":108},
+	"sourceSize": {"w":108,"h":108}
+},
 "DivinePhalanx.png":
 {
-	"frame": {"x":518,"y":0,"w":256,"h":198},
+	"frame": {"x":0,"y":460,"w":256,"h":198},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":256,"h":198},
 	"sourceSize": {"w":256,"h":198}
+},
+"DivinePhalanxMicro.png":
+{
+	"frame": {"x":740,"y":978,"w":108,"h":108},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":108,"h":108},
+	"sourceSize": {"w":108,"h":108}
 },
 "Erichthonius.png":
 {
-	"frame": {"x":777,"y":0,"w":256,"h":198},
+	"frame": {"x":259,"y":460,"w":256,"h":198},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":256,"h":198},
 	"sourceSize": {"w":256,"h":198}
+},
+"ErichthoniusMicro.png":
+{
+	"frame": {"x":851,"y":1047,"w":108,"h":108},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":108,"h":108},
+	"sourceSize": {"w":108,"h":108}
 },
 "Glaukopis.png":
 {
-	"frame": {"x":1036,"y":0,"w":256,"h":198},
+	"frame": {"x":440,"y":0,"w":256,"h":198},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":256,"h":198},
 	"sourceSize": {"w":256,"h":198}
+},
+"GlaukopisMicro.png":
+{
+	"frame": {"x":629,"y":1089,"w":108,"h":108},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":108,"h":108},
+	"sourceSize": {"w":108,"h":108}
 },
 "HopliteAdvance.png":
 {
-	"frame": {"x":1295,"y":0,"w":256,"h":198},
+	"frame": {"x":440,"y":201,"w":256,"h":198},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":256,"h":198},
 	"sourceSize": {"w":256,"h":198}
+},
+"HopliteAdvanceMicro.png":
+{
+	"frame": {"x":518,"y":1195,"w":108,"h":108},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":108,"h":108},
+	"sourceSize": {"w":108,"h":108}
 },
 "HornOfAmalthea.png":
 {
-	"frame": {"x":1554,"y":0,"w":256,"h":198},
+	"frame": {"x":181,"y":661,"w":256,"h":198},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":256,"h":198},
 	"sourceSize": {"w":256,"h":198}
+},
+"HornOfAmaltheaMicro.png":
+{
+	"frame": {"x":259,"y":1264,"w":108,"h":108},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":108,"h":108},
+	"sourceSize": {"w":108,"h":108}
 },
 "LightOfOlympus.png":
 {
-	"frame": {"x":0,"y":201,"w":256,"h":198},
+	"frame": {"x":440,"y":661,"w":256,"h":198},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":256,"h":198},
 	"sourceSize": {"w":256,"h":198}
+},
+"LightOfOlympusMicro.png":
+{
+	"frame": {"x":0,"y":1322,"w":108,"h":108},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":108,"h":108},
+	"sourceSize": {"w":108,"h":108}
 },
 "Nyctimene.png":
 {
-	"frame": {"x":259,"y":201,"w":256,"h":198},
+	"frame": {"x":699,"y":777,"w":256,"h":198},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":256,"h":198},
 	"sourceSize": {"w":256,"h":198}
+},
+"NyctimeneMicro.png":
+{
+	"frame": {"x":111,"y":1322,"w":108,"h":108},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":108,"h":108},
+	"sourceSize": {"w":108,"h":108}
 },
 "Oracle.png":
 {
-	"frame": {"x":518,"y":201,"w":256,"h":198},
+	"frame": {"x":880,"y":0,"w":256,"h":198},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":256,"h":198},
 	"sourceSize": {"w":256,"h":198}
+},
+"OracleMicro.png":
+{
+	"frame": {"x":370,"y":1264,"w":108,"h":108},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":108,"h":108},
+	"sourceSize": {"w":108,"h":108}
 },
 "Pallas.png":
 {
-	"frame": {"x":777,"y":201,"w":256,"h":198},
+	"frame": {"x":880,"y":201,"w":256,"h":198},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":256,"h":198},
 	"sourceSize": {"w":256,"h":198}
+},
+"PallasMicro.png":
+{
+	"frame": {"x":740,"y":1089,"w":108,"h":108},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":108,"h":108},
+	"sourceSize": {"w":108,"h":108}
 },
 "Parthenos.png":
 {
-	"frame": {"x":1036,"y":201,"w":256,"h":198},
+	"frame": {"x":880,"y":402,"w":256,"h":198},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":256,"h":198},
 	"sourceSize": {"w":256,"h":198}
+},
+"ParthenosMicro.png":
+{
+	"frame": {"x":962,"y":1047,"w":108,"h":108},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":108,"h":108},
+	"sourceSize": {"w":108,"h":108}
 },
 "PatronOfHeroes.png":
 {
-	"frame": {"x":1295,"y":201,"w":256,"h":198},
+	"frame": {"x":0,"y":920,"w":256,"h":198},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":256,"h":198},
 	"sourceSize": {"w":256,"h":198}
+},
+"PatronOfHeroesMicro.png":
+{
+	"frame": {"x":1069,"y":714,"w":108,"h":108},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":108,"h":108},
+	"sourceSize": {"w":108,"h":108}
 },
 "Promachos.png":
 {
-	"frame": {"x":1554,"y":201,"w":256,"h":198},
+	"frame": {"x":259,"y":862,"w":256,"h":198},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":256,"h":198},
 	"sourceSize": {"w":256,"h":198}
+},
+"PromachosMicro.png":
+{
+	"frame": {"x":1139,"y":0,"w":108,"h":108},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":108,"h":108},
+	"sourceSize": {"w":108,"h":108}
 },
 "SkinOfMarble.png":
 {
-	"frame": {"x":0,"y":402,"w":256,"h":198},
+	"frame": {"x":259,"y":1063,"w":256,"h":198},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":256,"h":198},
 	"sourceSize": {"w":256,"h":198}
 },
+"SkinOfMarbleMicro.png":
+{
+	"frame": {"x":1139,"y":111,"w":108,"h":108},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":108,"h":108},
+	"sourceSize": {"w":108,"h":108}
+},
 "Theonosis.png":
 {
-	"frame": {"x":259,"y":402,"w":256,"h":198},
+	"frame": {"x":0,"y":1121,"w":256,"h":198},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":256,"h":198},
 	"sourceSize": {"w":256,"h":198}
+},
+"TheonosisMicro.png":
+{
+	"frame": {"x":1139,"y":222,"w":108,"h":108},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":108,"h":108},
+	"sourceSize": {"w":108,"h":108}
 }},
 "meta": {
 	"app": "https://www.codeandweb.com/texturepacker",
@@ -191,6 +375,6 @@
 	"format": "RGBA8888",
 	"size": {"w":2048,"h":2048},
 	"scale": "1",
-	"smartupdate": "$TexturePacker:SmartUpdate:327b4529d52f2ffd97dd3974db3b7528:0551f582b734f8368d22907434ff6b13:e9835dc773f63afacc1b817d8239b437$"
+	"smartupdate": "$TexturePacker:SmartUpdate:42da7cd36e040c30bb0c010ab8f6954c:965011bbe24f62c90d1fef3459072b6f:e9835dc773f63afacc1b817d8239b437$"
 }
 }

@@ -2,7 +2,7 @@
 
 "Bear.png":
 {
-	"frame": {"x":0,"y":0,"w":90,"h":90},
+	"frame": {"x":0,"y":652,"w":90,"h":90},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":90,"h":90},
@@ -10,7 +10,7 @@
 },
 "Blade.png":
 {
-	"frame": {"x":93,"y":0,"w":90,"h":90},
+	"frame": {"x":681,"y":0,"w":90,"h":90},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":90,"h":90},
@@ -18,7 +18,7 @@
 },
 "Blood.png":
 {
-	"frame": {"x":186,"y":0,"w":90,"h":90},
+	"frame": {"x":0,"y":745,"w":90,"h":90},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":90,"h":90},
@@ -26,7 +26,7 @@
 },
 "button-labels.png":
 {
-	"frame": {"x":0,"y":93,"w":678,"h":649},
+	"frame": {"x":0,"y":0,"w":678,"h":649},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":678,"h":649},
@@ -34,7 +34,7 @@
 },
 "Crown.png":
 {
-	"frame": {"x":279,"y":0,"w":90,"h":90},
+	"frame": {"x":93,"y":652,"w":90,"h":90},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":90,"h":90},
@@ -42,7 +42,23 @@
 },
 "Dog.png":
 {
-	"frame": {"x":372,"y":0,"w":90,"h":90},
+	"frame": {"x":681,"y":93,"w":90,"h":90},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":90,"h":90},
+	"sourceSize": {"w":90,"h":90}
+},
+"Fist.png":
+{
+	"frame": {"x":774,"y":0,"w":90,"h":90},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":90,"h":90},
+	"sourceSize": {"w":90,"h":90}
+},
+"HasTale.png":
+{
+	"frame": {"x":0,"y":838,"w":90,"h":90},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":90,"h":90},
@@ -50,7 +66,15 @@
 },
 "Mask.png":
 {
-	"frame": {"x":465,"y":0,"w":90,"h":90},
+	"frame": {"x":93,"y":745,"w":90,"h":90},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":90,"h":90},
+	"sourceSize": {"w":90,"h":90}
+},
+"ReadTale.png":
+{
+	"frame": {"x":186,"y":652,"w":90,"h":90},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":90,"h":90},
@@ -58,7 +82,7 @@
 },
 "Skull.png":
 {
-	"frame": {"x":558,"y":0,"w":90,"h":90},
+	"frame": {"x":681,"y":186,"w":90,"h":90},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":90,"h":90},
@@ -66,7 +90,7 @@
 },
 "Spider.png":
 {
-	"frame": {"x":651,"y":0,"w":90,"h":90},
+	"frame": {"x":774,"y":93,"w":90,"h":90},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":90,"h":90},
@@ -74,7 +98,7 @@
 },
 "Tattle.png":
 {
-	"frame": {"x":744,"y":0,"w":90,"h":90},
+	"frame": {"x":867,"y":0,"w":90,"h":90},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":90,"h":90},
@@ -82,7 +106,7 @@
 },
 "Whatever.png":
 {
-	"frame": {"x":837,"y":0,"w":90,"h":90},
+	"frame": {"x":0,"y":931,"w":90,"h":90},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":90,"h":90},
@@ -95,6 +119,6 @@
 	"format": "RGBA8888",
 	"size": {"w":1024,"h":1024},
 	"scale": "1",
-	"smartupdate": "$TexturePacker:SmartUpdate:421b7fb2170f8f586a00c6315f538c77:c6509676c76fac0f7d5af1908149e393:a18e781645faf149cbba388043440a07$"
+	"smartupdate": "$TexturePacker:SmartUpdate:4590fec3b3f498f572ae4163270f3f70:c1a2e69907a564ece12468e2b73b3558:a18e781645faf149cbba388043440a07$"
 }
 }

@@ -33,9 +33,8 @@
 				"Move a card from a trash to the top of its deck."
 			],
 			"flippedIcons": [
-				"HasPower",
 				"DrawCardNow",
-				"DestroyOngoing",
+				"DestroyEnvironment",
 				"Manipulate"
 			],
 			"openingLines": {

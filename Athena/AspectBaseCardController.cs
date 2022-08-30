@@ -9,7 +9,7 @@ namespace Angille.Athena
 	public class AspectBaseCardController : AthenaBaseCardController
 	{
 		/*
-		 * When this card enters play, destroy any other [u]aspect[/u] cards.
+		 * When this card enters play, destroy your other [u]aspect[/u] cards.
 		 */
 
 		public AspectBaseCardController(
@@ -23,7 +23,7 @@ namespace Angille.Athena
 		{
 			IEnumerator destroyCR = GameController.DestroyCards(
 				DecisionMaker,
-				new LinqCardCriteria((Card c) => c != base.Card && IsAspect(c)),
+				new LinqCardCriteria((Card c) => c != this.Card && IsAspect(c) && c.Owner == this.Card.Owner),
 //				cancelDecisionsIfTrue: () => !base.CardWithoutReplacements.IsInPlayAndHasGameText,
 				cardSource: GetCardSource()
 			);

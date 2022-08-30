@@ -79,8 +79,8 @@
 			"title": "Anti-Antimemetics",
 			"keywords": [
 				"ongoing",
-				"limited",
-				"recall"
+				"recall",
+				"limited"
 			],
 			"body": [
 				"Play this card next to a hero character card.",
@@ -150,8 +150,8 @@
 			"title": "Forgot About Her",
 			"keywords": [
 				"ongoing",
-				"limited",
-				"recall"
+				"recall",
+				"limited"
 			],
 			"body": [
 				"Play this card next to a non-hero target.",
@@ -273,18 +273,19 @@
 			"title": "Subtle Influence",
 			"keywords": [
 				"ongoing",
-				"limited",
-				"recall"
+				"recall",
+				"limited"
 			],
 			"body": [
 				"Play this card next to a character card.",
 				"increase damage dealt to targets in that character's play area by 1.",
 				"reduce damage dealt by targets in that character's play area by 1.",
-				"At the start of your turn, either discard a card or destroy this card."
+				"At the start of your turn, destroy this card."
 			],
 			"icons": [
 				"IncreaseDamageTaken",
-				"ReduceDamageDealt"
+				"ReduceDamageDealt",
+				"DestroySelf"
 			],
 			"flavorText": "“remember your training!{BR}they are but children.”",
 			"flavorReference": "Doku Mogura, First Day Tremors (EC #3)"
@@ -463,10 +464,10 @@
 				"Destroy up to two ongoing cards. Only one may be a villain card."
 			],
 			"flippedIcons": [
-				"Search",
 				"Discard",
-				"DrawCardNow",
-				"ReduceDamageTaken"
+				"IncreaseDamageTaken",
+				"ReduceDamageDealt",
+				"DestroyOngoing"
 			],
 			"complexity": 2,
 			"openingLines": {

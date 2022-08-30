@@ -12,7 +12,7 @@ namespace Angille.NightMare
 		 * When this card enters play, Draw a card then Discard a card.
 		 * 
 		 * POWER
-		 * {NightMare} deals 1 target 5 Melee damage.
+		 * {NightMare} deals 1 target 4 Melee damage.
 		 * increase the next damage dealt by that target by 5.
 		 * 
 		 * DISCARD
@@ -50,14 +50,14 @@ namespace Angille.NightMare
 		public override IEnumerator UsePower(int index = 0)
 		{
 			int targetNumeral = GetPowerNumeral(0, 1);
-			int damageNumeral = GetPowerNumeral(1, 5);
+			int damageNumeral = GetPowerNumeral(1, 4);
 			int bonusNumeral = GetPowerNumeral(2, 5);
 
-			// {NightMare} deals 1 target 5 Melee damage.
+			// {NightMare} deals 1 target 4 Melee damage.
 			List<DealDamageAction> attacks = new List<DealDamageAction>();
 			IEnumerator dealDamageCR = GameController.SelectTargetsAndDealDamage(
 				DecisionMaker,
-				new DamageSource(GameController, base.CharacterCard),
+				new DamageSource(GameController, this.CharacterCard),
 				damageNumeral,
 				DamageType.Melee,
 				targetNumeral,
@@ -104,8 +104,8 @@ namespace Angille.NightMare
 			// increase damage dealt by {NightMare} by 1 until the start of your next turn.
 			IncreaseDamageStatusEffect increaseDamageSE = new IncreaseDamageStatusEffect(1);
 			increaseDamageSE.UntilStartOfNextTurn(TurnTaker);
-			increaseDamageSE.SourceCriteria.IsSpecificCard = base.CharacterCard;
-			increaseDamageSE.UntilTargetLeavesPlay(base.CharacterCard);
+			increaseDamageSE.SourceCriteria.IsSpecificCard = this.CharacterCard;
+			increaseDamageSE.UntilTargetLeavesPlay(this.CharacterCard);
 
 			IEnumerator addStatusCR = AddStatusEffect(increaseDamageSE);
 			if (UseUnityCoroutines)

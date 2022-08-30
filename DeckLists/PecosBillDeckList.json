@@ -1,0 +1,443 @@
+﻿{
+	"name": "Pecos Bill",
+	"kind": "Hero",
+	"initialCardIdentifiers": [
+		"PecosBillCharacter"
+	],
+	"cards": [
+		{
+			"identifier": "PecosBillCharacter",
+			"count": 1,
+			"title": "Pecos Bill",
+			"body": "Rattle n roll",
+			"backgroundColor": "2E6FD5",
+			"foilBackgroundColor": "2E6FD5",
+			"hitpointsColor": "2E6FD5",
+			"character": true,
+			"powers": [
+				"{PecosBill} deals 1 target 1 projectile damage. a [u]folk[/u] target deals 1 target 1 melee damage. you may activate a [u]tall tale[/u] text."
+			],
+			"icons": [
+				"HasPower",
+				"DealDamageProjectile",
+				"DealDamageMelee",
+				"Angille.ReadTale"
+			],
+			"hitpoints": 27,
+			"nemesisIdentifiers": [
+				"Angille.PecosBill"
+			],
+			"incapacitatedAbilities": [
+				"One player may play a card.",
+				"One hero may use a power.",
+				"Select a Hero. The next time that Hero uses a Power, that Hero also deals 1 Target 1 Melee Damage."
+			],
+			"flippedIcons": [
+				"PlayCardNow",
+				"UsePowerNow",
+				"DealDamageMelee"
+			],
+			"openingLines": {
+				"default": "hoo-wee! We got ourselves some wrastlin' to do, folks."
+			},
+			"complexity": 2
+		},
+		{
+			"identifier": "BigColt",
+			"count": 3,
+			"title": "Big Colt .45",
+			"keywords": [
+				"equipment",
+				"limited"
+			],
+			"body": [
+				"When this card is destroyed, {PecosBill} deals 1 target 2 projectile damage."
+			],
+			"powers": [
+				"{PecosBill} deals 1 target 3 Projectile damage."
+			],
+			"icons": [
+				"HasPower",
+				"DealDamageProjectile"
+			],
+			"flavorText": "“”",
+			"flavorReference": ""
+		},
+		{
+			"identifier": "BigManOnTheScene",
+			"count": 2,
+			"title": "Big Man on the Scene",
+			"keywords": [
+				"ongoing",
+				"limited"
+			],
+			"body": [
+				"When this card is played, each hero target regains 1 hp."
+			],
+			"powers": [
+				"{PecosBill} deals 1 target 2 melee damage. If a target is destroyed this way, {PecosBill} deals 1 target 2 irreducible psychic damage. If no damage is dealt this way, play a card."
+			],
+			"icons": [
+				"GainHP",
+				"DealDamageMelee",
+				"DealDamagePsychic",
+				"PlayCardNow"
+			],
+			"flavorText": "“”",
+			"flavorReference": ""
+		},
+		{
+			"identifier": "CoyoteRaised",
+			"count": 2,
+			"title": "Coyote Raised",
+			"keywords": [
+				"ongoing",
+				"limited"
+			],
+			"body": [
+				"when this card is played, you may draw a card.",
+				"increase damage dealt by {PecosBill} by 1."
+			],
+			"powers": [
+				"{PecosBill} deals up to 3 targets 1 melee damage each."
+			],
+			"icons": [
+				"DrawCardNow",
+				"GainHP",
+				"IncreaseDamageDealt",
+				"DealDamageMelee"
+			],
+			"flavorText": "“”",
+			"flavorReference": ""
+		},
+		{
+			"identifier": "DunGetTwisted",
+			"count": 1,
+			"title": "Dun' Get Twisted",
+			"keywords": [
+				"ongoing",
+				"hyperbole"
+			],
+			"body": [
+				"Play this card next to [i]Tamed Twister[/i]. If [i]Tamed Twister[/i] is ever not in play, destroy this card.",
+				"When a villain target would be moved to the trash, move it to the bottom of the villain deck instead."
+			],
+			"activatableAbilities": [
+				{
+					"name": "tall tale",
+					"text": "Destroy an environment card."
+				}
+			],
+			"icons": [
+				"DestroySelf",
+				"Manipulate",
+				"DestroyEnvironment",
+				"Angille.HasTale"
+			],
+			"flavorText": "“”",
+			"flavorReference": ""
+		},
+		{
+			"identifier": "GoDownFightin",
+			"count": 4,
+			"title": "Go Down Fightin'",
+			"keywords": [
+				"one-shot"
+			],
+			"body": [
+				"You may activate a [u]tall tale[/u] text.",
+				"For each of your [i]folk[/i] cards in play, a hero may use a power.",
+				"You may draw a card."
+			],
+			"icons": [
+				"Angille.ReadTale",
+				"UsePowerNow",
+				"DrawCardNow"
+			],
+			"flavorText": "“”",
+			"flavorReference": ""
+		},
+		{
+			"identifier": "JustYouNMePardner",
+			"count": 4,
+			"title": "Just You 'n' Me, Pardner",
+			"keywords": [
+				"one-shot"
+			],
+			"body": [
+				"You may activate a [u]tall tale[/u] text.",
+				"Destroy all your [u]hyperbole[/u] cards, then all your [u]folk[/u] cards. {PecosBill} regains X HP, then deals 1 target X melee damage, where X = the number of cards destroyed this way times 2."
+			],
+			"icons": [
+				"Angille.ReadTale",
+				"Destroy",
+				"GainHP",
+				"DealDamageMelee"
+			],
+			"flavorText": "“”",
+			"flavorReference": ""
+		},
+		{
+			"identifier": "LoyalLightning",
+			"count": 3,
+			"title": "Loyal Lightning",
+			"hitpoints": 5,
+			"keywords": [
+				"folk",
+				"limited"
+			],
+			"body": [
+				"at the end of your turn, you may discard a card. If you do, [i]Loyal Lightning[/i] deals 1 target 1 lightning damage.",
+				"When this card would be destroyed, destroy all [u]hyperbole[/u] cards next to it instead and restore it to 5 HP. Otherwise, {PecosBill} deals himself 2 psychic damage, then destroy this card."
+			],
+			"icons": [
+				"Discard",
+				"DealDamageLightning",
+				"GainHP",
+				"DealDamagePsychic"
+			],
+			"flavorText": "“”",
+			"flavorReference": ""
+		},
+		{
+			"identifier": "NotRoundMeYouDont",
+			"count": 2,
+			"title": "Not 'Round Me You Don't",
+			"keywords": [
+				"ongoing",
+				"limited"
+			],
+			"body": [
+				"When a non-hero target enters play, {PecosBill} may deal that target 1 melee damage."
+			],
+			"powers": [
+				"Until the start of your next turn, when a hero target would be dealt damage you may redirect it to a target in this play area."
+			],
+			"icons": [
+				"DealDamageMelee",
+				"HasPower",
+				"RedirectDamage"
+			],
+			"flavorText": "“”",
+			"flavorReference": ""
+		},
+		{
+			"identifier": "ReadyToRassel",
+			"count": 4,
+			"title": "Ready to 'Rassel",
+			"keywords": [
+				"one-shot"
+			],
+			"body": [
+				"You may activate a [u]tall tale[/u] text.",
+				"Select a target. {PecosBill} deals that target 2 melee damage. [i]Loyal Lightning[/i] deals that target 2 lightning damage. [i]Shake the Snake[/i] deals that target 2 toxic damage. [i]Tamed Twister[/i] deals that target 2 projectile damage."
+			],
+			"icons": [
+				"Angille.ReadTale",
+				"DealDamageMelee",
+				"DealDamageLightning",
+				"DealDamageToxic"
+			],
+			"flavorText": "“”",
+			"flavorReference": ""
+		},
+		{
+			"identifier": "Rustlin",
+			"count": 1,
+			"title": "Rustlin'",
+			"keywords": [
+				"ongoing",
+				"hyperbole"
+			],
+			"body": [
+				"Play this card next to [i]Loyal Lightning[/i]. If [i]Loyal Lightning[/i] is ever not in play, destroy this card.",
+				"Reduce damage dealt to [u]folk[/u] cards by 1."
+			],
+			"activatableAbilities": [
+				{
+					"name": "tall tale",
+					"text": "Reveal the top card of a deck. Replace or discard it."
+				}
+			],
+			"icons": [
+				"DestroySelf",
+				"ReduceDamageTaken",
+				"Manipulate",
+				"Angille.HasTale"
+			],
+			"flavorText": "“”",
+			"flavorReference": ""
+		},
+		{
+			"identifier": "ShakeEmUp",
+			"count": 1,
+			"title": "Shake 'em Up",
+			"keywords": [
+				"ongoing",
+				"hyperbole"
+			],
+			"body": [
+				"Play this card next to [i]Shake the Snake[/i]. If [i]Shake the Snake[/i] is ever not in play, destroy this card.",
+				"When exactly 1 damage would be dealt by a villain target, redirect that damage to that target."
+			],
+			"activatableAbilities": [
+				{
+					"name": "tall tale",
+					"text": "Until the end of the turn, increase damage dealt by 1."
+				}
+			],
+			"icons": [
+				"DestroySelf",
+				"RedirectDamage",
+				"IncreaseDamageDealt",
+				"Angille.HasTale"
+			],
+			"flavorText": "“”",
+			"flavorReference": ""
+		},
+		{
+			"identifier": "ShakeTheSnake",
+			"count": 3,
+			"title": "Shake the Snake",
+			"hitpoints": 5,
+			"keywords": [
+				"folk",
+				"limited"
+			],
+			"body": [
+				"at the end of your turn, you may discard a card. If you do, draw 2 cards.",
+				"When this card would be destroyed, destroy all [u]hyperbole[/u] cards next to it instead and restore it to 5 HP. Otherwise, {PecosBill} deals himself 2 psychic damage, then destroy this card."
+			],
+			"icons": [
+				"Discard",
+				"DrawCardNow",
+				"GainHP",
+				"DealDamagePsychic"
+			],
+			"flavorText": "“”",
+			"flavorReference": ""
+		},
+		{
+			"identifier": "TallTaleJustice",
+			"count": 4,
+			"title": "Tall Tale Justice",
+			"keywords": [
+				"one-shot"
+			],
+			"body": [
+				"If there are no [u]folk[/u] cards in play, you may move one from your hand or trash into play.",
+				"If there are no playable [u]hyperbole[/u] cards in your hand, search your trash and deck for a [u]hyperbole[/u] card and put it in your hand. If you searched your deck, shuffle your deck. You may play a [u]hyperbole[/u] card.",
+				"You may activate a [u]tall tale[/u] text."
+			],
+			"icons": [
+				"PlayCardNow",
+				"Search",
+				"Angille.ReadTale"
+			],
+			"flavorText": "“”",
+			"flavorReference": ""
+		},
+		{
+			"identifier": "TamedTwister",
+			"count": 3,
+			"title": "Tamed Twister",
+			"hitpoints": 5,
+			"keywords": [
+				"folk",
+				"limited"
+			],
+			"body": [
+				"at the end of your turn, you may discard a card. If you do, play a card.",
+				"When this card would be destroyed, destroy all [u]hyperbole[/u] cards next to it instead and restore it to 5 HP. Otherwise, {PecosBill} deals himself 2 psychic damage, then destroy this card."
+			],
+			"icons": [
+				"Discard",
+				"PlayCardNow",
+				"GainHP",
+				"DealDamagePsychic"
+			],
+			"flavorText": "“”",
+			"flavorReference": ""
+		},
+		{
+			"identifier": "TwisterOfFate",
+			"count": 1,
+			"title": "Twist(er) of Fate",
+			"keywords": [
+				"ongoing",
+				"hyperbole"
+			],
+			"body": [
+				"Play this card next to [i]Tamed Twister[/i]. If [i]Tamed Twister[/i] is ever not in play, destroy this card.",
+				"When a target other than [i]Tamed Twister[/i] in this play area deals damage to a target, [i]Tamed Twister[/i] deals that target 1 projectile damage."
+			],
+			"activatableAbilities": [
+				{
+					"name": "tall tale",
+					"text": "[i]Tamed Twister[/i] deals each non-hero target 1 projectile damage."
+				}
+			],
+			"icons": [
+				"DestroySelf",
+				"DealDamageProjectile",
+				"Angille.HasTale"
+			],
+			"flavorText": "“”",
+			"flavorReference": ""
+		},
+		{
+			"identifier": "UnraveledShake",
+			"count": 1,
+			"title": "Unraveled Shake",
+			"keywords": [
+				"ongoing",
+				"hyperbole"
+			],
+			"body": [
+				"Play this card next to [i]Shake the Snake[/i]. If [i]Shake the Snake[/i] is ever not in play, destroy this card.",
+				"When damage dealt by a target in this play area destroys a target, draw a card."
+			],
+			"activatableAbilities": [
+				{
+					"name": "tall tale",
+					"text": "Destroy an ongoing card. The villain target with the highest HP deals [i]Shake the Snake[/i] 3 melee damage."
+				}
+			],
+			"icons": [
+				"DestroySelf",
+				"DrawCardNow",
+				"DestroyOngoing",
+				"Angille.HasTale"
+			],
+			"flavorText": "“”",
+			"flavorReference": ""
+		},
+		{
+			"identifier": "WidowMaker",
+			"count": 1,
+			"title": "Widow-Maker",
+			"keywords": [
+				"ongoing",
+				"hyperbole"
+			],
+			"body": [
+				"Play this card next to [i]Loyal Lightning[/i]. If [i]Loyal Lightning[/i] is ever not in play, destroy this card.",
+				"When damage would be dealt by {PecosBill} but is prevented or reduced so {PecosBill} deals no damage, [i]Loyal Lightning[/i] deals that target 1 irreducible lightning damage."
+			],
+			"activatableAbilities": [
+				{
+					"name": "tall tale",
+					"text": "[i]Loyal Lightning[/i] deals 1 target 1 irreducible lightning damage."
+				}
+			],
+			"icons": [
+				"DestroySelf",
+				"DealDamageLightning",
+				"MakeDamageIrreducible",
+				"Angille.HasTale"
+			],
+			"flavorText": "“”",
+			"flavorReference": ""
+		}
+	]
+}

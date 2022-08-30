@@ -8,15 +8,14 @@
 		{
 			"identifier": "CaptainCainCharacter",
 			"count": 1,
-			"title": "Cain",
-			"alternateTitle": "Captain Cain",
+			"title": "Captain Cain",
 			"body": "Jawbreaker",
 			"backgroundColor": "E6C82E",
 			"foilBackgroundColor": "E6C82E",
 			"hitpointsColor": "E6C82E",
 			"character": true,
 			"powers": [
-				"{CaptainCainCharacter} deals 1 target 1 infernal damage. If {Fist} is active, {CaptainCainCharacter} deals that target 1 melee damage. If {Blood} is active, {CaptainCainCharacter} regains 1 HP."
+				"{CaptainCain} deals 1 target 1 infernal damage. If {Fist} is active, {CaptainCain} deals that target 1 melee damage. If {Blood} is active, {CaptainCain} regains 1 HP."
 			],
 			"icons": [
 				"HasPower",
@@ -40,7 +39,7 @@
 				"DealDamageInfernal"
 			],
 			"openingLines": {
-				"default": ""
+				"default": "nobody's more up to the task of your defeat than [b]Captain Cain![/b]"
 			},
 			"complexity": 2
 		},
@@ -52,16 +51,16 @@
 				"one-shot"
 			],
 			"body": [
-				"{CaptainCainCharacter} deals 1 target 3 melee damage. That target deals {CaptainCainCharacter} 2 melee damage."
+				"{CaptainCain} deals 1 target 3 melee damage. That target deals {CaptainCain} 2 melee damage."
 			],
 			"activatableAbilities": [
 				{
 					"name": "{Fist}:",
-					"text": "{CaptainCainCharacter} may deal up to 2 additional targets 1 melee damage each."
+					"text": "{CaptainCain} may deal up to 2 additional targets 1 melee damage each."
 				},
 				{
 					"name": "{Blood}:",
-					"text": "When {CaptainCainCharacter} would take damage, he regains that many HP instead."
+					"text": "When {CaptainCain} would take damage, he regains that many HP instead."
 				}
 			],
 			"icons": [
@@ -81,11 +80,11 @@
 				"limited"
 			],
 			"body": [
-				"increase damage dealt by {CaptainCainCharacter} by 1."
+				"increase damage dealt by {CaptainCain} by 1."
 			],
 			"powers": [
-				"{Fist}: increase the next damage dealt by {CaptainCainCharacter} by 2. Play 1 card.",
-				"{Blood}: the next time {CaptainCainCharacter} would deal damage to a hero target, that target regains that many HP instead."
+				"{Fist}: increase the next damage dealt by {CaptainCain} by 2. Play 1 card.",
+				"{Blood}: the next time {CaptainCain} would deal damage to a hero target, that target regains that many HP instead."
 			],
 			"icons": [
 				"IncreaseDamageDealt",
@@ -102,13 +101,13 @@
 			"title": "Endless Hunger",
 			"keywords": [
 				"ongoing",
-				"limited",
-				"blood"
+				"blood",
+				"limited"
 			],
 			"body": [
 				"When this card enters play, destroy all of your [u]fist[/u] cards in play. When this card is destroyed, you may move a [u]blood[/u] card from your trash to your hand.",
 				"Treat {Blood} effects as active.",
-				"increase HP recovery by {CaptainCainCharacter} by 1."
+				"increase HP recovery by {CaptainCain} by 1."
 			],
 			"icons": [
 				"DestroyOngoing",
@@ -148,13 +147,13 @@
 			"title": "In the Nick of Time!",
 			"keywords": [
 				"ongoing",
-				"limited",
-				"fist"
+				"fist",
+				"limited"
 			],
 			"body": [
 				"When this card enters play, destroy all of your [u]blood[/u] cards in play. When this card is destroyed, you may destroy an ongoing card.",
 				"Treat {Fist} effects as active.",
-				"When a hero target would be dealt damage, you may redirect the damage to {CaptainCainCharacter}."
+				"When a hero target would be dealt damage, you may redirect the damage to {CaptainCain}."
 			],
 			"icons": [
 				"DestroyOngoing",
@@ -170,13 +169,13 @@
 			"title": "It's Just a Scratch!",
 			"keywords": [
 				"ongoing",
-				"limited",
-				"blood"
+				"blood",
+				"limited"
 			],
 			"body": [
-				"When this card enters play, destroy all of your [u]fist[/u] cards in play. When this card is destroyed, {CaptainCainCharacter} regains 4 HP.",
+				"When this card enters play, destroy all of your [u]fist[/u] cards in play. When this card is destroyed, {CaptainCain} regains 3 HP.",
 				"Treat {Blood} effects as active.",
-				"When {CaptainCainCharacter} drops to 0 or fewer HP, restore {CaptainCainCharacter} to 10 HP. Then, move this card to the bottom of your deck."
+				"When {CaptainCain} drops to 0 or fewer HP, restore {CaptainCain} to 10 HP. Then, move this card to the bottom of your deck."
 			],
 			"icons": [
 				"DestroyOngoing",
@@ -196,12 +195,12 @@
 			],
 			"body": [
 
-				"{CaptainCainCharacter} deals 1 target 2 melee damage, then deals a second target melee damage equal to the amount of damage dealt to the first target."
+				"{CaptainCain} deals 1 target 2 melee damage, then deals a second target melee damage equal to the amount of damage dealt to the first target."
 			],
 			"activatableAbilities": [
 				{
 					"name": "{Fist}:",
-					"text": "{CaptainCainCharacter} may deal a third target projectile damage equal to the amount of damage dealt to the second target."
+					"text": "{CaptainCain} may deal a third target projectile damage equal to the amount of damage dealt to the second target."
 				},
 				{
 					"name": "{Blood}:",
@@ -221,13 +220,13 @@
 			"title": "Man of the People",
 			"keywords": [
 				"ongoing",
-				"limited",
-				"fist"
+				"fist",
+				"limited"
 			],
 			"body": [
 				"When this card enters play, destroy all of your [u]blood[/u] cards in play. When this card is destroyed, another player may play a card.",
 				"Treat {Fist} effects as active.",
-				"When you draw a card, another player may draw a card."
+				"The first time each turn you draw a card, another player may draw a card."
 			],
 			"icons": [
 				"DestroyOngoing",
@@ -246,16 +245,16 @@
 				"one-shot"
 			],
 			"body": [
-				"{CaptainCainCharacter} deals himself and 1 other target 2 irreducible psychic damage each."
+				"{CaptainCain} deals himself and 1 other target 2 irreducible psychic damage each."
 			],
 			"activatableAbilities": [
 				{
 					"name": "{Fist}:",
-					"text": "{CaptainCainCharacter} deals that target 2 melee damage."
+					"text": "{CaptainCain} deals that target 2 melee damage."
 				},
 				{
 					"name": "{Blood}:",
-					"text": "{CaptainCainCharacter} deals that target 1 infernal damage, then regains 2 HP."
+					"text": "{CaptainCain} deals that target 1 infernal damage, then regains 2 HP."
 				}
 			],
 			"icons": [
@@ -276,11 +275,11 @@
 				"limited"
 			],
 			"body": [
-				"reduce damage dealt to {CaptainCainCharacter} by 1."
+				"reduce damage dealt to {CaptainCain} by 1."
 			],
 			"powers": [
 				"{Fist}: Destroy an environment card.",
-				"{Blood}: The next time damage would be dealt to {CaptainCainCharacter}, prevent it. Until then, {CaptainCainCharacter} cannot deal damage."
+				"{Blood}: The next time damage would be dealt to {CaptainCain}, prevent it. Until then, {CaptainCain} cannot deal damage."
 			],
 			"icons": [
 				"ReduceDamageTaken",
@@ -299,7 +298,7 @@
 				"one-shot"
 			],
 			"body": [
-				"{CaptainCainCharacter} deals up to 5 targets 1 melee damage each."
+				"{CaptainCain} deals up to 5 targets 1 melee damage each."
 			],
 			"activatableAbilities": [
 				{
@@ -308,7 +307,7 @@
 				},
 				{
 					"name": "{Blood}:",
-					"text": "each time a target takes damage this way, {CaptainCainCharacter} regains 1 HP."
+					"text": "each time a target takes damage this way, {CaptainCain} regains 1 HP."
 				}
 			],
 			"icons": [
@@ -325,8 +324,8 @@
 			"title": "Vampire Prince",
 			"keywords": [
 				"ongoing",
-				"limited",
-				"blood"
+				"blood",
+				"limited"
 			],
 			"body": [
 				"When this card enters play, destroy all of your [u]fist[/u] cards in play. When this card is destroyed, reveal the top card of each Hero deck and either discard it or replace it.",
@@ -348,11 +347,11 @@
 			"title": "You've Made Me Mad, Buster!",
 			"keywords": [
 				"ongoing",
-				"limited",
-				"fist"
+				"fist",
+				"limited"
 			],
 			"body": [
-				"When this card enters play, destroy all of your [u]blood[/u] cards in play. When this card is destroyed, {CaptainCainCharacter} deals each non-hero target 1 melee damage.",
+				"When this card enters play, destroy all of your [u]blood[/u] cards in play. When this card is destroyed, {CaptainCain} deals each non-hero target 1 melee damage.",
 				"Treat {Fist} effects as active.",
 				"You may use an additional power during your power phase."
 			],
@@ -365,7 +364,5 @@
 			"flavorText": "“//Refocus targeting protocol//{BR}////{BR}//pugilist, designation: Cain//”",
 			"flavorReference": "Amalgor, Anachronists #2"
 		}
-	],
-	"promoCards": [
 	]
 }

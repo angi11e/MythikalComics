@@ -13,7 +13,7 @@ namespace Angille.NightMare
 		 * Targets dealt damage this way deal themselves 1 Melee Damage.
 		 * 
 		 * DISCARD
-		 * Until the start of your next turn, increase the damage {NightMare} deals to targets at full HP by 3.
+		 * Until the start of your next turn, increase the damage {NightMare} deals to targets at full HP by 2.
 		 */
 
 		public HoofStompCardController(
@@ -68,8 +68,8 @@ namespace Angille.NightMare
 
 		protected override IEnumerator DiscardResponse(GameAction ga)
 		{
-			// Until the start of your next turn, increase the damage {NightMare} deals to targets at full HP by 3.
-			IncreaseDamageStatusEffect increaseDamageSE = new IncreaseDamageStatusEffect(3);
+			// Until the start of your next turn, increase the damage {NightMare} deals to targets at full HP by 2.
+			IncreaseDamageStatusEffect increaseDamageSE = new IncreaseDamageStatusEffect(2);
 			increaseDamageSE.TargetCriteria.HasMaxHitPoints = true;
 			increaseDamageSE.SourceCriteria.IsSpecificCard = base.CharacterCard;
 			increaseDamageSE.UntilStartOfNextTurn(TurnTaker);

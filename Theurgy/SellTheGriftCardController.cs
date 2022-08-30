@@ -88,17 +88,17 @@ namespace Angille.Theurgy
 				storedResults
 			);
 
-			if (base.UseUnityCoroutines)
+			if (UseUnityCoroutines)
 			{
-				yield return base.GameController.StartCoroutine(discardCR);
+				yield return GameController.StartCoroutine(discardCR);
 			}
 			else
 			{
-				base.GameController.ExhaustCoroutine(discardCR);
+				GameController.ExhaustCoroutine(discardCR);
 			}
 
 			// how many was that?
-			int numberOfCards = storedResults.Count();
+			int numberOfCards = storedResults.Distinct().Count();
 
 			// choose up to that many cards from trash
 			IEnumerable<MoveCardDestination> heroHand = new MoveCardDestination[] {
@@ -129,13 +129,13 @@ namespace Angille.Theurgy
 
 			// Play 1 card.
 			IEnumerator playCardCR = SelectAndPlayCardFromHand(httc, false);
-			if (base.UseUnityCoroutines)
+			if (UseUnityCoroutines)
 			{
-				yield return base.GameController.StartCoroutine(playCardCR);
+				yield return GameController.StartCoroutine(playCardCR);
 			}
 			else
 			{
-				base.GameController.ExhaustCoroutine(playCardCR);
+				GameController.ExhaustCoroutine(playCardCR);
 			}
 
 			yield break;

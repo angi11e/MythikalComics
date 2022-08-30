@@ -6,7 +6,7 @@ using Handelabra.Sentinels.Engine.Model;
 
 namespace Angille.CaptainCain
 {
-	public class DoubleEnhancerGlovesCardController : CaptainCainBaseCardController
+	public class DoubleEnhancerGlovesCardController : CaptainCainEquipmentCardController
 	{
 		/*
 		 * increase damage dealt by {CaptainCainCharacter} by 1.
@@ -33,6 +33,7 @@ namespace Angille.CaptainCain
 			base.AddTriggers();
 		}
 
+		/* UsePower override, in case we need to go that direction again
 		public override IEnumerator UsePower(int index = 0)
 		{
 			IEnumerator messageCR = null;
@@ -48,9 +49,10 @@ namespace Angille.CaptainCain
 						IncreaseDamageStatusEffect increaseDamageSE = new IncreaseDamageStatusEffect(damageNumeral);
 						increaseDamageSE.SourceCriteria.IsSpecificCard = this.CharacterCard;
 						increaseDamageSE.NumberOfUses = 1;
-						increaseDamageSE.CardDestroyedExpiryCriteria.Card = this.CharacterCard;
+						increaseDamageSE.CreateImplicitExpiryConditions();
+						// increaseDamageSE.CardDestroyedExpiryCriteria.Card = this.CharacterCard;
 						// increaseDamageSE.CardSource = this.Card;
-						IEnumerator increaseDamageCR = AddStatusEffect(increaseDamageSE, false);
+						IEnumerator increaseDamageCR = GameController.AddStatusEffect(increaseDamageSE, false, GetCardSource());
 
 						if (UseUnityCoroutines)
 						{
@@ -68,7 +70,7 @@ namespace Angille.CaptainCain
 							false,
 							cardSource: GetCardSource()
 						);
-
+						
 						if (UseUnityCoroutines)
 						{
 							yield return GameController.StartCoroutine(playCardsCR);
@@ -143,19 +145,20 @@ namespace Angille.CaptainCain
 
 			yield break;
 		}
+		*/
 
-		/*
 		protected override IEnumerator FistPower()
 		{
 			int damageNumeral = GetPowerNumeral(0, 2);
 			int playNumeral = GetPowerNumeral(1, 1);
 
 			// increase the next damage dealt by {CaptainCainCharacter} by 2.
-			IncreaseDamageStatusEffect increaseDamageSE = new IncreaseDamageStatusEffect(damageNumeral);
-			increaseDamageSE.SourceCriteria.IsSpecificCard = this.CharacterCard;
-			increaseDamageSE.NumberOfUses = 1;
-			increaseDamageSE.CardDestroyedExpiryCriteria.Card = this.CharacterCard;
-			IEnumerator increaseDamageCR = AddStatusEffect(increaseDamageSE);
+			IncreaseDamageStatusEffect effect = new IncreaseDamageStatusEffect(damageNumeral);
+			effect.SourceCriteria.IsSpecificCard = this.CharacterCard;
+			effect.NumberOfUses = 1;
+			effect.UntilTargetLeavesPlay(this.CharacterCard);
+			// effect.CardDestroyedExpiryCriteria.Card = this.CharacterCard;
+			IEnumerator increaseDamageCR = AddStatusEffect(effect);
 
 			if (UseUnityCoroutines)
 			{
@@ -215,7 +218,6 @@ namespace Angille.CaptainCain
 
 			yield break;
 		}
-		*/
 
 		public IEnumerator HealInsteadResponse(
 			DealDamageAction dd,

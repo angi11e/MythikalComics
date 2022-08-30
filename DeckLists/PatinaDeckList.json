@@ -72,8 +72,8 @@
 			"title": "Healing Spritz",
 			"keywords": [
 				"equipment",
-				"limited",
-				"water"
+				"water",
+				"limited"
 			],
 			"body": [
 				"increase HP recovery caused by your cards and Powers by 1."
@@ -97,8 +97,8 @@
 				"one-shot"
 			],
 			"body": [
-				"{Patina} deals 1 target 2 melee damage, then deals 1 target 1 cold damage.",
-				"{Patina} regains 2 HP.",
+				"{Patina} deals 1 target 1 melee damage, then deals 1 target 1 cold damage.",
+				"{Patina} regains 1 HP.",
 				"draw a card or play a card."
 			],
 			"icons": [
@@ -116,8 +116,8 @@
 			"title": "Impermeable",
 			"keywords": [
 				"ongoing",
-				"limited",
-				"water"
+				"water",
+				"limited"
 			],
 			"body": [
 				"Reduce cold, energy, fire, and radiant damage dealt to hero targets by the number of [u]water[/u] cards in play.",
@@ -171,6 +171,7 @@
 			],
 			"icons": [
 				"DrawCardNow",
+				"HasPower",
 				"Manipulate",
 				"PlayCardNow"
 			],
