@@ -9,6 +9,12 @@ namespace Angille.PecosBill
 	public class ShakeTheSnakeCardController : FolkBaseCardController
 	{
 		/*
+		 * at the end of your turn, you may discard a card.
+		 * If you do, draw 2 cards.
+		 * 
+		 * When this card would be destroyed,
+		 * destroy all [u]hyperbole[/u] cards next to it instead and restore it to 5 HP.
+		 * Otherwise, {PecosBill} deals himself 2 psychic damage, then destroy this card.
 		 */
 
 		public ShakeTheSnakeCardController(
@@ -18,26 +24,19 @@ namespace Angille.PecosBill
 		{
 		}
 
-		public override void AddTriggers()
+		protected override IEnumerator DiscardRewardResponse()
 		{
-			base.AddTriggers();
+			// If you do, draw 2 cards.
+			IEnumerator drawCardCR = DrawCards(this.HeroTurnTakerController, 2);
 
-		}
-
-		public override IEnumerator Play()
-		{
-
-			yield break;
-		}
-
-		public override IEnumerator UsePower(int index = 0)
-		{
-
-			yield break;
-		}
-
-		public override IEnumerator ActivateAbilityEx(CardDefinition.ActivatableAbilityDefinition definition)
-		{
+			if (UseUnityCoroutines)
+			{
+				yield return GameController.StartCoroutine(drawCardCR);
+			}
+			else
+			{
+				GameController.ExhaustCoroutine(drawCardCR);
+			}
 
 			yield break;
 		}

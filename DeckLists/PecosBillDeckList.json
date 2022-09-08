@@ -15,7 +15,7 @@
 			"hitpointsColor": "2E6FD5",
 			"character": true,
 			"powers": [
-				"{PecosBill} deals 1 target 1 projectile damage. a [u]folk[/u] target deals 1 target 1 melee damage. you may activate a [u]tall tale[/u] text."
+				"you may activate a [u]tall tale[/u] text. {PecosBill} deals 1 target 1 projectile damage. a [u]folk[/u] target deals 1 target 1 melee damage."
 			],
 			"icons": [
 				"HasPower",
@@ -38,7 +38,7 @@
 				"DealDamageMelee"
 			],
 			"openingLines": {
-				"default": "hoo-wee! We got ourselves some wrastlin' to do, folks."
+				"default": "hoo-wee! We got ourselves some 'rasslin' to do, folks."
 			},
 			"complexity": 2
 		},
@@ -60,8 +60,8 @@
 				"HasPower",
 				"DealDamageProjectile"
 			],
-			"flavorText": "“”",
-			"flavorReference": ""
+			"flavorText": "“Single action army, new in 1873,{BR}serviced by only one man for over{BR}a century. remarkable specimen!”",
+			"flavorReference": "prof. julian fernsly, Mythikal Comics #313"
 		},
 		{
 			"identifier": "BigManOnTheScene",
@@ -72,19 +72,19 @@
 				"limited"
 			],
 			"body": [
-				"When this card is played, each hero target regains 1 hp."
+				"When this card enters play, each hero target regains 1 hp."
 			],
 			"powers": [
-				"{PecosBill} deals 1 target 2 melee damage. If a target is destroyed this way, {PecosBill} deals 1 target 2 irreducible psychic damage. If no damage is dealt this way, play a card."
+				"{PecosBill} deals 1 target 2 melee damage. If a target is destroyed this way, {PecosBill} deals 1 target 2 irreducible psychic damage, then if no damage is dealt this way, play a card."
 			],
 			"icons": [
 				"GainHP",
-				"DealDamageMelee",
-				"DealDamagePsychic",
+				"HasPower",
+				"DealDamage",
 				"PlayCardNow"
 			],
-			"flavorText": "“”",
-			"flavorReference": ""
+			"flavorText": "“dun' worry, y'all!{BR}ya got [b]pecos bill[/b]{BR}on yer side!”",
+			"flavorReference": "Pecos Bill, Anachronists Promo"
 		},
 		{
 			"identifier": "CoyoteRaised",
@@ -95,7 +95,7 @@
 				"limited"
 			],
 			"body": [
-				"when this card is played, you may draw a card.",
+				"when this card enters play, you may draw a card.",
 				"increase damage dealt by {PecosBill} by 1."
 			],
 			"powers": [
@@ -103,12 +103,12 @@
 			],
 			"icons": [
 				"DrawCardNow",
-				"GainHP",
 				"IncreaseDamageDealt",
+				"HasPower",
 				"DealDamageMelee"
 			],
-			"flavorText": "“”",
-			"flavorReference": ""
+			"flavorText": "“awoo!{BR}[i]ow ow[/i]{BR}[b]awoo![/b]”",
+			"flavorReference": "no tail, the saga of pecos bill"
 		},
 		{
 			"identifier": "DunGetTwisted",
@@ -120,7 +120,7 @@
 			],
 			"body": [
 				"Play this card next to [i]Tamed Twister[/i]. If [i]Tamed Twister[/i] is ever not in play, destroy this card.",
-				"When a villain target would be moved to the trash, move it to the bottom of the villain deck instead."
+				"when [i]Tamed Twister[/i] destroys a villain target, move it to the bottom of the villain deck instead of the trash."
 			],
 			"activatableAbilities": [
 				{
@@ -134,8 +134,8 @@
 				"DestroyEnvironment",
 				"Angille.HasTale"
 			],
-			"flavorText": "“”",
-			"flavorReference": ""
+			"flavorText": "“Bill, git down here{BR}'fore ya shuffle all o' Kansas!”",
+			"flavorReference": "Sluefoot Sue, Mythikal Comics #53"
 		},
 		{
 			"identifier": "GoDownFightin",
@@ -146,16 +146,26 @@
 			],
 			"body": [
 				"You may activate a [u]tall tale[/u] text.",
-				"For each of your [i]folk[/i] cards in play, a hero may use a power.",
-				"You may draw a card."
+				"If you have at least 1 [u]folk[/u] card in play, a player may draw a card. If you have at least 2 [u]folk[/u] cards in play, a player may play a card. If you have 3 [u]folk[/u] cards in play, a hero may use a power.",
+				"You may draw or play a card."
 			],
 			"icons": [
 				"Angille.ReadTale",
-				"UsePowerNow",
-				"DrawCardNow"
+				"DrawCardNow",
+				"PlayCardNow",
+				"UsePowerNow"
 			],
-			"flavorText": "“”",
-			"flavorReference": ""
+			"flavorQuotes": [
+				{
+					"identifier": "Spoiler",
+					"text": "pleasure fighting{BR}at your side, sir."
+				},
+				{
+					"identifier": "Pecos Bill",
+					"text": "'sir' is my pa.{BR}and we ain't done yet!"
+				}
+			],
+			"flavorReference": "Anachronists #1"
 		},
 		{
 			"identifier": "JustYouNMePardner",
@@ -174,8 +184,8 @@
 				"GainHP",
 				"DealDamageMelee"
 			],
-			"flavorText": "“”",
-			"flavorReference": ""
+			"flavorText": "“lookee that,{BR}e'ryone's in th'other room.{BR}just us then!”",
+			"flavorReference": "Pecos Bill, Anachronists #2"
 		},
 		{
 			"identifier": "LoyalLightning",
@@ -187,7 +197,7 @@
 				"limited"
 			],
 			"body": [
-				"at the end of your turn, you may discard a card. If you do, [i]Loyal Lightning[/i] deals 1 target 1 lightning damage.",
+				"at the end of your turn, you may discard a card. If you do, [i]Loyal Lightning[/i] deals 1 target 2 lightning damage.",
 				"When this card would be destroyed, destroy all [u]hyperbole[/u] cards next to it instead and restore it to 5 HP. Otherwise, {PecosBill} deals himself 2 psychic damage, then destroy this card."
 			],
 			"icons": [
@@ -196,8 +206,8 @@
 				"GainHP",
 				"DealDamagePsychic"
 			],
-			"flavorText": "“”",
-			"flavorReference": ""
+			"flavorText": "“your hoss has a bellyful of bedsprings.”",
+			"flavorReference": "Slim, the saga of pecos bill"
 		},
 		{
 			"identifier": "NotRoundMeYouDont",
@@ -218,8 +228,8 @@
 				"HasPower",
 				"RedirectDamage"
 			],
-			"flavorText": "“”",
-			"flavorReference": ""
+			"flavorText": "“yer just a down-low dirty{BR}devil-smoke, ain't ya?”",
+			"flavorReference": "Pecos Bill, Anachronists #3"
 		},
 		{
 			"identifier": "ReadyToRassel",
@@ -238,8 +248,17 @@
 				"DealDamageLightning",
 				"DealDamageToxic"
 			],
-			"flavorText": "“”",
-			"flavorReference": ""
+			"flavorQuotes": [
+				{
+					"identifier": "gangster 1",
+					"text": "is that man...{BR}holding a snake?"
+				},
+				{
+					"identifier": "gangster 2",
+					"text": "I am [b]not[/b]{BR}waiting around to find out!"
+				}
+			],
+			"flavorReference": "Mythikal Comics #58"
 		},
 		{
 			"identifier": "Rustlin",
@@ -256,7 +275,7 @@
 			"activatableAbilities": [
 				{
 					"name": "tall tale",
-					"text": "Reveal the top card of a deck. Replace or discard it."
+					"text": "Reveal the top card of a deck. Put it into play or discard it."
 				}
 			],
 			"icons": [
@@ -265,8 +284,8 @@
 				"Manipulate",
 				"Angille.HasTale"
 			],
-			"flavorText": "“”",
-			"flavorReference": ""
+			"flavorText": "“ain't no mountain lion,{BR}but he got a big stride{BR}and no end o' energy.”",
+			"flavorReference": "Pecos Bill, Mythikal Comics #212"
 		},
 		{
 			"identifier": "ShakeEmUp",
@@ -292,8 +311,8 @@
 				"IncreaseDamageDealt",
 				"Angille.HasTale"
 			],
-			"flavorText": "“”",
-			"flavorReference": ""
+			"flavorText": "“robits ya called 'em?{BR}not so smart, are they.”",
+			"flavorReference": "Pecos Bill, Anachronists #2"
 		},
 		{
 			"identifier": "ShakeTheSnake",
@@ -314,8 +333,8 @@
 				"GainHP",
 				"DealDamagePsychic"
 			],
-			"flavorText": "“”",
-			"flavorReference": ""
+			"flavorText": "“the [i]nueva mexico cascabela grande[/i]{BR}of Raton Pass. or, ya know,{BR}[b]Shake[/b]. fer short.”",
+			"flavorReference": "Pecos Bill, Mythikal Comics #210"
 		},
 		{
 			"identifier": "TallTaleJustice",
@@ -326,7 +345,7 @@
 			],
 			"body": [
 				"If there are no [u]folk[/u] cards in play, you may move one from your hand or trash into play.",
-				"If there are no playable [u]hyperbole[/u] cards in your hand, search your trash and deck for a [u]hyperbole[/u] card and put it in your hand. If you searched your deck, shuffle your deck. You may play a [u]hyperbole[/u] card.",
+				"If no [u]hyperbole[/u] cards in your hand refer to a target in play, search your trash and deck for a [u]hyperbole[/u] card and put it in your hand. If you searched your deck, shuffle your deck. You may play a [u]hyperbole[/u] card.",
 				"You may activate a [u]tall tale[/u] text."
 			],
 			"icons": [
@@ -334,8 +353,8 @@
 				"Search",
 				"Angille.ReadTale"
 			],
-			"flavorText": "“”",
-			"flavorReference": ""
+			"flavorText": "“ah. he wasn't just spinning yarns.{BR}well, why am I surprised?”",
+			"flavorReference": "Captain Cain, Anachronists Promo"
 		},
 		{
 			"identifier": "TamedTwister",
@@ -356,8 +375,8 @@
 				"GainHP",
 				"DealDamagePsychic"
 			],
-			"flavorText": "“”",
-			"flavorReference": ""
+			"flavorText": "“awright big guy,{BR}y'ain't th'only one what got{BR}weather under yer thumb.”",
+			"flavorReference": "Pecos Bill, Anachronists #3"
 		},
 		{
 			"identifier": "TwisterOfFate",
@@ -369,7 +388,7 @@
 			],
 			"body": [
 				"Play this card next to [i]Tamed Twister[/i]. If [i]Tamed Twister[/i] is ever not in play, destroy this card.",
-				"When a target other than [i]Tamed Twister[/i] in this play area deals damage to a target, [i]Tamed Twister[/i] deals that target 1 projectile damage."
+				"When a target in this play area other than [i]Tamed Twister[/i] deals damage to a target, [i]Tamed Twister[/i] deals that target 1 projectile damage."
 			],
 			"activatableAbilities": [
 				{
@@ -382,8 +401,8 @@
 				"DealDamageProjectile",
 				"Angille.HasTale"
 			],
-			"flavorText": "“”",
-			"flavorReference": ""
+			"flavorText": "“oh good, looks like Bill's{BR}got crowd control covered.”",
+			"flavorReference": "Athena, Anachronists #1"
 		},
 		{
 			"identifier": "UnraveledShake",
@@ -400,7 +419,7 @@
 			"activatableAbilities": [
 				{
 					"name": "tall tale",
-					"text": "Destroy an ongoing card. The villain target with the highest HP deals [i]Shake the Snake[/i] 3 melee damage."
+					"text": "Destroy an ongoing card."
 				}
 			],
 			"icons": [
@@ -409,8 +428,17 @@
 				"DestroyOngoing",
 				"Angille.HasTale"
 			],
-			"flavorText": "“”",
-			"flavorReference": ""
+			"flavorQuotes": [
+				{
+					"identifier": "George Nelson",
+					"text": "release me, you bully!"
+				},
+				{
+					"identifier": "Pecos Bill",
+					"text": "ya think I...{BR}how's 'bout no."
+				}
+			],
+			"flavorReference": "Mythikal Comics #58"
 		},
 		{
 			"identifier": "WidowMaker",
@@ -436,8 +464,8 @@
 				"MakeDamageIrreducible",
 				"Angille.HasTale"
 			],
-			"flavorText": "“”",
-			"flavorReference": ""
+			"flavorText": "“boy, yer gonna need a new name{BR}if'n you keep this up!”",
+			"flavorReference": "Pecos Bill, Mythikal Comics #212"
 		}
 	]
 }

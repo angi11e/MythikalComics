@@ -9,12 +9,20 @@ namespace Angille.PecosBill
 	public class DunGetTwistedCardController : HyperboleBaseCardController
 	{
 		/*
+		 * Play this card next to [i]Tamed Twister[/i].
+		 * If [i]Tamed Twister[/i] is ever not in play, destroy this card.
+		 * 
+		 * when [i]Tamed Twister[/i] destroys a villain target,
+		 * move it to the bottom of the villain deck instead of the trash.
+		 * 
+		 * TALL TALE
+		 * Destroy an environment card.
 		 */
 
 		public DunGetTwistedCardController(
 			Card card,
 			TurnTakerController turnTakerController
-		) : base(card, turnTakerController)
+		) : base(card, turnTakerController, "TamedTwister")
 		{
 		}
 
@@ -22,22 +30,49 @@ namespace Angille.PecosBill
 		{
 			base.AddTriggers();
 
+			// when [i]Tamed Twister[/i] destroys a villain target...
+			AddTrigger(
+				(DestroyCardAction d) => d.WasCardDestroyed
+					&& d.PostDestroyDestinationCanBeChanged
+					&& d.CardToDestroy.Card.IsTarget
+					&& d.CardSource.Card.Identifier == "TamedTwister",
+				PutUnderDeckResponse,
+				TriggerType.MoveCard,
+				TriggerTiming.After
+			);
 		}
 
-		public override IEnumerator Play()
+		private IEnumerator PutUnderDeckResponse(DestroyCardAction d)
 		{
+			// ...move it to the bottom of the villain deck instead of the trash.
+			d.SetPostDestroyDestination(
+				GetNativeDeck(d.CardToDestroy.Card),
+				true,
+				showMessage: true,
+				cardSource: GetCardSource()
+			);
 
-			yield break;
+			yield return null;
 		}
 
-		public override IEnumerator UsePower(int index = 0)
+		public override IEnumerator ActivateTallTale()
 		{
+			// Destroy an environment card.
+			IEnumerator destroyCR = GameController.SelectAndDestroyCard(
+				DecisionMaker,
+				new LinqCardCriteria((Card c) => c.IsEnvironment, "environment"),
+				false,
+				cardSource: GetCardSource()
+			);
 
-			yield break;
-		}
-
-		public override IEnumerator ActivateAbilityEx(CardDefinition.ActivatableAbilityDefinition definition)
-		{
+			if (UseUnityCoroutines)
+			{
+				yield return GameController.StartCoroutine(destroyCR);
+			}
+			else
+			{
+				GameController.ExhaustCoroutine(destroyCR);
+			}
 
 			yield break;
 		}

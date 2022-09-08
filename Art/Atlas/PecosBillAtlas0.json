@@ -8,6 +8,14 @@
 	"spriteSourceSize": {"x":0,"y":0,"w":178,"h":256},
 	"sourceSize": {"w":178,"h":256}
 },
+"PecosBillCharacterMicro.png":
+{
+	"frame": {"x":362,"y":0,"w":108,"h":108},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":108,"h":108},
+	"sourceSize": {"w":108,"h":108}
+},
 "PecosBillDeckBack.png":
 {
 	"frame": {"x":181,"y":0,"w":178,"h":256},
@@ -23,6 +31,6 @@
 	"format": "RGBA8888",
 	"size": {"w":512,"h":512},
 	"scale": "1",
-	"smartupdate": "$TexturePacker:SmartUpdate:b7232161c3011bf5dc554534b675922b:333082e68648981da6d2d4c79000e16c:d4850a6fcabfe18b9ce83c31d43675f0$"
+	"smartupdate": "$TexturePacker:SmartUpdate:5ecacb7b96d45dccd649b3282cbce275:22bc0c3a9096a8f0cd16a1f780b6f0f2:d4850a6fcabfe18b9ce83c31d43675f0$"
 }
 }

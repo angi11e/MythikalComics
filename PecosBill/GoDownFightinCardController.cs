@@ -9,6 +9,13 @@ namespace Angille.PecosBill
 	public class GoDownFightinCardController : PecosBillBaseCardController
 	{
 		/*
+		 * You may activate a [u]tall tale[/u] text.
+		 * 
+		 * If you have at least 1 [i]folk[/i] card in play, a player may draw a card.
+		 * If you have at least 2 [i]folk[/i] cards in play, a player may play a card.
+		 * If you have 3 [i]folk[/i] cards in play, a hero may use a power.
+		 * 
+		 * You may draw or play a card.
 		 */
 
 		public GoDownFightinCardController(
@@ -16,28 +23,93 @@ namespace Angille.PecosBill
 			TurnTakerController turnTakerController
 		) : base(card, turnTakerController)
 		{
-		}
-
-		public override void AddTriggers()
-		{
-			base.AddTriggers();
-
+			SpecialStringMaker.ShowListOfCardsInPlay(IsHyperboleCriteria());
+			SpecialStringMaker.ShowNumberOfCardsInPlay(IsFolkCriteria());
 		}
 
 		public override IEnumerator Play()
 		{
+			// You may activate a [u]tall tale[/u] text.
+			IEnumerator activateCR = GameController.SelectAndActivateAbility(
+				DecisionMaker,
+				"tall tale",
+				optional: true,
+				cardSource: GetCardSource()
+			);
 
-			yield break;
-		}
+			if (UseUnityCoroutines)
+			{
+				yield return GameController.StartCoroutine(activateCR);
+			}
+			else
+			{
+				GameController.ExhaustCoroutine(activateCR);
+			}
 
-		public override IEnumerator UsePower(int index = 0)
-		{
+			// If you have at least 1 [i]folk[/i] card in play, a player may draw a card.
+			if (FindCardsWhere((Card c) => c.IsInPlayAndHasGameText && IsFolk(c)).Any())
+			{
+				IEnumerator drawCR = GameController.SelectHeroToDrawCard(
+					DecisionMaker,
+					cardSource: GetCardSource()
+				);
 
-			yield break;
-		}
+				if (UseUnityCoroutines)
+				{
+					yield return GameController.StartCoroutine(drawCR);
+				}
+				else
+				{
+					GameController.ExhaustCoroutine(drawCR);
+				}
+			}
 
-		public override IEnumerator ActivateAbilityEx(CardDefinition.ActivatableAbilityDefinition definition)
-		{
+			// If you have at least 2 [i]folk[/i] cards in play, a player may play a card.
+			if (FindCardsWhere((Card c) => c.IsInPlayAndHasGameText && IsFolk(c)).Count() > 1)
+			{
+				IEnumerator playCR = GameController.SelectHeroToPlayCard(
+					DecisionMaker,
+					cardSource: GetCardSource()
+				);
+
+				if (UseUnityCoroutines)
+				{
+					yield return GameController.StartCoroutine(playCR);
+				}
+				else
+				{
+					GameController.ExhaustCoroutine(playCR);
+				}
+			}
+
+			// If you have 3 [i]folk[/i] cards in play, a hero may use a power.
+			if (FindCardsWhere((Card c) => c.IsInPlayAndHasGameText && IsFolk(c)).Count() > 2)
+			{
+				IEnumerator powerCR = GameController.SelectHeroToUsePower(
+					DecisionMaker,
+					cardSource: GetCardSource()
+				);
+
+				if (UseUnityCoroutines)
+				{
+					yield return GameController.StartCoroutine(powerCR);
+				}
+				else
+				{
+					GameController.ExhaustCoroutine(powerCR);
+				}
+			}
+
+			// You may draw or play a card.
+			IEnumerator drawPlayCR = DrawACardOrPlayACard(DecisionMaker, optional: false);
+			if (UseUnityCoroutines)
+			{
+				yield return GameController.StartCoroutine(drawPlayCR);
+			}
+			else
+			{
+				GameController.ExhaustCoroutine(drawPlayCR);
+			}
 
 			yield break;
 		}

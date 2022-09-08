@@ -44,6 +44,7 @@ namespace Angille.Athena
 			AddTrigger(
 				(DealDamageAction dd) =>
 					dd.Target.IsVillain
+					&& dd.DamageSource.IsCard
 					&& dd.DamageSource.Card == base.CharacterCard
 					&& dd.DidDealDamage
 					&& !HasBeenSetToTrueThisTurn(FirstDamageByAthena),

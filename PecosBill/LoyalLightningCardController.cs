@@ -9,6 +9,12 @@ namespace Angille.PecosBill
 	public class LoyalLightningCardController : FolkBaseCardController
 	{
 		/*
+		 * at the end of your turn, you may discard a card.
+		 * If you do, [i]Loyal Lightning[/i] deals 1 target 2 lightning damage.
+		 * 
+		 * When this card would be destroyed,
+		 * destroy all [u]hyperbole[/u] cards next to it instead and restore it to 5 HP.
+		 * Otherwise, {PecosBill} deals himself 2 psychic damage, then destroy this card.
 		 */
 
 		public LoyalLightningCardController(
@@ -18,26 +24,28 @@ namespace Angille.PecosBill
 		{
 		}
 
-		public override void AddTriggers()
+		protected override IEnumerator DiscardRewardResponse()
 		{
-			base.AddTriggers();
+			// If you do, [i]Loyal Lightning[/i] deals 1 target 2 lightning damage.
+			IEnumerator strikeCR = GameController.SelectTargetsAndDealDamage(
+				DecisionMaker,
+				new DamageSource(GameController, this.Card),
+				2,
+				DamageType.Lightning,
+				1,
+				false,
+				1,
+				cardSource: GetCardSource()
+			);
 
-		}
-
-		public override IEnumerator Play()
-		{
-
-			yield break;
-		}
-
-		public override IEnumerator UsePower(int index = 0)
-		{
-
-			yield break;
-		}
-
-		public override IEnumerator ActivateAbilityEx(CardDefinition.ActivatableAbilityDefinition definition)
-		{
+			if (UseUnityCoroutines)
+			{
+				yield return GameController.StartCoroutine(strikeCR);
+			}
+			else
+			{
+				GameController.ExhaustCoroutine(strikeCR);
+			}
 
 			yield break;
 		}

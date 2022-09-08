@@ -95,7 +95,7 @@ namespace Angille.NightMare
 				DecisionMaker,
 				targetList,
 				targets,
-				selectionType: SelectionType.IncreaseNextDamage,
+				selectionType: SelectionType.Custom,
 				cardSource: GetCardSource()
 			);
 
@@ -129,6 +129,16 @@ namespace Angille.NightMare
 			}
 
 			yield break;
+		}
+
+		public override CustomDecisionText GetCustomDecisionText(IDecision decision)
+		{
+			return new CustomDecisionText(
+				"select a target to make damage irreducible against",
+				"they are selecting a target to make damage irreducible against",
+				"vote for a target to make damage irreducible against",
+				"target to make damage irreducible against"
+			);
 		}
 	}
 }
