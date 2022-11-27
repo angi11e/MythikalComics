@@ -9,6 +9,10 @@ namespace Angille.CaptainCain
 {
 	public class CaptainCainCharacterCardController : HeroCharacterCardController
 	{
+		private const string FistCutoutSuffix = "Fist";
+		private const string BloodCutoutSuffix = "Blood";
+		private const string BothCutoutSuffix = "Both";
+
 		public CaptainCainCharacterCardController(
 			Card card,
 			TurnTakerController turnTakerController
@@ -143,8 +147,8 @@ namespace Angille.CaptainCain
 					{
 						new Function(
 							FindCardController(c).DecisionMaker,
-							"Deal self 1 psychic damage to draw a card now.",
-							SelectionType.DrawCard,
+							"Deal self 1 toxic damage to deal 1 target 1 infernal damage.",
+							SelectionType.DealDamageSelf,
 							() => this.SelfAndOtherDamageResponse(c)
 						)
 					};
@@ -239,5 +243,28 @@ namespace Angille.CaptainCain
 				this.actedHeroes.AddRange(collection);
 			}
 		}
+
+		/*
+		public static bool GetChangedCutoutInfo(
+			CutoutInfo currentInfo,
+			TurnTakerController ttc,
+			out CutoutInfo changedInfo
+		)
+		{
+			return flag;
+		}
+
+		public override bool ShouldChangeCutout(
+			CutoutInfo currentInfo,
+			GameAction action,
+			ActionTiming timing,
+			out CutoutInfo changedInfo,
+			out CutoutAnimation animation
+		)
+		{
+			bool result = base.ShouldChangeCutout(currentInfo, action, timing, out changedInfo, out animation);
+			return result;
+		}
+		*/
 	}
 }

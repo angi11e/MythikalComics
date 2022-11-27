@@ -32,7 +32,7 @@ namespace Angille.Theurgy
 			AddWhenDestroyedTrigger(CharmDestroyResponse, DestructionTriggers);
 			// AddBeforeDestroyAction(CharmDestroyResponse);
 
-			AddIfTheCardThatThisCardIsNextToLeavesPlayMoveItToYourHandTrigger();
+			// AddIfTheCardThatThisCardIsNextToLeavesPlayMoveItToYourHandTrigger();
 		}
 
 		public override IEnumerator DeterminePlayLocation(

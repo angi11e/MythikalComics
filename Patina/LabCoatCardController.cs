@@ -12,7 +12,7 @@ namespace Angille.Patina
 		 * Whenever you play an equipment card from your hand, draw a card.
 		 * 
 		 * POWER
-		 * Move 1 equipment card from your trash into play.
+		 * You may move 1 equipment card from your trash into play.
 		 * If no cards enter play this way, 1 hero other than {Patina} may play 1 card now.
 		 */
 
@@ -64,7 +64,7 @@ namespace Angille.Patina
 			int heroNumeral = GetPowerNumeral(1, 1);
 			int playNumeral = GetPowerNumeral(2, 1);
 
-			// Move 1 equipment card from your trash into play.
+			// You may move 1 equipment card from your trash into play.
 			List<SelectCardDecision> storedResults = new List<SelectCardDecision>();
 			IEnumerator moveCardCR = SearchForCards(
 				DecisionMaker,
@@ -76,7 +76,7 @@ namespace Angille.Patina
 				true,
 				false,
 				false,
-				false,
+				true,
 				storedResults
 			);
 

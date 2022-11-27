@@ -39,7 +39,9 @@
 				"DealDamageInfernal"
 			],
 			"openingLines": {
-				"default": "nobody's more up to the task of your defeat than [b]Captain Cain![/b]"
+				"default": "nobody's more up to the task of your defeat than [b]Captain Cain![/b]",
+				"VainFacadePlaytest.TheBaronessCharacter": "[i]believe?[/i] maybe not. but we have to. you're everything I've tried to leave behind.",
+				"OblivAeonFrontPageCharacter": "the bigger the jaw, the bigger the fall, buddy."
 			},
 			"complexity": 2
 		},
@@ -105,7 +107,7 @@
 				"limited"
 			],
 			"body": [
-				"When this card enters play, destroy all of your [u]fist[/u] cards in play. When this card is destroyed, you may move a [u]blood[/u] card from your trash to your hand.",
+				"When this card enters play, destroy all of your fist cards in play. When this card is destroyed, you may move a blood card from your trash to your hand.",
 				"Treat {Blood} effects as active.",
 				"increase HP recovery by {CaptainCain} by 1."
 			],
@@ -151,7 +153,7 @@
 				"limited"
 			],
 			"body": [
-				"When this card enters play, destroy all of your [u]blood[/u] cards in play. When this card is destroyed, you may destroy an ongoing card.",
+				"When this card enters play, destroy all of your blood cards in play. When this card is destroyed, you may destroy an ongoing card.",
 				"Treat {Fist} effects as active.",
 				"When a hero target would be dealt damage, you may redirect the damage to {CaptainCain}."
 			],
@@ -173,7 +175,7 @@
 				"limited"
 			],
 			"body": [
-				"When this card enters play, destroy all of your [u]fist[/u] cards in play. When this card is destroyed, {CaptainCain} regains 3 HP.",
+				"When this card enters play, destroy all of your fist cards in play. When this card is destroyed, {CaptainCain} regains 3 HP.",
 				"Treat {Blood} effects as active.",
 				"When {CaptainCain} drops to 0 or fewer HP, restore {CaptainCain} to 10 HP. Then, move this card to the bottom of your deck."
 			],
@@ -224,7 +226,7 @@
 				"limited"
 			],
 			"body": [
-				"When this card enters play, destroy all of your [u]blood[/u] cards in play. When this card is destroyed, another player may play a card.",
+				"When this card enters play, destroy all of your blood cards in play. When this card is destroyed, another player may play a card.",
 				"Treat {Fist} effects as active.",
 				"The first time each turn you draw a card, another player may draw a card."
 			],
@@ -328,7 +330,7 @@
 				"limited"
 			],
 			"body": [
-				"When this card enters play, destroy all of your [u]fist[/u] cards in play. When this card is destroyed, reveal the top card of each Hero deck and either discard it or replace it.",
+				"When this card enters play, destroy all of your fist cards in play. When this card is destroyed, reveal the top card of each Hero deck and either discard it or replace it.",
 				"Treat {Blood} effects as active.",
 				"You may draw an extra card during your draw phase."
 			],
@@ -351,7 +353,7 @@
 				"limited"
 			],
 			"body": [
-				"When this card enters play, destroy all of your [u]blood[/u] cards in play. When this card is destroyed, {CaptainCain} deals each non-hero target 1 melee damage.",
+				"When this card enters play, destroy all of your blood cards in play. When this card is destroyed, {CaptainCain} deals each non-hero target 1 melee damage.",
 				"Treat {Fist} effects as active.",
 				"You may use an additional power during your power phase."
 			],

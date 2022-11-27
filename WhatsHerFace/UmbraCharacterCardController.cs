@@ -157,14 +157,14 @@ namespace Angille.WhatsHerFace
 						// Increase the next damage dealt to that target by 1...
 						IncreaseDamageStatusEffect increaseDamageStatusEffect = new IncreaseDamageStatusEffect(1);
 						increaseDamageStatusEffect.NumberOfUses = 1;
-						increaseDamageStatusEffect.SourceCriteria.IsSpecificCard = selected.SelectedCard;
+						increaseDamageStatusEffect.TargetCriteria.IsSpecificCard = selected.SelectedCard;
 						increaseDamageStatusEffect.UntilTargetLeavesPlay(selected.SelectedCard);						
 						IEnumerator increaseStatusCR = AddStatusEffect(increaseDamageStatusEffect);
 
 						// ...and reduce the next damage dealt by that target by 1.
 						ReduceDamageStatusEffect reduceDamageStatusEffect = new ReduceDamageStatusEffect(1);
 						reduceDamageStatusEffect.NumberOfUses = 1;
-						reduceDamageStatusEffect.TargetCriteria.IsSpecificCard = selected.SelectedCard;
+						reduceDamageStatusEffect.SourceCriteria.IsSpecificCard = selected.SelectedCard;
 						reduceDamageStatusEffect.UntilTargetLeavesPlay(selected.SelectedCard);
 						IEnumerator decreaseStatusCR = AddStatusEffect(reduceDamageStatusEffect);
 

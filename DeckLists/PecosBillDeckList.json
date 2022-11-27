@@ -15,7 +15,7 @@
 			"hitpointsColor": "2E6FD5",
 			"character": true,
 			"powers": [
-				"you may activate a [u]tall tale[/u] text. {PecosBill} deals 1 target 1 projectile damage. a [u]folk[/u] target deals 1 target 1 melee damage."
+				"you may activate a [u]tall tale[/u] text. {PecosBill} deals 1 target 1 projectile damage. a folk target deals 1 target 1 melee damage."
 			],
 			"icons": [
 				"HasPower",
@@ -146,7 +146,7 @@
 			],
 			"body": [
 				"You may activate a [u]tall tale[/u] text.",
-				"If you have at least 1 [u]folk[/u] card in play, a player may draw a card. If you have at least 2 [u]folk[/u] cards in play, a player may play a card. If you have 3 [u]folk[/u] cards in play, a hero may use a power.",
+				"If you have at least 1 folk card in play, a player may draw a card. If you have at least 2 folk cards in play, a player may play a card. If you have 3 folk cards in play, a hero may use a power.",
 				"You may draw or play a card."
 			],
 			"icons": [
@@ -176,7 +176,7 @@
 			],
 			"body": [
 				"You may activate a [u]tall tale[/u] text.",
-				"Destroy all your [u]hyperbole[/u] cards, then all your [u]folk[/u] cards. {PecosBill} regains X HP, then deals 1 target X melee damage, where X = the number of cards destroyed this way times 2."
+				"Destroy all your hyperbole cards, then all your folk cards. {PecosBill} regains X HP, then deals 1 target X melee damage, where X = the number of cards destroyed this way times 2."
 			],
 			"icons": [
 				"Angille.ReadTale",
@@ -198,7 +198,7 @@
 			],
 			"body": [
 				"at the end of your turn, you may discard a card. If you do, [i]Loyal Lightning[/i] deals 1 target 2 lightning damage.",
-				"When this card would be destroyed, destroy all [u]hyperbole[/u] cards next to it instead and restore it to 5 HP. Otherwise, {PecosBill} deals himself 2 psychic damage, then destroy this card."
+				"When this card would be destroyed, destroy all hyperbole cards next to it instead and restore it to 5 HP. Otherwise, {PecosBill} deals himself 2 psychic damage, then destroy this card."
 			],
 			"icons": [
 				"Discard",
@@ -270,7 +270,7 @@
 			],
 			"body": [
 				"Play this card next to [i]Loyal Lightning[/i]. If [i]Loyal Lightning[/i] is ever not in play, destroy this card.",
-				"Reduce damage dealt to [u]folk[/u] cards by 1."
+				"Reduce damage dealt to folk cards by 1."
 			],
 			"activatableAbilities": [
 				{
@@ -325,7 +325,7 @@
 			],
 			"body": [
 				"at the end of your turn, you may discard a card. If you do, draw 2 cards.",
-				"When this card would be destroyed, destroy all [u]hyperbole[/u] cards next to it instead and restore it to 5 HP. Otherwise, {PecosBill} deals himself 2 psychic damage, then destroy this card."
+				"When this card would be destroyed, destroy all hyperbole cards next to it instead and restore it to 5 HP. Otherwise, {PecosBill} deals himself 2 psychic damage, then destroy this card."
 			],
 			"icons": [
 				"Discard",
@@ -344,8 +344,8 @@
 				"one-shot"
 			],
 			"body": [
-				"If there are no [u]folk[/u] cards in play, you may move one from your hand or trash into play.",
-				"If no [u]hyperbole[/u] cards in your hand refer to a target in play, search your trash and deck for a [u]hyperbole[/u] card and put it in your hand. If you searched your deck, shuffle your deck. You may play a [u]hyperbole[/u] card.",
+				"If there are no folk cards in play, you may move one from your hand or trash into play.",
+				"If no hyperbole cards in your hand refer to a target in play, search your trash and deck for a hyperbole card and put it in your hand. If you searched your deck, shuffle your deck. You may play a hyperbole card.",
 				"You may activate a [u]tall tale[/u] text."
 			],
 			"icons": [
@@ -367,7 +367,7 @@
 			],
 			"body": [
 				"at the end of your turn, you may discard a card. If you do, play a card.",
-				"When this card would be destroyed, destroy all [u]hyperbole[/u] cards next to it instead and restore it to 5 HP. Otherwise, {PecosBill} deals himself 2 psychic damage, then destroy this card."
+				"When this card would be destroyed, destroy all hyperbole cards next to it instead and restore it to 5 HP. Otherwise, {PecosBill} deals himself 2 psychic damage, then destroy this card."
 			],
 			"icons": [
 				"Discard",

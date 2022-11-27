@@ -15,7 +15,7 @@
 			"hitpointsColor": "FFA600",
 			"character": true,
 			"powers": [
-				"You may move one [u]aspect[/u] card from your trash into play. {Athena} deals 1 target 1 radiant damage."
+				"You may move one aspect card from your trash into play. {Athena} deals 1 target 1 radiant damage."
 			],
 			"icons": [
 				"HasPower",
@@ -40,7 +40,8 @@
 				"default": "Brace yourself against the might of the goddess of wisdom!",
 				"TheEnneadInstructions": "You guys again? I thought we settled this centuries ago.",
 				"KaargraWarfangCharacter": "bloodsport? there is more glory in great fields of tactical battle.",
-				"Cauldron.CeladrochCharacter": "I've imprisoned more powerful. your threat of doom fails to intimidate."
+				"Cauldron.CeladrochCharacter": "I've imprisoned more powerful. your threat of doom fails to intimidate.",
+				"OblivAeonFrontPageCharacter": "Endings have come and gone, destroyer. Yet we persist."
 			},
 			"complexity": 1
 		},
@@ -95,7 +96,7 @@
 			],
 			"body": [
 				"Choose a target. {Athena} and up to 2 other hero targets deal that target 1 radiant damage each.",
-				"If there is an [u]aspect[/u] card in play, this damage is irreducible."
+				"If there is an aspect card in play, this damage is irreducible."
 			],
 			"icons": [
 				"DealDamageRadiant",
@@ -116,7 +117,7 @@
 			"body": [
 				"This card is immune to toxic damage.",
 				"The first time each turn {Athena} deals damage to a villain target, this card deals 1 target 1 melee damage.",
-				"At the end of your turn, if there is an [u]aspect[/u] card in play, this card deals 1 target 1 toxic damage."
+				"At the end of your turn, if there is an aspect card in play, this card deals 1 target 1 toxic damage."
 			],
 			"icons": [
 				"ImmuneToDamageToxic",
@@ -135,7 +136,7 @@
 				"aspect"
 			],
 			"body": [
-				"When this card enters play, destroy your other [u]aspect[/u] cards.",
+				"When this card enters play, destroy your other aspect cards.",
 				"You may look at the top card of your deck at any time."
 			],
 			"powers": [
@@ -178,7 +179,7 @@
 				"You may draw an additional card during your draw phase."
 			],
 			"powers": [
-				"Discard 3 cards. If you do so, draw 4 cards. then, if no [u]aspect[/u] cards are in play, destroy this card."
+				"Discard 3 cards. If you do so, draw 4 cards. then, if no aspect cards are in play, destroy this card."
 			],
 			"icons": [
 				"DrawCardExtra",
@@ -198,7 +199,7 @@
 			],
 			"body": [
 				"Each hero target regains 1 HP.",
-				"If there is an [u]aspect[/u] card in play, {Athena} deals each non-hero target 1 radiant damage."
+				"If there is an aspect card in play, {Athena} deals each non-hero target 1 radiant damage."
 			],
 			"icons": [
 				"GainHP",
@@ -219,7 +220,7 @@
 			"body": [
 				"This card is immune to psychic damage.",
 				"The first time each turn {Athena} deals damage to a villain target, this card deals 1 target 1 projectile damage.",
-				"At the end of your turn, if there is an [u]aspect[/u] card in play, this card deals 1 target 1 psychic damage."
+				"At the end of your turn, if there is an aspect card in play, this card deals 1 target 1 psychic damage."
 			],
 			"icons": [
 				"ImmuneToDamagePsychic",
@@ -254,7 +255,7 @@
 				"aspect"
 			],
 			"body": [
-				"When this card enters play, destroy your other [u]aspect[/u] cards.",
+				"When this card enters play, destroy your other aspect cards.",
 				"The first time each turn a villain target deals damage to a hero character other than {Athena}, {Athena} deals that target 2 melee damage."
 			],
 			"powers": [
@@ -278,11 +279,11 @@
 				"aspect"
 			],
 			"body": [
-				"When this card enters play, destroy your other [u]aspect[/u] cards.",
+				"When this card enters play, destroy your other aspect cards.",
 				"At the end of your turn, {Athena} regains 1 HP."
 			],
 			"powers": [
-				"Search your Deck or Trash for a [u]legend[/u] and put it into Play. If you searched your Deck, shuffle your Deck."
+				"Search your Deck or Trash for a legend card and put it into Play. If you searched your Deck, shuffle your Deck."
 			],
 			"icons": [
 				"DestroyOngoing",
@@ -323,7 +324,7 @@
 				"aspect"
 			],
 			"body": [
-				"When this card enters play, destroy your other [u]aspect[/u] cards.",
+				"When this card enters play, destroy your other aspect cards.",
 				"Whenever a hero target is dealt damage, you may redirect it to {Athena}. Reduce damage redirected to {Athena} by 1."
 			],
 			"powers": [
@@ -348,7 +349,7 @@
 			],
 			"body": [
 				"Reduce damage dealt to {Athena} by 1.",
-				"After {Athena} is dealt damage by a non-Hero target, if there is an [u]aspect[/u] card in play, she deals that target 1 melee Damage."
+				"After {Athena} is dealt damage by a non-Hero target, if there is an aspect card in play, she deals that target 1 melee Damage."
 			],
 			"icons": [
 				"ReduceDamageTaken",
@@ -366,7 +367,7 @@
 				"aspect"
 			],
 			"body": [
-				"When this card enters play, destroy your other [u]aspect[/u] cards.",
+				"When this card enters play, destroy your other aspect cards.",
 				"You may play an additional card during your play phase."
 			],
 			"powers": [
@@ -401,7 +402,7 @@
 			"hitpointsColor": "FCBA6A",
 			"character": true,
 			"powers": [
-				"If there is an [u]aspect[/u] card in play, {Athena} deals 1 target 1 radiant and 1 melee damage. If not, draw 2 cards, then discard 1 card."
+				"If there is an aspect card in play, {Athena} deals 1 target 1 radiant and 1 melee damage. If not, draw 2 cards, then discard 1 card."
 			],
 			"hitpoints": 30,
 			"nemesisIdentifiers": [
@@ -422,7 +423,8 @@
 				"default": "adults are all the same. do [b]not[/b] underestimate me!",
 				"TheEnneadInstructions": "we're not so dissimilar are we? difference being, my vessel is linked by blood and yours by trinkets.",
 				"KaargraWarfangCharacter": "so like... dodgeball? yeah, we got this.",
-				"Cauldron.CeladrochCharacter": "ooh, big scary mountain. all we need are some hobbits."
+				"Cauldron.CeladrochCharacter": "ooh, big scary mountain. all we need are some hobbits.",
+				"OblivAeonFrontPageCharacter": "I am and am not my predecessors. We can and will succeed."
 			}
 		},
 		{
@@ -465,7 +467,8 @@
 				"default": "aphiemi, diabolos kléptes!",
 				"TheEnneadInstructions": "Kemet eimi nekros. [b]érro![/b]",
 				"KaargraWarfangCharacter": "diá doxa, épeita.",
-				"Cauldron.CeladrochCharacter": "hypnos épeita, ákra."
+				"Cauldron.CeladrochCharacter": "hypnos épeita, ákra.",
+				"OblivAeonFrontPageCharacter": "oú katáléxis, témeron."
 			}
 		}
 	]

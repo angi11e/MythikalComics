@@ -20,8 +20,8 @@ namespace Angille.Theurgy
 		public override void AddTriggers()
 		{
 			// At the start of your turn...
-			base.AddStartOfTurnTrigger(
-				(TurnTaker tt) => tt == base.TurnTaker,
+			AddStartOfTurnTrigger(
+				(TurnTaker tt) => tt == this.TurnTaker,
 				RevealCardResponse,
 				TriggerType.RevealCard
 			);
@@ -33,22 +33,22 @@ namespace Angille.Theurgy
 		{
 			// ...reveal the top card of your deck.
 			List<Card> cards = new List<Card>();
-			IEnumerator revealCR = base.GameController.RevealCards(
-				base.TurnTakerController,
-				base.TurnTaker.Deck,
+			IEnumerator revealCR = GameController.RevealCards(
+				this.TurnTakerController,
+				this.TurnTaker.Deck,
 				1,
 				cards,
 				fromBottom: false,
 				RevealedCardDisplay.ShowRevealedCards,
 				cardSource: GetCardSource()
 			);
-			if (base.UseUnityCoroutines)
+			if (UseUnityCoroutines)
 			{
-				yield return base.GameController.StartCoroutine(revealCR);
+				yield return GameController.StartCoroutine(revealCR);
 			}
 			else
 			{
-				base.GameController.ExhaustCoroutine(revealCR);
+				GameController.ExhaustCoroutine(revealCR);
 			}
 			Card revealedCard = GetRevealedCard(cards);
 			if (revealedCard == null)
@@ -62,72 +62,75 @@ namespace Angille.Theurgy
 			// first put it back
 			functionList.Add(
 				new Function(
-					this.DecisionMaker,
+					DecisionMaker,
 					"Return " + revealedCard.Title,
 					SelectionType.ReturnToDeck,
-					() => base.GameController.MoveCard(
-						base.TurnTakerController,
+					() => GameController.MoveCard(
+						this.TurnTakerController,
 						revealedCard,
-						base.TurnTaker.Deck,
+						this.TurnTaker.Deck,
 						cardSource: GetCardSource()
-					)
+					),
+					forcedActionMessage: "no cards in hand or trash to switch with"
 				)
 			);
 
 			// ...or switch with hand
 			functionList.Add(
 				new Function(
-					this.DecisionMaker,
+					DecisionMaker,
 					"switch with a card in your hand",
 					SelectionType.MoveCardToHand,
-					() => WorkWithCardsResponse(revealedCard, base.HeroTurnTaker.Hand)
+					() => WorkWithCardsResponse(revealedCard, this.HeroTurnTaker.Hand),
+					this.HeroTurnTaker.HasCardsInHand
 				)
 			);
 
 			// ...or switch with trash
 			functionList.Add(
 				new Function(
-					this.DecisionMaker,
+					DecisionMaker,
 					"switch with a card in your trash",
 					SelectionType.MoveCardToTrash,
-					() => WorkWithCardsResponse(revealedCard, base.HeroTurnTaker.Trash)
+					() => WorkWithCardsResponse(revealedCard, this.HeroTurnTaker.Trash),
+					this.HeroTurnTaker.Trash.HasCards
 				)
 			);
 
 			// ask for which one
 			SelectFunctionDecision selectFunction = new SelectFunctionDecision(
-				base.GameController,
-				this.DecisionMaker,
+				GameController,
+				DecisionMaker,
 				functionList,
 				false,
 				associatedCards: new Card[1] { revealedCard },
-				cardSource: base.GetCardSource()
+				cardSource: GetCardSource()
 			);
 
-			IEnumerator selectFunctionCR = base.GameController.SelectAndPerformFunction(
+			IEnumerator selectFunctionCR = GameController.SelectAndPerformFunction(
 				selectFunction,
 				associatedCards: new Card[1] { revealedCard }
 			);
 			if (UseUnityCoroutines)
 			{
-				yield return base.GameController.StartCoroutine(selectFunctionCR);
+				yield return GameController.StartCoroutine(selectFunctionCR);
 			}
 			else
 			{
-				base.GameController.ExhaustCoroutine(selectFunctionCR);
+				GameController.ExhaustCoroutine(selectFunctionCR);
 			}
 
 			IEnumerator cleanupCR = CleanupCardsAtLocations(
-				new List<Location>() {base.TurnTaker.Revealed},
-				base.TurnTaker.Deck
+				new List<Location>() {this.TurnTaker.Revealed},
+				this.TurnTaker.Deck
 			);
-			if (base.UseUnityCoroutines)
+			if (UseUnityCoroutines)
 			{
-				yield return base.GameController.StartCoroutine(cleanupCR);
+				yield return GameController.StartCoroutine(cleanupCR);
 			}
 			else
 			{
-				base.GameController.ExhaustCoroutine(cleanupCR);
+				GameController.ExhaustCoroutine(cleanupCR);
 			}
 
 			yield break;
@@ -136,35 +139,35 @@ namespace Angille.Theurgy
 		private IEnumerator WorkWithCardsResponse(Card revealedCard, Location swapLocation)
 		{
 			IEnumerator moveFirstCardCR = GameController.SelectCardFromLocationAndMoveIt(
-				this.DecisionMaker,
+				DecisionMaker,
 				swapLocation,
 				new LinqCardCriteria((Card c) => true),
-				new MoveCardDestination[] { new MoveCardDestination(base.HeroTurnTaker.Deck) }
+				new MoveCardDestination[] { new MoveCardDestination(this.HeroTurnTaker.Deck) }
 			);
 
-			if (base.UseUnityCoroutines)
+			if (UseUnityCoroutines)
 			{
-				yield return base.GameController.StartCoroutine(moveFirstCardCR);
+				yield return GameController.StartCoroutine(moveFirstCardCR);
 			}
 			else
 			{
-				base.GameController.ExhaustCoroutine(moveFirstCardCR);
+				GameController.ExhaustCoroutine(moveFirstCardCR);
 			}
 
 			IEnumerator moveSecondCardCR = GameController.MoveCard(
-				this.DecisionMaker,
+				DecisionMaker,
 				revealedCard,
 				swapLocation,
 				cardSource: GetCardSource()
 			);
 
-			if (base.UseUnityCoroutines)
+			if (UseUnityCoroutines)
 			{
-				yield return base.GameController.StartCoroutine(moveSecondCardCR);
+				yield return GameController.StartCoroutine(moveSecondCardCR);
 			}
 			else
 			{
-				base.GameController.ExhaustCoroutine(moveSecondCardCR);
+				GameController.ExhaustCoroutine(moveSecondCardCR);
 			}
 
 			yield break;

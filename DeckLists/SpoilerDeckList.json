@@ -1,0 +1,318 @@
+﻿{
+	"name": "Spoiler",
+	"kind": "Hero",
+	"initialCardIdentifiers": [
+		"SpoilerCharacter"
+	],
+	"cards": [
+		{
+			"identifier": "SpoilerCharacter",
+			"count": 1,
+			"title": "Spoiler",
+			"body": "Thrice-Lived Life",
+			"backgroundColor": "2E6FD5",
+			"foilBackgroundColor": "2E6FD5",
+			"hitpointsColor": "2E6FD5",
+			"character": true,
+			"powers": [
+				""
+			],
+			"icons": [
+				"HasPower",
+				"",
+				"",
+				""
+			],
+			"hitpoints": 24,
+			"nemesisIdentifiers": [
+				"Angille.Spoiler"
+			],
+			"incapacitatedAbilities": [
+				"",
+				"",
+				""
+			],
+			"flippedIcons": [
+				"",
+				"",
+				""
+			],
+			"openingLines": {
+				"default": "FPO"
+			},
+			"complexity": 3
+		},
+		{
+			"identifier": "AppliedScientificMethod",
+			"count": 3,
+			"title": "Applied Scientific Method",
+			"keywords": [
+				"equipment",
+				"limited"
+			],
+			"body": [
+				""
+			],
+			"powers": [
+				""
+			],
+			"icons": [
+				"",
+				""
+			],
+			"flavorText": "“”",
+			"flavorReference": ""
+		},
+		{
+			"identifier": "CausalityDecoupler",
+			"count": 3,
+			"title": "Causality Decoupler",
+			"keywords": [
+				"equipment",
+				"limited"
+			],
+			"body": [
+				""
+			],
+			"powers": [
+				""
+			],
+			"icons": [
+				"",
+				""
+			],
+			"flavorText": "“”",
+			"flavorReference": ""
+		},
+		{
+			"identifier": "EncyclopaediaChronomica",
+			"count": 3,
+			"title": "Encyclopaedia Chronomica",
+			"keywords": [
+				"equipment",
+				"limited"
+			],
+			"body": [
+				""
+			],
+			"powers": [
+				""
+			],
+			"icons": [
+				"",
+				""
+			],
+			"flavorText": "“”",
+			"flavorReference": ""
+		},
+		{
+			"identifier": "ICanExplainEverything",
+			"count": 3,
+			"title": "I Can Explain Everything",
+			"keywords": [
+				"ongoing",
+				"limited"
+			],
+			"body": [
+				""
+			],
+			"activatableAbilities": [
+				{
+					"name": "rewind",
+					"text": ""
+				}
+			],
+			"icons": [
+				"",
+				""
+			],
+			"flavorText": "“”",
+			"flavorReference": ""
+		},
+		{
+			"identifier": "IDontHaveTimeForThis",
+			"count": 3,
+			"title": "I Don't Have Time For This",
+			"keywords": [
+				"ongoing",
+				"limited"
+			],
+			"body": [
+				""
+			],
+			"activatableAbilities": [
+				{
+					"name": "rewind",
+					"text": ""
+				}
+			],
+			"icons": [
+				"",
+				""
+			],
+			"flavorText": "“”",
+			"flavorReference": ""
+		},
+		{
+			"identifier": "IRememberTheEnding",
+			"count": 2,
+			"title": "I Remember the Ending",
+			"keywords": [
+				"ongoing",
+				"limited"
+			],
+			"body": [
+				""
+			],
+			"activatableAbilities": [
+				{
+					"name": "rewind",
+					"text": ""
+				}
+			],
+			"icons": [
+				"",
+				""
+			],
+			"flavorText": "“”",
+			"flavorReference": ""
+		},
+		{
+			"identifier": "IveReadYourFile",
+			"count": 2,
+			"title": "I''ve Read Your File",
+			"keywords": [
+				"ongoing",
+				"limited"
+			],
+			"body": [
+				""
+			],
+			"activatableAbilities": [
+				{
+					"name": "rewind",
+					"text": ""
+				}
+			],
+			"icons": [
+				"",
+				""
+			],
+			"flavorText": "“”",
+			"flavorReference": ""
+		},
+		{
+			"identifier": "IveSeenTheMoments",
+			"count": 2,
+			"title": "I''ve Seen The Moments",
+			"keywords": [
+				"ongoing",
+				"limited"
+			],
+			"body": [
+				""
+			],
+			"activatableAbilities": [
+				{
+					"name": "rewind",
+					"text": ""
+				}
+			],
+			"icons": [
+				"",
+				""
+			],
+			"flavorText": "“”",
+			"flavorReference": ""
+		},
+		{
+			"identifier": "NowMakeItHappen",
+			"count": 4,
+			"title": "Now Make It Happen!",
+			"keywords": [
+				"one-shot"
+			],
+			"body": [
+				""
+			],
+			"icons": [
+				"",
+				""
+			],
+			"flavorText": "“”",
+			"flavorReference": ""
+		},
+		{
+			"identifier": "ParadoxProtocolsEngage",
+			"count": 4,
+			"title": "Paradox Protocols Engage!",
+			"keywords": [
+				"one-shot"
+			],
+			"body": [
+				""
+			],
+			"icons": [
+				"",
+				""
+			],
+			"flavorText": "“”",
+			"flavorReference": ""
+		},
+		{
+			"identifier": "RCHH380Disruptor",
+			"count": 3,
+			"title": "RCHH-380 Disruptor",
+			"keywords": [
+				"equipment",
+				"limited"
+			],
+			"body": [
+				""
+			],
+			"powers": [
+				""
+			],
+			"icons": [
+				"",
+				""
+			],
+			"flavorText": "“”",
+			"flavorReference": ""
+		},
+		{
+			"identifier": "StopDropRewind",
+			"count": 4,
+			"title": "Stop, Drop, & Rewind!",
+			"keywords": [
+				"one-shot"
+			],
+			"body": [
+				""
+			],
+			"icons": [
+				"",
+				""
+			],
+			"flavorText": "“”",
+			"flavorReference": ""
+		},
+		{
+			"identifier": "WaitForItNow",
+			"count": 4,
+			"title": "Wait For it... Now!",
+			"keywords": [
+				"one-shot"
+			],
+			"body": [
+				""
+			],
+			"icons": [
+				"",
+				""
+			],
+			"flavorText": "“”",
+			"flavorReference": ""
+		}
+	]
+}

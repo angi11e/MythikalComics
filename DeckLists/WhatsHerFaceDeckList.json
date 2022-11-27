@@ -15,7 +15,7 @@
 			"hitpointsColor": "AAAA88",
 			"character": true,
 			"powers": [
-				"Reveal the top card of the villain deck. Discard it or put it into play. If you put it into play, you may play a [u]recall[/u] card now."
+				"Reveal the top card of the villain deck. Discard it or put it into play. If you put it into play, you may play a recall card now."
 			],
 			"icons": [
 				"HasPower",
@@ -44,7 +44,8 @@
 				"ErmineTeamCharacter": "you'd have to remember my stuff exists first.",
 				"MissInformationTeamCharacter": "look lady, that's just a Tuesday for me.",
 				"PlagueRatTeamCharacter": "well. he might not even [b]notice[/b] me.",
-				"Cauldron.TheMistressOfFateCharacter": "oh, you won't even notice I'm here."
+				"Cauldron.TheMistressOfFateCharacter": "oh, you won't even notice I'm here.",
+				"OblivAeonFrontPageCharacter": "Empty threats are boring."
 			},
 			"complexity": 2
 		},
@@ -112,7 +113,7 @@
 				"recall"
 			],
 			"body": [
-				"Play this card next to a non-hero target.",
+				"Play this card next to a non-character target.",
 				"Redirect the first damage dealt by that target each turn to the villain target with the highest HP.",
 				"If that target leaves play, return this card to your hand."
 			],
@@ -240,7 +241,7 @@
 				"limited"
 			],
 			"powers": [
-				"Play the top card of your deck. If you played a [u]recall[/u] card, play the top card of your deck. If you played an equipment card, move 1 card from your trash to the top of your deck. If you played a one-shot, you may draw 1 card now."
+				"Play the top card of your deck. If you played a recall card, play the top card of your deck. If you played an equipment card, move 1 card from your trash to the top of your deck. If you played a one-shot, you may draw 1 card now."
 			],
 			"icons": [
 				"PlayCardNow",
@@ -258,7 +259,7 @@
 				"one-shot"
 			],
 			"body": [
-				"Destroy any number of [u]recall[/u] cards. {WhatsHerFace} deals each non-hero target X Fire damage, where X = the number of cards destroyed this way."
+				"Destroy any number of recall cards. {WhatsHerFace} deals each non-hero target X Fire damage, where X = the number of cards destroyed this way."
 			],
 			"icons": [
 				"DestroyOngoing",
@@ -348,7 +349,7 @@
 				"one-shot"
 			],
 			"body": [
-				"One target deals itself 2 Melee damage, plus 2 per [u]recall[/u] card next to it."
+				"One target deals itself 2 Melee damage, plus 2 per recall card next to it."
 			],
 			"icons": [
 				"DealDamageMelee"
@@ -406,7 +407,7 @@
 			"hitpointsColor": "779999",
 			"character": true,
 			"powers": [
-				"Destroy a [u]recall[/u] card. If you do, {WhatsHerFace} deals 1 target 3 sonic damage."
+				"Destroy a recall card. If you do, {WhatsHerFace} deals 1 target 3 sonic damage."
 			],
 			"hitpoints": 27,
 			"nemesisIdentifiers": [

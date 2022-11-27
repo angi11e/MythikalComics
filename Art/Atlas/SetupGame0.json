@@ -10,7 +10,7 @@
 },
 "BrandNewAthenaCharacter.png":
 {
-	"frame": {"x":181,"y":0,"w":178,"h":256},
+	"frame": {"x":0,"y":259,"w":178,"h":256},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":178,"h":256},
@@ -18,7 +18,7 @@
 },
 "CadaverTeamCharacter.png":
 {
-	"frame": {"x":362,"y":0,"w":178,"h":256},
+	"frame": {"x":181,"y":0,"w":178,"h":256},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":178,"h":256},
@@ -26,7 +26,7 @@
 },
 "CaptainCainCharacter.png":
 {
-	"frame": {"x":543,"y":0,"w":178,"h":256},
+	"frame": {"x":0,"y":518,"w":178,"h":256},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":178,"h":256},
@@ -34,7 +34,7 @@
 },
 "ClassicAthenaCharacter.png":
 {
-	"frame": {"x":724,"y":0,"w":178,"h":256},
+	"frame": {"x":181,"y":259,"w":178,"h":256},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":178,"h":256},
@@ -42,7 +42,7 @@
 },
 "DDOSCharacter.png":
 {
-	"frame": {"x":905,"y":0,"w":178,"h":256},
+	"frame": {"x":362,"y":0,"w":178,"h":256},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":178,"h":256},
@@ -50,7 +50,7 @@
 },
 "GunClubSpeedrunnerCharacter.png":
 {
-	"frame": {"x":1086,"y":0,"w":178,"h":256},
+	"frame": {"x":0,"y":777,"w":178,"h":256},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":178,"h":256},
@@ -58,7 +58,7 @@
 },
 "InternPatinaCharacter.png":
 {
-	"frame": {"x":1267,"y":0,"w":178,"h":256},
+	"frame": {"x":181,"y":518,"w":178,"h":256},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":178,"h":256},
@@ -66,53 +66,45 @@
 },
 "MoonStalkerCharacter.png":
 {
-	"frame": {"x":1448,"y":0,"w":178,"h":256},
-	"rotated": false,
-	"trimmed": false,
-	"spriteSourceSize": {"x":0,"y":0,"w":178,"h":256},
-	"sourceSize": {"w":178,"h":256}
-},
-"NightMareCharacter.png":
-{
-	"frame": {"x":1629,"y":0,"w":178,"h":256},
-	"rotated": false,
-	"trimmed": false,
-	"spriteSourceSize": {"x":0,"y":0,"w":178,"h":256},
-	"sourceSize": {"w":178,"h":256}
-},
-"NightMareWholeHorseCharacter.png":
-{
-	"frame": {"x":1810,"y":0,"w":178,"h":256},
-	"rotated": false,
-	"trimmed": false,
-	"spriteSourceSize": {"x":0,"y":0,"w":178,"h":256},
-	"sourceSize": {"w":178,"h":256}
-},
-"PatinaCharacter.png":
-{
-	"frame": {"x":0,"y":259,"w":178,"h":256},
-	"rotated": false,
-	"trimmed": false,
-	"spriteSourceSize": {"x":0,"y":0,"w":178,"h":256},
-	"sourceSize": {"w":178,"h":256}
-},
-"PecosBillCharacter.png":
-{
-	"frame": {"x":181,"y":259,"w":178,"h":256},
-	"rotated": false,
-	"trimmed": false,
-	"spriteSourceSize": {"x":0,"y":0,"w":178,"h":256},
-	"sourceSize": {"w":178,"h":256}
-},
-"RedRifleCharacter.png":
-{
 	"frame": {"x":362,"y":259,"w":178,"h":256},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":178,"h":256},
 	"sourceSize": {"w":178,"h":256}
 },
-"RetroSpeedrunnerCharacter.png":
+"MythikalExpatrietteCharacter.png":
+{
+	"frame": {"x":543,"y":0,"w":178,"h":256},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":178,"h":256},
+	"sourceSize": {"w":178,"h":256}
+},
+"MythikalGreyhatCharacter.png":
+{
+	"frame": {"x":0,"y":1036,"w":178,"h":256},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":178,"h":256},
+	"sourceSize": {"w":178,"h":256}
+},
+"MythikalMantraCharacter.png":
+{
+	"frame": {"x":181,"y":777,"w":178,"h":256},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":178,"h":256},
+	"sourceSize": {"w":178,"h":256}
+},
+"MythikalPinionCharacter.png":
+{
+	"frame": {"x":362,"y":518,"w":178,"h":256},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":178,"h":256},
+	"sourceSize": {"w":178,"h":256}
+},
+"MythikalSetbackCharacter.png":
 {
 	"frame": {"x":543,"y":259,"w":178,"h":256},
 	"rotated": false,
@@ -120,7 +112,47 @@
 	"spriteSourceSize": {"x":0,"y":0,"w":178,"h":256},
 	"sourceSize": {"w":178,"h":256}
 },
-"SalemCharacter.png":
+"NightMareCharacter.png":
+{
+	"frame": {"x":724,"y":0,"w":178,"h":256},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":178,"h":256},
+	"sourceSize": {"w":178,"h":256}
+},
+"NightMareWholeHorseCharacter.png":
+{
+	"frame": {"x":0,"y":1295,"w":178,"h":256},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":178,"h":256},
+	"sourceSize": {"w":178,"h":256}
+},
+"PatinaCharacter.png":
+{
+	"frame": {"x":181,"y":1036,"w":178,"h":256},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":178,"h":256},
+	"sourceSize": {"w":178,"h":256}
+},
+"PecosBillCharacter.png":
+{
+	"frame": {"x":362,"y":777,"w":178,"h":256},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":178,"h":256},
+	"sourceSize": {"w":178,"h":256}
+},
+"RedRifleCharacter.png":
+{
+	"frame": {"x":543,"y":518,"w":178,"h":256},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":178,"h":256},
+	"sourceSize": {"w":178,"h":256}
+},
+"RetroSpeedrunnerCharacter.png":
 {
 	"frame": {"x":724,"y":259,"w":178,"h":256},
 	"rotated": false,
@@ -128,9 +160,17 @@
 	"spriteSourceSize": {"x":0,"y":0,"w":178,"h":256},
 	"sourceSize": {"w":178,"h":256}
 },
+"SalemCharacter.png":
+{
+	"frame": {"x":905,"y":0,"w":178,"h":256},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":178,"h":256},
+	"sourceSize": {"w":178,"h":256}
+},
 "SeeingRedRedRifleCharacter.png":
 {
-	"frame": {"x":905,"y":259,"w":178,"h":256},
+	"frame": {"x":0,"y":1554,"w":178,"h":256},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":178,"h":256},
@@ -138,7 +178,7 @@
 },
 "SpeedrunnerCharacter.png":
 {
-	"frame": {"x":1086,"y":259,"w":178,"h":256},
+	"frame": {"x":181,"y":1295,"w":178,"h":256},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":178,"h":256},
@@ -146,7 +186,7 @@
 },
 "TheUndersidersInstructions.png":
 {
-	"frame": {"x":1267,"y":259,"w":178,"h":256},
+	"frame": {"x":362,"y":1036,"w":178,"h":256},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":178,"h":256},
@@ -154,7 +194,7 @@
 },
 "TheurgyCharacter.png":
 {
-	"frame": {"x":1448,"y":259,"w":178,"h":256},
+	"frame": {"x":543,"y":777,"w":178,"h":256},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":178,"h":256},
@@ -162,7 +202,7 @@
 },
 "TheurgyFateweaverCharacter.png":
 {
-	"frame": {"x":1629,"y":259,"w":178,"h":256},
+	"frame": {"x":724,"y":518,"w":178,"h":256},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":178,"h":256},
@@ -170,7 +210,7 @@
 },
 "UmbraCharacter.png":
 {
-	"frame": {"x":1810,"y":259,"w":178,"h":256},
+	"frame": {"x":905,"y":259,"w":178,"h":256},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":178,"h":256},
@@ -178,7 +218,7 @@
 },
 "VerdigrisCharacter.png":
 {
-	"frame": {"x":0,"y":518,"w":178,"h":256},
+	"frame": {"x":1086,"y":0,"w":178,"h":256},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":178,"h":256},
@@ -186,7 +226,7 @@
 },
 "WhatsHerFaceCharacter.png":
 {
-	"frame": {"x":181,"y":518,"w":178,"h":256},
+	"frame": {"x":181,"y":1554,"w":178,"h":256},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":178,"h":256},
@@ -194,7 +234,7 @@
 },
 "WhatsHerFaceGadgeteerCharacter.png":
 {
-	"frame": {"x":362,"y":518,"w":178,"h":256},
+	"frame": {"x":362,"y":1295,"w":178,"h":256},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":178,"h":256},
@@ -207,6 +247,6 @@
 	"format": "RGBA8888",
 	"size": {"w":2048,"h":2048},
 	"scale": "1",
-	"smartupdate": "$TexturePacker:SmartUpdate:398a998d66a1716df69e531bc438a1e1:f4f9b2328e0f0d424d1fd30a4b111fa0:4ee285c32a91b7652e02ac049f918b2a$"
+	"smartupdate": "$TexturePacker:SmartUpdate:c338365974c92b82cafde29804d98b02:aa86eb6ad89463056c939b6fb54fba77:4ee285c32a91b7652e02ac049f918b2a$"
 }
 }

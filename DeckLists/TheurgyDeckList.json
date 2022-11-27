@@ -15,7 +15,7 @@
 			"hitpointsColor": "945783",
 			"character": true,
 			"powers": [
-				"Draw a card or play a [u]charm[/u] card. One hero target may regain 1 hp."
+				"Draw a card or play a charm card. One hero target may regain 1 hp."
 			],
 			"icons": [
 				"HasPower",
@@ -43,7 +43,8 @@
 				"GloomWeaverCharacter": "and what [i]does[/i] despair taste like?",
 				"BugbearTeamCharacter": "ew! do you literally... eat... people?",
 				"Cauldron.TheInfernalChoirCharacter": "oh, your threads are all... [i]weird...[i]",
-				"Angille.CadaverTeamCharacter": "Get off the stage, you dusty has-been!"
+				"Angille.CadaverTeamCharacter": "Get off the stage, you dusty has-been!",
+				"OblivAeonFrontPageCharacter": "this guy is tearing the Tapestry to shreds!"
 			},
 			"complexity": 2
 		},
@@ -55,9 +56,9 @@
 				"one-shot"
 			],
 			"body": [
-				"Reveal X cards from the top of any deck, where X = the number of [u]charm[/u] cards in play plus 1.",
+				"Reveal X cards from the top of any deck, where X = the number of charm cards in play plus 1.",
 				"Put them back in any order.",
-				"You may destroy a [u]charm[/u] card."
+				"You may destroy a charm card."
 			],
 			"icons": [
 				"Manipulate",
@@ -97,9 +98,9 @@
 				"one-shot"
 			],
 			"body": [
-				"Draw X cards, where X = the number of [u]charm[/u] cards in play plus 1.",
-				"if {Theurgy} has no [u]charm[/u] cards in her play area, play a card.",
-				"You may destroy a [u]charm[/u] card."
+				"Draw X cards, where X = the number of charm cards in play plus 1.",
+				"if {Theurgy} has no charm cards in her play area, play a card.",
+				"You may destroy a charm card."
 			],
 			"icons": [
 				"DrawCardNow",
@@ -118,7 +119,7 @@
 				"limited"
 			],
 			"body": [
-				"When you discard a [u]charm[/u] card, {Theurgy} may deal herself 3 irreducible psychic damage. If she takes damage this way, put the [u]charm[/u] card into play instead."
+				"When you discard a charm card, {Theurgy} may deal herself 3 irreducible psychic damage. If she takes damage this way, put the charm card into play instead."
 			],
 			"icons": [
 				"Manipulate",
@@ -138,10 +139,10 @@
 			],
 			"body": [
 				"When this card enters play, {Theurgy} regains 1 hp.",
-				"The first time a [u]charm[/u] card is destroyed each turn, {Theurgy} regains 2 hp."
+				"The first time a charm card is destroyed each turn, {Theurgy} regains 2 hp."
 			],
 			"powers": [
-				"{Theurgy} deals 1 target X energy damage, where X = the number of [u]charm[/u] cards in play times 2. Destroy this card."
+				"{Theurgy} deals 1 target X energy damage, where X = the number of charm cards in play times 2. Destroy this card."
 			],
 			"icons": [
 				"GainHP",
@@ -223,7 +224,7 @@
 				"one-shot"
 			],
 			"body": [
-				"Put any number of your [u]charm[/u] cards back into your hand from play.",
+				"Put any number of your charm cards back into your hand from play.",
 				"You may play up to that many cards now."
 			],
 			"icons": [
@@ -286,7 +287,7 @@
 				"When this card is destroyed, select a deck. cards from that deck cannot be played until the start of your next turn. Remove this card from the game."
 			],
 			"powers": [
-				"Discard a [u]charm[/u] card. If you do, search your deck or trash for a different [u]charm[/u] card. Put it into play or in your hand."
+				"Discard a charm card. If you do, search your deck or trash for a different charm card. Put it into play or in your hand."
 			],
 			"icons": [
 				"DrawCardNow",
@@ -306,8 +307,8 @@
 			],
 			"body": [
 				"{Theurgy} deals 1 target 3 projectile damage.",
-				"That target deals up to X other targets 2 melee damage, where X = the number of [u]charm[/u] cards in play plus 1.",
-				"You may destroy a [u]charm[/u] card."
+				"That target deals up to X other targets 2 melee damage, where X = the number of charm cards in play plus 1.",
+				"You may destroy a charm card."
 			],
 			"icons": [
 				"DealDamageMelee",
@@ -446,7 +447,8 @@
 				"GloomWeaverCharacter": "ugh, the emo is a bit much, but I'll play along.",
 				"BugbearTeamCharacter": "whoah, that's [b]so[/b] metal!",
 				"Cauldron.TheInfernalChoirCharacter": "ok, but that's a great band name though.",
-				"Angille.CadaverTeamCharacter": "You couldn't handle my riffs, dust-bucket. Go play with your magic wand somewhere else."
+				"Angille.CadaverTeamCharacter": "You couldn't handle my riffs, dust-bucket. Go play with your magic wand somewhere else.",
+				"OblivAeonFrontPageCharacter": "Show's not over yet!"
 			}
 		}
 	]

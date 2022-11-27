@@ -1,0 +1,242 @@
+{
+  "Expatriette": [
+    {
+      "identifier": "ExpatrietteCharacter",
+      "promoIdentifier": "MythikalExpatrietteCharacter",
+      "count": 1,
+      "title": "Expatriette",
+      "promoTitle": "Mythikal Expatriette",
+      "shortPromoTitle": "Expatriette",
+      "body": "Deadeye",
+      "backgroundColor": "FF1700",
+      "foilBackgroundColor": "FF1700",
+      "hitpointsColor": "FF1700",
+      "character": true,
+      "powers": [
+        "Discard a card. If it was an ammo card, {Expatriette} deals 1 target 3 irreducible projectile damage. Otherwise, draw 2 cards."
+      ],
+      "icons": [
+        "HasPower",
+        "Discard",
+        "DealDamageProjectile",
+        "DrawCardNow"
+      ],
+      "hitpoints": 28,
+      "nemesisIdentifiers": [
+        "Expatriette"
+      ],
+      "incapacitatedAbilities": [
+        "One Hero may use a power.",
+        "One Hero may deal 1 target 1 irreducible projectile damage.",
+        "Each player may discard a card. Any player that does draws 2 cards."
+      ],
+      "flippedIcons": [
+        "UsePowerNow",
+        "DealDamageProjectile",
+        "MakeDamageIrreducieble",
+        "DrawCardNow"
+      ],
+      "openingLines": {
+        "default": "Target locked. Let's make this clean.",
+        "CitizenDawnCharacter": "And here I thought you'd seen reason after all that [b]Aeon[/b] business.",
+        "OblivAeonFrontPageCharacter": "Guess we're going to need some bigger bullets."
+      },
+      "complexity": 2
+    }
+  ],
+  "MrFixer": [
+    {
+      "identifier": "MrFixerCharacter",
+      "promoIdentifier": "MythikalMantraCharacter",
+      "count": 1,
+      "title": "Mantra",
+      "promoTitle": "Mythikal Mantra",
+      "shortPromoTitle": "Mantra",
+      "body": "Instructive Strike",
+      "backgroundColor": "FF5A00",
+      "foilBackgroundColor": "FF5A00",
+      "hitpointsColor": "FF5A00",
+      "character": true,
+      "powers": [
+        "[i]Mantra[/i] deals 1 target 1 melee damage. If a hero target takes damage this way, their player may draw a card."
+      ],
+      "icons": [
+        "HasPower",
+        "DealDamageMelee",
+        "DrawCardNow"
+      ],
+      "hitpoints": 28,
+      "nemesisIdentifiers": [
+        "MrFixer"
+      ],
+      "incapacitatedAbilities": [
+        "One Player may play a card.",
+        "Each target regains 1 HP.",
+        "Select a Target. Increase the next damage dealt by that Target by 1 and reduce the next damage dealt to that Target by 1."
+      ],
+      "flippedIcons": [
+        "PlayCardNow",
+        "GainHP",
+        "IncreaseDamageDealt",
+        "ReduceDamageTaken"
+      ],
+      "openingLines": {
+        "default": "You have a lot to learn. Take this lesson to heart.",
+        "TheChairmanCharacter": "A miscomprehension you may yet live to regret.",
+        "TheOperativeTeamCharacter": "The Dragon's will broke me. only one without fault could grant me peace.",
+        "OblivAeonFrontPageCharacter": "Rage may have helped here. Yet I find myself at peace."
+      },
+      "complexity": 2
+    }
+  ],
+  "TheHarpy": [
+    {
+      "identifier": "TheHarpyCharacter",
+      "promoIdentifier": "MythikalPinionCharacter",
+      "count": 1,
+      "title": "The Harpy",
+      "promoTitle": "Mythikal Pinion",
+      "shortPromoTitle": "Pinion",
+      "body": "Exert Control",
+      "backgroundColor": "E17FB0",
+      "foilBackgroundColor": "E17FB0",
+      "hitpointsColor": "E17FB0",
+      "character": true,
+      "powers": [
+        "Flip 1 control token. When a {avian} token is flipped this way, draw 1 card. When a {arcana} token is flipped this way, [i]Pinion[/i] deals 1 target 1 infernal damage."
+      ],
+      "icons": [
+        "HasPower",
+        "FlipControlToken",
+        "DrawCardNow",
+        "DealDamageInfernal"
+      ],
+      "hitpoints": 26,
+      "nemesisIdentifiers": [
+        "OblivAeon"
+      ],
+      "incapacitatedAbilities": [
+        "One Player may play a card.",
+        "Destroy an Ongoing card.",
+        "Each hero may deal themself 1 psychic damage. Any who take damage this way each deal 1 target 1 infernal damage."
+      ],
+      "flippedIcons": [
+        "PlayCardNow",
+        "DestroyOngoing",
+        "DealDamagePsychic",
+        "DealDamageInfernal"
+      ],
+      "openingLines": {
+        "default": "Let's finish this quickly. Diamond Manor cannot be left alone.",
+        "TheMatriarchCharacter": "You'll notice I've had a change in a pinion.",
+        "OblivAeonFrontPageCharacter": "Every end is a new beginning."
+      },
+      "complexity": 3,
+      "tokenPools": [
+        {
+          "identifier": "AvianControlPool",
+          "name": "The Harpy's {avian} Control Pool",
+          "initialValue": 2,
+          "minimumValue": 0,
+          "maximumValue": 5,
+          "color": "DFE6E5"
+        },
+        {
+          "identifier": "ArcanaControlPool",
+          "name": "The Harpy's {arcana} Control Pool",
+          "initialValue": 3,
+          "minimumValue": 0,
+          "maximumValue": 5,
+          "color": "DFE6E5"
+        }
+      ]
+    }
+  ],
+  "Setback": [
+    {
+      "identifier": "SetbackCharacter",
+      "promoIdentifier": "MythikalSetbackCharacter",
+      "count": 1,
+      "title": "Setback",
+      "promoTitle": "Mythikal Setback",
+      "shortPromoTitle": "Setback",
+      "body": "Crash Through",
+      "backgroundColor": "454887",
+      "foilBackgroundColor": "454887",
+      "hitpointsColor": "454887",
+      "character": true,
+      "powers": [
+        "Destroy an ongoing card. If a hero card was destroyed, add 2 tokens to your unlucky pool and draw a card. Otherwise, remove 2 tokens from your unlucky pool and {Setback} deals himself 2 melee damage."
+      ],
+      "icons": [
+        "HasPower",
+        "DestroyOngoing",
+        "DrawCardNow",
+        "AddOrRemoveTokens"
+      ],
+      "hitpoints": 31,
+      "nemesisIdentifiers": [
+        "Setback"
+      ],
+      "incapacitatedAbilities": [
+        "One Hero may use a power.",
+        "Select a Target. Reduce the next damage dealt to that Target by 2.",
+        "Destroy up to two ongoing cards. Only one may be a villain card."
+      ],
+      "flippedIcons": [
+        "UsePowerNow",
+        "DestroyTarget",
+        "PlayCardNow"
+      ],
+      "openingLines": {
+        "default": "Hi. Hello! Sorry. Not sure what for yet, but there's always something.",
+        "KismetCharacter": "I've got luck for everybody! Well. Sometimes. Well. Hopefully today.",
+        "TricksterKismetCharacter": "Oh we've got tricks of our own. Right? Guys?",
+        "PlagueRatTeamCharacter": "Well gosh yeah, do that. Wait. Are you injecting the [b]killer rat[/b] with green ooze? [b]why!?[/b]",
+        "OblivAeonFrontPageCharacter": "Hey uh, Faye? What's going on, is this normal?"
+      },
+      "complexity": 3
+    }
+  ],
+  "LazyFanComix.Greyhat": [
+    {
+      "identifier": "GreyhatCharacter",
+      "promoIdentifier": "MythikalGreyhatCharacter",
+      "count": 1,
+      "title": "Greyhat",
+      "promoTitle": "Mythikal Greyhat",
+      "shortPromoTitle": "Greyhat",
+      "body": "Parity Bits",
+      "backgroundColor": "B4A697",
+      "foilBackgroundColor": "B4A697",
+      "hitpointsColor": "B4A697",
+      "character": true,
+      "powers": [
+        "Play 1 card. Treat any card played this way as if it were the first card played this turn."
+      ],
+      "icons": [
+        "HasPower",
+        "PlayCardNow"
+      ],
+      "hitpoints": 24,
+      "nemesisIdentifiers": [
+        "LazyFanComix.Greyhat"
+      ],
+      "incapacitatedAbilities": [
+        "One player may play a card.",
+        "One hero may deal 1 target 1 energy damage.",
+        "One player may destroy one of their ongoing or equipment cards. If they do, they may play a different card from their trash."
+      ],
+      "flippedIcons": [
+        "PlayCardNow",
+        "DealDamageEnergy",
+        "Destroy"
+      ],
+      "openingLines": {
+        "default": "Keep your lines open. They can't withstand a group of linked heroes.",
+        "OblivAeonFrontPageCharacter": "This threat is bigger than anything. Everyone link up."
+      },
+      "complexity": 2
+    }
+  ]
+}

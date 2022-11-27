@@ -41,7 +41,8 @@
 				"default": "going for a pb this time, don't forget to subscribe!",
 				"MissInformationCharacter": "oh great. a long drawn-out fetch quest first.",
 				"Menagerie.UnmuteCharacter": "you're not wrong. hey wait. do you see aiden too? he's a wizard with clippers and shears.",
-				"Cauldron.SwarmEaterCharacter": "oh good, maybe you can help me upgrade my rig."
+				"Cauldron.SwarmEaterCharacter": "oh good, maybe you can help me upgrade my rig.",
+				"OblivAeonFrontPageCharacter": "I see. hardcore mode. no save-scumming. got it."
 			},
 			"complexity": 3
 		},

@@ -33,6 +33,35 @@ namespace Angille.CaptainCain
 			AddAdditionalPhaseActionTrigger((TurnTaker tt) => tt == this.TurnTaker, Phase.UsePower, 1);
 		}
 
+		public override IEnumerator Play()
+		{
+			IEnumerator morePowerCR = IncreasePhaseActionCountIfInPhase(
+				(TurnTaker tt) => tt == this.TurnTaker,
+				Phase.UsePower,
+				1
+			);
+
+			if (UseUnityCoroutines)
+			{
+				yield return GameController.StartCoroutine(base.Play());
+				yield return GameController.StartCoroutine(morePowerCR);
+			}
+			else
+			{
+				GameController.ExhaustCoroutine(base.Play());
+				GameController.ExhaustCoroutine(morePowerCR);
+			}
+		}
+
+		public override bool AskIfIncreasingCurrentPhaseActionCount()
+		{
+			if (GameController.ActiveTurnPhase.IsUsePower)
+			{
+				return GameController.ActiveTurnTaker == this.TurnTaker;
+			}
+			return false;
+		}
+
 		protected override TriggerType[] DestructionTriggers => new TriggerType[1] {
 			TriggerType.DealDamage
 		};

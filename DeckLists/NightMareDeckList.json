@@ -210,7 +210,7 @@
 			],
 			"body": [
 				"When this card enters play, {NightMare} deals 1 target 1 Melee damage.",
-				"If {NightMare} would be dealt irreducible damage, prevent that damage, then {NightMare} deals herself that much infernal damage."
+				"Damage dealt to {NightMare} cannot be increased."
 			],
 			"powers": [
 				"Draw 2 cards. Discard 1."

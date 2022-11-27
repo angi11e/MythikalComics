@@ -56,8 +56,8 @@
 				"water"
 			],
 			"body": [
-				"Reveal cards from the top of your deck until you reveal 2 [u]water[/u] cards. Put them into your hand. Shuffle the rest of the revealed cards into your deck.",
-				"Play 1 [u]water[/u] card."
+				"Reveal cards from the top of your deck until you reveal 2 water cards. Put them into your hand. Shuffle the rest of the revealed cards into your deck.",
+				"Play 1 water card."
 			],
 			"icons": [
 				"Search",
@@ -120,7 +120,7 @@
 				"limited"
 			],
 			"body": [
-				"Reduce cold, energy, fire, and radiant damage dealt to hero targets by the number of [u]water[/u] cards in play.",
+				"Reduce cold, energy, fire, and radiant damage dealt to hero targets by the number of water cards in play.",
 				"At the end of your turn, {Patina} deals up to 2 targets 1 fire damage each.",
 				"When {Patina} would be dealt damage of a type reduced by this card, you may destroy this card. If you do, you may redirect that Damage to a Target of your choice."
 			],
@@ -167,7 +167,7 @@
 				"Whenever you play an equipment card from your hand, you may draw a card."
 			],
 			"powers": [
-				"Move 1 equipment card from your trash into play. If no cards enter play this way, 1 hero other than {Patina} may play 1 card now."
+				"You may move 1 equipment card from your trash into play. If no cards enter play this way, 1 hero other than {Patina} may play 1 card now."
 			],
 			"icons": [
 				"DrawCardNow",
@@ -188,7 +188,7 @@
 			],
 			"body": [
 				"After {Patina} deals Damage, she becomes immune to that type of Damage. After {Patina} deals a different type of Damage, her Damage immunity changes to that type.",
-				"Whenever a hero target would be dealt damage {Patina} is immune to, you may redirect it to {Patina}. If you do, destroy a [u]water[/u] card or this card."
+				"Whenever a hero target would be dealt damage {Patina} is immune to, you may redirect it to {Patina}. If you do, destroy a water card or this card."
 			],
 			"icons": [
 				"ImmuneToDamage",
@@ -207,7 +207,7 @@
 				"water"
 			],
 			"body": [
-				"When a villain target deals damage to a hero target, you may destroy this card. If you do, {Patina} deals the source of that damage X projectile damage, where X = the number of [u]water[/u] cards in play plus 1."
+				"When a villain target deals damage to a hero target, you may destroy this card. If you do, {Patina} deals the source of that damage X projectile damage, where X = the number of water cards in play plus 1."
 			],
 			"icons": [
 				"DestroySelf",
@@ -225,7 +225,7 @@
 				"water"
 			],
 			"body": [
-				"{Patina} deals each target X cold or melee damage, where X = the number of [u]water[/u] cards in play plus 1.",
+				"{Patina} deals each target X cold or melee damage, where X = the number of water cards in play plus 1.",
 				"Destroy an environment card."
 			],
 			"icons": [
@@ -247,7 +247,7 @@
 			"body": [
 				"Discard the top card of each deck.",
 				"Each player may discard a card. Those who do may draw a card.",
-				"You may destroy a hero ongoing or equipment card. If you do, {Patina} deals up to X targets 3 projectile damage each, where X = the number of [u]water[/u] cards in play plus 1."
+				"You may destroy a hero ongoing or equipment card. If you do, {Patina} deals up to X targets 3 projectile damage each, where X = the number of water cards in play plus 1."
 			],
 			"icons": [
 				"Discard",
@@ -268,7 +268,7 @@
 			],
 			"body": [
 				"Destroy an ongoing or equipment card.",
-				"If it was a hero card, {Patina} deals 1 target 1 cold damage and X psychic damage in either order, where X = the number of [u]water[/u] cards in play plus 1."
+				"If it was a hero card, {Patina} deals 1 target 1 cold damage and X psychic damage in either order, where X = the number of water cards in play plus 1."
 			],
 			"icons": [
 				"DestroyOngoing",
@@ -310,7 +310,7 @@
 				"Whenever a villain card would be played, you may destroy this card. If you do, one player other than {Patina} may draw a card instead."
 			],
 			"powers": [
-				"Deal 1 target X cold or melee damage, where X = the number of [u]water[/u] cards in play plus 1."
+				"Deal 1 target X cold or melee damage, where X = the number of water cards in play plus 1."
 			],
 			"icons": [
 				"Manipulate",
@@ -341,7 +341,7 @@
 			"hitpointsColor": "20CD8B",
 			"character": true,
 			"powers": [
-				"Discard up to 3 [u]water[/u] cards. For each card discarded this way, draw 1 card or play 1 non-[u]water[/u] card."
+				"Discard up to 3 water cards. For each card discarded this way, draw 1 card or play 1 non-water card."
 			],
 			"hitpoints": 27,
 			"nemesisIdentifiers": [
@@ -365,7 +365,8 @@
 				"TheMatriarchCharacter": "‘corvus’? but that one there is [i]cathartidae[/i]. oh, do you find this cathartic?",
 				"FrictionTeamCharacter": "I doubt you can either. Physics just isn't on your side.",
 				"MissInformationTeamCharacter": "this is a remnant of the multiverse theory, yes? fascinating.",
-				"Cauldron.MenagerieCharacter": "my scientific curiosity forbids me from saying no."
+				"Cauldron.MenagerieCharacter": "my scientific curiosity forbids me from saying no.",
+				"OblivAeonFrontPageCharacter": "the science does not support an event like this. very strange."
 			}
 		},
 		{

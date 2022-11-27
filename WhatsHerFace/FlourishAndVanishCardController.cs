@@ -42,37 +42,40 @@ namespace Angille.WhatsHerFace
 				GameController.ExhaustCoroutine(destroyCR);
 			}
 
-			Card vanished = actions.FirstOrDefault().WasCardDestroyed ? actions.FirstOrDefault().CardToDestroy.Card : null;
-
-			// If you destroyed an environment card, {WhatsHerFace} regains 2 hp.
-			if (vanished != null && vanished.IsEnvironment)
+			if (actions.Any() && actions.FirstOrDefault().WasCardDestroyed)
 			{
-				IEnumerator healTargetCR = GameController.GainHP(
-					base.CharacterCard,
-					2,
-					cardSource: GetCardSource()
-				);
-				if (UseUnityCoroutines)
-				{
-					yield return GameController.StartCoroutine(healTargetCR);
-				}
-				else
-				{
-					GameController.ExhaustCoroutine(healTargetCR);
-				}
-			}
+				Card vanished = actions.FirstOrDefault().CardToDestroy.Card;
 
-			// If you destroyed a hero card, you may draw 1 card now.
-			if (vanished != null && vanished.IsHero)
-			{
-				IEnumerator drawCardCR = DrawCard(base.HeroTurnTaker, true);
-				if (base.UseUnityCoroutines)
+				// If you destroyed an environment card, {WhatsHerFace} regains 2 hp.
+				if (vanished != null && vanished.IsEnvironment)
 				{
-					yield return base.GameController.StartCoroutine(drawCardCR);
+					IEnumerator healTargetCR = GameController.GainHP(
+						base.CharacterCard,
+						2,
+						cardSource: GetCardSource()
+					);
+					if (UseUnityCoroutines)
+					{
+						yield return GameController.StartCoroutine(healTargetCR);
+					}
+					else
+					{
+						GameController.ExhaustCoroutine(healTargetCR);
+					}
 				}
-				else
+
+				// If you destroyed a hero card, you may draw 1 card now.
+				if (vanished != null && vanished.IsHero)
 				{
-					base.GameController.ExhaustCoroutine(drawCardCR);
+					IEnumerator drawCardCR = DrawCard(base.HeroTurnTaker, true);
+					if (base.UseUnityCoroutines)
+					{
+						yield return base.GameController.StartCoroutine(drawCardCR);
+					}
+					else
+					{
+						base.GameController.ExhaustCoroutine(drawCardCR);
+					}
 				}
 			}
 

@@ -10,9 +10,7 @@ namespace Angille.NightMare
 	{
 		/*
 		 * When this card enters play, {NightMare} deals 1 target 1 Melee damage.
-		 * If {NightMare} would be dealt irreducible damage,
-		 *  prevent that damage,
-		 *  then {NightMare} deals herself that much infernal damage.
+		 * Damage dealt to {NightMare} cannot be increased.
 		 * 
 		 * POWER
 		 * Draw 2 cards. Discard 1.
@@ -56,6 +54,7 @@ namespace Angille.NightMare
 
 		public override void AddTriggers()
 		{
+			/* old version
 			// If {NightMare} would be dealt irreducible damage...
 			AddTrigger(
 				(DealDamageAction dda) =>
@@ -70,10 +69,20 @@ namespace Angille.NightMare
 				},
 				TriggerTiming.Before
 			);
+			*/
+
+			// Damage dealt to {NightMare} cannot be increased.
+			AddTrigger(
+				(DealDamageAction dd) => dd.Target == this.CharacterCard,
+				(DealDamageAction dd) => GameController.MakeDamageUnincreasable(dd, GetCardSource()),
+				TriggerType.MakeDamageUnincreasable,
+				TriggerTiming.Before
+			);
 
 			base.AddTriggers();
 		}
 
+		/* old version
 		private IEnumerator ConvertDamageResponse(DealDamageAction dda)
 		{
 			int damage = dda.Amount;
@@ -114,6 +123,7 @@ namespace Angille.NightMare
 
 			yield break;
 		}
+		*/
 
 		public override IEnumerator UsePower(int index = 0)
 		{

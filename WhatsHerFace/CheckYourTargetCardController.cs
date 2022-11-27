@@ -9,7 +9,7 @@ namespace Angille.WhatsHerFace
 	public class CheckYourTargetCardController : RecallBaseCardController
 	{
 		/*
-		 * Play this card next to a non-hero target.
+		 * Play this card next to a non-character target.
 		 * Redirect the first damage dealt by that target each turn to the villain target with the highest HP.
 		 * If that target leaves play, return this card to your hand.
 		 */
@@ -25,9 +25,9 @@ namespace Angille.WhatsHerFace
 			base.SpecialStringMaker.ShowVillainTargetWithHighestHP();
 		}
 
-		// Play this card next to a non-hero target.
+		// Play this card next to a non-character target.
 		protected override LinqCardCriteria CustomCriteria => new LinqCardCriteria(
-			(Card c) => !c.IsHero && c.IsTarget && c.IsInPlayAndHasGameText,
+			(Card c) => !c.IsCharacter && c.IsTarget && c.IsInPlayAndHasGameText,
 			"non-hero target"
 		);
 

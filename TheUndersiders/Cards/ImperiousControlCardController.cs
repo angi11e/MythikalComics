@@ -105,7 +105,7 @@ namespace Angille.TheUndersiders
 				TriggerTiming.After
 			);
 
-			AddIfTheTargetThatThisCardIsNextToLeavesPlayDestroyThisCardTrigger();
+			// AddIfTheTargetThatThisCardIsNextToLeavesPlayDestroyThisCardTrigger();
 			base.AddTriggers();
 		}
 
