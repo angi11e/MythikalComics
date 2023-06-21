@@ -48,7 +48,7 @@ namespace Angille.NightMare
 			List<DealDamageAction> storedResults = new List<DealDamageAction>();
 			IEnumerator dealDamageCR = GameController.SelectTargetsAndDealDamage(
 				DecisionMaker,
-				new DamageSource(GameController, base.CharacterCard),
+				new DamageSource(GameController, this.CharacterCard),
 				1,
 				DamageType.Melee,
 				1,
@@ -143,7 +143,7 @@ namespace Angille.NightMare
 					IncreaseDamageStatusEffect increaseDamageSE = new IncreaseDamageStatusEffect(2);
 					increaseDamageSE.NumberOfUses = 1;
 					increaseDamageSE.TargetCriteria.IsSpecificCard = card;
-					increaseDamageSE.SourceCriteria.IsSpecificCard = base.CharacterCard;
+					increaseDamageSE.SourceCriteria.IsSpecificCard = this.CharacterCard;
 					increaseDamageSE.UntilCardLeavesPlay(card);
 
 					IEnumerator increaseDamageCR = AddStatusEffect(increaseDamageSE);

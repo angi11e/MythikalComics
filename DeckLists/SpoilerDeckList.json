@@ -10,35 +10,35 @@
 			"count": 1,
 			"title": "Spoiler",
 			"body": "Thrice-Lived Life",
-			"backgroundColor": "2E6FD5",
-			"foilBackgroundColor": "2E6FD5",
-			"hitpointsColor": "2E6FD5",
+			"backgroundColor": "E95011",
+			"foilBackgroundColor": "E95011",
+			"hitpointsColor": "E95011",
 			"character": true,
 			"powers": [
-				""
+				"Reveal the top 3 cards of your deck. Put 1 of them in your hand, 1 on the top of your deck, and discard the rest."
 			],
 			"icons": [
 				"HasPower",
-				"",
-				"",
-				""
+				"Manipulate",
+				"PlayCardNow",
+				"Discard"
 			],
 			"hitpoints": 24,
 			"nemesisIdentifiers": [
 				"Angille.Spoiler"
 			],
 			"incapacitatedAbilities": [
-				"",
-				"",
-				""
+				"One player may play a card.",
+				"One hero may use a power.",
+				"Reveal the top card of a Deck. You may discard it or put it into Play."
 			],
 			"flippedIcons": [
-				"",
-				"",
-				""
+				"PlayCardNow",
+				"UsePowerNow",
+				"DrawCardNow"
 			],
 			"openingLines": {
-				"default": "FPO"
+				"default": "Good, good. This is how it went the first time."
 			},
 			"complexity": 3
 		},
@@ -51,17 +51,19 @@
 				"limited"
 			],
 			"body": [
-				""
+				"At the end of your turn, you may activate a [u]rewind[/u] text."
 			],
 			"powers": [
-				""
+				"You may activate a [u]rewind[/u] text. If you do not, you may play a card."
 			],
 			"icons": [
-				"",
-				""
+				"EndOfTurnAction",
+				"HasPower",
+				"Angille.PressRewind",
+				"PlayCardNow"
 			],
-			"flavorText": "“”",
-			"flavorReference": ""
+			"flavorText": "“Consider me impressed, human.{BR}I thought these techniques{BR}impossible for organics.”",
+			"flavorReference": "Omnitron-M, It's About Time #8"
 		},
 		{
 			"identifier": "CausalityDecoupler",
@@ -72,17 +74,21 @@
 				"limited"
 			],
 			"body": [
-				""
+				"At the start of your turn, you may activate a [u]rewind[/u] text."
 			],
 			"powers": [
-				""
+				"{Spoiler} deals each target 1 psychic damage. {Spoiler} deals each villain target 1 energy damage. Destroy this card."
 			],
 			"icons": [
-				"",
-				""
+				"StartOfTurnAction",
+				"HasPower",
+				"Angille.PressRewind",
+				"DealDamagePsychic",
+				"DealDamageEnergy",
+				"DestroySelf"
 			],
-			"flavorText": "“”",
-			"flavorReference": ""
+			"flavorText": "“Oh that's a neat trick.{BR}What was, is;{BR}and what wasn't, shall be.”",
+			"flavorReference": "Spoiler, It's About Time #12"
 		},
 		{
 			"identifier": "EncyclopaediaChronomica",
@@ -93,17 +99,19 @@
 				"limited"
 			],
 			"body": [
-				""
+				"You may look at the top card of the environment deck at any time."
 			],
 			"powers": [
-				""
+				"Move the top card of the environment deck to the bottom. {Spoiler} may deal himself 1 irreducible energy damage. If he takes damage this way, repeat the game text of this power."
 			],
 			"icons": [
-				"",
-				""
+				"Manipulate",
+				"HasPower",
+				"DealDamageEnergy",
+				"MakeDamageIrreducible"
 			],
-			"flavorText": "“”",
-			"flavorReference": ""
+			"flavorText": "“nobody has ever been a{BR}more effective lookout, niño.{BR}you are welcome back any...time.”",
+			"flavorReference": "La Comodora, It's About Time #1"
 		},
 		{
 			"identifier": "ICanExplainEverything",
@@ -114,44 +122,100 @@
 				"limited"
 			],
 			"body": [
-				""
+				"when this card enters play, each player may move a card with a power on it from their trash to their hand."
 			],
 			"activatableAbilities": [
 				{
 					"name": "rewind",
-					"text": ""
+					"text": "One hero deals themself 2 psychic damage. If they take damage this way, they may use a power."
 				}
 			],
 			"icons": [
-				"",
-				""
+				"Manipulate",
+				"Angille.HasRewind",
+				"DealDamagePsychic",
+				"UsePowerNow"
 			],
-			"flavorText": "“”",
-			"flavorReference": ""
+			"flavorQuotes": [
+				{
+					"identifier": "Spoiler",
+					"text": "are you even listening?"
+				},
+				{
+					"identifier": "Minnie",
+					"text": "there's wisdom{BR}in rest, ok?"
+				}
+			],
+			"flavorReference": "Anachronists #1"
 		},
 		{
 			"identifier": "IDontHaveTimeForThis",
-			"count": 3,
+			"count": 2,
 			"title": "I Don't Have Time For This",
 			"keywords": [
 				"ongoing",
 				"limited"
 			],
 			"body": [
-				""
+				"when this card enters play, you may destroy an ongoing or environment card."
 			],
 			"activatableAbilities": [
 				{
 					"name": "rewind",
-					"text": ""
+					"text": "Reduce the next damage dealt to a hero target by 2."
 				}
 			],
 			"icons": [
-				"",
-				""
+				"DestroyOngoing",
+				"DestroyEnvironment",
+				"Angille.HasRewind",
+				"ReduceDamageTaken"
 			],
-			"flavorText": "“”",
-			"flavorReference": ""
+			"flavorQuotes": [
+				{
+					"identifier": "Mara",
+					"text": "Hold still!"
+				},
+				{
+					"identifier": "Spoiler",
+					"text": "oh, this is ridiculous."
+				}
+			],
+			"flavorReference": "It's About Time #4"
+		},
+		{
+			"identifier": "IllDoThatYesterday",
+			"count": 2,
+			"title": "I'll Do That Yesterday",
+			"keywords": [
+				"ongoing",
+				"limited"
+			],
+			"body": [
+				"when this card enters play, each player may move a one-shot card from their trash to their hand."
+			],
+			"activatableAbilities": [
+				{
+					"name": "rewind",
+					"text": "The environment deals 1 target 2 melee damage."
+				}
+			],
+			"icons": [
+				"Manipulate",
+				"Angille.HasRewind",
+				"DealDamageMelee"
+			],
+			"flavorQuotes": [
+				{
+					"identifier": "Captain Cain",
+					"text": "Where'd the{BR}rubbish can come from?"
+				},
+				{
+					"identifier": "Spoiler",
+					"text": "oh. right. remind me later."
+				}
+			],
+			"flavorReference": "Anachronists #1"
 		},
 		{
 			"identifier": "IRememberTheEnding",
@@ -162,68 +226,73 @@
 				"limited"
 			],
 			"body": [
-				""
+				"when this card enters play, reveal and replace the top card of each hero deck."
 			],
 			"activatableAbilities": [
 				{
 					"name": "rewind",
-					"text": ""
+					"text": "One player reveals the top 3 cards of their deck. Discard 1, put 1 on top of their deck, and put 1 in their hand."
 				}
 			],
 			"icons": [
-				"",
-				""
+				"Manipulate",
+				"Angille.HasRewind",
+				"Discard",
+				"PlayCardNow"
 			],
-			"flavorText": "“”",
-			"flavorReference": ""
+			"flavorText": "“Unless you wanna end up{BR}on the moon again, [b]please[/b]{BR}listen to my advice.”",
+			"flavorReference": "Spoiler, Anachronists #2"
 		},
 		{
 			"identifier": "IveReadYourFile",
 			"count": 2,
-			"title": "I''ve Read Your File",
+			"title": "I've Read Your File",
 			"keywords": [
 				"ongoing",
 				"limited"
 			],
 			"body": [
-				""
+				"when this card enters play, reveal and replace the top card of each villain deck."
 			],
 			"activatableAbilities": [
 				{
 					"name": "rewind",
-					"text": ""
+					"text": "Reveal the top 3 cards of the villain deck. Discard 1, put 1 on top of the villain deck, and put 1 on the bottom of the villain deck."
 				}
 			],
 			"icons": [
-				"",
-				""
+				"Manipulate",
+				"Angille.HasRewind",
+				"Discard"
 			],
-			"flavorText": "“”",
-			"flavorReference": ""
+			"flavorText": "“Good heavens, [b]you[/b] again!{BR}You do know of course, I [b]am[/b]{BR}doing everyone a favor you see.”",
+			"flavorReference": "Grandfather, It's About Time #16"
 		},
 		{
 			"identifier": "IveSeenTheMoments",
-			"count": 2,
-			"title": "I''ve Seen The Moments",
+			"count": 3,
+			"title": "I've Seen The Moments",
 			"keywords": [
 				"ongoing",
 				"limited"
 			],
 			"body": [
-				""
+				"when this card enters play, each player may draw a card."
 			],
 			"activatableAbilities": [
 				{
 					"name": "rewind",
-					"text": ""
+					"text": "One hero deals themself 2 energy damage. If they take damage this way, they may play a card."
 				}
 			],
 			"icons": [
-				"",
-				""
+				"DrawCardNow",
+				"Angille.HasRewind",
+				"DealDamageEnergy",
+				"PlayCardNow"
 			],
-			"flavorText": "“”",
-			"flavorReference": ""
+			"flavorText": "“No bear, no tiger.{BR}I understand. an owl? a fox?{BR}if you say so.”",
+			"flavorReference": "Supplicate, Anachronists #3"
 		},
 		{
 			"identifier": "NowMakeItHappen",
@@ -233,31 +302,38 @@
 				"one-shot"
 			],
 			"body": [
-				""
+				"Each player may discard a card. Any players who do so draw 2 cards. One player other than {Spoiler} may play a card.",
+				"You may discard a card. If you do, activate a [u]rewind[/u] text."
 			],
 			"icons": [
-				"",
-				""
+				"Discard",
+				"DrawCardNow",
+				"PlayCardNow",
+				"Angille.PressRewind"
 			],
-			"flavorText": "“”",
-			"flavorReference": ""
+			"flavorText": "“remember the Battle of Hysiae?{BR}let's do [b]that[/b].”",
+			"flavorReference": "Spoiler, Anachronists #1"
 		},
 		{
 			"identifier": "ParadoxProtocolsEngage",
-			"count": 4,
+			"count": 3,
 			"title": "Paradox Protocols Engage!",
 			"keywords": [
 				"one-shot"
 			],
 			"body": [
-				""
+				"You may discard a card. If you do, activate a [u]rewind[/u] text.",
+				"Destroy any number of your ongoing and equipment cards. For each card destroyed this way, {Spoiler} deals 1 target 2 energy damage, then regains 2 HP."
 			],
 			"icons": [
-				"",
-				""
+				"Discard",
+				"Angille.PressRewind",
+				"Destroy",
+				"DealDamageEnergy",
+				"GainHP"
 			],
-			"flavorText": "“”",
-			"flavorReference": ""
+			"flavorText": "“Fine. Go ahead.{BR}press the button. enjoy.”",
+			"flavorReference": "Spoiler, It's About Time #11"
 		},
 		{
 			"identifier": "RCHH380Disruptor",
@@ -268,17 +344,21 @@
 				"limited"
 			],
 			"body": [
-				""
+				"increase energy damage dealt by 1.",
+				"when this card is destroyed, you may draw a card."
 			],
 			"powers": [
-				""
+				"{Spoiler} deals up to 2 targets 1 projectile damage each. Any target that takes damage this way deals themself 2 energy damage."
 			],
 			"icons": [
-				"",
-				""
+				"IncreaseDamageDealtEnergy",
+				"DrawCardNow",
+				"HasPower",
+				"DealDamageProjectile",
+				"DealDamageEnergy"
 			],
-			"flavorText": "“”",
-			"flavorReference": ""
+			"flavorText": "“the timeline where Revocorp,{BR}Halcyon, & Halberd all merged [b]sucks![/b]{BR}great tech though.”",
+			"flavorReference": "Spoiler, Anachronists #2"
 		},
 		{
 			"identifier": "StopDropRewind",
@@ -288,31 +368,47 @@
 				"one-shot"
 			],
 			"body": [
-				""
+				"You may draw a card. Search your deck or trash for an ongoing card and put it in your hand. If you searched your deck, shuffle your deck. You may play a card.",
+				"You may discard a card. If you do, activate a [u]rewind[/u] text."
 			],
 			"icons": [
-				"",
-				""
+				"DrawCardNow",
+				"Search",
+				"Discard",
+				"Angille.PressRewind"
 			],
-			"flavorText": "“”",
-			"flavorReference": ""
+			"flavorText": "“ah shrap!{BR}why is [b]Despair[/b] here? now?”",
+			"flavorReference": "Spoiler, Anachronists #3"
 		},
 		{
 			"identifier": "WaitForItNow",
-			"count": 4,
+			"count": 3,
 			"title": "Wait For it... Now!",
 			"keywords": [
 				"one-shot"
 			],
 			"body": [
-				""
+				"Select a target. increase the next damage dealt [i]by[/i] that target by the number of equipment cards in your play area.",
+				"Select a target. increase the next damage dealt [i]to[/i] that target by the number of ongoing cards in your play area.",
+				"You may discard a card. If you do, activate a [u]rewind[/u] text."
 			],
 			"icons": [
-				"",
-				""
+				"IncreaseDamageDealt",
+				"IncreaseDamageTaken",
+				"Discard",
+				"Angille.PressRewind"
 			],
-			"flavorText": "“”",
-			"flavorReference": ""
+			"flavorQuotes": [
+				{
+					"identifier": "Time-Slinger",
+					"text": "now look,{BR}my timing's impeccable."
+				},
+				{
+					"identifier": "Spoiler",
+					"text": "I know. but mine's better."
+				}
+			],
+			"flavorReference": "It's About Time #18"
 		}
 	]
 }

@@ -7,14 +7,14 @@ using System.Linq;
 
 namespace Angille.Athena
 {
-	public class AthenaCharacterCardController : HeroCharacterCardController
+	public class AthenaCharacterCardController : AthenaBaseCharacterCardController
 	{
 		public AthenaCharacterCardController(
 			Card card,
 			TurnTakerController turnTakerController
 		) : base(card, turnTakerController)
 		{
-			base.SpecialStringMaker.ShowNumberOfCardsAtLocation(HeroTurnTaker.Trash, IsAspectCriteria());
+			SpecialStringMaker.ShowNumberOfCardsAtLocation(HeroTurnTaker.Trash, IsManifestCriteria());
 		}
 
 		public override IEnumerator UsePower(int index = 0)
@@ -26,7 +26,7 @@ namespace Angille.Athena
 				true,
 				0,
 				1,
-				IsAspectCriteria(),
+				IsManifestCriteria(),
 				true,
 				false,
 				false,
@@ -48,7 +48,7 @@ namespace Angille.Athena
 
 			IEnumerator dealDamageCR = GameController.SelectTargetsAndDealDamage(
 				DecisionMaker,
-				new DamageSource(GameController, base.CharacterCard),
+				new DamageSource(GameController, this.CharacterCard),
 				damageNumeral,
 				DamageType.Radiant,
 				targetNumeral,
@@ -147,22 +147,6 @@ namespace Angille.Athena
 					break;
 			}
 			yield break;
-		}
-
-		protected LinqCardCriteria IsAspectCriteria(Func<Card, bool> additionalCriteria = null)
-		{
-			var result = new LinqCardCriteria(c => IsAspect(c), "aspect", true);
-			if (additionalCriteria != null)
-			{
-				result = new LinqCardCriteria(result, additionalCriteria);
-			}
-
-			return result;
-		}
-
-		protected bool IsAspect(Card card, bool evenIfUnderCard = false, bool evenIfFaceDown = false)
-		{
-			return card != null && base.GameController.DoesCardContainKeyword(card, "aspect", evenIfUnderCard, evenIfFaceDown);
 		}
 	}
 }

@@ -82,7 +82,7 @@ namespace Angille.Patina
 			List<DestroyCardAction> destroyResults = new List<DestroyCardAction>();
 			IEnumerator destructionCR = GameController.SelectAndDestroyCard(
 				DecisionMaker,
-				new LinqCardCriteria((Card c) => c.IsHero && (c.IsOngoing || IsEquipment(c)), "hero ongoing or equipment"),
+				new LinqCardCriteria((Card c) => IsHero(c) && (IsOngoing(c) || IsEquipment(c)), "hero ongoing or equipment"),
 				optional: true,
 				destroyResults,
 				null,
@@ -100,18 +100,14 @@ namespace Angille.Patina
 			// If you do so...
 			if (DidDestroyCards(destroyResults, 1))
 			{
-				// ...where X = the number of water cards in play plus 1.
-				int damageNumeral = FindCardsWhere(
-					(Card c) => c.IsInPlayAndHasGameText && IsWater(c) && !c.IsOneShot
-				).Count() + 1;
-
 				// ...{Patina} deals up to X targets 3 projectile damage each...
 				IEnumerator damageCR = GameController.SelectTargetsAndDealDamage(
 					DecisionMaker,
 					new DamageSource(GameController, this.CharacterCard),
 					(Card c) => 3,
 					DamageType.Projectile,
-					() => damageNumeral,
+					// ...where X = the number of water cards in play plus 1.
+					() => WaterCardsInPlay + 1,
 					optional: false,
 					0,
 					cardSource: GetCardSource()

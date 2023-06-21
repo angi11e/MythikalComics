@@ -60,7 +60,7 @@ namespace Angille.Athena
 			// At the end of your turn, if there is an [u]aspect[/u] card in play,
 			// this card deals 1 target 1 toxic damage.
 			AddEndOfTurnTrigger(
-				(TurnTaker tt) => tt == base.TurnTaker && AspectInPlay,
+				(TurnTaker tt) => tt == base.TurnTaker && ManifestInPlay,
 				(PhaseChangeAction p) => GameController.SelectTargetsAndDealDamage(
 					DecisionMaker,
 					new DamageSource(GameController, base.Card),

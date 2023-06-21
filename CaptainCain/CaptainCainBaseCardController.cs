@@ -15,11 +15,11 @@ namespace Angille.CaptainCain
 
 		protected bool IsBloodActive => HeroTurnTaker.GetCardsWhere(
 			(Card c) => c.IsInPlayAndNotUnderCard && IsBlood(c) && c.Owner == this.Card.Owner
-		).Count() > 0;
+		).Any();
 
 		protected bool IsFistActive => HeroTurnTaker.GetCardsWhere(
 			(Card c) => c.IsInPlayAndNotUnderCard && IsFist(c) && c.Owner == this.Card.Owner
-		).Count() > 0;
+		).Any();
 
 		protected LinqCardCriteria IsBloodCriteria(Func<Card, bool> additionalCriteria = null)
 		{

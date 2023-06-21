@@ -29,12 +29,12 @@ namespace Angille.NightMare
 		public override void AddTriggers()
 		{
 			// increase damage dealt by {NightMare} by 1.
-			AddIncreaseDamageTrigger((DealDamageAction dda) => dda.DamageSource.IsSameCard(base.CharacterCard), 1);
+			AddIncreaseDamageTrigger((DealDamageAction dda) => dda.DamageSource.IsSameCard(this.CharacterCard), 1);
 
 			// If {NightMare} would deal melee damage, change its type to infernal.
 			AddChangeDamageTypeTrigger(
 				(DealDamageAction dda) =>
-					dda.DamageSource.IsSameCard(base.CharacterCard)
+					dda.DamageSource.IsSameCard(this.CharacterCard)
 					&& dda.DamageType == DamageType.Melee,
 				DamageType.Infernal
 			);
@@ -72,7 +72,7 @@ namespace Angille.NightMare
 		protected override IEnumerator DiscardResponse(GameAction ga)
 		{
 			// Play a card.
-			IEnumerator playCardsCR = SelectAndPlayCardsFromHand(DecisionMaker, 1);
+			IEnumerator playCardsCR = SelectAndPlayCardsFromHand(DecisionMaker, 1, false, 1);
 
 			if (UseUnityCoroutines)
 			{

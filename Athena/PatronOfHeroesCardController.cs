@@ -53,7 +53,7 @@ namespace Angille.Athena
 				IEnumerator drawCR = GameController.SelectHeroToDrawCards(
 					DecisionMaker,
 					2,
-					additionalCriteria: new LinqTurnTakerCriteria((TurnTaker tt) => tt != base.TurnTaker),
+					additionalCriteria: new LinqTurnTakerCriteria((TurnTaker tt) => tt != this.TurnTaker),
 					cardSource: GetCardSource()
 				);
 
@@ -70,8 +70,8 @@ namespace Angille.Athena
 			// {Athena} may deal herself 2 irreducible psychic damage.
 			List<DealDamageAction> storedDamage = new List<DealDamageAction>();
 			IEnumerator selfDamageCR = DealDamage(
-				base.CharacterCard,
-				base.CharacterCard,
+				this.CharacterCard,
+				this.CharacterCard,
 				2,
 				DamageType.Psychic,
 				isIrreducible: true,
@@ -89,13 +89,13 @@ namespace Angille.Athena
 			}
 
 			// If she does, one hero target other than {Athena} may regain 4 HP.
-			if (DidDealDamage(storedDamage, base.CharacterCard, base.CharacterCard))
+			if (DidDealDamage(storedDamage, this.CharacterCard, this.CharacterCard))
 			{
 				IEnumerator healCR = GameController.SelectAndGainHP(
 					DecisionMaker,
 					4,
 					optional: false,
-					(Card c) => c.IsInPlay && c.IsHero && c.IsTarget && c != base.CharacterCard,
+					(Card c) => c.IsInPlay && IsHero(c) && c.IsTarget && c != this.CharacterCard,
 					cardSource: GetCardSource()
 				);
 
@@ -113,14 +113,14 @@ namespace Angille.Athena
 			storedDamage = new List<DealDamageAction>();
 			IEnumerator friendlyDamageCR = GameController.SelectTargetsAndDealDamage(
 				DecisionMaker,
-				new DamageSource(GameController, base.CharacterCard),
+				new DamageSource(GameController, this.CharacterCard),
 				2,
 				DamageType.Radiant,
 				1,
 				optional: true,
 				0,
 				isIrreducible: true,
-				additionalCriteria: (Card c) => c.IsHeroCharacterCard && c.IsInPlayAndHasGameText && c.IsTarget,
+				additionalCriteria: (Card c) => IsHeroCharacterCard(c) && c.IsInPlayAndHasGameText && c.IsTarget,
 				storedResultsDamage: storedDamage,
 				cardSource: GetCardSource()
 			);
@@ -136,7 +136,7 @@ namespace Angille.Athena
 
 			// If she does, that hero may play a card or use a power now.
 			DealDamageAction dealDamageAction = storedDamage.FirstOrDefault();
-			if (dealDamageAction != null && dealDamageAction.DidDealDamage && dealDamageAction.Target.IsHeroCharacterCard)
+			if (dealDamageAction != null && dealDamageAction.DidDealDamage && IsHeroCharacterCard(dealDamageAction.Target))
 			{
 				HeroTurnTakerController httc = FindHeroTurnTakerController(dealDamageAction.Target.Owner.ToHero());
 				List<Function> list = new List<Function>();

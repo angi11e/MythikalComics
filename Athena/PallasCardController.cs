@@ -33,8 +33,8 @@ namespace Angille.Athena
 			// The first time each turn a villain target deals damage to a hero character other than {Athena}...
 			AddTrigger(
 				(DealDamageAction dd) =>
-					dd.Target.IsHeroCharacterCard
-					&& dd.Target != base.CharacterCard
+					IsHeroCharacterCard(dd.Target)
+					&& dd.Target != this.CharacterCard
 					&& dd.DidDealDamage
 					&& dd.DamageSource.IsVillainTarget
 					&& !IsPropertyTrue(HasDealtRetributionDamage),
@@ -60,15 +60,15 @@ namespace Angille.Athena
 			for (int i = 0; i < targetNumeral; i++)
 			{
 				List<SelectTargetDecision> selectedTarget = new List<SelectTargetDecision>();
-				IEnumerable<Card> choices = base.FindCardsWhere(
+				IEnumerable<Card> choices = FindCardsWhere(
 					new LinqCardCriteria((Card c) => c.IsTarget && c.IsInPlayAndHasGameText)
 				);
-				IEnumerator selectTargetCR = base.GameController.SelectTargetAndStoreResults(
-					base.HeroTurnTakerController,
+				IEnumerator selectTargetCR = GameController.SelectTargetAndStoreResults(
+					this.HeroTurnTakerController,
 					choices,
 					selectedTarget,
 					selectionType: SelectionType.SelectTarget,
-					cardSource: base.GetCardSource()
+					cardSource: GetCardSource()
 				);
 				if (UseUnityCoroutines)
 				{
@@ -85,7 +85,7 @@ namespace Angille.Athena
 					if (selectedTargetDecision != null && selectedTargetDecision.SelectedCard != null)
 					{
 						IEnumerator dealDamageCR = DealDamage(
-							base.CharacterCard,
+							this.CharacterCard,
 							(Card c) => c.IsTarget && c == selectedTargetDecision.SelectedCard,
 							damageNumeral,
 							DamageType.Melee,
@@ -111,8 +111,8 @@ namespace Angille.Athena
 		{
 			// If that Target dealt a hero target Damage since your last turn, this damage is irreducible.
 			IEnumerable<DealDamageJournalEntry> entries = GameController.Game.Journal.QueryJournalEntries(
-				(DealDamageJournalEntry e) => e.TargetCard.IsHero && e.SourceCard.Equals(theTarget)
-			).Where(GameController.Game.Journal.SinceLastTurn<DealDamageJournalEntry>(base.TurnTaker));
+				(DealDamageJournalEntry e) => IsHero(e.TargetCard) && e.SourceCard.Equals(theTarget)
+			).Where(GameController.Game.Journal.SinceLastTurn<DealDamageJournalEntry>(this.TurnTaker));
 
 			return entries.Any();
 		}
@@ -123,7 +123,7 @@ namespace Angille.Athena
 
 			// {Athena} deals that target 2 melee damage.
 			IEnumerator dealDamageCR = DealDamage(
-				base.CharacterCard,
+				this.CharacterCard,
 				(Card c) => c == dd.DamageSource.Card && c.IsTarget,
 				2,
 				DamageType.Melee

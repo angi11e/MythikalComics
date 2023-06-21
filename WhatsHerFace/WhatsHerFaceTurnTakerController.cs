@@ -15,6 +15,9 @@ namespace Angille.WhatsHerFace
 		{
 		}
 
+		public string[] availablePromos = new string[] { "WhatsHerFaceGadgeteer", "Umbra" };
+		public bool ArePromosSetup { get; set; } = false;
+
 		protected override IEnumerable<string> VillainsToAugment => new[] {
 			"IronLegacyCharacter",
 			"KismetCharacter",

@@ -27,7 +27,7 @@ namespace Angille.Athena
 		public override IEnumerator Play()
 		{
 			IEnumerator drawCR = IncreasePhaseActionCountIfInPhase(
-				(TurnTaker tt) => tt == base.TurnTaker,
+				(TurnTaker tt) => tt == this.TurnTaker,
 				Phase.DrawCard,
 				1
 			);
@@ -97,7 +97,7 @@ namespace Angille.Athena
 			else
 			{
 				IEnumerator messageCR = GameController.SendMessageAction(
-					base.TurnTaker.Name + " did not discard enough cards to draw more.",
+					this.TurnTaker.Name + " did not discard enough cards to draw more.",
 					Priority.High,
 					GetCardSource(),
 					null,
@@ -115,11 +115,11 @@ namespace Angille.Athena
 			}
 
 			// then, if no [u]aspect[/u] cards are in play, destroy this card.
-			if (!AspectInPlay)
+			if (!ManifestInPlay)
 			{
 				IEnumerator destructionCR = GameController.DestroyCard(
 					DecisionMaker,
-					base.Card,
+					this.Card,
 					cardSource: GetCardSource()
 				);
 
@@ -138,7 +138,7 @@ namespace Angille.Athena
 
 		private bool ShouldIncreasePhaseActionCount(TurnTaker tt)
 		{
-			return tt == base.TurnTaker;
+			return tt == this.TurnTaker;
 		}
 
 		public override bool AskIfIncreasingCurrentPhaseActionCount()

@@ -8,7 +8,7 @@ using Handelabra;
 
 namespace Angille.Theurgy
 {
-	public class SalemCharacterCardController : HeroCharacterCardController
+	public class SalemCharacterCardController : TheurgyBaseCharacterCardController
 	{
 		public SalemCharacterCardController(Card card, TurnTakerController turnTakerController)
 			: base(card, turnTakerController)
@@ -25,14 +25,11 @@ namespace Angille.Theurgy
 			int targetNumeral = GetPowerNumeral(0, 1);
 			int damageMod = GetPowerNumeral(1, 1);
 
-			// count the charm cards.
-			int damageNumeral = FindCardsWhere((Card c) => c.IsInPlayAndHasGameText && IsCharm(c)).Count() + damageMod;
-
 			List<DealDamageAction> storedResults = new List<DealDamageAction>();
 			IEnumerator damageCR = GameController.SelectTargetsAndDealDamage(
 				DecisionMaker,
-				new DamageSource(GameController, base.CharacterCard),
-				damageNumeral,
+				new DamageSource(GameController, this.CharacterCard),
+				CharmCardsInPlay + damageMod,
 				DamageType.Sonic,
 				targetNumeral,
 				false,
@@ -101,7 +98,7 @@ namespace Angille.Theurgy
 					IEnumerator selectHeroesCR = GameController.SelectCardsAndStoreResults(
 						DecisionMaker,
 						SelectionType.CardToDealDamage,
-						(Card c) => c.IsHero && c.IsTarget && c.IsInPlay,
+						(Card c) => c.IsInPlayAndHasGameText && IsHeroTarget(c),
 						2,
 						selectedCards,
 						optional: false,
@@ -162,7 +159,7 @@ namespace Angille.Theurgy
 					IEnumerator discardPlayCR = GameController.SelectTurnTakersAndDoAction(
 						DecisionMaker,
 						new LinqTurnTakerCriteria((TurnTaker tt) =>
-							tt.IsHero
+							IsHero(tt)
 							&& !tt.IsIncapacitatedOrOutOfGame
 							&& tt.ToHero().Hand.NumberOfCards >= 2
 						),
@@ -221,22 +218,6 @@ namespace Angille.Theurgy
 					GameController.ExhaustCoroutine(playCR);
 				}
 			}
-		}
-
-		protected LinqCardCriteria IsCharmCriteria(Func<Card, bool> additionalCriteria = null)
-		{
-			var result = new LinqCardCriteria(c => IsCharm(c), "charm", true);
-			if (additionalCriteria != null)
-			{
-				result = new LinqCardCriteria(result, additionalCriteria);
-			}
-
-			return result;
-		}
-
-		protected bool IsCharm(Card card, bool evenIfUnderCard = false, bool evenIfFaceDown = false)
-		{
-			return card != null && base.GameController.DoesCardContainKeyword(card, "charm", evenIfUnderCard, evenIfFaceDown);
 		}
 	}
 }

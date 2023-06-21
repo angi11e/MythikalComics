@@ -22,7 +22,7 @@ namespace Angille.RedRifle
 
 		public override bool AllowFastCoroutinesDuringPretend
 		{
-			get => base.CharacterCard.MaximumHitPoints == base.CharacterCard.HitPoints;
+			get => this.CharacterCard.MaximumHitPoints == this.CharacterCard.HitPoints;
 		}
 
 		public override void AddTriggers()
@@ -30,13 +30,13 @@ namespace Angille.RedRifle
 			// At the start of your turn either add 1 tokens to your trueshot pool, or {RedRifle} regains 1 HP.
 			// moved to its own function, because the gamestate inadvertantly "remembers" your very first choice
 			AddStartOfTurnTrigger(
-				(TurnTaker tt) => tt == base.TurnTaker,
+				(TurnTaker tt) => tt == this.TurnTaker,
 				(PhaseChangeAction p) => ChooseOneResponse(p),
 				new TriggerType[] {TriggerType.AddTokensToPool, TriggerType.GainHP}
 			);
 
 			// Reduce damage dealt to {RedRifle} by 1.
-			AddReduceDamageTrigger((Card c) => c == base.CharacterCard, 1);
+			AddReduceDamageTrigger((Card c) => c == this.CharacterCard, 1);
 
 			base.AddTriggers();
 		}
@@ -63,7 +63,7 @@ namespace Angille.RedRifle
 					"regain 1 HP",
 					SelectionType.GainHP,
 					() => GameController.GainHP(
-						base.CharacterCard,
+						this.CharacterCard,
 						1,
 						cardSource: GetCardSource()
 					)
@@ -80,13 +80,13 @@ namespace Angille.RedRifle
 			);
 
 			IEnumerator chooseCR = GameController.SelectAndPerformFunction(selectFunction);
-			if (base.UseUnityCoroutines)
+			if (UseUnityCoroutines)
 			{
-				yield return base.GameController.StartCoroutine(chooseCR);
+				yield return GameController.StartCoroutine(chooseCR);
 			}
 			else
 			{
-				base.GameController.ExhaustCoroutine(chooseCR);
+				GameController.ExhaustCoroutine(chooseCR);
 			}
 
 			yield break;

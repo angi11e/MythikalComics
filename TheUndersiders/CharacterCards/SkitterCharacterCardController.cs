@@ -14,31 +14,33 @@ namespace Angille.TheUndersiders
 		public SkitterCharacterCardController(Card card, TurnTakerController turnTakerController)
 			: base(card, turnTakerController)
 		{
-			base.SpecialStringMaker.ShowNumberOfCardsInPlay(
-				new LinqCardCriteria((Card c) => c.DoKeywordsContain("swarm") && c.IsVillain, "swarm")
-			);
+			SpecialStringMaker.ShowNumberOfCardsInPlay(
+				new LinqCardCriteria((Card c) => c.DoKeywordsContain("swarm") && IsVillain(c), "swarm")
+			).Condition = () => this.Card.IsInPlayAndNotUnderCard && !this.Card.IsFlipped;
+
+			SpecialStringMaker.ShowHeroTargetWithHighestHP().Condition = () => this.Card.IsFlipped;
 		}
 
 		public override IEnumerator Play()
 		{
 			// When this card enters play, reveal cards from the top of the villain deck until {H - 2} swarm cards are revealed. Put them into play. Shuffle the other revealed cards back into the villain deck.
 			IEnumerator getSwarmsCR = RevealCards_MoveMatching_ReturnNonMatchingCards(
-				base.TurnTakerController,
-				base.TurnTaker.Deck,
+				this.TurnTakerController,
+				this.TurnTaker.Deck,
 				playMatchingCards: false,
 				putMatchingCardsIntoPlay: true,
 				moveMatchingCardsToHand: false,
-				new LinqCardCriteria((Card c) => c.DoKeywordsContain("swarm") && c.IsVillain, "swarm"),
-				base.H - 2
+				new LinqCardCriteria((Card c) => c.DoKeywordsContain("swarm") && IsVillain(c), "swarm"),
+				H - 2
 			);
 
-			if (base.UseUnityCoroutines)
+			if (UseUnityCoroutines)
 			{
-				yield return base.GameController.StartCoroutine(getSwarmsCR);
+				yield return GameController.StartCoroutine(getSwarmsCR);
 			}
 			else
 			{
-				base.GameController.ExhaustCoroutine(getSwarmsCR);
+				GameController.ExhaustCoroutine(getSwarmsCR);
 			}
 
 			yield break;
@@ -46,23 +48,23 @@ namespace Angille.TheUndersiders
 
 		public override void AddSideTriggers()
 		{
-			if (!base.Card.IsFlipped)
+			if (!this.Card.IsFlipped)
 			{
 				// At the start of the villain turn, restore all villain swarm targets to 3 HP.
 				AddSideTrigger(AddStartOfTurnTrigger(
-					(TurnTaker tt) => tt == base.TurnTaker,
+					(TurnTaker tt) => tt == this.TurnTaker,
 					(PhaseChangeAction p) => GameController.GainHP(
 						DecisionMaker,
-						(Card c) => c.DoKeywordsContain("swarm") && c.IsVillainTarget,
+						(Card c) => c.DoKeywordsContain("swarm") && IsVillainTarget(c),
 						(Card c) => c.MaximumHitPoints.Value - c.HitPoints.Value,
 						cardSource: GetCardSource()
 					),
 					TriggerType.GainHP
 				));
 
-				// Reduce damage taken by villain targets by 1.
+				// Reduce damage dealt to villain character cards by 1.
 				AddSideTrigger(AddReduceDamageTrigger(
-					(Card c) => c.IsVillainTarget && c.IsCharacter,
+					(Card c) => c.IsVillainCharacterCard,
 					1
 				));
 
@@ -70,7 +72,7 @@ namespace Angille.TheUndersiders
 				AddSideTrigger(AddTrigger(
 					(CardEntersPlayAction p) => IsFirstTimeCardPlayedThisTurn(
 						p.CardEnteringPlay,
-						(Card c) => c.IsVillain && c.DoKeywordsContain("swarm"),
+						(Card c) => IsVillainTarget(c) && c.DoKeywordsContain("swarm"),
 						TriggerTiming.After
 					),
 					PlayTheTopCardOfTheVillainDeckWithMessageResponse,
@@ -81,7 +83,7 @@ namespace Angille.TheUndersiders
 				// At the end of the villain turn, destroy X hero equipment cards,
 				// where X = the number of villain swarm cards in play.
 				AddSideTrigger(AddEndOfTurnTrigger(
-					(TurnTaker tt) => tt == base.TurnTaker,
+					(TurnTaker tt) => tt == this.TurnTaker,
 					RuinToysResponse,
 					TriggerType.DestroyCard
 				));
@@ -92,10 +94,10 @@ namespace Angille.TheUndersiders
 			{
 				// At the start of the villain turn, each villain swarm target regains 1 HP.
 				AddSideTrigger(AddStartOfTurnTrigger(
-					(TurnTaker tt) => tt == base.TurnTaker,
+					(TurnTaker tt) => tt == this.TurnTaker,
 					(PhaseChangeAction p) => GameController.GainHP(
 						DecisionMaker,
-						(Card c) => c.DoKeywordsContain("swarm") && c.IsVillainTarget,
+						(Card c) => c.DoKeywordsContain("swarm") && IsVillainTarget(c),
 						(Card c) => 1,
 						cardSource: GetCardSource()
 					),
@@ -104,7 +106,7 @@ namespace Angille.TheUndersiders
 
 				// At the end of the villain turn, if there are any swarm cards in play, the hero target with the highest HP deals themself 1 psychic damage.
 				AddSideTrigger(AddEndOfTurnTrigger(
-					(TurnTaker tt) => tt == base.TurnTaker && FindCardsWhere(
+					(TurnTaker tt) => tt == this.TurnTaker && FindCardsWhere(
 						(Card c) => c.DoKeywordsContain("swarm") && c.IsInPlayAndHasGameText
 					).Count() > 0,
 					TerrifyResponse,
@@ -119,7 +121,7 @@ namespace Angille.TheUndersiders
 			return GameController.SelectAndDestroyCards(
 				DecisionMaker,
 				new LinqCardCriteria((Card c) =>
-					c.IsHero && IsEquipment(c),
+					IsHero(c) && IsEquipment(c),
 					"hero equipment"
 				),
 				FindCardsWhere((Card c) => c.IsInPlayAndHasGameText && c.DoKeywordsContain("swarm")).Count(),
@@ -132,7 +134,7 @@ namespace Angille.TheUndersiders
 			List<Card> storedResults = new List<Card>();
 			IEnumerator getHighestCR = GameController.FindTargetWithHighestHitPoints(
 				1,
-				(Card c) => c.IsHeroCharacterCard,
+				(Card c) => IsHeroCharacterCard(c),
 				storedResults,
 				cardSource: GetCardSource()
 			);

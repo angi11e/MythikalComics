@@ -46,7 +46,7 @@ namespace Angille.NightMare
 		{
 			// If {NightMare} would be dealt 3 or more Damage from a single source...
 			_reduceDamageTrigger = AddTrigger(
-				(DealDamageAction dda) => dda.Target == base.CharacterCard && dda.Amount >= 3,
+				(DealDamageAction dda) => dda.Target == this.CharacterCard && dda.Amount >= 3,
 				ReduceAndDestroyResponse,
 				TriggerType.ReduceDamage,
 				TriggerTiming.Before
@@ -70,7 +70,7 @@ namespace Angille.NightMare
 			// ...then destroy this card.
 			IEnumerator destructionCR = GameController.DestroyCard(
 				DecisionMaker,
-				base.Card,
+				this.Card,
 				cardSource: GetCardSource()
 			);
 

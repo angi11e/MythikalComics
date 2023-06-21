@@ -166,8 +166,8 @@ namespace Angille.PecosBill
 					if (storedResults.Any(
 						(SelectTurnTakerDecision d) => d.Completed
 						&& d.SelectedTurnTaker != null
-						&& d.SelectedTurnTaker.IsHero
-					) && storedResults.FirstOrDefault().SelectedTurnTaker.IsHero)
+						&& IsHero(d.SelectedTurnTaker)
+					) && IsHero(storedResults.FirstOrDefault().SelectedTurnTaker))
 					{
 						// The next time that Hero uses a Power...
 						// ...that Hero also deals 1 Target 1 Melee Damage.

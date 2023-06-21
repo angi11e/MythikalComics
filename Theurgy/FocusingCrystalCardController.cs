@@ -19,24 +19,24 @@ namespace Angille.Theurgy
 			TurnTakerController turnTakerController
 		) : base(card, turnTakerController)
 		{
-			base.SpecialStringMaker.ShowNumberOfCardsInPlay(IsCharmCriteria());
+			SpecialStringMaker.ShowNumberOfCardsInPlay(IsCharmCriteria());
 		}
 
 		public override IEnumerator Play()
 		{
 			// Theurgy regains 1 hp
-			IEnumerator healTargetCR = base.GameController.GainHP(
-				base.CharacterCard,
+			IEnumerator healTargetCR = GameController.GainHP(
+				this.CharacterCard,
 				1,
-				cardSource: base.GetCardSource()
+				cardSource: GetCardSource()
 			);
 			if (UseUnityCoroutines)
 			{
-				yield return base.GameController.StartCoroutine(healTargetCR);
+				yield return GameController.StartCoroutine(healTargetCR);
 			}
 			else
 			{
-				base.GameController.ExhaustCoroutine(healTargetCR);
+				GameController.ExhaustCoroutine(healTargetCR);
 			}
 			yield break;
 		}
@@ -65,18 +65,18 @@ namespace Angille.Theurgy
 		{
 			SetCardPropertyToTrueIfRealAction("FirstTimeCharmCardDestroyed");
 			// Theurgy regains 2 hp
-			IEnumerator healTargetCR = base.GameController.GainHP(
-				base.CharacterCard,
+			IEnumerator healTargetCR = GameController.GainHP(
+				this.CharacterCard,
 				2,
-				cardSource: base.GetCardSource()
+				cardSource: GetCardSource()
 			);
 			if (UseUnityCoroutines)
 			{
-				yield return base.GameController.StartCoroutine(healTargetCR);
+				yield return GameController.StartCoroutine(healTargetCR);
 			}
 			else
 			{
-				base.GameController.ExhaustCoroutine(healTargetCR);
+				GameController.ExhaustCoroutine(healTargetCR);
 			}
 
 			yield break;
@@ -87,33 +87,30 @@ namespace Angille.Theurgy
 			int targetNumeral = GetPowerNumeral(0, 1);
 			int damageMod = GetPowerNumeral(1, 2);
 
-			// count the charm cards.
-			int damageNumeral = FindCardsWhere((Card c) => c.IsInPlayAndHasGameText && IsCharm(c)).Count() * damageMod;
-
-			// Theurgy deals 1 target X energy damage.
-			IEnumerator damageCR = base.GameController.SelectTargetsAndDealDamage(
+			// {Theurgy} deals 1 target X energy damage, where X = the number of charm cards in play times 2.
+			IEnumerator damageCR = GameController.SelectTargetsAndDealDamage(
 				DecisionMaker,
-				new DamageSource(base.GameController, base.CharacterCard),
-				damageNumeral,
+				new DamageSource(GameController, this.CharacterCard),
+				CharmCardsInPlay * damageMod,
 				DamageType.Energy,
 				targetNumeral,
 				false,
 				targetNumeral,
-				cardSource: base.GetCardSource()
+				cardSource: GetCardSource()
 			);
 			if (UseUnityCoroutines)
 			{
-				yield return base.GameController.StartCoroutine(damageCR);
+				yield return GameController.StartCoroutine(damageCR);
 			}
 			else
 			{
-				base.GameController.ExhaustCoroutine(damageCR);
+				GameController.ExhaustCoroutine(damageCR);
 			}
 
 			// Destroy this card
 			IEnumerator destructionCR = GameController.DestroyCard(
-				this.DecisionMaker,
-				base.Card,
+				DecisionMaker,
+				this.Card,
 				cardSource: GetCardSource()
 			);
 

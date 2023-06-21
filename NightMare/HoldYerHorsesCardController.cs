@@ -10,18 +10,16 @@ namespace Angille.NightMare
 	{
 		/*
 		 * Reduce damage taken by {NightMare} by 1.
-		 * When any damage is redirected to {NightMare}, reduce it by 1.
 		 * 
 		 * POWER
 		 * {NightMare} deals 1 target 2 Melee damage.
-		 * Reduce the next damage dealt by targets dealt damage this way by the damage they take.
+		 * Reduce the next damage dealt by targets dealt damage this way by 1.
 		 * 
 		 * DISCARD
 		 * One hero target regains 1 HP.
 		 */
 
-		// removed for balance
-		// private ITrigger _reduceTrigger;
+		private int reduceNumeral;
 
 		public HoldYerHorsesCardController(
 			Card card,
@@ -35,21 +33,6 @@ namespace Angille.NightMare
 			// Reduce damage taken by {NightMare} by 1.
 			AddReduceDamageTrigger((Card c) => c == this.CharacterCard, 1);
 
-			/* removed for balance
-			// When any damage is redirected to {NightMare}, reduce it by 1.
-			_reduceTrigger = AddTrigger(
-				(RedirectDamageAction rda) => rda.NewTarget == base.CharacterCard,
-				(RedirectDamageAction rda) => GameController.ReduceDamage(
-					rda.DealDamageAction,
-					1,
-					_reduceTrigger,
-					GetCardSource()
-				),
-				TriggerType.ReduceDamage,
-				TriggerTiming.Before
-			);
-			*/
-
 			base.AddTriggers();
 		}
 
@@ -57,7 +40,7 @@ namespace Angille.NightMare
 		{
 			int targetNumeral = GetPowerNumeral(0, 1);
 			int damageNumeral = GetPowerNumeral(1, 2);
-			int reduceNumeral = GetPowerNumeral(2, 0);
+			reduceNumeral = GetPowerNumeral(2, 1);
 
 			// {NightMare} deals 1 target 2 Melee damage.
 			IEnumerator dealDamageCR = GameController.SelectTargetsAndDealDamage(
@@ -68,7 +51,7 @@ namespace Angille.NightMare
 				targetNumeral,
 				false,
 				targetNumeral,
-				// Reduce the next damage dealt by targets dealt damage this way by the damage they take.
+				// Reduce the next damage dealt by targets dealt damage this way by 1.
 				addStatusEffect: ReduceNextDamageByDamageResponse,
 				cardSource: GetCardSource()
 			);
@@ -90,7 +73,7 @@ namespace Angille.NightMare
 			// Reduce the next damage dealt by targets dealt damage this way by the damage they take.
 			if (dda.DidDealDamage)
 			{
-				ReduceDamageStatusEffect reduceDamageSE = new ReduceDamageStatusEffect(dda.Amount);
+				ReduceDamageStatusEffect reduceDamageSE = new ReduceDamageStatusEffect(reduceNumeral);
 				reduceDamageSE.SourceCriteria.IsSpecificCard = dda.Target;
 				reduceDamageSE.NumberOfUses = 1;
 				reduceDamageSE.UntilCardLeavesPlay(dda.Target);
@@ -112,7 +95,7 @@ namespace Angille.NightMare
 			// One hero target regains 1 HP.
 			List<SelectTargetDecision> selectedTarget = new List<SelectTargetDecision>();
 			IEnumerable<Card> choices = FindCardsWhere(new LinqCardCriteria((Card c) =>
-				c.IsTarget && c.IsInPlayAndHasGameText && c.IsHero
+				c.IsInPlayAndHasGameText && IsHeroTarget(c)
 			));
 			IEnumerator selectTargetCR = GameController.SelectTargetAndStoreResults(
 				DecisionMaker,

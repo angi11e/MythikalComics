@@ -9,9 +9,10 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Angille</RootNamespace>
     <AssemblyName>Angille</AssemblyName>
-    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -21,6 +22,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -29,8 +31,15 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="ArtifactMod">
+      <HintPath>C:\Program Files (x86)\Steam\steamapps\workshop\content\337150\2887958701\ArtifactMod.dll</HintPath>
+    </Reference>
+    <Reference Include="CauldronMods">
+      <HintPath>C:\Program Files (x86)\Steam\steamapps\workshop\content\337150\2437294168\CauldronMods.dll</HintPath>
+    </Reference>
     <Reference Include="EngineCommon">
       <HintPath>C:\Program Files (x86)\Steam\steamapps\common\Sentinels of the Multiverse\Sentinels_Data\Managed\EngineCommon.dll</HintPath>
     </Reference>
@@ -51,6 +60,7 @@
     <Compile Include="Athena\AspectBaseCardController.cs" />
     <Compile Include="Athena\BrandNewAthenaCharacterCardController.cs" />
     <Compile Include="Athena\ClassicAthenaCharacterCardController.cs" />
+    <Compile Include="Athena\ExaltationCardController.cs" />
     <Compile Include="Athena\TheonosisCardController.cs" />
     <Compile Include="Athena\SkinOfMarbleCardController.cs" />
     <Compile Include="Athena\PromachosCardController.cs" />
@@ -70,6 +80,7 @@
     <Compile Include="Athena\AthenaTurnTakerController.cs" />
     <Compile Include="Athena\AdamantSpearCardController.cs" />
     <Compile Include="Athena\AthenaBaseCardController.cs" />
+    <Compile Include="Athena\AthenaBaseCharacterCardController.cs" />
     <Compile Include="CadaverTeam\CadaverousWandCardController.cs" />
     <Compile Include="CadaverTeam\CardChicaneryCardController.cs" />
     <Compile Include="CadaverTeam\DemonDonCardController.cs" />
@@ -86,6 +97,7 @@
     <Compile Include="CadaverTeam\CadaverousHatCardController.cs" />
     <Compile Include="CadaverTeam\CadaverTeamCharacterCardController.cs" />
     <Compile Include="CadaverTeam\CadaverTeamTurnTakerController.cs" />
+    <Compile Include="CaptainCain\CaptainCainBaseCharacterCardController.cs" />
     <Compile Include="CaptainCain\CaptainCainSetupCardController.cs" />
     <Compile Include="CaptainCain\CaptainCainEquipmentCardController.cs" />
     <Compile Include="CaptainCain\DoubleEnhancerGlovesCardController.cs" />
@@ -121,6 +133,18 @@
     <Compile Include="NightMare\ReinedCombatCardController.cs" />
     <Compile Include="NightMare\StampedeCardController.cs" />
     <Compile Include="NightMare\TwoTrickPonyCardController.cs" />
+    <Compile Include="OrbitalAtlantis\ControlAmphitheaterCardController.cs" />
+    <Compile Include="OrbitalAtlantis\CrystalEyesCardController.cs" />
+    <Compile Include="OrbitalAtlantis\CrystalMindCardController.cs" />
+    <Compile Include="OrbitalAtlantis\CrystalServitorCardController.cs" />
+    <Compile Include="OrbitalAtlantis\EmergeFromTheSeaCardController.cs" />
+    <Compile Include="OrbitalAtlantis\GeneratorStackCardController.cs" />
+    <Compile Include="OrbitalAtlantis\IgnitionCardController.cs" />
+    <Compile Include="OrbitalAtlantis\LaserTurretCardController.cs" />
+    <Compile Include="OrbitalAtlantis\RecyclotronCardController.cs" />
+    <Compile Include="OrbitalAtlantis\RegressionChamberCardController.cs" />
+    <Compile Include="OrbitalAtlantis\BreakAtmoCardController.cs" />
+    <Compile Include="Patina\ApplicationsInFluidicsCardController.cs" />
     <Compile Include="Patina\VerdigrisCharacterCardController.cs" />
     <Compile Include="Patina\InternPatinaCharacterCardController.cs" />
     <Compile Include="Patina\SurgeWaveCardController.cs" />
@@ -161,9 +185,21 @@
     <Compile Include="PecosBill\BigColtCardController.cs" />
     <Compile Include="PecosBill\HyperboleBaseCardController.cs" />
     <Compile Include="PecosBill\PecosBillBaseCardController.cs" />
+    <Compile Include="Promos\MythikalNightMistCharacterCardController.cs" />
+    <Compile Include="Promos\MythikalTraceKnightCharacterCardController.cs" />
+    <Compile Include="Promos\MythikalKnyfeCharacterCardController.cs" />
+    <Compile Include="Promos\MythikalHakaCharacterCardController.cs" />
+    <Compile Include="Promos\MythikalInspireCharacterCardController.cs" />
+    <Compile Include="Promos\RedMythikalDriftCharacterCardController.cs" />
+    <Compile Include="Promos\BlueMythikalDriftCharacterCardController.cs" />
+    <Compile Include="Promos\MythikalOmnitronMCharacterCardController.cs" />
+    <Compile Include="Promos\MythikalLaComodoraCharacterCardController.cs" />
+    <Compile Include="Promos\MythikalTimeSlingerCharacterCardController.cs" />
+    <Compile Include="Promos\MythikalDriftCharacterCardController.cs" />
+    <Compile Include="Promos\MythikalChronanCharacterCardController.cs" />
     <Compile Include="Promos\MythikalSetbackCharacterCardController.cs" />
-    <Compile Include="Promos\MythikalPinionCharacterCardController.cs" />
-    <Compile Include="Promos\MythikalMantraCharacterCardController.cs" />
+    <Compile Include="Promos\MythikalTheHarpyCharacterCardController.cs" />
+    <Compile Include="Promos\MythikalMrFixerCharacterCardController.cs" />
     <Compile Include="Promos\MythikalExpatrietteCharacterCardController.cs" />
     <Compile Include="Promos\MythikalGreyhatCharacterCardController.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -208,6 +244,7 @@
     <Compile Include="Speedrunner\SpeedrunnerBaseCardController.cs" />
     <Compile Include="Speedrunner\SpeedrunnerCharacterCardController.cs" />
     <Compile Include="Speedrunner\SpeedrunnerTurnTakerController.cs" />
+    <Compile Include="Spoiler\IllDoThatYesterdayCardController.cs" />
     <Compile Include="Spoiler\SpoilerCharacterCardController.cs" />
     <Compile Include="Spoiler\SpoilerTurnTakerController.cs" />
     <Compile Include="Spoiler\WaitForItNowCardController.cs" />
@@ -226,6 +263,26 @@
     <Compile Include="Spoiler\SpoilerOneshotCardController.cs" />
     <Compile Include="Spoiler\SpoilerEquipmentCardController.cs" />
     <Compile Include="Spoiler\SpoilerOngoingCardController.cs" />
+    <Compile Include="Supplicate\MultiversalKoansCardController.cs" />
+    <Compile Include="Supplicate\NamchoCycleCardController.cs" />
+    <Compile Include="Supplicate\PunyamStaffCardController.cs" />
+    <Compile Include="Supplicate\RealityWeaveCardController.cs" />
+    <Compile Include="Supplicate\SupplicateCharacterCardController.cs" />
+    <Compile Include="Supplicate\TogalStrideCardController.cs" />
+    <Compile Include="Supplicate\TonglenMeditationCardController.cs" />
+    <Compile Include="Supplicate\TrekchoEmptinessCardController.cs" />
+    <Compile Include="Supplicate\GorillaSpiritCardController.cs" />
+    <Compile Include="Supplicate\HareSpiritCardController.cs" />
+    <Compile Include="Supplicate\KrakenSpiritCardController.cs" />
+    <Compile Include="Supplicate\OwlSpiritCardController.cs" />
+    <Compile Include="Supplicate\TortoiseSpiritCardController.cs" />
+    <Compile Include="Supplicate\WingedSnakeSpiritCardController.cs" />
+    <Compile Include="Supplicate\FoxSpiritCardController.cs" />
+    <Compile Include="Supplicate\AdjurationCardController.cs" />
+    <Compile Include="Supplicate\SupplicateBaseCardController.cs" />
+    <Compile Include="Supplicate\SupplicateBaseCharacterCardController.cs" />
+    <Compile Include="Supplicate\YaojingBaseCardController.cs" />
+    <Compile Include="Supplicate\SupplicateTurnTakerController.cs" />
     <Compile Include="TheUndersiders\Cards\AdvancePlanningCardController.cs" />
     <Compile Include="TheUndersiders\Cards\AngelicaCardController.cs" />
     <Compile Include="TheUndersiders\Cards\BastardCardController.cs" />
@@ -267,11 +324,13 @@
     <Compile Include="Theurgy\TeleportationCardController.cs" />
     <Compile Include="Theurgy\TheScholarsJournalCardController.cs" />
     <Compile Include="Theurgy\TheurgyBaseCardController.cs" />
+    <Compile Include="Theurgy\TheurgyBaseCharacterCardController.cs" />
     <Compile Include="Theurgy\TheurgyCharacterCardController.cs" />
     <Compile Include="Theurgy\SalemCharacterCardController.cs" />
     <Compile Include="Theurgy\TheurgyFateweaverCharacterCardController.cs" />
     <Compile Include="Theurgy\TheurgyTurnTakerController.cs" />
     <Compile Include="Theurgy\TrapDoorCardController.cs" />
+    <Compile Include="Theurgy\TheurgyPromoCardUnlockController.cs" />
     <Compile Include="Theurgy\WeatherTheHitsCardController.cs" />
     <Compile Include="Theurgy\YoinkCardController.cs" />
     <Compile Include="WhatsHerFace\AceUpHerSleeveCardController.cs" />
@@ -294,6 +353,8 @@
     <Compile Include="WhatsHerFace\UmbraCharacterCardController.cs" />
     <Compile Include="WhatsHerFace\WhatsHerFaceGadgeteerCharacterCardController.cs" />
     <Compile Include="WhatsHerFace\WhatsHerFaceCharacterCardController.cs" />
+    <Compile Include="WhatsHerFace\UmbraPromoCardUnlockController.cs" />
+    <Compile Include="WhatsHerFace\WhatsHerFaceGadgeteerPromoCardUnlockController.cs" />
     <Compile Include="WhatsHerFace\WhatsHerFaceTurnTakerController.cs" />
     <Compile Include="WhatsHerFace\WhereDidSheComeFromCardController.cs" />
   </ItemGroup>
@@ -317,8 +378,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Cadaver\" />
-    <Folder Include="OrbitalAtlantis\" />
-    <Folder Include="Supplicate\" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="DeckLists\AthenaDeckList.json" />
@@ -343,6 +402,12 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="DeckLists\SpoilerDeckList.json" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="DeckLists\SupplicateDeckList.json" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="DeckLists\OrbitalAtlantisDeckList.json" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

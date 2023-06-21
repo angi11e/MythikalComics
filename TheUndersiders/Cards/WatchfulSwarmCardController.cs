@@ -14,6 +14,8 @@ namespace Angille.TheUndersiders
 		public WatchfulSwarmCardController(Card card, TurnTakerController turnTakerController)
 			: base(card, turnTakerController)
 		{
+			SpecialStringMaker.ShowHeroWithMostCards(true).Condition = () => IsEnabled("tattle");
+			SpecialStringMaker.ShowSpecialString(() => GetSpecialStringIcons("spider", "tattle"));
 		}
 
 		public override void AddTriggers()
@@ -33,8 +35,8 @@ namespace Angille.TheUndersiders
 			// Spider: This card is immune to melee and projectile damage.
 			AddImmuneToDamageTrigger(
 				(DealDamageAction dd) =>
-					IsEnabled("spider")
-					&& dd.Target == base.Card
+					dd.Target == this.Card
+					&& IsEnabled("spider")
 					&& (dd.DamageType == DamageType.Melee || dd.DamageType == DamageType.Projectile)
 			);
 
@@ -52,13 +54,13 @@ namespace Angille.TheUndersiders
 		{
 			List<TurnTaker> storedResults = new List<TurnTaker>();
 			IEnumerator mostCardsCR = FindHeroWithMostCardsInHand(storedResults);
-			if (base.UseUnityCoroutines)
+			if (UseUnityCoroutines)
 			{
-				yield return base.GameController.StartCoroutine(mostCardsCR);
+				yield return GameController.StartCoroutine(mostCardsCR);
 			}
 			else
 			{
-				base.GameController.ExhaustCoroutine(mostCardsCR);
+				GameController.ExhaustCoroutine(mostCardsCR);
 			}
 			if (storedResults.Count() <= 0)
 			{
@@ -66,27 +68,22 @@ namespace Angille.TheUndersiders
 			}
 
 			TurnTaker turnTaker = storedResults.First();
-			if (turnTaker != null && turnTaker.IsHero)
+			if (turnTaker != null && IsHero(turnTaker))
 			{
 				IEnumerator discardCR = SelectAndDiscardCards(
 					FindHeroTurnTakerController(turnTaker.ToHero()),
 					1
 				);
-				if (base.UseUnityCoroutines)
+				if (UseUnityCoroutines)
 				{
-					yield return base.GameController.StartCoroutine(discardCR);
+					yield return GameController.StartCoroutine(discardCR);
 				}
 				else
 				{
-					base.GameController.ExhaustCoroutine(discardCR);
+					GameController.ExhaustCoroutine(discardCR);
 				}
 			}
 
-			yield break;
-		}
-
-		public override IEnumerator Play()
-		{
 			yield break;
 		}
 	}

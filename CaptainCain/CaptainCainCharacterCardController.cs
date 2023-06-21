@@ -7,11 +7,9 @@ using System.Linq;
 
 namespace Angille.CaptainCain
 {
-	public class CaptainCainCharacterCardController : HeroCharacterCardController
+	public class CaptainCainCharacterCardController : CaptainCainBaseCharacterCardController
 	{
-		private const string FistCutoutSuffix = "Fist";
-		private const string BloodCutoutSuffix = "Blood";
-		private const string BothCutoutSuffix = "Both";
+		private List<Card> actedHeroes;
 
 		public CaptainCainCharacterCardController(
 			Card card,
@@ -19,8 +17,6 @@ namespace Angille.CaptainCain
 		) : base(card, turnTakerController)
 		{
 		}
-
-		private List<Card> actedHeroes;
 
 		public override IEnumerator UsePower(int index = 0)
 		{
@@ -53,11 +49,7 @@ namespace Angille.CaptainCain
 			}
 
 			// If {Fist} is active, he deals that target 1 melee damage.
-			if (HeroTurnTaker.GetCardsWhere(
-				(Card c) => c.IsInPlayAndNotUnderCard
-				&& GameController.DoesCardContainKeyword(c, "fist")
-				&& c.Owner == this.Card.Owner
-			).Count() > 0)
+			if (IsFistActive)
 			{
 				foreach (DealDamageAction item in storedDamage)
 				{
@@ -83,11 +75,7 @@ namespace Angille.CaptainCain
 			}
 
 			// If {Blood} is active, he regains 1 HP.
-			if (HeroTurnTaker.GetCardsWhere(
-				(Card c) => c.IsInPlayAndNotUnderCard
-				&& GameController.DoesCardContainKeyword(c, "blood")
-				&& c.Owner == this.Card.Owner
-			).Count() > 0)
+			if (IsBloodActive)
 			{
 				IEnumerator healingCR = GameController.GainHP(
 					this.Card,
@@ -155,7 +143,7 @@ namespace Angille.CaptainCain
 					IEnumerator selectHeroesCR = GameController.SelectCardsAndPerformFunction(
 						DecisionMaker,
 						new LinqCardCriteria(
-							(Card c) => c.IsHeroCharacterCard
+							(Card c) => IsHeroCharacterCard(c)
 								&& c.IsInPlayAndHasGameText
 								&& !c.IsIncapacitatedOrOutOfGame
 								&& !this.actedHeroes.Contains(c),
@@ -243,28 +231,5 @@ namespace Angille.CaptainCain
 				this.actedHeroes.AddRange(collection);
 			}
 		}
-
-		/*
-		public static bool GetChangedCutoutInfo(
-			CutoutInfo currentInfo,
-			TurnTakerController ttc,
-			out CutoutInfo changedInfo
-		)
-		{
-			return flag;
-		}
-
-		public override bool ShouldChangeCutout(
-			CutoutInfo currentInfo,
-			GameAction action,
-			ActionTiming timing,
-			out CutoutInfo changedInfo,
-			out CutoutAnimation animation
-		)
-		{
-			bool result = base.ShouldChangeCutout(currentInfo, action, timing, out changedInfo, out animation);
-			return result;
-		}
-		*/
 	}
 }

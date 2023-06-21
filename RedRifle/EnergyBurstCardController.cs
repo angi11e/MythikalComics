@@ -19,60 +19,49 @@ namespace Angille.RedRifle
 			TurnTakerController turnTakerController
 		) : base(card, turnTakerController)
 		{
-			base.SpecialStringMaker.ShowTokenPool(base.TrueshotPool);
+			SpecialStringMaker.ShowTokenPool(TrueshotPool);
 		}
 
 		public override IEnumerator Play()
 		{
-			int damageNumeral = GetPowerNumeral(0, 1);
-			int lowTokenNumeral = GetPowerNumeral(1, 5);
-			int highTokenNumeral = GetPowerNumeral(2, 10);
-			int destroyNumeral = GetPowerNumeral(3, 1);
-
-			// If you have 5 or more tokens in your trueshot pool, the damage is irreducible.
-			bool isIrreducible = false;
-			if (base.TrueshotPool.CurrentValue >= lowTokenNumeral)
-			{
-				isIrreducible = true;
-			}
-
 			// {RedRifle} deals each non-hero target 1 energy damage.
 			IEnumerator dealDamageCR = GameController.DealDamage(
 				DecisionMaker,
-				base.CharacterCard,
-				(Card c) => !c.IsHero,
-				damageNumeral,
+				this.CharacterCard,
+				(Card c) => !IsHeroTarget(c),
+				1,
 				DamageType.Energy,
-				isIrreducible,
+				// If you have 5 or more tokens in your trueshot pool, the damage is irreducible.
+				TrueshotPool.CurrentValue >= 5,
 				cardSource: GetCardSource()
 			);
 
-			if (base.UseUnityCoroutines)
+			if (UseUnityCoroutines)
 			{
-				yield return base.GameController.StartCoroutine(dealDamageCR);
+				yield return GameController.StartCoroutine(dealDamageCR);
 			}
 			else
 			{
-				base.GameController.ExhaustCoroutine(dealDamageCR);
+				GameController.ExhaustCoroutine(dealDamageCR);
 			}
 
 			// If you have 10 or more tokens in your trueshot pool, destroy 1 hero Ongoing or Equipment card.
-			if (base.TrueshotPool.CurrentValue >= highTokenNumeral)
+			if (TrueshotPool.CurrentValue >= 10)
 			{
 				IEnumerator destroyCR = GameController.SelectAndDestroyCard(
 					DecisionMaker,
-					new LinqCardCriteria((Card c) => c.IsHero && (c.IsOngoing || IsEquipment(c))),
+					new LinqCardCriteria((Card c) => IsHero(c) && (IsOngoing(c) || IsEquipment(c))),
 					false,
 					cardSource: GetCardSource()
 				);
 
-				if (base.UseUnityCoroutines)
+				if (UseUnityCoroutines)
 				{
-					yield return base.GameController.StartCoroutine(destroyCR);
+					yield return GameController.StartCoroutine(destroyCR);
 				}
 				else
 				{
-					base.GameController.ExhaustCoroutine(destroyCR);
+					GameController.ExhaustCoroutine(destroyCR);
 				}
 			}
 			yield break;

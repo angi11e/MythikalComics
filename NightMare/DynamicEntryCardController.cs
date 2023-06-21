@@ -25,7 +25,7 @@ namespace Angille.NightMare
 		public override IEnumerator Play()
 		{
 			// Destroy an environment card.
-			IEnumerator destroyCR = base.GameController.SelectAndDestroyCard(
+			IEnumerator destroyCR = GameController.SelectAndDestroyCard(
 				DecisionMaker,
 				new LinqCardCriteria((Card c) => c.IsEnvironment, "environment"),
 				false,
@@ -47,9 +47,9 @@ namespace Angille.NightMare
 		protected override IEnumerator DiscardResponse(GameAction ga)
 		{
 			// Destroy an ongoing card.
-			IEnumerator destroyCR = base.GameController.SelectAndDestroyCard(
+			IEnumerator destroyCR = GameController.SelectAndDestroyCard(
 				DecisionMaker,
-				new LinqCardCriteria((Card c) => c.IsOngoing, "ongoing"),
+				new LinqCardCriteria((Card c) => IsOngoing(c), "ongoing"),
 				false,
 				cardSource: GetCardSource()
 			);

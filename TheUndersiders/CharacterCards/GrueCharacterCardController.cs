@@ -126,15 +126,15 @@ namespace Angille.TheUndersiders
 			IEnumerator dealDamageCR = DealDamageToLowestHP(
 				null,
 				1,
-				(Card c) => c.IsHero,
+				(Card c) => IsHeroTarget(c),
 				(Card c) => 1,
 				DamageType.Infernal,
-				numberOfTargets: Game.H - 1,
+				numberOfTargets: H - 1,
 				damageSourceInfo: new TargetInfo(
 					HighestLowestHP.LowestHP,
 					1,
 					1,
-					new LinqCardCriteria((Card c) => c.IsVillainTarget, "The villain target with the lowest HP")
+					new LinqCardCriteria((Card c) => IsVillainTarget(c), "The villain target with the lowest HP")
 				)
 			);
 

@@ -28,7 +28,7 @@ namespace Angille.CadaverTeam
 
 			// At the end of their turn...
 			AddTrigger(
-				(PhaseChangeAction pca) => pca.ToPhase.IsEnd && pca.ToPhase.TurnTaker.IsHero,
+				(PhaseChangeAction pca) => pca.ToPhase.IsEnd && IsHero(pca.ToPhase.TurnTaker),
 				SkipToDestroyResponse,
 				TriggerType.DestroySelf,
 				TriggerTiming.After
@@ -38,7 +38,7 @@ namespace Angille.CadaverTeam
 			AddWhenDestroyedTrigger(
 				(DestroyCardAction dca) => GameController.DealDamageToSelf(
 					DecisionMaker,
-					(Card c) => c.IsHero,
+					(Card c) => IsHero(c),
 					2,
 					DamageType.Psychic,
 					cardSource: GetCardSource()
@@ -125,7 +125,7 @@ namespace Angille.CadaverTeam
 				1,
 				1,
 				(TurnTaker tt) =>
-					tt.IsVillain
+					IsVillain(tt)
 					&& !tt.IsIncapacitatedOrOutOfGame,
 				(TurnTaker tt) => (from c in tt.GetPlayAreaCards()
 					where c.IsAtLocationRecursive(tt.PlayArea) && c.Identifier == this.Card.Identifier

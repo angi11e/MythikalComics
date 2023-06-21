@@ -32,9 +32,9 @@ namespace Angille.WhatsHerFace
 				DecisionMaker,
 				SelectionType.UsePower,
 				new LinqCardCriteria(
-					(Card c) => c.IsHeroCharacterCard
+					(Card c) => c.IsInPlayAndHasGameText
 						&& c != this.CharacterCard
-						&& c.IsInPlayAndHasGameText
+						&& IsHeroCharacterCard(c)
 						&& !c.IsIncapacitatedOrOutOfGame,
 					"hero character card other than " + this.CharacterCard.Title
 				),
@@ -79,7 +79,7 @@ namespace Angille.WhatsHerFace
 				case 0:
 					// Draw 1 card.
 					int drawNumeral = GetPowerNumeral(0, 1);
-					IEnumerator drawCardCR = DrawCards(this.HeroTurnTakerController, drawNumeral);
+					IEnumerator drawCardCR = DrawCards(DecisionMaker, drawNumeral);
 					if (UseUnityCoroutines)
 					{
 						yield return GameController.StartCoroutine(drawCardCR);
@@ -93,7 +93,7 @@ namespace Angille.WhatsHerFace
 				case 1:
 					// Play 1 card.
 					int playNumeral = GetPowerNumeral(0, 1);
-					IEnumerator playCardCR = SelectAndPlayCardsFromHand(this.HeroTurnTakerController, playNumeral);
+					IEnumerator playCardCR = SelectAndPlayCardsFromHand(DecisionMaker, playNumeral);
 					if (UseUnityCoroutines)
 					{
 						yield return GameController.StartCoroutine(playCardCR);

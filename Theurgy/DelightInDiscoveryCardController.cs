@@ -9,7 +9,7 @@ namespace Angille.Theurgy
 	public class DelightInDiscoveryCardController : TheurgyBaseCardController
 	{
 		// Draw X cards, where X = the number of [u]charm[/u] cards in play plus 1.
-		// if {Theurgy} has no [u]charm[/u] cards in her play area, play a card.
+		// if {Theurgy} has no [u]charm[/u] cards in her play area, you may play a card.
 		// You may destroy a [u]charm[/u] card.
 
 		public DelightInDiscoveryCardController(
@@ -17,54 +17,51 @@ namespace Angille.Theurgy
 			TurnTakerController turnTakerController
 		) : base(card, turnTakerController)
 		{
-			base.SpecialStringMaker.ShowNumberOfCardsInPlay(IsCharmCriteria());
+			SpecialStringMaker.ShowNumberOfCardsInPlay(IsCharmCriteria());
 		}
 
 		public override IEnumerator Play()
 		{
-			// count the charm cards
-			int drawNumeral = FindCardsWhere((Card c) => c.IsInPlayAndHasGameText && IsCharm(c)).Count() + 1;
-
-			// draw that many
-			IEnumerator drawCardsCR = DrawCards(DecisionMaker, drawNumeral);
-			if (base.UseUnityCoroutines)
+			// Draw X cards, where X = the number of [u]charm[/u] cards in play plus 1.
+			IEnumerator drawCardsCR = DrawCards(DecisionMaker, CharmCardsInPlay + 1);
+			if (UseUnityCoroutines)
 			{
-				yield return base.GameController.StartCoroutine(drawCardsCR);
+				yield return GameController.StartCoroutine(drawCardsCR);
 			}
 			else
 			{
-				base.GameController.ExhaustCoroutine(drawCardsCR);
+				GameController.ExhaustCoroutine(drawCardsCR);
 			}
 
 			// no charm cards? play a card.
-			if (!base.TurnTaker.GetPlayAreaCards().Any((Card c) => IsCharm(c)))
+			if (!TurnTaker.GetPlayAreaCards().Any((Card c) => IsCharm(c)))
 			{
-				IEnumerator playCardCR = SelectAndPlayCardFromHand(base.HeroTurnTakerController);
-				if (base.UseUnityCoroutines)
+				IEnumerator playCardCR = SelectAndPlayCardFromHand(HeroTurnTakerController);
+				if (UseUnityCoroutines)
 				{
-					yield return base.GameController.StartCoroutine(playCardCR);
+					yield return GameController.StartCoroutine(playCardCR);
 				}
 				else
 				{
-					base.GameController.ExhaustCoroutine(playCardCR);
+					GameController.ExhaustCoroutine(playCardCR);
 				}
 			}
 
 			// You may destroy a [u]charm[/u] card.
-			IEnumerator destroyCR = base.GameController.SelectAndDestroyCard(
+			IEnumerator destroyCR = GameController.SelectAndDestroyCard(
 				DecisionMaker,
 				IsCharmCriteria(),
 				true,
 				cardSource: GetCardSource()
 			);
 
-			if (base.UseUnityCoroutines)
+			if (UseUnityCoroutines)
 			{
-				yield return base.GameController.StartCoroutine(destroyCR);
+				yield return GameController.StartCoroutine(destroyCR);
 			}
 			else
 			{
-				base.GameController.ExhaustCoroutine(destroyCR);
+				GameController.ExhaustCoroutine(destroyCR);
 			}
 
 			yield break;

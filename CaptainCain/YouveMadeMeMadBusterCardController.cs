@@ -74,7 +74,7 @@ namespace Angille.CaptainCain
 
 			IEnumerator damageCR = DealDamage(
 				this.CharacterCard,
-				(Card c) => !c.IsHero,
+				(Card c) => !IsHero(c),
 				1,
 				DamageType.Melee
 			);

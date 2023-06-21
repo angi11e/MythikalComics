@@ -16,21 +16,31 @@ namespace Angille.TheUndersiders
 		public TenebrousCloudCardController(Card card, TurnTakerController turnTakerController)
 			: base(card, turnTakerController)
 		{
+			SpecialStringMaker.ShowHasBeenUsedThisTurn(
+				FirstDamageToVCC,
+				"{0} has already healed this turn.",
+				"{0} has not yet healed this turn."
+			).Condition = () => this.Card.IsInPlayAndHasGameText && IsEnabled("tattle");
+
+			SpecialStringMaker.ShowVillainCharacterCardWithLowestHP(
+			).Condition = () => this.Card.IsInPlayAndHasGameText && IsEnabled("tattle");
+
+			SpecialStringMaker.ShowSpecialString(() => GetSpecialStringIcons("skull", "tattle"));
 			AddThisCardControllerToList(CardControllerListType.MakesIndestructible);
 		}
 
 		public override bool AskIfCardIsIndestructible(Card card)
 		{
 			// Skull: This card is indestructible.
-			return IsEnabled("skull") && card == base.Card;
+			return IsEnabled("skull") && card == this.Card;
 		}
 
 		public override void AddTriggers()
 		{
 			// Reduce HP recovery for hero targets by 1.
 			AddTrigger(
-				(GainHPAction g) => g.HpGainer.IsHero,
-				(GainHPAction g) => base.GameController.ReduceHPGain(
+				(GainHPAction g) => IsHeroTarget(g.HpGainer),
+				(GainHPAction g) => GameController.ReduceHPGain(
 					g,
 					1,
 					GetCardSource()
@@ -45,8 +55,8 @@ namespace Angille.TheUndersiders
 
 			// Increase HP recovery for villain targets by 1.
 			AddTrigger(
-				(GainHPAction g) => g.HpGainer.IsVillain,
-				(GainHPAction g) => base.GameController.IncreaseHPGain(
+				(GainHPAction g) => IsVillainTarget(g.HpGainer),
+				(GainHPAction g) => GameController.IncreaseHPGain(
 					g,
 					1,
 					GetCardSource()
@@ -64,8 +74,9 @@ namespace Angille.TheUndersiders
 				(DealDamageAction dd) =>
 					!IsPropertyTrue(FirstDamageToVCC)
 					&& dd.DamageSource.IsTarget
-					&& dd.Target.IsVillain
-					&& dd.DidDealDamage,
+					&& dd.DidDealDamage
+					&& IsVillainTarget(dd.Target)
+					&& IsEnabled("tattle"),
 				HealingResponse,
 				TriggerType.GainHP,
 				TriggerTiming.After
@@ -83,46 +94,38 @@ namespace Angille.TheUndersiders
 		{
 			SetCardPropertyToTrueIfRealAction(FirstDamageToVCC);
 
-			if (IsEnabled("tattle"))
+			List<Card> thePatient = new List<Card>();
+			IEnumerator getPatientCR = GameController.FindTargetWithLowestHitPoints(
+				1,
+				(Card c) => c.IsVillainCharacterCard && c.IsInPlayAndNotUnderCard && !c.IsFlipped,
+				thePatient,
+				cardSource: GetCardSource()
+			);
+
+			if (UseUnityCoroutines)
 			{
-				List<Card> thePatient = new List<Card>();
-				IEnumerator getPatientCR = GameController.FindTargetWithLowestHitPoints(
-					1,
-					(Card c) => c.IsVillainCharacterCard && c.IsInPlayAndNotUnderCard && !c.IsFlipped,
-					thePatient,
-					cardSource: GetCardSource()
-				);
-
-				if (base.UseUnityCoroutines)
-				{
-					yield return base.GameController.StartCoroutine(getPatientCR);
-				}
-				else
-				{
-					base.GameController.ExhaustCoroutine(getPatientCR);
-				}
-
-				IEnumerator healingCR = GameController.GainHP(
-					thePatient.FirstOrDefault(),
-					dd.Amount,
-					cardSource: GetCardSource()
-				);
-
-				if (base.UseUnityCoroutines)
-				{
-					yield return base.GameController.StartCoroutine(healingCR);
-				}
-				else
-				{
-					base.GameController.ExhaustCoroutine(healingCR);
-				}
+				yield return GameController.StartCoroutine(getPatientCR);
+			}
+			else
+			{
+				GameController.ExhaustCoroutine(getPatientCR);
 			}
 
-			yield break;
-		}
+			IEnumerator healingCR = GameController.GainHP(
+				thePatient.FirstOrDefault(),
+				dd.Amount,
+				cardSource: GetCardSource()
+			);
 
-		public override IEnumerator Play()
-		{
+			if (UseUnityCoroutines)
+			{
+				yield return GameController.StartCoroutine(healingCR);
+			}
+			else
+			{
+				GameController.ExhaustCoroutine(healingCR);
+			}
+
 			yield break;
 		}
 	}

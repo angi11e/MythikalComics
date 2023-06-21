@@ -132,7 +132,7 @@ namespace Angille.Patina
 					IEnumerator playCardCR = SelectHeroToPlayCard(
 						this.HeroTurnTakerController,
 						heroCriteria: new LinqTurnTakerCriteria(
-							(TurnTaker tt) => tt.IsHero && !tt.IsIncapacitated
+							(TurnTaker tt) => !tt.IsIncapacitated && IsHero(tt)
 						)
 					);
 
@@ -152,7 +152,7 @@ namespace Angille.Patina
 						DecisionMaker,
 						SelectionType.CardToDealDamage,
 						new LinqCardCriteria(
-							(Card c) => c.IsHero && c.IsTarget && c.IsInPlayAndHasGameText,
+							(Card c) => IsHeroTarget(c) && c.IsInPlayAndHasGameText,
 							"hero target",
 							false
 						),
@@ -198,7 +198,7 @@ namespace Angille.Patina
 							DecisionMaker,
 							SelectionType.CardToDealDamage,
 							new LinqCardCriteria(
-								(Card c) => c.IsHero && c.IsTarget && c.IsInPlayAndHasGameText && c != firstAttackerCard,
+								(Card c) => IsHeroTarget(c) && c.IsInPlayAndHasGameText && c != firstAttackerCard,
 								"hero target",
 								false
 							),
@@ -246,7 +246,7 @@ namespace Angille.Patina
 					// Each hero character may deal themselves 3 cold damage to use a power now.
 					IEnumerator damagePowerCR = GameController.DealDamageToSelf(
 						DecisionMaker,
-						(Card c) => c.IsHeroCharacterCard,
+						(Card c) => IsHeroCharacterCard(c),
 						3,
 						DamageType.Cold,
 						addStatusEffect: UsePowerResponse,
@@ -304,7 +304,7 @@ namespace Angille.Patina
 
 		protected bool IsWater(Card card, bool evenIfUnderCard = false, bool evenIfFaceDown = false)
 		{
-			return card != null && base.GameController.DoesCardContainKeyword(card, "water", evenIfUnderCard, evenIfFaceDown);
+			return card != null && GameController.DoesCardContainKeyword(card, "water", evenIfUnderCard, evenIfFaceDown);
 		}
 	}
 }

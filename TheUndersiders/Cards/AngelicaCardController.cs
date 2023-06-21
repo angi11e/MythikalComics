@@ -16,22 +16,32 @@ namespace Angille.TheUndersiders
 		public AngelicaCardController(Card card, TurnTakerController turnTakerController)
 			: base(card, turnTakerController)
 		{
-			base.SpecialStringMaker.ShowHasBeenUsedThisTurn(
+			SpecialStringMaker.ShowHasBeenUsedThisTurn(
 				FirstDamageToVCC,
 				"{0} has already tanked damage this turn.",
 				"{0} has not yet tanked damage this turn."
-			);
+			).Condition = () => this.Card.IsInPlayAndHasGameText && IsEnabled("dog");
+
+			SpecialStringMaker.ShowListOfCards(new LinqCardCriteria(
+				(Card c) => c.IsInPlayAndNotUnderCard && c.IsTarget && c.HitPoints <= 2 && !IsVillainTarget(c),
+				"non-villain targets with 2 HP or less"
+			)).Condition = () => IsEnabled("tattle");
+
+			SpecialStringMaker.ShowSpecialString(() => GetSpecialStringIcons("dog", "tattle"));
 		}
 
 		public override void AddTriggers()
 		{
-			// At the end of the villain turn, this card deals each non-villain target {H - 2} melee damage.
+			// At the end of the villain turn, this card deals each non-villain target X melee damage,
+			// where X = the number of dog cards in play.
 			AddDealDamageAtEndOfTurnTrigger(
-				base.TurnTaker,
-				base.Card,
-				(Card c) => c.IsNonVillainTarget,
+				this.TurnTaker,
+				this.Card,
+				(Card c) => c.IsTarget && !IsVillainTarget(c),
 				TargetType.All,
-				base.H - 2,
+				FindCardsWhere(new LinqCardCriteria(
+					(Card c) => c.DoKeywordsContain("dog") && c.IsInPlayAndHasGameText && !c.IsOneShot
+				)).Count(),
 				DamageType.Melee
 			);
 
@@ -40,7 +50,7 @@ namespace Angille.TheUndersiders
 				(DealDamageAction dd) => dd.Target.IsVillainCharacterCard && IsEnabled("dog"),
 				FirstDamageToVCC,
 				TargetType.HighestHP,
-				(Card c) => c == base.Card
+				(Card c) => c == this.Card
 			);
 
 			AddAfterLeavesPlayAction(
@@ -50,13 +60,14 @@ namespace Angille.TheUndersiders
 
 			// Tattle: At the end of the villain turn, destroy each non-villain target with 2 HP or less.
 			AddEndOfTurnTrigger(
-				(TurnTaker tt) => tt == base.TurnTaker && IsEnabled("tattle"),
+				(TurnTaker tt) => tt == this.TurnTaker && IsEnabled("tattle"),
 				(PhaseChangeAction p) => GameController.DestroyCards(
 					DecisionMaker,
 					new LinqCardCriteria((Card c) =>
-						c.IsNonVillainTarget
+						c.IsTarget
 						&& c.HitPoints.HasValue
 						&& c.HitPoints.Value <= 2
+						&& !IsVillainTarget(c)
 					),
 					cardSource: GetCardSource()
 				),
@@ -64,11 +75,6 @@ namespace Angille.TheUndersiders
 			);
 
 			base.AddTriggers();
-		}
-
-		public override IEnumerator Play()
-		{
-			yield break;
 		}
 	}
 }

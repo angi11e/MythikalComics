@@ -1,6 +1,10 @@
-﻿using System;
+﻿using Handelabra;
+using Handelabra.Sentinels.Engine.Controller;
+using Handelabra.Sentinels.Engine.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 
 namespace Angille.TheUndersiders
@@ -74,6 +78,45 @@ namespace Angille.TheUndersiders
 		{
 			Dictionary<V, K> revDict = dict.ToDictionary(pair => pair.Value, pair => pair.Key);
 			return revDict[value];
+		}
+
+		public static SpecialString ShowHeroWithMostCardsInTrash(this SpecialStringMaker maker, LinqCardCriteria additionalCriteria = null, Func<bool> showInEffectsList = null)
+		{
+			FieldInfo field = maker.GetType().GetField("_cardController", BindingFlags.Instance | BindingFlags.NonPublic);
+			CardController _cardController = (CardController)field.GetValue(maker);
+			return maker.ShowSpecialString(delegate
+			{
+				IEnumerable<TurnTaker> enumerable = _cardController.GameController.FindTurnTakersWhere(
+					(TurnTaker tt) => tt.IsHero && !tt.IsIncapacitatedOrOutOfGame, _cardController.BattleZone
+				);
+				List<string> list = new List<string>();
+				int num = 0;
+				foreach (HeroTurnTaker hero in enumerable)
+				{
+					IEnumerable<Card> cardsWhere = hero.GetCardsWhere(
+						(Card c) => c.IsInTrash && c.Location.OwnerTurnTaker == hero
+					);
+					List<Card> source = ((additionalCriteria == null) ? cardsWhere.ToList() : cardsWhere.Where(additionalCriteria.Criteria).ToList());
+					if (source.Count() > num)
+					{
+						list.RemoveAll((string htt) => true);
+						list.Add(hero.Name);
+						num = source.Count();
+					}
+					else if (source.Count() == num)
+					{
+						list.Add(hero.Name);
+					}
+				}
+				string text = list.Count().ToString_SingularOrPlural("Hero", "Heroes");
+				string text2 = " in trash";
+				string text3 = " cards";
+				if (additionalCriteria != null)
+				{
+					text3 = " " + additionalCriteria.GetDescription();
+				}
+				return (list.Count() > 0) ? string.Format("{0} with the most{3}{2}: {1}.", text, list.ToRecursiveString(), text2, text3) : "Warning: No heroes found";
+			}, showInEffectsList);
 		}
 	}
 }

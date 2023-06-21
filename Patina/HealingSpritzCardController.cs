@@ -12,7 +12,7 @@ namespace Angille.Patina
 		 * increase HP recovery caused by your cards and Powers by 1.
 		 * 
 		 * POWER
-		 * 1 target regains 2 HP. The next time that target is dealt damage, they regain 2 HP.
+		 * 1 target regains 1 HP. The next time that target is dealt damage, they regain 2 HP.
 		 */
 
 		public HealingSpritzCardController(
@@ -27,9 +27,9 @@ namespace Angille.Patina
 			// increase HP recovery caused by your cards and Powers by 1.
 			AddTrigger(
 				(GainHPAction hp) => hp.CardSource != null && (
-					hp.CardSource.Card.Owner == base.TurnTaker
+					hp.CardSource.Card.Owner == this.TurnTaker
 					|| (hp.CardSource.PowerSource != null
-					&& hp.CardSource.PowerSource.TurnTakerController == base.TurnTakerController)
+					&& hp.CardSource.PowerSource.TurnTakerController == this.TurnTakerController)
 				),
 				(GainHPAction hp) => GameController.IncreaseHPGain(hp, 1, GetCardSource()),
 				new TriggerType[2]
@@ -46,10 +46,10 @@ namespace Angille.Patina
 		public override IEnumerator UsePower(int index = 0)
 		{
 			int targetNumeral = GetPowerNumeral(0, 1);
-			int healNumeral = GetPowerNumeral(1, 2);
+			int healNumeral = GetPowerNumeral(1, 1);
 			int moreHealNumeral = GetPowerNumeral(2, 2);
 
-			// 1 target regains 2 HP.
+			// 1 target regains 1 HP.
 			List<GainHPAction> storedResults = new List<GainHPAction>();
 			IEnumerator firstGainCR = GameController.SelectAndGainHP(
 				DecisionMaker,

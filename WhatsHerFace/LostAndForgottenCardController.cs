@@ -89,13 +89,13 @@ namespace Angille.WhatsHerFace
 					cardSource: GetCardSource()
 				);
 				IEnumerator moveThisCardCR = GameController.MoveCard(
-					base.TurnTakerController,
-					base.Card,
-					base.TurnTaker.OutOfGame,
+					TurnTakerController,
+					this.Card,
+					TurnTaker.OutOfGame,
 					cardSource: GetCardSource()
 				);
 				IEnumerator messageCR = GameController.SendMessageAction(
-					base.Card.Title + " removes itself and " + dca.CardToDestroy.Card.Title + " from the game!",
+					this.Card.Title + " removes itself and " + dca.CardToDestroy.Card.Title + " from the game!",
 					Priority.Medium,
 					GetCardSource(),
 					new Card[1] {dca.CardToDestroy.Card},

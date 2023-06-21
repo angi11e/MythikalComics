@@ -17,7 +17,17 @@
             Takes a collection of random elements from the provided IEnumerable.
             </summary>
         </member>
+        <member name="M:Handelabra.GenericEnumerationExtensions.TakeRandom``1(System.Collections.Generic.IEnumerable{``0},System.Int32,Handelabra.SerializableRandom)">
+            <summary>
+            Takes a collection of random elements from the provided IEnumerable.
+            </summary>
+        </member>
         <member name="M:Handelabra.GenericEnumerationExtensions.TakeRandomFirstOrDefault``1(System.Collections.Generic.IEnumerable{``0},System.Random)">
+            <summary>
+            Takes a random element from the provided IEnumerable.
+            </summary>
+        </member>
+        <member name="M:Handelabra.GenericEnumerationExtensions.TakeRandomFirstOrDefault``1(System.Collections.Generic.IEnumerable{``0},Handelabra.SerializableRandom)">
             <summary>
             Takes a random element from the provided IEnumerable.
             </summary>
@@ -84,6 +94,18 @@
             Returns the same value if the adjustment is within range, or a reduced adjustment to keep the adjustment within an allowable range.
             </summary>
         </member>
+        <member name="M:Handelabra.GenericListExtensions.Shuffle``1(System.Collections.Generic.IList{``0},System.Random)">
+            <summary>
+            Randomizes the order of the elements of a list. Requires an initialized Random instance.
+            Updated logic as per here: http://blog.codinghorror.com/the-danger-of-naivete/
+            </summary>
+        </member>
+        <member name="M:Handelabra.GenericListExtensions.Shuffle``1(System.Collections.Generic.IList{``0},Handelabra.SerializableRandom)">
+            <summary>
+            Randomizes the order of the elements of a list. Requires an initialized Random instance.
+            Updated logic as per here: http://blog.codinghorror.com/the-danger-of-naivete/
+            </summary>
+        </member>
         <member name="M:Handelabra.GenericListExtensions.Replace``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Boolean},System.Func{``0,``0})">
             <summary>
             Replaces all matching elements in a list with the specified replacement.
@@ -138,6 +160,21 @@
         <member name="F:Handelabra.Log.ExceptionOnError">
             <summary>
             If true, when Log.Error() is called, it with throw an exception instead of just a message.
+            </summary>
+        </member>
+        <member name="T:Handelabra.SerializableRandom">
+            <summary>
+            A replacement for System.Random that can be serialized in .NET Framework 4 and above.
+            </summary>
+        </member>
+        <member name="T:Handelabra.RandomFacade">
+            <summary>
+            A drop-in for System.Random that really uses SerializableRandom.
+            </summary>
+        </member>
+        <member name="T:Handelabra.SerializableRandomDeserializationBinder">
+            <summary>
+            Use this binder to translate old save files with System.Random to SerializableRandom.
             </summary>
         </member>
         <member name="M:Boomlagoon.JSON.JSONArray.#ctor(Boomlagoon.JSON.JSONArray)">

@@ -128,7 +128,7 @@
 	"spriteSourceSize": {"x":0,"y":0,"w":400,"h":200},
 	"sourceSize": {"w":400,"h":200}
 },
-"MythikalExpatrietteCharacter.png":
+"MythikalChronanCharacter.png":
 {
 	"frame": {"x":806,"y":609,"w":400,"h":200},
 	"rotated": false,
@@ -136,7 +136,7 @@
 	"spriteSourceSize": {"x":0,"y":0,"w":400,"h":200},
 	"sourceSize": {"w":400,"h":200}
 },
-"MythikalExpatrietteCharacterFlipped.png":
+"MythikalChronanCharacterFlipped.png":
 {
 	"frame": {"x":1209,"y":406,"w":400,"h":200},
 	"rotated": false,
@@ -144,7 +144,7 @@
 	"spriteSourceSize": {"x":0,"y":0,"w":400,"h":200},
 	"sourceSize": {"w":400,"h":200}
 },
-"MythikalGreyhatCharacter.png":
+"MythikalDriftCharacter.png":
 {
 	"frame": {"x":1612,"y":203,"w":400,"h":200},
 	"rotated": false,
@@ -152,7 +152,7 @@
 	"spriteSourceSize": {"x":0,"y":0,"w":400,"h":200},
 	"sourceSize": {"w":400,"h":200}
 },
-"MythikalGreyhatCharacterFlipped.png":
+"MythikalDriftCharacterFlipped.png":
 {
 	"frame": {"x":2015,"y":0,"w":400,"h":200},
 	"rotated": false,
@@ -160,7 +160,7 @@
 	"spriteSourceSize": {"x":0,"y":0,"w":400,"h":200},
 	"sourceSize": {"w":400,"h":200}
 },
-"MythikalMantraCharacter.png":
+"MythikalGreyhatCharacter.png":
 {
 	"frame": {"x":0,"y":1219,"w":400,"h":200},
 	"rotated": false,
@@ -168,7 +168,7 @@
 	"spriteSourceSize": {"x":0,"y":0,"w":400,"h":200},
 	"sourceSize": {"w":400,"h":200}
 },
-"MythikalMantraCharacterFlipped.png":
+"MythikalGreyhatCharacterFlipped.png":
 {
 	"frame": {"x":403,"y":1015,"w":400,"h":200},
 	"rotated": false,
@@ -176,7 +176,7 @@
 	"spriteSourceSize": {"x":0,"y":0,"w":400,"h":200},
 	"sourceSize": {"w":400,"h":200}
 },
-"MythikalPinionCharacter.png":
+"MythikalTraceKnightCharacter.png":
 {
 	"frame": {"x":806,"y":812,"w":400,"h":200},
 	"rotated": false,
@@ -184,7 +184,7 @@
 	"spriteSourceSize": {"x":0,"y":0,"w":400,"h":200},
 	"sourceSize": {"w":400,"h":200}
 },
-"MythikalPinionCharacterFlipped.png":
+"MythikalTraceKnightCharacterFlipped.png":
 {
 	"frame": {"x":1209,"y":609,"w":400,"h":200},
 	"rotated": false,
@@ -192,7 +192,7 @@
 	"spriteSourceSize": {"x":0,"y":0,"w":400,"h":200},
 	"sourceSize": {"w":400,"h":200}
 },
-"MythikalSetbackCharacter.png":
+"NightMareCharacter.png":
 {
 	"frame": {"x":1612,"y":406,"w":400,"h":200},
 	"rotated": false,
@@ -200,7 +200,7 @@
 	"spriteSourceSize": {"x":0,"y":0,"w":400,"h":200},
 	"sourceSize": {"w":400,"h":200}
 },
-"MythikalSetbackCharacterFlipped.png":
+"NightMareCharacterFlipped.png":
 {
 	"frame": {"x":2015,"y":203,"w":400,"h":200},
 	"rotated": false,
@@ -208,7 +208,7 @@
 	"spriteSourceSize": {"x":0,"y":0,"w":400,"h":200},
 	"sourceSize": {"w":400,"h":200}
 },
-"NightMareCharacter.png":
+"NightMareWholeHorseCharacter.png":
 {
 	"frame": {"x":2418,"y":0,"w":400,"h":200},
 	"rotated": false,
@@ -216,7 +216,7 @@
 	"spriteSourceSize": {"x":0,"y":0,"w":400,"h":200},
 	"sourceSize": {"w":400,"h":200}
 },
-"NightMareCharacterFlipped.png":
+"NightMareWholeHorseCharacterFlipped.png":
 {
 	"frame": {"x":0,"y":1422,"w":400,"h":200},
 	"rotated": false,
@@ -224,7 +224,7 @@
 	"spriteSourceSize": {"x":0,"y":0,"w":400,"h":200},
 	"sourceSize": {"w":400,"h":200}
 },
-"NightMareWholeHorseCharacter.png":
+"PatinaCharacter.png":
 {
 	"frame": {"x":403,"y":1218,"w":400,"h":200},
 	"rotated": false,
@@ -232,7 +232,7 @@
 	"spriteSourceSize": {"x":0,"y":0,"w":400,"h":200},
 	"sourceSize": {"w":400,"h":200}
 },
-"NightMareWholeHorseCharacterFlipped.png":
+"PatinaCharacterFlipped.png":
 {
 	"frame": {"x":806,"y":1015,"w":400,"h":200},
 	"rotated": false,
@@ -240,7 +240,7 @@
 	"spriteSourceSize": {"x":0,"y":0,"w":400,"h":200},
 	"sourceSize": {"w":400,"h":200}
 },
-"PatinaCharacter.png":
+"PecosBillCharacter.png":
 {
 	"frame": {"x":1209,"y":812,"w":400,"h":200},
 	"rotated": false,
@@ -248,7 +248,7 @@
 	"spriteSourceSize": {"x":0,"y":0,"w":400,"h":200},
 	"sourceSize": {"w":400,"h":200}
 },
-"PatinaCharacterFlipped.png":
+"PecosBillCharacterFlipped.png":
 {
 	"frame": {"x":1612,"y":609,"w":400,"h":200},
 	"rotated": false,
@@ -256,7 +256,7 @@
 	"spriteSourceSize": {"x":0,"y":0,"w":400,"h":200},
 	"sourceSize": {"w":400,"h":200}
 },
-"PecosBillCharacter.png":
+"RedRifleCharacter.png":
 {
 	"frame": {"x":2015,"y":406,"w":400,"h":200},
 	"rotated": false,
@@ -264,7 +264,7 @@
 	"spriteSourceSize": {"x":0,"y":0,"w":400,"h":200},
 	"sourceSize": {"w":400,"h":200}
 },
-"PecosBillCharacterFlipped.png":
+"RedRifleCharacterFlipped.png":
 {
 	"frame": {"x":2418,"y":203,"w":400,"h":200},
 	"rotated": false,
@@ -272,7 +272,7 @@
 	"spriteSourceSize": {"x":0,"y":0,"w":400,"h":200},
 	"sourceSize": {"w":400,"h":200}
 },
-"RedRifleCharacter.png":
+"RetroSpeedrunnerCharacter.png":
 {
 	"frame": {"x":2821,"y":0,"w":400,"h":200},
 	"rotated": false,
@@ -280,7 +280,7 @@
 	"spriteSourceSize": {"x":0,"y":0,"w":400,"h":200},
 	"sourceSize": {"w":400,"h":200}
 },
-"RedRifleCharacterFlipped.png":
+"RetroSpeedrunnerCharacterFlipped.png":
 {
 	"frame": {"x":0,"y":1625,"w":400,"h":200},
 	"rotated": false,
@@ -288,7 +288,7 @@
 	"spriteSourceSize": {"x":0,"y":0,"w":400,"h":200},
 	"sourceSize": {"w":400,"h":200}
 },
-"RetroSpeedrunnerCharacter.png":
+"SalemCharacter.png":
 {
 	"frame": {"x":403,"y":1421,"w":400,"h":200},
 	"rotated": false,
@@ -296,25 +296,9 @@
 	"spriteSourceSize": {"x":0,"y":0,"w":400,"h":200},
 	"sourceSize": {"w":400,"h":200}
 },
-"RetroSpeedrunnerCharacterFlipped.png":
-{
-	"frame": {"x":806,"y":1218,"w":400,"h":200},
-	"rotated": false,
-	"trimmed": false,
-	"spriteSourceSize": {"x":0,"y":0,"w":400,"h":200},
-	"sourceSize": {"w":400,"h":200}
-},
-"SalemCharacter.png":
-{
-	"frame": {"x":1209,"y":1015,"w":400,"h":200},
-	"rotated": false,
-	"trimmed": false,
-	"spriteSourceSize": {"x":0,"y":0,"w":400,"h":200},
-	"sourceSize": {"w":400,"h":200}
-},
 "SalemCharacterFlipped.png":
 {
-	"frame": {"x":1612,"y":812,"w":400,"h":200},
+	"frame": {"x":806,"y":1218,"w":400,"h":200},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":400,"h":200},
@@ -330,7 +314,7 @@
 },
 "SeeingRedRedRifleCharacterFlipped.png":
 {
-	"frame": {"x":2015,"y":609,"w":400,"h":200},
+	"frame": {"x":1209,"y":1015,"w":400,"h":200},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":400,"h":200},
@@ -338,7 +322,7 @@
 },
 "SpeedrunnerCharacter.png":
 {
-	"frame": {"x":2418,"y":406,"w":400,"h":200},
+	"frame": {"x":1612,"y":812,"w":400,"h":200},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":400,"h":200},
@@ -346,13 +330,29 @@
 },
 "SpeedrunnerCharacterFlipped.png":
 {
+	"frame": {"x":2015,"y":609,"w":400,"h":200},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":400,"h":200},
+	"sourceSize": {"w":400,"h":200}
+},
+"SpoilerCharacter.png":
+{
+	"frame": {"x":2418,"y":406,"w":400,"h":200},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":400,"h":200},
+	"sourceSize": {"w":400,"h":200}
+},
+"SpoilerCharacterFlipped.png":
+{
 	"frame": {"x":2821,"y":203,"w":400,"h":200},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":400,"h":200},
 	"sourceSize": {"w":400,"h":200}
 },
-"TheurgyCharacter.png":
+"SupplicateCharacter.png":
 {
 	"frame": {"x":3224,"y":0,"w":400,"h":200},
 	"rotated": false,
@@ -360,7 +360,7 @@
 	"spriteSourceSize": {"x":0,"y":0,"w":400,"h":200},
 	"sourceSize": {"w":400,"h":200}
 },
-"TheurgyCharacterFlipped.png":
+"TheurgyCharacter.png":
 {
 	"frame": {"x":0,"y":1828,"w":400,"h":200},
 	"rotated": false,
@@ -368,7 +368,7 @@
 	"spriteSourceSize": {"x":0,"y":0,"w":400,"h":200},
 	"sourceSize": {"w":400,"h":200}
 },
-"TheurgyFateweaverCharacter.png":
+"TheurgyCharacterFlipped.png":
 {
 	"frame": {"x":403,"y":1624,"w":400,"h":200},
 	"rotated": false,
@@ -376,7 +376,7 @@
 	"spriteSourceSize": {"x":0,"y":0,"w":400,"h":200},
 	"sourceSize": {"w":400,"h":200}
 },
-"TheurgyFateweaverCharacterFlipped.png":
+"TheurgyFateweaverCharacter.png":
 {
 	"frame": {"x":806,"y":1421,"w":400,"h":200},
 	"rotated": false,
@@ -384,7 +384,7 @@
 	"spriteSourceSize": {"x":0,"y":0,"w":400,"h":200},
 	"sourceSize": {"w":400,"h":200}
 },
-"UmbraCharacter.png":
+"TheurgyFateweaverCharacterFlipped.png":
 {
 	"frame": {"x":1209,"y":1218,"w":400,"h":200},
 	"rotated": false,
@@ -392,7 +392,7 @@
 	"spriteSourceSize": {"x":0,"y":0,"w":400,"h":200},
 	"sourceSize": {"w":400,"h":200}
 },
-"UmbraCharacterFlipped.png":
+"UmbraCharacter.png":
 {
 	"frame": {"x":1612,"y":1015,"w":400,"h":200},
 	"rotated": false,
@@ -400,7 +400,7 @@
 	"spriteSourceSize": {"x":0,"y":0,"w":400,"h":200},
 	"sourceSize": {"w":400,"h":200}
 },
-"VerdigrisCharacter.png":
+"UmbraCharacterFlipped.png":
 {
 	"frame": {"x":2015,"y":812,"w":400,"h":200},
 	"rotated": false,
@@ -408,7 +408,7 @@
 	"spriteSourceSize": {"x":0,"y":0,"w":400,"h":200},
 	"sourceSize": {"w":400,"h":200}
 },
-"VerdigrisCharacterFlipped.png":
+"VerdigrisCharacter.png":
 {
 	"frame": {"x":2418,"y":609,"w":400,"h":200},
 	"rotated": false,
@@ -416,7 +416,7 @@
 	"spriteSourceSize": {"x":0,"y":0,"w":400,"h":200},
 	"sourceSize": {"w":400,"h":200}
 },
-"WhatsHerFaceCharacter.png":
+"VerdigrisCharacterFlipped.png":
 {
 	"frame": {"x":2821,"y":406,"w":400,"h":200},
 	"rotated": false,
@@ -424,7 +424,7 @@
 	"spriteSourceSize": {"x":0,"y":0,"w":400,"h":200},
 	"sourceSize": {"w":400,"h":200}
 },
-"WhatsHerFaceCharacterFlipped.png":
+"WhatsHerFaceCharacter.png":
 {
 	"frame": {"x":3224,"y":203,"w":400,"h":200},
 	"rotated": false,
@@ -432,7 +432,7 @@
 	"spriteSourceSize": {"x":0,"y":0,"w":400,"h":200},
 	"sourceSize": {"w":400,"h":200}
 },
-"WhatsHerFaceGadgeteerCharacter.png":
+"WhatsHerFaceCharacterFlipped.png":
 {
 	"frame": {"x":3627,"y":0,"w":400,"h":200},
 	"rotated": false,
@@ -440,9 +440,17 @@
 	"spriteSourceSize": {"x":0,"y":0,"w":400,"h":200},
 	"sourceSize": {"w":400,"h":200}
 },
-"WhatsHerFaceGadgeteerCharacterFlipped.png":
+"WhatsHerFaceGadgeteerCharacter.png":
 {
 	"frame": {"x":0,"y":2031,"w":400,"h":200},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":400,"h":200},
+	"sourceSize": {"w":400,"h":200}
+},
+"WhatsHerFaceGadgeteerCharacterFlipped.png":
+{
+	"frame": {"x":403,"y":1827,"w":400,"h":200},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":400,"h":200},
@@ -455,6 +463,6 @@
 	"format": "RGBA8888",
 	"size": {"w":4096,"h":4096},
 	"scale": "1",
-	"smartupdate": "$TexturePacker:SmartUpdate:be3111d4e4523a9d99551938c247ccd3:90eea6ee18930adb78122ea00e53d785:e92652cff04ed6c8e37f7bc0458ec814$"
+	"smartupdate": "$TexturePacker:SmartUpdate:6bfcb9d3d458dda07c5e880c4f62152e:0d2c297a2593d6a4b38c2900a0c3939d:e92652cff04ed6c8e37f7bc0458ec814$"
 }
 }

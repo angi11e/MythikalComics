@@ -23,7 +23,7 @@ namespace Angille.CadaverTeam
 				DecisionMaker,
 				new LinqTurnTakerCriteria(
 					tt => GameController.IsTurnTakerVisibleToCardSource(tt, GetCardSource())
-					&& (tt.IsVillainTeam || tt.IsVillain)
+					&& (tt.IsVillainTeam || IsVillain(tt))
 				),
 				SelectionType.RevealTopCardOfDeck,
 				RevealAndDoStuffResponse,

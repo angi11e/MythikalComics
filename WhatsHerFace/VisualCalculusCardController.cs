@@ -22,11 +22,11 @@ namespace Angille.WhatsHerFace
 			// You may look at the top card of their deck at any time.
 			SpecialStringMaker.ShowListOfCards(
 				new LinqCardCriteria(
-					(Card c) => c == base.Card.Location.OwnerTurnTaker.Deck.TopCard,
+					(Card c) => c == Card.Location.OwnerTurnTaker.Deck.TopCard,
 					"top card of deck",
 					useCardsSuffix: false
 				)
-			).Condition = () => base.Card.IsInPlayAndHasGameText;
+			).Condition = () => Card.IsInPlayAndHasGameText;
 		}
 
 		// Play this card next to a character card.

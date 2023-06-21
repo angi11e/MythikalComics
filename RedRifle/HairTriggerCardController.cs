@@ -24,7 +24,7 @@ namespace Angille.RedRifle
 		{
 			// Whenever a non-hero target enters play, {RedRifle} may deal that target 1 projectile damage.
 			AddTargetEntersPlayTrigger(
-				(Card c) => !c.IsHero,
+				(Card c) => !IsHeroTarget(c),
 				(Card c) => HairTriggerResponse(c),
 				TriggerType.DealDamage,
 				TriggerTiming.After

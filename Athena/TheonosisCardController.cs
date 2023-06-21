@@ -31,7 +31,7 @@ namespace Angille.Athena
 			IEnumerator basePlayCR = base.Play();
 
 			IEnumerator morePlayCR = IncreasePhaseActionCountIfInPhase(
-				(TurnTaker tt) => tt == base.TurnTaker,
+				(TurnTaker tt) => tt == this.TurnTaker,
 				Phase.PlayCard,
 				1
 			);
@@ -62,7 +62,7 @@ namespace Angille.Athena
 
 		private bool ShouldIncreasePhaseActionCount(TurnTaker tt)
 		{
-			return tt == base.TurnTaker;
+			return tt == this.TurnTaker;
 		}
 
 		public override bool AskIfIncreasingCurrentPhaseActionCount()
@@ -84,7 +84,7 @@ namespace Angille.Athena
 			IEnumerator destroyCR = GameController.SelectAndDestroyCards(
 				DecisionMaker,
 				new LinqCardCriteria(
-					(Card c) => c.IsHero && c.IsInPlayAndHasGameText && !c.IsCharacter,
+					(Card c) => IsHero(c) && c.IsInPlayAndHasGameText && !c.IsCharacter,
 					"non-character hero"
 				),
 				destroyNumeral,
@@ -109,7 +109,7 @@ namespace Angille.Athena
 				IEnumerator destroyOngoingCR = GameController.SelectAndDestroyCards(
 					DecisionMaker,
 					new LinqCardCriteria(
-						(Card c) => c.IsOngoing && c.IsInPlayAndHasGameText
+						(Card c) => IsOngoing(c) && c.IsInPlayAndHasGameText
 					),
 					ongoingNumeral,
 					optional: false,

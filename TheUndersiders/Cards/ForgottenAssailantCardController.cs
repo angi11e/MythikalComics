@@ -5,6 +5,7 @@ using System.Text;
 using Handelabra.Sentinels.Engine.Model;
 using Handelabra.Sentinels.Engine.Controller;
 using System.Collections;
+using System.Reflection;
 using Handelabra;
 
 namespace Angille.TheUndersiders
@@ -14,6 +15,14 @@ namespace Angille.TheUndersiders
 		public ForgottenAssailantCardController(Card card, TurnTakerController turnTakerController)
 			: base(card, turnTakerController)
 		{
+			SpecialStringMaker.ShowVillainCharacterCardWithLowestHP();
+			SpecialStringMaker.ShowHeroWithMostCardsInTrash();
+
+			SpecialStringMaker.ShowLocationOfCards(
+				new LinqCardCriteria((Card c) => c.Identifier == "ImpCharacter")
+			).Condition = () => ImpCharacter.IsInPlayAndNotUnderCard && !ImpCharacter.IsFlipped;
+
+			SpecialStringMaker.ShowSpecialString(() => GetSpecialStringIcons("mask", "crown"));
 		}
 
 		public override IEnumerator Play()
@@ -27,13 +36,13 @@ namespace Angille.TheUndersiders
 				cardSource: GetCardSource()
 			);
 
-			if (base.UseUnityCoroutines)
+			if (UseUnityCoroutines)
 			{
-				yield return base.GameController.StartCoroutine(findLowestCR);
+				yield return GameController.StartCoroutine(findLowestCR);
 			}
 			else
 			{
-				base.GameController.ExhaustCoroutine(findLowestCR);
+				GameController.ExhaustCoroutine(findLowestCR);
 			}
 
 			Card lowestVillainCard = lowestVillain.FirstOrDefault();
@@ -42,13 +51,13 @@ namespace Angille.TheUndersiders
 				List<TurnTaker> heroList = new List<TurnTaker>();
 				IEnumerator trashHeroCR = FindHeroWithMostCardsInTrash(heroList);
 
-				if (base.UseUnityCoroutines)
+				if (UseUnityCoroutines)
 				{
-					yield return base.GameController.StartCoroutine(trashHeroCR);
+					yield return GameController.StartCoroutine(trashHeroCR);
 				}
 				else
 				{
-					base.GameController.ExhaustCoroutine(trashHeroCR);
+					GameController.ExhaustCoroutine(trashHeroCR);
 				}
 				Card trashHero = heroList.FirstOrDefault().CharacterCard;
 
@@ -57,17 +66,17 @@ namespace Angille.TheUndersiders
 					IEnumerator trashDamageCR = DealDamage(
 						lowestVillainCard,
 						trashHero,
-						base.H - 2,
+						H - 2,
 						DamageType.Melee
 					);
 
-					if (base.UseUnityCoroutines)
+					if (UseUnityCoroutines)
 					{
-						yield return base.GameController.StartCoroutine(trashDamageCR);
+						yield return GameController.StartCoroutine(trashDamageCR);
 					}
 					else
 					{
-						base.GameController.ExhaustCoroutine(trashDamageCR);
+						GameController.ExhaustCoroutine(trashDamageCR);
 					}
 				}
 			}
@@ -88,13 +97,13 @@ namespace Angille.TheUndersiders
 						Priority.Medium,
 						GetCardSource()
 					);
-					if (base.UseUnityCoroutines)
+					if (UseUnityCoroutines)
 					{
-						yield return base.GameController.StartCoroutine(promptCR);
+						yield return GameController.StartCoroutine(promptCR);
 					}
 					else
 					{
-						base.GameController.ExhaustCoroutine(promptCR);
+						GameController.ExhaustCoroutine(promptCR);
 					}
 
 					List<SelectCardDecision> storedResults = new List<SelectCardDecision>();
@@ -105,13 +114,13 @@ namespace Angille.TheUndersiders
 						cardSource: GetCardSource()
 					);
 
-					if (base.UseUnityCoroutines)
+					if (UseUnityCoroutines)
 					{
-						yield return base.GameController.StartCoroutine(pickHeroCR);
+						yield return GameController.StartCoroutine(pickHeroCR);
 					}
 					else
 					{
-						base.GameController.ExhaustCoroutine(pickHeroCR);
+						GameController.ExhaustCoroutine(pickHeroCR);
 					}
 
 					heroTarget = storedResults.FirstOrDefault().SelectedCard;
@@ -124,13 +133,13 @@ namespace Angille.TheUndersiders
 						cardSource: GetCardSource()
 					);
 
-					if (base.UseUnityCoroutines)
+					if (UseUnityCoroutines)
 					{
-						yield return base.GameController.StartCoroutine(findVillainCR);
+						yield return GameController.StartCoroutine(findVillainCR);
 					}
 					else
 					{
-						base.GameController.ExhaustCoroutine(findVillainCR);
+						GameController.ExhaustCoroutine(findVillainCR);
 					}
 
 					maybeImp = villainList.FirstOrDefault();
@@ -142,14 +151,14 @@ namespace Angille.TheUndersiders
 					{
 						new DealDamageAction(
 							GetCardSource(),
-							new DamageSource(base.GameController, maybeImp),
+							new DamageSource(GameController, maybeImp),
 							null,
 							1,
 							DamageType.Melee
 						),
 						new DealDamageAction(
 							GetCardSource(),
-							new DamageSource(base.GameController, maybeImp),
+							new DamageSource(GameController, maybeImp),
 							null,
 							1,
 							DamageType.Toxic
@@ -162,13 +171,13 @@ namespace Angille.TheUndersiders
 						numberOfTargets: 1
 					);
 
-					if (base.UseUnityCoroutines)
+					if (UseUnityCoroutines)
 					{
-						yield return base.GameController.StartCoroutine(forgottenStrikeCR);
+						yield return GameController.StartCoroutine(forgottenStrikeCR);
 					}
 					else
 					{
-						base.GameController.ExhaustCoroutine(forgottenStrikeCR);
+						GameController.ExhaustCoroutine(forgottenStrikeCR);
 					}
 				}
 			}
@@ -187,18 +196,18 @@ namespace Angille.TheUndersiders
 					null,
 					false,
 					null,
-					additionalCriteria: (Card c) => affectedList.Contains(c) && c.IsHero,
+					additionalCriteria: (Card c) => affectedList.Contains(c) && IsHeroTarget(c),
 					allowAutoDecide: true,
 					cardSource: GetCardSource()
 				);
 
-				if (base.UseUnityCoroutines)
+				if (UseUnityCoroutines)
 				{
-					yield return base.GameController.StartCoroutine(confusedCR);
+					yield return GameController.StartCoroutine(confusedCR);
 				}
 				else
 				{
-					base.GameController.ExhaustCoroutine(confusedCR);
+					GameController.ExhaustCoroutine(confusedCR);
 				}
 			}
 			yield break;

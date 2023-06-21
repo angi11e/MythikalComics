@@ -47,14 +47,14 @@ namespace Angille.CadaverTeam
 			// ...whenever a hero card is played outside that hero's play area...
 			AddTrigger(
 				(CardEntersPlayAction cepa) =>
-					cepa.CardEnteringPlay.IsHero
+					IsHero(cepa.CardEnteringPlay)
 					&& !cepa.CardEnteringPlay.IsAtLocationRecursive(cepa.CardEnteringPlay.Owner.PlayArea)
 					// If {Angille.Theurgy} is active in this game...
 					&& IsHeroActiveInThisGame("TheurgyCharacter"),
 				// ...this card deals each hero target 1 lightning damage.
 				(CardEntersPlayAction cepa) => DealDamage(
 					this.Card,
-					(Card c) => c.IsHero,
+					(Card c) => IsHero(c),
 					1,
 					DamageType.Lightning
 				),

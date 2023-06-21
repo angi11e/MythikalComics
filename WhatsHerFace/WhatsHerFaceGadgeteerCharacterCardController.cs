@@ -25,21 +25,21 @@ namespace Angille.WhatsHerFace
 		{
 			// Destroy a [u]recall[/u] card.
 			List<DestroyCardAction> storedResults = new List<DestroyCardAction>();
-			IEnumerator destroyCR = base.GameController.SelectAndDestroyCard(
-				base.HeroTurnTakerController,
+			IEnumerator destroyCR = GameController.SelectAndDestroyCard(
+				DecisionMaker,
 				new LinqCardCriteria((Card c) => IsRecall(c), "recall"),
 				optional: false,
 				storedResults,
 				cardSource: GetCardSource()
 			);
 
-			if (base.UseUnityCoroutines)
+			if (UseUnityCoroutines)
 			{
-				yield return base.GameController.StartCoroutine(destroyCR);
+				yield return GameController.StartCoroutine(destroyCR);
 			}
 			else
 			{
-				base.GameController.ExhaustCoroutine(destroyCR);
+				GameController.ExhaustCoroutine(destroyCR);
 			}
 
 			// was one destroyed?
@@ -50,7 +50,7 @@ namespace Angille.WhatsHerFace
 				int damageNumeral = GetPowerNumeral(1, 3);
 				IEnumerator dealDamageCR = GameController.SelectTargetsAndDealDamage(
 					DecisionMaker,
-					new DamageSource(GameController, base.CharacterCard),
+					new DamageSource(GameController, CharacterCard),
 					damageNumeral,
 					DamageType.Sonic,
 					targetNumeral,
@@ -81,23 +81,23 @@ namespace Angille.WhatsHerFace
 					List<SelectCardDecision> selectCardDecision = new List<SelectCardDecision>();
 
 					// select the card
-					IEnumerator selectCardCR = this.GameController.SelectCardAndStoreResults(
-						this.HeroTurnTakerController,
+					IEnumerator selectCardCR = GameController.SelectCardAndStoreResults(
+						DecisionMaker,
 						SelectionType.MoveCardOnDeck,
 						new LinqCardCriteria(
-							(Card c) => c.IsInTrash && IsEquipment(c) && c.IsHero
-							&& this.GameController.IsLocationVisibleToSource(c.Location, base.GetCardSource(null))
+							(Card c) => c.IsInTrash && IsEquipment(c) && IsHero(c)
+							&& GameController.IsLocationVisibleToSource(c.Location, GetCardSource())
 						),
 						selectCardDecision,
 						false
 					);
 					if (UseUnityCoroutines)
 					{
-						yield return this.GameController.StartCoroutine(selectCardCR);
+						yield return GameController.StartCoroutine(selectCardCR);
 					}
 					else
 					{
-						this.GameController.ExhaustCoroutine(selectCardCR);
+						GameController.ExhaustCoroutine(selectCardCR);
 					}
 
 					if (!DidSelectCard(selectCardDecision))
@@ -106,8 +106,8 @@ namespace Angille.WhatsHerFace
 					}
 
 					// move the card
-					IEnumerator moveCardCR = this.GameController.MoveCard(
-						this.TurnTakerController,
+					IEnumerator moveCardCR = GameController.MoveCard(
+						DecisionMaker,
 						selectCardDecision.FirstOrDefault().SelectedCard,
 						selectCardDecision.FirstOrDefault().SelectedCard.Owner.PlayArea,
 						isPutIntoPlay: true,
@@ -115,11 +115,11 @@ namespace Angille.WhatsHerFace
 					);
 					if (UseUnityCoroutines)
 					{
-						yield return this.GameController.StartCoroutine(moveCardCR);
+						yield return GameController.StartCoroutine(moveCardCR);
 					}
 					else
 					{
-						this.GameController.ExhaustCoroutine(moveCardCR);
+						GameController.ExhaustCoroutine(moveCardCR);
 					}
 					break;
 
@@ -166,7 +166,7 @@ namespace Angille.WhatsHerFace
 						DecisionMaker,
 						SelectionType.ReduceDamageTaken,
 						new LinqCardCriteria(
-							(Card c) => c.IsInPlay && c.IsTarget && c.IsHero,
+							(Card c) => c.IsInPlay && IsHeroTarget(c),
 							"hero target",
 							useCardsSuffix: true,
 							plural: "hero targets"

@@ -23,7 +23,7 @@ namespace Angille.WhatsHerFace
 
 		// Play this card next to a hero ongoing or equipment card.
 		protected override LinqCardCriteria CustomCriteria => new LinqCardCriteria(
-			(Card c) => c.IsInPlayAndHasGameText && c.IsHero && (c.IsOngoing || IsEquipment(c)),
+			(Card c) => c.IsInPlayAndHasGameText && IsHero(c) && (IsOngoing(c) || IsEquipment(c)),
 			"hero ongoing or equipment"
 		);
 
@@ -51,8 +51,8 @@ namespace Angille.WhatsHerFace
 
 			// ...then destroy this card.
 			IEnumerator destructionCR = GameController.DestroyCard(
-				this.DecisionMaker,
-				base.Card,
+				DecisionMaker,
+				this.Card,
 				cardSource: GetCardSource()
 			);
 

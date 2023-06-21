@@ -22,24 +22,24 @@ namespace Angille.RedRifle
 			TurnTakerController turnTakerController
 		) : base(card, turnTakerController)
 		{
-			base.SpecialStringMaker.ShowTokenPool(base.TrueshotPool);
+			SpecialStringMaker.ShowTokenPool(TrueshotPool);
 		}
 
 		public override void AddTriggers()
 		{
 			// At the start of your turn, add 1 token to your trueshot pool.
 			AddStartOfTurnTrigger(
-				(TurnTaker tt) => tt == base.TurnTaker,
+				(TurnTaker tt) => tt == this.TurnTaker,
 				(PhaseChangeAction p) => RedRifleTrueshotPoolUtility.AddTrueshotTokens(this, 1),
 				TriggerType.AddTokensToPool
 			);
 
 			// At the end of your turn, if you have fewer than 5 tokens in your trueshot pool, destroy this card.
 			AddEndOfTurnTrigger(
-				(TurnTaker tt) => tt == base.TurnTaker && base.TrueshotPool.CurrentValue < 5,
+				(TurnTaker tt) => tt == this.TurnTaker && TrueshotPool.CurrentValue < 5,
 				(PhaseChangeAction p) => GameController.DestroyCard(
 					this.DecisionMaker,
-					base.Card,
+					this.Card,
 					cardSource: GetCardSource()
 				),
 				TriggerType.DestroySelf
@@ -75,13 +75,13 @@ namespace Angille.RedRifle
 					GetCardSource()
 				);
 
-				if (base.UseUnityCoroutines)
+				if (UseUnityCoroutines)
 				{
-					yield return base.GameController.StartCoroutine(noTokensCR);
+					yield return GameController.StartCoroutine(noTokensCR);
 				}
 				else
 				{
-					base.GameController.ExhaustCoroutine(noTokensCR);
+					GameController.ExhaustCoroutine(noTokensCR);
 				}
 			}
 			else
@@ -96,13 +96,13 @@ namespace Angille.RedRifle
 					cardSource: GetCardSource()
 				);
 
-				if (base.UseUnityCoroutines)
+				if (UseUnityCoroutines)
 				{
-					yield return base.GameController.StartCoroutine(howManyCR);
+					yield return GameController.StartCoroutine(howManyCR);
 				}
 				else
 				{
-					base.GameController.ExhaustCoroutine(howManyCR);
+					GameController.ExhaustCoroutine(howManyCR);
 				}
 
 				tokensRemoved = tokensToRemove.FirstOrDefault()?.SelectedNumber ?? 0;
@@ -113,13 +113,13 @@ namespace Angille.RedRifle
 			{
 				IEnumerator removeTokensCR = RedRifleTrueshotPoolUtility.RemoveTrueshotTokens<GameAction>(this, tokensRemoved);
 
-				if (base.UseUnityCoroutines)
+				if (UseUnityCoroutines)
 				{
-					yield return base.GameController.StartCoroutine(removeTokensCR);
+					yield return GameController.StartCoroutine(removeTokensCR);
 				}
 				else
 				{
-					base.GameController.ExhaustCoroutine(removeTokensCR);
+					GameController.ExhaustCoroutine(removeTokensCR);
 				}
 
 				IEnumerator targetMessageCR = GameController.SendMessageAction(
@@ -138,15 +138,15 @@ namespace Angille.RedRifle
 					cardSource: GetCardSource()
 				);
 
-				if (base.UseUnityCoroutines)
+				if (UseUnityCoroutines)
 				{
-					yield return base.GameController.StartCoroutine(targetMessageCR);
-					yield return base.GameController.StartCoroutine(extraTargetsCR);
+					yield return GameController.StartCoroutine(targetMessageCR);
+					yield return GameController.StartCoroutine(extraTargetsCR);
 				}
 				else
 				{
-					base.GameController.ExhaustCoroutine(targetMessageCR);
-					base.GameController.ExhaustCoroutine(extraTargetsCR);
+					GameController.ExhaustCoroutine(targetMessageCR);
+					GameController.ExhaustCoroutine(extraTargetsCR);
 				}
 
 				totalTargets = totalTargetsToHit.FirstOrDefault()?.SelectedNumber ?? 0;
@@ -168,7 +168,7 @@ namespace Angille.RedRifle
 			{
 				IEnumerator dealHighDamageCR = GameController.SelectTargetsAndDealDamage(
 					DecisionMaker,
-					new DamageSource(GameController, base.CharacterCard),
+					new DamageSource(GameController, this.CharacterCard),
 					damageValue + 1,
 					DamageType.Projectile,
 					highDamageTargets,
@@ -178,13 +178,13 @@ namespace Angille.RedRifle
 					cardSource: GetCardSource()
 				);
 
-				if (base.UseUnityCoroutines)
+				if (UseUnityCoroutines)
 				{
-					yield return base.GameController.StartCoroutine(dealHighDamageCR);
+					yield return GameController.StartCoroutine(dealHighDamageCR);
 				}
 				else
 				{
-					base.GameController.ExhaustCoroutine(dealHighDamageCR);
+					GameController.ExhaustCoroutine(dealHighDamageCR);
 				}
 			}
 			if (lowDamageTargets > 0)
@@ -197,7 +197,7 @@ namespace Angille.RedRifle
 
 				IEnumerator dealLowDamageCR = GameController.SelectTargetsAndDealDamage(
 					DecisionMaker,
-					new DamageSource(GameController, base.CharacterCard),
+					new DamageSource(GameController, this.CharacterCard),
 					damageValue,
 					DamageType.Projectile,
 					lowDamageTargets,
@@ -207,13 +207,13 @@ namespace Angille.RedRifle
 					cardSource: GetCardSource()
 				);
 
-				if (base.UseUnityCoroutines)
+				if (UseUnityCoroutines)
 				{
-					yield return base.GameController.StartCoroutine(dealLowDamageCR);
+					yield return GameController.StartCoroutine(dealLowDamageCR);
 				}
 				else
 				{
-					base.GameController.ExhaustCoroutine(dealLowDamageCR);
+					GameController.ExhaustCoroutine(dealLowDamageCR);
 				}
 			}
 

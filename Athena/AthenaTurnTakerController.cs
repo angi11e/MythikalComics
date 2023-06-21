@@ -15,6 +15,9 @@ namespace Angille.Athena
 		{
 		}
 
+		public string[] availablePromos = new string[] {  };
+		public bool ArePromosSetup { get; set; } = false;
+
 		protected override IEnumerable<string> VillainsToAugment => new[] {
 			"Atum", "Geb", "Isis", "Nephthys", "Nuit", "Osiris", "Set", "Shu", "Tefnut",
 			"KaargraWarfangCharacter",

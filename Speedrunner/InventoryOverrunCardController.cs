@@ -28,7 +28,7 @@ namespace Angille.Speedrunner
 				DecisionMaker,
 				new LinqTurnTakerCriteria(
 					tt => GameController.IsTurnTakerVisibleToCardSource(tt, GetCardSource())
-					&& tt.IsHero && !tt.IsIncapacitatedOrOutOfGame
+					&& !tt.IsIncapacitatedOrOutOfGame && IsHero(tt)
 					&& tt.Deck.Cards.Where((Card c) => IsEquipment(c)).Any()
 				),
 				SelectionType.RevealCardsFromDeck,

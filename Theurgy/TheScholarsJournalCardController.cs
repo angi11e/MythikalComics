@@ -78,7 +78,7 @@ namespace Angille.Theurgy
 
 			CannotPlayCardsStatusEffect cannotPlayCardsStatusEffect = new CannotPlayCardsStatusEffect();
 			cannotPlayCardsStatusEffect.CardCriteria.NativeDeck = location.Location;
-			cannotPlayCardsStatusEffect.UntilStartOfNextTurn(base.TurnTaker);
+			cannotPlayCardsStatusEffect.UntilStartOfNextTurn(this.TurnTaker);
 			IEnumerator inhibitorCR = AddStatusEffect(cannotPlayCardsStatusEffect);
 			
 			if (UseUnityCoroutines)
@@ -95,7 +95,7 @@ namespace Angille.Theurgy
 				PreventPhaseActionStatusEffect preventPhaseActionStatusEffect = new PreventPhaseActionStatusEffect();
 				preventPhaseActionStatusEffect.ToTurnPhaseCriteria.Phase = Phase.PlayCard;
 				preventPhaseActionStatusEffect.ToTurnPhaseCriteria.TurnTaker = location.Location.OwnerTurnTaker;
-				preventPhaseActionStatusEffect.UntilStartOfNextTurn(base.TurnTaker);
+				preventPhaseActionStatusEffect.UntilStartOfNextTurn(this.TurnTaker);
 				IEnumerator inhibitSubdeckCR = AddStatusEffect(preventPhaseActionStatusEffect);
 			
 				if (UseUnityCoroutines)
@@ -109,7 +109,7 @@ namespace Angille.Theurgy
 			}
 
 			// remove this card from the game
-			d.SetPostDestroyDestination(base.HeroTurnTaker.OutOfGame);
+			d.SetPostDestroyDestination(HeroTurnTaker.OutOfGame);
 
 			yield break;
 		}

@@ -19,7 +19,7 @@ namespace Angille.RedRifle
 			TurnTakerController turnTakerController
 		) : base(card, turnTakerController)
 		{
-			base.SpecialStringMaker.ShowTokenPool(base.TrueshotPool);
+			SpecialStringMaker.ShowTokenPool(TrueshotPool);
 		}
 
 		public override IEnumerator Play()
@@ -27,7 +27,7 @@ namespace Angille.RedRifle
 			// {RedRifle} deals 1 target 3 projectile damage.
 			IEnumerator dealDamageCR = GameController.SelectTargetsAndDealDamage(
 				DecisionMaker,
-				new DamageSource(GameController, base.CharacterCard),
+				new DamageSource(GameController, this.CharacterCard),
 				3,
 				DamageType.Projectile,
 				1,
@@ -73,7 +73,7 @@ namespace Angille.RedRifle
 			// If you removed 3 tokens this way, destroy 1 Ongoing or Environment card.
 			IEnumerator destroyCR = GameController.SelectAndDestroyCard(
 				DecisionMaker,
-				new LinqCardCriteria((Card c) => c.IsEnvironment || c.IsOngoing, "ongoing or environment"),
+				new LinqCardCriteria((Card c) => c.IsEnvironment || IsOngoing(c), "ongoing or environment"),
 				false,
 				cardSource: GetCardSource()
 			);

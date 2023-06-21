@@ -37,16 +37,16 @@ namespace Angille.RedRifle
 			IEnumerator playTopCardsCR = PlayTopCardOfEachDeckInTurnOrder(
 				(TurnTakerController ttc) => true,
 				(Location l) => true,
-				base.TurnTaker
+				this.TurnTaker
 			);
 
-			if (base.UseUnityCoroutines)
+			if (UseUnityCoroutines)
 			{
-				yield return base.GameController.StartCoroutine(playTopCardsCR);
+				yield return GameController.StartCoroutine(playTopCardsCR);
 			}
 			else
 			{
-				base.GameController.ExhaustCoroutine(playTopCardsCR);
+				GameController.ExhaustCoroutine(playTopCardsCR);
 			}
 
 			// For each one-shot played this turn, add 1 token to your trueshot pool.
@@ -71,8 +71,8 @@ namespace Angille.RedRifle
 
 			// Destroy this card.
 			IEnumerator destructionCR = GameController.DestroyCard(
-				this.DecisionMaker,
-				base.Card,
+				DecisionMaker,
+				this.Card,
 				cardSource: GetCardSource()
 			);
 

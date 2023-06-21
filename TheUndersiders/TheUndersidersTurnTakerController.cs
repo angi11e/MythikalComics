@@ -23,22 +23,22 @@ namespace Angille.TheUndersiders
 			// The 8 Villain character cards are shuffled and placed beneath Warlords of Brockton.
 			// The top {H - 2} cards from beneath Warlords of Brockton are moved into the villain play area.
 
-			List<Card> villains = (from c in base.TurnTaker.GetAllCards()
+			List<Card> villains = (from c in TurnTaker.GetAllCards()
 				where c.IsVillainCharacterCard && !c.Location.IsOutOfGame select c
 			).ToList();
 
-			Card warlords = base.TurnTaker.FindCard("WarlordsOfBrockton");
-			IEnumerator moveCR = base.GameController.BulkMoveCards(this, villains, warlords.UnderLocation);
-			IEnumerator shuffleCR = base.GameController.ShuffleLocation(warlords.UnderLocation);
-			if (base.UseUnityCoroutines)
+			Card warlords = TurnTaker.FindCard("WarlordsOfBrockton");
+			IEnumerator moveCR = GameController.BulkMoveCards(this, villains, warlords.UnderLocation);
+			IEnumerator shuffleCR = GameController.ShuffleLocation(warlords.UnderLocation);
+			if (UseUnityCoroutines)
 			{
-				yield return base.GameController.StartCoroutine(moveCR);
-				yield return base.GameController.StartCoroutine(shuffleCR);
+				yield return GameController.StartCoroutine(moveCR);
+				yield return GameController.StartCoroutine(shuffleCR);
 			}
 			else
 			{
-				base.GameController.ExhaustCoroutine(moveCR);
-				base.GameController.ExhaustCoroutine(shuffleCR);
+				GameController.ExhaustCoroutine(moveCR);
+				GameController.ExhaustCoroutine(shuffleCR);
 			}
 		}
 	}

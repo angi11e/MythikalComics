@@ -25,15 +25,15 @@ namespace Angille.Athena
 		{
 			// Choose a target.
 			List<SelectTargetDecision> selectedTarget = new List<SelectTargetDecision>();
-			IEnumerable<Card> choices = base.FindCardsWhere(
+			IEnumerable<Card> choices = FindCardsWhere(
 				new LinqCardCriteria((Card c) => c.IsTarget && c.IsInPlayAndHasGameText)
 			);
-			IEnumerator selectTargetCR = base.GameController.SelectTargetAndStoreResults(
-				base.HeroTurnTakerController,
+			IEnumerator selectTargetCR = GameController.SelectTargetAndStoreResults(
+				this.HeroTurnTakerController,
 				choices,
 				selectedTarget,
 				selectionType: SelectionType.SelectTarget,
-				cardSource: base.GetCardSource()
+				cardSource: GetCardSource()
 			);
 			if (UseUnityCoroutines)
 			{
@@ -58,7 +58,7 @@ namespace Angille.Athena
 						1,
 						DamageType.Radiant,
 						// If there is an [u]aspect[/u] card in play, this damage is irreducible.
-						isIrreducible: AspectInPlay,
+						isIrreducible: ManifestInPlay,
 						cardSource: GetCardSource()
 					);
 
@@ -75,7 +75,7 @@ namespace Angille.Athena
 					IEnumerator selectHeroCardsCR = GameController.SelectCardsAndStoreResults(
 						DecisionMaker,
 						SelectionType.CardToDealDamage,
-						(Card c) => c.IsHero && c.IsTarget && c.IsInPlay && c != this.CharacterCard,
+						(Card c) => IsHero(c) && c.IsTarget && c.IsInPlay && c != this.CharacterCard,
 						2,
 						heroCards,
 						optional: false,
@@ -105,7 +105,7 @@ namespace Angille.Athena
 									1,
 									DamageType.Radiant,
 									// If there is an [u]aspect[/u] card in play, this damage is irreducible.
-									isIrreducible: AspectInPlay,
+									isIrreducible: ManifestInPlay,
 									cardSource: GetCardSource()
 								);
 

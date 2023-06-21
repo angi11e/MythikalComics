@@ -8,7 +8,7 @@ namespace Angille.Theurgy
 {
 	public class LegerdemainCardController : TheurgyBaseCardController
 	{
-		// Put any number of charm cards back into your hand from play.
+		// Put any number of your charm cards back into your hand from play.
 		// You may play up to that many cards now.
 
 		public LegerdemainCardController(
@@ -16,12 +16,12 @@ namespace Angille.Theurgy
 			TurnTakerController turnTakerController
 		) : base(card, turnTakerController)
 		{
-			base.SpecialStringMaker.ShowNumberOfCardsInPlay(IsCharmCriteria());
+			SpecialStringMaker.ShowNumberOfCardsInPlay(IsCharmCriteria());
 		}
 
 		public override IEnumerator Play()
 		{
-			int beforeRetrieval = base.HeroTurnTaker.Hand.NumberOfCards;
+			int beforeRetrieval = HeroTurnTaker.Hand.NumberOfCards;
 
 			// choose the charm cards
 			var selectCards = new SelectCardsDecision(
@@ -29,8 +29,8 @@ namespace Angille.Theurgy
 				DecisionMaker,
 				(Card c) => c.IsInPlayAndHasGameText && IsCharm(c) && c.Owner == this.TurnTaker,
 				SelectionType.ReturnToHand,
-				FindCardsWhere((Card c) => c.IsInPlayAndHasGameText && IsCharm(c)).Count(),
-				requiredDecisions: 1,
+				CharmCardsInPlay,
+				requiredDecisions: 0,
 				cardSource: GetCardSource()
 			);
 
@@ -47,13 +47,13 @@ namespace Angille.Theurgy
 				cardSource: GetCardSource()
 			);
 
-			if (base.UseUnityCoroutines)
+			if (UseUnityCoroutines)
 			{
-				yield return base.GameController.StartCoroutine(selectCardsCR);
+				yield return GameController.StartCoroutine(selectCardsCR);
 			}
 			else
 			{
-				base.GameController.ExhaustCoroutine(selectCardsCR);
+				GameController.ExhaustCoroutine(selectCardsCR);
 			}
 
 			// play that many
@@ -67,13 +67,13 @@ namespace Angille.Theurgy
 					cardSource: GetCardSource()
 				);
 
-				if (base.UseUnityCoroutines)
+				if (UseUnityCoroutines)
 				{
-					yield return base.GameController.StartCoroutine(playCardsCR);
+					yield return GameController.StartCoroutine(playCardsCR);
 				}
 				else
 				{
-					base.GameController.ExhaustCoroutine(playCardsCR);
+					GameController.ExhaustCoroutine(playCardsCR);
 				}
 			}
 			yield break;

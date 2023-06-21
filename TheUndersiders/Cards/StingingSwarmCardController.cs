@@ -14,13 +14,15 @@ namespace Angille.TheUndersiders
 		public StingingSwarmCardController(Card card, TurnTakerController turnTakerController)
 			: base(card, turnTakerController)
 		{
+			SpecialStringMaker.ShowHeroWithMostCards(true);
+			SpecialStringMaker.ShowSpecialString(() => GetSpecialStringIcons("spider", "skull"));
 		}
 
 		public override void AddTriggers()
 		{
-			// At the end of the villain turn, this card deals the hero target with the highest number of cards in their hand 1 toxic damage.
+			// At the end of the villain turn, this card deals the hero character target with the most cards in their hand 1 toxic damage.
 			AddEndOfTurnTrigger(
-				(TurnTaker tt) => tt == base.TurnTaker,
+				(TurnTaker tt) => tt == this.TurnTaker,
 				StingingResponse,
 				TriggerType.DealDamage
 			);
@@ -28,7 +30,7 @@ namespace Angille.TheUndersiders
 			// Spider: Whenever this card deals damage to a target, {SkitterCharacter} deals that target 1 psychic damage.
 			AddTrigger(
 				(DealDamageAction dd) =>
-					dd.DamageSource.IsSameCard(base.Card)
+					dd.DamageSource.IsSameCard(this.Card)
 					&& dd.DidDealDamage
 					&& IsEnabled("spider"),
 				(DealDamageAction dd) => SkitterStrikeResponse(dd),
@@ -39,7 +41,7 @@ namespace Angille.TheUndersiders
 			// Skull: Whenever this card deals damage to a target, {GrueCharacter} deals that target 1 infernal damage.
 			AddTrigger(
 				(DealDamageAction dd) =>
-					dd.DamageSource.IsSameCard(base.Card)
+					dd.DamageSource.IsSameCard(this.Card)
 					&& dd.DidDealDamage
 					&& IsEnabled("skull"),
 				(DealDamageAction dd) => GrueStrikeResponse(dd),
@@ -67,20 +69,20 @@ namespace Angille.TheUndersiders
 			if (storedResults.Count > 0)
 			{
 				IEnumerator stingingCR = DealDamage(
-					base.Card,
+					this.Card,
 					storedResults.FirstOrDefault().CharacterCard,
 					1,
 					DamageType.Toxic,
 					cardSource: GetCardSource()
 				);
 
-				if (base.UseUnityCoroutines)
+				if (UseUnityCoroutines)
 				{
-					yield return base.GameController.StartCoroutine(stingingCR);
+					yield return GameController.StartCoroutine(stingingCR);
 				}
 				else
 				{
-					base.GameController.ExhaustCoroutine(stingingCR);
+					GameController.ExhaustCoroutine(stingingCR);
 				}
 			}
 			yield break;
@@ -100,13 +102,13 @@ namespace Angille.TheUndersiders
 					cardSource: GetCardSource()
 				);
 
-				if (base.UseUnityCoroutines)
+				if (UseUnityCoroutines)
 				{
-					yield return base.GameController.StartCoroutine(findVillainCR);
+					yield return GameController.StartCoroutine(findVillainCR);
 				}
 				else
 				{
-					base.GameController.ExhaustCoroutine(findVillainCR);
+					GameController.ExhaustCoroutine(findVillainCR);
 				}
 
 				maybeSkitter = villainList.FirstOrDefault();
@@ -122,13 +124,13 @@ namespace Angille.TheUndersiders
 					cardSource: GetCardSource()
 				);
 
-				if (base.UseUnityCoroutines)
+				if (UseUnityCoroutines)
 				{
-					yield return base.GameController.StartCoroutine(skitterStrikeCR);
+					yield return GameController.StartCoroutine(skitterStrikeCR);
 				}
 				else
 				{
-					base.GameController.ExhaustCoroutine(skitterStrikeCR);
+					GameController.ExhaustCoroutine(skitterStrikeCR);
 				}
 			}
 
@@ -149,13 +151,13 @@ namespace Angille.TheUndersiders
 					cardSource: GetCardSource()
 				);
 
-				if (base.UseUnityCoroutines)
+				if (UseUnityCoroutines)
 				{
-					yield return base.GameController.StartCoroutine(findVillainCR);
+					yield return GameController.StartCoroutine(findVillainCR);
 				}
 				else
 				{
-					base.GameController.ExhaustCoroutine(findVillainCR);
+					GameController.ExhaustCoroutine(findVillainCR);
 				}
 
 				maybeGrue = villainList.FirstOrDefault();
@@ -171,21 +173,16 @@ namespace Angille.TheUndersiders
 					cardSource: GetCardSource()
 				);
 
-				if (base.UseUnityCoroutines)
+				if (UseUnityCoroutines)
 				{
-					yield return base.GameController.StartCoroutine(grueStrikeCR);
+					yield return GameController.StartCoroutine(grueStrikeCR);
 				}
 				else
 				{
-					base.GameController.ExhaustCoroutine(grueStrikeCR);
+					GameController.ExhaustCoroutine(grueStrikeCR);
 				}
 			}
 
-			yield break;
-		}
-
-		public override IEnumerator Play()
-		{
 			yield break;
 		}
 	}

@@ -32,13 +32,13 @@ namespace Angille.WhatsHerFace
 				cardSource: GetCardSource()
 			);
 
-			if (base.UseUnityCoroutines)
+			if (UseUnityCoroutines)
 			{
-				yield return base.GameController.StartCoroutine(pickTargetCR);
+				yield return GameController.StartCoroutine(pickTargetCR);
 			}
 			else
 			{
-				base.GameController.ExhaustCoroutine(pickTargetCR);
+				GameController.ExhaustCoroutine(pickTargetCR);
 			}
 
 			SelectCardDecision selection = storedResult.FirstOrDefault();
@@ -53,13 +53,13 @@ namespace Angille.WhatsHerFace
 					2 * (recallCount + 1),
 					DamageType.Melee
 				);
-				if (base.UseUnityCoroutines)
+				if (UseUnityCoroutines)
 				{
-					yield return base.GameController.StartCoroutine(selfDamageCR);
+					yield return GameController.StartCoroutine(selfDamageCR);
 				}
 				else
 				{
-					base.GameController.ExhaustCoroutine(selfDamageCR);
+					GameController.ExhaustCoroutine(selfDamageCR);
 				}
 			}
 

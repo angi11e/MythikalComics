@@ -13,7 +13,7 @@ namespace Angille.Patina
 		 * 
 		 * POWER
 		 * You may move 1 equipment card from your trash into play.
-		 * If no cards enter play this way, 1 hero other than {Patina} may play 1 card now.
+		 * If no cards enter play this way, 1 hero other than {Patina} may draw 1 card now.
 		 */
 
 		public LabCoatCardController(
@@ -62,7 +62,7 @@ namespace Angille.Patina
 		{
 			int salvageNumeral = GetPowerNumeral(0, 1);
 			int heroNumeral = GetPowerNumeral(1, 1);
-			int playNumeral = GetPowerNumeral(2, 1);
+			int drawNumeral = GetPowerNumeral(2, 1);
 
 			// You may move 1 equipment card from your trash into play.
 			List<SelectCardDecision> storedResults = new List<SelectCardDecision>();
@@ -92,16 +92,16 @@ namespace Angille.Patina
 			// If no cards enter play this way...
 			if (!storedResults.Where((SelectCardDecision scd) => scd.SelectedCard.IsInPlayAndHasGameText).Any())
 			{
-				// ...1 hero other than {Patina} may play 1 card now.
-				IEnumerator selectAndPlayCR = GameController.SelectTurnTakersAndDoAction(
+				// ...1 hero other than {Patina} may draw 1 card now.
+				IEnumerator selectDrawerCR = GameController.SelectTurnTakersAndDoAction(
 					DecisionMaker,
 					new LinqTurnTakerCriteria(
-						(TurnTaker tt) => tt.IsHero && tt.ToHero().HasCardsInHand && tt != this.TurnTaker
+						(TurnTaker tt) => IsHero(tt) && tt.ToHero().HasCardsInHand && tt != this.TurnTaker
 					),
-					SelectionType.PlayCard,
-					(TurnTaker tt) => SelectAndPlayCardsFromHand(
+					SelectionType.DrawCard,
+					(TurnTaker tt) => DrawCards(
 						FindHeroTurnTakerController(tt.ToHero()),
-						playNumeral,
+						drawNumeral,
 						true
 					),
 					heroNumeral,
@@ -111,11 +111,11 @@ namespace Angille.Patina
 				);
 				if (UseUnityCoroutines)
 				{
-					yield return GameController.StartCoroutine(selectAndPlayCR);
+					yield return GameController.StartCoroutine(selectDrawerCR);
 				}
 				else
 				{
-					GameController.ExhaustCoroutine(selectAndPlayCR);
+					GameController.ExhaustCoroutine(selectDrawerCR);
 				}
 			}
 

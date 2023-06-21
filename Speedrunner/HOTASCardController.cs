@@ -38,7 +38,7 @@ namespace Angille.Speedrunner
 			// ...destroy 1 ongoing card...
 			IEnumerator destroyCR = GameController.SelectAndDestroyCard(
 				DecisionMaker,
-				new LinqCardCriteria((Card c) => c.IsOngoing, "ongoing"),
+				new LinqCardCriteria((Card c) => IsOngoing(c), "ongoing"),
 				false,
 				cardSource: GetCardSource()
 			);
@@ -83,7 +83,7 @@ namespace Angille.Speedrunner
 			// {Speedrunner} deals each non-hero target 1 projectile damage.
 			IEnumerator damageCR = DealDamage(
 				this.CharacterCard,
-				(Card c) => !c.IsHero,
+				(Card c) => !IsHeroTarget(c),
 				damageNumeral,
 				DamageType.Projectile
 			);

@@ -14,53 +14,33 @@ namespace Angille.TheUndersiders
 		public CoordinatedBlitzCardController(Card card, TurnTakerController turnTakerController)
 			: base(card, turnTakerController)
 		{
-		}
-
-		public override void AddTriggers()
-		{
-			base.AddTriggers();
+			SpecialStringMaker.ShowNonVillainTargetWithHighestHP();
+			SpecialStringMaker.ShowSpecialString(() => GetSpecialStringIcons("dog", "blade"));
 		}
 
 		public override IEnumerator Play()
 		{
-			// Blade: Damage done while this card resolves is irreducible.
-			/* old version - new version is integrated into the deal damage CRs
-			if (IsEnabled("blade"))
-			{
-				MakeDamageIrreducibleStatusEffect effect = new MakeDamageIrreducibleStatusEffect();
-				effect.UntilCardLeavesPlay(base.Card);
-				effect.UntilEndOfPhase(TurnTaker, Phase.End);
-				effect.CreateImplicitExpiryConditions();
-				IEnumerator makeIrreducibleCR = AddStatusEffect(effect);
-				if (base.UseUnityCoroutines)
-				{
-					yield return base.GameController.StartCoroutine(makeIrreducibleCR);
-				}
-				else
-				{
-					base.GameController.ExhaustCoroutine(makeIrreducibleCR);
-				}
-			}
-			*/
+			// Blade: Damage on this card is irreducible.
+			// (integrated into the deal damage CRs)
 
 			// Each villain character card deals the non-villain target with the highest HP 2 projectile damage, one at a time.
 			IEnumerator mainDamageCR = MultipleDamageSourcesDealDamage(
 				new LinqCardCriteria((Card c) => c.IsVillainCharacterCard && !c.IsFlipped && c.IsInPlayAndNotUnderCard),
 				TargetType.HighestHP,
 				1,
-				new LinqCardCriteria((Card c) => !c.IsVillain, "non-villain"),
+				new LinqCardCriteria((Card c) => c.IsTarget && !IsVillainTarget(c), "non-villain"),
 				2,
 				DamageType.Projectile,
 				IsEnabled("blade")
 			);
 
-			if (base.UseUnityCoroutines)
+			if (UseUnityCoroutines)
 			{
-				yield return base.GameController.StartCoroutine(mainDamageCR);
+				yield return GameController.StartCoroutine(mainDamageCR);
 			}
 			else
 			{
-				base.GameController.ExhaustCoroutine(mainDamageCR);
+				GameController.ExhaustCoroutine(mainDamageCR);
 			}
 
 			// Dog: Each dog, plush, and swarm card deals the non-villain target with the highest HP 1 toxic damage, one at a time.
@@ -68,24 +48,24 @@ namespace Angille.TheUndersiders
 			{
 				IEnumerator petDamageCR = MultipleDamageSourcesDealDamage(
 					new LinqCardCriteria((Card c) =>
-						c.IsInPlayAndHasGameText && c.IsVillain
+						c.IsInPlayAndHasGameText && IsVillainTarget(c)
 						&& (c.DoKeywordsContain("dog") || c.DoKeywordsContain("plush") || c.DoKeywordsContain("swarm"))
 					),
 					TargetType.HighestHP,
 					1,
-					new LinqCardCriteria((Card c) => !c.IsVillain, "non-villain"),
+					new LinqCardCriteria((Card c) => c.IsTarget && !IsVillainTarget(c), "non-villain"),
 					1,
 					DamageType.Toxic,
 					IsEnabled("blade")
 				);
 
-				if (base.UseUnityCoroutines)
+				if (UseUnityCoroutines)
 				{
-					yield return base.GameController.StartCoroutine(petDamageCR);
+					yield return GameController.StartCoroutine(petDamageCR);
 				}
 				else
 				{
-					base.GameController.ExhaustCoroutine(petDamageCR);
+					GameController.ExhaustCoroutine(petDamageCR);
 				}
 			}
 

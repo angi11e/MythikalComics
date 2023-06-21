@@ -19,7 +19,7 @@ namespace Angille.Patina
 		public override IEnumerator UsePower(int index = 0)
 		{
 			/*
-			 * Up to 3 targets regain 1 HP each.
+			 * Up to 3 hero targets regain 1 HP each.
 			 * A player may draw 1 card.
 			 */
 
@@ -31,7 +31,7 @@ namespace Angille.Patina
 				DecisionMaker,
 				gainNumeral,
 				false,
-				(Card c) => c.IsTarget && c.IsHero,
+				(Card c) => IsHeroTarget(c),
 				targetNumeral,
 				0,
 				cardSource: GetCardSource()
@@ -111,7 +111,7 @@ namespace Angille.Patina
 
 		protected bool IsWater(Card card, bool evenIfUnderCard = false, bool evenIfFaceDown = false)
 		{
-			return card != null && base.GameController.DoesCardContainKeyword(card, "water", evenIfUnderCard, evenIfFaceDown);
+			return card != null && GameController.DoesCardContainKeyword(card, "water", evenIfUnderCard, evenIfFaceDown);
 		}
 	}
 }

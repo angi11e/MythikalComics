@@ -32,7 +32,7 @@ namespace Angille.WhatsHerFace
 			List<PlayCardAction> playedCards = new List<PlayCardAction>();
 			IEnumerator playTopCR = GameController.PlayTopCard(
 				DecisionMaker,
-				base.TurnTakerController,
+				TurnTakerController,
 				storedResults: playedCards,
 				cardSource: GetCardSource()
 			);
@@ -57,7 +57,7 @@ namespace Angille.WhatsHerFace
 			{
 				IEnumerator playNewTopCR = GameController.PlayTopCard(
 					DecisionMaker,
-					base.TurnTakerController,
+					TurnTakerController,
 					cardSource: GetCardSource()
 				);
 

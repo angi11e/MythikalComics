@@ -18,16 +18,6 @@ namespace Angille.NightMare
 
 		public override void AddStartOfGameTriggers()
 		{
-			/* do we need this one? let's find out
-			AddTrigger(
-				(DiscardCardAction d) => d.CardToDiscard == Card,
-				DiscardResponse,
-				TriggerType.Other,
-				TriggerTiming.Before,
-				outOfPlayTrigger: true
-			);
-			*/
-
 			AddTrigger(
 				(MoveCardAction m) =>
 					m.CardToMove == Card
@@ -41,8 +31,7 @@ namespace Angille.NightMare
 					),
 				DiscardWrapper,
 				TriggerType.Other,
-				// TriggerTiming.Before, // some bugs from this
-				TriggerTiming.After, // gonna try this instead
+				TriggerTiming.After,
 				outOfPlayTrigger: true
 			);
 

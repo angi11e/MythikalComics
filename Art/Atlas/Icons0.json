@@ -24,6 +24,14 @@
 	"spriteSourceSize": {"x":0,"y":0,"w":64,"h":64},
 	"sourceSize": {"w":64,"h":64}
 },
+"Birdangle.png":
+{
+	"frame": {"x":259,"y":0,"w":128,"h":128},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":128,"h":128},
+	"sourceSize": {"w":128,"h":128}
+},
 "Blade.png":
 {
 	"frame": {"x":326,"y":131,"w":64,"h":64},
@@ -34,7 +42,7 @@
 },
 "Blood.png":
 {
-	"frame": {"x":131,"y":521,"w":64,"h":64},
+	"frame": {"x":131,"y":652,"w":64,"h":64},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":64,"h":64},
@@ -50,7 +58,7 @@
 },
 "CaptainCainIcon.png":
 {
-	"frame": {"x":259,"y":0,"w":128,"h":128},
+	"frame": {"x":262,"y":198,"w":128,"h":128},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":128,"h":128},
@@ -58,7 +66,7 @@
 },
 "Crown.png":
 {
-	"frame": {"x":131,"y":588,"w":64,"h":64},
+	"frame": {"x":131,"y":719,"w":64,"h":64},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":64,"h":64},
@@ -66,7 +74,7 @@
 },
 "Dog.png":
 {
-	"frame": {"x":0,"y":652,"w":64,"h":64},
+	"frame": {"x":0,"y":783,"w":64,"h":64},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":64,"h":64},
@@ -74,7 +82,15 @@
 },
 "Fist.png":
 {
-	"frame": {"x":198,"y":591,"w":64,"h":64},
+	"frame": {"x":198,"y":722,"w":64,"h":64},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":64,"h":64},
+	"sourceSize": {"w":64,"h":64}
+},
+"HasRewind.png":
+{
+	"frame": {"x":67,"y":786,"w":64,"h":64},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":64,"h":64},
@@ -82,29 +98,13 @@
 },
 "HasTale.png":
 {
-	"frame": {"x":67,"y":655,"w":64,"h":64},
+	"frame": {"x":0,"y":850,"w":64,"h":64},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":64,"h":64},
 	"sourceSize": {"w":64,"h":64}
 },
-"Mask.png":
-{
-	"frame": {"x":0,"y":719,"w":64,"h":64},
-	"rotated": false,
-	"trimmed": false,
-	"spriteSourceSize": {"x":0,"y":0,"w":64,"h":64},
-	"sourceSize": {"w":64,"h":64}
-},
-"NightMareIcon.png":
-{
-	"frame": {"x":262,"y":198,"w":128,"h":128},
-	"rotated": false,
-	"trimmed": false,
-	"spriteSourceSize": {"x":0,"y":0,"w":128,"h":128},
-	"sourceSize": {"w":128,"h":128}
-},
-"PatinaIcon.png":
+"Magangle.png":
 {
 	"frame": {"x":390,"y":0,"w":128,"h":128},
 	"rotated": false,
@@ -112,7 +112,15 @@
 	"spriteSourceSize": {"x":0,"y":0,"w":128,"h":128},
 	"sourceSize": {"w":128,"h":128}
 },
-"PecosBillIcon.png":
+"Mask.png":
+{
+	"frame": {"x":265,"y":722,"w":64,"h":64},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":64,"h":64},
+	"sourceSize": {"w":64,"h":64}
+},
+"NightMareIcon.png":
 {
 	"frame": {"x":262,"y":329,"w":128,"h":128},
 	"rotated": false,
@@ -120,15 +128,7 @@
 	"spriteSourceSize": {"x":0,"y":0,"w":128,"h":128},
 	"sourceSize": {"w":128,"h":128}
 },
-"ReadTale.png":
-{
-	"frame": {"x":265,"y":591,"w":64,"h":64},
-	"rotated": false,
-	"trimmed": false,
-	"spriteSourceSize": {"x":0,"y":0,"w":64,"h":64},
-	"sourceSize": {"w":64,"h":64}
-},
-"RedRifleIcon.png":
+"PatinaIcon.png":
 {
 	"frame": {"x":0,"y":390,"w":128,"h":128},
 	"rotated": false,
@@ -136,15 +136,7 @@
 	"spriteSourceSize": {"x":0,"y":0,"w":128,"h":128},
 	"sourceSize": {"w":128,"h":128}
 },
-"Skull.png":
-{
-	"frame": {"x":332,"y":591,"w":64,"h":64},
-	"rotated": false,
-	"trimmed": false,
-	"spriteSourceSize": {"x":0,"y":0,"w":64,"h":64},
-	"sourceSize": {"w":64,"h":64}
-},
-"SpeedrunnerIcon.png":
+"PecosBillIcon.png":
 {
 	"frame": {"x":131,"y":390,"w":128,"h":128},
 	"rotated": false,
@@ -152,7 +144,15 @@
 	"spriteSourceSize": {"x":0,"y":0,"w":128,"h":128},
 	"sourceSize": {"w":128,"h":128}
 },
-"Spider.png":
+"PressRewind.png":
+{
+	"frame": {"x":332,"y":722,"w":64,"h":64},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":64,"h":64},
+	"sourceSize": {"w":64,"h":64}
+},
+"ReadTale.png":
 {
 	"frame": {"x":393,"y":131,"w":64,"h":64},
 	"rotated": false,
@@ -160,15 +160,7 @@
 	"spriteSourceSize": {"x":0,"y":0,"w":64,"h":64},
 	"sourceSize": {"w":64,"h":64}
 },
-"Tattle.png":
-{
-	"frame": {"x":393,"y":198,"w":64,"h":64},
-	"rotated": false,
-	"trimmed": false,
-	"spriteSourceSize": {"x":0,"y":0,"w":64,"h":64},
-	"sourceSize": {"w":64,"h":64}
-},
-"TheurgyIcon.png":
+"RedRifleIcon.png":
 {
 	"frame": {"x":262,"y":460,"w":128,"h":128},
 	"rotated": false,
@@ -176,9 +168,57 @@
 	"spriteSourceSize": {"x":0,"y":0,"w":128,"h":128},
 	"sourceSize": {"w":128,"h":128}
 },
-"WhatsHerFaceIcon.png":
+"Skull.png":
+{
+	"frame": {"x":393,"y":198,"w":64,"h":64},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":64,"h":64},
+	"sourceSize": {"w":64,"h":64}
+},
+"SpeedrunnerIcon.png":
 {
 	"frame": {"x":0,"y":521,"w":128,"h":128},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":128,"h":128},
+	"sourceSize": {"w":128,"h":128}
+},
+"Spider.png":
+{
+	"frame": {"x":393,"y":265,"w":64,"h":64},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":64,"h":64},
+	"sourceSize": {"w":64,"h":64}
+},
+"SpoilerIcon.png":
+{
+	"frame": {"x":131,"y":521,"w":128,"h":128},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":128,"h":128},
+	"sourceSize": {"w":128,"h":128}
+},
+"Tattle.png":
+{
+	"frame": {"x":393,"y":332,"w":64,"h":64},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":64,"h":64},
+	"sourceSize": {"w":64,"h":64}
+},
+"TheurgyIcon.png":
+{
+	"frame": {"x":262,"y":591,"w":128,"h":128},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":128,"h":128},
+	"sourceSize": {"w":128,"h":128}
+},
+"WhatsHerFaceIcon.png":
+{
+	"frame": {"x":0,"y":652,"w":128,"h":128},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":128,"h":128},
@@ -191,6 +231,6 @@
 	"format": "RGBA8888",
 	"size": {"w":1024,"h":1024},
 	"scale": "1",
-	"smartupdate": "$TexturePacker:SmartUpdate:390127137faefb4f1695deba81b57881:c6a3f4374524454ad90cde15f8912a00:c680398f21d101d0a1ae6d7fc2a23608$"
+	"smartupdate": "$TexturePacker:SmartUpdate:8e904a2708d914f6a8425182e370ac4c:5e269c66d633040a7401cca4ca5e156d:c680398f21d101d0a1ae6d7fc2a23608$"
 }
 }

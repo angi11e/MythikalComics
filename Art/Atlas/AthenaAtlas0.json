@@ -58,7 +58,7 @@
 },
 "AthenaCharacterMicro.png":
 {
-	"frame": {"x":958,"y":714,"w":108,"h":108},
+	"frame": {"x":0,"y":1121,"w":108,"h":108},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":108,"h":108},
@@ -74,7 +74,7 @@
 },
 "AthenaDeckBackMicro.png":
 {
-	"frame": {"x":991,"y":603,"w":108,"h":108},
+	"frame": {"x":0,"y":1232,"w":108,"h":108},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":108,"h":108},
@@ -90,7 +90,7 @@
 },
 "BrandNewAthenaBackMicro.png":
 {
-	"frame": {"x":958,"y":825,"w":108,"h":108},
+	"frame": {"x":111,"y":1121,"w":108,"h":108},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":108,"h":108},
@@ -106,7 +106,7 @@
 },
 "BrandNewAthenaCharacterMicro.png":
 {
-	"frame": {"x":958,"y":936,"w":108,"h":108},
+	"frame": {"x":111,"y":1232,"w":108,"h":108},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":108,"h":108},
@@ -130,7 +130,7 @@
 },
 "ClassicAthenaCharacterBackMicro.png":
 {
-	"frame": {"x":629,"y":978,"w":108,"h":108},
+	"frame": {"x":958,"y":714,"w":108,"h":108},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":108,"h":108},
@@ -138,7 +138,7 @@
 },
 "ClassicAthenaCharacterMicro.png":
 {
-	"frame": {"x":518,"y":1084,"w":108,"h":108},
+	"frame": {"x":991,"y":603,"w":108,"h":108},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":108,"h":108},
@@ -154,13 +154,13 @@
 },
 "DivinePhalanxMicro.png":
 {
-	"frame": {"x":740,"y":978,"w":108,"h":108},
+	"frame": {"x":958,"y":825,"w":108,"h":108},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":108,"h":108},
 	"sourceSize": {"w":108,"h":108}
 },
-"Erichthonius.png":
+"Exaltation.png":
 {
 	"frame": {"x":259,"y":460,"w":256,"h":198},
 	"rotated": false,
@@ -168,9 +168,9 @@
 	"spriteSourceSize": {"x":0,"y":0,"w":256,"h":198},
 	"sourceSize": {"w":256,"h":198}
 },
-"ErichthoniusMicro.png":
+"ExaltationMicro.png":
 {
-	"frame": {"x":851,"y":1047,"w":108,"h":108},
+	"frame": {"x":958,"y":936,"w":108,"h":108},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":108,"h":108},
@@ -186,7 +186,7 @@
 },
 "GlaukopisMicro.png":
 {
-	"frame": {"x":629,"y":1089,"w":108,"h":108},
+	"frame": {"x":629,"y":978,"w":108,"h":108},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":108,"h":108},
@@ -202,7 +202,7 @@
 },
 "HopliteAdvanceMicro.png":
 {
-	"frame": {"x":518,"y":1195,"w":108,"h":108},
+	"frame": {"x":518,"y":1084,"w":108,"h":108},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":108,"h":108},
@@ -218,7 +218,7 @@
 },
 "HornOfAmaltheaMicro.png":
 {
-	"frame": {"x":259,"y":1264,"w":108,"h":108},
+	"frame": {"x":740,"y":978,"w":108,"h":108},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":108,"h":108},
@@ -234,23 +234,7 @@
 },
 "LightOfOlympusMicro.png":
 {
-	"frame": {"x":0,"y":1322,"w":108,"h":108},
-	"rotated": false,
-	"trimmed": false,
-	"spriteSourceSize": {"x":0,"y":0,"w":108,"h":108},
-	"sourceSize": {"w":108,"h":108}
-},
-"Nyctimene.png":
-{
-	"frame": {"x":699,"y":777,"w":256,"h":198},
-	"rotated": false,
-	"trimmed": false,
-	"spriteSourceSize": {"x":0,"y":0,"w":256,"h":198},
-	"sourceSize": {"w":256,"h":198}
-},
-"NyctimeneMicro.png":
-{
-	"frame": {"x":111,"y":1322,"w":108,"h":108},
+	"frame": {"x":851,"y":1047,"w":108,"h":108},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":108,"h":108},
@@ -258,7 +242,7 @@
 },
 "Oracle.png":
 {
-	"frame": {"x":880,"y":0,"w":256,"h":198},
+	"frame": {"x":699,"y":777,"w":256,"h":198},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":256,"h":198},
@@ -266,7 +250,7 @@
 },
 "OracleMicro.png":
 {
-	"frame": {"x":370,"y":1264,"w":108,"h":108},
+	"frame": {"x":629,"y":1089,"w":108,"h":108},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":108,"h":108},
@@ -274,7 +258,7 @@
 },
 "Pallas.png":
 {
-	"frame": {"x":880,"y":201,"w":256,"h":198},
+	"frame": {"x":880,"y":0,"w":256,"h":198},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":256,"h":198},
@@ -282,7 +266,7 @@
 },
 "PallasMicro.png":
 {
-	"frame": {"x":740,"y":1089,"w":108,"h":108},
+	"frame": {"x":518,"y":1195,"w":108,"h":108},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":108,"h":108},
@@ -290,7 +274,7 @@
 },
 "Parthenos.png":
 {
-	"frame": {"x":880,"y":402,"w":256,"h":198},
+	"frame": {"x":880,"y":201,"w":256,"h":198},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":256,"h":198},
@@ -298,7 +282,7 @@
 },
 "ParthenosMicro.png":
 {
-	"frame": {"x":962,"y":1047,"w":108,"h":108},
+	"frame": {"x":222,"y":1264,"w":108,"h":108},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":108,"h":108},
@@ -306,7 +290,7 @@
 },
 "PatronOfHeroes.png":
 {
-	"frame": {"x":0,"y":920,"w":256,"h":198},
+	"frame": {"x":880,"y":402,"w":256,"h":198},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":256,"h":198},
@@ -314,7 +298,7 @@
 },
 "PatronOfHeroesMicro.png":
 {
-	"frame": {"x":1069,"y":714,"w":108,"h":108},
+	"frame": {"x":0,"y":1343,"w":108,"h":108},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":108,"h":108},
@@ -322,7 +306,7 @@
 },
 "Promachos.png":
 {
-	"frame": {"x":259,"y":862,"w":256,"h":198},
+	"frame": {"x":0,"y":920,"w":256,"h":198},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":256,"h":198},
@@ -330,7 +314,7 @@
 },
 "PromachosMicro.png":
 {
-	"frame": {"x":1139,"y":0,"w":108,"h":108},
+	"frame": {"x":111,"y":1343,"w":108,"h":108},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":108,"h":108},
@@ -338,7 +322,7 @@
 },
 "SkinOfMarble.png":
 {
-	"frame": {"x":259,"y":1063,"w":256,"h":198},
+	"frame": {"x":259,"y":862,"w":256,"h":198},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":256,"h":198},
@@ -346,7 +330,7 @@
 },
 "SkinOfMarbleMicro.png":
 {
-	"frame": {"x":1139,"y":111,"w":108,"h":108},
+	"frame": {"x":333,"y":1264,"w":108,"h":108},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":108,"h":108},
@@ -354,7 +338,7 @@
 },
 "Theonosis.png":
 {
-	"frame": {"x":0,"y":1121,"w":256,"h":198},
+	"frame": {"x":259,"y":1063,"w":256,"h":198},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":256,"h":198},
@@ -362,7 +346,7 @@
 },
 "TheonosisMicro.png":
 {
-	"frame": {"x":1139,"y":222,"w":108,"h":108},
+	"frame": {"x":740,"y":1089,"w":108,"h":108},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":108,"h":108},
@@ -375,6 +359,6 @@
 	"format": "RGBA8888",
 	"size": {"w":2048,"h":2048},
 	"scale": "1",
-	"smartupdate": "$TexturePacker:SmartUpdate:42da7cd36e040c30bb0c010ab8f6954c:965011bbe24f62c90d1fef3459072b6f:e9835dc773f63afacc1b817d8239b437$"
+	"smartupdate": "$TexturePacker:SmartUpdate:131bb5228cd99066315acee54176edd9:59400c0a6183efc8f8a025871fd977af:e9835dc773f63afacc1b817d8239b437$"
 }
 }

@@ -80,7 +80,7 @@ namespace Angille.CadaverTeam
 				)
 			};
 
-			IEnumerator dealDamageCR = DealMultipleInstancesOfDamage(list, (Card c) => c.IsHero);
+			IEnumerator dealDamageCR = DealMultipleInstancesOfDamage(list, (Card c) => IsHero(c));
 
 			if (UseUnityCoroutines)
 			{

@@ -21,13 +21,13 @@ namespace Angille.TheUndersiders
 			// When this card enters play, place her in the play area of the first active hero in turn order.
 			HeroTurnTaker targetHero = Game.HeroTurnTakers.Where(htt => !htt.IsIncapacitatedOrOutOfGame).FirstOrDefault();
 
-			if (base.UseUnityCoroutines)
+			if (UseUnityCoroutines)
 			{
-				yield return base.GameController.StartCoroutine(MoveImpToHero(targetHero));
+				yield return GameController.StartCoroutine(MoveImpToHero(targetHero));
 			}
 			else
 			{
-				base.GameController.ExhaustCoroutine(MoveImpToHero(targetHero));
+				GameController.ExhaustCoroutine(MoveImpToHero(targetHero));
 			}
 
 			yield break;
@@ -35,7 +35,7 @@ namespace Angille.TheUndersiders
 
 		public override void AddSideTriggers()
 		{
-			if (!base.Card.IsFlipped)
+			if (!this.Card.IsFlipped)
 			{
 				// At the start of the environment turn, or when that hero becomes incapacitated, move {Imp} to the play area of the next active hero in turn order.
 				AddSideTrigger(AddStartOfTurnTrigger(
@@ -46,9 +46,7 @@ namespace Angille.TheUndersiders
 
 				AddSideTrigger(AddTrigger(
 					(FlipCardAction fca) =>
-//						FindCardsWhere((Card c) => c.IsHeroCharacterCard && !c.IsIncapacitatedOrOutOfGame).Count() > 0
-//						&& !IsTurnTakerActiveInThisGame(base.Card.Location.OwnerName)
-						fca.CardToFlip.TurnTaker == base.Card.Location.OwnerTurnTaker
+						fca.CardToFlip.TurnTaker == this.Card.Location.OwnerTurnTaker
 						&& fca.CardToFlip.Card.IsCharacter,
 					MoveImpToNextHero,
 					TriggerType.MoveCard,
@@ -57,9 +55,9 @@ namespace Angille.TheUndersiders
 
 				// At the start of that hero's turn, {Imp} deals them 2 melee damage.
 				AddSideTrigger(AddStartOfTurnTrigger(
-					(TurnTaker tt) => tt.IsHero && base.Card.Location.OwnerTurnTaker == tt,
-					(PhaseChangeAction p) => base.GameController.DealDamageToTarget(
-						new DamageSource(base.GameController, base.Card),
+					(TurnTaker tt) => IsHero(tt) && this.Card.Location.OwnerTurnTaker == tt,
+					(PhaseChangeAction p) => GameController.DealDamageToTarget(
+						new DamageSource(GameController, this.Card),
 						p.ToPhase.TurnTaker.CharacterCard,
 						2,
 						DamageType.Melee,
@@ -80,10 +78,10 @@ namespace Angille.TheUndersiders
 			{
 				// At the end of each hero's turn, if they haven't dealt any damage that turn, they shuffle their trash into their deck.
 				AddSideTrigger(AddEndOfTurnTrigger(
-					(TurnTaker tt) => tt.IsHero && !Journal.DealDamageEntriesThisTurn().Any(
+					(TurnTaker tt) => IsHero(tt) && !Journal.DealDamageEntriesThisTurn().Any(
 						(DealDamageJournalEntry ddj) => ddj.SourceCard == tt.CharacterCard
 					),
-					(PhaseChangeAction p) => base.GameController.ShuffleTrashIntoDeck(
+					(PhaseChangeAction p) => GameController.ShuffleTrashIntoDeck(
 						FindTurnTakerController(p.FromPhase.TurnTaker)
 					),
 					TriggerType.ShuffleTrashIntoDeck
@@ -95,7 +93,7 @@ namespace Angille.TheUndersiders
 		private IEnumerator MoveImpToNextHero(GameAction ga)
 		{
 			List<HeroTurnTaker> heroTurnTakers = Game.HeroTurnTakers.Where(htt => !htt.IsIncapacitatedOrOutOfGame).ToList();
-			int currentHeroIndex = heroTurnTakers.IndexOf(base.Card.Location.OwnerTurnTaker.ToHero());
+			int currentHeroIndex = heroTurnTakers.IndexOf(this.Card.Location.OwnerTurnTaker.ToHero());
 			HeroTurnTaker targetHero = null;
 
 			if (heroTurnTakers.Count() > 1 && currentHeroIndex > -1)
@@ -109,13 +107,13 @@ namespace Angille.TheUndersiders
 					targetHero = heroTurnTakers[currentHeroIndex + 1];
 				}
 
-				if (base.UseUnityCoroutines)
+				if (UseUnityCoroutines)
 				{
-					yield return base.GameController.StartCoroutine(MoveImpToHero(targetHero));
+					yield return GameController.StartCoroutine(MoveImpToHero(targetHero));
 				}
 				else
 				{
-					base.GameController.ExhaustCoroutine(MoveImpToHero(targetHero));
+					GameController.ExhaustCoroutine(MoveImpToHero(targetHero));
 				}
 			}
 
@@ -125,20 +123,21 @@ namespace Angille.TheUndersiders
 		private IEnumerator MoveImpToHero(HeroTurnTaker targetHero)
 		{
 			IEnumerator moveImpCR = GameController.MoveCard(
-				base.TurnTakerController,
-				base.Card,
+				this.TurnTakerController,
+				this.Card,
 				targetHero.PlayArea,
 				playCardIfMovingToPlayArea: false,
+				showMessage: true,
 				cardSource: GetCardSource()
 			);
 
-			if (base.UseUnityCoroutines)
+			if (UseUnityCoroutines)
 			{
-				yield return base.GameController.StartCoroutine(moveImpCR);
+				yield return GameController.StartCoroutine(moveImpCR);
 			}
 			else
 			{
-				base.GameController.ExhaustCoroutine(moveImpCR);
+				GameController.ExhaustCoroutine(moveImpCR);
 			}
 
 			yield break;
@@ -158,36 +157,36 @@ namespace Angille.TheUndersiders
 
 			// When {Imp} flips to this side, move her back to the villain play area.
 			IEnumerator returnToBaseCR = GameController.MoveCard(
-				base.TurnTakerController,
-				base.Card,
-				base.TurnTaker.PlayArea,
+				this.TurnTakerController,
+				this.Card,
+				this.TurnTaker.PlayArea,
 				playCardIfMovingToPlayArea: false,
 				cardSource: theSource
 			);
 
-			if (base.UseUnityCoroutines)
+			if (UseUnityCoroutines)
 			{
-				yield return base.GameController.StartCoroutine(returnToBaseCR);
+				yield return GameController.StartCoroutine(returnToBaseCR);
 			}
 			else
 			{
-				base.GameController.ExhaustCoroutine(returnToBaseCR);
+				GameController.ExhaustCoroutine(returnToBaseCR);
 			}
 
 			if (!flip.CardToFlip.Card.IsFlipped)
 			{
-				IEnumerator untargetCR = base.GameController.RemoveTarget(
-					base.Card,
+				IEnumerator untargetCR = GameController.RemoveTarget(
+					this.Card,
 					leavesPlayIfInPlay: true,
 					theSource
 				);
-				if (base.UseUnityCoroutines)
+				if (UseUnityCoroutines)
 				{
-					yield return base.GameController.StartCoroutine(untargetCR);
+					yield return GameController.StartCoroutine(untargetCR);
 				}
 				else
 				{
-					base.GameController.ExhaustCoroutine(untargetCR);
+					GameController.ExhaustCoroutine(untargetCR);
 				}
 			}
 		}

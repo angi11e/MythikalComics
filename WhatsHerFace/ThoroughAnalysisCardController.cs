@@ -31,7 +31,7 @@ namespace Angille.WhatsHerFace
 		{
 			// At the start of your turn, either that target gains 2 HP or {WhatsHerFace} deals that target 2 Psychic damage.
 			AddStartOfTurnTrigger(
-				(TurnTaker tt) => tt == base.TurnTaker,
+				(TurnTaker tt) => tt == TurnTaker,
 				HelpOrHinderResponse,
 				new TriggerType [2] { TriggerType.GainHP, TriggerType.DealDamage }
 			);
@@ -63,11 +63,11 @@ namespace Angille.WhatsHerFace
 			// ...or deal 2 psychic damage
 			functionList.Add(
 				new Function(
-					this.DecisionMaker,
+					DecisionMaker,
 					"Deal " + GetCardThisCardIsNextTo().Title + " 2 psychic damage",
 					SelectionType.DealDamage,
 					() => DealDamage(
-						base.CharacterCard,
+						CharacterCard,
 						GetCardThisCardIsNextTo(),
 						2,
 						DamageType.Psychic,

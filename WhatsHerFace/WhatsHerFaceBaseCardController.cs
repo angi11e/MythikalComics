@@ -27,7 +27,7 @@ namespace Angille.WhatsHerFace
 
 		protected bool IsRecall(Card card, bool evenIfUnderCard = false, bool evenIfFaceDown = false)
 		{
-			return card != null && base.GameController.DoesCardContainKeyword(
+			return card != null && GameController.DoesCardContainKeyword(
 				card,
 				"recall",
 				evenIfUnderCard,

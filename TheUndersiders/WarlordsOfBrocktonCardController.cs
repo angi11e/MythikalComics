@@ -14,17 +14,16 @@ namespace Angille.TheUndersiders
 		public WarlordsOfBrocktonCardController(Card card, TurnTakerController turnTakerController)
 		: base(card, turnTakerController)
 		{
-			base.SpecialStringMaker.ShowNumberOfCardsUnderCard(base.Card, () => true);
+			SpecialStringMaker.ShowNumberOfCardsUnderCard(this.Card, () => true);
 			AddThisCardControllerToList(CardControllerListType.MakesIndestructible);
 		}
 
 		public override void AddTriggers()
 		{
 			AddTrigger(
-				(MoveCardAction m) => m.CardToMove == base.Card || (
-					m.Origin == base.Card.UnderLocation
-					&& m.Destination != base.TurnTaker.PlayArea
-					&& base.Game.Round > 1
+				(MoveCardAction m) => m.CardToMove == this.Card || (
+					m.Origin == this.Card.UnderLocation
+					&& !m.Destination.IsPlayArea
 				),
 				(MoveCardAction m) => CancelAction(m),
 				TriggerType.CancelAction,
@@ -35,7 +34,7 @@ namespace Angille.TheUndersiders
 
 		public override bool AskIfCardIsIndestructible(Card card)
 		{
-			if (card == base.Card || card.Location == base.Card.UnderLocation)
+			if (card == this.Card || card.Location == this.Card.UnderLocation)
 			{
 				return true;
 			}

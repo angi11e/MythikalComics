@@ -27,16 +27,16 @@ namespace Angille.NightMare
 		{
 			// {NightMare} deals each non-Hero Target 1 Melee Damage.
 			IEnumerator damageCR = DealDamage(
-				base.CharacterCard,
-				(Card c) => !c.IsHero,
+				this.CharacterCard,
+				(Card c) => !IsHeroTarget(c),
 				1,
 				DamageType.Melee
 			);
 
 			// {NightMare} deals each non-Hero Target with 1 HP 1 infernal damage.
 			IEnumerator attritionCR = DealDamage(
-				base.CharacterCard,
-				(Card c) => !c.IsHero && c.HitPoints == 1,
+				this.CharacterCard,
+				(Card c) => !IsHeroTarget(c) && c.HitPoints == 1,
 				1,
 				DamageType.Infernal
 			);

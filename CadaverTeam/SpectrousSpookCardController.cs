@@ -29,7 +29,7 @@ namespace Angille.CadaverTeam
 			AddTrigger(
 				(DealDamageAction dda) =>
 					dda.DamageSource.IsVillainTarget
-					&& dda.Target.IsHero
+					&& IsHero(dda.Target)
 					&& !IsPropertyTrue(_FirstDamage),
 				TeamworkResponse,
 				TriggerType.DealDamage,

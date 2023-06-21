@@ -16,20 +16,41 @@ namespace Angille.TheUndersiders
 		public AnimatePlushCardController(Card card, TurnTakerController turnTakerController)
 			: base(card, turnTakerController)
 		{
+			SpecialStringMaker.ShowHasBeenUsedThisTurn(
+				FirstDamageToThis,
+				"{0} has already redirected damage this turn.",
+				"{0} has not yet redirected damage this turn."
+			).Condition = () => this.Card.IsInPlayAndHasGameText && IsEnabled("bear");
+
+			SpecialStringMaker.ShowHeroTargetWithHighestHP();
+
+			SpecialStringMaker.ShowSpecialString(() => GetSpecialStringIcons("bear", "spider"));
 		}
 
 		public override void AddTriggers()
 		{
 			// At the end of the villain turn, this card deals the hero target with the highest HP {H - 1} melee damage.
-			// Spider: Damage dealt by this card is Psychic and irreducible.
 			AddDealDamageAtEndOfTurnTrigger(
 				TurnTaker,
-				base.Card,
-				(Card c) => c.IsHero,
+				this.Card,
+				(Card c) => IsHeroTarget(c),
 				TargetType.HighestHP,
-				base.H - 1,
-				IsEnabled("spider") ? DamageType.Psychic : DamageType.Melee,
-				isIrreducible: IsEnabled("spider")
+				H - 1,
+				DamageType.Melee
+			);
+
+			// Spider: Damage dealt by this card is Psychic and irreducible.
+			AddChangeDamageTypeTrigger(
+				(DealDamageAction dda) =>
+					dda.DamageSource.IsSameCard(this.Card)
+					&& IsEnabled("spider"),
+				DamageType.Psychic
+			);
+
+			AddMakeDamageIrreducibleTrigger(
+				(DealDamageAction dda) =>
+					dda.DamageSource.IsSameCard(this.Card)
+					&& IsEnabled("spider")
 			);
 
 			// Bear: The first time each turn this card would be dealt damage, redirect it to the environment target with the lowest HP.
@@ -37,7 +58,8 @@ namespace Angille.TheUndersiders
 				(DealDamageAction dd) =>
 					!IsPropertyTrue(FirstDamageToThis)
 					&& dd.Target == this.Card
-					&& dd.DidDealDamage,
+					&& dd.DidDealDamage
+					&& IsEnabled("bear"),
 				RedirectResponse,
 				TriggerType.RedirectDamage,
 				TriggerTiming.Before
@@ -55,50 +77,42 @@ namespace Angille.TheUndersiders
 		{
 			SetCardPropertyToTrueIfRealAction(FirstDamageToThis);
 
-			if (IsEnabled("bear"))
+			List<Card> storedResults = new List<Card>();
+			IEnumerator findEnvironmentCR = GameController.FindTargetWithLowestHitPoints(
+				1,
+				(Card c) => c.IsEnvironmentTarget,
+				storedResults,
+				cardSource: GetCardSource()
+			);
+
+			if (UseUnityCoroutines)
 			{
-				List<Card> storedResults = new List<Card>();
-				IEnumerator findEnvironmentCR = GameController.FindTargetWithLowestHitPoints(
-					1,
-					(Card c) => c.IsEnvironmentTarget,
-					storedResults,
+				yield return GameController.StartCoroutine(findEnvironmentCR);
+			}
+			else
+			{
+				GameController.ExhaustCoroutine(findEnvironmentCR);
+			}
+
+			Card newTarget = storedResults.FirstOrDefault();
+			if (newTarget != null)
+			{
+				IEnumerator redirectCR = GameController.RedirectDamage(
+					dd,
+					newTarget,
 					cardSource: GetCardSource()
 				);
 
-				if (base.UseUnityCoroutines)
+				if (UseUnityCoroutines)
 				{
-					yield return base.GameController.StartCoroutine(findEnvironmentCR);
+					yield return GameController.StartCoroutine(redirectCR);
 				}
 				else
 				{
-					base.GameController.ExhaustCoroutine(findEnvironmentCR);
-				}
-
-				Card newTarget = storedResults.FirstOrDefault();
-				if (newTarget != null)
-				{
-					IEnumerator redirectCR = GameController.RedirectDamage(
-						dd,
-						newTarget,
-						cardSource: GetCardSource()
-					);
-
-					if (base.UseUnityCoroutines)
-					{
-						yield return base.GameController.StartCoroutine(redirectCR);
-					}
-					else
-					{
-						base.GameController.ExhaustCoroutine(redirectCR);
-					}
+					GameController.ExhaustCoroutine(redirectCR);
 				}
 			}
 
-			yield break;
-		}
-
-		public override IEnumerator Play()
-		{
 			yield break;
 		}
 	}

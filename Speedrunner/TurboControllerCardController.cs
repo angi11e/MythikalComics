@@ -64,7 +64,7 @@ namespace Angille.Speedrunner
 
 			// ...where X = the number of your glitch and strat cards in play.
 			int strikeNumeral = GameController.FindCardsWhere(
-				new LinqCardCriteria((Card c) => c.IsInPlayAndNotUnderCard && (IsGlitch(c) || IsStrat(c)))
+				new LinqCardCriteria((Card c) => c.IsInPlayAndNotUnderCard && !c.IsOneShot && (IsGlitch(c) || IsStrat(c)))
 			).Count();
 
 			if (strikeNumeral > 0)

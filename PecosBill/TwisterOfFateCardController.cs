@@ -55,7 +55,7 @@ namespace Angille.PecosBill
 			// [i]Tamed Twister[/i] deals each non-hero target 1 projectile damage.
 			IEnumerator damageCR = DealDamage(
 				GetCardThisCardIsNextTo(),
-				(Card c) => !c.IsHero,
+				(Card c) => !IsHeroTarget(c),
 				1,
 				DamageType.Projectile
 			);

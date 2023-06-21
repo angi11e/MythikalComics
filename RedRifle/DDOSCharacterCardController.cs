@@ -19,11 +19,6 @@ namespace Angille.RedRifle
 			SpecialStringMaker.ShowTokenPool(this.Card.FindTokenPool("RedRifleTrueshotPool"));
 		}
 
-		public override void AddStartOfGameTriggers()
-		{
-			// base.AddStartOfGameTriggers();
-		}
-
 		public override IEnumerator UsePower(int index = 0)
 		{
 			TokenPool trueshotPool = RedRifleTrueshotPoolUtility.GetTrueshotPool(this);

@@ -30,7 +30,7 @@ namespace Angille.PecosBill
 			// When this card enters play, each hero target regains 1 hp.
 			IEnumerator healCR = GameController.GainHP(
 				DecisionMaker,
-				(Card c) => c.IsHero,
+				(Card c) => IsHeroTarget(c),
 				1,
 				cardSource: GetCardSource()
 			);

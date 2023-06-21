@@ -46,10 +46,10 @@ namespace Angille.Theurgy
 				GameController.ExhaustCoroutine(firstDamageCR);
 			}
 
-			// count the charm cards
-			int numberOfTargets = FindCardsWhere((Card c) => c.IsInPlayAndHasGameText && IsCharm(c)).Count() + 1;
+			// ...where X = the number of charm cards in play plus 1.
+			int numberOfTargets = CharmCardsInPlay + 1;
 
-			// target deals up to that many targets 2 melee damage
+			// That target deals up to X other targets 2 melee damage...
 			List<Card> affectedCards = storedResults.Select((SelectCardDecision sc) => sc.SelectedCard).ToList();
 			if (affectedCards != null && affectedCards.Count() > 0)
 			{

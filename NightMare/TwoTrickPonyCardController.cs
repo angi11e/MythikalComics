@@ -82,7 +82,7 @@ namespace Angille.NightMare
 			IEnumerator yesNoInHandCR = GameController.MakeYesNoCardDecision(
 				DecisionMaker,
 				SelectionType.MoveCardToHand,
-				base.Card,
+				this.Card,
 				null,
 				yesOrNo,
 				null,
@@ -101,22 +101,6 @@ namespace Angille.NightMare
 			if (yesOrNo.Count > 0 && yesOrNo.FirstOrDefault().Answer == true)
 			{
 				// If you do...
-				/* old code using Timing.Before
-				if (ga is DiscardCardAction)
-				{
-					(ga as DiscardCardAction).SetDestination(base.HeroTurnTaker.Hand);
-				}
-				else if (ga is MoveCardAction)
-				{
-					(ga as MoveCardAction).SetDestination(base.HeroTurnTaker.Hand);
-				}
-				else if (ga is DestroyCardAction)
-				{
-					(ga as DestroyCardAction).SetPostDestroyDestination(base.HeroTurnTaker.Hand);
-				}
-				*/
-
-				// new code using Timing.After
 				IEnumerator moveCardCR = GameController.MoveCard(
 					this.TurnTakerController,
 					this.Card,

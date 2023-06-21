@@ -23,7 +23,7 @@ namespace Angille.Athena
 		{
 			IEnumerator destroyCR = GameController.DestroyCards(
 				DecisionMaker,
-				new LinqCardCriteria((Card c) => c != this.Card && IsAspect(c) && c.Owner == this.Card.Owner),
+				new LinqCardCriteria((Card c) => c != this.Card && IsManifest(c) && c.Owner == this.Card.Owner),
 //				cancelDecisionsIfTrue: () => !base.CardWithoutReplacements.IsInPlayAndHasGameText,
 				cardSource: GetCardSource()
 			);

@@ -1,0 +1,224 @@
+{
+  "name": "Orbital Atlantis",
+  "kind": "Environment",
+  "backgroundColor": "3300EE",
+  "difficulty": 1,
+  "cards": [
+    {
+      "identifier": "BreakAtmo",
+      "count": 1,
+      "title": "Break Atmo",
+      "keywords": [
+        "event"
+      ],
+      "body": [
+        "If [i]Emerge From the Sea[/i] is not in play, play the top card of the environment deck, then shuffle this card into the environment deck. otherwise, this card is indestructible.",
+        "you may look at the top of each hero deck at any time.",
+        "at the start of the environment turn, add 1 token to each zone card's bias pool."
+      ],
+      "icons": [
+      ],
+      "flavorText": "“”"
+    },
+    {
+      "identifier": "ControlAmphitheater",
+      "count": 1,
+      "title": "Control Amphitheater",
+      "keywords": [
+        "zone"
+      ],
+      "body": [
+        "whenever a Villain card enters play, if it is not the first time a villain card has entered play this turn, remove a token from this card's bias pool.",
+        "Each hero has access to this power:"
+      ],
+      "powers": [
+        "Add 3 tokens to this card's bias pool."
+      ],
+      "icons": [
+      ],
+      "tokenPools": [
+        {
+          "identifier": "ControlAmphitheaterBiasPool",
+          "name": "Control Amphitheater Bias Pool",
+          "initialValue": 0,
+          "minimumValue": 0,
+          "labelTopColor": "91022D",
+          "labelBottomColor": "D1426D",
+          "icon": "Angille.Bias"
+        }
+      ],
+      "flavorText": "“”"
+    },
+    {
+      "identifier": "CrystalEyes",
+      "count": 2,
+      "title": "Crystal Eyes",
+      "keywords": [
+        "automaton"
+      ],
+      "hitpoints": 4,
+      "body": [
+        "at the start of the environment turn, each player may remove a token from a zone card's bias pool. each player who does may discard the top card of the villain deck. each player who does not discards a card."
+      ],
+      "icons": [
+      ],
+      "flavorText": "“”"
+    },
+    {
+      "identifier": "CrystalMind",
+      "count": 2,
+      "title": "Crystal Mind",
+      "keywords": [
+        "automaton"
+      ],
+      "hitpoints": 4,
+      "body": [
+        "at the start of the environment turn, you may remove a token from a zone card's bias pool. if you do, this card deals each villain target 2 psychic damage. otherwise, this card deals each hero target 2 psychic damage."
+      ],
+      "icons": [
+      ],
+      "flavorText": "“”"
+    },
+    {
+      "identifier": "CrystalServitor",
+      "count": 2,
+      "title": "Crystal Servitor",
+      "keywords": [
+        "automaton"
+      ],
+      "hitpoints": 4,
+      "body": [
+        "at the start and end of the villain turn, you may remove a token from a zone card's bias pool. if you do, 1 player may play a card. otherwise, play the top card of the villain deck."
+      ],
+      "icons": [
+      ],
+      "flavorText": "“”"
+    },
+    {
+      "identifier": "EmergeFromTheSea",
+      "count": 1,
+      "title": "Emerge From the Sea",
+      "keywords": [
+        "event"
+      ],
+      "body": [
+        "If [i]Ignition[/i] is not in play, play the top card of the environment deck, then shuffle this card into the environment deck. otherwise, this card is indestructible.",
+        "increase all damage dealt by 1.",
+        "at the start of the environment turn, add 1 token to each zone card's bias pool."
+      ],
+      "icons": [
+      ],
+      "flavorText": "“”"
+    },
+    {
+      "identifier": "GeneratorStack",
+      "count": 1,
+      "title": "Generator Stack",
+      "keywords": [
+        "zone"
+      ],
+      "body": [
+        "when a hero target regains HP or is dealt energy damage, add 1 token to this card's bias pool.",
+        "when a villain target regains HP or is dealt energy damage, remove 1 token from this card's bias pool."
+      ],
+      "icons": [
+      ],
+      "tokenPools": [
+        {
+          "identifier": "GeneratorStackBiasPool",
+          "name": "Generator Stack Bias Pool",
+          "initialValue": 0,
+          "minimumValue": 0,
+          "labelTopColor": "91022D",
+          "labelBottomColor": "D1426D",
+          "icon": "Angille.Bias"
+        }
+      ],
+      "flavorText": "“”"
+    },
+    {
+      "identifier": "Ignition",
+      "count": 1,
+      "title": "Ignition",
+      "keywords": [
+        "event"
+      ],
+      "body": [
+        "when this card enters play, play the top card of each deck in turn order, starting with the villain deck.",
+        "increase all HP recovery by 1.",
+        "this card is indestructible."
+      ],
+      "icons": [
+      ],
+      "flavorText": "“”"
+    },
+    {
+      "identifier": "LaserTurret",
+      "count": 2,
+      "title": "Laser Turret",
+      "keywords": [
+        "automaton"
+      ],
+      "hitpoints": 4,
+      "body": [
+        "at the start of the environment turn, this card deals the 2 hero targets with the highest HP {H} energy damage.",
+        "when this card would deal damage to a hero target, you may remove a token from a zone card's bias pool. if you do, redirect that damage to another target."
+      ],
+      "icons": [
+      ],
+      "flavorText": "“”"
+    },
+    {
+      "identifier": "Recyclotron",
+      "count": 1,
+      "title": "Recyclotron",
+      "keywords": [
+        "zone"
+      ],
+      "body": [
+        "at the end of the environment turn, each player may discard a card. for each card discarded this way, add 1 token to this card's bias pool.",
+        "each time a villain card is discarded, remove 1 token from this card's bias pool."
+      ],
+      "icons": [
+      ],
+      "tokenPools": [
+        {
+          "identifier": "RecyclotronBiasPool",
+          "name": "Recyclotron Bias Pool",
+          "initialValue": 0,
+          "minimumValue": 0,
+          "labelTopColor": "91022D",
+          "labelBottomColor": "D1426D",
+          "icon": "Angille.Bias"
+        }
+      ],
+      "flavorText": "“”"
+    },
+    {
+      "identifier": "RegressionChamber",
+      "count": 1,
+      "title": "Regression Chamber",
+      "keywords": [
+        "zone"
+      ],
+      "body": [
+        "each time a hero target would deal 3 or more damage to a villain target, you may reduce it by 2. if you do, add 1 token to this card's bias pool.",
+        "each time damage dealt by a villain target is negated or reduced to 0, remove 1 token from this card's bias pool."
+      ],
+      "icons": [
+      ],
+      "tokenPools": [
+        {
+          "identifier": "RegressionChamberBiasPool",
+          "name": "Regression Chamber Bias Pool",
+          "initialValue": 0,
+          "minimumValue": 0,
+          "labelTopColor": "91022D",
+          "labelBottomColor": "D1426D",
+          "icon": "Angille.Bias"
+        }
+      ],
+      "flavorText": "“”"
+    }
+  ]
+}

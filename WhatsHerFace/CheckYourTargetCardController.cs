@@ -22,13 +22,13 @@ namespace Angille.WhatsHerFace
 		) : base(card, turnTakerController)
 		{
 			// PerformRedirect = null;
-			base.SpecialStringMaker.ShowVillainTargetWithHighestHP();
+			SpecialStringMaker.ShowVillainTargetWithHighestHP();
 		}
 
 		// Play this card next to a non-character target.
 		protected override LinqCardCriteria CustomCriteria => new LinqCardCriteria(
 			(Card c) => !c.IsCharacter && c.IsTarget && c.IsInPlayAndHasGameText,
-			"non-hero target"
+			"non-character target"
 		);
 
 		public override void AddTriggers()

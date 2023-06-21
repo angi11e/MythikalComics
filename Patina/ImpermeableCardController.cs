@@ -12,8 +12,6 @@ namespace Angille.Patina
 		/*
 		 * Reduce cold, energy, fire, and radiant damage dealt to hero targets by the number of water cards in play.
 		 * 
-		 * At the end of your turn, {Patina} deals up to 2 targets 1 fire damage each.
-		 * 
 		 * When {Patina} would be dealt damage of a type reduced by this card, you may destroy this card.
 		 *  If you do, you may redirect that Damage to a Target of your choice.
 		 */
@@ -30,34 +28,16 @@ namespace Angille.Patina
 		public override void AddTriggers()
 		{
 			// Reduce cold, energy, fire, and radiant damage dealt to hero targets by the number of water cards in play.
-			Func<DealDamageAction, int> amountToDecrease = (DealDamageAction dd) => FindCardsWhere(
-				(Card c) => c.IsInPlayAndHasGameText && IsWater(c) && !c.IsOneShot
-			).Count();
+			Func<DealDamageAction, int> amountToDecrease = (DealDamageAction dd) => WaterCardsInPlay;
 
 			AddReduceDamageTrigger(
-				(DealDamageAction dd) => dd.Target.IsHero && (
+				(DealDamageAction dd) => IsHeroTarget(dd.Target) && (
 					dd.DamageType == DamageType.Cold
 					|| dd.DamageType == DamageType.Energy
 					|| dd.DamageType == DamageType.Radiant
 					|| dd.DamageType == DamageType.Fire
 				),
 				amountToDecrease
-			);
-
-			// At the end of your turn, {Patina} deals up to 2 targets 1 fire damage each.
-			AddEndOfTurnTrigger(
-				(TurnTaker tt) => tt == this.TurnTaker,
-				(PhaseChangeAction p) => GameController.SelectTargetsAndDealDamage(
-					DecisionMaker,
-					new DamageSource(GameController, this.CharacterCard),
-					1,
-					DamageType.Fire,
-					2,
-					false,
-					0,
-					cardSource: GetCardSource()
-				),
-				TriggerType.DealDamage
 			);
 
 			// When {Patina} would be dealt damage of a type reduced by this card...
@@ -82,49 +62,49 @@ namespace Angille.Patina
 
 		private IEnumerator RedirectResponse(DealDamageAction dd)
 		{
-			// ... you may destroy this card.
-			var storedYesNo = new List<YesNoCardDecision> { };
-			IEnumerator yesOrNoCR = GameController.MakeYesNoCardDecision(
+			// ...you may destroy this card.
+			List<DestroyCardAction> actions = new List<DestroyCardAction>();
+			IEnumerator destroyCR = GameController.DestroyCard(
 				DecisionMaker,
-				SelectionType.RedirectDamageDirectedAtTarget,
-				dd.Target,
-				action: dd,
-				storedResults: storedYesNo,
+				this.Card,
+				optional: true,
+				actions,
 				cardSource: GetCardSource()
 			);
+
 			if (UseUnityCoroutines)
 			{
-				yield return GameController.StartCoroutine(yesOrNoCR);
+				yield return GameController.StartCoroutine(destroyCR);
 			}
 			else
 			{
-				GameController.ExhaustCoroutine(yesOrNoCR);
+				GameController.ExhaustCoroutine(destroyCR);
 			}
 
-			if (DidPlayerAnswerYes(storedYesNo))
+			// If you do...
+			if (actions.Any() && actions.FirstOrDefault().WasCardDestroyed)
 			{
-				// If you do, you may redirect that Damage to a Target of your choice.
+				GameController.AddCardControllerToList(CardControllerListType.CanCauseDamageOutOfPlay, this);
+				GameController.AddInhibitorException(this, (GameAction g) => true);
+
+				// ...you may redirect that Damage to a Target of your choice.
 				IEnumerator redirectCR = RedirectDamage(
 					dd,
 					TargetType.SelectTarget,
 					(Card c) => c.IsTarget
 				);
-				IEnumerator destroyCR = GameController.DestroyCard(
-					DecisionMaker,
-					this.Card,
-					cardSource: GetCardSource()
-				);
 
 				if (UseUnityCoroutines)
 				{
 					yield return GameController.StartCoroutine(redirectCR);
-					yield return GameController.StartCoroutine(destroyCR);
 				}
 				else
 				{
 					GameController.ExhaustCoroutine(redirectCR);
-					GameController.ExhaustCoroutine(destroyCR);
 				}
+
+				GameController.RemoveCardControllerFromList(CardControllerListType.CanCauseDamageOutOfPlay, this);
+				GameController.RemoveInhibitorException(this);
 			}
 
 			yield break;

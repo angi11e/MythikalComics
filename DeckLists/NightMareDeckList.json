@@ -134,7 +134,7 @@
 				"Reduce damage taken by {NightMare} by 1."
 			],
 			"powers": [
-				"{NightMare} deals 1 target 2 melee damage. Reduce the next damage dealt by targets dealt damage this way by the damage they take."
+				"{NightMare} deals 1 target 2 melee damage. Reduce the next damage dealt by targets dealt damage this way by 1."
 			],
 			"activatableAbilities": [
 				{
@@ -224,7 +224,7 @@
 			"icons": [
 				"HasPower",
 				"DealDamageMelee",
-				"CancelledDamageGreen",
+				"MakeDamageUnincreasable",
 				"DrawCardNow"
 			],
 			"flavorText": "“yeah, stay off the water until{BR}I get this spell figured out.”",

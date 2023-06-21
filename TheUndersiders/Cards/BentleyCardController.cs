@@ -14,6 +14,13 @@ namespace Angille.TheUndersiders
 		public BentleyCardController(Card card, TurnTakerController turnTakerController)
 			: base(card, turnTakerController)
 		{
+			SpecialStringMaker.ShowHeroTargetWithHighestHP();
+			SpecialStringMaker.ShowHeroCharacterCardWithHighestHP().Condition = () => IsEnabled("mask");
+			SpecialStringMaker.ShowLocationOfCards(
+				new LinqCardCriteria((Card c) => c.Identifier == "ImpCharacter")
+			).Condition = () => ImpCharacter.IsInPlayAndNotUnderCard && !ImpCharacter.IsFlipped;
+
+			SpecialStringMaker.ShowSpecialString(() => GetSpecialStringIcons("dog", "mask"));
 		}
 
 		public override void AddTriggers()
@@ -21,10 +28,10 @@ namespace Angille.TheUndersiders
 			// At the end of the villain turn, this card deals the hero target with the highest HP {H - 1} melee damage.
 			AddDealDamageAtEndOfTurnTrigger(
 				TurnTaker,
-				base.Card,
-				(Card c) => c.IsHero,
+				this.Card,
+				(Card c) => IsHeroTarget(c),
 				TargetType.HighestHP,
-				base.H - 1,
+				H - 1,
 				DamageType.Toxic
 			);
 
@@ -32,13 +39,13 @@ namespace Angille.TheUndersiders
 			AddImmuneToDamageTrigger(
 				(DealDamageAction dd) =>
 					IsEnabled("dog")
-					&& dd.Target == base.Card
+					&& dd.Target == this.Card
 					&& dd.DamageType == DamageType.Melee
 			);
 
 			// Mask: At the end of the villain turn, move {ImpCharacter} to the hero play area with the highest HP. She deals that hero 1 projectile damage.
 			AddEndOfTurnTrigger(
-				(TurnTaker tt) => tt == base.TurnTaker && IsEnabled("mask"),
+				(TurnTaker tt) => tt == this.TurnTaker && IsEnabled("mask"),
 				ShuttleImpResponse,
 				new TriggerType[] {
 					TriggerType.MoveCard,
@@ -54,18 +61,18 @@ namespace Angille.TheUndersiders
 			List<Card> heroList = new List<Card>();
 			IEnumerator findHeroCR = GameController.FindTargetWithHighestHitPoints(
 				1,
-				(Card c) => c.IsHeroCharacterCard,
+				(Card c) => IsHeroCharacterCard(c),
 				heroList,
 				cardSource: GetCardSource()
 			);
 
-			if (base.UseUnityCoroutines)
+			if (UseUnityCoroutines)
 			{
-				yield return base.GameController.StartCoroutine(findHeroCR);
+				yield return GameController.StartCoroutine(findHeroCR);
 			}
 			else
 			{
-				base.GameController.ExhaustCoroutine(findHeroCR);
+				GameController.ExhaustCoroutine(findHeroCR);
 			}
 
 			Card heroTarget = heroList.FirstOrDefault();
@@ -78,20 +85,21 @@ namespace Angille.TheUndersiders
 			if (!maybeImp.IsFlipped)
 			{
 				IEnumerator moveImpCR = GameController.MoveCard(
-					base.TurnTakerController,
+					this.TurnTakerController,
 					maybeImp,
 					heroTarget.Owner.PlayArea,
 					playCardIfMovingToPlayArea: false,
+					showMessage: true,
 					cardSource: GetCardSource()
 				);
 
-				if (base.UseUnityCoroutines)
+				if (UseUnityCoroutines)
 				{
-					yield return base.GameController.StartCoroutine(moveImpCR);
+					yield return GameController.StartCoroutine(moveImpCR);
 				}
 				else
 				{
-					base.GameController.ExhaustCoroutine(moveImpCR);
+					GameController.ExhaustCoroutine(moveImpCR);
 				}
 			}
 			else
@@ -104,13 +112,13 @@ namespace Angille.TheUndersiders
 					cardSource: GetCardSource()
 				);
 
-				if (base.UseUnityCoroutines)
+				if (UseUnityCoroutines)
 				{
-					yield return base.GameController.StartCoroutine(findVillainCR);
+					yield return GameController.StartCoroutine(findVillainCR);
 				}
 				else
 				{
-					base.GameController.ExhaustCoroutine(findVillainCR);
+					GameController.ExhaustCoroutine(findVillainCR);
 				}
 
 				maybeImp = villainList.FirstOrDefault();
@@ -128,20 +136,15 @@ namespace Angille.TheUndersiders
 				cardSource: GetCardSource()
 			);
 
-			if (base.UseUnityCoroutines)
+			if (UseUnityCoroutines)
 			{
-				yield return base.GameController.StartCoroutine(dealDamageCR);
+				yield return GameController.StartCoroutine(dealDamageCR);
 			}
 			else
 			{
-				base.GameController.ExhaustCoroutine(dealDamageCR);
+				GameController.ExhaustCoroutine(dealDamageCR);
 			}
 
-			yield break;
-		}
-
-		public override IEnumerator Play()
-		{
 			yield break;
 		}
 	}

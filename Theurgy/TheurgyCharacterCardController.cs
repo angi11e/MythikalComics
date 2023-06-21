@@ -7,18 +7,18 @@ using System.Linq;
 
 namespace Angille.Theurgy
 {
-	public class TheurgyCharacterCardController : HeroCharacterCardController
+	public class TheurgyCharacterCardController : TheurgyBaseCharacterCardController
 	{
 		public TheurgyCharacterCardController(
 			Card card,
 			TurnTakerController turnTakerController
 		) : base(card, turnTakerController) {
-			base.SpecialStringMaker.ShowNumberOfCardsAtLocation(HeroTurnTaker.Hand, IsCharmCriteria());
+			SpecialStringMaker.ShowNumberOfCardsAtLocation(HeroTurnTaker.Hand, IsCharmCriteria());
 		}
 
 		public override IEnumerator UsePower(int index = 0)
 		{
-			if (this.HeroTurnTaker.GetCardsWhere((Card c) => c.Location == HeroTurnTaker.Hand && IsCharm(c)).Count() > 0)
+			if (HeroTurnTaker.GetCardsWhere((Card c) => c.Location == HeroTurnTaker.Hand && IsCharm(c)).Count() > 0)
 			{
 				// Draw a card or play a charm card. One hero target regains 1 hp.
 				List<Function> functionList = new List<Function>();
@@ -26,24 +26,21 @@ namespace Angille.Theurgy
 				// first draw a card option
 				functionList.Add(
 					new Function(
-						this.DecisionMaker,
+						DecisionMaker,
 						"Draw a card",
 						SelectionType.DrawCard,
-						() => base.GameController.DrawCards(
-							this.HeroTurnTakerController,
-							1
-						)
+						() => GameController.DrawCards(DecisionMaker, 1)
 					)
 				);
 
 				// ...or play a charm card option
 				functionList.Add(
 					new Function(
-						this.DecisionMaker,
+						DecisionMaker,
 						"Play a charm card",
 						SelectionType.PlayCard,
-						() => base.SelectAndPlayCardFromHand(
-							this.HeroTurnTakerController,
+						() => SelectAndPlayCardFromHand(
+							DecisionMaker,
 							false,
 							null,
 							IsCharmCriteria()
@@ -53,60 +50,57 @@ namespace Angille.Theurgy
 
 				// ask for which one
 				SelectFunctionDecision selectFunction = new SelectFunctionDecision(
-					base.GameController,
-					this.DecisionMaker,
+					GameController,
+					DecisionMaker,
 					functionList,
 					false,
-					cardSource: base.GetCardSource()
+					cardSource: GetCardSource()
 				);
 
-				IEnumerator selectFunctionCR = base.GameController.SelectAndPerformFunction(selectFunction);
+				IEnumerator selectFunctionCR = GameController.SelectAndPerformFunction(selectFunction);
 				if (UseUnityCoroutines)
 				{
-					yield return base.GameController.StartCoroutine(selectFunctionCR);
+					yield return GameController.StartCoroutine(selectFunctionCR);
 				}
 				else
 				{
-					base.GameController.ExhaustCoroutine(selectFunctionCR);
+					GameController.ExhaustCoroutine(selectFunctionCR);
 				}
 			}
 			else
 			{
-				IEnumerator drawCardCR = base.GameController.DrawCards(
-					this.HeroTurnTakerController,
-					1
-				);
+				IEnumerator drawCardCR = GameController.DrawCards(DecisionMaker, 1);
 
 				if (UseUnityCoroutines)
 				{
-					yield return base.GameController.StartCoroutine(drawCardCR);
+					yield return GameController.StartCoroutine(drawCardCR);
 				}
 				else
 				{
-					base.GameController.ExhaustCoroutine(drawCardCR);
+					GameController.ExhaustCoroutine(drawCardCR);
 				}
 			}
 
 			// One hero target regains 1 HP.
 			List<SelectTargetDecision> selectedTarget = new List<SelectTargetDecision>();
-			IEnumerable<Card> choices = base.FindCardsWhere(
-				new LinqCardCriteria((Card c) => c.IsHero && c.IsTarget && c.IsInPlayAndHasGameText)
+			IEnumerable<Card> choices = FindCardsWhere(
+				new LinqCardCriteria((Card c) => c.IsInPlayAndHasGameText && IsHeroTarget(c))
 			);
-			IEnumerator selectTargetCR = base.GameController.SelectTargetAndStoreResults(
-				base.HeroTurnTakerController,
+			IEnumerator selectTargetCR = GameController.SelectTargetAndStoreResults(
+				DecisionMaker,
 				choices,
 				selectedTarget,
 				optional: true,
 				selectionType: SelectionType.GainHP,
-				cardSource: base.GetCardSource()
+				cardSource: GetCardSource()
 			);
 			if (UseUnityCoroutines)
 			{
-				yield return base.GameController.StartCoroutine(selectTargetCR);
+				yield return GameController.StartCoroutine(selectTargetCR);
 			}
 			else
 			{
-				base.GameController.ExhaustCoroutine(selectTargetCR);
+				GameController.ExhaustCoroutine(selectTargetCR);
 			}
 
 			if (selectedTarget != null && selectedTarget.Any())
@@ -115,18 +109,18 @@ namespace Angille.Theurgy
 				if (selectedTargetDecision != null && selectedTargetDecision.SelectedCard != null)
 				{
 					var healHP = GetPowerNumeral(0, 1);
-					IEnumerator healTargetCR = base.GameController.GainHP(
+					IEnumerator healTargetCR = GameController.GainHP(
 						selectedTarget.FirstOrDefault().SelectedCard,
 						healHP,
-						cardSource: base.GetCardSource()
+						cardSource: GetCardSource()
 					);
 					if (UseUnityCoroutines)
 					{
-						yield return base.GameController.StartCoroutine(healTargetCR);
+						yield return GameController.StartCoroutine(healTargetCR);
 					}
 					else
 					{
-						base.GameController.ExhaustCoroutine(healTargetCR);
+						GameController.ExhaustCoroutine(healTargetCR);
 					}
 				}
 			}
@@ -139,34 +133,34 @@ namespace Angille.Theurgy
 			{
 				case 0:
 					// One player may draw a card now.
-					IEnumerator drawCR = this.GameController.SelectHeroToDrawCard(
-						this.DecisionMaker,
+					IEnumerator drawCR = GameController.SelectHeroToDrawCard(
+						DecisionMaker,
 						cardSource: GetCardSource()
 					);
 					if (UseUnityCoroutines)
 					{
-						yield return this.GameController.StartCoroutine(drawCR);
+						yield return GameController.StartCoroutine(drawCR);
 					}
 					else
 					{
-						this.GameController.ExhaustCoroutine(drawCR);
+						GameController.ExhaustCoroutine(drawCR);
 					}
 					break;
 				case 1:
 					// Destroy an environment card.
-					IEnumerator destroyOngoingCR = this.GameController.SelectAndDestroyCard(
-						this.DecisionMaker,
+					IEnumerator destroyOngoingCR = GameController.SelectAndDestroyCard(
+						DecisionMaker,
 						new LinqCardCriteria((Card c) => c.IsEnvironment && c.IsInPlay, "environment"),
 						false,
 						cardSource: GetCardSource()
 					);
 					if (UseUnityCoroutines)
 					{
-						yield return this.GameController.StartCoroutine(destroyOngoingCR);
+						yield return GameController.StartCoroutine(destroyOngoingCR);
 					}
 					else
 					{
-						this.GameController.ExhaustCoroutine(destroyOngoingCR);
+						GameController.ExhaustCoroutine(destroyOngoingCR);
 					}
 					break;
 				case 2:
@@ -175,23 +169,23 @@ namespace Angille.Theurgy
 					List<SelectCardDecision> selectCardDecision = new List<SelectCardDecision>();
 
 					// select the card
-					IEnumerator selectCardCR = this.GameController.SelectCardAndStoreResults(
-						this.HeroTurnTakerController,
+					IEnumerator selectCardCR = GameController.SelectCardAndStoreResults(
+						DecisionMaker,
 						SelectionType.MoveCardOnDeck,
 						new LinqCardCriteria(
 							(Card c) => c.IsInTrash
-							&& this.GameController.IsLocationVisibleToSource(c.Location, base.GetCardSource(null))
+							&& GameController.IsLocationVisibleToSource(c.Location, GetCardSource())
 						),
 						selectCardDecision,
 						false
 					);
 					if (UseUnityCoroutines)
 					{
-						yield return this.GameController.StartCoroutine(selectCardCR);
+						yield return GameController.StartCoroutine(selectCardCR);
 					}
 					else
 					{
-						this.GameController.ExhaustCoroutine(selectCardCR);
+						GameController.ExhaustCoroutine(selectCardCR);
 					}
 
 					if (!DidSelectCard(selectCardDecision))
@@ -205,8 +199,8 @@ namespace Angille.Theurgy
 					};
 
 					// move the card
-					IEnumerator moveCardCR = this.GameController.MoveCard(
-						this.TurnTakerController,
+					IEnumerator moveCardCR = GameController.MoveCard(
+						TurnTakerController,
 						selectCardDecision.FirstOrDefault().SelectedCard,
 						list.FirstOrDefault().Location,
 						doesNotEnterPlay: true,
@@ -214,30 +208,14 @@ namespace Angille.Theurgy
 					);
 					if (UseUnityCoroutines)
 					{
-						yield return this.GameController.StartCoroutine(moveCardCR);
+						yield return GameController.StartCoroutine(moveCardCR);
 					}
 					else
 					{
-						this.GameController.ExhaustCoroutine(moveCardCR);
+						GameController.ExhaustCoroutine(moveCardCR);
 					}
 					break;
 			}
-		}
-
-		protected LinqCardCriteria IsCharmCriteria(Func<Card, bool> additionalCriteria = null)
-		{
-			var result = new LinqCardCriteria(c => IsCharm(c), "charm", true);
-			if (additionalCriteria != null)
-			{
-				result = new LinqCardCriteria(result, additionalCriteria);
-			}
-				
-			return result;
-		}
-
-		protected bool IsCharm(Card card, bool evenIfUnderCard = false, bool evenIfFaceDown = false)
-		{
-			return card != null && base.GameController.DoesCardContainKeyword(card, "charm", evenIfUnderCard, evenIfFaceDown);
 		}
 	}
 }

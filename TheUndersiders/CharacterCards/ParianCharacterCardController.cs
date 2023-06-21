@@ -20,45 +20,45 @@ namespace Angille.TheUndersiders
 		{
 			// When this card enters play, restore all villain plush targets to 6 HP. if there are non in play, search the villain trash and deck for a plush card and put it into play. if the villain deck was searched, shuffle it.
 			if (FindCardsWhere((Card c) =>
-				c.DoKeywordsContain("plush")
-				&& c.IsVillainTarget
-				&& c.IsInPlayAndHasGameText
+				c.IsInPlayAndHasGameText
+				&& IsVillainTarget(c)
+				&& c.DoKeywordsContain("plush")
 			).Count() == 0)
 			{
 				IEnumerator getBearCR = PlayCardFromLocations(
 					new Location[2]
 					{
-						base.TurnTaker.Deck,
-						base.TurnTaker.Trash
+						this.TurnTaker.Deck,
+						this.TurnTaker.Trash
 					},
 					"AnimatePlush"
 				);
 
-				if (base.UseUnityCoroutines)
+				if (UseUnityCoroutines)
 				{
-					yield return base.GameController.StartCoroutine(getBearCR);
+					yield return GameController.StartCoroutine(getBearCR);
 				}
 				else
 				{
-					base.GameController.ExhaustCoroutine(getBearCR);
+					GameController.ExhaustCoroutine(getBearCR);
 				}
 			}
 			else
 			{
 				IEnumerator restoreCR = GameController.GainHP(
 					DecisionMaker,
-					(Card c) => c.DoKeywordsContain("plush") && c.IsVillainTarget,
+					(Card c) => c.DoKeywordsContain("plush") && IsVillainTarget(c),
 					(Card c) => c.MaximumHitPoints.Value - c.HitPoints.Value,
 					cardSource: GetCardSource()
 				);
 
-				if (base.UseUnityCoroutines)
+				if (UseUnityCoroutines)
 				{
-					yield return base.GameController.StartCoroutine(restoreCR);
+					yield return GameController.StartCoroutine(restoreCR);
 				}
 				else
 				{
-					base.GameController.ExhaustCoroutine(restoreCR);
+					GameController.ExhaustCoroutine(restoreCR);
 				}
 			}
 
@@ -67,11 +67,11 @@ namespace Angille.TheUndersiders
 
 		public override void AddSideTriggers()
 		{
-			if (!base.Card.IsFlipped)
+			if (!this.Card.IsFlipped)
 			{
 				// Villain targets are immune to damage from environment cards.
 				AddSideTrigger(AddImmuneToDamageTrigger(
-					(DealDamageAction dd) => dd.DamageSource.IsEnvironmentCard && dd.Target.IsVillain
+					(DealDamageAction dd) => dd.DamageSource.IsEnvironmentCard && IsVillainTarget(dd.Target)
 				));
 
 				// Treat {Bear} effects as active. (this is done by the cards)
@@ -80,7 +80,7 @@ namespace Angille.TheUndersiders
 			{
 				// At the end of the villain turn, discard the top card of the environment deck. if it's a target, play the top card of the villain deck.
 				AddSideTrigger(AddEndOfTurnTrigger(
-					(TurnTaker tt) => tt == base.TurnTaker,
+					(TurnTaker tt) => tt == this.TurnTaker,
 					DiscardEnvironmentResponse,
 					new TriggerType[]
 					{
@@ -99,30 +99,30 @@ namespace Angille.TheUndersiders
 				FindEnvironment().TurnTaker.Deck,
 				storedDiscard,
 				(Card c) => true,
-				base.TurnTaker,
+				this.TurnTaker,
 				GetCardSource()
 			);
 
-			if (base.UseUnityCoroutines)
+			if (UseUnityCoroutines)
 			{
-				yield return base.GameController.StartCoroutine(discardEnvironmentCR);
+				yield return GameController.StartCoroutine(discardEnvironmentCR);
 			}
 			else
 			{
-				base.GameController.ExhaustCoroutine(discardEnvironmentCR);
+				GameController.ExhaustCoroutine(discardEnvironmentCR);
 			}
 
 			MoveCardAction discardedCard = storedDiscard.FirstOrDefault();
 			if (discardedCard != null && discardedCard.CardToMove.IsTarget)
 			{
 				IEnumerator playCardCR = PlayTheTopCardOfTheVillainDeckResponse(p);
-				if (base.UseUnityCoroutines)
+				if (UseUnityCoroutines)
 				{
-					yield return base.GameController.StartCoroutine(playCardCR);
+					yield return GameController.StartCoroutine(playCardCR);
 				}
 				else
 				{
-					base.GameController.ExhaustCoroutine(playCardCR);
+					GameController.ExhaustCoroutine(playCardCR);
 				}
 			}
 

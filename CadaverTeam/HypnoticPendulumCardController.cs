@@ -27,7 +27,7 @@ namespace Angille.CadaverTeam
 		{
 			// The first time each turn a hero card enters play...
 			AddTrigger(
-				(CardEntersPlayAction c) => c.CardEnteringPlay.IsHero && !IsPropertyTrue(_FirstCard),
+				(CardEntersPlayAction c) => IsHero(c.CardEnteringPlay) && !IsPropertyTrue(_FirstCard),
 				PlayCardResponse,
 				new TriggerType[] { TriggerType.DiscardCard, TriggerType.PlayCard },
 				TriggerTiming.After
@@ -40,10 +40,10 @@ namespace Angille.CadaverTeam
 
 			// If a hero target deals itself damage, destroy this card.
 			AddTrigger(
-				(DealDamageAction dda) => dda.Target.IsHero && dda.Target == dda.DamageSource.Card,
+				(DealDamageAction dda) => IsHero(dda.Target) && dda.Target == dda.DamageSource.Card,
 				(DealDamageAction dda) => GameController.DestroyCard(
 					DecisionMaker,
-					base.Card,
+					this.Card,
 					cardSource: GetCardSource()
 				),
 				TriggerType.DestroySelf,

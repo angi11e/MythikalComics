@@ -20,22 +20,24 @@ namespace Angille.RedRifle
 			TurnTakerController turnTakerController
 		) : base(card, turnTakerController)
 		{
-			base.SpecialStringMaker.ShowNumberOfCardsInPlay(new LinqCardCriteria(
-				(Card c) => c.IsTarget && !c.IsHero,
+			SpecialStringMaker.ShowNumberOfCardsInPlay(new LinqCardCriteria(
+				(Card c) => c.IsTarget && !IsHeroTarget(c),
 				"villain and environment targets"
 			));
-			base.SpecialStringMaker.ShowTokenPool(base.TrueshotPool);
+			SpecialStringMaker.ShowTokenPool(TrueshotPool);
 		}
 
 		public override IEnumerator Play()
 		{
 			// where X equals the number of villain and environment targets in play,
-			int nonHeroTargets = FindCardsWhere((Card c) => c.IsInPlayAndHasGameText && c.IsTarget && !c.IsHero).Count();
+			int nonHeroTargets = FindCardsWhere(
+				(Card c) => c.IsInPlayAndHasGameText && c.IsTarget && !IsHeroTarget(c)
+			).Count();
 
 			// to a maximum of the number of tokens in your trueshot pool.
-			if (base.TrueshotPool.CurrentValue < nonHeroTargets)
+			if (TrueshotPool.CurrentValue < nonHeroTargets)
 			{
-				nonHeroTargets = base.TrueshotPool.CurrentValue;
+				nonHeroTargets = TrueshotPool.CurrentValue;
 			}
 
 			// {RedRifle} deals 1 target X projectile damage,
@@ -46,7 +48,7 @@ namespace Angille.RedRifle
 				DecisionMaker,
 				allTheTargets,
 				storedResults,
-				damageSource: base.CharacterCard,
+				damageSource: this.CharacterCard,
 				damageAmount: (Card c) => nonHeroTargets,
 				damageType: DamageType.Projectile
 			);
@@ -62,7 +64,7 @@ namespace Angille.RedRifle
 
 			DealDamageAction dealDamageAction = new DealDamageAction(
 				GetCardSource(),
-				new DamageSource(GameController, base.CharacterCard),
+				new DamageSource(GameController, this.CharacterCard),
 				storedResults.FirstOrDefault().SelectedCard,
 				nonHeroTargets,
 				DamageType.Projectile

@@ -30,7 +30,7 @@ namespace Angille.CaptainCain
 
 			// When a hero target would be dealt damage, you may redirect the damage to {CaptainCainCharacter}.
 			AddRedirectDamageTrigger(
-				(DealDamageAction dd) => dd.Target != this.CharacterCard && dd.Target.IsHero,
+				(DealDamageAction dd) => dd.Target != this.CharacterCard && IsHero(dd.Target),
 				() => this.CharacterCard,
 				optional: true
 			);
@@ -45,7 +45,7 @@ namespace Angille.CaptainCain
 			// When this card is destroyed, you may destroy an ongoing card.
 			IEnumerator destroyCR = GameController.SelectAndDestroyCard(
 				DecisionMaker,
-				new LinqCardCriteria((Card c) => c.IsOngoing, "ongoing"),
+				new LinqCardCriteria((Card c) => IsOngoing(c), "ongoing"),
 				true,
 				cardSource: GetCardSource()
 			);

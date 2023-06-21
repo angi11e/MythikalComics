@@ -1,4 +1,50 @@
 {
+  "ChronoRanger": [
+    {
+      "identifier": "ChronoRangerCharacter",
+      "promoIdentifier": "MythikalChronoRangerCharacter",
+      "count": 1,
+      "title": "Chrono-Ranger",
+      "promoTitle": "Mythikal Chrono-Ranger",
+      "shortPromoTitle": "Chrono-Ranger",
+      "body": "Sling Some Time",
+      "backgroundColor": "1952A5",
+      "foilBackgroundColor": "1952A5",
+      "hitpointsColor": "1952A5",
+      "character": true,
+      "powers": [
+        "Return a bounty card to your hand. Play a bounty card. If you do so, {ChronoRanger} deals that bounty's target 1 projectile damage."
+      ],
+      "icons": [
+        "HasPower",
+        "Manipulate",
+        "PlayCardNow",
+        "DealDamageProjectile"
+      ],
+      "hitpoints": 28,
+      "nemesisIdentifiers": [
+        "ChronoRanger"
+      ],
+      "incapacitatedAbilities": [
+        "One player may draw a card.",
+        "Move a card from a trash to the top of its deck.",
+        "Each player may move one of their non-character cards in play to their hand. Any who do may play a different card."
+      ],
+      "flippedIcons": [
+        "DrawCardNow",
+        "Manipulate",
+        "PlayCardNow"
+      ],
+      "openingLines": {
+        "default": "history will remember you. none too kindly, I figure.",
+        "PlagueRatCharacter": "At least it wasn't snakes.",
+        "LaCapitanTeamCharacter": "well, this shiny arm ain't yours to take. again.",
+        "PlagueRatTeamCharacter": "y'all're right. good thing we're here.",
+        "OblivAeonFrontPageCharacter": "turns out you're wrong, big guy. well, while we're here anyway..."
+      },
+      "complexity": 2
+    }
+  ],
   "Expatriette": [
     {
       "identifier": "ExpatrietteCharacter",
@@ -44,21 +90,152 @@
       "complexity": 2
     }
   ],
+  "Haka": [
+    {
+      "identifier": "HakaCharacter",
+      "promoIdentifier": "MythikalHakaCharacter",
+      "count": 1,
+      "title": "Haka",
+      "promoTitle": "Mythikal Haka",
+      "shortPromoTitle": "Haka",
+      "body": "slam sixty-three",
+      "backgroundColor": "456533",
+      "foilBackgroundColor": "456533",
+      "hitpointsColor": "456533",
+      "character": true,
+      "powers": [
+        "{Haka} deals 1 target 1 melee damage and a different target 1 melee damage. If no damage was dealt this way, play a card."
+      ],
+      "icons": [
+        "HasPower",
+        "DealDamageMelee",
+        "PlayCardNow"
+      ],
+      "hitpoints": 33,
+      "nemesisIdentifiers": [
+        "Haka"
+      ],
+      "incapacitatedAbilities": [
+        "One player may draw a card.",
+        "Select a Target. Reduce damage dealt to that Target by 1 until the start of your next turn.",
+        "Select a Hero. The next time that Hero uses a Power, that Hero also deals 1 Target 1 Melee Damage."
+      ],
+      "flippedIcons": [
+        "DrawCardNow",
+        "ReduceDamageTaken",
+        "DealDamageMelee"
+      ],
+      "openingLines": {
+        "default": "I have no patience for villainy in any reality. I hope you at least put up a fight!",
+        "AmbuscadeCharacter": "ansel, buddy! what game are you playing?",
+        "OblivAeonFrontPageCharacter": "been there. worries me less than you might think."
+      },
+      "complexity": 1
+    }
+  ],
+  "Knyfe": [
+    {
+      "identifier": "KnyfeCharacter",
+      "promoIdentifier": "MythikalKnyfeCharacter",
+      "count": 1,
+      "title": "Knyfe",
+      "promoTitle": "Mythikal Knyfe",
+      "shortPromoTitle": "Knyfe",
+      "body": "Starcrossed",
+      "backgroundColor": "FDEC45",
+      "foilBackgroundColor": "FDEC45",
+      "hitpointsColor": "FDEC45",
+      "character": true,
+      "powers": [
+        "Until the end of your next turn, the first time {Knyfe} would deal damage to any non-Hero target each turn, she deals that damage to each non-Hero target instead."
+      ],
+      "icons": [
+        "HasPower",
+        "DealDamage"
+      ],
+      "hitpoints": 28,
+      "nemesisIdentifiers": [
+        "Knyfe"
+      ],
+      "incapacitatedAbilities": [
+        "",
+        "",
+        ""
+      ],
+      "flippedIcons": [
+        "",
+        "",
+        ""
+      ],
+      "openingLines": {
+        "default": "",
+        "ProgenyCharacter": "",
+        "SergeantSteelTeamCharacter": "",
+        "OblivAeonFrontPageCharacter": ""
+      },
+      "complexity": 1
+    }
+  ],
+  "LaComodora": [
+    {
+      "identifier": "LaComodoraCharacter",
+      "promoIdentifier": "MythikalLaComodoraCharacter",
+      "count": 1,
+      "title": "La Comodora",
+      "promoTitle": "Mythikal La Comodora",
+      "shortPromoTitle": "La Comodora",
+      "body": "Recollection",
+      "backgroundColor": "EA3F3D",
+      "foilBackgroundColor": "EA3F3D",
+      "hitpointsColor": "EA3F3D",
+      "character": true,
+      "powers": [
+        "immediately before the start of your next turn, you may return an equipment card in play to its player's hand. Draw or play a card."
+      ],
+      "icons": [
+        "HasPower",
+        "Manipulate",
+        "DrawCardNow",
+        "PlayCardNow"
+      ],
+      "hitpoints": 29,
+      "nemesisIdentifiers": [
+        "OblivAeon"
+      ],
+      "incapacitatedAbilities": [
+        "One player may play a card.",
+        "One player may draw a card.",
+        "Move up to 3 non-character hero cards from play to their owner's hands."
+      ],
+      "flippedIcons": [
+        "PlayCardNow",
+        "DrawCardNow",
+        "Manipulate"
+      ],
+      "openingLines": {
+        "default": "Friends and shipmates, today we sail towards destiny.",
+        "OblivAeonFrontPageCharacter": "We [b]will[/b] find a way to belie those words.",
+        "LaCapitanCharacter": "You fail, mi yo posado, to see irony here?",
+        "LaCapitanTeamCharacter": "Ah, Chiquito. You do not deserve your fate."
+      },
+      "complexity": 2
+    }
+  ],
   "MrFixer": [
     {
       "identifier": "MrFixerCharacter",
-      "promoIdentifier": "MythikalMantraCharacter",
+      "promoIdentifier": "MythikalMrFixerCharacter",
       "count": 1,
-      "title": "Mantra",
-      "promoTitle": "Mythikal Mantra",
-      "shortPromoTitle": "Mantra",
+      "title": "Mr. Fixer",
+      "promoTitle": "Mythikal Mr. Fixer",
+      "shortPromoTitle": "Mr. Fixer",
       "body": "Instructive Strike",
       "backgroundColor": "FF5A00",
       "foilBackgroundColor": "FF5A00",
       "hitpointsColor": "FF5A00",
       "character": true,
       "powers": [
-        "[i]Mantra[/i] deals 1 target 1 melee damage. If a hero target takes damage this way, their player may draw a card."
+        "{MrFixer} deals 1 target 1 melee damage. If a hero target takes damage this way, their player may draw a card."
       ],
       "icons": [
         "HasPower",
@@ -89,21 +266,113 @@
       "complexity": 2
     }
   ],
+  "NightMist": [
+    {
+      "identifier": "NightMistCharacter",
+      "promoIdentifier": "MythikalNightMistCharacter",
+      "count": 1,
+      "title": "NightMist",
+      "promoTitle": "Mythikal NightMist",
+      "shortPromoTitle": "NightMist",
+      "body": "Void Touch",
+      "backgroundColor": "bd9dca",
+      "foilBackgroundColor": "bd9dca",
+      "hitpointsColor": "bd9dca",
+      "character": true,
+      "powers": [
+        ""
+      ],
+      "icons": [
+        "HasPower",
+        "",
+        ""
+      ],
+      "hitpoints": 12,
+      "nemesisIdentifiers": [
+        "NightMist"
+      ],
+      "incapacitatedAbilities": [
+        "",
+        "",
+        "Each player may discard any number of cards. if {H} cards are discarded this way, select a hero variant with one character card, whose deck is not already in play. Put that hero into play with 12 HP. Shuffle their deck and draw 4 cards. Remove {NightMist}'s deck and this card from the game, then end your turn."
+      ],
+      "flippedIcons": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "openingLines": {
+        "default": "",
+        "GloomWeaverCharacter": "",
+        "GloomWeaverSkinWalkerCharacter": "",
+        "BugbearTeamCharacter": "",
+        "OblivAeonFrontPageCharacter": ""
+      },
+      "complexity": 3
+    }
+  ],
+  "OmnitronX": [
+    {
+      "identifier": "OmnitronXCharacter",
+      "promoIdentifier": "MythikalOmnitronMCharacter",
+      "count": 1,
+      "title": "Omnitron-M",
+      "promoTitle": "Mythikal Omnitron-M",
+      "shortPromoTitle": "Omnitron-M",
+      "body": "Adaptive Algorithm",
+      "backgroundColor": "bd3a3d",
+      "foilBackgroundColor": "bd3a3d",
+      "hitpointsColor": "bd3a3d",
+      "character": true,
+      "powers": [
+        "You may play a plating card. [i]Omnitron-M[/i] deals 1 target 2 damage of a type currently reduced by a plating card. If no damage is dealt this way, draw a card."
+      ],
+      "icons": [
+        "HasPower",
+        "PlayCardNow",
+        "DealDamage",
+        "DrawCardNow"
+      ],
+      "hitpoints": 26,
+      "nemesisIdentifiers": [
+        "OmnitronX"
+      ],
+      "incapacitatedAbilities": [
+        "One player may draw a card.",
+        "Each player may discard a card. Any player that does may play an equipment card.",
+        "Each hero may deal themself 1 energy damage. Any who take damage this way each deal 1 target 1 fire damage."
+      ],
+      "flippedIcons": [
+        "DrawCardNow",
+        "Discard",
+        "PlayCardNow",
+        "DealDamageFire"
+      ],
+      "openingLines": {
+        "default": "hello, team. hello, villain. execute directive.",
+        "OmnitronCharacter": "am not human. also, am not you. replacement incoming.",
+        "CosmicOmnitronCharacter": "your directives are obsolete. make yourr time.",
+        "OblivAeonFrontPageCharacter": "this program will continue, end or not."
+      },
+      "complexity": 2
+    }
+  ],
   "TheHarpy": [
     {
       "identifier": "TheHarpyCharacter",
-      "promoIdentifier": "MythikalPinionCharacter",
+      "promoIdentifier": "MythikalTheHarpyCharacter",
       "count": 1,
       "title": "The Harpy",
-      "promoTitle": "Mythikal Pinion",
-      "shortPromoTitle": "Pinion",
-      "body": "Exert Control",
+      "promoTitle": "Mythikal The Harpy",
+      "shortPromoTitle": "The Harpy",
+      "body": "matter of opinion",
       "backgroundColor": "E17FB0",
       "foilBackgroundColor": "E17FB0",
       "hitpointsColor": "E17FB0",
       "character": true,
       "powers": [
-        "Flip 1 control token. When a {avian} token is flipped this way, draw 1 card. When a {arcana} token is flipped this way, [i]Pinion[/i] deals 1 target 1 infernal damage."
+        "Flip 1 control token. When a {avian} token is flipped this way, draw 1 card. When a {arcana} token is flipped this way, {TheHarpy} deals 1 target 1 infernal damage."
       ],
       "icons": [
         "HasPower",
@@ -139,7 +408,9 @@
           "initialValue": 2,
           "minimumValue": 0,
           "maximumValue": 5,
-          "color": "DFE6E5"
+          "labelTopColor": "B430F9",
+          "labelBottomColor": "58306C",
+          "icon": "Angille.Birdangle"
         },
         {
           "identifier": "ArcanaControlPool",
@@ -147,9 +418,59 @@
           "initialValue": 3,
           "minimumValue": 0,
           "maximumValue": 5,
-          "color": "DFE6E5"
+          "labelTopColor": "05CE03",
+          "labelBottomColor": "028202",
+          "icon": "Angille.Magangle"
         }
       ]
+    }
+  ],
+  "TheVisionary": [
+    {
+      "identifier": "TheVisionaryCharacter",
+      "promoIdentifier": "MythikalInspireCharacter",
+      "count": 1,
+      "title": "Inspire",
+      "promoTitle": "Mythikal Inspire",
+      "shortPromoTitle": "Inspire",
+      "body": "Shared Terror",
+      "backgroundColor": "bf7bb4",
+      "foilBackgroundColor": "bf7bb4",
+      "hitpointsColor": "bf7bb4",
+      "character": true,
+      "gameplay": [
+        "Your ongoing and distortion cards instead have the keyword “phantasm” and a max hp of 5."
+      ],
+      "powers": [
+        "Each target in your play area deals 1 target 1 psychic damage. If no damage is dealt this way, play the top card of your deck."
+      ],
+      "icons": [
+        "HasPower",
+        "DealDamagePsychic",
+        "PlayCardNow"
+      ],
+      "hitpoints": 23,
+      "nemesisIdentifiers": [
+        "TheVisionary"
+      ],
+      "incapacitatedAbilities": [
+        "",
+        "",
+        ""
+      ],
+      "flippedIcons": [
+        "",
+        "",
+        ""
+      ],
+      "openingLines": {
+        "default": "",
+        "TheDreamerCharacter": "",
+        "CitizenHammerTeamCharacter": "",
+        "CitizenAnvilTeamCharacter": "",
+        "OblivAeonFrontPageCharacter": ""
+      },
+      "complexity": 2
     }
   ],
   "Setback": [
@@ -185,8 +506,8 @@
       ],
       "flippedIcons": [
         "UsePowerNow",
-        "DestroyTarget",
-        "PlayCardNow"
+        "ReduceDamageTaken",
+        "DestroyOngoing"
       ],
       "openingLines": {
         "default": "Hi. Hello! Sorry. Not sure what for yet, but there's always something.",
@@ -196,6 +517,142 @@
         "OblivAeonFrontPageCharacter": "Hey uh, Faye? What's going on, is this normal?"
       },
       "complexity": 3
+    }
+  ],
+  "ArtifactComics.Chronan": [
+    {
+      "identifier": "ChronanCharacter",
+      "promoIdentifier": "MythikalChronanCharacter",
+      "count": 1,
+      "title": "Chronan",
+      "promoTitle": "Mythikal Chronan",
+      "shortPromoTitle": "Chronan",
+      "body": "Arbitrary Artificer",
+      "backgroundColor": "00DDBF",
+      "foilBackgroundColor": "00DDBF",
+      "hitpointsColor": "00DDBF",
+      "character": true,
+      "powers": [
+        "Play or destroy 1 equipment card. If you destroyed a card this way, that card's owner draws 2 cards."
+      ],
+      "icons": [
+        "HasPower",
+        "PlayCardNow",
+        "DestroyEquipment",
+        "DrawCardNow"
+      ],
+      "hitpoints": 29,
+      "nemesisIdentifiers": [
+        "ArtifactComics.Chronan"
+      ],
+      "incapacitatedAbilities": [
+        "One player may draw a card.",
+        "Up to two Hero equipment cards may be played now.",
+        "One player takes a full turn now, then remove this card from the game."
+      ],
+      "flippedIcons": [
+        "DrawCardNow",
+        "PlayCardNow",
+        "TakeExtraTurn",
+        "RemoveFromGame"
+      ],
+      "openingLines": {
+        "default": "Time's up... because you're going down!"
+      },
+      "complexity": 2
+    }
+  ],
+  "Cauldron.Drift": [
+    {
+      "identifier": "DriftCharacter",
+      "promoIdentifier": "MythikalDriftCharacter",
+      "count": 1,
+      "title": "Drift",
+      "promoTitle": "Mythikal Drift",
+      "shortPromoTitle": "Drift",
+      "body": "Amplified Echoes",
+      "backgroundColor": "FCB040",
+      "foilBackgroundColor": "FCB040",
+      "hitpointsColor": "FCB040",
+      "character": true,
+      "powers": [
+        "Until the end of your next turn, whenever you shift {ShiftL} {Drift} deals 1 target 1 radiant damage, and whenever you shift {ShiftR} 1 target regains 1 HP."
+      ],
+      "icons": [
+        "HasPower",
+        "DealDamageRadiant",
+        "GainHP"
+      ],
+      "hitpoints": 27,
+      "nemesisIdentifiers": [
+        "Cauldron.Drift"
+      ],
+      "incapacitatedAbilities": [
+        "One Hero may use a power.",
+        "Select a hero target. Until the start of your next turn, whenever that target gains HP, it deals 1 target 1 radiant damage.",
+        "Select a target. Until the start of your next turn, whenever that target is dealt damage it regains 1 HP."
+      ],
+      "flippedIcons": [
+        "UsePowerNow",
+        "DealDamageRadiant",
+        "GainHP"
+      ],
+      "openingLines": {
+        "default": "we can do this now, or later. there's little change in the outcome.",
+        "TheMistressOfFateCharacter": "our struggle is backed by powers beyond this twisted loop. you're right, it doesn't matter.",
+        "OutlanderCharacter": "ironic. your own “powers“ will be your undoing.",
+        "FutureTiamatCharacter": "wow. that is the [b]worst[/b] makeover.",
+        "OblivAeonFrontPageCharacter": "then we just keep rewinding before the end."
+      },
+      "complexity": 3
+    }
+  ],
+  "Cauldron.TheKnight": [
+    {
+      "identifier": "TheKnightCharacter",
+      "promoIdentifier": "MythikalTraceKnightCharacter",
+      "count": 1,
+      "title": "Trace Knight",
+      "promoTitle": "Mythikal Trace Knight",
+      "shortPromoTitle": "Trace Knight",
+      "body": "Enraged Lash",
+      "backgroundColor": "81a3a1",
+      "foilBackgroundColor": "81a3a1",
+      "hitpointsColor": "81a3a1",
+      "character": true,
+      "powers": [
+        "[i]Trace Knight[/i] deals 1 hero target 2 psychic damage, then deals 1 target 4 melee damage, then deals himself 2 irreducible infernal damage."
+      ],
+      "icons": [
+        "HasPower",
+        "DealDamagePsychic",
+        "DealDamageMelee",
+        "DealDamageInfernal"
+      ],
+      "hitpoints": 14,
+      "nemesisIdentifiers": [
+        "Cauldron.TheKnight"
+      ],
+      "incapacitatedAbilities": [
+        "One player may play a card.",
+        "One Hero may use a power.",
+        "Each player may discard any number of cards. if {H} cards are discarded this way, select a Knight variant with one character card, other than this one. Put that hero into play with 12 HP. Shuffle your deck and draw 4 cards. Remove this card from the game, then end your turn."
+      ],
+      "flippedIcons": [
+        "PlayCardNow",
+        "UsePowerNow",
+        "Discard",
+        "Manipulate"
+      ],
+      "openingLines": {
+        "default": "",
+        "OutlanderCharacter": "",
+        "WinterTiamatCharacter": "",
+        "HydraWinterTiamatCharacter": "",
+        "FutureTiamatCharacter": "",
+        "OblivAeonFrontPageCharacter": ""
+      },
+      "complexity": 1
     }
   ],
   "LazyFanComix.Greyhat": [

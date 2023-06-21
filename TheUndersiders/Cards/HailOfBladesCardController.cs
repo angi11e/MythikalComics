@@ -14,11 +14,10 @@ namespace Angille.TheUndersiders
 		public HailOfBladesCardController(Card card, TurnTakerController turnTakerController)
 			: base(card, turnTakerController)
 		{
-		}
+			SpecialStringMaker.ShowVillainCharacterCardWithHighestHP();
+			SpecialStringMaker.ShowHeroTargetWithHighestHP(1, H - 1);
 
-		public override void AddTriggers()
-		{
-			base.AddTriggers();
+			SpecialStringMaker.ShowSpecialString(() => GetSpecialStringIcons("bear", "blade"));
 		}
 
 		public override IEnumerator Play()
@@ -32,32 +31,32 @@ namespace Angille.TheUndersiders
 			IEnumerator mainDamageCR = DealDamageToHighestHP(
 				null,
 				1,
-				(Card c) => c.IsHero,
-				(Card c) => base.H - 2,
+				(Card c) => IsHeroTarget(c),
+				(Card c) => H - 2,
 				DamageType.Projectile,
 				storedResults: storedResults,
-				numberOfTargets: () => base.H - 1,
+				numberOfTargets: () => H - 1,
 				addStatusEffect: (DealDamageAction dd) => IsEnabled("bear")
-					? base.TargetsDealtDamageCannotDealDamageUntilTheStartOfNextTurnResponse(dd)
+					? TargetsDealtDamageCannotDealDamageUntilTheStartOfNextTurnResponse(dd)
 					: DoNothing(),
 				damageSourceInfo: new TargetInfo(
 					HighestLowestHP.HighestHP,
 					1,
 					1,
-					new LinqCardCriteria((Card c) => c.IsVillainTarget, "The villain target with the highest HP")
+					new LinqCardCriteria((Card c) => IsVillainTarget(c), "The villain target with the highest HP")
 				)
 			);
 
-			if (base.UseUnityCoroutines)
+			if (UseUnityCoroutines)
 			{
-				yield return base.GameController.StartCoroutine(mainDamageCR);
+				yield return GameController.StartCoroutine(mainDamageCR);
 			}
 			else
 			{
-				base.GameController.ExhaustCoroutine(mainDamageCR);
+				GameController.ExhaustCoroutine(mainDamageCR);
 			}
 
-			// Blade: {FoilCharacter} deals any hero targets not dealt damage this turn 2 projectile damage.
+			// Blade: {FoilCharacter} deals each hero character card not dealt damage this turn 2 projectile damage.
 			if (IsEnabled("blade"))
 			{
 				Card maybeFoil = FoilCharacter;
@@ -71,13 +70,13 @@ namespace Angille.TheUndersiders
 						cardSource: GetCardSource()
 					);
 
-					if (base.UseUnityCoroutines)
+					if (UseUnityCoroutines)
 					{
-						yield return base.GameController.StartCoroutine(findVillainCR);
+						yield return GameController.StartCoroutine(findVillainCR);
 					}
 					else
 					{
-						base.GameController.ExhaustCoroutine(findVillainCR);
+						GameController.ExhaustCoroutine(findVillainCR);
 					}
 
 					maybeFoil = villainList.FirstOrDefault();
@@ -91,19 +90,19 @@ namespace Angille.TheUndersiders
 
 					IEnumerator foilDamage = DealDamage(
 						maybeFoil,
-						(Card c) => !affectedList.Contains(c) && c.IsHero && c.IsCharacter,
+						(Card c) => !affectedList.Contains(c) && IsHeroCharacterCard(c),
 						2,
 						DamageType.Projectile,
 						isIrreducible: true
 					);
 
-					if (base.UseUnityCoroutines)
+					if (UseUnityCoroutines)
 					{
-						yield return base.GameController.StartCoroutine(foilDamage);
+						yield return GameController.StartCoroutine(foilDamage);
 					}
 					else
 					{
-						base.GameController.ExhaustCoroutine(foilDamage);
+						GameController.ExhaustCoroutine(foilDamage);
 					}
 				}
 			}

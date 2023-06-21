@@ -14,10 +14,11 @@ namespace Angille.Athena
 		{
 		}
 
-		protected bool AspectInPlay => HeroTurnTaker.GetCardsWhere(
-			(Card c) => c.IsInPlayAndNotUnderCard && IsAspect(c)
-		).Count() > 0;
+		protected bool ManifestInPlay => HeroTurnTaker.GetCardsWhere(
+			(Card c) => c.IsInPlayAndNotUnderCard && IsManifest(c)
+		).Any();
 
+		/*
 		protected LinqCardCriteria IsLegendCriteria(Func<Card, bool> additionalCriteria = null)
 		{
 			var result = new LinqCardCriteria(c => IsLegend(c), "legend", true);
@@ -31,12 +32,13 @@ namespace Angille.Athena
 
 		protected bool IsLegend(Card card, bool evenIfUnderCard = false, bool evenIfFaceDown = false)
 		{
-			return card != null && base.GameController.DoesCardContainKeyword(card, "legend", evenIfUnderCard, evenIfFaceDown);
+			return card != null && GameController.DoesCardContainKeyword(card, "legend", evenIfUnderCard, evenIfFaceDown);
 		}
+		*/
 
-		protected LinqCardCriteria IsAspectCriteria(Func<Card, bool> additionalCriteria = null)
+		protected LinqCardCriteria IsManifestCriteria(Func<Card, bool> additionalCriteria = null)
 		{
-			var result = new LinqCardCriteria(c => IsAspect(c), "aspect", true);
+			var result = new LinqCardCriteria(c => IsManifest(c), "manifest", true);
 			if (additionalCriteria != null)
 			{
 				result = new LinqCardCriteria(result, additionalCriteria);
@@ -45,9 +47,9 @@ namespace Angille.Athena
 			return result;
 		}
 
-		protected bool IsAspect(Card card, bool evenIfUnderCard = false, bool evenIfFaceDown = false)
+		protected bool IsManifest(Card card, bool evenIfUnderCard = false, bool evenIfFaceDown = false)
 		{
-			return card != null && base.GameController.DoesCardContainKeyword(card, "aspect", evenIfUnderCard, evenIfFaceDown);
+			return card != null && GameController.DoesCardContainKeyword(card, "manifest", evenIfUnderCard, evenIfFaceDown);
 		}
 	}
 }

@@ -37,7 +37,7 @@ namespace Angille.WhatsHerFace
 				cardSource: GetCardSource()
 			);
 
-			if (base.UseUnityCoroutines)
+			if (UseUnityCoroutines)
 			{
 				yield return GameController.StartCoroutine(selectTurnTakerCR);
 			}
@@ -68,7 +68,7 @@ namespace Angille.WhatsHerFace
 				cardSource: GetCardSource()
 			);
 
-			if (base.UseUnityCoroutines)
+			if (UseUnityCoroutines)
 			{
 				yield return GameController.StartCoroutine(selectWordCR);
 			}
@@ -101,13 +101,13 @@ namespace Angille.WhatsHerFace
 				"cards with the keyword " + keyword
 			);
 
-			if (base.UseUnityCoroutines)
+			if (UseUnityCoroutines)
 			{
-				yield return base.GameController.StartCoroutine(discoverCR);
+				yield return GameController.StartCoroutine(discoverCR);
 			}
 			else
 			{
-				base.GameController.ExhaustCoroutine(discoverCR);
+				GameController.ExhaustCoroutine(discoverCR);
 			}
 
 			yield break;

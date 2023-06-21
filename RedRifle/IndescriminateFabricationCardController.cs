@@ -34,13 +34,13 @@ namespace Angille.RedRifle
 				cardSource: GetCardSource()
 			);
 
-			if (base.UseUnityCoroutines)
+			if (UseUnityCoroutines)
 			{
-				yield return base.GameController.StartCoroutine(revealAndDoStuffCR);
+				yield return GameController.StartCoroutine(revealAndDoStuffCR);
 			}
 			else
 			{
-				base.GameController.ExhaustCoroutine(revealAndDoStuffCR);
+				GameController.ExhaustCoroutine(revealAndDoStuffCR);
 			}
 
 			yield break;
@@ -62,13 +62,13 @@ namespace Angille.RedRifle
 				tt
 			);
 
-			if (base.UseUnityCoroutines)
+			if (UseUnityCoroutines)
 			{
-				yield return base.GameController.StartCoroutine(revealPlayDiscardCR);
+				yield return GameController.StartCoroutine(revealPlayDiscardCR);
 			}
 			else
 			{
-				base.GameController.ExhaustCoroutine(revealPlayDiscardCR);
+				GameController.ExhaustCoroutine(revealPlayDiscardCR);
 			}
 
 			// For each card put into play this way, add 1 token to your trueshot pool.
@@ -76,13 +76,13 @@ namespace Angille.RedRifle
 			{
 				IEnumerator addTokenCR = RedRifleTrueshotPoolUtility.AddTrueshotTokens(this, 1);
 
-				if (base.UseUnityCoroutines)
+				if (UseUnityCoroutines)
 				{
-					yield return base.GameController.StartCoroutine(addTokenCR);
+					yield return GameController.StartCoroutine(addTokenCR);
 				}
 				else
 				{
-					base.GameController.ExhaustCoroutine(addTokenCR);
+					GameController.ExhaustCoroutine(addTokenCR);
 				}
 			}
 

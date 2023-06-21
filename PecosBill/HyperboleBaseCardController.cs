@@ -63,16 +63,6 @@ namespace Angille.PecosBill
 		{
 			base.AddTriggers();
 
-			/*
-			AddTrigger<MoveCardAction>(
-				(MoveCardAction m) => m.CardToMove.Identifier == _folkIdentifier
-					&& m.Origin.IsHeroPlayAreaRecursive
-					&& (m.Destination.IsHand || m.Destination.IsTrash),
-				RequiredCardMissingDestroySelfResponse,
-				TriggerType.DestroySelf,
-				TriggerTiming.After
-			);
-			*/
 			AddIfTheTargetThatThisCardIsNextToLeavesPlayDestroyThisCardTrigger();
 		}
 

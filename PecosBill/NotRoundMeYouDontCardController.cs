@@ -30,7 +30,7 @@ namespace Angille.PecosBill
 
 			// When a non-hero target enters play, {PecosBill} may deal that target 1 melee damage.
 			AddTargetEntersPlayTrigger(
-				(Card c) => !c.IsHero,
+				(Card c) => !IsHeroTarget(c),
 				(Card c) => DealDamage(
 					this.CharacterCard,
 					c,

@@ -20,7 +20,7 @@ namespace Angille.RedRifle
 			TurnTakerController turnTakerController
 		) : base(card, turnTakerController)
 		{
-			base.SpecialStringMaker.ShowNumberOfCardsAtLocation(
+			SpecialStringMaker.ShowNumberOfCardsAtLocation(
 				HeroTurnTaker.Hand,
 				new LinqCardCriteria(c => c.IsOneShot, "one-shot", true)
 			);
@@ -29,7 +29,7 @@ namespace Angille.RedRifle
 		public override void AddTriggers()
 		{
 			// Increase damage dealt by {RedRifle} by 1.
-			AddIncreaseDamageTrigger((DealDamageAction dd) => dd.DamageSource.IsSameCard(base.CharacterCard), 1);
+			AddIncreaseDamageTrigger((DealDamageAction dd) => dd.DamageSource.IsSameCard(this.CharacterCard), 1);
 
 			// When this card is destroyed, {RedRifle} deals himself 2 energy damage. Add 3 tokens to your trueshot pool.
 			AddWhenDestroyedTrigger(
@@ -47,8 +47,8 @@ namespace Angille.RedRifle
 		{
 			// {RedRifle} deals himself 2 energy damage.
 			IEnumerator selfDamageCR = DealDamage(
-				base.CharacterCard,
-				base.CharacterCard,
+				this.CharacterCard,
+				this.CharacterCard,
 				2,
 				DamageType.Energy
 			);
@@ -92,8 +92,8 @@ namespace Angille.RedRifle
 
 			// Destroy this card.
 			IEnumerator destructionCR = GameController.DestroyCard(
-				this.DecisionMaker,
-				base.Card,
+				DecisionMaker,
+				this.Card,
 				cardSource: GetCardSource()
 			);
 

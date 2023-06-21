@@ -1,0 +1,438 @@
+﻿{
+	"name": "Nexus",
+	"kind": "Hero",
+	"initialCardIdentifiers": [
+		"NexusCharacter"
+	],
+	"cards": [
+		{
+			"identifier": "NexusCharacter",
+			"count": 1,
+			"title": "Nexus",
+			"body": "Aggressive Chemistry",
+			"backgroundColor": "1c964d",
+			"foilBackgroundColor": "1c964d",
+			"hitpointsColor": "1c964d",
+			"character": true,
+			"powers": [
+				"Select a damage type. {Nexus} deals 1 target 1 damage of that type."
+			],
+			"icons": [
+				"HasPower",
+				"DealDamage"
+			],
+			"hitpoints": 26,
+			"nemesisIdentifiers": [
+				"Angille.Nexus"
+			],
+			"incapacitatedAbilities": [
+				"One Player may Play a card now.",
+				"",
+				""
+			],
+			"flippedIcons": [
+				"PlayCardNow",
+				"",
+				"",
+				""
+			],
+			"openingLines": {
+				"default": "",
+				"OblivAeonFrontPageCharacter": ""
+			},
+			"complexity": 1
+		},
+		{
+			"identifier": "ActionEnvironmentalScientist",
+			"count": 3,
+			"title": "Action Environmental Scientist",
+			"keywords": [
+				"ongoing",
+				"limited"
+			],
+			"body": [
+				"",
+				""
+			],
+			"powers": [
+				""
+			],
+			"icons": [
+				"",
+				"",
+				"",
+				""
+			],
+			"flavorText": "“”",
+			"flavorReference": ""
+		},
+		{
+			"identifier": "Aerokinesis",
+			"count": 1,
+			"title": "Aerokinesis",
+			"keywords": [
+				"ongoing"
+			],
+			"body": [
+				"",
+				""
+			],
+			"powers": [
+				""
+			],
+			"icons": [
+				"",
+				"",
+				"",
+				""
+			],
+			"flavorText": "“”",
+			"flavorReference": ""
+		},
+		{
+			"identifier": "AtmosphericDisturbance",
+			"count": 3,
+			"title": "Atmospheric Disturbance",
+			"keywords": [
+				"one-shot"
+			],
+			"body": [
+				"air and fire",
+				""
+			],
+			"icons": [
+				"",
+				"",
+				"",
+				""
+			],
+			"flavorText": "“”",
+			"flavorReference": ""
+		},
+		{
+			"identifier": "Hydrokinesis",
+			"count": 1,
+			"title": "Hydrokinesis",
+			"keywords": [
+				"ongoing"
+			],
+			"body": [
+				"",
+				""
+			],
+			"powers": [
+				""
+			],
+			"icons": [
+				"",
+				"",
+				"",
+				""
+			],
+			"flavorText": "“”",
+			"flavorReference": ""
+		},
+		{
+			"identifier": "InstantStorm",
+			"count": 3,
+			"title": "Instant Storm",
+			"keywords": [
+				"one-shot"
+			],
+			"body": [
+				"air and water",
+				""
+			],
+			"icons": [
+				"",
+				"",
+				"",
+				""
+			],
+			"flavorText": "“”",
+			"flavorReference": ""
+		},
+		{
+			"identifier": "Lithokinesis",
+			"count": 1,
+			"title": "Lithokinesis",
+			"keywords": [
+				"ongoing"
+			],
+			"body": [
+				"",
+				""
+			],
+			"powers": [
+				""
+			],
+			"icons": [
+				"",
+				"",
+				"",
+				""
+			],
+			"flavorText": "“”",
+			"flavorReference": ""
+		},
+		{
+			"identifier": "MudslideWarning",
+			"count": 3,
+			"title": "MudslideWarning",
+			"keywords": [
+				"one-shot"
+			],
+			"body": [
+				"water and earth",
+				""
+			],
+			"icons": [
+				"",
+				"",
+				"",
+				""
+			],
+			"flavorText": "“”",
+			"flavorReference": ""
+		},
+		{
+			"identifier": "OldFaithful",
+			"count": 3,
+			"title": "Old Faithful",
+			"keywords": [
+				"one-shot"
+			],
+			"body": [
+				"fire and water",
+				""
+			],
+			"icons": [
+				"",
+				"",
+				"",
+				""
+			],
+			"flavorText": "“”",
+			"flavorReference": ""
+		},
+		{
+			"identifier": "PlasmaCondenser",
+			"count": 1,
+			"title": "Plasma Condenser",
+			"keywords": [
+				"equipment"
+			],
+			"body": [
+				"",
+				""
+			],
+			"powers": [
+				""
+			],
+			"icons": [
+				"",
+				"",
+				"",
+				""
+			],
+			"flavorText": "“”",
+			"flavorReference": ""
+		},
+		{
+			"identifier": "Pyrokinesis",
+			"count": 1,
+			"title": "Pyrokinesis",
+			"keywords": [
+				"ongoing"
+			],
+			"body": [
+				"",
+				""
+			],
+			"powers": [
+				""
+			],
+			"icons": [
+				"",
+				"",
+				"",
+				""
+			],
+			"flavorText": "“”",
+			"flavorReference": ""
+		},
+		{
+			"identifier": "Sandblast",
+			"count": 3,
+			"title": "Sandblast",
+			"keywords": [
+				"one-shot"
+			],
+			"body": [
+				"air and earth",
+				""
+			],
+			"icons": [
+				"",
+				"",
+				"",
+				""
+			],
+			"flavorText": "“”",
+			"flavorReference": ""
+		},
+		{
+			"identifier": "SeismicInducer",
+			"count": 1,
+			"title": "Seismic Inducer",
+			"keywords": [
+				"equipment"
+			],
+			"body": [
+				"",
+				""
+			],
+			"powers": [
+				""
+			],
+			"icons": [
+				"",
+				"",
+				"",
+				""
+			],
+			"flavorText": "“”",
+			"flavorReference": ""
+		},
+		{
+			"identifier": "StaticTerminal",
+			"count": 1,
+			"title": "Static Terminal",
+			"keywords": [
+				"equipment"
+			],
+			"body": [
+				"",
+				""
+			],
+			"powers": [
+				""
+			],
+			"icons": [
+				"",
+				"",
+				"",
+				""
+			],
+			"flavorText": "“”",
+			"flavorReference": ""
+		},
+		{
+			"identifier": "ToxinDistiller",
+			"count": 1,
+			"title": "Toxin Distiller",
+			"keywords": [
+				"equipment"
+			],
+			"body": [
+				"",
+				""
+			],
+			"powers": [
+				""
+			],
+			"icons": [
+				"",
+				"",
+				"",
+				""
+			],
+			"flavorText": "“”",
+			"flavorReference": ""
+		},
+		{
+			"identifier": "TrainingBreak",
+			"count": 4,
+			"title": "Training Break",
+			"keywords": [
+				"one-shot"
+			],
+			"body": [
+				"",
+				""
+			],
+			"icons": [
+				"",
+				"",
+				"",
+				""
+			],
+			"flavorText": "“”",
+			"flavorReference": ""
+		},
+		{
+			"identifier": "UnlockedPalmtop",
+			"count": 3,
+			"title": "Unlocked Palmtop",
+			"keywords": [
+				"equipment",
+				"limited"
+			],
+			"body": [
+				"",
+				""
+			],
+			"powers": [
+				""
+			],
+			"icons": [
+				"",
+				"",
+				"",
+				""
+			],
+			"flavorText": "“”",
+			"flavorReference": ""
+		},
+		{
+			"identifier": "VisitToTheLab",
+			"count": 4,
+			"title": "Visit to the Lab",
+			"keywords": [
+				"one-shot"
+			],
+			"body": [
+				"",
+				""
+			],
+			"icons": [
+				"",
+				"",
+				"",
+				""
+			],
+			"flavorText": "“”",
+			"flavorReference": ""
+		},
+		{
+			"identifier": "VolcanicActivity",
+			"count": 3,
+			"title": "Volcanic Activity",
+			"keywords": [
+				"one-shot"
+			],
+			"body": [
+				"",
+				""
+			],
+			"icons": [
+				"",
+				"",
+				"",
+				""
+			],
+			"flavorText": "“”",
+			"flavorReference": ""
+		}
+	]
+}

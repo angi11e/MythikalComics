@@ -24,7 +24,7 @@ namespace Angille.Athena
 			// {Athena} deals up to 3 targets 2 melee damage each.
 			IEnumerator dealDamageCR = GameController.SelectTargetsAndDealDamage(
 				DecisionMaker,
-				new DamageSource(GameController, base.CharacterCard),
+				new DamageSource(GameController, this.CharacterCard),
 				2,
 				DamageType.Melee,
 				3,

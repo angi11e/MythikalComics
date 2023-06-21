@@ -29,7 +29,7 @@ namespace Angille.Speedrunner
 			// If you do, one player may draw a card.
 			AddTrigger(
 				(DealDamageAction dd) =>
-					dd.Target.IsHero
+					IsHeroTarget(dd.Target)
 					&& dd.Target != this.CharacterCard
 					&& !dd.DamageSource.IsHero
 					&& dd.Amount > 0,

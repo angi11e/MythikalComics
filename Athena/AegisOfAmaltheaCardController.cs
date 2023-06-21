@@ -9,8 +9,8 @@ namespace Angille.Athena
 	public class AegisOfAmaltheaCardController : AthenaBaseCardController
 	{
 		/*
-		 * Reduce Damage dealt to this card by 1.
-		 * Whenever a Hero Target in your play area would be dealt Damage, you may redirect it to this card.
+		 * Whenever exactly 1 Damage would be dealt to {Athena}, prevent that Damage.
+		 * Damage dealt to {Athena} cannot be increased.
 		 */
 
 		public AegisOfAmaltheaCardController(
@@ -22,20 +22,30 @@ namespace Angille.Athena
 
 		public override void AddTriggers()
 		{
-			// Reduce Damage dealt to this card by 1.
-			AddReduceDamageTrigger((Card c) => c == base.Card, 1);
+			// Whenever exactly 1 Damage would be dealt to {Athena}, prevent that Damage.
+			AddPreventDamageTrigger(
+				(DealDamageAction dd) => dd.Target == this.CharacterCard && dd.Amount == 1,
+				isPreventEffect: true
+			);
 
-			// Whenever a Hero Target in your play area would be dealt Damage, you may redirect it to this card.
-			AddRedirectDamageTrigger(
-				(DealDamageAction dd) =>
-					dd.Target != base.Card
-					&& dd.Target.IsHero
-					&& dd.Target.Location.IsPlayAreaOf(base.TurnTaker),
-				() => base.Card,
-				optional: true
+			// Damage dealt to {Athena} cannot be increased.
+			AddTrigger(
+				(DealDamageAction dd) => dd.Target == this.CharacterCard,
+				(DealDamageAction dd) => GameController.MakeDamageUnincreasable(dd, GetCardSource()),
+				TriggerType.MakeDamageUnincreasable,
+				TriggerTiming.Before
 			);
 
 			base.AddTriggers();
+		}
+
+		public override bool CanOrderAffectOutcome(GameAction action)
+		{
+			if (action is DealDamageAction)
+			{
+				return (action as DealDamageAction).Target == this.CharacterCard;
+			}
+			return false;
 		}
 	}
 }

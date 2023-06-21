@@ -15,7 +15,7 @@ namespace Angille.Athena
 		 *  Reduce damage redirected to {Athena} by 1.
 		 *  
 		 * POWER
-		 * {Athena} deals each non-hero target 1 sonic damage.
+		 * {Athena} deals each target 1 sonic damage.
 		 *  Destroy 1 environment card.
 		 */
 
@@ -28,16 +28,18 @@ namespace Angille.Athena
 
 		public override void AddTriggers()
 		{
+			/*
 			// Reduce damage redirected to {Athena} by 1.
 			AddReduceDamageTrigger(
-				(DealDamageAction dd) => dd.Target == base.CharacterCard && dd.NumberOfTimesRedirected > 0,
+				(DealDamageAction dd) => dd.Target == this.CharacterCard && dd.NumberOfTimesRedirected > 0,
 				(DealDamageAction dd) => 1
 			);
+			*/
 
 			// Whenever a hero target is dealt damage, you may redirect it to {Athena}.
 			AddRedirectDamageTrigger(
-				(DealDamageAction dd) => dd.Target != base.CharacterCard && dd.Target.IsHero,
-				() => base.CharacterCard,
+				(DealDamageAction dd) => dd.Target != this.CharacterCard && IsHero(dd.Target),
+				() => this.CharacterCard,
 				optional: true
 			);
 
@@ -51,8 +53,8 @@ namespace Angille.Athena
 
 			// {Athena} deals each non-hero target 1 sonic damage.
 			IEnumerator damageCR = DealDamage(
-				base.CharacterCard,
-				(Card c) => !c.IsHero,
+				this.CharacterCard,
+				(Card c) => c.IsTarget,
 				damageNumeral,
 				DamageType.Sonic
 			);
@@ -67,7 +69,7 @@ namespace Angille.Athena
 			}
 
 			// Destroy 1 environment card.
-			IEnumerator destroyCR = base.GameController.SelectAndDestroyCards(
+			IEnumerator destroyCR = GameController.SelectAndDestroyCards(
 				DecisionMaker,
 				new LinqCardCriteria((Card c) => c.IsEnvironment, "environment"),
 				destroyNumeral,

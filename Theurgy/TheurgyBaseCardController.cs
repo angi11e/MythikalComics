@@ -26,7 +26,11 @@ namespace Angille.Theurgy
 
 		protected bool IsCharm(Card card, bool evenIfUnderCard = false, bool evenIfFaceDown = false)
 		{
-			return card != null && base.GameController.DoesCardContainKeyword(card, "charm", evenIfUnderCard, evenIfFaceDown);
+			return card != null && GameController.DoesCardContainKeyword(card, "charm", evenIfUnderCard, evenIfFaceDown);
 		}
+
+		protected int CharmCardsInPlay => FindCardsWhere(
+			(Card c) => c.IsInPlayAndHasGameText && IsCharm(c) && !c.IsOneShot
+		).Count();
 	}
 }

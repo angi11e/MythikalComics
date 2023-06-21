@@ -15,7 +15,7 @@ namespace Angille.PecosBill
 		 * Reduce damage dealt to [u]folk[/u] cards by 1.
 		 * 
 		 * TALL TALE
-		 * Reveal the top card of a deck. Put it into play or discard it.
+		 * Reveal the top card of a deck other than yours. Put it into play or discard it.
 		 */
 
 		public RustlinCardController(
@@ -35,12 +35,12 @@ namespace Angille.PecosBill
 
 		public override IEnumerator ActivateTallTale()
 		{
-			// Reveal the top card of a deck. Put it into play or discard it.
+			// Reveal the top card of a deck other than yours. Put it into play or discard it.
 			List<SelectLocationDecision> storedResults = new List<SelectLocationDecision>();
 			IEnumerator selectDeckCR = GameController.SelectADeck(
 				DecisionMaker,
 				SelectionType.RevealTopCardOfDeck,
-				(Location l) => l.IsDeck && !l.OwnerTurnTaker.IsIncapacitatedOrOutOfGame,
+				(Location l) => l.IsDeck && !l.OwnerTurnTaker.IsIncapacitatedOrOutOfGame && l.OwnerTurnTaker != this.TurnTaker,
 				storedResults,
 				cardSource: GetCardSource()
 			);

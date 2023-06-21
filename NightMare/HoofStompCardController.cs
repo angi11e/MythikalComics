@@ -28,8 +28,8 @@ namespace Angille.NightMare
 			// {NightMare} deals each non-Hero Target 1 Sonic Damage.
 			List<DealDamageAction> storedResults = new List<DealDamageAction>();
 			IEnumerator damageCR = DealDamage(
-				base.CharacterCard,
-				(Card c) => !c.IsHero,
+				this.CharacterCard,
+				(Card c) => !IsHeroTarget(c),
 				1,
 				DamageType.Sonic,
 				storedResults: storedResults
@@ -71,7 +71,7 @@ namespace Angille.NightMare
 			// Until the start of your next turn, increase the damage {NightMare} deals to targets at full HP by 2.
 			IncreaseDamageStatusEffect increaseDamageSE = new IncreaseDamageStatusEffect(2);
 			increaseDamageSE.TargetCriteria.HasMaxHitPoints = true;
-			increaseDamageSE.SourceCriteria.IsSpecificCard = base.CharacterCard;
+			increaseDamageSE.SourceCriteria.IsSpecificCard = this.CharacterCard;
 			increaseDamageSE.UntilStartOfNextTurn(TurnTaker);
 
 			IEnumerator increaseDamageCR = AddStatusEffect(increaseDamageSE);

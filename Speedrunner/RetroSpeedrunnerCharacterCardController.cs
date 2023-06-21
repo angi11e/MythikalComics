@@ -27,7 +27,7 @@ namespace Angille.Speedrunner
 				allowAutoDecide: false,
 				selectHero,
 				new LinqTurnTakerCriteria(
-					(TurnTaker tt) => tt.IsHero && !tt.ToHero().IsIncapacitatedOrOutOfGame,
+					(TurnTaker tt) => IsHero(tt) && !tt.ToHero().IsIncapacitatedOrOutOfGame,
 					"active heroes"
 				),
 				cardSource: GetCardSource()
@@ -110,7 +110,7 @@ namespace Angille.Speedrunner
 							cardSource: GetCardSource()
 						),
 						FindTurnTakersWhere(
-							(TurnTaker tt) => tt.IsHero && CanDrawCards(FindHeroTurnTakerController(tt.ToHero()))
+							(TurnTaker tt) => IsHero(tt) && CanDrawCards(FindHeroTurnTakerController(tt.ToHero()))
 						).Count() > 0
 					));
 					choices.Add(new Function(
@@ -119,7 +119,7 @@ namespace Angille.Speedrunner
 						SelectionType.PlayCard,
 						() => SelectHeroToPlayCard(DecisionMaker),
 						FindTurnTakersWhere(
-							(TurnTaker tt) => tt.IsHero && CanPlayCards(FindHeroTurnTakerController(tt.ToHero()))
+							(TurnTaker tt) => IsHero(tt) && CanPlayCards(FindHeroTurnTakerController(tt.ToHero()))
 						).Count() > 0
 					));
 
@@ -237,7 +237,7 @@ namespace Angille.Speedrunner
 								DecisionMaker,
 								2,
 								optional: false,
-								(Card c) => c.IsHero,
+								(Card c) => IsHeroTarget(c),
 								1,
 								cardSource: GetCardSource()
 							);

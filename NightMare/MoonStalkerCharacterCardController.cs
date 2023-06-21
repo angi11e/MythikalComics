@@ -119,7 +119,7 @@ namespace Angille.NightMare
 					// Destroy an ongoing card.
 					IEnumerator destroyOngoingCR = GameController.SelectAndDestroyCard(
 						DecisionMaker,
-						new LinqCardCriteria((Card c) => c.IsOngoing && c.IsInPlay, "ongoing"),
+						new LinqCardCriteria((Card c) => c.IsInPlay && IsOngoing(c), "ongoing"),
 						false,
 						cardSource: GetCardSource()
 					);

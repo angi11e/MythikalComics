@@ -25,7 +25,7 @@ namespace Angille.Athena
 		public override void AddTriggers()
 		{
 			// increase damage dealt by {Athena} by 1.
-			AddIncreaseDamageTrigger((DealDamageAction dd) => dd.DamageSource.IsSameCard(base.CharacterCard), 1);
+			AddIncreaseDamageTrigger((DealDamageAction dd) => dd.DamageSource.IsSameCard(this.CharacterCard), 1);
 
 			base.AddTriggers();
 		}
@@ -38,7 +38,7 @@ namespace Angille.Athena
 			// {Athena} deals 1 target 2 melee damage.
 			IEnumerator dealDamageCR = GameController.SelectTargetsAndDealDamage(
 				DecisionMaker,
-				new DamageSource(GameController, base.CharacterCard),
+				new DamageSource(GameController, this.CharacterCard),
 				damageNumeral,
 				DamageType.Melee,
 				targetNumeral,

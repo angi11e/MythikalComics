@@ -30,7 +30,7 @@ namespace Angille.NightMare
 			// Deal 1 target 1 Melee damage.
 			IEnumerator dealDamageCR = GameController.SelectTargetsAndDealDamage(
 				DecisionMaker,
-				new DamageSource(GameController, base.CharacterCard),
+				new DamageSource(GameController, this.CharacterCard),
 				damageNumeral,
 				DamageType.Melee,
 				targetNumeral,

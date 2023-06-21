@@ -34,7 +34,7 @@ namespace Angille.CaptainCain
 					!p.IsPutIntoPlay
 					&& p.TurnTakerController == this.TurnTakerController
 					&& p.Origin == this.HeroTurnTaker.Hand
-					&& p.CardEnteringPlay.IsOngoing,
+					&& IsOngoing(p.CardEnteringPlay),
 				DrawCardResponse,
 				TriggerType.DrawCard,
 				TriggerTiming.After
@@ -63,7 +63,7 @@ namespace Angille.CaptainCain
 
 		public override bool AskIfCardIsIndestructible(Card card)
 		{
-			if (duringPower && card.IsOngoing && card.Owner == this.Card.Owner)
+			if (duringPower && IsOngoing(card) && card.Owner == this.Card.Owner)
 			{
 				return true;
 			}

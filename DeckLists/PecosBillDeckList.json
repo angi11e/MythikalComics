@@ -275,7 +275,7 @@
 			"activatableAbilities": [
 				{
 					"name": "tall tale",
-					"text": "Reveal the top card of a deck. Put it into play or discard it."
+					"text": "Reveal the top card of a deck other than yours. Put it into play or discard it."
 				}
 			],
 			"icons": [

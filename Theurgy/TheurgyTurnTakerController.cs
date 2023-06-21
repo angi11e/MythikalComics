@@ -17,6 +17,9 @@ namespace Angille.Theurgy
 		{
 		}
 
+		public string[] availablePromos = new string[] { "TheurgyFateweaver" };
+		public bool ArePromosSetup { get; set; } = false;
+
 		protected override IEnumerable<string> VillainsToAugment => new[] {
 			"AkashBhutaCharacter",
 			"GloomWeaverCharacter",

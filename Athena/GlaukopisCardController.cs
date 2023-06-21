@@ -27,11 +27,11 @@ namespace Angille.Athena
 			// You may look at the top card of your deck at any time.
 			SpecialStringMaker.ShowListOfCards(
 				new LinqCardCriteria(
-					(Card c) => c == base.Card.Location.OwnerTurnTaker.Deck.TopCard,
+					(Card c) => c == this.Card.Location.OwnerTurnTaker.Deck.TopCard,
 					"top card of deck",
 					useCardsSuffix: false
 				)
-			).Condition = () => base.Card.IsInPlayAndHasGameText;
+			).Condition = () => this.Card.IsInPlayAndHasGameText;
 		}
 
 		public override IEnumerator UsePower(int index = 0)
@@ -84,7 +84,7 @@ namespace Angille.Athena
 			}
 
 			// Put them back on top of their decks in any order.
-			while (storedCards.Count() > 0 && !base.GameController.IsGameOver)
+			while (storedCards.Count() > 0 && !GameController.IsGameOver)
 			{
 				List<SelectCardDecision> storedTop = new List<SelectCardDecision>();
 				IEnumerator cardSelectCR = GameController.SelectCardAndStoreResults(
@@ -119,7 +119,7 @@ namespace Angille.Athena
 				{
 					Location nativeDeck = GetNativeDeck(otherCard);
 					IEnumerator returnFirstCR = GameController.MoveCard(
-						base.TurnTakerController,
+						this.TurnTakerController,
 						otherCard,
 						nativeDeck,
 						cardSource: GetCardSource()
@@ -136,7 +136,7 @@ namespace Angille.Athena
 				}
 
 				IEnumerator returnCardCR = GameController.MoveCard(
-					base.TurnTakerController,
+					this.TurnTakerController,
 					topCard,
 					topCardNativeDeck,
 					cardSource: GetCardSource()

@@ -1,0 +1,363 @@
+﻿{
+	"name": "Supplicate",
+	"kind": "Hero",
+	"initialCardIdentifiers": [
+		"SupplicateCharacter"
+	],
+	"cards": [
+		{
+			"identifier": "SupplicateCharacter",
+			"count": 1,
+			"title": "Supplicate",
+			"body": "Contemplation",
+			"backgroundColor": "54866D",
+			"foilBackgroundColor": "54866D",
+			"hitpointsColor": "54866D",
+			"character": true,
+			"powers": [
+				"Reveal the top card of your deck. if it is yaojing or limited, move it to your hand. Otherwise, play it."
+			],
+			"icons": [
+				"HasPower",
+				"DrawCardNow",
+				"PlayCardNow"
+			],
+			"hitpoints": 25,
+			"nemesisIdentifiers": [
+				"Angille.Supplicate"
+			],
+			"incapacitatedAbilities": [
+				"One player may draw a card.",
+				"Each target regains 1 HP.",
+				"Each player may discard 2 cards. Any player that does may play a card."
+			],
+			"flippedIcons": [
+				"DrawCardNow",
+				"GainHP",
+				"Discard",
+				"PlayCardNow"
+			],
+			"openingLines": {
+				"default": "if you are anything like your counterparts, this should be simple."
+			},
+			"complexity": 3
+		},
+		{
+			"identifier": "Adjuration",
+			"count": 4,
+			"title": "Adjuration",
+			"keywords": [
+				"one-shot"
+			],
+			"body": [
+				"You may draw a card.",
+				"Search your trash or deck for a yaojing card and put it in your hand. If you searched your deck, shuffle your deck.",
+				"You may play a card."
+			],
+			"icons": [
+				"DrawCardNow",
+				"Search",
+				"PlayCardNow"
+			],
+			"flavorText": "“”",
+			"flavorReference": ""
+		},
+		{
+			"identifier": "FoxSpirit",
+			"count": 3,
+			"title": "Fox Spirit",
+			"keywords": [
+				"yaojing"
+			],
+			"hitpoints": 3,
+			"body": [
+				"at the start of your turn, this card deals itself or {Supplicate} 2 irreducible psychic damage.",
+				"at the end of your turn, you may draw a card."
+			],
+			"icons": [
+				"StartAndEndOfTurnAction",
+				"DealDamagePsychic",
+				"MakeDamageIrreducible",
+				"DrawCardNow"
+			],
+			"flavorText": "“”",
+			"flavorReference": ""
+		},
+		{
+			"identifier": "GorillaSpirit",
+			"count": 2,
+			"title": "Gorilla Spirit",
+			"keywords": [
+				"yaojing"
+			],
+			"hitpoints": 8,
+			"body": [
+				"at the start of your turn, this card deals itself or {Supplicate} 2 irreducible psychic damage.",
+				"at the end of your turn, this card deals 1 target X melee damage, where X = the number of yaojing cards in your play area.",
+				"whenever a yaojing target would be dealt damage, you may redirect it to this card."
+			],
+			"icons": [
+				"StartAndEndOfTurnAction",
+				"DealDamagePsychic",
+				"DealDamageMelee",
+				"RedirectDamage"
+			],
+			"flavorText": "“”",
+			"flavorReference": ""
+		},
+		{
+			"identifier": "HareSpirit",
+			"count": 3,
+			"title": "Hare Spirit",
+			"keywords": [
+				"yaojing"
+			],
+			"hitpoints": 3,
+			"body": [
+				"at the start of your turn, this card deals itself or {Supplicate} 2 irreducible psychic damage.",
+				"at the end of your turn, you may play a card."
+			],
+			"icons": [
+				"StartAndEndOfTurnAction",
+				"DealDamagePsychic",
+				"MakeDamageIrreducible",
+				"PlayCardNow"
+			],
+			"flavorText": "“”",
+			"flavorReference": ""
+		},
+		{
+			"identifier": "KrakenSpirit",
+			"count": 2,
+			"title": "Kraken Spirit",
+			"keywords": [
+				"yaojing",
+				"limited"
+			],
+			"hitpoints": 5,
+			"body": [
+				"at the start of your turn, this card deals itself or {Supplicate} 2 irreducible psychic damage.",
+				"at the end of your turn, this card deals each non-hero target 1 melee damage. then, this card may deal each target 1 cold damage."
+			],
+			"icons": [
+				"StartAndEndOfTurnAction",
+				"DealDamagePsychic",
+				"DealDamageMelee",
+				"DealDamageCold"
+			],
+			"flavorText": "“”",
+			"flavorReference": ""
+		},
+		{
+			"identifier": "MultiversalKoans",
+			"count": 3,
+			"title": "Multiversal Koans",
+			"keywords": [
+				"one-shot"
+			],
+			"body": [
+				"each player may destroy one of their ongoing or equipment cards. any who do may play a card.",
+				"each hero character may deal themself 2 psychic damage. any who take damage this way may use a power.",
+				"each player may discard a card. any who do may draw a card."
+			],
+			"icons": [
+				"Destroy",
+				"PlayCardNow",
+				"UsePowerNow",
+				"DrawCardNow"
+			],
+			"flavorText": "“”",
+			"flavorReference": ""
+		},
+		{
+			"identifier": "NamchoCycle",
+			"count": 2,
+			"title": "Namcho Cycle",
+			"keywords": [
+				"ongoing",
+				"limited"
+			],
+			"body": [
+				"whenever one of your ongoing cards is destroyed, you may move it to the bottom of your deck, then move a yaojing from your trash to your hand.",
+				"whenever one of your yaojing cards is destroyed, you may move it to the bottom of your deck, then move an ongoing from your trash to your hand."
+			],
+			"icons": [
+				"Manipulate"
+			],
+			"flavorText": "“”",
+			"flavorReference": ""
+		},
+		{
+			"identifier": "OwlSpirit",
+			"count": 2,
+			"title": "Owl Spirit",
+			"keywords": [
+				"yaojing"
+			],
+			"hitpoints": 4,
+			"body": [
+				"at the start of your turn, this card deals itself or {Supplicate} 2 irreducible psychic damage.",
+				"at the end of your turn, reveal the top card of any two decks. discard one and replace the other."
+			],
+			"icons": [
+				"StartAndEndOfTurnAction",
+				"DealDamagePsychic",
+				"MakeDamageIrreducible",
+				"Manipulate"
+			],
+			"flavorText": "“”",
+			"flavorReference": ""
+		},
+		{
+			"identifier": "PunyamStaff",
+			"count": 3,
+			"title": "Punyam Staff",
+			"keywords": [
+				"equipment",
+				"limited"
+			],
+			"body": [
+				"the first time any yaojing card deals damage each turn, {Supplicate} deals 1 target 2 radiant damage."
+			],
+			"powers": [
+				"{Supplicate} deals 1 target 1 melee damage. a yaojing card deals 1 target 2 psychic damage."
+			],
+			"icons": [
+				"HasPower",
+				"DealDamageRadiant",
+				"DealDamageMelee",
+				"DealDamagePsychic"
+			],
+			"flavorText": "“”",
+			"flavorReference": ""
+		},
+		{
+			"identifier": "RealityWeave",
+			"count": 3,
+			"title": "Reality Weave",
+			"keywords": [
+				"ongoing"
+			],
+			"body": [
+				"if a hero character would be dealt 3 or more damage from a single source, you may reduce that damage to 0. if you do, destroy this card."
+			],
+			"powers": [
+				"move 1 hero ongoing or equipment card from a trash to its owner's hand. 1 player may play a card."
+			],
+			"icons": [
+				"DestroySelf",
+				"ReduceDamageTaken",
+				"HasPower",
+				"Manipulate",
+				"PlayCardNow"
+			],
+			"flavorText": "“”",
+			"flavorReference": ""
+		},
+		{
+			"identifier": "TogalStride",
+			"count": 2,
+			"title": "Togal Stride",
+			"keywords": [
+				"one-shot"
+			],
+			"body": [
+				"you may move an environment card in play to the bottom of the environment deck.",
+				"reveal the top 3 cards of the environment deck. replace one, play one, and discard the rest."
+			],
+			"icons": [
+				"Manipulate",
+				"PlayCardNow",
+				"Discard"
+			],
+			"flavorText": "“”",
+			"flavorReference": ""
+		},
+		{
+			"identifier": "TonglenMeditation",
+			"count": 3,
+			"title": "Tonglen Meditation",
+			"keywords": [
+				"ongoing",
+				"limited"
+			],
+			"body": [
+				"after psychic damage is dealt to {Supplicate} or a yaojing card, that card regains 1 hp."
+			],
+			"powers": [
+				"{Supplicate} and each yaojing target regains 1 hp. You may play a yaojing card."
+			],
+			"icons": [
+				"HasPower",
+				"GainHP",
+				"PlayCardNow"
+			],
+			"flavorText": "“”",
+			"flavorReference": ""
+		},
+		{
+			"identifier": "TortoiseSpirit",
+			"count": 2,
+			"title": "Tortoise Spirit",
+			"keywords": [
+				"yaojing",
+				"limited"
+			],
+			"hitpoints": 6,
+			"body": [
+				"at the start of your turn, this card deals itself or {Supplicate} 2 irreducible psychic damage.",
+				"reduce damage dealt to {Supplicate} and yaojing cards by 1.",
+				"Damage dealt to yaojing cards cannot be increased."
+			],
+			"icons": [
+				"StartAndEndOfTurnAction",
+				"DealDamagePsychic",
+				"ReduceDamageTaken",
+				"MakeDamageUnincreasable"
+			],
+			"flavorText": "“”",
+			"flavorReference": ""
+		},
+		{
+			"identifier": "TrekchoEmptiness",
+			"count": 3,
+			"title": "Trekcho Emptiness",
+			"keywords": [
+				"one-shot"
+			],
+			"body": [
+				"Discard your hand. for each card discarded this way, 1 hero target regains 1 hp.",
+				"draw X cards, where X = the number of yaojing card in play plus 1.",
+				"if you drew fewer cards than you discarded, you may destroy an ongoing card."
+			],
+			"icons": [
+				"Discard",
+				"GainHP",
+				"DrawCardNow"
+			],
+			"flavorText": "“”",
+			"flavorReference": ""
+		},
+		{
+			"identifier": "WingedSnakeSpirit",
+			"count": 3,
+			"title": "Winged Snake Spirit",
+			"keywords": [
+				"yaojing"
+			],
+			"hitpoints": 5,
+			"body": [
+				"at the start of your turn, this card deals itself or {Supplicate} 2 irreducible psychic damage.",
+				"at the end of your turn, discard up to 3 cards. this card deals X targets 1 toxic damage each, where X = the number of cards discarded this way. until the start of your next turn, reduce damage dealt by targets dealt damage this way by the damage they take."
+			],
+			"icons": [
+				"StartAndEndOfTurnAction",
+				"DealDamagePsychic",
+				"DealDamageToxic",
+				"ReduceDamageDealt"
+			],
+			"flavorText": "“”",
+			"flavorReference": ""
+		}
+	]
+}

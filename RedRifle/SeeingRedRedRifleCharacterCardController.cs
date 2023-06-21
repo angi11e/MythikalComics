@@ -14,12 +14,7 @@ namespace Angille.RedRifle
 			TurnTakerController turnTakerController
 		) : base(card, turnTakerController)
 		{
-			base.SpecialStringMaker.ShowTokenPool(base.Card.FindTokenPool("RedRifleTrueshotPool"));
-		}
-
-		public override void AddStartOfGameTriggers()
-		{
-			// base.AddStartOfGameTriggers();
+			SpecialStringMaker.ShowTokenPool(this.Card.FindTokenPool("RedRifleTrueshotPool"));
 		}
 
 		public override IEnumerator UsePower(int index = 0)
@@ -41,15 +36,15 @@ namespace Angille.RedRifle
 				cardCriteria: new LinqCardCriteria((Card c) => c.IsOneShot, "one-shot")
 			);
 
-			if (base.UseUnityCoroutines)
+			if (UseUnityCoroutines)
 			{
-				yield return base.GameController.StartCoroutine(addTokensCR);
-				yield return base.GameController.StartCoroutine(playCardsCR);
+				yield return GameController.StartCoroutine(addTokensCR);
+				yield return GameController.StartCoroutine(playCardsCR);
 			}
 			else
 			{
-				base.GameController.ExhaustCoroutine(addTokensCR);
-				base.GameController.ExhaustCoroutine(playCardsCR);
+				GameController.ExhaustCoroutine(addTokensCR);
+				GameController.ExhaustCoroutine(playCardsCR);
 			}
 
 			// Remove 2 tokens from your trueshot pool.
@@ -64,13 +59,13 @@ namespace Angille.RedRifle
 					this,
 					removeNumeral
 				);
-				if (base.UseUnityCoroutines)
+				if (UseUnityCoroutines)
 				{
-					yield return base.GameController.StartCoroutine(removeTokensCR);
+					yield return GameController.StartCoroutine(removeTokensCR);
 				}
 				else
 				{
-					base.GameController.ExhaustCoroutine(removeTokensCR);
+					GameController.ExhaustCoroutine(removeTokensCR);
 				}
 			}
 
@@ -84,13 +79,13 @@ namespace Angille.RedRifle
 				case 0:
 					// One hero may use a power.
 					IEnumerator usePowerCR = GameController.SelectHeroToUsePower(DecisionMaker);
-					if (base.UseUnityCoroutines)
+					if (UseUnityCoroutines)
 					{
-						yield return base.GameController.StartCoroutine(usePowerCR);
+						yield return GameController.StartCoroutine(usePowerCR);
 					}
 					else
 					{
-						base.GameController.ExhaustCoroutine(usePowerCR);
+						GameController.ExhaustCoroutine(usePowerCR);
 					}
 					break;
 
@@ -99,7 +94,7 @@ namespace Angille.RedRifle
 					List<SelectTurnTakerDecision> storedTurnTaker = new List<SelectTurnTakerDecision>();
 					List<DiscardCardAction> storedDiscards = new List<DiscardCardAction>();
 
-					IEnumerator discardCR = base.GameController.SelectHeroToDiscardCards(
+					IEnumerator discardCR = GameController.SelectHeroToDiscardCards(
 						DecisionMaker,
 						0,
 						2,
@@ -109,13 +104,13 @@ namespace Angille.RedRifle
 						cardSource: GetCardSource()
 					);
 
-					if (base.UseUnityCoroutines)
+					if (UseUnityCoroutines)
 					{
-						yield return base.GameController.StartCoroutine(discardCR);
+						yield return GameController.StartCoroutine(discardCR);
 					}
 					else
 					{
-						base.GameController.ExhaustCoroutine(discardCR);
+						GameController.ExhaustCoroutine(discardCR);
 					}
 
 					if (!DidDiscardCards(storedDiscards, 2))
@@ -124,20 +119,20 @@ namespace Angille.RedRifle
 					}
 
 					SelectTurnTakerDecision selectTurnTakerDecision = storedTurnTaker.FirstOrDefault();
-					if (selectTurnTakerDecision != null && selectTurnTakerDecision.SelectedTurnTaker.IsHero)
+					if (selectTurnTakerDecision != null && IsHero(selectTurnTakerDecision.SelectedTurnTaker))
 					{
 						IEnumerator drawCR = DrawCards(
 							FindHeroTurnTakerController(selectTurnTakerDecision.SelectedTurnTaker.ToHero()),
 							2,
 							optional: true
 						);
-						if (base.UseUnityCoroutines)
+						if (UseUnityCoroutines)
 						{
-							yield return base.GameController.StartCoroutine(drawCR);
+							yield return GameController.StartCoroutine(drawCR);
 						}
 						else
 						{
-							base.GameController.ExhaustCoroutine(drawCR);
+							GameController.ExhaustCoroutine(drawCR);
 						}
 					}
 					break;
@@ -145,7 +140,7 @@ namespace Angille.RedRifle
 				case 2:
 					// Destroy a target with 1 HP.
 					IEnumerator destroyCR = GameController.SelectAndDestroyCard(
-						base.HeroTurnTakerController,
+						this.HeroTurnTakerController,
 						new LinqCardCriteria(
 							(Card c) => c.IsTarget && c.HitPoints.Value == 1,
 							"targets with 1 HP",
@@ -154,13 +149,13 @@ namespace Angille.RedRifle
 						optional: false,
 						cardSource: GetCardSource()
 					);
-					if (base.UseUnityCoroutines)
+					if (UseUnityCoroutines)
 					{
-						yield return base.GameController.StartCoroutine(destroyCR);
+						yield return GameController.StartCoroutine(destroyCR);
 					}
 					else
 					{
-						base.GameController.ExhaustCoroutine(destroyCR);
+						GameController.ExhaustCoroutine(destroyCR);
 					}
 					break;
 			}

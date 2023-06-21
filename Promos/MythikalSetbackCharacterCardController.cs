@@ -27,7 +27,7 @@ namespace Angille.Setback
 			IEnumerator destroyCR = GameController.SelectAndDestroyCard(
 				HeroTurnTakerController,
 				new LinqCardCriteria(
-					(Card c) => c.IsOngoing,
+					(Card c) => IsOngoing(c),
 					"ongoing"
 				),
 				optional: false,
@@ -163,7 +163,7 @@ namespace Angille.Setback
 				case 2:
 					// Destroy up to two ongoing cards. Only one may be a villain card.
 					LinqCardCriteria ongoingCriteria = new LinqCardCriteria(
-						(Card c) => c.IsOngoing && c.IsInPlay,
+						(Card c) => IsOngoing(c) && c.IsInPlay,
 						"ongoing"
 					);
 					List<DestroyCardAction> destroySelection = new List<DestroyCardAction>();
@@ -189,7 +189,7 @@ namespace Angille.Setback
 						if (destroySelection.FirstOrDefault().CardToDestroy.Card.IsVillain)
 						{
 							ongoingCriteria = new LinqCardCriteria(
-								(Card c) => c.IsOngoing && c.IsInPlay && !c.IsVillain,
+								(Card c) => IsOngoing(c) && c.IsInPlay && !c.IsVillain,
 								"ongoing"
 							);
 						}

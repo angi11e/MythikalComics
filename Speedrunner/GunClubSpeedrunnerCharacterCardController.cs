@@ -68,7 +68,7 @@ namespace Angille.Speedrunner
 			if (dd.DamageSource.IsTarget)
 			{
 				Card source = this.Card;
-				if (hero != null && hero.IsHero)
+				if (hero != null && IsHero(hero))
 				{
 					source = hero.CharacterCard;
 				}

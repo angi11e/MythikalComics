@@ -23,7 +23,7 @@ namespace Angille.RedRifle
 		{
 			// Whenever {RedRifle} is dealt damage, add 1 token to your trueshot pool.
 			AddTrigger(
-				(DealDamageAction dd) => dd.DidDealDamage && dd.Target == base.CharacterCard,
+				(DealDamageAction dd) => dd.DidDealDamage && dd.Target == this.CharacterCard,
 				(DealDamageAction dd) => AddTrueshotTokens(1),
 				TriggerType.AddTokensToPool,
 				TriggerTiming.After

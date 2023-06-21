@@ -8,7 +8,7 @@ using Handelabra;
 
 namespace Angille.Theurgy
 {
-	public class TheurgyFateweaverCharacterCardController : HeroCharacterCardController
+	public class TheurgyFateweaverCharacterCardController : TheurgyBaseCharacterCardController
 	{
 		public TheurgyFateweaverCharacterCardController(Card card, TurnTakerController turnTakerController)
 			: base(card, turnTakerController)
@@ -30,15 +30,15 @@ namespace Angille.Theurgy
 
 			// choose a target
 			List<SelectTargetDecision> selectedTarget = new List<SelectTargetDecision>();
-			IEnumerable<Card> choices = base.FindCardsWhere(
+			IEnumerable<Card> choices = FindCardsWhere(
 				new LinqCardCriteria((Card c) => c.IsTarget && c.IsInPlayAndHasGameText)
 			);
-			IEnumerator selectTargetCR = base.GameController.SelectTargetAndStoreResults(
-				base.HeroTurnTakerController,
+			IEnumerator selectTargetCR = GameController.SelectTargetAndStoreResults(
+				DecisionMaker,
 				choices,
 				selectedTarget,
 				selectionType: SelectionType.RevealTopCardOfDeck,
-				cardSource: base.GetCardSource()
+				cardSource: GetCardSource()
 			);
 			if (UseUnityCoroutines)
 			{
@@ -56,17 +56,17 @@ namespace Angille.Theurgy
 				{
 					Card theCard = selectedTarget.FirstOrDefault().SelectedCard;
 					// hero target? deal 2 psychic
-					if (theCard.IsHero)
+					if (IsHeroTarget(theCard))
 					{
-						IEnumerator dealDamageCR = base.DealDamage(
-							base.Card,
+						IEnumerator dealDamageCR = DealDamage(
+							this.Card,
 							theCard,
 							damageNumeral,
 							DamageType.Psychic,
 							cardSource: GetCardSource()
 						);
 
-						if (base.UseUnityCoroutines)
+						if (UseUnityCoroutines)
 						{
 							yield return GameController.StartCoroutine(dealDamageCR);
 						}
@@ -77,7 +77,7 @@ namespace Angille.Theurgy
 					}
 
 					// villain target? regain 2 hp
-					else if (theCard.IsVillain)
+					else if (IsVillainTarget(theCard))
 					{
 						IEnumerator healTargetCR = GameController.GainHP(
 							theCard,
@@ -97,14 +97,14 @@ namespace Angille.Theurgy
 					// environment (or [other]) target? choose a charm card and destroy it
 					else
 					{
-						IEnumerator destroyCR = base.GameController.SelectAndDestroyCard(
+						IEnumerator destroyCR = GameController.SelectAndDestroyCard(
 							DecisionMaker,
 							IsCharmCriteria(),
 							false,
 							cardSource: GetCardSource()
 						);
 
-						if (base.UseUnityCoroutines)
+						if (UseUnityCoroutines)
 						{
 							yield return GameController.StartCoroutine(destroyCR);
 						}
@@ -127,7 +127,7 @@ namespace Angille.Theurgy
 							cardSource: GetCardSource()
 						);
 
-						if (base.UseUnityCoroutines)
+						if (UseUnityCoroutines)
 						{
 							yield return GameController.StartCoroutine(revealCR);
 						}
@@ -164,7 +164,7 @@ namespace Angille.Theurgy
 								cardSource: GetCardSource()
 							);
 
-							if (base.UseUnityCoroutines)
+							if (UseUnityCoroutines)
 							{
 								yield return GameController.StartCoroutine(destinationCR);
 							}
@@ -182,7 +182,7 @@ namespace Angille.Theurgy
 							GetCardSource()
 						);
 
-						if (base.UseUnityCoroutines)
+						if (UseUnityCoroutines)
 						{
 							yield return GameController.StartCoroutine(notDeckCR);
 						}
@@ -205,7 +205,7 @@ namespace Angille.Theurgy
 					// One player may play a card.
 					IEnumerator playCR = SelectHeroToPlayCard(DecisionMaker);
 					
-					if (base.UseUnityCoroutines)
+					if (UseUnityCoroutines)
 					{
 						yield return GameController.StartCoroutine(playCR);
 					}
@@ -292,9 +292,9 @@ namespace Angille.Theurgy
 						new LinqCardCriteria(
 							(Card c) => c.IsInPlay
 								&& !c.IsCharacter
-								&& !base.GameController.IsCardIndestructible(c)
+								&& !GameController.IsCardIndestructible(c)
 								&& !c.IsOneShot
-								&& base.GameController.IsCardVisibleToCardSource(c, GetCardSource()),
+								&& GameController.IsCardVisibleToCardSource(c, GetCardSource()),
 							"non-indestructible non-character cards in play",
 							useCardsSuffix: false
 						),
@@ -303,7 +303,7 @@ namespace Angille.Theurgy
 						cardSource: GetCardSource()
 					);
 
-					if (base.UseUnityCoroutines)
+					if (UseUnityCoroutines)
 					{
 						yield return GameController.StartCoroutine(selectYeetCardCR);
 					}
@@ -322,7 +322,7 @@ namespace Angille.Theurgy
 							cardSource: GetCardSource()
 						);
 
-						if (base.UseUnityCoroutines)
+						if (UseUnityCoroutines)
 						{
 							yield return GameController.StartCoroutine(YeetItCR);
 						}
@@ -351,7 +351,7 @@ namespace Angille.Theurgy
 				cardSource: GetCardSource()
 			);
 
-			if (base.UseUnityCoroutines)
+			if (UseUnityCoroutines)
 			{
 				yield return GameController.StartCoroutine(revealCR);
 			}
@@ -360,7 +360,7 @@ namespace Angille.Theurgy
 				GameController.ExhaustCoroutine(revealCR);
 			}
 
-			IEnumerator cleanUpCR = base.CleanupCardsAtLocations(
+			IEnumerator cleanUpCR = CleanupCardsAtLocations(
 				new List<Location> { deck.OwnerTurnTaker.Revealed },
 				deck,
 				cardsInList: cards
@@ -459,22 +459,6 @@ namespace Angille.Theurgy
 			}
 
 			yield break;
-		}
-
-		protected LinqCardCriteria IsCharmCriteria(Func<Card, bool> additionalCriteria = null)
-		{
-			var result = new LinqCardCriteria(c => IsCharm(c), "charm", true);
-			if (additionalCriteria != null)
-			{
-				result = new LinqCardCriteria(result, additionalCriteria);
-			}
-
-			return result;
-		}
-
-		protected bool IsCharm(Card card, bool evenIfUnderCard = false, bool evenIfFaceDown = false)
-		{
-			return card != null && base.GameController.DoesCardContainKeyword(card, "charm", evenIfUnderCard, evenIfFaceDown);
 		}
 	}
 }

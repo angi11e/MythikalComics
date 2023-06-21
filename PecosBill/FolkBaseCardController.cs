@@ -24,7 +24,7 @@ namespace Angille.PecosBill
 		{
 			_hyperboleCriteria = new LinqCardCriteria(
 				(Card c) => c.IsInPlay && IsHyperbole(c) && c.Location == this.Card.NextToLocation,
-				"hyperbole cards"
+				"hyperbole"
 			);
 
 			SpecialStringMaker.ShowNumberOfCards(_hyperboleCriteria);
@@ -115,26 +115,13 @@ namespace Angille.PecosBill
 					cardSource: GetCardSource()
 				);
 
-				/*
-				// ...then destroy this card.
-				IEnumerator destroySelfCR = GameController.MoveCard(
-					this.TurnTakerController,
-					this.Card,
-					this.TurnTaker.Trash,
-					evenIfIndestructible: true,
-					cardSource: GetCardSource()
-				);
-				*/
-
 				if (UseUnityCoroutines)
 				{
 					yield return GameController.StartCoroutine(griefDamageCR);
-					// yield return GameController.StartCoroutine(destroySelfCR);
 				}
 				else
 				{
 					GameController.ExhaustCoroutine(griefDamageCR);
-					// GameController.ExhaustCoroutine(destroySelfCR);
 				}
 			}
 			yield break;

@@ -14,6 +14,7 @@ namespace Angille.TheUndersiders
 		public ImperiousControlCardController(Card card, TurnTakerController turnTakerController)
 			: base(card, turnTakerController)
 		{
+			SpecialStringMaker.ShowSpecialString(() => GetSpecialStringIcons("crown", "mask"));
 		}
 
 		public override void AddTriggers()
@@ -24,7 +25,11 @@ namespace Angille.TheUndersiders
 				{
 					Card cardThisCardIsNextTo = GetCardThisCardIsNextTo();
 					TurnTakerController turnTakerController = p.Power.TurnTakerController;
-					if (cardThisCardIsNextTo != null && cardThisCardIsNextTo.Owner != null && cardThisCardIsNextTo.Owner.IsHero)
+					if (
+						cardThisCardIsNextTo != null
+						&& cardThisCardIsNextTo.Owner != null
+						&& IsHero(cardThisCardIsNextTo.Owner)
+					)
 					{
 						TurnTakerController turnTakerController2 = FindTurnTakerController(cardThisCardIsNextTo.Owner);
 						if (turnTakerController == turnTakerController2)
@@ -56,7 +61,11 @@ namespace Angille.TheUndersiders
 					}
 					Card cardThisCardIsNextTo = GetCardThisCardIsNextTo();
 					TurnTakerController turnTakerController = p.TurnTakerController;
-					if (cardThisCardIsNextTo != null && cardThisCardIsNextTo.Owner != null && cardThisCardIsNextTo.Owner.IsHero)
+					if (
+						cardThisCardIsNextTo != null
+						&& cardThisCardIsNextTo.Owner != null
+						&& IsHero(cardThisCardIsNextTo.Owner)
+					)
 					{
 						TurnTakerController turnTakerController2 = FindTurnTakerController(cardThisCardIsNextTo.Owner);
 						if (turnTakerController == turnTakerController2)
@@ -90,7 +99,11 @@ namespace Angille.TheUndersiders
 					}
 					Card cardThisCardIsNextTo = GetCardThisCardIsNextTo();
 					TurnTakerController turnTakerController = FindTurnTakerController(d.HeroTurnTaker);
-					if (cardThisCardIsNextTo != null && cardThisCardIsNextTo.Owner != null && cardThisCardIsNextTo.Owner.IsHero)
+					if (
+						cardThisCardIsNextTo != null
+						&& cardThisCardIsNextTo.Owner != null
+						&& IsHero(cardThisCardIsNextTo.Owner)
+					)
 					{
 						TurnTakerController turnTakerController2 = FindTurnTakerController(cardThisCardIsNextTo.Owner);
 						if (turnTakerController == turnTakerController2)
@@ -123,13 +136,13 @@ namespace Angille.TheUndersiders
 					cardSource: GetCardSource()
 				);
 
-				if (base.UseUnityCoroutines)
+				if (UseUnityCoroutines)
 				{
-					yield return base.GameController.StartCoroutine(findVillainCR);
+					yield return GameController.StartCoroutine(findVillainCR);
 				}
 				else
 				{
-					base.GameController.ExhaustCoroutine(findVillainCR);
+					GameController.ExhaustCoroutine(findVillainCR);
 				}
 
 				maybeImp = villainList.FirstOrDefault();
@@ -145,13 +158,13 @@ namespace Angille.TheUndersiders
 					cardSource: GetCardSource()
 				);
 
-				if (base.UseUnityCoroutines)
+				if (UseUnityCoroutines)
 				{
-					yield return base.GameController.StartCoroutine(impHurtsThemCR);
+					yield return GameController.StartCoroutine(impHurtsThemCR);
 				}
 				else
 				{
-					base.GameController.ExhaustCoroutine(impHurtsThemCR);
+					GameController.ExhaustCoroutine(impHurtsThemCR);
 				}
 			}
 
@@ -185,13 +198,13 @@ namespace Angille.TheUndersiders
 				List<Card> storedCharacter = new List<Card>();
 				IEnumerator getCardCR = FindCharacterCard(tt, SelectionType.MoveCardNextToCard, storedCharacter);
 
-				if (base.UseUnityCoroutines)
+				if (UseUnityCoroutines)
 				{
-					yield return base.GameController.StartCoroutine(getCardCR);
+					yield return GameController.StartCoroutine(getCardCR);
 				}
 				else
 				{
-					base.GameController.ExhaustCoroutine(getCardCR);
+					GameController.ExhaustCoroutine(getCardCR);
 				}
 
 				Card card = storedCharacter.FirstOrDefault();
@@ -200,11 +213,6 @@ namespace Angille.TheUndersiders
 					destination.Add(new MoveCardDestination(card.NextToLocation));
 				}
 			}
-			yield break;
-		}
-
-		public override IEnumerator Play()
-		{
 			yield break;
 		}
 	}

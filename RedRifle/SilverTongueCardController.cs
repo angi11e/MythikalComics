@@ -26,7 +26,7 @@ namespace Angille.RedRifle
 		) : base(card, turnTakerController)
 		{
 			_reduceDamage = null;
-			base.SpecialStringMaker.ShowTokenPool(base.TrueshotPool);
+			SpecialStringMaker.ShowTokenPool(TrueshotPool);
 		}
 
 		public override bool AllowFastCoroutinesDuringPretend { get => TrueshotPool.CurrentValue < 1; }
@@ -39,20 +39,20 @@ namespace Angille.RedRifle
 			// Each hero target gains 1 HP.
 			IEnumerator healingCR = GameController.GainHP(
 				DecisionMaker,
-				(Card c) => c.IsHero,
+				(Card c) => IsHero(c),
 				1,
 				cardSource: GetCardSource()
 			);
 
-			if (base.UseUnityCoroutines)
+			if (UseUnityCoroutines)
 			{
-				yield return base.GameController.StartCoroutine(addTokensCR);
-				yield return base.GameController.StartCoroutine(healingCR);
+				yield return GameController.StartCoroutine(addTokensCR);
+				yield return GameController.StartCoroutine(healingCR);
 			}
 			else
 			{
-				base.GameController.ExhaustCoroutine(addTokensCR);
-				base.GameController.ExhaustCoroutine(healingCR);
+				GameController.ExhaustCoroutine(addTokensCR);
+				GameController.ExhaustCoroutine(healingCR);
 			}
 
 			yield break;
@@ -63,8 +63,8 @@ namespace Angille.RedRifle
 			// Whenever a villain target deals a non-villain target damage,
 			_reduceDamage = AddTrigger(
 				(DealDamageAction dd) => 
-					!dd.Target.IsVillain
-					&& dd.DamageSource.IsVillain
+					!IsVillainTarget(dd.Target)
+					&& dd.DamageSource.IsVillainTarget
 					&& dd.Amount > 0
 					&& !dd.IsIrreducible
 					&& TrueshotPool.CurrentValue > 0,
@@ -83,23 +83,25 @@ namespace Angille.RedRifle
 			{
 				int maxTokens = TrueshotPool.CurrentValue < dd.Amount ? TrueshotPool.CurrentValue : dd.Amount;
 
+				List<Card> associatedCards = new List<Card> { dd.Target, dd.DamageSource.Card };
 				SelectNumberDecision numbers = new SelectNumberDecision(
 					GameController,
 					DecisionMaker,
 					SelectionType.RemoveTokens,
 					0,
 					maxTokens,
+					associatedCards: associatedCards,
 					cardSource: GetCardSource()
 				);
 				IEnumerator numbersCR = GameController.MakeDecisionAction(numbers);
 
-				if (base.UseUnityCoroutines)
+				if (UseUnityCoroutines)
 				{
-					yield return base.GameController.StartCoroutine(numbersCR);
+					yield return GameController.StartCoroutine(numbersCR);
 				}
 				else
 				{
-					base.GameController.ExhaustCoroutine(numbersCR);
+					GameController.ExhaustCoroutine(numbersCR);
 				}
 
 				_reduceAmount = numbers?.SelectedNumber ?? maxTokens;
@@ -117,15 +119,15 @@ namespace Angille.RedRifle
 					GetCardSource()
 				);
 
-				if (base.UseUnityCoroutines)
+				if (UseUnityCoroutines)
 				{
-					yield return base.GameController.StartCoroutine(removeTokensCR);
-					yield return base.GameController.StartCoroutine(reduceDamageCR);
+					yield return GameController.StartCoroutine(removeTokensCR);
+					yield return GameController.StartCoroutine(reduceDamageCR);
 				}
 				else
 				{
-					base.GameController.ExhaustCoroutine(removeTokensCR);
-					base.GameController.ExhaustCoroutine(reduceDamageCR);
+					GameController.ExhaustCoroutine(removeTokensCR);
+					GameController.ExhaustCoroutine(reduceDamageCR);
 				}
 			}
 

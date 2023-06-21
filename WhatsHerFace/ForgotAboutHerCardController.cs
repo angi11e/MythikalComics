@@ -20,18 +20,18 @@ namespace Angille.WhatsHerFace
 			TurnTakerController turnTakerController
 		) : base(card, turnTakerController)
 		{
-			base.SpecialStringMaker.ShowSpecialString(
+			SpecialStringMaker.ShowSpecialString(
 				() => GetCardThisCardIsNextTo().Title
 					+ " has forgotten "
-					+ base.TurnTaker.NameRespectingVariant
+					+ TurnTaker.NameRespectingVariant
 					+ " and cannot deal damage to her.",
 				() => true
-			).Condition = () => base.Card.IsInPlayAndHasGameText;
+			).Condition = () => this.Card.IsInPlayAndHasGameText;
 		}
 
 		// Play this card next to a non-hero target.
 		protected override LinqCardCriteria CustomCriteria => new LinqCardCriteria(
-			(Card c) => !c.IsHero && c.IsTarget && c.IsInPlayAndHasGameText,
+			(Card c) => c.IsTarget && c.IsInPlayAndHasGameText && !IsHeroTarget(c),
 			"non-hero target"
 		);
 
@@ -40,7 +40,7 @@ namespace Angille.WhatsHerFace
 			// {WhatsHerFace} is immune to damage dealt by that target.
 			AddImmuneToDamageTrigger(
 				(DealDamageAction dda) =>
-					dda.Target == base.CharacterCard
+					dda.Target == this.CharacterCard
 					&& dda.DamageSource.Card == GetCardThisCardIsNextTo()
 			);
 
@@ -48,7 +48,8 @@ namespace Angille.WhatsHerFace
 			AddTrigger(
 				(DealDamageAction dda) =>
 					dda.Target == GetCardThisCardIsNextTo()
-					&& dda.DamageSource.Card == base.CharacterCard,
+					&& dda.DamageSource.IsTarget
+					&& dda.DamageSource.Card == this.CharacterCard,
 				DestroyThisCardResponse,
 				TriggerType.DestroySelf,
 				TriggerTiming.After

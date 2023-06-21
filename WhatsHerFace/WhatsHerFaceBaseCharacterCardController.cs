@@ -16,6 +16,27 @@ namespace Angille.WhatsHerFace
 		{
 		}
 
+		public override void AddStartOfGameTriggers()
+		{
+			AddTrigger(
+				(GameAction ga) => TurnTakerController is WhatsHerFaceTurnTakerController ttc && !ttc.ArePromosSetup,
+				SetupPromos,
+				TriggerType.Hidden,
+				TriggerTiming.Before,
+				priority: TriggerPriority.High
+			);
+		}
+
+		public IEnumerator SetupPromos(GameAction ga)
+		{
+			if (TurnTakerController is WhatsHerFaceTurnTakerController ttc && !ttc.ArePromosSetup)
+			{
+				ttc.SetupPromos(ttc.availablePromos);
+				ttc.ArePromosSetup = true;
+			}
+			return DoNothing();
+		}
+
 		protected LinqCardCriteria IsRecallCriteria(Func<Card, bool> additionalCriteria = null)
 		{
 			var result = new LinqCardCriteria(c => IsRecall(c), "recall", true);
@@ -29,7 +50,7 @@ namespace Angille.WhatsHerFace
 
 		protected bool IsRecall(Card card, bool evenIfUnderCard = false, bool evenIfFaceDown = false)
 		{
-			return card != null && base.GameController.DoesCardContainKeyword(
+			return card != null && GameController.DoesCardContainKeyword(
 				card,
 				"recall",
 				evenIfUnderCard,

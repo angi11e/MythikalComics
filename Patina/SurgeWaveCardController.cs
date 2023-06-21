@@ -25,11 +25,6 @@ namespace Angille.Patina
 
 		public override IEnumerator Play()
 		{
-			// ...where X = the number of water cards in play plus 1.
-			int damageNumeral = FindCardsWhere(
-				(Card c) => c.IsInPlayAndHasGameText && IsWater(c) && !c.IsOneShot
-			).Count() + 1;
-
 			// {Patina} deals each target X cold or melee damage...
 			List<SelectDamageTypeDecision> chosenType = new List<SelectDamageTypeDecision>();
 			IEnumerator chooseTypeCR = GameController.SelectDamageType(
@@ -54,7 +49,8 @@ namespace Angille.Patina
 				IEnumerator damageCR = DealDamage(
 					this.CharacterCard,
 					(Card c) => c.IsTarget,
-					damageNumeral,
+					// ...where X = the number of water cards in play plus 1.
+					WaterCardsInPlay + 1,
 					damageType.Value
 				);
 

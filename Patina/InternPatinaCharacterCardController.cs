@@ -28,7 +28,8 @@ namespace Angille.Patina
 				DecisionMaker,
 				discardNumeral,
 				requiredDecisions: 0,
-				storedResults: discardResults
+				storedResults: discardResults,
+				cardCriteria: IsWaterCriteria()
 			);
 
 			if (UseUnityCoroutines)
@@ -117,7 +118,7 @@ namespace Angille.Patina
 					// Up to two hero equipment cards may be played now.
 					incapCR = GameController.SelectTurnTakersAndDoAction(
 						DecisionMaker,
-						new LinqTurnTakerCriteria((TurnTaker tt) => tt.IsHero && !tt.IsIncapacitatedOrOutOfGame),
+						new LinqTurnTakerCriteria((TurnTaker tt) => !tt.IsIncapacitatedOrOutOfGame && IsHero(tt)),
 						SelectionType.PlayCard,
 						(TurnTaker tt) => SelectAndPlayCardFromHand(
 							FindHeroTurnTakerController(tt.ToHero()),
@@ -131,7 +132,7 @@ namespace Angille.Patina
 					// Each hero target with an equipment card in their play area regains 1 HP.
 					incapCR = GameController.GainHP(
 						DecisionMaker,
-						(Card c) => c.IsHero && c.Location.OwnerTurnTaker.PlayArea.Cards.Any((Card d) => IsEquipment(d)),
+						(Card c) => IsHero(c) && c.Location.OwnerTurnTaker.PlayArea.Cards.Any((Card d) => IsEquipment(d)),
 						1,
 						cardSource: GetCardSource()
 					);
@@ -163,7 +164,7 @@ namespace Angille.Patina
 
 		protected bool IsWater(Card card, bool evenIfUnderCard = false, bool evenIfFaceDown = false)
 		{
-			return card != null && base.GameController.DoesCardContainKeyword(card, "water", evenIfUnderCard, evenIfFaceDown);
+			return card != null && GameController.DoesCardContainKeyword(card, "water", evenIfUnderCard, evenIfFaceDown);
 		}
 	}
 }

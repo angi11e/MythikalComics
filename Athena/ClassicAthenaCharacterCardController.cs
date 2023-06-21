@@ -7,7 +7,7 @@ using System.Linq;
 
 namespace Angille.Athena
 {
-	public class ClassicAthenaCharacterCardController : HeroCharacterCardController
+	public class ClassicAthenaCharacterCardController : AthenaBaseCharacterCardController
 	{
 		public ClassicAthenaCharacterCardController(
 			Card card,
@@ -44,7 +44,7 @@ namespace Angille.Athena
 			if (revealedCards.Any())
 			{
 				// If an [u]aspect[/u] card is revealed you may play it now.
-				List<Card> revealedAspects = revealedCards.Where((Card c) => IsAspect(c)).ToList();
+				List<Card> revealedAspects = revealedCards.Where((Card c) => IsManifest(c)).ToList();
 				if (revealedAspects.Any())
 				{
 					IEnumerator playAspectCR = GameController.SelectAndPlayCard(
@@ -179,7 +179,7 @@ namespace Angille.Athena
 						DecisionMaker,
 						SelectionType.ReduceDamageTaken,
 						new LinqCardCriteria(
-							(Card c) => c.IsInPlay && c.IsTarget && c.IsHero,
+							(Card c) => c.IsInPlay && c.IsTarget && IsHero(c),
 							"hero target",
 							false,
 							plural: "hero targets"
@@ -277,22 +277,6 @@ namespace Angille.Athena
 			}
 
 			yield break;
-		}
-
-		protected LinqCardCriteria IsAspectCriteria(Func<Card, bool> additionalCriteria = null)
-		{
-			var result = new LinqCardCriteria(c => IsAspect(c), "aspect", true);
-			if (additionalCriteria != null)
-			{
-				result = new LinqCardCriteria(result, additionalCriteria);
-			}
-
-			return result;
-		}
-
-		protected bool IsAspect(Card card, bool evenIfUnderCard = false, bool evenIfFaceDown = false)
-		{
-			return card != null && base.GameController.DoesCardContainKeyword(card, "aspect", evenIfUnderCard, evenIfFaceDown);
 		}
 	}
 }

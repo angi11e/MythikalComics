@@ -23,7 +23,7 @@ namespace Angille.WhatsHerFace
 
 		// Play this card next to a hero character card.
 		protected override LinqCardCriteria CustomCriteria => new LinqCardCriteria(
-			(Card c) => c.IsHeroCharacterCard && !c.IsIncapacitatedOrOutOfGame,
+			(Card c) => !c.IsIncapacitatedOrOutOfGame && IsHeroCharacterCard(c),
 			"hero character"
 		);
 
@@ -33,22 +33,22 @@ namespace Angille.WhatsHerFace
 			Card targetHero = GetCardThisCardIsNextTo();
 			if (!targetHero.IsHeroCharacterCard)
 			{
-				targetHero = base.Card.Location.OwnerTurnTaker.CharacterCard;
+				targetHero = this.Card.Location.OwnerTurnTaker.CharacterCard;
 			}
 
 			AddRedirectDamageTrigger(
 				(DealDamageAction dd) =>
-					dd.Target.IsHero
+					IsHero(dd.Target)
 					&& dd.Target != targetHero, 
 				() => targetHero
 			);
 
 			// At the start of your turn, destroy this card.
 			AddStartOfTurnTrigger(
-				(TurnTaker tt) => tt == base.TurnTaker,
+				(TurnTaker tt) => tt == this.TurnTaker,
 				(PhaseChangeAction p) => GameController.DestroyCard(
-					this.DecisionMaker,
-					base.Card,
+					DecisionMaker,
+					this.Card,
 					cardSource: GetCardSource()
 				),
 				TriggerType.DestroySelf

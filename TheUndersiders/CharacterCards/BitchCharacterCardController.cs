@@ -15,7 +15,7 @@ namespace Angille.TheUndersiders
 			: base(card, turnTakerController)
 		{
 			SpecialStringMaker.ShowNumberOfCardsInPlay(
-				new LinqCardCriteria((Card c) => c.DoKeywordsContain("dog") && c.IsVillain,"dog")
+				new LinqCardCriteria((Card c) => c.DoKeywordsContain("dog") && c.IsVillain, "dog")
 			);
 			SpecialStringMaker.ShowNumberOfCardsAtLocation(
 				this.Card.Owner.Trash,
@@ -32,7 +32,7 @@ namespace Angille.TheUndersiders
 				playMatchingCards: false,
 				putMatchingCardsIntoPlay: true,
 				moveMatchingCardsToHand: false,
-				new LinqCardCriteria((Card c) => c.DoKeywordsContain("dog") && c.IsVillain, "dog"),
+				new LinqCardCriteria((Card c) => c.DoKeywordsContain("dog") && IsVillain(c), "dog"),
 				1
 			);
 
@@ -52,7 +52,8 @@ namespace Angille.TheUndersiders
 		{
 			if (!this.Card.IsFlipped)
 			{
-				// At the start of the villain turn, if there are no dog targets in play, move 1 dog card from the villain trash into play.
+				// At the start of the villain turn, if there are no villain dog cards in play...
+				// ...move 1 dog card from the villain trash into play.
 				AddSideTrigger(AddStartOfTurnTrigger(
 					(TurnTaker tt) => tt == this.TurnTaker,
 					RecoverDogResponse,
@@ -61,7 +62,7 @@ namespace Angille.TheUndersiders
 
 				// increase damage dealt by dog targets by 1.
 				AddSideTrigger(AddIncreaseDamageTrigger(
-					(DealDamageAction dd) => dd.DamageSource.Card.DoKeywordsContain("dog"),
+					(DealDamageAction dd) => dd.DamageSource.IsCard && dd.DamageSource.Card.DoKeywordsContain("dog"),
 					1
 				));
 
@@ -87,7 +88,7 @@ namespace Angille.TheUndersiders
 		private IEnumerator RecoverDogResponse(PhaseChangeAction p)
 		{
 			if (FindCardsWhere(
-				(Card c) => c.DoKeywordsContain("dog") && c.IsVillain && c.IsInPlayAndHasGameText
+				(Card c) => c.DoKeywordsContain("dog") && IsVillain(c) && c.IsInPlayAndHasGameText
 			).Count() == 0)
 			{
 				IEnumerator recoverDogCR = PlayCardsFromLocation(
@@ -114,7 +115,7 @@ namespace Angille.TheUndersiders
 			IEnumerator retaliateCR = DealDamage(
 				dda.Target,
 				dda.DamageSource.Card,
-				Game.H - 1,
+				H - 1,
 				DamageType.Melee,
 				isCounterDamage: true,
 				cardSource: GetCardSource()

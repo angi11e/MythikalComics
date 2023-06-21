@@ -36,19 +36,19 @@ namespace Angille.Theurgy
 			HeroTurnTakerController httc = FindHeroTurnTakerController(htt);
 
 			List<SelectDamageTypeDecision> storedResults = new List<SelectDamageTypeDecision>();
-			IEnumerator chooseDamageCR = base.GameController.SelectDamageType(
+			IEnumerator chooseDamageCR = GameController.SelectDamageType(
 				httc,
 				storedResults,
 				cardSource: GetCardSource()
 			);
 
-			if (base.UseUnityCoroutines)
+			if (UseUnityCoroutines)
 			{
-				yield return base.GameController.StartCoroutine(chooseDamageCR);
+				yield return GameController.StartCoroutine(chooseDamageCR);
 			}
 			else
 			{
-				base.GameController.ExhaustCoroutine(chooseDamageCR);
+				GameController.ExhaustCoroutine(chooseDamageCR);
 			}
 
 			DamageType? damageType = storedResults.First(
@@ -60,8 +60,8 @@ namespace Angille.Theurgy
 			{
 				MakeDamageIrreducibleStatusEffect dealtToSE = new MakeDamageIrreducibleStatusEffect();
 				MakeDamageIrreducibleStatusEffect dealtBySE = new MakeDamageIrreducibleStatusEffect();
-				dealtToSE.UntilCardLeavesPlay(base.Card);
-				dealtBySE.UntilCardLeavesPlay(base.Card);
+				dealtToSE.UntilCardLeavesPlay(this.Card);
+				dealtBySE.UntilCardLeavesPlay(this.Card);
 				dealtToSE.CreateImplicitExpiryConditions();
 				dealtBySE.CreateImplicitExpiryConditions();
 				dealtToSE.DamageTypeCriteria.AddType(damageType.Value);
@@ -93,17 +93,17 @@ namespace Angille.Theurgy
 
 			// make all damage irreducible
 			MakeDamageIrreducibleStatusEffect effect = new MakeDamageIrreducibleStatusEffect();
-			effect.UntilCardLeavesPlay(base.Card);
+			effect.UntilCardLeavesPlay(this.Card);
 			effect.UntilEndOfPhase(httc.TurnTaker, Phase.End);
 			effect.CreateImplicitExpiryConditions();
 			IEnumerator makeIrreducibleCR = AddStatusEffect(effect);
-			if (base.UseUnityCoroutines)
+			if (UseUnityCoroutines)
 			{
-				yield return base.GameController.StartCoroutine(makeIrreducibleCR);
+				yield return GameController.StartCoroutine(makeIrreducibleCR);
 			}
 			else
 			{
-				base.GameController.ExhaustCoroutine(makeIrreducibleCR);
+				GameController.ExhaustCoroutine(makeIrreducibleCR);
 			}
 
 			// choose to play card or use power
@@ -112,20 +112,17 @@ namespace Angille.Theurgy
 			// play a card?
 			functionList.Add(
 				new Function(
-					this.DecisionMaker,
+					httc,
 					"Play a card",
 					SelectionType.PlayCard,
-					() => base.SelectAndPlayCardsFromHand(
-						httc,
-						1
-					)
+					() => SelectAndPlayCardsFromHand(httc, 1)
 				)
 			);
 
 			// or use a power?
 			functionList.Add(
 				new Function(
-					this.DecisionMaker,
+					httc,
 					"Use a power",
 					SelectionType.UsePower,
 					() => SelectAndUsePower(FindCardController(CharmedHero()))
@@ -134,21 +131,21 @@ namespace Angille.Theurgy
 
 			// play the card or use the power
 			SelectFunctionDecision selectFunction = new SelectFunctionDecision(
-				base.GameController,
+				GameController,
 				httc,
 				functionList,
 				false,
-				cardSource: base.GetCardSource()
+				cardSource: GetCardSource()
 			);
 
-			IEnumerator selectFunctionCR = base.GameController.SelectAndPerformFunction(selectFunction);
+			IEnumerator selectFunctionCR = GameController.SelectAndPerformFunction(selectFunction);
 			if (UseUnityCoroutines)
 			{
-				yield return base.GameController.StartCoroutine(selectFunctionCR);
+				yield return GameController.StartCoroutine(selectFunctionCR);
 			}
 			else
 			{
-				base.GameController.ExhaustCoroutine(selectFunctionCR);
+				GameController.ExhaustCoroutine(selectFunctionCR);
 			}
 
 			yield break;

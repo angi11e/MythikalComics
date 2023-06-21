@@ -29,7 +29,11 @@ namespace Angille.Patina
 
 		protected bool IsWater(Card card, bool evenIfUnderCard = false, bool evenIfFaceDown = false)
 		{
-			return card != null && base.GameController.DoesCardContainKeyword(card, "water", evenIfUnderCard, evenIfFaceDown);
+			return card != null && GameController.DoesCardContainKeyword(card, "water", evenIfUnderCard, evenIfFaceDown);
 		}
+
+		protected int WaterCardsInPlay => FindCardsWhere(
+			(Card c) => c.IsInPlayAndHasGameText && IsWater(c) && !c.IsOneShot
+		).Count();
 	}
 }

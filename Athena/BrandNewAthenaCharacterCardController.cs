@@ -7,7 +7,7 @@ using System.Linq;
 
 namespace Angille.Athena
 {
-	public class BrandNewAthenaCharacterCardController : HeroCharacterCardController
+	public class BrandNewAthenaCharacterCardController : AthenaBaseCharacterCardController
 	{
 		public BrandNewAthenaCharacterCardController(
 			Card card,
@@ -26,7 +26,7 @@ namespace Angille.Athena
 
 			// If there is an [u]aspect[/u] card in play,
 			if (HeroTurnTaker.GetCardsWhere(
-				(Card c) => c.IsInPlayAndNotUnderCard && IsAspect(c)
+				(Card c) => c.IsInPlayAndNotUnderCard && IsManifest(c)
 			).Count() > 0)
 			{
 				// {Athena} deals 1 target 1 radiant and 1 melee damage.
@@ -92,7 +92,7 @@ namespace Angille.Athena
 					incapCR = GameController.SelectHeroToDrawCard(
 						this.HeroTurnTakerController,
 						additionalCriteria: new LinqTurnTakerCriteria(
-							(TurnTaker tt) => tt.IsHero && !tt.IsIncapacitatedOrOutOfGame && !tt.IsIncapacitated
+							(TurnTaker tt) => IsHero(tt) && !tt.IsIncapacitatedOrOutOfGame && !tt.IsIncapacitated
 						),
 						cardSource: GetCardSource()
 					);
@@ -102,7 +102,7 @@ namespace Angille.Athena
 					incapCR = SelectHeroToPlayCard(
 						this.HeroTurnTakerController,
 						heroCriteria: new LinqTurnTakerCriteria(
-							(TurnTaker tt) => tt.IsHero && !tt.IsIncapacitated
+							(TurnTaker tt) => IsHero(tt) && !tt.IsIncapacitated
 						)
 					);
 					break;
@@ -127,22 +127,6 @@ namespace Angille.Athena
 			}
 
 			yield break;
-		}
-
-		protected LinqCardCriteria IsAspectCriteria(Func<Card, bool> additionalCriteria = null)
-		{
-			var result = new LinqCardCriteria(c => IsAspect(c), "aspect", true);
-			if (additionalCriteria != null)
-			{
-				result = new LinqCardCriteria(result, additionalCriteria);
-			}
-
-			return result;
-		}
-
-		protected bool IsAspect(Card card, bool evenIfUnderCard = false, bool evenIfFaceDown = false)
-		{
-			return card != null && base.GameController.DoesCardContainKeyword(card, "aspect", evenIfUnderCard, evenIfFaceDown);
 		}
 	}
 }

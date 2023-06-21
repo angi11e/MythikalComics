@@ -52,8 +52,8 @@ namespace Angille.WhatsHerFace
 
 			// {WhatsHerFace} deals each non-hero target X Fire damage...
 			IEnumerator damageCR = DealDamage(
-				base.CharacterCard,
-				(Card c) => !c.IsHero,
+				CharacterCard,
+				(Card c) => !IsHeroTarget(c),
 				amount,
 				DamageType.Fire
 			);

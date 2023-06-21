@@ -41,7 +41,7 @@ namespace Angille.Theurgy
 		{
 			HeroTurnTakerController httc = FindHeroTurnTakerController(CharmedHero().Owner.ToHero());
 
-			// heal this hero for 5
+			// heal this hero for 4
 			IEnumerator healTargetCR = GameController.GainHP(
 				CharmedHero(),
 				4,
@@ -51,7 +51,7 @@ namespace Angille.Theurgy
 			// heal other hero targets for 1
 			IEnumerator healTargetsCR = GameController.GainHP(
 				httc,
-				(Card c) => c.IsHero && (c != CharmedHero()),
+				(Card c) => IsHeroTarget(c) && (c != CharmedHero()),
 				1,
 				cardSource: GetCardSource()
 			);

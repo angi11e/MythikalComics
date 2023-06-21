@@ -22,9 +22,9 @@ namespace Angille.TheUndersiders
 
 		public override void AddSideTriggers()
 		{
-			if (base.Card.IsFlipped)
+			if (this.Card.IsFlipped)
 			{
-				AddSideTrigger(AddCannotDealDamageTrigger((Card c) => c == base.Card));
+				AddSideTrigger(AddCannotDealDamageTrigger((Card c) => c == this.Card));
 			}
 		}
 
@@ -41,18 +41,18 @@ namespace Angille.TheUndersiders
 			}
 
 			if (!flip.CardToFlip.Card.IsFlipped) {
-				IEnumerator untargetCR = base.GameController.RemoveTarget(
-					base.Card,
+				IEnumerator untargetCR = GameController.RemoveTarget(
+					this.Card,
 					leavesPlayIfInPlay: true,
 					cardSource
 				);
-				if (base.UseUnityCoroutines)
+				if (UseUnityCoroutines)
 				{
-					yield return base.GameController.StartCoroutine(untargetCR);
+					yield return GameController.StartCoroutine(untargetCR);
 				}
 				else
 				{
-					base.GameController.ExhaustCoroutine(untargetCR);
+					GameController.ExhaustCoroutine(untargetCR);
 				}
 			}
 
@@ -62,7 +62,7 @@ namespace Angille.TheUndersiders
 		public override IEnumerator DestroyAttempted(DestroyCardAction destroyCard)
 		{
 			FlipCardAction action = new FlipCardAction(
-				base.GameController,
+				GameController,
 				this,
 				treatAsPlayedIfFaceUp: false,
 				treatAsPutIntoPlayIfFaceUp: false,
@@ -70,13 +70,13 @@ namespace Angille.TheUndersiders
 			);
 
 			IEnumerator flipInsteadCR = DoAction(action);
-			if (base.UseUnityCoroutines)
+			if (UseUnityCoroutines)
 			{
-				yield return base.GameController.StartCoroutine(flipInsteadCR);
+				yield return GameController.StartCoroutine(flipInsteadCR);
 			}
 			else
 			{
-				base.GameController.ExhaustCoroutine(flipInsteadCR);
+				GameController.ExhaustCoroutine(flipInsteadCR);
 			}
 		}
 	}

@@ -32,7 +32,7 @@ namespace Angille.PecosBill
 
 			// When exactly 1 damage would be dealt by a villain target, redirect that damage to that target.
 			AddTrigger(
-				(DealDamageAction dda) => dda.Amount == 1 && dda.DamageSource.IsTarget && dda.DamageSource.IsVillain,
+				(DealDamageAction dda) => dda.Amount == 1 && dda.DamageSource.IsVillainTarget,
 				(DealDamageAction dda) => GameController.RedirectDamage(
 					dda,
 					dda.DamageSource.Card,

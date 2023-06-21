@@ -87,7 +87,7 @@ namespace Angille.NightMare
 					// Each player may discard 2 cards. Any player that does may play a card.
 					IEnumerator discardAndPlayCR = GameController.SelectTurnTakersAndDoAction(
 						DecisionMaker,
-						new LinqTurnTakerCriteria((TurnTaker tt) => tt.IsHero && !tt.IsIncapacitatedOrOutOfGame && tt.ToHero().Hand.NumberOfCards >= 2),
+						new LinqTurnTakerCriteria((TurnTaker tt) => !tt.IsIncapacitatedOrOutOfGame && IsHero(tt) && tt.ToHero().Hand.NumberOfCards >= 2),
 						SelectionType.DiscardCard,
 						DiscardAndPlayResponse,
 						requiredDecisions: 0,
@@ -130,7 +130,7 @@ namespace Angille.NightMare
 							TurnTakerController,
 							selectedLocation,
 							isPutIntoPlay: true,
-							responsibleTurnTaker: base.TurnTaker
+							responsibleTurnTaker: this.TurnTaker
 						);
 						if (UseUnityCoroutines)
 						{

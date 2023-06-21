@@ -15,7 +15,7 @@ namespace Angille.CadaverTeam
 			: base(card, turnTakerController)
 		{
 			SpecialStringMaker.ShowLowestHP(1, () => 2, new LinqCardCriteria(
-				(Card c) => c.IsHero
+				(Card c) => IsHero(c)
 			));
 		}
 
@@ -42,7 +42,7 @@ namespace Angille.CadaverTeam
 			IEnumerator dealDamageCR = DealDamageToLowestHP(
 				this.Card,
 				1,
-				(Card c) => c.IsHero,
+				(Card c) => IsHero(c),
 				(Card c) => Game.H - 2,
 				DamageType.Melee,
 				numberOfTargets: 2
@@ -63,13 +63,13 @@ namespace Angille.CadaverTeam
 				// ...destroy 1 hero ongoing card and 1 hero equipment card.
 				IEnumerator destroyOngoingCR = GameController.SelectAndDestroyCard(
 					DecisionMaker,
-					new LinqCardCriteria((Card c) => c.IsOngoing && c.IsHero),
+					new LinqCardCriteria((Card c) => IsOngoing(c) && IsHero(c)),
 					false,
 					cardSource: GetCardSource()
 				);
 				IEnumerator destroyEquipCR = GameController.SelectAndDestroyCard(
 					DecisionMaker,
-					new LinqCardCriteria((Card c) => IsEquipment(c) && c.IsHero),
+					new LinqCardCriteria((Card c) => IsEquipment(c) && IsHero(c)),
 					false,
 					cardSource: GetCardSource()
 				);

@@ -15,7 +15,7 @@ namespace Angille.CadaverTeam
 			: base(card, turnTakerController)
 		{
 			SpecialStringMaker.ShowHighestHP(2, cardCriteria: new LinqCardCriteria(
-				(Card c) => c.IsHero
+				(Card c) => IsHero(c)
 			));
 		}
 
@@ -71,7 +71,7 @@ namespace Angille.CadaverTeam
 
 			IEnumerator dealDamageCR = DealMultipleInstancesOfDamageToHighestLowestHP(
 				endOfTurnDamage,
-				(Card c) => c.IsHero,
+				(Card c) => IsHero(c),
 				HighestLowestHP.HighestHP,
 				2
 			);

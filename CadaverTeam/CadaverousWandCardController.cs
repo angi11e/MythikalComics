@@ -15,7 +15,7 @@ namespace Angille.CadaverTeam
 			: base(card, turnTakerController)
 		{
 			SpecialStringMaker.ShowHighestHP(cardCriteria: new LinqCardCriteria(
-				(Card c) => c.IsHero
+				(Card c) => IsHero(c)
 			));
 		}
 
@@ -29,7 +29,7 @@ namespace Angille.CadaverTeam
 
 			// Whenever a villain target is destroyed...
 			AddTrigger(
-				(DestroyCardAction d) => d.CardToDestroy.Card.IsVillainTarget
+				(DestroyCardAction d) => IsVillainTarget(d.CardToDestroy.Card)
 					&& d.WasCardDestroyed,
 				DestructionResponse,
 				TriggerType.DealDamage,
@@ -57,7 +57,7 @@ namespace Angille.CadaverTeam
 			IEnumerator dealDamageCR = DealDamageToHighestHP(
 				this.CharacterCard,
 				1,
-				(Card c) => c.IsHero,
+				(Card c) => IsHero(c),
 				(Card c) => 1,
 				DamageType.Infernal
 			);

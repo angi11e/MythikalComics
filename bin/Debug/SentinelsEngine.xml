@@ -4,6 +4,40 @@
         <name>SentinelsEngine</name>
     </assembly>
     <members>
+        <member name="M:Handelabra.Sentinels.Engine.Controller.Achievements.AchievementManager.LoadAchievementControllers(System.Collections.Generic.IEnumerable{Handelabra.Sentinels.Engine.Controller.Achievements.Achievement},System.Boolean)">
+            <summary>
+            Loads all achievements that have a controller matching the list of identifiers provided.
+            If the achievement is achievable this game, it will be checked for.
+            </summary>
+        </member>
+        <member name="M:Handelabra.Sentinels.Engine.Controller.Achievements.AchievementManager.CheckForAchievements(Handelabra.Sentinels.Engine.Controller.GameAction)">
+            <summary>
+            Checks all achievement controllers to see if any of them have just been unlocked by the most recent action.
+            </summary>
+            <returns>A list of any achievements that have just been unlocked.</returns>
+            <param name="gameAction">The most recent game action.</param>
+        </member>
+        <member name="M:Handelabra.Sentinels.Engine.Controller.Achievements.IncrementalAchievementController.CheckForIncrement(Handelabra.Sentinels.Engine.Controller.GameAction)">
+            <summary>
+            Checks for increment and returns the new total progress (from 0.0 to 100.0)
+            Returns null if the check did not change the progress.
+            </summary>
+        </member>
+        <member name="M:Handelabra.Sentinels.Engine.Controller.Achievements.IncrementalAchievementController.GetProgress">
+            <summary>
+            Get the current progress based on persistent storage. Defaults to getting a single double based on the achievement identifier.
+            </summary>
+        </member>
+        <member name="M:Handelabra.Sentinels.Engine.Controller.Achievements.IncrementalAchievementController.SetProgress(System.Double)">
+            <summary>
+            Saves the current progress to persistent storage. Defaults to using a single double based on the achievement identifier.
+            </summary>
+        </member>
+        <member name="M:Handelabra.Sentinels.Engine.Controller.Achievements.IncrementalAchievementController.ClearProgress">
+            <summary>
+            Clears the progress from persistent storage.
+            </summary>
+        </member>
         <member name="T:Handelabra.Sentinels.Engine.Controller.VossTakeoverAction">
             <summary>
             GameAction that causes Rainek Kel'Voss to overthrow OblivAeon!
@@ -70,6 +104,12 @@
             decision and for it to go to his hand instead of its actual owner.
             </summary>
         </member>
+        <member name="P:Handelabra.Sentinels.Engine.Controller.CardController.AskPriority">
+            <summary>
+            The priority of this controller within Ask calls (Higher numbers are called first)
+            Used with MazeOfMirrors to ensure it is called first (since it has a recursive check)
+            </summary>
+        </member>
         <member name="M:Handelabra.Sentinels.Engine.Controller.CardController.GetSpecialStrings(System.Boolean,System.Boolean)">
             <summary>
             Returns all SpecialStrings for this CardController, according to parameters.
@@ -100,6 +140,17 @@
             Returns false by default.
             Overriding this method and returning true will make the provided Card indestructible.
             </summary>
+            <param name="card">The card that may be indestructibe.</param>
+            <returns>Whether or not the card is indestructible.</returns>
+        </member>
+        <member name="M:Handelabra.Sentinels.Engine.Controller.CardController.AskIfShouldInterceptPreventedDestruction(Handelabra.Sentinels.Engine.Model.Card,Handelabra.Sentinels.Engine.Controller.GameAction)">
+            <summary>
+            Returns a coroutine that should be executed if the card would be destroyed but isn't going to be (due to indestructible)
+            Returns null by default.
+            Overriding this method and returning true will cause that coroutine to be executed in that case.
+            </summary>
+            <param name="card">The Card that isn't going to be destroyed.</param>
+            <returns>The coroutine or null.</returns>
         </member>
         <member name="M:Handelabra.Sentinels.Engine.Controller.CardController.CanOtherCardGoNextToThisCard(Handelabra.Sentinels.Engine.Model.Card)">
             <summary>
@@ -204,6 +255,14 @@
             <returns>All ActivatableAbility objects that this CardController has.</returns>
         </member>
         <member name="M:Handelabra.Sentinels.Engine.Controller.CardController.GetCardSource(Handelabra.Sentinels.Engine.Model.StatusEffect)">
+            <summary>
+            Returns a new CardSource object for this CardController.
+            Called each time another method is called that requires a CardSource.
+            </summary>
+            <param name="statusEffectSource">The StatusEffect that is getting the CardSource, if any.</param>
+            <returns>A new CardSource object for this CardController.</returns>
+        </member>
+        <member name="M:Handelabra.Sentinels.Engine.Controller.CardController.GetCardSource(System.Boolean,Handelabra.Sentinels.Engine.Model.StatusEffect)">
             <summary>
             Returns a new CardSource object for this CardController.
             Called each time another method is called that requires a CardSource.
@@ -575,6 +634,15 @@
             By default it does nothing. Override this method with the intended "Use Power" effect.
             </summary>
             <param name="index">For Powers with multiple effects, this index indicate which Power is being used. 0 = First Power, 1 = Second Power, etc.</param>
+            <returns>The coroutine to be executed.</returns>
+        </member>
+        <member name="M:Handelabra.Sentinels.Engine.Controller.CardController.AddStatusEffectEx(Handelabra.Sentinels.Engine.Model.StatusEffect,System.Boolean,System.Collections.Generic.IEnumerable{Handelabra.Sentinels.Engine.Model.Card})">
+            <summary>
+            Adds a StatusEffect to this CardController.
+            </summary>
+            <param name="effect">The StatusEffect to be added.</param>
+            <param name="showMessage">Whether or not to show a message to the players indicating that this StatusEffect has been added. This will display an associated card if provided, or a non-hero card source.</param>
+            <param name="associatedCards">Cards associated with the status effect, if any.</param>
             <returns>The coroutine to be executed.</returns>
         </member>
         <member name="M:Handelabra.Sentinels.Engine.Controller.CardController.AddStatusEffect(Handelabra.Sentinels.Engine.Model.StatusEffect,System.Boolean)">
@@ -1080,7 +1148,7 @@
         </member>
         <member name="M:Handelabra.Sentinels.Engine.Controller.CardController.AskIfCardMayPreventAction``1(Handelabra.Sentinels.Engine.Controller.TurnTakerController,Handelabra.Sentinels.Engine.Controller.CardController)">
             <summary>
-            Asks this Card if another Card is allowed to prevent the provided TurnTakerController from performing the specificed GameAction. Returns true by default. 
+            Asks this Card if another Card is allowed to prevent the provided TurnTakerController from performing the specified GameAction. Returns true by default. 
             Example: Some Mode Cards prevent Bunker from drawing Cards. Ammo Drop allows him to draw Cards even if a Mode Card would prevent him. 
             So in Ammo Drop, this method would return false if the TurnTakerController were Bunker and the CardController were a Mode Card.
             </summary>
@@ -1115,6 +1183,33 @@
             <param name="card">The Card that may or may not be considered a Villain Target.</param>
             <param name="cardSource">The CardSource of the Card that is asking whether or not the provided Card is a Villain Target.</param>
             <returns>Whether or the provided Card is considered to be a Villain Target for gameplay purposes. Null by default.</returns>
+        </member>
+        <member name="M:Handelabra.Sentinels.Engine.Controller.CardController.AskIfIsHero(Handelabra.Sentinels.Engine.Model.Card,Handelabra.Sentinels.Engine.Controller.CardSource)">
+            <summary>
+            Asks this Card if the provided Card is considered to be a Hero for gameplay purposes. Returns null by default.
+            NOTE: AddThisCardControllerToList(CardControllerListType.ModifiedDeckKind) must be added to this CardController's constructor in order for this method to be called.
+            </summary>
+            <param name="card">The Card that may or may not be considered a Hero.</param>
+            <param name="cardSource">The CardSource of the Card that is asking whether or not the provided Card is a Hero.</param>
+            <returns>Whether or the provided Card is considered to be a Hero for gameplay purposes. Null by default.</returns>
+        </member>
+        <member name="M:Handelabra.Sentinels.Engine.Controller.CardController.AskIfIsHero(Handelabra.Sentinels.Engine.Model.TurnTaker,Handelabra.Sentinels.Engine.Controller.CardSource)">
+            <summary>
+            Asks this Card if the provided TurnTaker is considered to be a Hero for gameplay purposes. Returns null by default.
+            NOTE: AddThisCardControllerToList(CardControllerListType.ModifiedDeckKind) must be added to this CardController's constructor in order for this method to be called.
+            </summary>
+            <param name="tt">The TurnTaker that may or may not be considered a Hero.</param>
+            <param name="cardSource">The CardSource of the Card that is asking whether or not the provided TurnTaker is a Hero.</param>
+            <returns>Whether or the provided TurnTaker is considered to be a Hero for gameplay purposes. Null by default.</returns>
+        </member>
+        <member name="M:Handelabra.Sentinels.Engine.Controller.CardController.AskIfIsHeroTarget(Handelabra.Sentinels.Engine.Model.Card,Handelabra.Sentinels.Engine.Controller.CardSource)">
+            <summary>
+            Asks this Card if the provided Card is considered to be a Hero Target for gameplay purposes. Returns null by default.
+            NOTE: AddThisCardControllerToList(CardControllerListType.ModifiedDeckKind) must be added to this CardController's constructor in order for this method to be called.
+            </summary>
+            <param name="card">The Card that may or may not be considered a Hero Target.</param>
+            <param name="cardSource">The CardSource of the Card that is asking whether or not the provided Card is a Hero Target.</param>
+            <returns>Whether or the provided Card is considered to be a Hero Target for gameplay purposes. Null by default.</returns>
         </member>
         <member name="M:Handelabra.Sentinels.Engine.Controller.CardController.GetPowerNumeral(System.Int32,System.Int32)">
             <summary>
@@ -1215,6 +1310,15 @@
             <param name="card">The Card whose NativeDeck will be returned.</param>
             <returns>The Native Deck to the Card provided.</returns>
         </member>
+        <member name="M:Handelabra.Sentinels.Engine.Controller.CardController.FilterDecisionCardChoices(Handelabra.Sentinels.Engine.Controller.SelectCardDecision)">
+            <summary>
+            The view has heuristics to decide when to filter decision cards choices behind a "Show All Cards/Targets" button.
+            Override this method to provide your own list of cards that should be behind the button.
+            This method will only be called on a CardController given as a CardSource for a decision.
+            </summary>
+            <param name="decision">The decision being potentially filtered</param>
+            <returns>Null to let the view do what it likes, or a list of cards to filter. If the list is empty, all choices will be shown.</returns>
+        </member>
         <member name="P:Handelabra.Sentinels.Engine.Controller.CardController.DoesHaveActivePlayMethod">
             <summary>
             Returns true only if this card overrides the base class' "Play()" method, and that Play method has a tangible effect to the player.
@@ -1235,6 +1339,7 @@
             This avoids cards getting orphaned in the revealed location.
         </member>
         <member name="M:Handelabra.Sentinels.Engine.Controller.CardController.CleanupCardsAtLocations(System.Collections.Generic.List{Handelabra.Sentinels.Engine.Model.Location},Handelabra.Sentinels.Engine.Model.Location,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Collections.Generic.List{Handelabra.Sentinels.Engine.Model.Card})">
+            Depricated - call GameController.CleanupCardsAtLocations() instead
             Call this method after revealing cards or setting them aside and doing things with them, in case you were destroyed.
             This avoids cards getting orphaned in the revealed location.
         </member>
@@ -1253,13 +1358,16 @@
         <member name="M:Handelabra.Sentinels.Engine.Controller.CardController.DealDamageToHighestHP(Handelabra.Sentinels.Engine.Model.Card,System.Int32,System.Func{Handelabra.Sentinels.Engine.Model.Card,System.Boolean},System.Func{Handelabra.Sentinels.Engine.Model.Card,System.Nullable{System.Int32}},Handelabra.Sentinels.Engine.Model.DamageType,System.Boolean,System.Boolean,System.Collections.Generic.List{Handelabra.Sentinels.Engine.Controller.DealDamageAction},System.Func{System.Int32},System.Func{Handelabra.Sentinels.Engine.Controller.DealDamageAction,System.Collections.IEnumerator},Handelabra.Sentinels.Engine.Controller.TargetInfo,System.Boolean,System.Boolean)">
             <summary>
             Deals damage to the highest HP.
-            Dynamic value version.
             </summary>
         </member>
         <member name="M:Handelabra.Sentinels.Engine.Controller.CardController.DealDamageToLowestHP(Handelabra.Sentinels.Engine.Model.Card,System.Int32,System.Func{Handelabra.Sentinels.Engine.Model.Card,System.Boolean},System.Func{Handelabra.Sentinels.Engine.Model.Card,System.Nullable{System.Int32}},Handelabra.Sentinels.Engine.Model.DamageType,System.Boolean,System.Boolean,System.Collections.Generic.List{Handelabra.Sentinels.Engine.Controller.DealDamageAction},System.Int32,Handelabra.Sentinels.Engine.Controller.TargetInfo,System.Func{Handelabra.Sentinels.Engine.Controller.DealDamageAction,System.Collections.IEnumerator},System.Boolean)">
             <summary>
-            Deal damage to the target matching the criteria who has the lowest HP (or second lowest, etc).
-            Dynamic value version.
+            Deal damage to the target matching the criteria who has the lowest HP (or second lowest, etc). Fixed number of targets.
+            </summary>
+        </member>
+        <member name="M:Handelabra.Sentinels.Engine.Controller.CardController.DealDamageToLowestHPEx(Handelabra.Sentinels.Engine.Model.Card,System.Int32,System.Func{Handelabra.Sentinels.Engine.Model.Card,System.Boolean},System.Func{Handelabra.Sentinels.Engine.Model.Card,System.Nullable{System.Int32}},Handelabra.Sentinels.Engine.Model.DamageType,System.Boolean,System.Boolean,System.Collections.Generic.List{Handelabra.Sentinels.Engine.Controller.DealDamageAction},System.Func{System.Int32},Handelabra.Sentinels.Engine.Controller.TargetInfo,System.Func{Handelabra.Sentinels.Engine.Controller.DealDamageAction,System.Collections.IEnumerator},System.Boolean)">
+            <summary>
+            Deal damage to the target matching the criteria who has the lowest HP (or second lowest, etc). Supports dynamic number of targets.
             </summary>
         </member>
         <member name="M:Handelabra.Sentinels.Engine.Controller.CardController.DealDamage(Handelabra.Sentinels.Engine.Model.Card,System.Func{Handelabra.Sentinels.Engine.Model.Card,System.Boolean},System.Int32,Handelabra.Sentinels.Engine.Model.DamageType,System.Boolean,System.Boolean,System.Collections.Generic.List{Handelabra.Sentinels.Engine.Controller.DealDamageAction},System.Collections.Generic.IEnumerable{Handelabra.Sentinels.Engine.Controller.DealDamageAction},System.Func{Handelabra.Sentinels.Engine.Controller.DealDamageAction,System.Collections.IEnumerator},System.Boolean,Handelabra.Sentinels.Engine.Controller.TargetInfo,Handelabra.Sentinels.Engine.Controller.TargetInfo,System.Boolean,System.Boolean)">
@@ -1281,10 +1389,86 @@
             <param name="requiredDecisions">Number of required decisions. Pass null if the reveal is required for all players, or 0 if it can be skipped.</param>
             <returns>The coroutine to be executed.</returns>
         </member>
+        <member name="M:Handelabra.Sentinels.Engine.Controller.CardController.RevealCards_SelectSome_MoveThem_ReturnTheRest(Handelabra.Sentinels.Engine.Controller.HeroTurnTakerController,Handelabra.Sentinels.Engine.Controller.TurnTakerController,Handelabra.Sentinels.Engine.Model.Location,System.Func{Handelabra.Sentinels.Engine.Model.Card,System.Boolean},System.Int32,System.Int32,System.Boolean,System.Boolean,System.Boolean,System.String)">
+            <summary>
+            Reveal some cards from a location (usually a deck) according to a criteria. Select some and move them to hand/play as indicated, and return the rest to the deck, shuffling it.
+            </summary>
+            <param name="hero">The decision making hero.</param>
+            <param name="revealingTurnTaker">The turn taker causing the reveal.</param>
+            <param name="locationToRevealFrom">The location (usually a deck) to reveal cards from.</param>
+            <param name="cardCriteria">The cards to match.</param>
+            <param name="numberOfMatchesToReveal">The number of matching cards to reveal.</param>
+            <param name="numberOfRevealedCardsToChoose">The number of matching cards you get to select from.</param>
+            <param name="canPutInHand">If true, you can choose to put a card in hand.</param>
+            <param name="canPlayCard">If true, you can choose to put a card in play.</param>
+            <param name="isPutIntoPlay">If true and canPlayCard is true, the card is put into play instead of played.</param>
+            <param name="cardCriteriaDescription">Description for the matching cards used in messages.</param>
+            <returns>The coroutine to be executed.</returns>
+        </member>
+        <member name="M:Handelabra.Sentinels.Engine.Controller.CardController.RevealCards_SelectSome_MoveThem_ReturnTheRestEx(Handelabra.Sentinels.Engine.Controller.HeroTurnTakerController,Handelabra.Sentinels.Engine.Controller.TurnTakerController,Handelabra.Sentinels.Engine.Model.Location,System.Func{Handelabra.Sentinels.Engine.Model.Card,System.Boolean},System.Int32,System.Int32,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.String,System.Boolean)">
+            <summary>
+            Reveal some cards from a location (usually a deck) according to a criteria. Select some and move them to hand/play/discard as indicated, and return the rest to the deck, shuffling it (if desired).
+            </summary>
+            <param name="hero">The decision making hero.</param>
+            <param name="revealingTurnTaker">The turn taker causing the reveal.</param>
+            <param name="locationToRevealFrom">The location (usually a deck) to reveal cards from.</param>
+            <param name="cardCriteria">The cards to match.</param>
+            <param name="numberOfMatchesToReveal">The number of matching cards to reveal.</param>
+            <param name="numberOfRevealedCardsToChoose">The number of matching cards you get to select from.</param>
+            <param name="canPutInHand">If true, you can choose to put a card in hand.</param>
+            <param name="canPlayCard">If true, you can choose to put a card in play.</param>
+            <param name="isPutIntoPlay">If true and canPlayCard is true, the card is put into play instead of played.</param>
+            <param name="canDiscardCard">If true, you can choose to discard a card.</param>
+            <param name="cardCriteriaDescription">Description for the matching cards used in messages.</param>
+            <param name="shuffleAfter">If true, shuffle the deck afterwards.</param>
+            <returns>The coroutine to be executed.</returns>
+        </member>
+        <member name="M:Handelabra.Sentinels.Engine.Controller.CardController.DrawACardOrPlayACard(Handelabra.Sentinels.Engine.Controller.HeroTurnTakerController,System.Boolean)">
+            <summary>
+            Presents a SelectFunctionDecision for drawing or playing a card.
+            </summary>
+            <param name="hero">The hero to draw or play.</param>
+            <param name="optional">Whether or not it's optional to do so.</param>
+            <returns>The coroutine to be executed.</returns>
+        </member>
+        <member name="M:Handelabra.Sentinels.Engine.Controller.CardController.DrawACardOrPlayACard(Handelabra.Sentinels.Engine.Controller.HeroTurnTakerController,System.Boolean,System.Func{System.Collections.IEnumerator})">
+            <summary>
+            Presents a SelectFunctionDecision for drawing or playing a card, along with an optional response if you do neither.
+            </summary>
+            <param name="hero">The hero to draw or play.</param>
+            <param name="optional">Whether or not it's optional to do so.</param>
+            <param name="responseIfNeither">Method to run if they do neither (can be null).</param>
+            <returns></returns>
+        </member>
+        <member name="M:Handelabra.Sentinels.Engine.Controller.CardController.PlayACardOrReturnCardToHand(Handelabra.Sentinels.Engine.Controller.HeroTurnTakerController,System.Boolean)">
+            <summary>
+            Presents a SelectFunctionDecision for drawing a card or returning the card played to their hand, along with an optional response if you do neither.
+            </summary>
+            <param name="hero">The hero to draw or play.</param>
+            <param name="optional">Whether or not it's optional to do so.</param>
+            <returns></returns>
+        </member>
         <member name="M:Handelabra.Sentinels.Engine.Controller.CardController.EachPlayerDiscardsSpecificCards(Handelabra.Sentinels.Engine.Controller.HeroTurnTakerController,Handelabra.Sentinels.Engine.Controller.LinqCardCriteria,System.Boolean)">
             <summary>
             All players much discards any of their cards that match the criteria provided.
             </summary>
+        </member>
+        <member name="M:Handelabra.Sentinels.Engine.Controller.CardController.SelectTargetsAndDealMultipleInstancesOfDamage(System.Collections.Generic.List{Handelabra.Sentinels.Engine.Controller.DealDamageAction},System.Func{Handelabra.Sentinels.Engine.Model.Card,System.Boolean},Handelabra.Sentinels.Engine.Controller.TargetInfo,System.Nullable{System.Int32},System.Nullable{System.Int32},System.Boolean,System.Collections.Generic.List{Handelabra.Sentinels.Engine.Controller.DealDamageAction},System.Func{System.Int32},System.Boolean,System.Boolean,System.Func{Handelabra.Sentinels.Engine.Controller.DealDamageAction,System.Collections.IEnumerator})">
+            <summary>
+            Choose some targets and deal multiple instances of damage to them. Also supports self-damage if the damageInfo has null damage sources.
+            </summary>
+            <param name="damageInfo">The instances of damage that would be dealt. If the damage source is null, the player will be selecting a target to deal damage to itself.</param>
+            <param name="targetCriteria">The criteria of matching target Cards that will be dealt damage</param>
+            <param name="exceptFor">If not null, removes targets matching the TargetInfo criteria from target selection. Example: "Deal damage to all heroes, except the hero with the lowest HP".</param>
+            <param name="minNumberOfTargets">The minimum number of targets to select (if any)</param>
+            <param name="maxNumberOfTargets">The maximum number of targets to select (if any)</param>
+            <param name="evenIfCannotDealDamage">If this is true, a decision will always be presented; if not, it may do nothing if damage will be prevented.</param>
+            <param name="storedResultsAction">Stores all DestroyCardActions that result from the call to this method.</param>
+            <param name="dynamicNumberOfTargets">A Func that returns the number of targets that will be selected. If null, all applicable targets will be dealt damage.</param>
+            <param name="includeReturnedTargets">Whether or not target Cards that have left play and re-entered play should be added back into the list of selectable targets.</param>
+            <param name="ignoreBattleZone">If true, targets can be selected that are not in the same BattleZone as this card.</param>
+            <param name="addStatusEffect">If not null, executes an IEnumerator that adds a status effect to each target when it is dealt damage.</param>
+            <returns>The coroutine to be executed.</returns>
         </member>
         <member name="M:Handelabra.Sentinels.Engine.Controller.CardController.MakeUnanimousDecision(System.Func{Handelabra.Sentinels.Engine.Controller.HeroTurnTakerController,System.Boolean},Handelabra.Sentinels.Engine.Controller.SelectionType,System.Nullable{System.Int32},System.Boolean,System.Collections.Generic.List{System.Boolean},System.Collections.Generic.IEnumerable{Handelabra.Sentinels.Engine.Model.Card})">
             <summary>
@@ -1293,8 +1477,48 @@
             In multi-player, all players will receive a prompt.
             </summary>
         </member>
+        <member name="M:Handelabra.Sentinels.Engine.Controller.CardController.FindVillainDeck(Handelabra.Sentinels.Engine.Controller.HeroTurnTakerController,Handelabra.Sentinels.Engine.Controller.SelectionType,System.Collections.Generic.List{Handelabra.Sentinels.Engine.Controller.SelectLocationDecision},System.Func{Handelabra.Sentinels.Engine.Model.Location,System.Boolean})">
+            <summary>
+            Select a villain deck (includes their non-villain deck subdecks).
+            </summary>
+            <param name="decisionMaker">The hero making the decision, if any.</param>
+            <param name="selectionType">The reason for selecting the deck.</param>
+            <param name="storedResults">The results of the selection.</param>
+            <param name="additionalCriteria">Filter what locations are selected from.</param>
+            <returns>The coroutine to execute.</returns>
+        </member>
+        <member name="M:Handelabra.Sentinels.Engine.Controller.CardController.FindVillainDeckEx(Handelabra.Sentinels.Engine.Controller.HeroTurnTakerController,Handelabra.Sentinels.Engine.Controller.SelectionType,System.Collections.Generic.List{Handelabra.Sentinels.Engine.Controller.SelectLocationDecision},System.Func{Handelabra.Sentinels.Engine.Model.Location,System.Boolean},System.Boolean,System.String)">
+            <summary>
+            Select a villain deck (includes their non-villain deck subdecks). Accepts more parameters than FindVillainDeck.
+            </summary>
+            <param name="decisionMaker">The hero making the decision, if any.</param>
+            <param name="selectionType">The reason for selecting the deck.</param>
+            <param name="storedResults">The results of the selection.</param>
+            <param name="additionalCriteria">Filter what locations are selected from.</param>
+            <param name="optional">Whether or not choosing a deck is optional.</param>
+            <param name="noValidLocationsMessage">The message to show if there are no decks to select.</param>
+            <returns>The coroutine to execute.</returns>
+        </member>
+        <member name="M:Handelabra.Sentinels.Engine.Controller.CardController.IsHeroCharacterCard(Handelabra.Sentinels.Engine.Model.Card)">
+            <summary>
+            Whether the passed in card is a Hero Character card
+            Used when game text refers to Hero Character cards (not when checking card type for things like innate powers)
+            </summary>
+            <param name="card"></param>
+            <returns></returns>
+        </member>
         <member name="M:Handelabra.Sentinels.Engine.Controller.CardController.GetRevealedCard(System.Collections.Generic.List{Handelabra.Sentinels.Engine.Controller.RevealCardsAction},System.Boolean)">
             <param name="includingPreviouslyRevealed">If set to true, it will also check any cards that have been REMOVED from the revealed cards list. Ex. Shinobi Assassin when it jumps into play.</param>
+        </member>
+        <member name="M:Handelabra.Sentinels.Engine.Controller.CardController.HasDamageOccurredThisTurn(Handelabra.Sentinels.Engine.Model.Card,System.Func{Handelabra.Sentinels.Engine.Model.Card,System.Boolean},Handelabra.Sentinels.Engine.Controller.DealDamageAction,System.Func{Handelabra.Sentinels.Engine.Model.Card,System.Boolean},System.Collections.Generic.IEnumerable{Handelabra.Sentinels.Engine.Model.DamageType},System.Func{System.Int32,System.Boolean},System.Boolean)">
+            <summary>
+            Check whether a target has been dealt damage, or if a source matching the criteria has dealt damage
+            If a DealDamageAction is passed in, then check for damage before that action
+            </summary>
+            <param name="target">The target being checked for damage</param>
+            <param name="sourceCriteria">The criteria of the DamageSource card (if any)</param>
+            <param name="currentDamageAction">The DealDamageAction that causing the check (if any)</param>
+            <returns></returns>
         </member>
         <member name="M:Handelabra.Sentinels.Engine.Controller.CardController.DetermineIfGivenCardIsTargetWithLowestOrHighestHitPoints(Handelabra.Sentinels.Engine.Model.Card,System.Boolean,System.Func{Handelabra.Sentinels.Engine.Model.Card,System.Boolean},Handelabra.Sentinels.Engine.Controller.DealDamageAction,System.Collections.Generic.List{System.Boolean},System.Boolean)">
             <summary>
@@ -1356,6 +1580,12 @@
             <summary>
             Adds a CancelActionTrigger for the given GameAction type T.
             </summary>
+        </member>
+        <member name="M:Handelabra.Sentinels.Engine.Controller.CardController.GetIncapacitatedAbilities">
+            <summary>
+            Returns the incapacitated abilities for this card
+            </summary>
+            <returns>A list of the incapacitated abilities for this card</returns>
         </member>
         <member name="M:Handelabra.Sentinels.Engine.Controller.CardController.CancelResponse(Handelabra.Sentinels.Engine.Controller.GameAction)">
             <summary>
@@ -1714,6 +1944,23 @@
             <param name="ttc">The TurnTakerController that may or may not be able to perform the GameAction.</param>
             <returns>Any Card objects that prevent TurnTakerController from performing GameAction of type T. If empty, the GameAction is not prevented.</returns>
         </member>
+        <member name="M:Handelabra.Sentinels.Engine.Controller.GameController.SelectHeroToPlayCards(Handelabra.Sentinels.Engine.Controller.HeroTurnTakerController,System.Int32,System.Boolean,System.Boolean,System.Boolean,Handelabra.Sentinels.Engine.Controller.LinqTurnTakerCriteria,System.Collections.Generic.List{Handelabra.Sentinels.Engine.Controller.SelectTurnTakerDecision},System.Collections.Generic.List{Handelabra.Sentinels.Engine.Controller.PlayCardAction},System.Boolean,System.Boolean,Handelabra.Sentinels.Engine.Controller.CardSource)">
+            <summary>
+            The DecisionMaker selects a HeroTurnTaker to play a Card.
+            </summary>
+            <param name="hero">The DecisionMaker that selects which HeroTurnTaker will play a Card.</param>
+            <param name="numberOfCards">The number of cards the hero can play.</param>
+            <param name="optionalSelectHero">Whether or not the selection of a HeroTurnTaker is optional.</param>
+            <param name="optionalPlayCard">Whether or not playing a Card is optional for the selected HeroTurnTaker.</param>
+            <param name="allowAutoDecide">Whether or not the "Choose For Me" button is available when selecting a HeroTurnTaker.</param>
+            <param name="additionalCriteria">If not null, any additional criteria to apply to the HeroTurnTakers that can be selected.</param>
+            <param name="storedResultsTurnTaker">Stores all SelectTurnTakerDecisions that result form the call to this method.</param>
+            <param name="storedResultsSelectCard">Stores all PlayCardActions that result from the call to this method.</param>
+            <param name="isPutIntoPlay">Whether or not the played Card by the selected HeroTurnTaker is to be treated as being "put into play".</param>
+            <param name="canBeCancelled">Whether or not selecting a HeroTurnTaker and selecting a Card to play can be cancelled.</param>
+            <param name="cardSource">The CardSource of the CardController that is calling this method.</param>
+            <returns>The coroutine to be executed.</returns>
+        </member>
         <member name="M:Handelabra.Sentinels.Engine.Controller.GameController.SelectHeroToPlayCard(Handelabra.Sentinels.Engine.Controller.HeroTurnTakerController,System.Boolean,System.Boolean,System.Boolean,Handelabra.Sentinels.Engine.Controller.LinqTurnTakerCriteria,System.Collections.Generic.List{Handelabra.Sentinels.Engine.Controller.SelectTurnTakerDecision},System.Collections.Generic.List{Handelabra.Sentinels.Engine.Controller.PlayCardAction},System.Boolean,System.Boolean,Handelabra.Sentinels.Engine.Controller.CardSource)">
             <summary>
             The DecisionMaker selects a HeroTurnTaker to play a Card.
@@ -1871,6 +2118,22 @@
             <param name="cardSource">The CardSource of the CardController that is calling this method.</param>
             <returns>The coroutine to be executed.</returns>
         </member>
+        <member name="M:Handelabra.Sentinels.Engine.Controller.GameController.SelectNumberEx(Handelabra.Sentinels.Engine.Controller.HeroTurnTakerController,Handelabra.Sentinels.Engine.Controller.SelectionType,System.Int32,System.Int32,System.Collections.Generic.List{Handelabra.Sentinels.Engine.Controller.SelectNumberDecision},System.Boolean,System.Boolean,System.Func{System.Int32,System.Boolean},System.Collections.Generic.IEnumerable{Handelabra.Sentinels.Engine.Model.Card},Handelabra.Sentinels.Engine.Controller.CardSource)">
+            <summary>
+            The DecisionMaker selects a number between the provided min and max numbers and stores it in "storedResults".
+            </summary>
+            <param name="hero">The DecisionMaker that selects a number.</param>
+            <param name="selectionType">The SelectionType of the SelectNumberDecision.</param>
+            <param name="min">The minimum number that can be selected.</param>
+            <param name="max">The maximum number that can be selected.</param>
+            <param name="storedResults">Stores all SelectNumberDecisions that result from the call to this method.</param>
+            <param name="optional">Whether or not selecting a number is optional.</param>
+            <param name="allowAutoDecide">Whether or not the "Choose For Me" button is available.</param>
+            <param name="additionalCriteria">If not null, additional criteria to apply to the selectable numbers.</param>
+            <param name="associatedCards">Any cards associated with this decision.</param>
+            <param name="cardSource">The CardSource of the CardController that is calling this method.</param>
+            <returns>The coroutine to be executed.</returns>
+        </member>
         <member name="M:Handelabra.Sentinels.Engine.Controller.GameController.SelectTargetAndRedirectDamage(Handelabra.Sentinels.Engine.Controller.HeroTurnTakerController,System.Func{Handelabra.Sentinels.Engine.Model.Card,System.Boolean},Handelabra.Sentinels.Engine.Controller.DealDamageAction,System.Boolean,System.Collections.Generic.List{Handelabra.Sentinels.Engine.Controller.SelectCardDecision},Handelabra.Sentinels.Engine.Controller.CardSource)">
             <summary>
             The DecisionMaker selects a target Card meeting criteria and redirects the provided DealDamageAction to that target.
@@ -1948,6 +2211,27 @@
             <param name="forceDecision">If true, requires the Hero to select a Power to use, even in situations where it would not normally be necessary (ie. If there is only 1 usable Power and it is not optional).</param>
             <param name="allowOutOfPlayPower">If true, allows Powers to be used on Cards that are out of play.</param>
             <param name="cardSource">The CardSource of the CardController that is calling this method.</param>
+            <returns>The coroutine to be executed.</returns>
+        </member>
+        <member name="M:Handelabra.Sentinels.Engine.Controller.GameController.SelectAndUsePowerEx(Handelabra.Sentinels.Engine.Controller.HeroTurnTakerController,System.Boolean,System.Func{Handelabra.Sentinels.Engine.Controller.Power,System.Boolean},System.Int32,System.Boolean,System.Collections.Generic.List{Handelabra.Sentinels.Engine.Controller.UsePowerDecision},System.Boolean,System.Boolean,System.Boolean,System.Boolean,Handelabra.Sentinels.Engine.Model.Card,System.Boolean,System.Boolean,Handelabra.Sentinels.Engine.Controller.CardSource,Handelabra.Sentinels.Engine.Controller.HeroCharacterCardController)">
+            <summary>
+            The provided HeroTurnTakerController selects and uses one of their Powers.
+            </summary>
+            <param name="heroController">The HeroTurnTakerController that selects and uses one of their Powers.</param>
+            <param name="optional">Whether or not the HeroTurnTakerController using a Power is optional.</param>
+            <param name="powerCriteria">If not null, the criteria of Powers that may be used by the HeroTurnTakerController.</param>
+            <param name="numberOfPowers">The number of Powers that the HeroTurnTakerController may select to use.</param>
+            <param name="eliminateUsedPowers">If true, eliminates used Powers from being selectable to use.</param>
+            <param name="storedResults">Stores all UsePowerDecisions that result from the call to this method.</param>
+            <param name="showMessage">If true, shows a message that the HeroTurnTakerController will be selecting a Power. Primarily used when the power using event happens at an unusual time.</param>
+            <param name="allowAnyHeroPower">If true, allows ANY Hero Power to be selected, not just those on the HeroTurnTakerController.</param>
+            <param name="allowReplacements">If true, allows the Hero using the Power to be replaced by other Heroes (ie. Guise).</param>
+            <param name="canBeCancelled">Whether or not the selecting and using of the Power is allowed to be cancelled by other effects.</param>
+            <param name="associatedCard">Any additional Card that is associated with the Power being selected, other than the CardSource.</param>
+            <param name="forceDecision">If true, requires the Hero to select a Power to use, even in situations where it would not normally be necessary (ie. If there is only 1 usable Power and it is not optional).</param>
+            <param name="allowOutOfPlayPower">If true, allows Powers to be used on Cards that are out of play.</param>
+            <param name="cardSource">The CardSource of the CardController that is calling this method.</param>
+            <param name="heroCharacterCardUsingPower">The HeroCharacterCardController of the hero using this power. If null, assume from other data provided.</param>
             <returns>The coroutine to be executed.</returns>
         </member>
         <member name="M:Handelabra.Sentinels.Engine.Controller.GameController.SelectAndActivateAbility(Handelabra.Sentinels.Engine.Controller.HeroTurnTakerController,System.String,Handelabra.Sentinels.Engine.Controller.LinqCardCriteria,System.Collections.Generic.List{Handelabra.Sentinels.Engine.Controller.ActivateAbilityDecision},System.Boolean,Handelabra.Sentinels.Engine.Controller.CardSource)">
@@ -2431,6 +2715,7 @@
         </member>
         <member name="M:Handelabra.Sentinels.Engine.Controller.GameController.RevealCards(Handelabra.Sentinels.Engine.Controller.TurnTakerController,Handelabra.Sentinels.Engine.Model.Location,System.Func{Handelabra.Sentinels.Engine.Model.Card,System.Boolean},System.Int32,System.Collections.Generic.List{Handelabra.Sentinels.Engine.Controller.RevealCardsAction},Handelabra.Sentinels.Engine.Controller.RevealedCardDisplay,Handelabra.Sentinels.Engine.Controller.CardSource)">
             <summary>
+            Depricated - use RevealAndReplaceCards() instead
             Reveals Cards from the provided Location until either a Card has been revealed meeting the "revealUntil" criteria, or the Location runs out of Cards to reveal.
             </summary>
             <param name="revealingTurnTaker">The TurnTakerController that is revealing the Cards.</param>
@@ -2449,6 +2734,7 @@
         </member>
         <member name="M:Handelabra.Sentinels.Engine.Controller.GameController.RevealCards(Handelabra.Sentinels.Engine.Controller.TurnTakerController,Handelabra.Sentinels.Engine.Model.Location,System.Int32,System.Collections.Generic.List{Handelabra.Sentinels.Engine.Model.Card},System.Boolean,Handelabra.Sentinels.Engine.Controller.RevealedCardDisplay,System.Collections.Generic.List{Handelabra.Sentinels.Engine.Controller.RevealCardsAction},Handelabra.Sentinels.Engine.Controller.CardSource)">
             <summary>
+            Depricated - use RevealAndReplaceCards() instead
             Reveals a certain number of Cards from the provided Location.
             </summary>
             <param name="revealingTurnTaker">The TurnTakerController that is revealing Cards.</param>
@@ -2465,6 +2751,44 @@
             <param name="storedResultsAction">Stores all RevealCardsActions that result from the call to this method.</param>
             <param name="cardSource">The CardSource of the CardController that is calling this method.</param>
             <returns>The coroutine to be executed.</returns>
+        </member>
+        <member name="M:Handelabra.Sentinels.Engine.Controller.GameController.RevealAndReplaceCards(Handelabra.Sentinels.Engine.Controller.TurnTakerController,Handelabra.Sentinels.Engine.Model.Location,System.Int32,System.Collections.Generic.List{Handelabra.Sentinels.Engine.Model.Card},System.Func{Handelabra.Sentinels.Engine.Model.Card,System.Boolean},System.Boolean,System.Nullable{Handelabra.Sentinels.Engine.Controller.RevealedCardDisplay},System.Collections.Generic.List{Handelabra.Sentinels.Engine.Controller.RevealCardsAction},System.Boolean,Handelabra.Sentinels.Engine.Model.Location,Handelabra.Sentinels.Engine.Controller.CardSource)">
+            <summary>
+            Reveals a certain number of Cards from the provided Location.
+            </summary>
+            <param name="revealingTurnTaker">The TurnTakerController that is revealing Cards.</param>
+            <param name="location">The Location from which Cards will be revealed.</param>
+            <param name="numberOfCards">The number of Cards to reveal from the Location or number of matches to search for.</param>
+            <param name="storedResults">All Cards that are revealed as a result of calling this method.</param>
+            <param name="fromBottom">If true, reveals Cards from the bottom of the provided Location instead of the top.</param>
+            <param name="revealedCardDisplay">The style of message to display to the players when revealing Cards. 
+            None: No message. 
+            Message: Just a text message. 
+            ShowMatchingCards: Only shows the revealed Cards that match the "revealUntil" criteria. 
+            ShowRevealedCards: Shows all Cards that are revealed. This is the default setting
+            </param>
+            <param name="storedResultsAction">Stores all RevealCardsActions that result from the call to this method.</param>
+            <param name="cleanUpAfterReveal">Whether to clean up cards immediately after the reveal</param>
+            <param name="overrideCleanUpLocation">The location that cards should be cleaned up to (if not the original location)</param>
+            <param name="cardSource">The CardSource of the CardController that is calling this method.</param>
+            <returns>The coroutine to be executed.</returns>
+        </member>
+        <member name="M:Handelabra.Sentinels.Engine.Controller.GameController.CleanupCardsAtLocations(Handelabra.Sentinels.Engine.Controller.TurnTakerController,System.Collections.Generic.List{Handelabra.Sentinels.Engine.Model.Location},Handelabra.Sentinels.Engine.Model.Location,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Collections.Generic.List{Handelabra.Sentinels.Engine.Model.Card},Handelabra.Sentinels.Engine.Controller.CardSource)">
+            <summary>
+            Clean up cards at the passed in locations and return them to the their original locations
+            </summary>
+            <param name="turnTakerController"></param>
+            <param name="checkLocations"></param>
+            <param name="cleanupDestination"></param>
+            <param name="toBottom"></param>
+            <param name="addInhibitorException"></param>
+            <param name="shuffleAfterwards"></param>
+            <param name="sendMessage"></param>
+            <param name="isDiscard"></param>
+            <param name="isReturnedToOriginalLocation"></param>
+            <param name="cardsInList"></param>
+            <param name="cardSource"></param>
+            <returns></returns>
         </member>
         <member name="M:Handelabra.Sentinels.Engine.Controller.GameController.SelectAndDestroyCard(Handelabra.Sentinels.Engine.Controller.HeroTurnTakerController,Handelabra.Sentinels.Engine.Controller.LinqCardCriteria,System.Boolean,System.Collections.Generic.List{Handelabra.Sentinels.Engine.Controller.DestroyCardAction},Handelabra.Sentinels.Engine.Model.Card,Handelabra.Sentinels.Engine.Controller.CardSource)">
             <summary>
@@ -2634,6 +2958,20 @@
             <param name="cardSource">The CardSource of the CardController that is calling this method.</param>
             <returns>A collection of DamagePreviewResult objects, each which describes 1 step in the resolution of damage from a given DamageSource if the target were the provided "target" Card.</returns>
         </member>
+        <member name="M:Handelabra.Sentinels.Engine.Controller.GameController.GetDamagePreviewResults(Handelabra.Sentinels.Engine.Controller.DamageSource,Handelabra.Sentinels.Engine.Model.Card,System.Int32,System.Func{Handelabra.Sentinels.Engine.Model.Card,System.Nullable{System.Int32}},System.Nullable{Handelabra.Sentinels.Engine.Model.DamageType},System.Boolean,Handelabra.Sentinels.Engine.Model.Card,Handelabra.Sentinels.Engine.Controller.CardSource)">
+            <summary>
+            Returns a collection of DamagePreviewResult objects, each which describes 1 step in the resolution of damage from a given DamageSource if the target were the provided "target" Card.
+            </summary>
+            <param name="damageSource">The source of the damage that would be dealt.</param>
+            <param name="target">The target that would be dealt damage.</param>
+            <param name="amount">The fixed amount of damage that would be dealt. Only "amount" OR "dynamicAmount" are necessary.</param>
+            <param name="dynamicAmount">A function which takes in a "target" and returns an amount of damage to be dealt based on that target Card. Only "amount" OR "dynamicAmount" are necessary.</param>
+            <param name="type">An optional DamageType for the damage.</param>
+            <param name="isIrreducible">Whether or not the damage being dealt is irreducible.</param>
+            <param name="cardSource">The CardSource of the CardController that is calling this method.</param>
+            <param name="ambiguousChoice">A card that should be selected if there's an ambiguous choice during the damage preview.</param>
+            <returns>A collection of DamagePreviewResult objects, each which describes 1 step in the resolution of damage from a given DamageSource if the target were the provided "target" Card.</returns>
+        </member>
         <member name="M:Handelabra.Sentinels.Engine.Controller.GameController.DiscardCard(Handelabra.Sentinels.Engine.Controller.HeroTurnTakerController,Handelabra.Sentinels.Engine.Model.Card,System.Collections.Generic.IEnumerable{Handelabra.Sentinels.Engine.Controller.IDecision},Handelabra.Sentinels.Engine.Model.TurnTaker,System.Collections.Generic.List{Handelabra.Sentinels.Engine.Controller.DiscardCardAction},Handelabra.Sentinels.Engine.Controller.CardSource)">
             <summary>
             A specific HeroTurnTakerController discards a specific Card.
@@ -2753,7 +3091,24 @@
         </member>
         <member name="M:Handelabra.Sentinels.Engine.Controller.GameController.DrawCards(Handelabra.Sentinels.Engine.Controller.LinqTurnTakerCriteria,System.Int32,System.Boolean,System.Boolean,System.Boolean,System.Collections.Generic.List{Handelabra.Sentinels.Engine.Controller.DrawCardAction},System.Boolean,System.Func{System.Boolean},System.Boolean,System.Collections.Generic.IEnumerable{Handelabra.Sentinels.Engine.Controller.DealDamageAction},Handelabra.Sentinels.Engine.Controller.CardSource)">
             <summary>
-            All HeroTurnTakers matching LinqTurnTakerCriteria draw a specific numbre of Cards.
+            All HeroTurnTakers matching LinqTurnTakerCriteria draw a specific number of Cards.
+            </summary>
+            <param name="heroCriteria">The criteria of HeroTurnTakers that will draw Cards.</param>
+            <param name="numberOfCards">The number of Cards each matching HeroTurnTaker will draw.</param>
+            <param name="optional">Whether or not the drawing of Cards is optional for the heroes.</param>
+            <param name="upTo">If true, makes each individual Card draw optional.</param>
+            <param name="allowAutoDecide">Whether or not the heroes are allowed to have the order of Card draws automatically determined by the game. True by default.</param>
+            <param name="storedResults">Stores all DrawCardActions resulting from calling this method.</param>
+            <param name="allowAutoDraw">Whether or not the heroes are allowed to automatically draw cards without being prompted, even if they are optional. True by default.</param>
+            <param name="stopCondition">If defined, drawing Cards will stop immediately if the provided Func returns true.</param>
+            <param name="allowAutoDrawOrder">Whether or not the heroes are allowed to have the order of Card draws automatically determined by the game. True by default.</param>
+            <param name="dealDamageInfo"></param>
+            <param name="cardSource"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Handelabra.Sentinels.Engine.Controller.GameController.DrawCardsEx(Handelabra.Sentinels.Engine.Controller.LinqTurnTakerCriteria,System.Int32,System.Boolean,System.Boolean,System.Boolean,System.Collections.Generic.List{Handelabra.Sentinels.Engine.Controller.DrawCardAction},System.Boolean,System.Func{System.Boolean},System.Boolean,System.Collections.Generic.IEnumerable{Handelabra.Sentinels.Engine.Controller.DealDamageAction},Handelabra.Sentinels.Engine.Controller.CardSource,System.Boolean)">
+            <summary>
+            All HeroTurnTakers matching LinqTurnTakerCriteria draw a specific number of Cards.
             </summary>
             <param name="heroCriteria">The criteria of HeroTurnTakers that will draw Cards.</param>
             <param name="numberOfCards">The number of Cards each matching HeroTurnTaker will draw.</param>
@@ -2867,7 +3222,7 @@
         </member>
         <member name="M:Handelabra.Sentinels.Engine.Controller.GameController.FindCardControllersWhere(System.Func{Handelabra.Sentinels.Engine.Model.Card,System.Boolean},System.Boolean,Handelabra.Sentinels.Engine.Model.BattleZone)">
             <summary>
-            Returns all CardControllers that match the provided "where" critiera.
+            Returns all CardControllers that match the provided "where" critiera. This returns a fixed list that does not dynamically update.
             </summary>
             <param name="where">The criteria of Cards to return CardControllers for.</param>
             <param name="realCardsOnly">If true, this method will ignore any Cards that are not considered "real" Cards, such as instruction Cards.</param>
@@ -2876,7 +3231,7 @@
         </member>
         <member name="M:Handelabra.Sentinels.Engine.Controller.GameController.FindCardsWhere(System.Func{Handelabra.Sentinels.Engine.Model.Card,System.Boolean},System.Boolean,Handelabra.Sentinels.Engine.Controller.CardSource,Handelabra.Sentinels.Engine.Model.BattleZone)">
             <summary>
-            Returns all Cards that match the provided "where" criteria.
+            Returns all Cards that match the provided "where" criteria. This returns a fixed list that does not dynamically update.
             </summary>
             <param name="where">The criteria of Cards to return.</param>
             <param name="realCardsOnly">If true, this method will ignore any Cards that are not considered "real" Cards, such as instruction Cards.</param>
@@ -2886,13 +3241,23 @@
         </member>
         <member name="M:Handelabra.Sentinels.Engine.Controller.GameController.FindCardsWhere(Handelabra.Sentinels.Engine.Controller.LinqCardCriteria,System.Boolean,Handelabra.Sentinels.Engine.Controller.CardSource,Handelabra.Sentinels.Engine.Model.BattleZone)">
             <summary>
-            Returns all Cards that match the provided LinqCardCriteria.
+            Returns all Cards that match the provided LinqCardCriteria. This returns a fixed list that does not dynamically update.
             </summary>
             <param name="cardCriteria">The criteria of Cards to return.</param>
             <param name="realCardsOnly">If true, this method will ignore any Cards that are not considered "real" Cards, such as instruction Cards.</param>
             <param name="visibleToCard">If provided, will only return Cards that are "visible" to the provided CardSource. See "CardController.AskIfCardIsVisibleToCardSource()" for more details.</param>
             <param name="battleZone">If specified, only will return CardControllers that are within the provided BattleZone.</param>
             <returns>All Cards that match the provided LinqCardCriteria.</returns>
+        </member>
+        <member name="M:Handelabra.Sentinels.Engine.Controller.GameController.FindCardsWhereDynamic(System.Func{Handelabra.Sentinels.Engine.Model.Card,System.Boolean},System.Boolean,Handelabra.Sentinels.Engine.Controller.CardSource,Handelabra.Sentinels.Engine.Model.BattleZone)">
+            <summary>
+            Returns all Cards that match the provided "where" criteria. This returns a true IEnumerable that will update whenever you enumerate it.
+            </summary>
+            <param name="where">The criteria of Cards to return.</param>
+            <param name="realCardsOnly">If true, this method will ignore any Cards that are not considered "real" Cards, such as instruction Cards.</param>
+            <param name="visibleToCard">If provided, will only return Cards that are "visible" to the provided CardSource. See "CardController.AskIfCardIsVisibleToCardSource()" for more details.</param>
+            <param name="battleZone">If specified, only will return CardControllers that are within the provided BattleZone.</param>
+            <returns>All Cards that match the provided "where" criteria.</returns>
         </member>
         <member name="M:Handelabra.Sentinels.Engine.Controller.GameController.FindEnvironmentTurnTakerController(Handelabra.Sentinels.Engine.Model.BattleZone)">
             <summary>
@@ -3090,6 +3455,18 @@
             <param name="cardSource">The CardSource of the CardController that is calling this method.</param>
             <returns>The coroutine to be executed.</returns>
         </member>
+        <member name="M:Handelabra.Sentinels.Engine.Controller.GameController.GainHPEx(Handelabra.Sentinels.Engine.Model.Card,System.Nullable{System.Int32},System.Func{System.Int32},System.Collections.Generic.List{Handelabra.Sentinels.Engine.Controller.GainHPAction},System.Boolean,Handelabra.Sentinels.Engine.Controller.CardSource)">
+            <summary>
+            A specific target Card regains HP.
+            </summary>
+            <param name="hpGainer">The target Card that will regain HP.</param>
+            <param name="amount">If not null, the fixed amount of HP that the target Card will regain.</param>
+            <param name="dynamicAmount">If not null, a dynamic amount of HP for the target Card to regain. Overrides the "amount" parameter.</param>
+            <param name="storedResults">Stores any GainHPActions that result from calling this method.</param>
+            <param name="allowExceedMaxHP">If true, will allow the card to exceed its max HP.</param>
+            <param name="cardSource">The CardSource of the CardController that is calling this method.</param>
+            <returns>The coroutine to be executed.</returns>
+        </member>
         <member name="M:Handelabra.Sentinels.Engine.Controller.GameController.GainHP(Handelabra.Sentinels.Engine.Controller.HeroTurnTakerController,System.Func{Handelabra.Sentinels.Engine.Model.Card,System.Boolean},System.Int32,System.Nullable{System.Int32},System.Boolean,System.Nullable{System.Int32},System.Collections.Generic.List{Handelabra.Sentinels.Engine.Controller.SelectCardDecision},System.Collections.Generic.List{Handelabra.Sentinels.Engine.Controller.GainHPAction},Handelabra.Sentinels.Engine.Controller.CardSource)">
             <summary>
             Multiple target Cards meeting criteria regain a fixed amount of HP.
@@ -3121,6 +3498,17 @@
             <param name="cardSource">The CardSource of the CardController that is calling this method.</param>
             <returns>The coroutine to be executed.</returns>
             <seealso cref="M:Handelabra.Sentinels.Engine.Controller.GameController.GainHP(Handelabra.Sentinels.Engine.Controller.HeroTurnTakerController,System.Func{Handelabra.Sentinels.Engine.Model.Card,System.Boolean},System.Func{Handelabra.Sentinels.Engine.Model.Card,System.Int32},System.Func{System.Int32},System.Boolean,System.Nullable{System.Int32},System.Collections.Generic.List{Handelabra.Sentinels.Engine.Controller.SelectCardDecision},System.Collections.Generic.List{Handelabra.Sentinels.Engine.Controller.GainHPAction},Handelabra.Sentinels.Engine.Controller.CardSource)"/>
+        </member>
+        <member name="M:Handelabra.Sentinels.Engine.Controller.GameController.GainHPMultipleTimes(Handelabra.Sentinels.Engine.Model.Card,System.Int32,System.Int32,System.Collections.Generic.List{Handelabra.Sentinels.Engine.Controller.GainHPAction},Handelabra.Sentinels.Engine.Controller.CardSource)">
+            <summary>
+            A specific target Card regains HP multiple times.
+            </summary>
+            <param name="hpGainer">The target Card that will regain HP.</param>
+            <param name="amount">The fixed amount of HP that the target Card will regain each time.</param>
+            <param name="numberOfTimes">The number of times to gain HP.</param>
+            <param name="storedResults">Stores any GainHPActions that result from calling this method.</param>
+            <param name="cardSource">The CardSource of the CardController that is calling this method.</param>
+            <returns>The coroutine to be executed.</returns>
         </member>
         <member name="M:Handelabra.Sentinels.Engine.Controller.GameController.GameOver(Handelabra.Sentinels.Engine.Controller.EndingResult,System.String,System.Boolean,Handelabra.Sentinels.Engine.Controller.GameAction,Handelabra.Sentinels.Engine.Model.BattleZone,Handelabra.Sentinels.Engine.Controller.CardSource)">
             <summary>
@@ -3217,6 +3605,16 @@
             <param name="ttc">The TurnTakerController whose ActivatableAbility objects will be returned.</param>
             <param name="abilityKey">The key of the ActivatableAbility objects to search for.</param>
             <param name="ignoreBattleZone">If true, searches all ActivatableAbility objects without considering the BattleZone it is in. Otherwise, returns only ActivatableAbility objects in the same BattleZone as the provided TurnTakerController.</param>
+            <returns>All ActivatableAbility that belong to TurnTakerController and have the "abilityKey" ability key.</returns>
+        </member>
+        <member name="M:Handelabra.Sentinels.Engine.Controller.GameController.GetActivatableAbilitiesInPlayEx(Handelabra.Sentinels.Engine.Controller.TurnTakerController,System.String,System.Boolean,Handelabra.Sentinels.Engine.Controller.CardSource)">
+            <summary>
+            Returns all ActivatableAbility that belong to TurnTakerController and have the "abilityKey" ability key.
+            </summary>
+            <param name="ttc">The TurnTakerController whose ActivatableAbility objects will be returned.</param>
+            <param name="abilityKey">The key of the ActivatableAbility objects to search for.</param>
+            <param name="ignoreBattleZone">If true, searches all ActivatableAbility objects without considering the BattleZone it is in. Otherwise, returns only ActivatableAbility objects in the same BattleZone as the provided CardSource.</param>
+            /// <param name="cardSource">The CardSource for this action, determining results based on visibility and BattleZone.</param>
             <returns>All ActivatableAbility that belong to TurnTakerController and have the "abilityKey" ability key.</returns>
         </member>
         <member name="M:Handelabra.Sentinels.Engine.Controller.GameController.GetAllPowersForCardController(Handelabra.Sentinels.Engine.Controller.CardController,Handelabra.Sentinels.Engine.Controller.HeroTurnTakerController,System.Boolean)">
@@ -3525,6 +3923,14 @@
             </summary>
             <param name="card">The Card that may or may not be indestructible.</param>
             <returns>Whether or not the provided Card is indestructible.</returns>
+        </member>
+        <member name="M:Handelabra.Sentinels.Engine.Controller.GameController.ShouldInterceptPreventedCardDestruction(Handelabra.Sentinels.Engine.Model.Card,Handelabra.Sentinels.Engine.Controller.GameAction)">
+            <summary>
+            Returns a coroutine that should be executed if the card would be destroyed but isn't going to be (due to indestructible)
+            Returns null by default.
+            </summary>
+            <param name="card">The Card that isn't going to be destroyed.</param>
+            <returns>The coroutine or null.</returns>
         </member>
         <member name="M:Handelabra.Sentinels.Engine.Controller.GameController.CanActivateEffect(Handelabra.Sentinels.Engine.Controller.TurnTakerController,System.String)">
             <summary>
@@ -3861,6 +4267,16 @@
             <param name="mustBeFromHand">Whether or not the Card being played must be from the HeroTurnTakerController's Hand.</param>
             <returns>A string that explains why the provided HeroTurnTakerController cannot play Cards. If the HeroTurnTakerController CAN play Cards, returns null instead.</returns>
         </member>
+        <member name="M:Handelabra.Sentinels.Engine.Controller.GameController.GetTryToUsePowerMessage(Handelabra.Sentinels.Engine.Controller.HeroTurnTakerController,Handelabra.Sentinels.Engine.Model.Card@,System.Boolean)">
+            <summary>
+            Returns a string that explains why the provided HeroTurnTakerController cannot use a power.
+            If the HeroTurnTakerController CAN use a power, returns null instead.
+            </summary>
+            <param name="hero">The HeroTurnTakerController that may or may not be able to use a power.</param>
+            <param name="cardPreventer">The card that prevented the power usage (if any).</param>
+            <param name="canBeCancelled">Whether or not the HeroTurnTakerController can be prevented from using powers.</param>
+            <returns>A string that explains why the provided HeroTurnTakerController cannot use a power. If the HeroTurnTakerController CAN use a power, returns null instead.</returns>
+        </member>
         <member name="M:Handelabra.Sentinels.Engine.Controller.GameController.GetTryToDiscardCardMessage(Handelabra.Sentinels.Engine.Controller.HeroTurnTakerController,System.Func{Handelabra.Sentinels.Engine.Model.Card,System.Boolean},System.String)">
             <summary>
             Returns a string that explains why the provided HeroTurnTakerController cannot discard Cards.
@@ -3952,6 +4368,22 @@
             <param name="isPutIntoPlay">Whether or not the MoveCardDestination being selected is for "put into play" purposes. Used to avoid unnecessary decisions.</param>
             <param name="showMessage">Whether or not to show a message to other players informing them of the chosen MoveCardDestination.</param>
             <param name="decisionSources">The Decisions that are responsible for the selecting of a MoveCardDestination.</param>
+            <param name="cardSource">The CardSource of the CardController that is calling this method.</param>
+            <returns>The coroutine to be executed.</returns>
+        </member>
+        <member name="M:Handelabra.Sentinels.Engine.Controller.GameController.SelectMoveCardDestinationEx(Handelabra.Sentinels.Engine.Controller.HeroTurnTakerController,Handelabra.Sentinels.Engine.Model.Card,System.Collections.Generic.IEnumerable{Handelabra.Sentinels.Engine.Controller.MoveCardDestination},System.Collections.Generic.List{Handelabra.Sentinels.Engine.Controller.MoveCardDestination},System.Boolean,System.Boolean,System.Collections.Generic.List{Handelabra.Sentinels.Engine.Controller.IDecision},System.Boolean,Handelabra.Sentinels.Engine.Controller.CardSource)">
+            <summary>
+            The DecisionMaker selects one of the provided MoveCardDestinations for the provided Card.
+            The selected MoveCardDestination is stored in the provided "storedResults", but the Card does not actually move to that Location.
+            </summary>
+            <param name="hero">The DecisionMaker that selects the MoveCardDestination for the Card.</param>
+            <param name="cardToMove">The Card for which a MoveCardDestination is selected.</param>
+            <param name="possibleDestinations">The collection of possible MoveCardDestinations to choose from.</param>
+            <param name="storedResults">Stores the MoveCardDestination selected by the DecisionMaker.</param>
+            <param name="isPutIntoPlay">Whether or not the MoveCardDestination being selected is for "put into play" purposes. Used to avoid unnecessary decisions.</param>
+            <param name="showMessage">Whether or not to show a message to other players informing them of the chosen MoveCardDestination.</param>
+            <param name="decisionSources">The Decisions that are responsible for the selecting of a MoveCardDestination.</param>
+            <param name="canBeCancelled">If true, check for things that would stop cards being played.</param>
             <param name="cardSource">The CardSource of the CardController that is calling this method.</param>
             <returns>The coroutine to be executed.</returns>
         </member>
@@ -4210,6 +4642,17 @@
             <param name="cardSource">The CardSource of the CardController that is calling this method.</param>
             <returns>The coroutine to be executed.</returns>
         </member>
+        <member name="M:Handelabra.Sentinels.Engine.Controller.GameController.SelectTurnTakersAndDoActionEx(Handelabra.Sentinels.Engine.Controller.SelectTurnTakersDecision,System.Func{Handelabra.Sentinels.Engine.Model.TurnTaker,System.Collections.IEnumerator},System.Collections.Generic.List{Handelabra.Sentinels.Engine.Controller.SelectTurnTakerDecision},System.Boolean,Handelabra.Sentinels.Engine.Controller.CardSource)">
+            <summary>
+            Presents a SelectTurnTakersDecision, then performs the "actionWithTurnTaker" for each TurnTaker selected.
+            </summary>
+            <param name="selectTurnTakersDecision">The SelectTurnTakesrDecision to present.</param>
+            <param name="actionWithTurnTaker">The IEnumerator to execute for each TurnTaker selected.</param>
+            <param name="storedResults">Stores all SelectTurnTakerDecisions that result from the call to this method.</param>
+            <param name="allowInitialYesNoDecision">If true and the decision is optional, a YesNo decision will be presented first. Otherwise it will go straight into selecting turn takers.</param>
+            <param name="cardSource">The CardSource of the CardController that is calling this method.</param>
+            <returns>The coroutine to be executed.</returns>
+        </member>
         <member name="M:Handelabra.Sentinels.Engine.Controller.GameController.SelectTurnTakersAndDoAction(Handelabra.Sentinels.Engine.Controller.HeroTurnTakerController,Handelabra.Sentinels.Engine.Controller.LinqTurnTakerCriteria,Handelabra.Sentinels.Engine.Controller.SelectionType,System.Func{Handelabra.Sentinels.Engine.Model.TurnTaker,System.Collections.IEnumerator},System.Nullable{System.Int32},System.Boolean,System.Nullable{System.Int32},System.Collections.Generic.List{Handelabra.Sentinels.Engine.Controller.SelectTurnTakerDecision},System.Boolean,System.Collections.Generic.IEnumerable{Handelabra.Sentinels.Engine.Controller.DealDamageAction},System.Func{System.String},System.Collections.Generic.IEnumerable{Handelabra.Sentinels.Engine.Model.Card},System.Boolean,System.Nullable{System.Int32},Handelabra.Sentinels.Engine.Controller.CardSource)">
             <summary>
             The DecisionMaker selects a series of TurnTakers, and the provided Func will execute for each TurnTaker selected.
@@ -4334,6 +4777,15 @@
             <param name="cardSource">The CardSource of the CardController that is calling this method.</param>
             <returns>The coroutine to be executed.</returns>
         </member>
+        <member name="M:Handelabra.Sentinels.Engine.Controller.GameController.SelectAndShuffleTrashIntoDeck(Handelabra.Sentinels.Engine.Controller.HeroTurnTakerController,System.Func{Handelabra.Sentinels.Engine.Model.Location,System.Boolean},Handelabra.Sentinels.Engine.Controller.CardSource)">
+            <summary>
+            Select a trash and shuffle it into the associated deck. Handles sub-decks and trashes properly.
+            </summary>
+            <param name="hero">The hero making the decision, if any.</param>
+            <param name="deckCriteria">The criteria for the Deck Locations that can be selected.</param>
+            <param name="cardSource">The CardSource of the CardController that is calling this method.</param>
+            <returns>The coroutine to be executed.</returns>
+        </member>
         <member name="M:Handelabra.Sentinels.Engine.Controller.GameController.SkipToNextTurn(Handelabra.Sentinels.Engine.Controller.CardSource)">
             <summary>
             Immediately skips to the next TurnTaker's turn, skipping all usual TurnPhases in between.
@@ -4438,6 +4890,16 @@
             <param name="storedResults">Stores all YesNoCardDecisions that result from the call to this method.</param>
             <param name="associatedCards">Any additional Cards that are associated with the YesNoDecision.</param>
             <param name="cardSource">The CardSource of the CardController that is calling this method.</param>
+            <returns>The coroutine to be executed.</returns>
+        </member>
+        <member name="M:Handelabra.Sentinels.Engine.Controller.GameController.AddStatusEffectEx(Handelabra.Sentinels.Engine.Model.StatusEffect,System.Boolean,Handelabra.Sentinels.Engine.Controller.CardSource,System.Collections.Generic.IEnumerable{Handelabra.Sentinels.Engine.Model.Card})">
+            <summary>
+            Adds the provided StatusEffect to the Game, taking effect immediately.
+            </summary>
+            <param name="effect">The StatusEffect to add to the Game.</param>
+            <param name="showMessage">Whether or not to show a message indicating the addition of the StatusEffect. This will display an associated card if provided, or a non-hero card source.</param>
+            <param name="cardSource">The CardSource of the CardController that is calling this method.</param>
+            <param name="associatedCards">Cards associated with the status effect, if any.</param>
             <returns>The coroutine to be executed.</returns>
         </member>
         <member name="M:Handelabra.Sentinels.Engine.Controller.GameController.AddStatusEffect(Handelabra.Sentinels.Engine.Model.StatusEffect,System.Boolean,Handelabra.Sentinels.Engine.Controller.CardSource)">
@@ -4758,6 +5220,17 @@
             <param name="cardSource">The CardSource of the CardController that is calling this method.</param>
             <returns>The coroutine to be executed.</returns>
         </member>
+        <member name="M:Handelabra.Sentinels.Engine.Controller.GameController.SelectAndPlayTopCardOfTrash(Handelabra.Sentinels.Engine.Controller.HeroTurnTakerController,System.Func{Handelabra.Sentinels.Engine.Controller.TurnTakerController,System.Boolean},System.Func{Handelabra.Sentinels.Engine.Model.Location,System.Boolean},System.Boolean,Handelabra.Sentinels.Engine.Controller.CardSource)">
+            <summary>
+            Select from the top cards of each viable trash and play one of them
+            </summary>
+            <param name="decisionMaker"></param>
+            <param name="turnTakerCriteria"></param>
+            <param name="trashCriteria"></param>
+            <param name="isPutIntoPlay"></param>
+            <param name="cardSource"></param>
+            <returns></returns>
+        </member>
         <member name="M:Handelabra.Sentinels.Engine.Controller.GameController.MoveIntoPlay(Handelabra.Sentinels.Engine.Controller.TurnTakerController,Handelabra.Sentinels.Engine.Model.Card,Handelabra.Sentinels.Engine.Model.TurnTaker,Handelabra.Sentinels.Engine.Controller.CardSource)">
             <summary>
             The provided Card moves into the provided TurnTaker's PlayArea without actually playing it.
@@ -4904,6 +5377,16 @@
             </summary>
             <param name="pool">The TokenPool to which tokens will be added.</param>
             <param name="numberOfTokens">The number of tokens to add to the TokenPool.</param>
+            <param name="cardSource">The CardSource of the CardController that is calling this method.</param>
+            <returns>The coroutine to be executed.</returns>
+        </member>
+        <member name="M:Handelabra.Sentinels.Engine.Controller.GameController.AddTokensToPoolEx(Handelabra.Sentinels.Engine.Model.TokenPool,System.Int32,System.Collections.Generic.List{Handelabra.Sentinels.Engine.Controller.AddTokensToPoolAction},Handelabra.Sentinels.Engine.Controller.CardSource)">
+            <summary>
+            Adds the provided number of tokens to the provided TokenPool.
+            </summary>
+            <param name="pool">The TokenPool to which tokens will be added.</param>
+            <param name="numberOfTokens">The number of tokens to add to the TokenPool.</param>
+            <param name="storedResults">Stores all AddTokensToPoolActions that result from the call to this method.</param>
             <param name="cardSource">The CardSource of the CardController that is calling this method.</param>
             <returns>The coroutine to be executed.</returns>
         </member>
@@ -5463,6 +5946,30 @@
             <param name="cardSource">The CardSource of the CardController that is calling this method.</param>
             <returns>The coroutine to be executed.</returns>
         </member>
+        <member name="M:Handelabra.Sentinels.Engine.Controller.GameController.AskCardControllersIfIsHeroTarget(Handelabra.Sentinels.Engine.Model.Card,Handelabra.Sentinels.Engine.Controller.CardSource)">
+            <summary>
+            Asks CardControllers whether or not the provided Card is considered to be a Hero Target.
+            </summary>
+            <param name="card">The Card that may or may not be considered a Hero Target.</param>
+            <param name="cardSource">The CardSource of the CardController that is calling this method.</param>
+            <returns>The coroutine to be executed.</returns>
+        </member>
+        <member name="M:Handelabra.Sentinels.Engine.Controller.GameController.AskCardControllersIfIsHero(Handelabra.Sentinels.Engine.Model.Card,Handelabra.Sentinels.Engine.Controller.CardSource)">
+            <summary>
+            Asks CardControllers whether or not the provided Card is considered to be a Hero.
+            </summary>
+            <param name="card">The Card that may or may not be considered a Hero.</param>
+            <param name="cardSource">The CardSource of the CardController that is calling this method.</param>
+            <returns>The coroutine to be executed.</returns>
+        </member>
+        <member name="M:Handelabra.Sentinels.Engine.Controller.GameController.AskCardControllersIfIsHero(Handelabra.Sentinels.Engine.Model.TurnTaker,Handelabra.Sentinels.Engine.Controller.CardSource)">
+            <summary>
+            Asks CardControllers whether or not the provided TurnTaker is considered to be a Hero.
+            </summary>
+            <param name="tt">The TurnTaker that may or may not be considered a Hero.</param>
+            <param name="cardSource">The CardSource of the CardController that is calling this method.</param>
+            <returns>The coroutine to be executed.</returns>
+        </member>
         <member name="M:Handelabra.Sentinels.Engine.Controller.GameController.IsInCardControllerList(Handelabra.Sentinels.Engine.Model.Card,Handelabra.Sentinels.Engine.Controller.CardControllerListType)">
             <summary>
             Returns whether or not the provided Card is in the provided CardControllerListType, which determines whether or not it will have its associated "Ask()" methods called.
@@ -5477,6 +5984,13 @@
             </summary>
             <param name="card">The Card that may or may not be an Equipment Card.</param>
             <returns>Whether or not the provided Card is considered to be an Equipment Card.</returns>
+        </member>
+        <member name="M:Handelabra.Sentinels.Engine.Controller.GameController.IsOngoing(Handelabra.Sentinels.Engine.Model.Card)">
+            <summary>
+            Returns whether or not the provided Card is considered to be an Ongoing Card.
+            </summary>
+            <param name="card">The Card that may or may not be an Ongoing Card.</param>
+            <returns>Whether or not the provided Card is considered to be an Ongoing Card.</returns>
         </member>
         <member name="M:Handelabra.Sentinels.Engine.Controller.GameController.IsMechanicalGolem(Handelabra.Sentinels.Engine.Model.Card)">
             <summary>
@@ -5548,6 +6062,14 @@
             <returns>The coroutine to be executed.</returns>
         </member>
         <member name="M:Handelabra.Sentinels.Engine.Controller.GameController.DoesCardPreventSelectionOfCharacter(System.String,Handelabra.Sentinels.Engine.Model.Card)">
+            <summary>
+            When selecting a Card from the box, returns whether or not the provided Card prevents another Card with the provided identifier to be prevented from being selected.
+            </summary>
+            <param name="identifier">The identifier of the Card to be selected from the box, which may be prevented.</param>
+            <param name="card">The Card that may prevent the Card with matching "identifier" from being selected.</param>
+            <returns>Whether or not the provided Card prevents another Card with the provided identifier to be prevented from being selected.</returns>
+        </member>
+        <member name="M:Handelabra.Sentinels.Engine.Controller.GameController.DoesCardPreventSelectionOfCharacterEx(System.String,Handelabra.Sentinels.Engine.Model.Card,System.Boolean)">
             <summary>
             When selecting a Card from the box, returns whether or not the provided Card prevents another Card with the provided identifier to be prevented from being selected.
             </summary>
@@ -5648,6 +6170,29 @@
             <param name="cardSource">The CardSource of the CardController that is calling this method.</param>
             <returns>The coroutine to be executed.</returns>
         </member>
+        <member name="M:Handelabra.Sentinels.Engine.Controller.GameController.GetVisibleLocations(System.Func{Handelabra.Sentinels.Engine.Controller.TurnTakerController,System.Boolean},System.Func{Handelabra.Sentinels.Engine.Model.Location,System.Boolean},System.Boolean,System.Boolean,Handelabra.Sentinels.Engine.Controller.CardSource)">
+            <summary>
+            Returns a list of real locations that match the passed in criteria and are visible to the CardSource
+            </summary>
+            <param name="turnTakerCriteria"></param>
+            <param name="locationCriteria"></param>
+            <param name="isDeck"></param>
+            <param name="isTrash"></param>
+            <param name="cardSource"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Handelabra.Sentinels.Engine.Controller.GameController.DoesVisibleLocationMatchCriteria(Handelabra.Sentinels.Engine.Model.Location,System.Func{Handelabra.Sentinels.Engine.Controller.TurnTakerController,System.Boolean},System.Func{Handelabra.Sentinels.Engine.Model.Location,System.Boolean},System.Boolean,System.Boolean,Handelabra.Sentinels.Engine.Controller.CardSource)">
+            <summary>
+            Returns whether or not the passed in Location is real, matches the passed in criteria, and is visible to the CardSource
+            </summary>
+            <param name="l"></param>
+            <param name="turnTakerCriteria"></param>
+            <param name="locationCriteria"></param>
+            <param name="isDeck"></param>
+            <param name="isTrash"></param>
+            <param name="cardSource"></param>
+            <returns></returns>
+        </member>
         <member name="M:Handelabra.Sentinels.Engine.Controller.GameController.IsCardLocationVisibleToSource(Handelabra.Sentinels.Engine.Controller.CardController,Handelabra.Sentinels.Engine.Controller.CardSource)">
             <summary>
             Returns whether or not the Location of the provided CardController is visible to the CardSource.
@@ -5729,6 +6274,24 @@
             </summary>
             <param name="card">The Card whose NativeDeck will be returned.</param>
             <returns>The Native Deck to the Card provided.</returns>
+        </member>
+        <member name="M:Handelabra.Sentinels.Engine.Controller.GameController.GetExpressionForCardCriteria(Handelabra.Sentinels.Engine.Model.CardCriteria,Handelabra.Sentinels.Engine.Controller.CardSource)">
+            <summary>
+            Returns the Function expression for a given CardCriteria
+            Used in place of old CardCriteria.GetExpression() to allow for dynamic Hero/Villain checking
+            </summary>
+            <param name="criteria">The CardCriteria being evaluated for the expression</param>
+            <param name="cardSource">The CardSource evaluating the expression (if any)</param>
+            <returns>The expression that evaluates the card based on the passed in CardCriteria</returns>
+        </member>
+        <member name="M:Handelabra.Sentinels.Engine.Controller.GameController.GetExpressionForTurnTakerCriteria(Handelabra.Sentinels.Engine.TurnTakerCriteria,Handelabra.Sentinels.Engine.Controller.CardSource)">
+            <summary>
+            Returns the Function expression for a given TurnTakerCriteria
+            Used in place of old TurnTakerCriteria.GetExpression() to allow for dynamic Hero/Villain checking
+            </summary>
+            <param name="criteria">The TurnTakerCriteria being evaluated for the expression</param>
+            <param name="cardSource">The CardSource evaluating the expression (if any)</param>
+            <returns>The expression that evaluates the card based on the passed in CardCriteria</returns>
         </member>
         <member name="T:Handelabra.Sentinels.Engine.Controller.CancelAction">
             <summary>
@@ -5869,9 +6432,16 @@
         </member>
         <member name="M:Handelabra.Sentinels.Engine.Controller.DestroyCardAction.AddAfterDestroyedAction(System.Func{System.Collections.IEnumerator},Handelabra.Sentinels.Engine.Controller.CardController)">
             <summary>
-            These methods are ran after the card has been fully destroyed.
+            These methods are run after the card has been fully destroyed.
             This exists because any "After" triggers applied to a DestroyCardAction actually happen before the game controller is fully finished destroying the card, as per the rules.
             Example cards: Sustained Influence, Prime Wardens Captain Cosmic.
+            </summary>
+        </member>
+        <member name="M:Handelabra.Sentinels.Engine.Controller.DestroyCardAction.AddCleanUpAction(System.Func{System.Collections.IEnumerator},Handelabra.Sentinels.Engine.Controller.CardController)">
+            <summary>
+            These methods are run after all triggers and other actions
+            This exists for tracking elements and hidden responses, which should occur even if the After Destroy actions are prevented
+            Example card: Controlled Demolition
             </summary>
         </member>
         <member name="T:Handelabra.Sentinels.Engine.Controller.DiscardCardAction">
@@ -6138,6 +6708,11 @@
             Decision that allows for a Yes/No answer, including a relevant amount, such as the number of Cards involved.
             </summary>
         </member>
+        <member name="P:Handelabra.Sentinels.Engine.Controller.YesNoAmountDecision.Amount">
+            <summary>
+            The amount of whatever it is we're asking about.
+            </summary>
+        </member>
         <member name="P:Handelabra.Sentinels.Engine.Controller.YesNoAmountDecision.UpTo">
             <summary>
             If true, it means that the decision takes affect on "up to" the amount, rather than the exact amount.
@@ -6153,6 +6728,34 @@
             Decision that selects a DamageType from a choice of DamageTypes.
             </summary>
         </member>
+        <member name="T:Handelabra.Sentinels.Engine.Controller.RevealedCardDisplay">
+            <summary>
+            Indicates to the UI how revealed cards should be shown.
+            </summary>
+        </member>
+        <member name="F:Handelabra.Sentinels.Engine.Controller.RevealedCardDisplay.None">
+            <summary>
+            Do not show the revealed cards at all.
+            </summary>
+        </member>
+        <member name="F:Handelabra.Sentinels.Engine.Controller.RevealedCardDisplay.Message">
+            <summary>
+            Show a message listing the revealed cards. The card source and the first revealed card are shown.
+            The message prompt will be shown at medium priority with the player's preferred message display time.
+            </summary>
+        </member>
+        <member name="F:Handelabra.Sentinels.Engine.Controller.RevealedCardDisplay.ShowMatchingCards">
+            <summary>
+            Any revealed cards that matched the criteria are shown with a draw card animation.
+            </summary>
+        </member>
+        <member name="F:Handelabra.Sentinels.Engine.Controller.RevealedCardDisplay.ShowRevealedCards">
+            <summary>
+            All of the revealed cards are shown and a click/tap is required to continue.
+            If there is a single card, it will appear as a message prompt with unlimited duration.
+            If there are multiple cards, they will appear in a grid.
+            </summary>
+        </member>
         <member name="T:Handelabra.Sentinels.Engine.Controller.RevealCardsAction">
             <summary>
             GameAction that reveals Cards at a Location.
@@ -6164,9 +6767,29 @@
             Subclasses of this should call base on AddTriggers() if overriding it.
             </summary>
         </member>
+        <member name="M:Handelabra.Sentinels.Engine.Controller.CharacterCardController.ShouldChangeCutout(Handelabra.Sentinels.Engine.Controller.CutoutInfo,Handelabra.Sentinels.Engine.Controller.GameAction,Handelabra.Sentinels.Engine.Controller.ActionTiming,Handelabra.Sentinels.Engine.Controller.CutoutInfo@,Handelabra.Sentinels.Engine.Controller.CutoutAnimation@)">
+            <summary>
+            Override this if you want to show dynamic character cutout art. This method is called multiple times for every game action, so be considerate of performance.
+            For example, check that the action is the type you're interested in before doing any lookups, etc.
+            Be sure to call base if you override this (changedInfo is initialized with currentInfo; HeroCharacterCardController provides automatic support for damaged cutouts).
+            Currently supported: multiple effect images (The Naturalist), changing main images (Guise), multiple additional regular images (Meta-Mind), damaged cutouts (all)
+            </summary>
+            <param name="currentInfo">The info for the current cutout art being shown.</param>
+            <param name="action">The game action that is occuring. If null, it's the start of the game (or a game is being loaded).</param>
+            <param name="timing">The timing of the call (this can be important if you need to change a cutout before a page flip animation, etc).</param>
+            <param name="changedInfo">Populate this info with the changes you want to make.</param>
+            <param name="animation">Indicate what sort of animation (if any) should be used for the changes.</param>
+            <returns>If you return true, the view will look at the changedInfo and apply the changes. If you return false, it will do nothing.</returns>
+        </member>
         <member name="T:Handelabra.Sentinels.Engine.Controller.Power">
             <summary>
             Contains information related to a Power that can be used.
+            </summary>
+        </member>
+        <member name="P:Handelabra.Sentinels.Engine.Controller.Power.MethodCall">
+            <summary>
+            A Func that performs the method for this Power
+            Used to perform the code at the time of the call (as opposed to when the Power is created)
             </summary>
         </member>
         <member name="P:Handelabra.Sentinels.Engine.Controller.Power.IsContributionFromCardSource">
@@ -6310,7 +6933,7 @@
         </member>
         <member name="P:Handelabra.Sentinels.Engine.Controller.SelectTurnTakersDecision.Completed">
             <summary>
-            The SelectTurnTakersDecision is considered done when either it has been manually set to done through FinishedSelecting, or when the number of SelectCardDecisions has reached the "NumberOfCards" value.
+            The SelectTurnTakersDecision is considered done when either it has been manually set to done through FinishedSelecting, or when the number of SelectTurnTakerDecisions has reached the "NumberOfCards" value.
             </summary>
         </member>
         <member name="P:Handelabra.Sentinels.Engine.Controller.SelectTurnTakersDecision.EliminateOptions">
@@ -6362,6 +6985,12 @@
         <member name="P:Handelabra.Sentinels.Engine.Controller.DealDamageAction.IsResolved">
             <summary>
             Set to true once "DoActionOnSuccess" has completed or is cancelled.
+            </summary>
+        </member>
+        <member name="P:Handelabra.Sentinels.Engine.Controller.DealDamageAction.JournalEntry">
+            <summary>
+            The DealDamageJournalEntry for this DealDamageAction (if any)
+            Before execution this will be null
             </summary>
         </member>
         <member name="T:Handelabra.Sentinels.Engine.Controller.ChangeDamageTypeAction">
@@ -6555,6 +7184,11 @@
             Show a message if the card is limited, not in play, and a copy of it already is in play.
             </summary>
         </member>
+        <member name="M:Handelabra.Sentinels.Engine.Controller.SpecialStringMaker.ShowIfFaceUpAndInDeck">
+            <summary>
+            Show a message if the card is face up.
+            </summary>
+        </member>
         <member name="M:Handelabra.Sentinels.Engine.Controller.SpecialStringMaker.ShowTokenPool(Handelabra.Sentinels.Engine.Model.TokenPool,Handelabra.Sentinels.Engine.Controller.CardController,System.String)">
             <summary>
             Shows the token pool.
@@ -6563,6 +7197,33 @@
             <param name="pool">Pool.</param>
             <param name="source">Source.</param>
             <param name="format">Format string with 4 parameters: "is/are", pool value, "token/tokens", name of pool. </param>
+        </member>
+        <member name="M:Handelabra.Sentinels.Engine.Controller.SpecialStringMaker.ShowTokenPool(Handelabra.Sentinels.Engine.Model.TokenPool,System.Func{System.Boolean},Handelabra.Sentinels.Engine.Controller.CardController,System.String)">
+            <summary>
+            Shows the token pool.
+            </summary>
+            <returns>The token pool.</returns>
+            <param name="pool">Pool.</param>
+            <param name="source">Source.</param>
+            <param name="format">Format string with 4 parameters: "is/are", pool value, "token/tokens", name of pool. </param>
+        </member>
+        <member name="M:Handelabra.Sentinels.Engine.Controller.SpecialStringMaker.ShowHeroWithMostCards(System.Boolean,Handelabra.Sentinels.Engine.Controller.LinqCardCriteria,System.Func{System.Boolean})">
+            <summary>
+            Show the hero with the most cards (in their play area or in hand). This does not count cards in their play area owned by other turn takers.
+            </summary>
+            <param name="inHand">If true checks cards in hand, if false checks in their play area.</param>
+            <param name="additionalCriteria">Any additional filtering criteria</param>
+            <param name="showInEffectsList">Whether or not to show it in the effects list</param>
+            <returns>A special string!</returns>
+        </member>
+        <member name="M:Handelabra.Sentinels.Engine.Controller.SpecialStringMaker.ShowHeroWithFewestCards(System.Boolean,Handelabra.Sentinels.Engine.Controller.LinqCardCriteria,System.Func{System.Boolean})">
+            <summary>
+            Show the hero with the fewest cards (in their play area or in hand).
+            </summary>
+            <param name="inHand">If true checks cards in hand, if false checks in their play area.</param>
+            <param name="additionalCriteria">Any additional filtering criteria</param>
+            <param name="showInEffectsList">Whether or not to show it in the effects list</param>
+            <returns>A special string!</returns>
         </member>
         <member name="T:Handelabra.Sentinels.Engine.Controller.LinqCardCriteria">
             <summary>
@@ -6580,10 +7241,26 @@
             Example: The hero with the lowest HP.
             </summary>
         </member>
+        <member name="F:Handelabra.Sentinels.Engine.Controller.PlagueRat.SewerFiendCardController.infectedCriteria">
+            <summary>
+            Depricated
+            </summary>
+        </member>
+        <member name="F:Handelabra.Sentinels.Engine.Controller.PlagueRat.PlagueRatCharacterCardController.infectedHeroes">
+            <summary>
+            Depricated
+            </summary>
+        </member>
         <member name="T:Handelabra.Sentinels.Engine.Controller.ActivatableAbility">
             <summary>
             Contains all information related to an Ability text that is usable by a hero.
             Example: The Argent Adept's "Perform" and "Accompany" text his Cards.
+            </summary>
+        </member>
+        <member name="P:Handelabra.Sentinels.Engine.Controller.ActivatableAbility.MethodCall">
+            <summary>
+            A Func that performs the method for this Activatable Ability
+            Used to perform the code at the time of the call (as opposed to when the Ability is created)
             </summary>
         </member>
         <member name="T:Handelabra.Sentinels.Engine.Controller.ActivateAbilityDecision">
@@ -6637,40 +7314,6 @@
         <member name="P:Handelabra.Sentinels.Engine.Controller.DecisionBase.ExtraInfo">
             <summary>
             If not null, this string will be shown in association with the decision.
-            </summary>
-        </member>
-        <member name="M:Handelabra.Sentinels.Engine.Controller.Achievements.AchievementManager.LoadAchievementControllers(System.Collections.Generic.IEnumerable{Handelabra.Sentinels.Engine.Controller.Achievements.Achievement},System.Boolean)">
-            <summary>
-            Loads all achievements that have a controller matching the list of identifiers provided.
-            If the achievement is achievable this game, it will be checked for.
-            </summary>
-        </member>
-        <member name="M:Handelabra.Sentinels.Engine.Controller.Achievements.AchievementManager.CheckForAchievements(Handelabra.Sentinels.Engine.Controller.GameAction)">
-            <summary>
-            Checks all achievement controllers to see if any of them have just been unlocked by the most recent action.
-            </summary>
-            <returns>A list of any achievements that have just been unlocked.</returns>
-            <param name="gameAction">The most recent game action.</param>
-        </member>
-        <member name="M:Handelabra.Sentinels.Engine.Controller.Achievements.IncrementalAchievementController.CheckForIncrement(Handelabra.Sentinels.Engine.Controller.GameAction)">
-            <summary>
-            Checks for increment and returns the new total progress (from 0.0 to 100.0)
-            Returns null if the check did not change the progress.
-            </summary>
-        </member>
-        <member name="M:Handelabra.Sentinels.Engine.Controller.Achievements.IncrementalAchievementController.GetProgress">
-            <summary>
-            Get the current progress based on persistent storage. Defaults to getting a single double based on the achievement identifier.
-            </summary>
-        </member>
-        <member name="M:Handelabra.Sentinels.Engine.Controller.Achievements.IncrementalAchievementController.SetProgress(System.Double)">
-            <summary>
-            Saves the current progress to persistent storage. Defaults to using a single double based on the achievement identifier.
-            </summary>
-        </member>
-        <member name="M:Handelabra.Sentinels.Engine.Controller.Achievements.IncrementalAchievementController.ClearProgress">
-            <summary>
-            Clears the progress from persistent storage.
             </summary>
         </member>
         <member name="T:Handelabra.Sentinels.Engine.Controller.UnlockAchievementAction">
@@ -6801,7 +7444,7 @@
         </member>
         <member name="T:Handelabra.Sentinels.Engine.Controller.ShuffleCardsAction">
             <summary>
-            GameActin that shuffles the Cards at the provided Location.
+            GameAction that shuffles the Cards at the provided Location.
             </summary>
         </member>
         <member name="T:Handelabra.Sentinels.Engine.Controller.ShuffleTrashIntoDeckAction">
@@ -6903,6 +7546,21 @@
             <summary>
             The TurnTakerController, which is created to represent each TurnTaker in the Game.
             </summary>
+        </member>
+        <member name="P:Handelabra.Sentinels.Engine.Controller.TurnTakerController.IsPlayer">
+            <summary>
+            Whether or not this TurnTaker represents a player (i.e. a HeroTurnTaker with a hand)
+            </summary>
+        </member>
+        <member name="M:Handelabra.Sentinels.Engine.Controller.TurnTakerController.PutCardsIntoPlay(Handelabra.Sentinels.Engine.Controller.LinqCardCriteria,System.Int32,System.Boolean)">
+            <summary>
+            Put a number of cards into play; this is normally used as part of villain setup.
+            Note that this actually plays them from the bottom of the deck, not the top!
+            </summary>
+            <param name="cardCriteria">Play cards matching this criteria (required).</param>
+            <param name="numberOfCards">The number of cards to play.</param>
+            <param name="shuffleDeckAfter">Whether or not to shuffle the deck afterward.</param>
+            <returns>The coroutine to be executed</returns>
         </member>
         <member name="T:Handelabra.Sentinels.Engine.Controller.TurnTakerControllerFactory">
             <summary>
@@ -7128,6 +7786,11 @@
             GameAction that makes the damage unincreasable for a DealDamageAction.
             </summary>
         </member>
+        <member name="P:Handelabra.Sentinels.Engine.Controller.MMFFCC.MazeOfMirrorsCardController.AskPriority">
+            <summary>
+            Have a number greater than 0 (basic priority) so that this recursive call happens before other calls
+            </summary>
+        </member>
         <member name="T:Handelabra.Sentinels.Engine.Controller.EntersPlayAction">
             <summary>
             Superclass for GameActions that indicate a Card entering play.
@@ -7170,6 +7833,11 @@
         <member name="T:Handelabra.Sentinels.Engine.Controller.HeroCharacterCardController">
             <summary>
             A special CharacterCardController specifically for Heroes.
+            </summary>
+        </member>
+        <member name="P:Handelabra.Sentinels.Engine.Controller.HeroCharacterCardController.DamagedCutoutThreshold">
+            <summary>
+            Override this to change the HP threshold where the "Damaged" cutout will be shown (or return null to disable damaged cutouts entirely).
             </summary>
         </member>
         <member name="T:Handelabra.Sentinels.Engine.Controller.VillainCharacterCardController">
@@ -7338,6 +8006,71 @@
             <param name="skipText">Skip button text, defaults to "Skip". Normally you don't need to change this. Details: <see cref="F:Handelabra.Sentinels.Engine.Controller.CustomDecisionText.Key.SkipText"/></param>
             <param name="autoDecideText">Choose for me button text, defaults to "Choose for me". Normally you don't need to change this. Details: <see cref="F:Handelabra.Sentinels.Engine.Controller.CustomDecisionText.Key.AutoDecideText"/></param>
         </member>
+        <member name="T:Handelabra.Sentinels.Engine.Controller.CutoutAnimation">
+            <summary>
+            Animation style for changing character cutout artwork.
+            </summary>
+        </member>
+        <member name="T:Handelabra.Sentinels.Engine.Controller.CutoutInfo">
+            <summary>
+            Encapsulation of information about the display of character cutout artwork.
+            </summary>
+        </member>
+        <member name="F:Handelabra.Sentinels.Engine.Controller.CutoutInfo.Identifier">
+            <summary>
+            This is normally the character card PromoIdentifierOrIdentifier, but it can be something else (for having a variety of effect images).
+            </summary>
+        </member>
+        <member name="F:Handelabra.Sentinels.Engine.Controller.CutoutInfo.ExtraCutouts">
+            <summary>
+            Any additional cutouts that should be shown on top of the main cutout (effects or otherwise).
+            </summary>
+        </member>
+        <member name="F:Handelabra.Sentinels.Engine.Controller.CutoutInfo.Depth">
+            <summary>
+            Depth offset for this cutout (mainly used for extra cutouts).
+            </summary>
+        </member>
+        <member name="F:Handelabra.Sentinels.Engine.Controller.CutoutInfo.OffsetX">
+            <summary>
+            Horizontal relative offset of this cutout (between 0f and 1f) - mainly used for extra cutouts.
+            </summary>
+        </member>
+        <member name="F:Handelabra.Sentinels.Engine.Controller.CutoutInfo.OffsetY">
+            <summary>
+            Vertical relative offset of this cutout (between 0f and 1f) - mainly used for extra cutouts.
+            </summary>
+        </member>
+        <member name="F:Handelabra.Sentinels.Engine.Controller.CutoutInfo.IsEffect">
+            <summary>
+            If true, the cutout will be rendered as an effect texture with animated opacity.
+            </summary>
+        </member>
+        <member name="F:Handelabra.Sentinels.Engine.Controller.CutoutInfo.EffectDuration">
+            <summary>
+            Factor to apply to the effect opacity animation duration.
+            </summary>
+        </member>
+        <member name="F:Handelabra.Sentinels.Engine.Controller.CutoutInfo.HeroTurnSuffix">
+            <summary>
+            Texture file name suffix to use on the hero turn (e.g. Guise has special hero turn cutouts, but not villain turn cutouts).
+            </summary>
+        </member>
+        <member name="F:Handelabra.Sentinels.Engine.Controller.CutoutInfo.VillainTurnSuffix">
+            <summary>
+            Texture file name suffix to use on the villain turn.
+            </summary>
+        </member>
+        <member name="F:Handelabra.Sentinels.Engine.Controller.CutoutInfo.HeroTurnDamaged">
+            <summary>
+            If true, show the "Damaged" cutout on hero turns.
+            </summary>
+        </member>
+        <member name="F:Handelabra.Sentinels.Engine.Controller.CutoutInfo.VillainTurnDamaged">
+            <summary>
+            If true, show the "Damaged" cutout on villain turns.
+            </summary>
+        </member>
         <member name="F:Handelabra.Sentinels.Engine.Model.Card._useAlternateTitle">
             <summary>
             Gets or sets use of the alternate title.
@@ -7348,6 +8081,23 @@
             <summary>
             If set to true by its controller, this card may go beyond its max HP.
             Needs to be in the model so that CardCriteria can evaluate it.
+            </summary>
+        </member>
+        <member name="F:Handelabra.Sentinels.Engine.Model.Card._overrideIfReal">
+            <summary>
+            Used to override if a card is real or not
+            Used by Setting Sun Ra in OA mode when it 'removes itself from the game' if the last hero and there are rewards to save
+            </summary>
+        </member>
+        <member name="F:Handelabra.Sentinels.Engine.Model.Card._isBlank">
+            <summary>
+            Whether or not this card is currently Blank (caused by some other card effect)
+            </summary>
+        </member>
+        <member name="F:Handelabra.Sentinels.Engine.Model.Card._isPositionKnown">
+            <summary>
+            Whether or not this card's position is known
+            A card's position is not known when it is in a deck or face down in a location
             </summary>
         </member>
         <member name="P:Handelabra.Sentinels.Engine.Model.Card.IsFaceUp">
@@ -7371,6 +8121,21 @@
             Gets a value indicating whether this instance is a card that is face-down in play without a flip side.
             </summary>
             <value><c>true</c> if this instance is a non-character card that is face-down in play; otherwise, <c>false</c>.</value>
+        </member>
+        <member name="P:Handelabra.Sentinels.Engine.Model.Card.IsVillainTarget">
+            <summary>
+            Deprecated - Instead use CardController.IsVillainTarget()
+            </summary>
+        </member>
+        <member name="P:Handelabra.Sentinels.Engine.Model.Card.IsHeroTarget">
+            <summary>
+            Deprecated - Instead use CardController.IsHeroTarget()
+            </summary>
+        </member>
+        <member name="P:Handelabra.Sentinels.Engine.Model.Card.IsNonVillainTarget">
+            <summary>
+            Deprecated - Instead use IsTarget &amp;&amp; !CardController.IsVillainTarget()
+            </summary>
         </member>
         <member name="P:Handelabra.Sentinels.Engine.Model.Card.IsInfected">
             <summary>
@@ -7426,6 +8191,16 @@
             This needs to be in the model so that CardCriteria can evaluate it, and should be set in the Controller's constructor.
             </summary>
         </member>
+        <member name="P:Handelabra.Sentinels.Engine.Model.Card.IsBlank">
+            <summary>
+            Whether or not this card is currently Blank (caused by some other card effect)
+            </summary>
+        </member>
+        <member name="P:Handelabra.Sentinels.Engine.Model.Card.IsPositionKnown">
+            <summary>
+            Whether or not this card's position is currently known to the players
+            </summary>
+        </member>
         <member name="M:Handelabra.Sentinels.Engine.Model.Card.SetHitPoints(System.Int32)">
             <summary>
             Sets the current HP of this card to the specified amount.
@@ -7458,6 +8233,11 @@
         <member name="P:Handelabra.Sentinels.Engine.Model.CardDefinition.QualifiedPromoIdentifierOrIdentifier">
             <summary>
             The promo identifier or identifier of the card including namespace if specified (i.e. from a mod)
+            </summary>
+        </member>
+        <member name="P:Handelabra.Sentinels.Engine.Model.CardDefinition.QualifiedIdentifier">
+            <summary>
+            The identifier of the card including namespace if specified (i.e. from a mod)
             </summary>
         </member>
         <member name="P:Handelabra.Sentinels.Engine.Model.CardDefinition.OverrideTurnTakerController">
@@ -7508,7 +8288,7 @@
             A reason why a card cannot deal damage.
             </summary>
         </member>
-        <member name="M:Handelabra.Sentinels.Engine.Model.Game.#ctor(System.Collections.Generic.IEnumerable{System.String},System.Boolean,System.Collections.Generic.IDictionary{System.String,System.String},System.Nullable{System.Int32},System.Boolean,System.Random,System.Collections.Generic.HashSet{System.String},System.Collections.Generic.IEnumerable{System.String},System.Boolean,System.Collections.Generic.IEnumerable{System.String},System.String,System.Collections.Generic.IEnumerable{System.String})">
+        <member name="M:Handelabra.Sentinels.Engine.Model.Game.#ctor(System.Collections.Generic.IEnumerable{System.String},System.Boolean,System.Collections.Generic.IDictionary{System.String,System.String},System.Nullable{System.Int32},System.Boolean,Handelabra.SerializableRandom,System.Collections.Generic.HashSet{System.String},System.Collections.Generic.IEnumerable{System.String},System.Boolean,System.Collections.Generic.IEnumerable{System.String},System.String,System.Collections.Generic.IEnumerable{System.String})">
             <summary>
             Initializes a new instance of the <see cref="T:Handelabra.Sentinels.Engine.Model.Game"/> class.
             </summary>
@@ -7597,6 +8377,16 @@
             Set this value to override the IsInPlay property to a specific value.
             </summary>
         </member>
+        <member name="P:Handelabra.Sentinels.Engine.Model.Location.IsDeck">
+            <summary>
+            This is true if the location is either a Deck or a Subdeck.
+            </summary>
+        </member>
+        <member name="P:Handelabra.Sentinels.Engine.Model.Location.IsTrash">
+            <summary>
+            This is true if the location is either a Trash or a Subtrash.
+            </summary>
+        </member>
         <member name="P:Handelabra.Sentinels.Engine.Model.Location.IsHeroPlayAreaRecursive">
             <summary>
             Returns true if this is a hero play area or a "next to" location within a hero play area.
@@ -7625,6 +8415,12 @@
             Returns whether or not this location is in the play area of the provided turn taker.
             For example, this would return true if it were that turn taker's play area, or next to/under a card in that play area.
             </summary>
+        </member>
+        <member name="M:Handelabra.Sentinels.Engine.Model.TurnPhase.GetPhaseActionCount">
+            <summary>
+            Depricated - use GameController.GetPhaseActionCount(TurnPhase) instead
+            </summary>
+            <returns></returns>
         </member>
         <member name="P:Handelabra.Sentinels.Engine.Model.TurnTaker.PromoIdentifier">
             <summary>
@@ -7657,6 +8453,11 @@
             Recorded automatically during construction.
             </summary>
         </member>
+        <member name="P:Handelabra.Sentinels.Engine.Model.TurnTaker.IsPlayer">
+            <summary>
+            Whether or not this TurnTaker represents a player (i.e. a HeroTurnTaker with a hand)
+            </summary>
+        </member>
         <member name="P:Handelabra.Sentinels.Engine.Model.TurnTaker.QualifiedIdentifier">
             <summary>
             The identifier of the TurnTaker including namespace if specified (i.e. for mod decks)
@@ -7680,6 +8481,21 @@
             Updates the character card for this turn taker to the one provided.
             This should probably not be called directly, but by an action.
             </summary>
+        </member>
+        <member name="M:Handelabra.Sentinels.Engine.Model.TurnTaker.GetPlayAreaCards">
+            <summary>
+            Get all the cards in the play area, including cards next to and under other cards, and non-real cards.
+            </summary>
+            <returns>All the cards.</returns>
+        </member>
+        <member name="M:Handelabra.Sentinels.Engine.Model.TurnTaker.GetPlayAreaCards(System.Boolean,System.Boolean,System.Boolean)">
+            <summary>
+            Get all the cards in the play area that are in play with text
+            </summary>
+            <param name="includeNextTo">Whether or not to include cards next to cards</param>
+            <param name="includeUnder">Whether or not to include cards under cards</param>
+            <param name="includeBelow">Whether or not to include cards below cards</param>
+            <returns>All the cards.</returns>
         </member>
         <member name="M:Handelabra.Sentinels.Engine.Model.Journal.RecordChangeMaximumHP(Handelabra.Sentinels.Engine.Model.Card,System.Int32,System.Boolean)">
             <summary>
@@ -7844,6 +8660,11 @@
             If set to true, the comparison must be a card. If false, a turn taker could also be evaluated in rare cases. (Ex. Prime Wardens Tempest)
             </summary>
         </member>
+        <member name="M:Handelabra.Sentinels.Engine.Model.CardCriteria.GetExpression">
+            <summary>
+            Depricated - Use GameController.GetExpressionForCardCriteria(CardCriteria, CardSource) to get this logic instead
+            </summary>
+        </member>
         <member name="M:Handelabra.Sentinels.Engine.Model.CardCriteria.IsSingular">
             <summary>
             Returns true if this criteria applies to a single card only. Returns false if it could apply to more than one.
@@ -7967,6 +8788,12 @@
             <param name="assembly">The assembly with the mod's code</param>
             <returns>True if the promo card list was loaded successfully or was missing, false otherwise.</returns>
         </member>
+        <member name="T:Handelabra.Sentinels.Engine.Model.TopCardFaceUpStatusEffect">
+            <summary>
+            A status effect that looks for face-up cards belonging to a turn taker on top of their deck.
+            Checks DrawCardAction, PlayCardAction, MoveCardAction, and ShuffleCardsAction.
+            </summary>
+        </member>
         <member name="T:Handelabra.Sentinels.Engine.SentinelsEnumerationExtensions">
             <summary>
             A class that contains a helpful method that can be used anywhere in the code.
@@ -7975,6 +8802,11 @@
         <member name="T:Handelabra.Sentinels.Engine.TurnTakerCriteria">
             <summary>
             NOTE: The namespace for this class is incorrect but cannot be fixed because it's serialized (and would break loading old save games).
+            </summary>
+        </member>
+        <member name="M:Handelabra.Sentinels.Engine.TurnTakerCriteria.GetExpression">
+            <summary>
+            Depricated - Use GameController.GetExpressionForTurnTakerCriteria(TurnTakerCriteria, CardSource) to get this logic instead
             </summary>
         </member>
         <member name="T:Handelabra.Sentinels.Engine.TargetRemovedExpiryCriteria">

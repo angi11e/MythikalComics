@@ -27,7 +27,7 @@ namespace Angille.Patina
 			// When a villain target deals damage to a hero target...
 			AddTrigger(
 				(DealDamageAction dd) =>
-					dd.Target.IsHero
+					IsHeroTarget(dd.Target)
 					&& dd.DamageSource.IsVillainTarget
 					&& dd.DidDealDamage,
 				RetributionResponse,
@@ -42,56 +42,51 @@ namespace Angille.Patina
 		private IEnumerator RetributionResponse(DealDamageAction dd)
 		{
 			// ...you may destroy this card.
-			List<YesNoCardDecision> storedResults = new List<YesNoCardDecision>();
-			IEnumerator yesNoCR = GameController.MakeYesNoCardDecision(
+			List<DestroyCardAction> actions = new List<DestroyCardAction>();
+			IEnumerator destroyCR = GameController.DestroyCard(
 				DecisionMaker,
-				SelectionType.DestroySelf,
 				this.Card,
-				storedResults: storedResults,
+				optional: true,
+				actions,
 				cardSource: GetCardSource()
 			);
 
 			if (UseUnityCoroutines)
 			{
-				yield return GameController.StartCoroutine(yesNoCR);
+				yield return GameController.StartCoroutine(destroyCR);
 			}
 			else
 			{
-				GameController.ExhaustCoroutine(yesNoCR);
+				GameController.ExhaustCoroutine(destroyCR);
 			}
 
 			// If you do so...
-			if (DidPlayerAnswerYes(storedResults))
+			if (actions.Any() && actions.FirstOrDefault().WasCardDestroyed)
 			{
-				// ...where X = the number of water cards in play plus 1.
-				int damageNumeral = FindCardsWhere(
-					(Card c) => c.IsInPlayAndHasGameText && IsWater(c) && !c.IsOneShot
-				).Count() + 1;
+				GameController.AddCardControllerToList(CardControllerListType.CanCauseDamageOutOfPlay, this);
+				GameController.AddInhibitorException(this, (GameAction g) => true);
+
 
 				// ...{Patina} deals the source of that damage X projectile damage...
 				IEnumerator dealDamageCR = DealDamage(
 					this.CharacterCard,
 					(Card c) => c.IsTarget && c == dd.DamageSource.Card,
-					damageNumeral,
+					// ...where X = the number of water cards in play plus 1.
+					WaterCardsInPlay + 1,
 					DamageType.Projectile
-				);
-				IEnumerator destroyCR = GameController.DestroyCard(
-					DecisionMaker,
-					this.Card,
-					optional: false,
-					cardSource: GetCardSource()
 				);
 
 				if (UseUnityCoroutines)
 				{
 					yield return GameController.StartCoroutine(dealDamageCR);
-					yield return GameController.StartCoroutine(destroyCR);
 				}
 				else
 				{
 					GameController.ExhaustCoroutine(dealDamageCR);
-					GameController.ExhaustCoroutine(destroyCR);
 				}
+
+				GameController.RemoveCardControllerFromList(CardControllerListType.CanCauseDamageOutOfPlay, this);
+				GameController.RemoveInhibitorException(this);
 			}
 
 			yield break;

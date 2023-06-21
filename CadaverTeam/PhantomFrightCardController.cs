@@ -28,8 +28,8 @@ namespace Angille.CadaverTeam
 			// The first time each turn a hero target deals damage to a villain target...
 			AddTrigger(
 				(DealDamageAction dda) =>
-					dda.DamageSource.IsHero
-					&& dda.Target.IsVillainTarget
+					dda.DamageSource.IsHeroTarget
+					&& IsVillainTarget(dda.Target)
 					&& !IsPropertyTrue(_FirstDamage),
 				RetributionResponse,
 				TriggerType.DealDamage,

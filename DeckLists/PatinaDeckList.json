@@ -48,8 +48,38 @@
 			"complexity": 1
 		},
 		{
+			"identifier": "ApplicationsInFluidics",
+			"count": 3,
+			"title": "Applications in Fluidics",
+			"keywords": [
+				"ongoing",
+				"water"
+			],
+			"body": [
+				"whenever a water card is destroyed, do one of the following:",
+				"{ 1 target regains 1 HP.{BR}{ 1 player draws 1 card.{BR}{ [i]Patina[/i] deals 1 target 1 cold or melee damage."
+			],
+			"icons": [
+				"GainHP",
+				"DealDamageCold",
+				"DealDamageMelee",
+				"DrawCardNow"
+			],
+			"flavorQuotes": [
+				{
+					"identifier": "Theurgy",
+					"text": "we're...{BR}at the bottom of the sea."
+				},
+				{
+					"identifier": "Kurayami",
+					"text": "Patina can{BR}use that. right?"
+				}
+			],
+			"flavorReference": "Deep Trouble (EC #19)"
+		},
+		{
 			"identifier": "FishOutOfWater",
-			"count": 4,
+			"count": 3,
 			"title": "Fish Out of Water",
 			"keywords": [
 				"one-shot",
@@ -79,7 +109,7 @@
 				"increase HP recovery caused by your cards and Powers by 1."
 			],
 			"powers": [
-				"1 target regains 2 HP. The next time that target is dealt damage, they regain 2 HP."
+				"1 target regains 1 HP. The next time that target is dealt damage, they regain 2 HP."
 			],
 			"icons": [
 				"HasPower",
@@ -121,12 +151,10 @@
 			],
 			"body": [
 				"Reduce cold, energy, fire, and radiant damage dealt to hero targets by the number of water cards in play.",
-				"At the end of your turn, {Patina} deals up to 2 targets 1 fire damage each.",
 				"When {Patina} would be dealt damage of a type reduced by this card, you may destroy this card. If you do, you may redirect that Damage to a Target of your choice."
 			],
 			"icons": [
 				"ReduceDamageTaken",
-				"DealDamageFire",
 				"RedirectDamage",
 				"DestroySelf"
 			],
@@ -167,13 +195,12 @@
 				"Whenever you play an equipment card from your hand, you may draw a card."
 			],
 			"powers": [
-				"You may move 1 equipment card from your trash into play. If no cards enter play this way, 1 hero other than {Patina} may play 1 card now."
+				"You may move 1 equipment card from your trash into play. If no cards enter play this way, 1 hero other than {Patina} may draw 1 card now."
 			],
 			"icons": [
 				"DrawCardNow",
 				"HasPower",
-				"Manipulate",
-				"PlayCardNow"
+				"Manipulate"
 			],
 			"flavorText": "“Always helps to bag things up.”",
 			"flavorReference": "Patina, Mist By an inch (EC #16)"
@@ -277,7 +304,7 @@
 				"DealDamagePsychic"
 			],
 			"flavorText": "“*burble*{BR}*burble*”",
-			"flavorReference": "summoned troopers, Fish Out of Water (EC #13)"
+			"flavorReference": "shocktroopers, Fish Out of Water (EC #13)"
 		},
 		{
 			"identifier": "WaterPunch",
@@ -300,22 +327,22 @@
 		},
 		{
 			"identifier": "WhipSplash",
-			"count": 4,
+			"count": 2,
 			"title": "Whip Splash",
 			"keywords": [
 				"ongoing",
 				"water"
 			],
 			"body": [
-				"Whenever a villain card would be played, you may destroy this card. If you do, one player other than {Patina} may draw a card instead."
+				"Whenever a villain card would be played, you may discard a card. If you do, remove this card from the game instead."
 			],
 			"powers": [
-				"Deal 1 target X cold or melee damage, where X = the number of water cards in play plus 1."
+				"{Patina} deals 1 target X cold or melee damage, where X = the number of water cards in play plus 1."
 			],
 			"icons": [
 				"Manipulate",
-				"DestroySelf",
-				"DrawCardNow",
+				"Discard",
+				"RemoveFromGame",
 				"DealDamage"
 			],
 			"flavorText": "“More of that, if ye please.{BR}cannae hypnotize without{BR}that amulet!”",

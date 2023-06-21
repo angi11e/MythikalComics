@@ -184,7 +184,7 @@ namespace Angille.WhatsHerFace
 				case 2:
 					// Destroy up to two ongoing cards. Only one may be a villain card.
 					LinqCardCriteria ongoingCriteria = new LinqCardCriteria(
-						(Card c) => c.IsOngoing && c.IsInPlay,
+						(Card c) => c.IsInPlay && IsOngoing(c),
 						"ongoing"
 					);
 					List<DestroyCardAction> destroySelection = new List<DestroyCardAction>();
@@ -207,10 +207,10 @@ namespace Angille.WhatsHerFace
 
 					if (DidDestroyCard(destroySelection))
 					{
-						if (destroySelection.FirstOrDefault().CardToDestroy.Card.IsVillain)
+						if (IsVillain(destroySelection.FirstOrDefault().CardToDestroy.Card))
 						{
 							ongoingCriteria = new LinqCardCriteria(
-								(Card c) => c.IsOngoing && c.IsInPlay && !c.IsVillain,
+								(Card c) => c.IsInPlay && !c.IsVillain && IsOngoing(c),
 								"ongoing"
 							);
 						}

@@ -15,7 +15,7 @@
 			"hitpointsColor": "FFA600",
 			"character": true,
 			"powers": [
-				"You may move one aspect card from your trash into play. {Athena} deals 1 target 1 radiant damage."
+				"You may move one manifest card from your trash into play. {Athena} deals 1 target 1 radiant damage."
 			],
 			"icons": [
 				"HasPower",
@@ -71,18 +71,17 @@
 			"identifier": "AegisOfAmalthea",
 			"count": 3,
 			"title": "Aegis of Amalthea",
-			"hitpoints": 5,
 			"keywords": [
-				"legend",
+				"equipment",
 				"limited"
 			],
 			"body": [
-				"Reduce Damage dealt to this card by 1.",
-				"Whenever a Hero Target in your play area would be dealt Damage, you may redirect it to this card."
+				"Whenever exactly 1 Damage would be dealt to {Athena}, prevent that Damage.",
+				"Damage dealt to {Athena} cannot be increased."
 			],
 			"icons": [
-				"ReduceDamageTaken",
-				"RedirectDamage"
+				"CancelledDamageGreen",
+				"MakeDamageUnincreasable"
 			],
 			"flavorText": "“Get behind me.”",
 			"flavorReference": "Athena, Mythikal Comics #521"
@@ -96,7 +95,7 @@
 			],
 			"body": [
 				"Choose a target. {Athena} and up to 2 other hero targets deal that target 1 radiant damage each.",
-				"If there is an aspect card in play, this damage is irreducible."
+				"If there is a manifest card in play, this damage is irreducible."
 			],
 			"icons": [
 				"DealDamageRadiant",
@@ -106,26 +105,33 @@
 			"flavorReference": "Athena, Anachronists #2"
 		},
 		{
-			"identifier": "Erichthonius",
-			"count": 2,
-			"title": "Erichthonius",
-			"hitpoints": 3,
+			"identifier": "Exaltation",
+			"count": 4,
+			"title": "Exaltation",
 			"keywords": [
-				"legend",
-				"limited"
+				"one-shot"
 			],
 			"body": [
-				"This card is immune to toxic damage.",
-				"The first time each turn {Athena} deals damage to a villain target, this card deals 1 target 1 melee damage.",
-				"At the end of your turn, if there is an aspect card in play, this card deals 1 target 1 toxic damage."
+				"You may draw a card.",
+				"Search your trash or deck for a manifest card and put it in your hand. If you searched your deck, shuffle your deck.",
+				"You may play a card."
 			],
 			"icons": [
-				"ImmuneToDamageToxic",
-				"DealDamageMelee",
-				"DealDamageToxic"
+				"DrawCardNow",
+				"Search",
+				"PlayCardNow"
 			],
-			"flavorText": "“I wasss a king, onssse.{BR}Long ago. Lossst to time.”",
-			"flavorReference": "Erichthonius, Mythikal Comics #86"
+			"flavorQuotes": [
+				{
+					"identifier": "Minnie",
+					"text": "How will I know when I'm ready?"
+				},
+				{
+					"identifier": "Astarte",
+					"text": "You're already there, hon."
+				}
+			],
+			"flavorReference": "Anachronists Promo"
 		},
 		{
 			"identifier": "Glaukopis",
@@ -133,10 +139,10 @@
 			"title": "Glaukopis",
 			"keywords": [
 				"ongoing",
-				"aspect"
+				"manifest"
 			],
 			"body": [
-				"When this card enters play, destroy your other aspect cards.",
+				"When this card enters play, destroy your other manifest cards.",
 				"You may look at the top card of your deck at any time."
 			],
 			"powers": [
@@ -179,7 +185,7 @@
 				"You may draw an additional card during your draw phase."
 			],
 			"powers": [
-				"Discard 3 cards. If you do so, draw 4 cards. then, if no aspect cards are in play, destroy this card."
+				"Discard 3 cards. If you do so, draw 4 cards. then, if no manifest cards are in play, destroy this card."
 			],
 			"icons": [
 				"DrawCardExtra",
@@ -199,7 +205,7 @@
 			],
 			"body": [
 				"Each hero target regains 1 HP.",
-				"If there is an aspect card in play, {Athena} deals each non-hero target 1 radiant damage."
+				"If there is a manifest card in play, {Athena} deals each non-hero target 1 radiant damage."
 			],
 			"icons": [
 				"GainHP",
@@ -207,28 +213,6 @@
 			],
 			"flavorText": "“Does she have to be so gol-derned{BR}[b]shiny[/b] when she does that?”",
 			"flavorReference": "Pecos Bill, Anachronists #2"
-		},
-		{
-			"identifier": "Nyctimene",
-			"count": 2,
-			"title": "Nyctimene",
-			"hitpoints": 3,
-			"keywords": [
-				"legend",
-				"limited"
-			],
-			"body": [
-				"This card is immune to psychic damage.",
-				"The first time each turn {Athena} deals damage to a villain target, this card deals 1 target 1 projectile damage.",
-				"At the end of your turn, if there is an aspect card in play, this card deals 1 target 1 psychic damage."
-			],
-			"icons": [
-				"ImmuneToDamagePsychic",
-				"DealDamageProjectile",
-				"DealDamagePsychic"
-			],
-			"flavorText": "“Forever your faithful servant of{BR}the night, my lady goddess.”",
-			"flavorReference": "Nyctimene, Mythikal Comics #86"
 		},
 		{
 			"identifier": "Oracle",
@@ -252,10 +236,10 @@
 			"title": "Pallas",
 			"keywords": [
 				"ongoing",
-				"aspect"
+				"manifest"
 			],
 			"body": [
-				"When this card enters play, destroy your other aspect cards.",
+				"When this card enters play, destroy your other manifest cards.",
 				"The first time each turn a villain target deals damage to a hero character other than {Athena}, {Athena} deals that target 2 melee damage."
 			],
 			"powers": [
@@ -276,14 +260,14 @@
 			"title": "Parthenos",
 			"keywords": [
 				"ongoing",
-				"aspect"
+				"manifest"
 			],
 			"body": [
-				"When this card enters play, destroy your other aspect cards.",
+				"When this card enters play, destroy your other manifest cards.",
 				"At the end of your turn, {Athena} regains 1 HP."
 			],
 			"powers": [
-				"Search your Deck or Trash for a legend card and put it into Play. If you searched your Deck, shuffle your Deck."
+				"Search your Deck or Trash for an equipment card and put it into Play. If you searched your Deck, shuffle your Deck."
 			],
 			"icons": [
 				"DestroyOngoing",
@@ -321,14 +305,14 @@
 			"title": "Promachos",
 			"keywords": [
 				"ongoing",
-				"aspect"
+				"manifest"
 			],
 			"body": [
-				"When this card enters play, destroy your other aspect cards.",
-				"Whenever a hero target is dealt damage, you may redirect it to {Athena}. Reduce damage redirected to {Athena} by 1."
+				"When this card enters play, destroy your other manifest cards.",
+				"Whenever a hero target is dealt damage, you may redirect it to {Athena}."
 			],
 			"powers": [
-				"{Athena} deals each non-hero target 1 sonic damage. Destroy 1 environment card."
+				"{Athena} deals each target 1 sonic damage. Destroy 1 environment card."
 			],
 			"icons": [
 				"DestroyOngoing",
@@ -349,7 +333,7 @@
 			],
 			"body": [
 				"Reduce damage dealt to {Athena} by 1.",
-				"After {Athena} is dealt damage by a non-Hero target, if there is an aspect card in play, she deals that target 1 melee Damage."
+				"After {Athena} is dealt damage by a non-Hero target, if there is a manifest card in play, she deals that target 1 melee Damage."
 			],
 			"icons": [
 				"ReduceDamageTaken",
@@ -364,10 +348,10 @@
 			"title": "Theonosis",
 			"keywords": [
 				"ongoing",
-				"aspect"
+				"manifest"
 			],
 			"body": [
-				"When this card enters play, destroy your other aspect cards.",
+				"When this card enters play, destroy your other manifest cards.",
 				"You may play an additional card during your play phase."
 			],
 			"powers": [
@@ -402,7 +386,7 @@
 			"hitpointsColor": "FCBA6A",
 			"character": true,
 			"powers": [
-				"If there is an aspect card in play, {Athena} deals 1 target 1 radiant and 1 melee damage. If not, draw 2 cards, then discard 1 card."
+				"If there is an manifest card in play, {Athena} deals 1 target 1 radiant and 1 melee damage. If not, draw 2 cards, then discard 1 card."
 			],
 			"hitpoints": 30,
 			"nemesisIdentifiers": [
@@ -445,7 +429,7 @@
 			"hitpointsColor": "D46D27",
 			"character": true,
 			"powers": [
-				"Reveal the top 3 cards of your deck. If an [u]aspect[/u] card is revealed you may play it now. Move 1 revealed card to your hand, then move the rest to the bottom of your deck."
+				"Reveal the top 3 cards of your deck. If a [u]manifest[/u] card is revealed you may play it now. Move 1 revealed card to your hand, then move the rest to the bottom of your deck."
 			],
 			"hitpoints": 31,
 			"nemesisIdentifiers": [
@@ -454,7 +438,7 @@
 			"incapacitatedAbilities": [
 				"One hero may use a power now.",
 				"Look at the bottom card of each deck and replace or discard each one.",
-				"Select a Hero Target. Until the start of your next turn, reduce damage deal to that Target by 1."
+				"Select a Hero Target. Until the start of your next turn, reduce damage dealt to that Target by 1."
 			],
 			"flippedIcons": [
 				"UsePowerNow",

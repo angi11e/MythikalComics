@@ -14,7 +14,7 @@ namespace Angille.Athena
 		 * At the end of your turn, {Athena} regains 1 HP.
 		 * 
 		 * POWER
-		 * Search your Deck or Trash for a [u]legend[/u] and put it into Play.
+		 * Search your Deck or Trash for an equipment card and put it into Play.
 		 *  If you searched your Deck, shuffle your Deck.
 		 */
 
@@ -29,9 +29,9 @@ namespace Angille.Athena
 		{
 			// At the end of your turn, {Athena} regains 1 HP.
 			AddEndOfTurnTrigger(
-				(TurnTaker tt) => tt == base.TurnTaker,
+				(TurnTaker tt) => tt == this.TurnTaker,
 				(PhaseChangeAction p) => GameController.GainHP(
-					base.CharacterCard,
+					this.CharacterCard,
 					1,
 					cardSource: GetCardSource()
 				),
@@ -43,7 +43,7 @@ namespace Angille.Athena
 
 		public override IEnumerator UsePower(int index = 0)
 		{
-			// Search your Deck or Trash for a [u]legend[/u] and put it into Play.
+			// Search your Deck or Trash for an equipment card and put it into Play.
 			// If you searched your Deck, shuffle your Deck.
 			IEnumerator searchCR = SearchForCards(
 				DecisionMaker,
@@ -51,7 +51,7 @@ namespace Angille.Athena
 				searchTrash: true,
 				1,
 				1,
-				IsLegendCriteria(),
+				new LinqCardCriteria(c => IsEquipment(c), "equipment", true),
 				putIntoPlay: true,
 				putInHand: false,
 				putOnDeck: false

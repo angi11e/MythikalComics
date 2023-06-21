@@ -29,7 +29,7 @@ namespace Angille.Theurgy
 		{
 			// Whenever you discard a charm card...
 			AddTrigger(
-				(MoveCardAction d) => d.CardToMove.Owner == base.TurnTaker && IsCharm(d.CardToMove) &&
+				(MoveCardAction d) => d.CardToMove.Owner == this.TurnTaker && IsCharm(d.CardToMove) &&
 				(d.Origin.IsHand || d.Origin.IsDeck || d.Origin.IsRevealed) &&
 				d.Destination == d.CardToMove.Owner.Trash && d.IsDiscard && d.CanChangeDestination,
 				DealWithTheDiscard,
@@ -102,110 +102,5 @@ namespace Angille.Theurgy
 
 			yield break;
 		}
-
-		/* old version
-		private IEnumerator DealWithTheDiscard(GameAction a)
-		{
-			Card card = null;
-			DiscardCardAction discardObj = null;
-			MoveCardAction moveObj = null;
-			DestroyCardAction destroyObj = null;
-
-			if (a is DiscardCardAction)
-			{
-				discardObj = a as DiscardCardAction;
-				card = discardObj.CardToDiscard;
-			}
-			else if (a is MoveCardAction)
-			{
-				moveObj = a as MoveCardAction;
-				card = moveObj.CardToMove;
-			}
-			else if (a is DestroyCardAction)
-			{
-				destroyObj = a as DestroyCardAction;
-				card = destroyObj.CardToDestroy.Card;
-			}
-
-			// you may put it into your hand instead.
-			List<YesNoCardDecision> yesOrNo = new List<YesNoCardDecision>();
-			IEnumerator yesNoInHandCR = base.GameController.MakeYesNoCardDecision(
-				DecisionMaker,
-				SelectionType.MoveCardToHand,
-				card,
-				null,
-				yesOrNo,
-				null,
-				GetCardSource()
-			);
-			if (base.UseUnityCoroutines)
-			{
-				yield return base.GameController.StartCoroutine(yesNoInHandCR);
-			}
-			else
-			{
-				base.GameController.ExhaustCoroutine(yesNoInHandCR);
-			}
-
-			if (yesOrNo.Count > 0 && yesOrNo.FirstOrDefault().Answer == true)
-			{
-				// If you do...
-				if (a is DiscardCardAction)
-				{
-					discardObj.SetDestination(base.HeroTurnTaker.Hand);
-				}
-				else if (a is MoveCardAction)
-				{
-					moveObj.SetDestination(base.HeroTurnTaker.Hand);
-				}
-				else if (a is DestroyCardAction)
-				{
-					destroyObj.SetPostDestroyDestination(base.HeroTurnTaker.Hand);
-				}
-
-				// You may destroy this card...
-				List<DestroyCardAction> destroyResult = new List<DestroyCardAction>();
-				IEnumerator destroyCR = this.GameController.DestroyCard(
-					this.DecisionMaker,
-					this.Card,
-					true,
-					destroyResult,
-					cardSource: this.GetCardSource(null)
-				);
-				if (this.UseUnityCoroutines)
-				{
-					yield return this.GameController.StartCoroutine(destroyCR);
-				}
-				else
-				{
-					this.GameController.ExhaustCoroutine(destroyCR);
-				}
-
-				if (destroyResult == null || destroyResult.Count == 0 || !destroyResult.First().WasCardDestroyed)
-				{
-					// if you did not...
-					// Theurgy deals herself 2 irreducible psychic damage.
-
-					IEnumerator selfHarmCR = base.DealDamage(
-						base.CharacterCard,
-						base.CharacterCard,
-						2,
-						DamageType.Psychic,
-						true
-					);
-					if (base.UseUnityCoroutines)
-					{
-						yield return base.GameController.StartCoroutine(selfHarmCR);
-					}
-					else
-					{
-						base.GameController.ExhaustCoroutine(selfHarmCR);
-					}
-				}
-			}
-
-			yield break;
-		}
-		*/
 	}
 }

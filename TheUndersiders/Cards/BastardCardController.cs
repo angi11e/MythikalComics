@@ -14,17 +14,19 @@ namespace Angille.TheUndersiders
 		public BastardCardController(Card card, TurnTakerController turnTakerController)
 			: base(card, turnTakerController)
 		{
+			SpecialStringMaker.ShowHeroTargetWithLowestHP(1, 2);
+			SpecialStringMaker.ShowSpecialString(() => GetSpecialStringIcons("dog", "skull"));
 		}
 
 		public override void AddTriggers()
 		{
 			// At the end of the villain turn, this card deals the 2 hero targets with the lowest hp 2 melee damage each.
 			AddEndOfTurnTrigger(
-				(TurnTaker tt) => tt == base.TurnTaker,
+				(TurnTaker tt) => tt == this.TurnTaker,
 				(PhaseChangeAction p) => DealDamageToLowestHP(
-					base.Card,
+					this.Card,
 					1,
-					(Card c) => c.IsHero,
+					(Card c) => IsHeroTarget(c),
 					(Card c) => 2,
 					DamageType.Melee,
 					numberOfTargets: 2
@@ -34,9 +36,9 @@ namespace Angille.TheUndersiders
 
 			// Dog: At the start of the villain turn, this card regains 2 HP.
 			AddStartOfTurnTrigger(
-				(TurnTaker tt) => tt == base.TurnTaker && IsEnabled("dog"),
+				(TurnTaker tt) => tt == this.TurnTaker && IsEnabled("dog"),
 				(PhaseChangeAction p) => GameController.GainHP(
-					base.Card,
+					this.Card,
 					2,
 					cardSource: GetCardSource()
 				),
@@ -46,12 +48,12 @@ namespace Angille.TheUndersiders
 			// Skull: Whenever this card deals melee damage to a target, it also deals that target 1 infernal damage.
 			AddTrigger(
 				(DealDamageAction dd) =>
-					dd.DamageSource.IsSameCard(base.Card)
+					dd.DamageSource.IsSameCard(this.Card)
 					&& dd.DidDealDamage
 					&& dd.DamageType == DamageType.Melee
 					&& IsEnabled("skull"),
 				(DealDamageAction dd) => DealDamage(
-					base.Card,
+					this.Card,
 					dd.Target,
 					1,
 					DamageType.Infernal,
@@ -62,11 +64,6 @@ namespace Angille.TheUndersiders
 			);
 
 			base.AddTriggers();
-		}
-
-		public override IEnumerator Play()
-		{
-			yield break;
 		}
 	}
 }

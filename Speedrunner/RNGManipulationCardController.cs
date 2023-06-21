@@ -138,7 +138,7 @@ namespace Angille.Speedrunner
 				1,
 				false,
 				1,
-				additionalCriteria: (Card c) => c.IsVillain,
+				additionalCriteria: (Card c) => IsVillainTarget(c),
 				cardSource: GetCardSource()
 			);
 

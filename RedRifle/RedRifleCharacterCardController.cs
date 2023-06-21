@@ -18,12 +18,7 @@ namespace Angille.RedRifle
 		{
 			// no clue why the below is in the file? I guess I'll find out
 			CardWithoutReplacements.TokenPools.ReorderTokenPool("RedRifleTrueshotPool");
-			base.SpecialStringMaker.ShowTokenPool(base.Card.FindTokenPool("RedRifleTrueshotPool"));
-		}
-
-		public override void AddStartOfGameTriggers()
-		{
-			// base.AddStartOfGameTriggers();
+			SpecialStringMaker.ShowTokenPool(this.Card.FindTokenPool("RedRifleTrueshotPool"));
 		}
 
 		public override IEnumerator UsePower(int index = 0)
@@ -98,7 +93,7 @@ namespace Angille.RedRifle
 					// Up to two hero ongoing cards may be played now.
 					IEnumerator playOngoingCR = GameController.SelectTurnTakersAndDoAction(
 						DecisionMaker,
-						new LinqTurnTakerCriteria((TurnTaker tt) => tt.IsHero && !tt.IsIncapacitatedOrOutOfGame),
+						new LinqTurnTakerCriteria((TurnTaker tt) => !tt.IsIncapacitatedOrOutOfGame && IsHero(tt)),
 						SelectionType.PlayCard,
 						PlayOngoingResponse,
 						2,
@@ -121,7 +116,7 @@ namespace Angille.RedRifle
 		{
 			IEnumerator playOngoingCR = SelectAndPlayCardFromHand(
 				FindHeroTurnTakerController(tt.ToHero()),
-				cardCriteria: new LinqCardCriteria((Card c) => c.IsOngoing)
+				cardCriteria: new LinqCardCriteria((Card c) => IsOngoing(c))
 			);
 			if (UseUnityCoroutines)
 			{

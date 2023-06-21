@@ -26,13 +26,13 @@ namespace Angille.CadaverTeam
 
 			// Whenever a villain ongoing is destroyed...
 			AddTrigger(
-				(DestroyCardAction d) => d.CardToDestroy.Card.IsOngoing
+				(DestroyCardAction d) => IsOngoing(d.CardToDestroy.Card)
 				&& d.CardToDestroy.Card.IsVillain
 				&& d.WasCardDestroyed,
 				// ...discard the top card of each hero deck.
 				(DestroyCardAction dca) => GameController.DiscardTopCardsOfDecks(
 					null,
-					(Location l) => l.OwnerTurnTaker.IsHero && !l.OwnerTurnTaker.IsIncapacitatedOrOutOfGame,
+					(Location l) => IsHero(l.OwnerTurnTaker) && !l.OwnerTurnTaker.IsIncapacitatedOrOutOfGame,
 					1,
 					responsibleTurnTaker: this.TurnTaker,
 					cardSource: GetCardSource()
@@ -43,7 +43,7 @@ namespace Angille.CadaverTeam
 
 			// At the end of their turn, a player...
 			AddTrigger(
-				(PhaseChangeAction pca) => pca.ToPhase.IsEnd && pca.ToPhase.TurnTaker.IsHero,
+				(PhaseChangeAction pca) => pca.ToPhase.IsEnd && IsHero(pca.ToPhase.TurnTaker),
 				MutualDestructionResponse,
 				TriggerType.DestroySelf,
 				TriggerTiming.After

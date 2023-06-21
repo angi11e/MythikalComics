@@ -27,7 +27,7 @@ namespace Angille.Athena
 			// Each hero target regains 1 HP.
 			IEnumerator healCR = GameController.GainHP(
 				DecisionMaker,
-				(Card c) => c.IsHero,
+				(Card c) => IsHero(c),
 				1,
 				cardSource: GetCardSource()
 			);
@@ -42,12 +42,12 @@ namespace Angille.Athena
 			}
 
 			// If there is an [u]aspect[/u] card in play,
-			if (AspectInPlay)
+			if (ManifestInPlay)
 			{
 				// {Athena} deals each non-hero target 1 radiant damage.
 				IEnumerator damageCR = DealDamage(
-					base.CharacterCard,
-					(Card c) => !c.IsHero,
+					this.CharacterCard,
+					(Card c) => !IsHero(c),
 					1,
 					DamageType.Radiant
 				);

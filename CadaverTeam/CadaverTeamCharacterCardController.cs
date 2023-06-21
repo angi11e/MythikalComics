@@ -19,10 +19,10 @@ namespace Angille.CadaverTeam
 				GameController.AddCardControllerToList(CardControllerListType.MakesIndestructible, this);
 
 				SpecialStringMaker.ShowHighestHP(cardCriteria: new LinqCardCriteria(
-					(Card c) => c.IsHero
+					(Card c) => IsHero(c)
 				)).Condition = () => this.Card.IsFlipped;
 				SpecialStringMaker.ShowLowestHP(cardCriteria: new LinqCardCriteria(
-					(Card c) => c.IsHero
+					(Card c) => IsHero(c)
 				)).Condition = () => this.Card.IsFlipped;
 
 				SpecialStringMaker.ShowHeroWithMostCards(false).Condition = () => !this.Card.IsFlipped;
@@ -47,7 +47,7 @@ namespace Angille.CadaverTeam
 					AddSideTrigger(AddImmuneToDamageTrigger(
 						(DealDamageAction dd) =>
 							dd.Target.DoKeywordsContain("haunt")
-							&& dd.Target.IsVillain
+							&& IsVillain(dd.Target)
 							&& (dd.DamageType == DamageType.Melee || dd.DamageType == DamageType.Projectile)
 					));
 				}
@@ -69,7 +69,7 @@ namespace Angille.CadaverTeam
 		{
 			// ADVANCED
 			// Villain Prop cards are indestructible.
-			if (this.TurnTaker.IsAdvanced && card.DoKeywordsContain("prop") && card.IsVillain)
+			if (this.TurnTaker.IsAdvanced && card.DoKeywordsContain("prop") && IsVillain(card))
 			{
 				return true;
 			}
@@ -131,7 +131,7 @@ namespace Angille.CadaverTeam
 			List<Card> storeHighest = new List<Card>();
 			IEnumerator findTopCR = GameController.FindTargetWithHighestHitPoints(
 				1,
-				(Card c) => c.IsHero,
+				(Card c) => IsHero(c),
 				storeHighest,
 				cardSource: GetCardSource()
 			);
@@ -174,7 +174,7 @@ namespace Angille.CadaverTeam
 				IEnumerator lowestDamageCR = DealDamageToLowestHP(
 					highestTarget,
 					1,
-					(Card c) => c.IsHero,
+					(Card c) => IsHero(c),
 					(Card c) => 1,
 					DamageType.Infernal
 				);

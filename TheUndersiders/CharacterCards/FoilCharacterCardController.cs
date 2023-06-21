@@ -14,27 +14,22 @@ namespace Angille.TheUndersiders
 		public FoilCharacterCardController(Card card, TurnTakerController turnTakerController)
 			: base(card, turnTakerController)
 		{
-			base.SpecialStringMaker.ShowHeroTargetWithHighestHP().Condition = () => !base.Card.IsFlipped;
-			base.SpecialStringMaker.ShowHeroTargetWithLowestHP().Condition = () => !base.Card.IsFlipped;
-		}
-
-		public override IEnumerator Play()
-		{
-			yield break;
+			SpecialStringMaker.ShowHeroTargetWithHighestHP().Condition = () => !this.Card.IsFlipped;
+			SpecialStringMaker.ShowHeroTargetWithLowestHP().Condition = () => !this.Card.IsFlipped;
 		}
 
 		public override void AddSideTriggers()
 		{
-			if (!base.Card.IsFlipped)
+			if (!this.Card.IsFlipped)
 			{
 				// Damage dealt by {Foil} is irreducible.
 				AddSideTrigger(AddMakeDamageIrreducibleTrigger(
-					(DealDamageAction dd) => dd.DamageSource.IsSameCard(base.Card)
+					(DealDamageAction dd) => dd.DamageSource.IsSameCard(this.Card)
 				));
 
 				// At the end of the villain turn, {Foil} deals the hero target with the most HP {H - 2} melee damage, and the hero target with the least HP 1 projectile damage.",
 				AddSideTrigger(AddEndOfTurnTrigger(
-					(TurnTaker tt) => tt == base.TurnTaker,
+					(TurnTaker tt) => tt == this.TurnTaker,
 					DoHighLowDamage,
 					TriggerType.DealDamage
 				));
@@ -45,7 +40,7 @@ namespace Angille.TheUndersiders
 			{
 				// Damage dealt by villain character targets is irreducible.
 				AddSideTrigger(AddMakeDamageIrreducibleTrigger(
-					(DealDamageAction dd) => dd.DamageSource.Card.IsVillainCharacterCard
+					(DealDamageAction dd) => dd.DamageSource.IsCard && dd.DamageSource.Card.IsVillainCharacterCard
 				));
 			}
 			base.AddSideTriggers();
@@ -54,29 +49,29 @@ namespace Angille.TheUndersiders
 		private IEnumerator DoHighLowDamage(PhaseChangeAction p)
 		{
 			IEnumerator hitHighestCR = DealDamageToHighestHP(
-				base.Card,
+				this.Card,
 				1,
-				(Card c) => c.IsHero,
-				(Card c) => base.Game.H - 2,
+				(Card c) => IsHeroTarget(c),
+				(Card c) => H - 2,
 				DamageType.Melee
 			);
 			IEnumerator hitLowestCR = DealDamageToLowestHP(
-				base.Card,
+				this.Card,
 				1,
-				(Card c) => c.IsHero,
+				(Card c) => IsHeroTarget(c),
 				(Card c) => 1,
 				DamageType.Projectile
 			);
 
-			if (base.UseUnityCoroutines)
+			if (UseUnityCoroutines)
 			{
-				yield return base.GameController.StartCoroutine(hitHighestCR);
-				yield return base.GameController.StartCoroutine(hitLowestCR);
+				yield return GameController.StartCoroutine(hitHighestCR);
+				yield return GameController.StartCoroutine(hitLowestCR);
 			}
 			else
 			{
-				base.GameController.ExhaustCoroutine(hitHighestCR);
-				base.GameController.ExhaustCoroutine(hitLowestCR);
+				GameController.ExhaustCoroutine(hitHighestCR);
+				GameController.ExhaustCoroutine(hitLowestCR);
 			}
 		}
 	}

@@ -10,8 +10,8 @@ namespace Angille.Patina
 	public class WhipSplashCardController : PatinaBaseCardController
 	{
 		/*
-		 * Whenever a villain card would be played, you may destroy this card.
-		 * If you do so, one player other than {Patina} may draw a card instead.
+		 * Whenever a villain card would be played, you may discard a card.
+		 * If you do, remove this card from the game instead.
 		 * 
 		 * POWER
 		 * Deal 1 target X cold or melee damage, where X = the number of water cards in play plus 1.
@@ -34,8 +34,8 @@ namespace Angille.Patina
 				new TriggerType[3]
 				{
 					TriggerType.CancelAction,
-					TriggerType.DestroySelf,
-					TriggerType.DrawCard
+					TriggerType.DiscardCard,
+					TriggerType.RemoveFromGame
 				},
 				TriggerTiming.Before,
 				orderMatters: true
@@ -46,55 +46,45 @@ namespace Angille.Patina
 
 		private IEnumerator DestructionResponse(PlayCardAction p)
 		{
-			// ...you may destroy this card.
-			List<YesNoCardDecision> storedResults = new List<YesNoCardDecision>();
-			IEnumerator yesNoCR = GameController.MakeYesNoCardDecision(
+			// ...you may discard a card.
+			List<DiscardCardAction> storedResults = new List<DiscardCardAction>();
+			IEnumerator discardCR = GameController.SelectAndDiscardCard(
 				DecisionMaker,
-				SelectionType.DestroySelf,
-				this.Card,
+				true,
 				storedResults: storedResults,
 				cardSource: GetCardSource()
 			);
 
 			if (UseUnityCoroutines)
 			{
-				yield return GameController.StartCoroutine(yesNoCR);
+				yield return GameController.StartCoroutine(discardCR);
 			}
 			else
 			{
-				GameController.ExhaustCoroutine(yesNoCR);
+				GameController.ExhaustCoroutine(discardCR);
 			}
 
-			// If you do so...
-			if (DidPlayerAnswerYes(storedResults))
+			// If you do...
+			if (DidDiscardCards(storedResults))
 			{
-				// ...one player other than {Patina} may draw a card instead.
+				// ...remove this card from the game instead.
 				IEnumerator cancelCR = CancelAction(p);
-				IEnumerator grantDrawCR = GameController.SelectHeroToDrawCard(
-					DecisionMaker,
-					additionalCriteria: new LinqTurnTakerCriteria(
-						(TurnTaker tt) => !tt.IsIncapacitatedOrOutOfGame && tt != this.TurnTaker
-					),
-					cardSource: GetCardSource()
-				);
-				IEnumerator destroyCR = GameController.DestroyCard(
-					DecisionMaker,
+				IEnumerator moveThisCardCR = GameController.MoveCard(
+					this.TurnTakerController,
 					this.Card,
-					optional: false,
+					this.TurnTaker.OutOfGame,
 					cardSource: GetCardSource()
 				);
 
 				if (UseUnityCoroutines)
 				{
 					yield return GameController.StartCoroutine(cancelCR);
-					yield return GameController.StartCoroutine(grantDrawCR);
-					yield return GameController.StartCoroutine(destroyCR);
+					yield return GameController.StartCoroutine(moveThisCardCR);
 				}
 				else
 				{
 					GameController.ExhaustCoroutine(cancelCR);
-					GameController.ExhaustCoroutine(grantDrawCR);
-					GameController.ExhaustCoroutine(destroyCR);
+					GameController.ExhaustCoroutine(moveThisCardCR);
 				}
 			}
 
@@ -127,15 +117,11 @@ namespace Angille.Patina
 			DamageType? damageType = GetSelectedDamageType(chosenType);
 			if (damageType != null)
 			{
-				// ...where X = the number of water cards in play plus 1.
-				int damageNumeral = FindCardsWhere(
-					(Card c) => c.IsInPlayAndHasGameText && IsWater(c) && !c.IsOneShot
-				).Count() + modNumeral;
-
 				IEnumerator strikeCR = GameController.SelectTargetsAndDealDamage(
 					DecisionMaker,
 					new DamageSource(GameController, this.CharacterCard),
-					damageNumeral,
+					// ...where X = the number of water cards in play plus 1.
+					WaterCardsInPlay + modNumeral,
 					damageType.Value,
 					targetNumeral,
 					false,

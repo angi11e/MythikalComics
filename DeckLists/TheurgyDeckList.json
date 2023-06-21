@@ -23,7 +23,7 @@
 				"PlayCardNow",
 				"GainHP"
 			],
-			"hitpoints": 27,
+			"hitpoints": 26,
 			"nemesisIdentifiers": [
 				"Angille.Theurgy"
 			],
@@ -99,7 +99,7 @@
 			],
 			"body": [
 				"Draw X cards, where X = the number of charm cards in play plus 1.",
-				"if {Theurgy} has no charm cards in her play area, play a card.",
+				"if {Theurgy} has no charm cards in her play area, you may play a card.",
 				"You may destroy a charm card."
 			],
 			"icons": [
@@ -307,7 +307,7 @@
 			],
 			"body": [
 				"{Theurgy} deals 1 target 3 projectile damage.",
-				"That target deals up to X other targets 2 melee damage, where X = the number of charm cards in play plus 1.",
+				"That target deals up to X other targets 2 melee damage each, where X = the number of charm cards in play plus 1.",
 				"You may destroy a charm card."
 			],
 			"icons": [
@@ -380,9 +380,9 @@
 			"hitpointsColor": "945783",
 			"character": true,
 			"powers": [
-				"choose a target. if they're a hero target, Theurgy deals them 2 psychic damage. if they're a villain target, they regain 2 hp. if they're an environment target, destroy a [u]charm[/u] card. reveal the top card of the target's deck. Either replace it, discard it, or put it into play."
+				"choose a target. if they're a hero target, Theurgy deals them 2 psychic damage. if they're a villain target, they regain 2 hp. if they're an environment target, destroy a charm card. reveal the top card of the target's deck. Either replace it, discard it, or put it into play."
 			],
-			"hitpoints": 25,
+			"hitpoints": 24,
 			"nemesisIdentifiers": [
 				"Angille.Theurgy"
 			],
@@ -423,9 +423,9 @@
 			"hitpointsColor": "B4002E",
 			"character": true,
 			"powers": [
-				"[i]Salem[/i] deals 1 target X sonic damage, where X = the number of [u]charm[/u] cards in play plus 1. If that damage destroys a target, you may move a [u]charm[/u] card from your trash into play."
+				"[i]Salem[/i] deals 1 target X sonic damage, where X = the number of charm cards in play plus 1. If that damage destroys a target, you may move a charm card from your trash into play."
 			],
-			"hitpoints": 26,
+			"hitpoints": 25,
 			"nemesisIdentifiers": [
 				"Angille.Theurgy"
 			],

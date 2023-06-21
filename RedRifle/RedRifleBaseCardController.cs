@@ -9,7 +9,7 @@ namespace Angille.RedRifle
 {
 	public abstract class RedRifleBaseCardController : CardController
 	{
-		protected TokenPool TrueshotPool => base.CharacterCard.FindTokenPool("RedRifleTrueshotPool");
+		protected TokenPool TrueshotPool => this.CharacterCard.FindTokenPool("RedRifleTrueshotPool");
 
 		protected RedRifleBaseCardController(Card card, TurnTakerController turnTakerController) : base(card, turnTakerController)
 		{
@@ -142,13 +142,13 @@ namespace Angille.RedRifle
 				addTokenResponse,
 				addTokenGameAction
 			);
-			if (base.UseUnityCoroutines)
+			if (UseUnityCoroutines)
 			{
-				yield return base.GameController.StartCoroutine(coroutine);
+				yield return GameController.StartCoroutine(coroutine);
 			}
 			else
 			{
-				base.GameController.ExhaustCoroutine(coroutine);
+				GameController.ExhaustCoroutine(coroutine);
 			}
 
 			yield break;
@@ -174,13 +174,13 @@ namespace Angille.RedRifle
 				insufficientTokenMessage,
 				optional
 			);
-			if (base.UseUnityCoroutines)
+			if (UseUnityCoroutines)
 			{
-				yield return base.GameController.StartCoroutine(coroutine);
+				yield return GameController.StartCoroutine(coroutine);
 			}
 			else
 			{
-				base.GameController.ExhaustCoroutine(coroutine);
+				GameController.ExhaustCoroutine(coroutine);
 			}
 			yield break;
 		}

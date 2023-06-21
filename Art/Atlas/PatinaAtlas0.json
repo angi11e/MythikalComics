@@ -1,6 +1,6 @@
 {"frames": {
 
-"FishOutOfWater.png":
+"ApplicationsInFluidics.png":
 {
 	"frame": {"x":0,"y":0,"w":256,"h":198},
 	"rotated": false,
@@ -8,7 +8,7 @@
 	"spriteSourceSize": {"x":0,"y":0,"w":256,"h":198},
 	"sourceSize": {"w":256,"h":198}
 },
-"FishOutOfWaterMicro.png":
+"ApplicationsInFluidicsMicro.png":
 {
 	"frame": {"x":880,"y":603,"w":108,"h":108},
 	"rotated": false,
@@ -16,7 +16,7 @@
 	"spriteSourceSize": {"x":0,"y":0,"w":108,"h":108},
 	"sourceSize": {"w":108,"h":108}
 },
-"HealingSpritz.png":
+"FishOutOfWater.png":
 {
 	"frame": {"x":181,"y":259,"w":256,"h":198},
 	"rotated": false,
@@ -24,15 +24,15 @@
 	"spriteSourceSize": {"x":0,"y":0,"w":256,"h":198},
 	"sourceSize": {"w":256,"h":198}
 },
-"HealingSpritzMicro.png":
+"FishOutOfWaterMicro.png":
 {
-	"frame": {"x":259,"y":862,"w":108,"h":108},
+	"frame": {"x":518,"y":862,"w":108,"h":108},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":108,"h":108},
 	"sourceSize": {"w":108,"h":108}
 },
-"HybridSurvivor.png":
+"HealingSpritz.png":
 {
 	"frame": {"x":0,"y":460,"w":256,"h":198},
 	"rotated": false,
@@ -40,15 +40,15 @@
 	"spriteSourceSize": {"x":0,"y":0,"w":256,"h":198},
 	"sourceSize": {"w":256,"h":198}
 },
-"HybridSurvivorMicro.png":
+"HealingSpritzMicro.png":
 {
-	"frame": {"x":259,"y":973,"w":108,"h":108},
+	"frame": {"x":518,"y":973,"w":108,"h":108},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":108,"h":108},
 	"sourceSize": {"w":108,"h":108}
 },
-"Impermeable.png":
+"HybridSurvivor.png":
 {
 	"frame": {"x":259,"y":460,"w":256,"h":198},
 	"rotated": false,
@@ -56,9 +56,25 @@
 	"spriteSourceSize": {"x":0,"y":0,"w":256,"h":198},
 	"sourceSize": {"w":256,"h":198}
 },
+"HybridSurvivorMicro.png":
+{
+	"frame": {"x":259,"y":1063,"w":108,"h":108},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":108,"h":108},
+	"sourceSize": {"w":108,"h":108}
+},
+"Impermeable.png":
+{
+	"frame": {"x":440,"y":0,"w":256,"h":198},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":256,"h":198},
+	"sourceSize": {"w":256,"h":198}
+},
 "ImpermeableMicro.png":
 {
-	"frame": {"x":370,"y":862,"w":108,"h":108},
+	"frame": {"x":0,"y":1121,"w":108,"h":108},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":108,"h":108},
@@ -82,7 +98,7 @@
 },
 "InternPatinaCharacterBackMicro.png":
 {
-	"frame": {"x":370,"y":973,"w":108,"h":108},
+	"frame": {"x":111,"y":1121,"w":108,"h":108},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":108,"h":108},
@@ -90,7 +106,7 @@
 },
 "InternPatinaCharacterMicro.png":
 {
-	"frame": {"x":481,"y":862,"w":108,"h":108},
+	"frame": {"x":370,"y":1063,"w":108,"h":108},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":108,"h":108},
@@ -98,7 +114,7 @@
 },
 "LabAssist.png":
 {
-	"frame": {"x":440,"y":0,"w":256,"h":198},
+	"frame": {"x":440,"y":201,"w":256,"h":198},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":256,"h":198},
@@ -106,7 +122,7 @@
 },
 "LabAssistMicro.png":
 {
-	"frame": {"x":481,"y":973,"w":108,"h":108},
+	"frame": {"x":958,"y":714,"w":108,"h":108},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":108,"h":108},
@@ -114,7 +130,7 @@
 },
 "LabCoat.png":
 {
-	"frame": {"x":440,"y":201,"w":256,"h":198},
+	"frame": {"x":181,"y":661,"w":256,"h":198},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":256,"h":198},
@@ -122,7 +138,7 @@
 },
 "LabCoatMicro.png":
 {
-	"frame": {"x":958,"y":714,"w":108,"h":108},
+	"frame": {"x":991,"y":603,"w":108,"h":108},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":108,"h":108},
@@ -130,7 +146,7 @@
 },
 "MaerynianImmunity.png":
 {
-	"frame": {"x":181,"y":661,"w":256,"h":198},
+	"frame": {"x":440,"y":661,"w":256,"h":198},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":256,"h":198},
@@ -138,7 +154,7 @@
 },
 "MaerynianImmunityMicro.png":
 {
-	"frame": {"x":991,"y":603,"w":108,"h":108},
+	"frame": {"x":958,"y":825,"w":108,"h":108},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":108,"h":108},
@@ -162,7 +178,7 @@
 },
 "PatinaCharacterBackMicro.png":
 {
-	"frame": {"x":958,"y":825,"w":108,"h":108},
+	"frame": {"x":958,"y":936,"w":108,"h":108},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":108,"h":108},
@@ -170,7 +186,7 @@
 },
 "PatinaCharacterMicro.png":
 {
-	"frame": {"x":958,"y":936,"w":108,"h":108},
+	"frame": {"x":629,"y":978,"w":108,"h":108},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":108,"h":108},
@@ -186,7 +202,7 @@
 },
 "PatinaDeckBackMicro.png":
 {
-	"frame": {"x":592,"y":978,"w":108,"h":108},
+	"frame": {"x":481,"y":1084,"w":108,"h":108},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":108,"h":108},
@@ -194,7 +210,7 @@
 },
 "SprayBack.png":
 {
-	"frame": {"x":440,"y":661,"w":256,"h":198},
+	"frame": {"x":699,"y":777,"w":256,"h":198},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":256,"h":198},
@@ -202,7 +218,7 @@
 },
 "SprayBackMicro.png":
 {
-	"frame": {"x":259,"y":1084,"w":108,"h":108},
+	"frame": {"x":222,"y":1174,"w":108,"h":108},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":108,"h":108},
@@ -210,7 +226,7 @@
 },
 "SurgeWave.png":
 {
-	"frame": {"x":699,"y":777,"w":256,"h":198},
+	"frame": {"x":880,"y":0,"w":256,"h":198},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":256,"h":198},
@@ -218,7 +234,7 @@
 },
 "SurgeWaveMicro.png":
 {
-	"frame": {"x":0,"y":1121,"w":108,"h":108},
+	"frame": {"x":0,"y":1232,"w":108,"h":108},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":108,"h":108},
@@ -226,7 +242,7 @@
 },
 "TempestuousToss.png":
 {
-	"frame": {"x":880,"y":0,"w":256,"h":198},
+	"frame": {"x":880,"y":201,"w":256,"h":198},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":256,"h":198},
@@ -234,7 +250,7 @@
 },
 "TempestuousTossMicro.png":
 {
-	"frame": {"x":111,"y":1121,"w":108,"h":108},
+	"frame": {"x":111,"y":1232,"w":108,"h":108},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":108,"h":108},
@@ -242,7 +258,7 @@
 },
 "Undertow.png":
 {
-	"frame": {"x":880,"y":201,"w":256,"h":198},
+	"frame": {"x":880,"y":402,"w":256,"h":198},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":256,"h":198},
@@ -250,7 +266,7 @@
 },
 "UndertowMicro.png":
 {
-	"frame": {"x":370,"y":1084,"w":108,"h":108},
+	"frame": {"x":333,"y":1174,"w":108,"h":108},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":108,"h":108},
@@ -274,7 +290,7 @@
 },
 "VerdigrisCharacterBackMicro.png":
 {
-	"frame": {"x":481,"y":1084,"w":108,"h":108},
+	"frame": {"x":740,"y":978,"w":108,"h":108},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":108,"h":108},
@@ -282,7 +298,7 @@
 },
 "VerdigrisCharacterMicro.png":
 {
-	"frame": {"x":703,"y":978,"w":108,"h":108},
+	"frame": {"x":851,"y":1047,"w":108,"h":108},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":108,"h":108},
@@ -290,7 +306,7 @@
 },
 "WaterPunch.png":
 {
-	"frame": {"x":880,"y":402,"w":256,"h":198},
+	"frame": {"x":0,"y":920,"w":256,"h":198},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":256,"h":198},
@@ -298,7 +314,7 @@
 },
 "WaterPunchMicro.png":
 {
-	"frame": {"x":814,"y":978,"w":108,"h":108},
+	"frame": {"x":592,"y":1089,"w":108,"h":108},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":108,"h":108},
@@ -306,7 +322,7 @@
 },
 "WhipSplash.png":
 {
-	"frame": {"x":0,"y":920,"w":256,"h":198},
+	"frame": {"x":259,"y":862,"w":256,"h":198},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":256,"h":198},
@@ -314,7 +330,7 @@
 },
 "WhipSplashMicro.png":
 {
-	"frame": {"x":925,"y":1047,"w":108,"h":108},
+	"frame": {"x":444,"y":1195,"w":108,"h":108},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":108,"h":108},
@@ -327,6 +343,6 @@
 	"format": "RGBA8888",
 	"size": {"w":2048,"h":2048},
 	"scale": "1",
-	"smartupdate": "$TexturePacker:SmartUpdate:b435c292b701b3f7a69aaf7949376220:f11b44ed54acf26354ab130ac3d9783a:e9a28bec129259f897ba616a4da8a62e$"
+	"smartupdate": "$TexturePacker:SmartUpdate:5f9b2b61b6d4ee0497eeeade8784f10e:446c1f41c5b56a77ffd8cb27b936d98e:e9a28bec129259f897ba616a4da8a62e$"
 }
 }

@@ -46,7 +46,7 @@ namespace Angille.Athena
 				List<Card> revealedCards = new List<Card>();
 				IEnumerator revealCR = RevealCardsFromTopOfDeck_PutOnTopAndOnBottom(
 					DecisionMaker,
-					base.TurnTakerController,
+					this.TurnTakerController,
 					deckToReveal
 				);
 

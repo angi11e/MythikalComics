@@ -29,11 +29,10 @@ namespace Angille.Patina
 			// Whenever a hero uses a Power on an equipment card...
 			AddTrigger(
 				(UsePowerAction p) =>
-					base.TurnTakerController != null
+					this.TurnTakerController != null
 					&& p.Power.CardController != null
 					&& IsEquipment(p.Power.CardController.Card)
 					&& p.Power.Index >= 0
-// && p.Power.CardSource.CardController.CardWithoutReplacements.Location.HighestRecursiveLocation == base.TurnTaker.PlayArea
 					&& ((p.Power.CopiedFromCardController != null
 						&& p.Power.CopiedFromCardController.HasPowerNumerals())
 						|| p.Power.CardController.HasPowerNumerals()),
@@ -91,13 +90,13 @@ namespace Angille.Patina
 				IEnumerable<Function> functionChoices = new Function[2]
 				{
 					new Function(
-						base.HeroTurnTakerController,
+						this.HeroTurnTakerController,
 						displayText,
 						SelectionType.ModifyNumeral,
 						() => ModifyFunction(p.Power, index, 1)
 					),
 					new Function(
-						base.HeroTurnTakerController,
+						this.HeroTurnTakerController,
 						displayText2,
 						SelectionType.ModifyNumeral,
 						() => ModifyFunction(p.Power, index, -1)
@@ -105,7 +104,7 @@ namespace Angille.Patina
 				};
 				SelectFunctionDecision selectFunction = new SelectFunctionDecision(
 					GameController,
-					base.HeroTurnTakerController,
+					this.HeroTurnTakerController,
 					functionChoices,
 					optional: true,
 					null,
@@ -155,7 +154,7 @@ namespace Angille.Patina
 
 			IEnumerator selectPlayersCR = GameController.SelectTurnTakersAndDoAction(
 				DecisionMaker,
-				new LinqTurnTakerCriteria((TurnTaker tt) => tt.IsHero && tt.ToHero().HasCardsInHand),
+				new LinqTurnTakerCriteria((TurnTaker tt) => IsHero(tt) && tt.ToHero().HasCardsInHand),
 				SelectionType.DiscardCard,
 				(TurnTaker tt) => DiscardForPower(tt, discardNumeral, powerNumeral),
 				heroNumeral,

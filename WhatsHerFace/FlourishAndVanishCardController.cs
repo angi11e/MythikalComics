@@ -27,7 +27,7 @@ namespace Angille.WhatsHerFace
 			List<DestroyCardAction> actions = new List<DestroyCardAction>();
 			IEnumerator destroyCR = GameController.SelectAndDestroyCard(
 				DecisionMaker,
-				new LinqCardCriteria((Card c) => c.IsEnvironment || c.IsOngoing, "ongoing or environment"),
+				new LinqCardCriteria((Card c) => c.IsEnvironment || IsOngoing(c), "ongoing or environment"),
 				false,
 				actions,
 				cardSource: GetCardSource()
@@ -50,7 +50,7 @@ namespace Angille.WhatsHerFace
 				if (vanished != null && vanished.IsEnvironment)
 				{
 					IEnumerator healTargetCR = GameController.GainHP(
-						base.CharacterCard,
+						this.CharacterCard,
 						2,
 						cardSource: GetCardSource()
 					);
@@ -67,14 +67,14 @@ namespace Angille.WhatsHerFace
 				// If you destroyed a hero card, you may draw 1 card now.
 				if (vanished != null && vanished.IsHero)
 				{
-					IEnumerator drawCardCR = DrawCard(base.HeroTurnTaker, true);
-					if (base.UseUnityCoroutines)
+					IEnumerator drawCardCR = DrawCard(HeroTurnTaker, true);
+					if (UseUnityCoroutines)
 					{
-						yield return base.GameController.StartCoroutine(drawCardCR);
+						yield return GameController.StartCoroutine(drawCardCR);
 					}
 					else
 					{
-						base.GameController.ExhaustCoroutine(drawCardCR);
+						GameController.ExhaustCoroutine(drawCardCR);
 					}
 				}
 			}

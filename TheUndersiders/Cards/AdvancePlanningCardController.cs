@@ -14,11 +14,7 @@ namespace Angille.TheUndersiders
 		public AdvancePlanningCardController(Card card, TurnTakerController turnTakerController)
 			: base(card, turnTakerController)
 		{
-		}
-
-		public override void AddTriggers()
-		{
-			base.AddTriggers();
+			SpecialStringMaker.ShowSpecialString(() => GetSpecialStringIcons("tattle", "bear"));
 		}
 
 		public override IEnumerator Play()
@@ -31,42 +27,42 @@ namespace Angille.TheUndersiders
 			);
 			IEnumerator discardFromTopCR = GameController.DiscardTopCardsOfDecks(
 				null,
-				(Location l) => l.OwnerTurnTaker.IsHero && !l.OwnerTurnTaker.IsIncapacitatedOrOutOfGame,
+				(Location l) => !l.OwnerTurnTaker.IsIncapacitatedOrOutOfGame && IsHero(l.OwnerTurnTaker),
 				1,
-				responsibleTurnTaker: base.TurnTaker,
+				responsibleTurnTaker: this.TurnTaker,
 				cardSource: GetCardSource()
 			);
 			IEnumerator discardFromBottomCR = GameController.MoveCards(
 				null,
-				new LinqCardCriteria((Card c) => c.IsHero && c == c.Owner.Deck.BottomCard, "bottom card"),
+				new LinqCardCriteria((Card c) => c == c.Owner.Deck.BottomCard && IsHero(c), "bottom card"),
 				(Card c) => c.Owner.Trash,
 				cardSource: GetCardSource()
 			);
 
-			if (base.UseUnityCoroutines)
+			if (UseUnityCoroutines)
 			{
-				yield return base.GameController.StartCoroutine(discardFromHandCR);
-				yield return base.GameController.StartCoroutine(discardFromTopCR);
-				yield return base.GameController.StartCoroutine(discardFromHandCR);
+				yield return GameController.StartCoroutine(discardFromHandCR);
+				yield return GameController.StartCoroutine(discardFromTopCR);
+				yield return GameController.StartCoroutine(discardFromHandCR);
 			}
 			else
 			{
-				base.GameController.ExhaustCoroutine(discardFromHandCR);
-				base.GameController.ExhaustCoroutine(discardFromTopCR);
-				base.GameController.ExhaustCoroutine(discardFromBottomCR);
+				GameController.ExhaustCoroutine(discardFromHandCR);
+				GameController.ExhaustCoroutine(discardFromTopCR);
+				GameController.ExhaustCoroutine(discardFromBottomCR);
 			}
 
 			// Tattle: Play the top card of the villain deck.
 			if (IsEnabled("tattle"))
 			{
 				IEnumerator playVillainCR = PlayTheTopCardOfTheVillainDeckResponse(null);
-				if (base.UseUnityCoroutines)
+				if (UseUnityCoroutines)
 				{
-					yield return base.GameController.StartCoroutine(playVillainCR);
+					yield return GameController.StartCoroutine(playVillainCR);
 				}
 				else
 				{
-					base.GameController.ExhaustCoroutine(playVillainCR);
+					GameController.ExhaustCoroutine(playVillainCR);
 				}
 			}
 
@@ -80,15 +76,15 @@ namespace Angille.TheUndersiders
 					cardSource: GetCardSource()
 				);
 				IEnumerator playEnvironment = PlayTheTopCardOfTheEnvironmentDeckResponse(null);
-				if (base.UseUnityCoroutines)
+				if (UseUnityCoroutines)
 				{
-					yield return base.GameController.StartCoroutine(destroyCR);
-					yield return base.GameController.StartCoroutine(playEnvironment);
+					yield return GameController.StartCoroutine(destroyCR);
+					yield return GameController.StartCoroutine(playEnvironment);
 				}
 				else
 				{
-					base.GameController.ExhaustCoroutine(destroyCR);
-					base.GameController.ExhaustCoroutine(playEnvironment);
+					GameController.ExhaustCoroutine(destroyCR);
+					GameController.ExhaustCoroutine(playEnvironment);
 				}
 			}
 		}

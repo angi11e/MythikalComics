@@ -139,13 +139,13 @@ namespace Angille.Greyhat
 					IEnumerator destroySelectCR = GameController.SelectHeroToDestroyTheirCard(
 						DecisionMaker,
 						(httc) => new LinqCardCriteria(
-							c => c.Owner == httc.TurnTaker && c.IsInPlayAndHasGameText && (IsEquipment(c) || c.IsOngoing),
+							c => c.Owner == httc.TurnTaker && c.IsInPlayAndHasGameText && (IsEquipment(c) || IsOngoing(c)),
 							"equipment"
 						),
 						optionalSelectHero: true,
 						additionalCriteria: new LinqTurnTakerCriteria(
 							tt => tt.GetCardsWhere(
-								(Card c) => c.IsInPlayAndHasGameText && (IsEquipment(c) || c.IsOngoing)
+								(Card c) => c.IsInPlayAndHasGameText && (IsEquipment(c) || IsOngoing(c))
 							).Any()
 						),
 						storedResultsTurnTaker: storedHero,

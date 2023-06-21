@@ -31,7 +31,7 @@ namespace Angille.Patina
 			IEnumerator destroyCR = GameController.SelectAndDestroyCard(
 				this.HeroTurnTakerController,
 				new LinqCardCriteria(
-					(Card c) => c.IsOngoing || c.DoKeywordsContain("equipment"),
+					(Card c) => IsOngoing(c) || IsEquipment(c),
 					"ongoing or equipment"
 				),
 				optional: false,
@@ -49,7 +49,7 @@ namespace Angille.Patina
 			}
 
 			// If it was a hero card...
-			if (DidDestroyCard(storedResults) && storedResults.FirstOrDefault().CardToDestroy.Card.IsHero) {
+			if (DidDestroyCard(storedResults) && IsHero(storedResults.FirstOrDefault().CardToDestroy.Card)) {
 				// {Patina} deals 1 target...
 				List<SelectTargetDecision> selectedTarget = new List<SelectTargetDecision>();
 				IEnumerable<Card> choices = FindCardsWhere(
@@ -108,14 +108,11 @@ namespace Angille.Patina
 							DamageType.Cold
 						);
 
-						// ...where X = the number of water cards in play plus 1.
-						int damageNumeral = FindCardsWhere(
-							(Card c) => c.IsInPlayAndHasGameText && IsWater(c) && !c.IsOneShot
-						).Count() + 1;
 						IEnumerator dealPsychicCR = DealDamage(
 							this.CharacterCard,
 							(Card c) => c == theCard,
-							damageNumeral,
+							// ...where X = the number of water cards in play plus 1.
+							WaterCardsInPlay + 1,
 							DamageType.Psychic
 						);
 

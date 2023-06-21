@@ -22,10 +22,10 @@ namespace Angille.Theurgy
 		{
 			// destroy 1 ongoing or equipment card
 			List<DestroyCardAction> storedResults = new List<DestroyCardAction>();
-			IEnumerator destroyCR = base.GameController.SelectAndDestroyCard(
-				base.HeroTurnTakerController,
+			IEnumerator destroyCR = GameController.SelectAndDestroyCard(
+				DecisionMaker,
 				new LinqCardCriteria(
-					(Card c) => c.IsOngoing || c.DoKeywordsContain("equipment"),
+					(Card c) => IsOngoing(c) || c.DoKeywordsContain("equipment"),
 					"ongoing or equipment"
 				),
 				optional: false,
@@ -33,17 +33,17 @@ namespace Angille.Theurgy
 				cardSource: GetCardSource()
 			);
 
-			if (base.UseUnityCoroutines)
+			if (UseUnityCoroutines)
 			{
-				yield return base.GameController.StartCoroutine(destroyCR);
+				yield return GameController.StartCoroutine(destroyCR);
 			}
 			else
 			{
-				base.GameController.ExhaustCoroutine(destroyCR);
+				GameController.ExhaustCoroutine(destroyCR);
 			}
 
 			// was it a hero card?
-			if (DidDestroyCard(storedResults) && storedResults.First().CardToDestroy.Card.IsHero)
+			if (DidDestroyCard(storedResults) && IsHero(storedResults.First().CardToDestroy.Card))
 			{
 				// if so, they play a card from their trash
 				HeroTurnTakerController httc = storedResults.First().CardToDestroy.DecisionMaker;

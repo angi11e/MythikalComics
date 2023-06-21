@@ -20,7 +20,7 @@ namespace Angille.RedRifle
 			TurnTakerController turnTakerController
 		) : base(card, turnTakerController)
 		{
-			base.SpecialStringMaker.ShowTokenPool(base.TrueshotPool);
+			SpecialStringMaker.ShowTokenPool(TrueshotPool);
 		}
 
 		public override IEnumerator Play()
@@ -69,17 +69,17 @@ namespace Angille.RedRifle
 				locationResults
 			);
 
-			if (base.UseUnityCoroutines)
+			if (UseUnityCoroutines)
 			{
-				yield return base.GameController.StartCoroutine(selectDeckCR);
+				yield return GameController.StartCoroutine(selectDeckCR);
 			}
 			else
 			{
-				base.GameController.ExhaustCoroutine(selectDeckCR);
+				GameController.ExhaustCoroutine(selectDeckCR);
 			}
 
 			// Put 1 on top of the deck and 1 on the bottom of the deck.
-			Location deck = base.GetSelectedLocation(locationResults);
+			Location deck = GetSelectedLocation(locationResults);
 
 			if (deck != null)
 			{
@@ -88,13 +88,13 @@ namespace Angille.RedRifle
 					DecisionMaker,
 					deck
 				);
-				if (base.UseUnityCoroutines)
+				if (UseUnityCoroutines)
 				{
-					yield return base.GameController.StartCoroutine(revealAndMoveCR);
+					yield return GameController.StartCoroutine(revealAndMoveCR);
 				}
 				else
 				{
-					base.GameController.ExhaustCoroutine(revealAndMoveCR);
+					GameController.ExhaustCoroutine(revealAndMoveCR);
 				}
 			}
 

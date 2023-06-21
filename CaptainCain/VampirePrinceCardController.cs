@@ -28,7 +28,7 @@ namespace Angille.CaptainCain
 		public override IEnumerator Play()
 		{
 			IEnumerator drawCR = IncreasePhaseActionCountIfInPhase(
-				(TurnTaker tt) => tt == base.TurnTaker,
+				(TurnTaker tt) => tt == this.TurnTaker,
 				Phase.DrawCard,
 				1
 			);

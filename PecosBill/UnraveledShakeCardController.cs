@@ -33,10 +33,11 @@ namespace Angille.PecosBill
 			AddTrigger(
 				(DestroyCardAction d) => d.WasCardDestroyed
 					&& d.ActionSource is DealDamageAction
+					&& ((DealDamageAction)d.ActionSource).DamageSource.IsCard
 					&& ((DealDamageAction)d.ActionSource).DamageSource.Card.IsInLocation(this.TurnTaker.PlayArea),
 				// ...draw a card.
 				(DestroyCardAction p) => DrawCard(this.HeroTurnTaker),
-				TriggerType.GainHP,
+				TriggerType.DrawCard,
 				TriggerTiming.After
 			);
 		}
@@ -46,7 +47,7 @@ namespace Angille.PecosBill
 			// Destroy an ongoing card.
 			IEnumerator destroyCR = GameController.SelectAndDestroyCard(
 				DecisionMaker,
-				new LinqCardCriteria((Card c) => c.IsOngoing, "ongoing"),
+				new LinqCardCriteria((Card c) => IsOngoing(c), "ongoing"),
 				false,
 				cardSource: GetCardSource()
 			);

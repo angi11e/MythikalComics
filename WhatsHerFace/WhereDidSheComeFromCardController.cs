@@ -32,8 +32,8 @@ namespace Angille.WhatsHerFace
 		{
 			// At the start of your turn, {WhatsHerFace} deals that target 2 projectile damage.
 			AddDealDamageAtStartOfTurnTrigger(
-				base.TurnTaker,
-				base.CharacterCard,
+				TurnTaker,
+				CharacterCard,
 				(Card c) => c == GetCardThisCardIsNextTo(),
 				TargetType.All,
 				2,
@@ -42,7 +42,7 @@ namespace Angille.WhatsHerFace
 
 			// At the end of your turn, move this card next to a new target.
 			AddEndOfTurnTrigger(
-				(TurnTaker tt) => tt == base.TurnTaker,
+				(TurnTaker tt) => tt == TurnTaker,
 				MoveCardResponse,
 				TriggerType.MoveCard
 			);
@@ -80,8 +80,8 @@ namespace Angille.WhatsHerFace
 			if (newHome.IsTarget)
 			{
 				IEnumerator moveCR = GameController.MoveCard(
-					base.TurnTakerController,
-					base.Card,
+					DecisionMaker,
+					Card,
 					newHome.NextToLocation,
 					cardSource: GetCardSource()
 				);

@@ -40,7 +40,7 @@ namespace Angille.Patina
 		{
 			// After {Patina} deals Damage, she becomes immune to that type of Damage.
 			AddTrigger(
-				(DealDamageAction dealDamage) => dealDamage.Target == base.CharacterCard,
+				(DealDamageAction dealDamage) => dealDamage.Target == this.CharacterCard,
 				ImmuneResponse,
 				TriggerType.ImmuneToDamage,
 				TriggerTiming.Before,
@@ -50,8 +50,8 @@ namespace Angille.Patina
 			// Whenever {Patina} deals a different type of Damage, her Damage immunity changes to that type.
 			AddTrigger(
 				(DealDamageAction dealDamage) =>
-					base.CharacterCard.IsInPlayAndHasGameText
-					&& dealDamage.DamageSource.Card == base.CharacterCard
+					this.CharacterCard.IsInPlayAndHasGameText
+					&& dealDamage.DamageSource.Card == this.CharacterCard
 					&& dealDamage.DidDealDamage,
 				WarningMessageResponse,
 				TriggerType.Hidden,
@@ -61,8 +61,8 @@ namespace Angille.Patina
 			// Whenever a hero target would be dealt damage {Patina} is immune to...
 			AddTrigger(
 				(DealDamageAction dd) =>
-					dd.Target.IsHero
-					&& dd.Target != base.CharacterCard
+					IsHeroTarget(dd.Target)
+					&& dd.Target != this.CharacterCard
 					&& dd.Amount > 0
 					&& dd.DamageType == GetDamageTypeThatPatinaIsImmuneTo(),
 				RedirectResponse,
@@ -106,7 +106,7 @@ namespace Angille.Patina
 				);
 				IEnumerator destroyCR = GameController.SelectAndDestroyCard(
 					DecisionMaker,
-					new LinqCardCriteria((Card c) => c.IsInPlayAndHasGameText && (IsWater(c) || c == base.Card)),
+					new LinqCardCriteria((Card c) => c.IsInPlayAndHasGameText && (IsWater(c) || c == this.Card)),
 					false,
 					cardSource: GetCardSource()
 				);
@@ -156,10 +156,10 @@ namespace Angille.Patina
 		private DamageType? GetDamageTypeThatPatinaIsImmuneTo()
 		{
 			DealDamageJournalEntry dealDamageJournalEntry = GameController.Game.Journal.MostRecentDealDamageEntry(
-				(DealDamageJournalEntry e) => e.SourceCard == base.CharacterCard && e.Amount > 0
+				(DealDamageJournalEntry e) => e.SourceCard == this.CharacterCard && e.Amount > 0
 			);
 			PlayCardJournalEntry playCardJournalEntry = GameController.Game.Journal.QueryJournalEntries(
-				(PlayCardJournalEntry e) => e.CardPlayed == base.Card
+				(PlayCardJournalEntry e) => e.CardPlayed == this.Card
 			).LastOrDefault();
 			
 			if (playCardJournalEntry != null)

@@ -19,7 +19,7 @@ namespace Angille.RedRifle
 			TurnTakerController turnTakerController
 		) : base(card, turnTakerController)
 		{
-			base.SpecialStringMaker.ShowTokenPool(base.TrueshotPool);
+			SpecialStringMaker.ShowTokenPool(TrueshotPool);
 		}
 
 		public override IEnumerator Play()
@@ -49,13 +49,13 @@ namespace Angille.RedRifle
 					GetCardSource()
 				);
 
-				if (base.UseUnityCoroutines)
+				if (UseUnityCoroutines)
 				{
-					yield return base.GameController.StartCoroutine(noTokensCR);
+					yield return GameController.StartCoroutine(noTokensCR);
 				}
 				else
 				{
-					base.GameController.ExhaustCoroutine(noTokensCR);
+					GameController.ExhaustCoroutine(noTokensCR);
 				}
 			}
 			
@@ -71,13 +71,13 @@ namespace Angille.RedRifle
 					cardSource: GetCardSource()
 				);
 
-				if (base.UseUnityCoroutines)
+				if (UseUnityCoroutines)
 				{
-					yield return base.GameController.StartCoroutine(howManyCR);
+					yield return GameController.StartCoroutine(howManyCR);
 				}
 				else
 				{
-					base.GameController.ExhaustCoroutine(howManyCR);
+					GameController.ExhaustCoroutine(howManyCR);
 				}
 
 				tokensRemoved = tokensToRemove.FirstOrDefault()?.SelectedNumber ?? 0;
@@ -100,7 +100,7 @@ namespace Angille.RedRifle
 
 				IEnumerator projectileCR = GameController.SelectTargetsAndDealDamage(
 					DecisionMaker,
-					new DamageSource(GameController, base.CharacterCard),
+					new DamageSource(GameController, this.CharacterCard),
 					1,
 					DamageType.Projectile,
 					1,
@@ -127,7 +127,7 @@ namespace Angille.RedRifle
 			if (tokensRemoved >= 4)
 			{
 				energyCR = DealDamage(
-					base.CharacterCard,
+					this.CharacterCard,
 					target,
 					1,
 					DamageType.Energy,
@@ -138,7 +138,7 @@ namespace Angille.RedRifle
 			if (tokensRemoved >= 6)
 			{
 				sonicCR = DealDamage(
-					base.CharacterCard,
+					this.CharacterCard,
 					target,
 					1,
 					DamageType.Sonic,
@@ -149,7 +149,7 @@ namespace Angille.RedRifle
 			if (tokensRemoved >= 8)
 			{
 				radiantCR = DealDamage(
-					base.CharacterCard,
+					this.CharacterCard,
 					target,
 					1,
 					DamageType.Radiant,

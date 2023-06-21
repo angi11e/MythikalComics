@@ -14,11 +14,17 @@ namespace Angille.TheUndersiders
 		public DescentOfTheSwarmCardController(Card card, TurnTakerController turnTakerController)
 			: base(card, turnTakerController)
 		{
-		}
+			SpecialStringMaker.ShowListOfCardsAtLocation(
+				this.TurnTaker.Trash,
+				new LinqCardCriteria((Card c) => c.DoKeywordsContain("swarm"), "swarm")
+			);
 
-		public override void AddTriggers()
-		{
-			base.AddTriggers();
+			SpecialStringMaker.ShowListOfCardsAtLocation(
+				this.TurnTaker.Deck,
+				new LinqCardCriteria((Card c) => c.DoKeywordsContain("swarm"), "swarm")
+			).Condition = () => IsEnabled("spider");
+
+			SpecialStringMaker.ShowSpecialString(() => GetSpecialStringIcons("spider", "skull"));
 		}
 
 		public override IEnumerator Play()
@@ -30,35 +36,35 @@ namespace Angille.TheUndersiders
 				useFixedList: true
 			);
 
-			if (base.UseUnityCoroutines)
+			if (UseUnityCoroutines)
 			{
-				yield return base.GameController.StartCoroutine(fromTrashCR);
+				yield return GameController.StartCoroutine(fromTrashCR);
 			}
 			else
 			{
-				base.GameController.ExhaustCoroutine(fromTrashCR);
+				GameController.ExhaustCoroutine(fromTrashCR);
 			}
 
 			// Spider: Reveal cards from the top of the villain deck until a swarm card is revealed. Put it into play. Shuffle the other revealed cards back into the villain deck.
 			if (IsEnabled("spider"))
 			{
 				IEnumerator fromDeckCR = RevealCards_MoveMatching_ReturnNonMatchingCards(
-					base.TurnTakerController,
-					base.TurnTaker.Deck,
+					this.TurnTakerController,
+					this.TurnTaker.Deck,
 					playMatchingCards: false,
 					putMatchingCardsIntoPlay: true,
 					moveMatchingCardsToHand: false,
-					new LinqCardCriteria((Card c) => c.DoKeywordsContain("swarm") && c.IsVillain, "swarm"),
+					new LinqCardCriteria((Card c) => c.DoKeywordsContain("swarm") && IsVillain(c), "swarm"),
 					1
 				);
 
-				if (base.UseUnityCoroutines)
+				if (UseUnityCoroutines)
 				{
-					yield return base.GameController.StartCoroutine(fromDeckCR);
+					yield return GameController.StartCoroutine(fromDeckCR);
 				}
 				else
 				{
-					base.GameController.ExhaustCoroutine(fromDeckCR);
+					GameController.ExhaustCoroutine(fromDeckCR);
 				}
 			}
 
@@ -68,17 +74,17 @@ namespace Angille.TheUndersiders
 				IEnumerator healCR = GameController.GainHP(
 					DecisionMaker,
 					(Card c) => c.IsVillainCharacterCard && !c.IsFlipped && c.IsInPlayAndNotUnderCard,
-					base.H,
+					H,
 					cardSource: GetCardSource()
 				);
 
-				if (base.UseUnityCoroutines)
+				if (UseUnityCoroutines)
 				{
-					yield return base.GameController.StartCoroutine(healCR);
+					yield return GameController.StartCoroutine(healCR);
 				}
 				else
 				{
-					base.GameController.ExhaustCoroutine(healCR);
+					GameController.ExhaustCoroutine(healCR);
 				}
 			}
 

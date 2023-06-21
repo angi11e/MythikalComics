@@ -84,7 +84,7 @@
 			],
 			"body": [
 				"{RedRifle} deals each non-hero target 1 energy damage.",
-				"If you have 5 or more tokens in your trueshot pool, the damage is irreducible.",
+				"If you have 5 or more tokens in your trueshot pool, this damage is irreducible.",
 				"If you have 10 or more tokens in your trueshot pool, destroy 1 hero Ongoing or Equipment card."
 			],
 			"icons": [

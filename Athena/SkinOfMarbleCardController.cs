@@ -33,9 +33,9 @@ namespace Angille.Athena
 				(DealDamageAction dd) =>
 					dd.Target == this.CharacterCard
 					&& dd.DamageSource.IsTarget
-					&& !dd.DamageSource.IsHero
+					&& !dd.DamageSource.IsHeroTarget
 					&& dd.DidDealDamage
-					&& AspectInPlay,
+					&& ManifestInPlay,
 				() => this.CharacterCard,
 				() => this.CharacterCard,
 				oncePerTargetPerTurn: false,

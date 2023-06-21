@@ -22,17 +22,14 @@ namespace Angille.Theurgy
 
 		public override IEnumerator Play()
 		{
-			// count the charm cards
-			int drawNumeral = FindCardsWhere((Card c) => c.IsInPlayAndHasGameText && IsCharm(c)).Count() + 1;
-
 			// choose the deck
 			List<SelectTurnTakerDecision> storedResults = new List<SelectTurnTakerDecision>();
 			IEnumerator selectTurnTakerCR = GameController.SelectTurnTaker(
 				DecisionMaker,
 				SelectionType.RevealCardsFromDeck,
 				storedResults,
-				additionalCriteria: (TurnTaker tt) => !tt.IsHero || (tt.IsHero && !tt.ToHero().IsIncapacitatedOrOutOfGame),
-				numberOfCards: drawNumeral,
+				additionalCriteria: (TurnTaker tt) => !IsHero(tt) || (IsHero(tt) && !tt.ToHero().IsIncapacitatedOrOutOfGame),
+				numberOfCards: CharmCardsInPlay + 1,
 				cardSource: GetCardSource()
 			);
 
@@ -48,14 +45,14 @@ namespace Angille.Theurgy
 			// reveal X cards, put back in any order
 			if (DidSelectTurnTaker(storedResults))
 			{
-				if (drawNumeral != 1)
+				if (CharmCardsInPlay != 0)
 				{
 					TurnTaker selectedTurnTaker = GetSelectedTurnTaker(storedResults);
 					IEnumerator revealCardsCR = RevealTheTopCardsOfDeck_MoveInAnyOrder(
 						DecisionMaker,
 						DecisionMaker,
 						selectedTurnTaker,
-						drawNumeral
+						CharmCardsInPlay + 1
 					);
 					if (UseUnityCoroutines)
 					{
@@ -73,7 +70,7 @@ namespace Angille.Theurgy
 						DecisionMaker,
 						selectedTurnTaker.Deck,
 						null,
-						drawNumeral,
+						1,
 						null,
 						RevealedCardDisplay.ShowRevealedCards,
 						GetCardSource()

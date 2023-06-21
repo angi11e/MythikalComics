@@ -26,13 +26,10 @@ namespace Angille.Theurgy
 
 		public override void AddTriggers()
 		{
-			base.AddTriggers();
-
 			// when this card is destroyed...
 			AddWhenDestroyedTrigger(CharmDestroyResponse, DestructionTriggers);
-			// AddBeforeDestroyAction(CharmDestroyResponse);
 
-			// AddIfTheCardThatThisCardIsNextToLeavesPlayMoveItToYourHandTrigger();
+			base.AddTriggers();
 		}
 
 		public override IEnumerator DeterminePlayLocation(
@@ -46,7 +43,7 @@ namespace Angille.Theurgy
 			//When this card enters play, put it next to a hero
 			IEnumerator selectHeroCR = SelectCardThisCardWillMoveNextTo(
 				new LinqCardCriteria(
-					(Card c) => c.IsHeroCharacterCard && !c.IsIncapacitatedOrOutOfGame,
+					(Card c) => IsHeroCharacterCard(c) && !c.IsIncapacitatedOrOutOfGame,
 					"hero character"
 				),
 				storedResults,
@@ -71,7 +68,7 @@ namespace Angille.Theurgy
 			Card cardToCheck = GetCardThisCardIsNextTo();
 			if (cardToCheck == null)
 			{
-				cardToCheck = base.Card.Location.OwnerTurnTaker.CharacterCard;
+				cardToCheck = Card.Location.OwnerTurnTaker.CharacterCard;
 			}
 			return cardToCheck;
 		}
@@ -87,10 +84,10 @@ namespace Angille.Theurgy
 					new Power(
 						cc.HeroTurnTakerController,
 						cc,
-						$"Destroy {base.Card.Title}.",
+						$"Destroy {Card.Title}.",
 						GameController.DestroyCard(
 							cc.HeroTurnTakerController,
-							base.Card,
+							Card,
 							cardSource: GetCardSource()
 						),
 						0,
@@ -104,6 +101,7 @@ namespace Angille.Theurgy
 
 		protected abstract IEnumerator CharmDestroyResponse(GameAction ga);
 
+		/*
 		protected void AddIfTheCardThatThisCardIsNextToLeavesPlayMoveItToYourHandTrigger(IEnumerator doThisFirst = null)
 		{
 			if (Card.Location.OwnerCard == null)
@@ -213,5 +211,6 @@ namespace Angille.Theurgy
 
 			yield break;
 		}
+		*/
 	}
 }

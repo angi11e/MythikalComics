@@ -15,7 +15,7 @@ namespace Angille.CadaverTeam
 			: base(card, turnTakerController)
 		{
 			SpecialStringMaker.ShowHighestHP(1, () => 2, new LinqCardCriteria(
-				(Card c) => c.IsHero
+				(Card c) => IsHero(c)
 			));
 		}
 
@@ -25,7 +25,7 @@ namespace Angille.CadaverTeam
 			IEnumerator cadaverDamageCR = DealDamageToHighestHP(
 				this.CharacterCard,
 				1,
-				(Card c) => c.IsHero,
+				(Card c) => IsHero(c),
 				(Card c) => Game.H - 1,
 				DamageType.Projectile
 			);
@@ -46,7 +46,7 @@ namespace Angille.CadaverTeam
 				IEnumerator lynneDamageCR = DealDamageToHighestHP(
 					lynne,
 					2,
-					(Card c) => c.IsHero,
+					(Card c) => IsHero(c),
 					(Card c) => Game.H - 1,
 					DamageType.Projectile
 				);

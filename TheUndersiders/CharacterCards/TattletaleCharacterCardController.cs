@@ -16,24 +16,19 @@ namespace Angille.TheUndersiders
 		{
 		}
 
-		public override IEnumerator Play()
-		{
-			yield break;
-		}
-
 		public override void AddSideTriggers()
 		{
-			if (!base.Card.IsFlipped)
+			if (!this.Card.IsFlipped)
 			{
-				// increase damage dealt by villain targets by 1.
+				// increase damage dealt by villain character cards by 1.
 				AddSideTrigger(AddIncreaseDamageTrigger(
-					(DealDamageAction dd) => dd.DamageSource.Card.IsVillain && dd.DamageSource.Card.IsCharacter,
+					(DealDamageAction dd) => dd.DamageSource.IsTarget && dd.DamageSource.Card.IsVillainCharacterCard,
 					1
 				));
 
 				// At the end of the villain turn, destroy {H-2} hero ongoing cards. The villain target with the highest HP deals 2 projectile damage to each hero with any ongoing cards in play.
 				AddSideTrigger(AddEndOfTurnTrigger(
-					(TurnTaker tt) => tt == base.TurnTaker,
+					(TurnTaker tt) => tt == this.TurnTaker,
 					DashHopesResponse,
 					new TriggerType[]
 					{
@@ -48,7 +43,7 @@ namespace Angille.TheUndersiders
 			{
 				// At the start of the villain turn, each player may destroy 1 of their ongoing or equipment cards. If they do not, they discard 1 card.
 				AddSideTrigger(AddStartOfTurnTrigger(
-					(TurnTaker tt) => tt == base.TurnTaker,
+					(TurnTaker tt) => tt == this.TurnTaker,
 					AttritionResponse,
 					new TriggerType[]
 					{
@@ -66,24 +61,24 @@ namespace Angille.TheUndersiders
 			IEnumerator dashHopesCR = GameController.SelectAndDestroyCards(
 				DecisionMaker,
 				new LinqCardCriteria((Card c) =>
-					c.IsHero && c.IsOngoing,
+					IsHero(c) && IsOngoing(c),
 					"hero ongoing"
 				),
-				base.H - 2,
+				H - 2,
 				cardSource: GetCardSource()
 			);
 
-			if (base.UseUnityCoroutines)
+			if (UseUnityCoroutines)
 			{
-				yield return base.GameController.StartCoroutine(dashHopesCR);
+				yield return GameController.StartCoroutine(dashHopesCR);
 			}
 			else
 			{
-				base.GameController.ExhaustCoroutine(dashHopesCR);
+				GameController.ExhaustCoroutine(dashHopesCR);
 			}
 
 			IEnumerable<HeroTurnTaker> source = (from c in FindCardsWhere(
-				(Card c) => c.IsInPlayAndHasGameText && c.IsHero && c.Owner.IsHero && c.IsOngoing
+				(Card c) => c.IsInPlayAndHasGameText && IsHero(c) && IsHero(c.Owner) && IsOngoing(c)
 			) select c.Owner.ToHero()).Distinct();
 
 			IEnumerable<Card> heroCharacterCards = source.SelectMany((HeroTurnTaker h) => h.CharacterCards);
@@ -97,17 +92,17 @@ namespace Angille.TheUndersiders
 					HighestLowestHP.HighestHP,
 					1,
 					1,
-					new LinqCardCriteria((Card c) => c.IsVillainTarget, "the villain target with the highest HP")
+					new LinqCardCriteria((Card c) => IsVillainTarget(c), "the villain target with the highest HP")
 				)
 			);
 
-			if (base.UseUnityCoroutines)
+			if (UseUnityCoroutines)
 			{
-				yield return base.GameController.StartCoroutine(punishHoardersCR);
+				yield return GameController.StartCoroutine(punishHoardersCR);
 			}
 			else
 			{
-				base.GameController.ExhaustCoroutine(punishHoardersCR);
+				GameController.ExhaustCoroutine(punishHoardersCR);
 			}
 
 			yield break;
@@ -117,19 +112,19 @@ namespace Angille.TheUndersiders
 		{
 			IEnumerator eachHeroDoesCR = GameController.SelectTurnTakersAndDoAction(
 				DecisionMaker,
-				new LinqTurnTakerCriteria((TurnTaker tt) => tt.IsHero && !tt.ToHero().IsIncapacitatedOrOutOfGame),
+				new LinqTurnTakerCriteria((TurnTaker tt) => !tt.IsIncapacitatedOrOutOfGame && IsHero(tt)),
 				SelectionType.DestroyCard,
 				EachHeroAttrition,
 				cardSource: GetCardSource()
 			);
 
-			if (base.UseUnityCoroutines)
+			if (UseUnityCoroutines)
 			{
-				yield return base.GameController.StartCoroutine(eachHeroDoesCR);
+				yield return GameController.StartCoroutine(eachHeroDoesCR);
 			}
 			else
 			{
-				base.GameController.ExhaustCoroutine(eachHeroDoesCR);
+				GameController.ExhaustCoroutine(eachHeroDoesCR);
 			}
 
 			yield break;
@@ -138,25 +133,25 @@ namespace Angille.TheUndersiders
 		private IEnumerator EachHeroAttrition(TurnTaker tt)
 		{
 			List<DestroyCardAction> storedResults = new List<DestroyCardAction>();
-			IEnumerator destructionCR = base.GameController.SelectAndDestroyCard(
+			IEnumerator destructionCR = GameController.SelectAndDestroyCard(
 				FindHeroTurnTakerController(tt.ToHero()),
 				new LinqCardCriteria(
-					(Card c) => c.IsInPlayAndNotUnderCard && c.Owner == tt && (c.IsOngoing || IsEquipment(c)),
+					(Card c) => c.IsInPlayAndNotUnderCard && c.Owner == tt && (IsOngoing(c) || IsEquipment(c)),
 					"ongoing or equipment"
 				),
 				optional: true,
 				storedResults,
-				base.Card,
+				this.Card,
 				GetCardSource()
 			);
 
-			if (base.UseUnityCoroutines)
+			if (UseUnityCoroutines)
 			{
-				yield return base.GameController.StartCoroutine(destructionCR);
+				yield return GameController.StartCoroutine(destructionCR);
 			}
 			else
 			{
-				base.GameController.ExhaustCoroutine(destructionCR);
+				GameController.ExhaustCoroutine(destructionCR);
 			}
 
 			if (storedResults.Count() < 1)
@@ -166,13 +161,13 @@ namespace Angille.TheUndersiders
 					1
 				);
 
-				if (base.UseUnityCoroutines)
+				if (UseUnityCoroutines)
 				{
-					yield return base.GameController.StartCoroutine(discardCR);
+					yield return GameController.StartCoroutine(discardCR);
 				}
 				else
 				{
-					base.GameController.ExhaustCoroutine(discardCR);
+					GameController.ExhaustCoroutine(discardCR);
 				}
 			}
 

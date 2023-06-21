@@ -55,7 +55,9 @@ namespace Angille.PecosBill
 			));
 
 			// [i]Loyal Lightning[/i] deals that target 2 lightning damage.
-			Card lightning = FindCardsWhere((Card c) => c.IsInPlayAndHasGameText && c.Identifier == "LoyalLightning").FirstOrDefault();
+			Card lightning = FindCardsWhere(
+				(Card c) => c.IsInPlayAndHasGameText && c.Identifier == "LoyalLightning"
+			).FirstOrDefault();
 			if (lightning != null && lightning.IsInPlayAndNotUnderCard && lightning.IsTarget)
 			{
 				damageInfo.Add(new DealDamageAction(
@@ -68,7 +70,9 @@ namespace Angille.PecosBill
 			}
 
 			// [i]Shake the Snake[/i] deals that target 2 toxic damage.
-			Card shake = FindCardsWhere((Card c) => c.IsInPlayAndHasGameText && c.Identifier == "ShakeTheSnake").FirstOrDefault();
+			Card shake = FindCardsWhere(
+				(Card c) => c.IsInPlayAndHasGameText && c.Identifier == "ShakeTheSnake"
+			).FirstOrDefault();
 			if (shake != null && shake.IsInPlayAndNotUnderCard && shake.IsTarget)
 			{
 				damageInfo.Add(new DealDamageAction(
@@ -81,7 +85,9 @@ namespace Angille.PecosBill
 			}
 
 			// [i]Tamed Twister[/i] deals that target 2 projectile damage.
-			Card twister = FindCardsWhere((Card c) => c.IsInPlayAndHasGameText && c.Identifier == "TamedTwister").FirstOrDefault();
+			Card twister = FindCardsWhere(
+				(Card c) => c.IsInPlayAndHasGameText && c.Identifier == "TamedTwister"
+			).FirstOrDefault();
 			if (twister != null && twister.IsInPlayAndNotUnderCard && twister.IsTarget)
 			{
 				damageInfo.Add(new DealDamageAction(

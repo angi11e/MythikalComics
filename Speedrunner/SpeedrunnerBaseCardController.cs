@@ -27,7 +27,7 @@ namespace Angille.Speedrunner
 
 		protected bool IsGlitch(Card card, bool evenIfUnderCard = false, bool evenIfFaceDown = false)
 		{
-			return card != null && base.GameController.DoesCardContainKeyword(card, "glitch", evenIfUnderCard, evenIfFaceDown);
+			return card != null && GameController.DoesCardContainKeyword(card, "glitch", evenIfUnderCard, evenIfFaceDown);
 		}
 
 		protected LinqCardCriteria IsStratCriteria(Func<Card, bool> additionalCriteria = null)
@@ -43,7 +43,7 @@ namespace Angille.Speedrunner
 
 		protected bool IsStrat(Card card, bool evenIfUnderCard = false, bool evenIfFaceDown = false)
 		{
-			return card != null && base.GameController.DoesCardContainKeyword(card, "strat", evenIfUnderCard, evenIfFaceDown);
+			return card != null && GameController.DoesCardContainKeyword(card, "strat", evenIfUnderCard, evenIfFaceDown);
 		}
 	}
 }

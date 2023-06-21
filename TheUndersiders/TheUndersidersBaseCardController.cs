@@ -24,18 +24,48 @@ namespace Angille.TheUndersiders
 				return false;
 			}
 
-			Card who = base.FindCard(identifier);
-			if (!who.IsFlipped && who.IsInPlayAndNotUnderCard && who.IsVillainTarget)
+			Card who = FindCard(identifier);
+			if (!who.IsFlipped && who.IsInPlayAndNotUnderCard && IsVillainTarget(who))
 			{
 				return true;
 			}
 
-			if (base.GameController.Game.IsChallenge && who.IsFlipped)
+			if (GameController.Game.IsChallenge && who.IsFlipped)
 			{
 				return true;
 			}
 
 			return false;
+		}
+
+		public string GetSpecialStringIcons(string first, string second)
+		{
+			string message = "currently activated effects: ";
+			bool hasIcons = false;
+
+			if (first != null && IsEnabled(first))
+			{
+				message += "{" + char.ToUpper(first[0]) + first.Substring(1) + "}";
+				hasIcons = true;
+			}
+			if (second != null && IsEnabled(second))
+			{
+				if (hasIcons)
+				{
+					message += ", ";
+				}
+				message += "{" + char.ToUpper(second[0]) + second.Substring(1) + "}";
+				hasIcons = true;
+			}
+
+			if (!hasIcons)
+			{
+				message += "none";
+			}
+
+			message += ".";
+
+			return message;
 		}
 
 		protected Card BitchCharacter => GameController.FindCardsWhere(

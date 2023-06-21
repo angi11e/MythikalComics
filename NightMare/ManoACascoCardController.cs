@@ -37,7 +37,7 @@ namespace Angille.NightMare
 			// Play this card next to a non-Hero target.
 			IEnumerator selectHeroCR = SelectCardThisCardWillMoveNextTo(
 				new LinqCardCriteria(
-					(Card c) => !c.IsHero && c.IsTarget,
+					(Card c) => c.IsTarget && !IsHeroTarget(c),
 					"non-hero targets",
 					useCardsSuffix: false
 				),
@@ -72,7 +72,7 @@ namespace Angille.NightMare
 					GetCardThisCardIsNextTo() != null
 					&& dd.DamageSource.IsCard
 					&& dd.DamageSource.Card == GetCardThisCardIsNextTo(),
-				() => base.CharacterCard
+				() => this.CharacterCard
 			);
 
 			// At the start of your turn, you may destroy this card.
