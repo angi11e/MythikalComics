@@ -44,7 +44,11 @@
 				"BugbearTeamCharacter": "ew! do you literally... eat... people?",
 				"Cauldron.TheInfernalChoirCharacter": "oh, your threads are all... [i]weird...[i]",
 				"Angille.CadaverTeamCharacter": "Get off the stage, you dusty has-been!",
-				"OblivAeonFrontPageCharacter": "this guy is tearing the Tapestry to shreds!"
+				"OblivAeonFrontPageCharacter": "you'd be surprised how many frailties and flaws there are in immortality."
+			},
+			"openingLineRequests": {
+				"BugbearTeamCharacter": "NightMistCharacter",
+				"OblivAeonFrontPageCharacter": "ParseCharacter"
 			},
 			"complexity": 2
 		},
@@ -400,10 +404,16 @@
 			"openingLines": {
 				"default": "I will tear you from the Tapestry.",
 				"AkashBhutaCharacter": "and that is why we spin order [i]from[/i] chaos. we will see who is temporary.",
-				"GloomWeaverCharacter": "We cannot allow the Tapestry to be ripped, just for you.",
+				"GloomWeaverCharacter": "the infinite is tempting. but not at the cost of your success.",
 				"BugbearTeamCharacter": "you'll find this one... a bit too stringy.",
 				"Cauldron.TheInfernalChoirCharacter": "ghosts don't bother me. in fact, I find some... charming.",
-				"Angille.CadaverTeamCharacter": "It's curtains for you, bud. And all your... costars."
+				"Angille.CadaverTeamCharacter": "It's curtains for you, bud. And all your... costars.",
+				"OblivAeonFrontPageCharacter": "then we just weave it back together."
+			},
+			"openingLineRequests": {
+				"GloomWeaverCharacter": "DarkWatchNightMistCharacter",
+				"BugbearTeamCharacter": "NightMistCharacter",
+				"OblivAeonFrontPageCharacter": "ChronoRangerCharacter"
 			}
 		},
 		{
@@ -443,12 +453,17 @@
 			"complexity": 2,
 			"openingLines": {
 				"default": "Are you ready to rock!?",
-				"AkashBhutaCharacter": "yeah, lady, I'm hearin' what you're putting down. wait, ‘temporary’?",
+				"AkashBhutaCharacter": "so as metal as that is, what do you mean ‘eaten’?",
 				"GloomWeaverCharacter": "ugh, the emo is a bit much, but I'll play along.",
 				"BugbearTeamCharacter": "whoah, that's [b]so[/b] metal!",
 				"Cauldron.TheInfernalChoirCharacter": "ok, but that's a great band name though.",
 				"Angille.CadaverTeamCharacter": "You couldn't handle my riffs, dust-bucket. Go play with your magic wand somewhere else.",
 				"OblivAeonFrontPageCharacter": "Show's not over yet!"
+			},
+			"openingLineRequests": {
+				"AkashBhutaCharacter": "TheArgentAdeptCharacter",
+				"GloomWeaverCharacter": "NightMistCharacter",
+				"OblivAeonFrontPageCharacter": "TheArgentAdeptCharacter"
 			}
 		}
 	]

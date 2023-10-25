@@ -1,0 +1,28 @@
+{"frames": {
+
+"JungleLadyOfTheWoodCharacter.png":
+{
+	"frame": {"x":0,"y":0,"w":178,"h":256},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":178,"h":256},
+	"sourceSize": {"w":178,"h":256}
+},
+"JungleLadyOfTheWoodCharacterMicro.png":
+{
+	"frame": {"x":0,"y":259,"w":108,"h":108},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":108,"h":108},
+	"sourceSize": {"w":108,"h":108}
+}},
+"meta": {
+	"app": "https://www.codeandweb.com/texturepacker",
+	"version": "1.0",
+	"image": "LadyOfTheWoodAtlas0.png",
+	"format": "RGBA8888",
+	"size": {"w":512,"h":512},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:bb561d1147e89af48fc001e70633ffb2:ae757d662ad45e8234328e25c3703dc1:aebb254d77629167f632846d82801790$"
+}
+}

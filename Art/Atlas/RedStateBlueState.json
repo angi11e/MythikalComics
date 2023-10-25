@@ -1,5 +1,133 @@
 {"frames": {
 
+"Bear.png":
+{
+	"frame": {"x":0,"y":1499,"w":64,"h":64},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":64,"h":64},
+	"sourceSize": {"w":64,"h":64}
+},
+"BiasMinus.png":
+{
+	"frame": {"x":787,"y":770,"w":64,"h":64},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":64,"h":64},
+	"sourceSize": {"w":64,"h":64}
+},
+"BiasMod.png":
+{
+	"frame": {"x":1652,"y":0,"w":64,"h":64},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":64,"h":64},
+	"sourceSize": {"w":64,"h":64}
+},
+"BiasPlus.png":
+{
+	"frame": {"x":0,"y":1566,"w":64,"h":64},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":64,"h":64},
+	"sourceSize": {"w":64,"h":64}
+},
+"Blade.png":
+{
+	"frame": {"x":67,"y":1499,"w":64,"h":64},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":64,"h":64},
+	"sourceSize": {"w":64,"h":64}
+},
+"Blood.png":
+{
+	"frame": {"x":787,"y":837,"w":64,"h":64},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":64,"h":64},
+	"sourceSize": {"w":64,"h":64}
+},
+"Crown.png":
+{
+	"frame": {"x":1652,"y":67,"w":64,"h":64},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":64,"h":64},
+	"sourceSize": {"w":64,"h":64}
+},
+"Dog.png":
+{
+	"frame": {"x":1719,"y":0,"w":64,"h":64},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":64,"h":64},
+	"sourceSize": {"w":64,"h":64}
+},
+"Fist.png":
+{
+	"frame": {"x":0,"y":1633,"w":64,"h":64},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":64,"h":64},
+	"sourceSize": {"w":64,"h":64}
+},
+"HasRewind.png":
+{
+	"frame": {"x":67,"y":1566,"w":64,"h":64},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":64,"h":64},
+	"sourceSize": {"w":64,"h":64}
+},
+"HasTale.png":
+{
+	"frame": {"x":134,"y":1499,"w":64,"h":64},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":64,"h":64},
+	"sourceSize": {"w":64,"h":64}
+},
+"HasTechnique.png":
+{
+	"frame": {"x":787,"y":904,"w":64,"h":64},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":64,"h":64},
+	"sourceSize": {"w":64,"h":64}
+},
+"Mask.png":
+{
+	"frame": {"x":1652,"y":134,"w":64,"h":64},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":64,"h":64},
+	"sourceSize": {"w":64,"h":64}
+},
+"PressRewind.png":
+{
+	"frame": {"x":1719,"y":67,"w":64,"h":64},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":64,"h":64},
+	"sourceSize": {"w":64,"h":64}
+},
+"ReadTale.png":
+{
+	"frame": {"x":1786,"y":0,"w":64,"h":64},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":64,"h":64},
+	"sourceSize": {"w":64,"h":64}
+},
+"RedStateBlueState-clean96.png":
+{
+	"frame": {"x":894,"y":0,"w":755,"h":705},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":755,"h":705},
+	"sourceSize": {"w":755,"h":705}
+},
 "RedStateBlueStateBold-clean96.png":
 {
 	"frame": {"x":0,"y":0,"w":891,"h":767},
@@ -10,79 +138,15 @@
 },
 "RedStateBlueStateItalic-clean96.png":
 {
-	"frame": {"x":894,"y":0,"w":784,"h":726},
+	"frame": {"x":0,"y":770,"w":784,"h":726},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":784,"h":726},
 	"sourceSize": {"w":784,"h":726}
 },
-"RedStateBlueState-clean96.png":
-{
-	"frame": {"x":0,"y":770,"w":755,"h":705},
-	"rotated": false,
-	"trimmed": false,
-	"spriteSourceSize": {"x":0,"y":0,"w":755,"h":705},
-	"sourceSize": {"w":755,"h":705}
-},
-"Bear.png":
-{
-	"frame": {"x":758,"y":770,"w":64,"h":64},
-	"rotated": false,
-	"trimmed": false,
-	"spriteSourceSize": {"x":0,"y":0,"w":64,"h":64},
-	"sourceSize": {"w":64,"h":64}
-},
-"Blade.png":
-{
-	"frame": {"x":825,"y":770,"w":64,"h":64},
-	"rotated": false,
-	"trimmed": false,
-	"spriteSourceSize": {"x":0,"y":0,"w":64,"h":64},
-	"sourceSize": {"w":64,"h":64}
-},
-"Blood.png":
-{
-	"frame": {"x":892,"y":770,"w":64,"h":64},
-	"rotated": false,
-	"trimmed": false,
-	"spriteSourceSize": {"x":0,"y":0,"w":64,"h":64},
-	"sourceSize": {"w":64,"h":64}
-},
-"Crown.png":
-{
-	"frame": {"x":959,"y":770,"w":64,"h":64},
-	"rotated": false,
-	"trimmed": false,
-	"spriteSourceSize": {"x":0,"y":0,"w":64,"h":64},
-	"sourceSize": {"w":64,"h":64}
-},
-"Dog.png":
-{
-	"frame": {"x":1026,"y":770,"w":64,"h":64},
-	"rotated": false,
-	"trimmed": false,
-	"spriteSourceSize": {"x":0,"y":0,"w":64,"h":64},
-	"sourceSize": {"w":64,"h":64}
-},
-"Fist.png":
-{
-	"frame": {"x":1093,"y":770,"w":64,"h":64},
-	"rotated": false,
-	"trimmed": false,
-	"spriteSourceSize": {"x":0,"y":0,"w":64,"h":64},
-	"sourceSize": {"w":64,"h":64}
-},
-"Mask.png":
-{
-	"frame": {"x":1160,"y":770,"w":64,"h":64},
-	"rotated": false,
-	"trimmed": false,
-	"spriteSourceSize": {"x":0,"y":0,"w":64,"h":64},
-	"sourceSize": {"w":64,"h":64}
-},
 "Skull.png":
 {
-	"frame": {"x":1227,"y":770,"w":64,"h":64},
+	"frame": {"x":0,"y":1700,"w":64,"h":64},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":64,"h":64},
@@ -90,7 +154,7 @@
 },
 "Spider.png":
 {
-	"frame": {"x":1294,"y":770,"w":64,"h":64},
+	"frame": {"x":67,"y":1633,"w":64,"h":64},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":64,"h":64},
@@ -98,7 +162,15 @@
 },
 "Tattle.png":
 {
-	"frame": {"x":1361,"y":770,"w":64,"h":64},
+	"frame": {"x":134,"y":1566,"w":64,"h":64},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":64,"h":64},
+	"sourceSize": {"w":64,"h":64}
+},
+"UseTechnique.png":
+{
+	"frame": {"x":201,"y":1499,"w":64,"h":64},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":64,"h":64},
@@ -111,6 +183,6 @@
 	"format": "RGBA8888",
 	"size": {"w":2048,"h":2048},
 	"scale": "1",
-	"smartupdate": "$TexturePacker:SmartUpdate:deb306677bb03ca73af488c6ba0305df:bb9ead53da5ac2565b892585c49a13df:139c651ab45bcb63c46076fcb22396a4$"
+	"smartupdate": "$TexturePacker:SmartUpdate:92523e5b575bee59be29af0254d65fc3:592f32affb6b6fb482186af7bbc2c39f:139c651ab45bcb63c46076fcb22396a4$"
 }
 }

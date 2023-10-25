@@ -439,7 +439,7 @@
       "hitpointsColor": "bf7bb4",
       "character": true,
       "gameplay": [
-        "Your ongoing and distortion cards instead have the keyword “phantasm” and a max hp of 5."
+        "Your ongoing and distortion cards instead have the keyword ï¿½phantasmï¿½ and a max hp of 5."
       ],
       "powers": [
         "Each target in your play area deals 1 target 1 psychic damage. If no damage is dealt this way, play the top card of your deck."
@@ -600,7 +600,7 @@
       "openingLines": {
         "default": "we can do this now, or later. there's little change in the outcome.",
         "TheMistressOfFateCharacter": "our struggle is backed by powers beyond this twisted loop. you're right, it doesn't matter.",
-        "OutlanderCharacter": "ironic. your own “powers“ will be your undoing.",
+        "OutlanderCharacter": "ironic. your own ï¿½powersï¿½ will be your undoing.",
         "FutureTiamatCharacter": "wow. that is the [b]worst[/b] makeover.",
         "OblivAeonFrontPageCharacter": "then we just keep rewinding before the end."
       },
@@ -692,6 +692,350 @@
       "openingLines": {
         "default": "Keep your lines open. They can't withstand a group of linked heroes.",
         "OblivAeonFrontPageCharacter": "This threat is bigger than anything. Everyone link up."
+      },
+      "complexity": 2
+    }
+  ],
+  "Cauldron.Impact": [
+    {
+      "identifier": "ImpactCharacter",
+      "promoIdentifier": "JungleImpactCharacter",
+      "count": 1,
+      "title": "Impact",
+      "promoTitle": "Jungle Impact",
+      "shortPromoTitle": "Jungle Impact",
+      "body": "Gravitic Pulse Blast",
+      "backgroundColor": "dfb653",
+      "foilBackgroundColor": "dfb653",
+      "hitpointsColor": "dfb653",
+      "character": true,
+      "powers": [
+        "Play up to 2 ongoing cards. Return each of those cards which are still in play to your hand."
+      ],
+      "icons": [
+        "HasPower",
+        "PlayCardNow",
+        "Manipulate"
+      ],
+      "hitpoints": 28,
+      "nemesisIdentifiers": [
+        "Cauldron.Impact"
+      ],
+      "incapacitatedAbilities": [
+        "One player may draw a card.",
+        "Up to two hero ongoing cards may be played now.",
+        "Move up to 3 non-character hero cards from play to their owner's hands."
+      ],
+      "flippedIcons": [
+        "DrawCardNow",
+        "PlayCardNow",
+        "Manipulate"
+      ],
+      "openingLines": {
+        "default": "If you're going to make a bad day worse, that's a bad idea.",
+		"Cauldron.PhaseVillainCharacter": "rough as a jungle out here. come visit."
+      },
+	  "openingLineRequests": {
+		"Cauldron.PhaseVillainCharacter": "WastelandRoninImpactCharacter"
+	},
+"complexity": 1
+    }
+  ],
+  "Cauldron.DocHavoc": [
+    {
+      "identifier": "DocHavocCharacter",
+      "promoIdentifier": "JungleDocHavocCharacter",
+      "count": 1,
+      "title": "Doc Havoc",
+      "promoTitle": "Jungle Doc Havoc",
+      "shortPromoTitle": "Jungle Havoc",
+      "body": "Natural ï¿½Remedyï¿½",
+      "backgroundColor": "559b53",
+      "foilBackgroundColor": "559b53",
+      "hitpointsColor": "559b53",
+      "character": true,
+      "powers": [
+        "{DocHavoc} deals 1 target 1 toxic damage. until the start of your next turn, reduce hp recovery for that target by 2."
+      ],
+      "icons": [
+        "HasPower",
+        "DealDamageToxic",
+        "ReduceGainHP"
+      ],
+      "hitpoints": 30,
+      "nemesisIdentifiers": [
+        "Cauldron.DocHavoc"
+      ],
+      "incapacitatedAbilities": [
+        "One player may play a card.",
+        "select a target. until the start of your next turn, reduce their hp recovery by 2.",
+        "One target regains 2 HP."
+      ],
+      "flippedIcons": [
+        "PlayCardNow",
+        "ReduceGainHP",
+        "GainHP"
+      ],
+      "openingLines": {
+        "default": "I'm getting too old for this.",
+		"Cauldron.VectorCharacter": "and yet, we can't let you leave with it."
+      },
+	  "openingLineRequests": {
+		"Cauldron.VectorCharacter": "FirstResponseDocHavocCharacter"
+	  },
+      "complexity": 2
+    }
+  ],
+  "Cauldron.Terminus": [
+    {
+      "identifier": "TerminusCharacter",
+      "promoIdentifier": "JungleTerminusCharacter",
+      "count": 1,
+      "title": "Terminus",
+      "promoTitle": "Jungle Terminus",
+      "shortPromoTitle": "Jungle Terminus",
+      "body": "Primal Instinct",
+      "backgroundColor": "0000000",
+      "foilBackgroundColor": "000000",
+      "hitpointsColor": "000000",
+      "character": true,
+      "powers": [
+        "Add 2 tokens to your wrath pool. you may draw 1 card."
+      ],
+      "icons": [
+        "HasPower",
+        "AddTokens",
+        "DrawCardNow"
+      ],
+      "hitpoints": 28,
+      "nemesisIdentifiers": [
+        "Cauldron.Terminus"
+      ],
+      "incapacitatedAbilities": [
+        "",
+        "",
+        ""
+      ],
+      "flippedIcons": [
+        "",
+        "",
+        ""
+      ],
+      "openingLines": {
+        "default": "",
+        "OblivAeonFrontPageCharacter": ""
+      },
+      "complexity": 2
+    }
+  ],
+  "Cauldron.LadyOfTheWood": [
+    {
+      "identifier": "LadyOfTheWoodCharacter",
+      "promoIdentifier": "JungleLadyOfTheWoodCharacter",
+      "count": 1,
+      "title": "Lady of the Wood",
+      "promoTitle": "Jungle Lady of the Wood",
+      "shortPromoTitle": "Jungle Lady",
+      "body": "Spring's Blooming",
+      "backgroundColor": "0000000",
+      "foilBackgroundColor": "000000",
+      "hitpointsColor": "000000",
+      "character": true,
+      "powers": [
+        "{LadyOfTheWood} deals 1 target 1 cold or fire damage, or 2 toxic damage. reveal the top card of the environment deck, then put it into play or back on top of its deck."
+      ],
+      "icons": [
+        "HasPower",
+        "DealDamage",
+        "Manipulate",
+        "PlayCardNow"
+      ],
+      "hitpoints": 21,
+      "nemesisIdentifiers": [
+        "Cauldron.LadyOfTheWood"
+      ],
+      "incapacitatedAbilities": [
+        "",
+        "",
+        ""
+      ],
+      "flippedIcons": [
+        "",
+        "",
+        ""
+      ],
+      "openingLines": {
+        "default": "",
+        "OblivAeonFrontPageCharacter": ""
+      },
+      "complexity": 2
+    }
+  ],
+  "Cauldron.MagnificentMara": [
+    {
+      "identifier": "MagnificentMaraCharacter",
+      "promoIdentifier": "JungleMagnificentMaraCharacter",
+      "count": 1,
+      "title": "Magnificent Mara",
+      "promoTitle": "Jungle Magnificent Mara",
+      "shortPromoTitle": "Jungle Mara",
+      "body": "Disappeared",
+      "backgroundColor": "0000000",
+      "foilBackgroundColor": "000000",
+      "hitpointsColor": "000000",
+      "character": true,
+      "powers": [
+        "destroy 1 non-hero target with 2 or fewer hp. if no target is destroyed this way, draw 1 card."
+      ],
+      "icons": [
+        "HasPower",
+        "DestroyTarget",
+        "DrawCardNow"
+      ],
+      "hitpoints": 26,
+      "nemesisIdentifiers": [
+        "Cauldron.MagnificentMara"
+      ],
+      "incapacitatedAbilities": [
+        "",
+        "",
+        ""
+      ],
+      "flippedIcons": [
+        "",
+        "",
+        ""
+      ],
+      "openingLines": {
+        "default": "",
+        "OblivAeonFrontPageCharacter": ""
+      },
+      "complexity": 2
+    }
+  ],
+  "Cauldron.Malichae": [
+    {
+      "identifier": "MalichaeCharacter",
+      "promoIdentifier": "JungleMalichaeCharacter",
+      "count": 1,
+      "title": "Malichae",
+      "promoTitle": "Jungle Malichae",
+      "shortPromoTitle": "Jungle Malichae",
+      "body": "Djinns Gone Wild",
+      "backgroundColor": "0000000",
+      "foilBackgroundColor": "000000",
+      "hitpointsColor": "000000",
+      "character": true,
+      "powers": [
+        "You may put 1 djinn into play from your hand or trash. 1 djinn hero target deals 2 hero targets and up to 2 targets 1 infernal damage each."
+      ],
+      "icons": [
+        "HasPower",
+        "PlayCardNow",
+        "DealDamageInfernal"
+      ],
+      "hitpoints": 24,
+      "nemesisIdentifiers": [
+        "Cauldron.Malichae"
+      ],
+      "incapacitatedAbilities": [
+        "",
+        "",
+        ""
+      ],
+      "flippedIcons": [
+        "",
+        "",
+        ""
+      ],
+      "openingLines": {
+        "default": "",
+        "OblivAeonFrontPageCharacter": ""
+      },
+      "complexity": 2
+    }
+  ],
+  "Cauldron.Cypher": [
+    {
+      "identifier": "CypherCharacter",
+      "promoIdentifier": "JungleCypherCharacter",
+      "count": 1,
+      "title": "Cypher",
+      "promoTitle": "Jungle Cypher",
+      "shortPromoTitle": "Jungle Cypher",
+      "body": "Bug Fixes",
+      "backgroundColor": "0000000",
+      "foilBackgroundColor": "000000",
+      "hitpointsColor": "000000",
+      "character": true,
+      "powers": [
+        "Discard the top card of each augmented hero's deck. play 1 one-shot discarded this way."
+      ],
+      "icons": [
+        "HasPower",
+        "Discard",
+        "PlayCardNow"
+      ],
+      "hitpoints": 25,
+      "nemesisIdentifiers": [
+        "Cauldron.Cypher"
+      ],
+      "incapacitatedAbilities": [
+        "",
+        "",
+        ""
+      ],
+      "flippedIcons": [
+        "",
+        "",
+        ""
+      ],
+      "openingLines": {
+        "default": "",
+        "OblivAeonFrontPageCharacter": ""
+      },
+      "complexity": 2
+    }
+  ],
+  "Cauldron.Echelon": [
+    {
+      "identifier": "EchelonCharacter",
+      "promoIdentifier": "JungleEchelonCharacter",
+      "count": 1,
+      "title": "Echelon",
+      "promoTitle": "Jungle Echelon",
+      "shortPromoTitle": "Jungle Echelon",
+      "body": "Equipment Breakdown",
+      "backgroundColor": "0000000",
+      "foilBackgroundColor": "000000",
+      "hitpointsColor": "000000",
+      "character": true,
+      "powers": [
+        "Draw 1 card. discard 1 card. for each equipment card discarded this way, put 1 tactic into play from your hand."
+      ],
+      "icons": [
+        "HasPower",
+        "DrawCardNow",
+        "Discard",
+        "PlayCardNow"
+      ],
+      "hitpoints": 25,
+      "nemesisIdentifiers": [
+        "Cauldron.Echelon"
+      ],
+      "incapacitatedAbilities": [
+        "",
+        "",
+        ""
+      ],
+      "flippedIcons": [
+        "",
+        "",
+        ""
+      ],
+      "openingLines": {
+        "default": "",
+        "OblivAeonFrontPageCharacter": ""
       },
       "complexity": 2
     }

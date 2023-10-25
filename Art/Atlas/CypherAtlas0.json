@@ -1,0 +1,28 @@
+{"frames": {
+
+"JungleCypherCharacter.png":
+{
+	"frame": {"x":0,"y":0,"w":178,"h":256},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":178,"h":256},
+	"sourceSize": {"w":178,"h":256}
+},
+"JungleCypherCharacterMicro.png":
+{
+	"frame": {"x":0,"y":259,"w":108,"h":108},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":108,"h":108},
+	"sourceSize": {"w":108,"h":108}
+}},
+"meta": {
+	"app": "https://www.codeandweb.com/texturepacker",
+	"version": "1.0",
+	"image": "CypherAtlas0.png",
+	"format": "RGBA8888",
+	"size": {"w":512,"h":512},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:d3ae47a1db14b5c3523a56290861e87f:f7ee142e4e497a6e63a9a8c81ada9092:678c0924d6ef8d6ab6aed6d2f5acc0fb$"
+}
+}

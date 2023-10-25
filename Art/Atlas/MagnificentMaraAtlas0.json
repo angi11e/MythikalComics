@@ -1,0 +1,28 @@
+{"frames": {
+
+"JungleMagnificentMaraCharacter.png":
+{
+	"frame": {"x":0,"y":0,"w":178,"h":256},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":178,"h":256},
+	"sourceSize": {"w":178,"h":256}
+},
+"JungleMagnificentMaraCharacterMicro.png":
+{
+	"frame": {"x":0,"y":259,"w":108,"h":108},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":108,"h":108},
+	"sourceSize": {"w":108,"h":108}
+}},
+"meta": {
+	"app": "https://www.codeandweb.com/texturepacker",
+	"version": "1.0",
+	"image": "MagnificentMaraAtlas0.png",
+	"format": "RGBA8888",
+	"size": {"w":512,"h":512},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:4cef161fe91df7d56c9e4cf7b39aa46c:eb7113397ee91147359810f0d0867e92:3d4632eb7a72ff3d8ac4e3dd330f9e17$"
+}
+}

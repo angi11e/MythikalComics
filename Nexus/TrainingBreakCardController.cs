@@ -9,6 +9,12 @@ namespace Angille.Nexus
 	public class TrainingBreakCardController : CardController
 	{
 		/*
+		 * you may shuffle your trash into your deck.
+		 * 
+		 * reveal cards from the top of your deck until a non-limited ongoing card is revealed.
+		 * put it into play. discard the other revealed cards.
+		 * 
+		 * you may move an equipment card from your trash to your hand.
 		 */
 
 		public TrainingBreakCardController(
@@ -20,18 +26,89 @@ namespace Angille.Nexus
 
 		public override IEnumerator Play()
 		{
+			// you may shuffle your trash into your deck.
+			List<YesNoCardDecision> storedYesNoResults = new List<YesNoCardDecision>();
+			IEnumerator askTrashCR = GameController.MakeYesNoCardDecision(
+				DecisionMaker,
+				SelectionType.ShuffleTrashIntoDeck,
+				this.Card,
+				storedResults: storedYesNoResults,
+				cardSource: GetCardSource()
+			);
 
-			yield break;
-		}
+			if (UseUnityCoroutines)
+			{
+				yield return GameController.StartCoroutine(askTrashCR);
+			}
+			else
+			{
+				GameController.ExhaustCoroutine(askTrashCR);
+			}
 
-		public override void AddTriggers()
-		{
+			if (DidPlayerAnswerYes(storedYesNoResults))
+			{
+				// Shuffle trash into deck
+				IEnumerator shuffleCR = GameController.ShuffleTrashIntoDeck(
+					this.TurnTakerController,
+					cardSource: GetCardSource()
+				);
 
-			base.AddTriggers();
-		}
+				if (UseUnityCoroutines)
+				{
+					yield return GameController.StartCoroutine(shuffleCR);
+				}
+				else
+				{
+					GameController.ExhaustCoroutine(shuffleCR);
+				}
+			}
 
-		public override IEnumerator UsePower(int index = 0)
-		{
+			// reveal cards from the top of your deck until a non-limited ongoing card is revealed.
+			// put it into play. discard the other revealed cards.
+			IEnumerator revealCR = RevealCards_SelectSome_MoveThem_DiscardTheRest(
+				HeroTurnTakerController,
+				TurnTakerController,
+				this.TurnTaker.Deck,
+				(Card c) => IsOngoing(c) && !c.IsLimited,
+				1,
+				1,
+				false,
+				true,
+				true,
+				"non-limited ongoing"
+			);
+
+			if (UseUnityCoroutines)
+			{
+				yield return GameController.StartCoroutine(revealCR);
+			}
+			else
+			{
+				GameController.ExhaustCoroutine(revealCR);
+			}
+
+			// you may move an equipment card from your trash to your hand.
+			IEnumerator moveCardCR = SearchForCards(
+				DecisionMaker,
+				false,
+				true,
+				0,
+				1,
+				new LinqCardCriteria((Card c) => IsEquipment(c), "equipment"),
+				false,
+				true,
+				false,
+				true
+			);
+
+			if (UseUnityCoroutines)
+			{
+				yield return GameController.StartCoroutine(moveCardCR);
+			}
+			else
+			{
+				GameController.ExhaustCoroutine(moveCardCR);
+			}
 
 			yield break;
 		}

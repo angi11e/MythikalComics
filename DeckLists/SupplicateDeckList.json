@@ -38,7 +38,14 @@
 				"PlayCardNow"
 			],
 			"openingLines": {
-				"default": "if you are anything like your counterparts, this should be simple."
+				"default": "if you are anything like your counterparts, this should be simple.",
+				"WagerMasterCharacter": "death is just another doorway. I would hesitate to call it 'fun' however.",
+				"Cauldron.OutlanderCharacter": "battle is not my preferred discourse. but if you insist...",
+				"OblivAeonFrontPageCharacter": "distressing. I quite like a great many of those timelines."
+			},
+			"openingLineRequests": {
+				"Cauldron.OutlanderCharacter": "DualDriftCharacter",
+				"OblivAeonFrontPageCharacter": "NightMistCharacter"
 			},
 			"complexity": 3
 		},

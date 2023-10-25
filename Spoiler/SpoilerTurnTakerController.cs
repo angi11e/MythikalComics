@@ -18,7 +18,8 @@ namespace Angille.Spoiler
 		protected override IEnumerable<string> VillainsToAugment => new[] {
 			"LaCapitanCharacter",
 			"LaCapitanTeamCharacter",
-			"GrandfatherCharacter"
+			"GrandfatherCharacter",
+			"TheMistressOfFateCharacter"
 		};
 	}
 }

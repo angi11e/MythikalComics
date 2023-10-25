@@ -40,12 +40,18 @@
 				"default": "don't remember me? that's ok, you still won't even after we beat you.",
 				"IronLegacyCharacter": "if there's anything people are good at around me, it's letting down their guard.",
 				"KismetCharacter": "that's what you said last time. don't you remember?",
-				"SpiteCharacter": "won't work. nobody gets to know me at all.",
+				"SpiteCharacter": "somehow I doubt that. try again.",
 				"ErmineTeamCharacter": "you'd have to remember my stuff exists first.",
-				"MissInformationTeamCharacter": "look lady, that's just a Tuesday for me.",
+				"MissInformationTeamCharacter": "my schtick really isn't about 'hiding', as it turns out.",
 				"PlagueRatTeamCharacter": "well. he might not even [b]notice[/b] me.",
 				"Cauldron.TheMistressOfFateCharacter": "oh, you won't even notice I'm here.",
-				"OblivAeonFrontPageCharacter": "Empty threats are boring."
+				"OblivAeonFrontPageCharacter": "that's... a distressing thought."
+			},
+			"openingLineRequests": {
+				"KismetCharacter": "SetbackCharacter",
+				"SpiteCharacter": "TheWraithCharacter",
+				"MissInformationTeamCharacter": "TheWraithCharacter",
+				"OblivAeonFrontPageCharacter": "TheVisionaryCharacter"
 			},
 			"complexity": 2
 		},
@@ -433,7 +439,14 @@
 				"ErmineTeamCharacter": "oh no! what if it blows up in your face?",
 				"MissInformationTeamCharacter": "oh, [i]that's[/i] what this ‘reality solidifier’ is for!",
 				"PlagueRatTeamCharacter": "rat spray, rat spray, I know I've got some somewhere...",
-				"Cauldron.TheMistressOfFateCharacter": "we'll see about that. now let's see, time manipulation, what have we got...?"
+				"Cauldron.TheMistressOfFateCharacter": "we'll see about that. now let's see, time manipulation, what have we got...?",
+				"OblivAeonFrontPageCharacter": "it's a good thing they were just a fallback."
+			},
+			"openingLineRequests": {
+				"ErmineTeamCharacter": "FreedomFiveWraithCharacter",
+				"PlagueRatTeamCharacter": "ChronoRangerCharacter",
+				"Cauldron.TheMistressOfFateCharacter": "AceOfSorrowsBaccaratCharacter",
+				"OblivAeonFrontPageCharacter": "UnityCharacter"
 			}
 		},
 		{
@@ -473,13 +486,21 @@
 			"complexity": 2,
 			"openingLines": {
 				"default": "I am shadow. even light just ends up making more shadow. too bad for you.",
-				"IronLegacyCharacter": "even justice cannot escape shadow.",
+				"IronLegacyCharacter": "fear is the source of my power.",
 				"KismetCharacter": "lucky? unlucky? both fade within darkness.",
 				"SpiteCharacter": "good idea. the better to envelop you with darkness.",
 				"ErmineTeamCharacter": "do I look like I have... ‘stuff’?",
 				"MissInformationTeamCharacter": "and you face a darkness that does. not. care.",
 				"PlagueRatTeamCharacter": "release him then. oblivion awaits us all.",
-				"Cauldron.TheMistressOfFateCharacter": "Struggle is unnecessary. I am shadow."
+				"Cauldron.TheMistressOfFateCharacter": "This form is tiresome. I am shadow.",
+				"OblivAeonFrontPageCharacter": "oblivion awaits us all. you are no exception."
+			},
+			"openingLineRequests": {
+				"IronLegacyCharacter": "FreedomFiveWraithCharacter",
+				"KismetCharacter": "SetbackCharacter",
+				"PlagueRatTeamCharacter": "DarkWatchSetbackCharacter",
+				"Cauldron.TheMistressOfFateCharacter": "PastTheStrangerCharacter",
+				"OblivAeonFrontPageCharacter": "LifelineCharacter"
 			}
 		}
 	]

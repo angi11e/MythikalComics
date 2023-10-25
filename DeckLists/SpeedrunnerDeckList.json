@@ -44,6 +44,9 @@
 				"Cauldron.SwarmEaterCharacter": "oh good, maybe you can help me upgrade my rig.",
 				"OblivAeonFrontPageCharacter": "I see. hardcore mode. no save-scumming. got it."
 			},
+			"openingLineRequests": {
+				"OblivAeonFrontPageCharacter": "UnityCharacter"
+			},
 			"complexity": 3
 		},
 		{
@@ -474,9 +477,14 @@
 			"complexity": 3,
 			"openingLines": {
 				"default": "if you don't have perfect reflexes, store bought is fine.",
-				"MissInformationCharacter": "fine. just lemme know when I can shoot something.",
+				"MissInformationCharacter": "right. mmhmm. and I'm just a hot enby in a tailored suit.",
 				"Menagerie.UnmuteCharacter": "have you seen vtubers though? maybe we both take a shot at them instead.",
-				"Cauldron.SwarmEaterCharacter": "I'll take my nanites shaken, not stirred."
+				"Cauldron.SwarmEaterCharacter": "I'll take my nanites shaken, not stirred.",
+				"OblivAeonFrontPageCharacter": "oh, I'll be taking my shot anyway, thanks."
+			},
+			"openingLineRequests": {
+				"MissInformationCharacter": "ParseCharacter",
+				"OblivAeonFrontPageCharacter": "ExpatrietteCharacter"
 			}
 		},
 		{
@@ -516,9 +524,15 @@
 			"complexity": 3,
 			"openingLines": {
 				"default": "load “speedrunner”, 8, 1",
-				"MissInformationCharacter": "then why do you have theme music?",
+				"MissInformationCharacter": "I might if you didn't have theme music.",
 				"Menagerie.UnmuteCharacter": "as opposed to what? politi-bloggers? don't make me lol.",
-				"Cauldron.SwarmEaterCharacter": "whoah, they went a very different direction with the latest pac-man."
+				"Cauldron.SwarmEaterCharacter": "whoah, they went a very different direction with the latest pac-man.",
+				"OblivAeonFrontPageCharacter": "my mom says the same thing."
+			},
+			"openingLineRequests": {
+				"MissInformationCharacter": "FugueStateParseCharacter",
+				"Cauldron.SwarmEaterCharacter": "FirstResponseCypherCharacter",
+				"OblivAeonFrontPageCharacter": "UnityCharacter"
 			}
 		}
 	]

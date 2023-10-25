@@ -38,7 +38,12 @@
 				"DealDamageMelee"
 			],
 			"openingLines": {
-				"default": "hoo-wee! We got ourselves some 'rasslin' to do, folks."
+				"default": "hoo-wee! We got ourselves some 'rasslin' to do, folks.",
+				"LaCapitanCharacter": "mah 'valuables' ain't gonna go quiet-like.",
+				"OblivAeonFrontPageCharacter": "ah don't have to understand a thing to hit it real hard."
+			},
+			"openingLineRequests": {
+				"OblivAeonFrontPageCharacter": "TachyonCharacter"
 			},
 			"complexity": 2
 		},

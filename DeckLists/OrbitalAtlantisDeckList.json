@@ -17,6 +17,10 @@
         "at the start of the environment turn, add 1 token to each zone card's bias pool."
       ],
       "icons": [
+        "Manipulate",
+        "Indestructible",
+        "StartOfTurnAction",
+        "Angille.BiasPlus"
       ],
       "flavorText": "“”"
     },
@@ -35,15 +39,17 @@
         "Add 3 tokens to this card's bias pool."
       ],
       "icons": [
+        "HasPower",
+        "Angille.BiasMod"
       ],
       "tokenPools": [
         {
-          "identifier": "ControlAmphitheaterBiasPool",
+          "identifier": "bias",
           "name": "Control Amphitheater Bias Pool",
           "initialValue": 0,
           "minimumValue": 0,
-          "labelTopColor": "91022D",
-          "labelBottomColor": "D1426D",
+          "labelTopColor": "5E1169",
+          "labelBottomColor": "134189",
           "icon": "Angille.Bias"
         }
       ],
@@ -58,9 +64,12 @@
       ],
       "hitpoints": 4,
       "body": [
-        "at the start of the environment turn, each player may remove a token from a zone card's bias pool. each player who does may discard the top card of the villain deck. each player who does not discards a card."
+        "at the start of the environment turn, each active player may remove a token from a zone card's bias pool. each player who does may discard the top card of the villain deck. each player who does not discards a card."
       ],
       "icons": [
+        "StartOfTurnAction",
+        "Discard",
+        "Angille.BiasMinus"
       ],
       "flavorText": "“”"
     },
@@ -76,6 +85,9 @@
         "at the start of the environment turn, you may remove a token from a zone card's bias pool. if you do, this card deals each villain target 2 psychic damage. otherwise, this card deals each hero target 2 psychic damage."
       ],
       "icons": [
+        "StartOfTurnAction",
+        "DealDamagePsychic",
+        "Angille.BiasMinus"
       ],
       "flavorText": "“”"
     },
@@ -91,6 +103,9 @@
         "at the start and end of the villain turn, you may remove a token from a zone card's bias pool. if you do, 1 player may play a card. otherwise, play the top card of the villain deck."
       ],
       "icons": [
+        "StartAndEndOfTurnAction",
+        "PlayCardNow",
+        "Angille.BiasMinus"
       ],
       "flavorText": "“”"
     },
@@ -107,6 +122,10 @@
         "at the start of the environment turn, add 1 token to each zone card's bias pool."
       ],
       "icons": [
+        "Manipulate",
+        "Indestructible",
+        "IncreaseDamageDealt",
+        "Angille.BiasPlus"
       ],
       "flavorText": "“”"
     },
@@ -122,15 +141,16 @@
         "when a villain target regains HP or is dealt energy damage, remove 1 token from this card's bias pool."
       ],
       "icons": [
+        "Angille.BiasMod"
       ],
       "tokenPools": [
         {
-          "identifier": "GeneratorStackBiasPool",
+          "identifier": "bias",
           "name": "Generator Stack Bias Pool",
           "initialValue": 0,
           "minimumValue": 0,
-          "labelTopColor": "91022D",
-          "labelBottomColor": "D1426D",
+          "labelTopColor": "5E1169",
+          "labelBottomColor": "134189",
           "icon": "Angille.Bias"
         }
       ],
@@ -149,6 +169,9 @@
         "this card is indestructible."
       ],
       "icons": [
+        "PlayCardNow",
+        "IncreaseGainHP",
+        "Indestructible"
       ],
       "flavorText": "“”"
     },
@@ -165,6 +188,10 @@
         "when this card would deal damage to a hero target, you may remove a token from a zone card's bias pool. if you do, redirect that damage to another target."
       ],
       "icons": [
+        "StartOfTurnAction",
+        "DealDamageEnergy",
+        "RedirectDamage",
+        "Angille.BiasMinus"
       ],
       "flavorText": "“”"
     },
@@ -180,15 +207,18 @@
         "each time a villain card is discarded, remove 1 token from this card's bias pool."
       ],
       "icons": [
+        "EndOfTurnAction",
+        "Discard",
+        "Angille.BiasMod"
       ],
       "tokenPools": [
         {
-          "identifier": "RecyclotronBiasPool",
+          "identifier": "bias",
           "name": "Recyclotron Bias Pool",
           "initialValue": 0,
           "minimumValue": 0,
-          "labelTopColor": "91022D",
-          "labelBottomColor": "D1426D",
+          "labelTopColor": "5E1169",
+          "labelBottomColor": "134189",
           "icon": "Angille.Bias"
         }
       ],
@@ -206,15 +236,17 @@
         "each time damage dealt by a villain target is negated or reduced to 0, remove 1 token from this card's bias pool."
       ],
       "icons": [
+        "ReduceDamageDealt",
+        "Angille.BiasMod"
       ],
       "tokenPools": [
         {
-          "identifier": "RegressionChamberBiasPool",
+          "identifier": "bias",
           "name": "Regression Chamber Bias Pool",
           "initialValue": 0,
           "minimumValue": 0,
-          "labelTopColor": "91022D",
-          "labelBottomColor": "D1426D",
+          "labelTopColor": "5E1169",
+          "labelBottomColor": "134189",
           "icon": "Angille.Bias"
         }
       ],

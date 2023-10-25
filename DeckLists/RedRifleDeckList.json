@@ -51,7 +51,12 @@
 				"default": "what, [b]another[/b] villain? these guys grow on trees now!",
 				"ApostateCharacter": "big black wings. creepy red eyes. I think we've got ourselves another demon.",
 				"CitizenDawnCharacter": "couldn't you live on the sun if you're citizens? wait, if you're living here, does that make you... expats?",
-				"AnathemaCharacter": "chance has nothing to do with it, you, uh, blob... armor... guy."
+				"AnathemaCharacter": "these guns work just fine, you, uh, blob... armor... guy.",
+				"OblivAeonFrontPageCharacter": "that's why I'm just a distraction--I mean, comedy relief."
+			},
+			"openingLineRequests": {
+				"AnathemaCharacter": "PastTangoOneCharacter",
+				"OblivAeonFrontPageCharacter": "ExpatrietteCharacter"
 			},
 			"complexity": 1
 		},
@@ -393,7 +398,11 @@
 				"default": "Oh, you're dead.",
 				"ApostateCharacter": "I believe in sending demon thingies right back to hell.",
 				"CitizenDawnCharacter": "well, my friend Amanda gave me this bullet, and I gather it has your name on it.",
-				"AnathemaCharacter": "evolution's just survival of the fittest. try this on for size."
+				"AnathemaCharacter": "evolution's just survival of the fittest. try this on for size.",
+				"OblivAeonFrontPageCharacter": "I've ended my share. and you look lively."
+			},
+			"openingLineRequests": {
+				"OblivAeonFrontPageCharacter": "VoidGuardDrMedicoCharacter"
 			}
 		},
 		{
@@ -446,7 +455,11 @@
 				"default": "[b]*modem noises*[/b]",
 				"ApostateCharacter": "sudo killall -9 daemon",
 				"CitizenDawnCharacter": "what, like Solaris? SPARC? wow, that's old news, lady.",
-				"AnathemaCharacter": "well you're absolutely not the pinnacle of beauty, wow."
+				"AnathemaCharacter": "well you're absolutely not the pinnacle of beauty, wow.",
+				"OblivAeonFrontPageCharacter": "if they were toys, you might be right. they are not."
+			},
+			"openingLineRequests": {
+				"OblivAeonFrontPageCharacter": "UnityCharacter"
 			}
 		}
 	]

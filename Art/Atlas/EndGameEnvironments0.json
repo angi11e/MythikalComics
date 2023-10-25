@@ -1,0 +1,20 @@
+{"frames": {
+
+"OrbitalAtlantisDeckBack.png":
+{
+	"frame": {"x":0,"y":0,"w":400,"h":200},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":400,"h":200},
+	"sourceSize": {"w":400,"h":200}
+}},
+"meta": {
+	"app": "https://www.codeandweb.com/texturepacker",
+	"version": "1.0",
+	"image": "EndGameEnvironments0.png",
+	"format": "RGBA8888",
+	"size": {"w":512,"h":512},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:e0f820a5b78e1da23083b01de8afb28b:b3e585b65567c58b518862734c0995a7:54d17c0efaf99c3cc33a2aed1483935b$"
+}
+}

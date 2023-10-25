@@ -19,7 +19,8 @@ namespace Angille.Supplicate
 		public bool ArePromosSetup { get; set; } = false;
 
 		protected override IEnumerable<string> VillainsToAugment => new[] {
-			"WagerMasterCharacter"
+			"WagerMasterCharacter",
+			"OutlanderCharacter"
 		};
 	}
 }

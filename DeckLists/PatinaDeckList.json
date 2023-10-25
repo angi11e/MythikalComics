@@ -39,11 +39,17 @@
 			"openingLines": {
 				"default": "if you don't back down, you're going to be all washed up!",
 				"GrandWarlordVossCharacter": "we're just going to have to sink that fleet then.",
-				"IronLegacyCharacter": "your ‘justice’ is misplaced, mister mean legacy.",
+				"IronLegacyCharacter": "I'm human. at least I [b]was[/b]. this is my home, and you're ruining it.",
 				"TheMatriarchCharacter": "how are you with, uh, waterfowl?",
 				"FrictionTeamCharacter": "don't need speed. the ocean is inevitable.",
 				"MissInformationTeamCharacter": "rewritten how? ok, that's just very unhelpful.",
-				"Cauldron.MenagerieCharacter": "well ok. hey wait a second! that's a hero!"
+				"Cauldron.MenagerieCharacter": "oh thank you. hey wait a second! what do you mean 'fortified'?",
+				"OblivAeonFrontPageCharacter": "I suppose it's a good thing I don't fight on land then."
+			},
+			"openingLineRequests": {
+				"IronLegacyCharacter": "TempestCharacter",
+				"Cauldron.MenagerieCharacter": "Cauldron.StarlightCharacter",
+				"OblivAeonFrontPageCharacter": "AkashThriyaCharacter"
 			},
 			"complexity": 1
 		},
@@ -390,10 +396,15 @@
 				"GrandWarlordVossCharacter": "why can't aliens show up for discovery? it's always conquer conquer conquer.",
 				"IronLegacyCharacter": "‘never’ is such a limiting word. let's test that hypothesis, shall we?",
 				"TheMatriarchCharacter": "‘corvus’? but that one there is [i]cathartidae[/i]. oh, do you find this cathartic?",
-				"FrictionTeamCharacter": "I doubt you can either. Physics just isn't on your side.",
-				"MissInformationTeamCharacter": "this is a remnant of the multiverse theory, yes? fascinating.",
+				"FrictionTeamCharacter": "hey, [b]you[/b] said it. go ahead, burn yourself out.",
+				"MissInformationTeamCharacter": "it won't. that's why we have a team.",
 				"Cauldron.MenagerieCharacter": "my scientific curiosity forbids me from saying no.",
 				"OblivAeonFrontPageCharacter": "the science does not support an event like this. very strange."
+			},
+			"openingLineRequests": {
+				"FrictionTeamCharacter": "FreedomFiveTachyonCharacter",
+				"MissInformationTeamCharacter": "TheSuperScientificTachyonCharacter",
+				"OblivAeonFrontPageCharacter": "VoidGuardTheIdealistCharacter"
 			}
 		},
 		{
@@ -434,11 +445,17 @@
 			"openingLines": {
 				"default": "the ocean floor is too good for you.",
 				"GrandWarlordVossCharacter": "oh good, I needed some punching bags.",
-				"IronLegacyCharacter": "don't hold back, old man.",
+				"IronLegacyCharacter": "justice hasn't caught me yet, old man.",
 				"TheMatriarchCharacter": "you've gone and put me in a foul mood.",
 				"FrictionTeamCharacter": "just... stand still... for a moment and we'll see!",
 				"MissInformationTeamCharacter": "yeah. kinda used to that at this point.",
-				"Cauldron.MenagerieCharacter": "just don't try to catch me. you'll have your hands full."
+				"Cauldron.MenagerieCharacter": "just don't try to catch me. you'll have your hands full.",
+				"OblivAeonFrontPageCharacter": "I see both behind and beside me. we'll see."
+			},
+			"openingLineRequests": {
+				"GrandWarlordVossCharacter": "XtremePrimeWardensTempestCharacter",
+				"IronLegacyCharacter": "BunkerFreedomSixCharacter",
+				"OblivAeonFrontPageCharacter": "BenchmarkCharacter"
 			}
 		}
 	]

@@ -6,32 +6,43 @@ using Handelabra.Sentinels.Engine.Model;
 
 namespace Angille.Nexus
 {
-	public class LithokinesisCardController : CardController
+	public class LithokinesisCardController : NexusOngoingCardController
 	{
 		/*
+		 * increase melee and infernal damage by 1.
+		 * 
+		 * whenever {Nexus} deals melee damage to a target,
+		 * discard the top card of that target's deck.
 		 */
 
 		public LithokinesisCardController(
 			Card card,
 			TurnTakerController turnTakerController
-		) : base(card, turnTakerController)
+		) : base(card,
+			turnTakerController,
+			DamageType.Melee,
+			DamageType.Infernal,
+			new TriggerType[] { TriggerType.DiscardCard }
+		)
 		{
 		}
 
-		public override IEnumerator Play()
+		protected override IEnumerator BaseDamageRewardResponse(DealDamageAction dd)
 		{
-
-			yield break;
-		}
-
-		public override void AddTriggers()
-		{
-
-			base.AddTriggers();
-		}
-
-		public override IEnumerator UsePower(int index = 0)
-		{
+			// discard the top card of that target's deck.
+			IEnumerator discardCR = DiscardCardsFromTopOfDeck(
+				FindTurnTakerController(dd.Target.Owner),
+				1,
+				responsibleTurnTaker: this.TurnTaker
+			);
+			if (UseUnityCoroutines)
+			{
+				yield return GameController.StartCoroutine(discardCR);
+			}
+			else
+			{
+				GameController.ExhaustCoroutine(discardCR);
+			}
 
 			yield break;
 		}

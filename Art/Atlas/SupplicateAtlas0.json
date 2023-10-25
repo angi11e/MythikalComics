@@ -10,7 +10,23 @@
 },
 "SupplicateCharacterMicro.png":
 {
-	"frame": {"x":0,"y":259,"w":108,"h":108},
+	"frame": {"x":362,"y":0,"w":108,"h":108},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":108,"h":108},
+	"sourceSize": {"w":108,"h":108}
+},
+"SupplicateDeckBack.png":
+{
+	"frame": {"x":181,"y":0,"w":178,"h":256},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":178,"h":256},
+	"sourceSize": {"w":178,"h":256}
+},
+"SupplicateDeckBackMicro.png":
+{
+	"frame": {"x":362,"y":111,"w":108,"h":108},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":108,"h":108},
@@ -23,6 +39,6 @@
 	"format": "RGBA8888",
 	"size": {"w":512,"h":512},
 	"scale": "1",
-	"smartupdate": "$TexturePacker:SmartUpdate:2bd769d2e8949bae4a6b4adb46633512:f1a0022006b987dad8638534e995d858:83db87ad567642f0b72d7a3e321ef79d$"
+	"smartupdate": "$TexturePacker:SmartUpdate:ae7345ac2ff3bc9e2a575b23e56d64b0:aca36ab7d0aae15b67013704ebef6d88:83db87ad567642f0b72d7a3e321ef79d$"
 }
 }

@@ -64,7 +64,7 @@
 	"spriteSourceSize": {"x":0,"y":0,"w":178,"h":256},
 	"sourceSize": {"w":178,"h":256}
 },
-"MoonStalkerCharacter.png":
+"JungleCypherCharacter.png":
 {
 	"frame": {"x":362,"y":259,"w":178,"h":256},
 	"rotated": false,
@@ -72,7 +72,7 @@
 	"spriteSourceSize": {"x":0,"y":0,"w":178,"h":256},
 	"sourceSize": {"w":178,"h":256}
 },
-"MythikalChronanCharacter.png":
+"JungleDocHavocCharacter.png":
 {
 	"frame": {"x":543,"y":0,"w":178,"h":256},
 	"rotated": false,
@@ -80,7 +80,7 @@
 	"spriteSourceSize": {"x":0,"y":0,"w":178,"h":256},
 	"sourceSize": {"w":178,"h":256}
 },
-"MythikalDriftCharacter.png":
+"JungleEchelonCharacter.png":
 {
 	"frame": {"x":0,"y":1036,"w":178,"h":256},
 	"rotated": false,
@@ -88,7 +88,7 @@
 	"spriteSourceSize": {"x":0,"y":0,"w":178,"h":256},
 	"sourceSize": {"w":178,"h":256}
 },
-"MythikalGreyhatCharacter.png":
+"JungleImpactCharacter.png":
 {
 	"frame": {"x":181,"y":777,"w":178,"h":256},
 	"rotated": false,
@@ -96,7 +96,7 @@
 	"spriteSourceSize": {"x":0,"y":0,"w":178,"h":256},
 	"sourceSize": {"w":178,"h":256}
 },
-"MythikalTraceKnightCharacter.png":
+"JungleLadyOfTheWoodCharacter.png":
 {
 	"frame": {"x":362,"y":518,"w":178,"h":256},
 	"rotated": false,
@@ -104,7 +104,7 @@
 	"spriteSourceSize": {"x":0,"y":0,"w":178,"h":256},
 	"sourceSize": {"w":178,"h":256}
 },
-"NightMareCharacter.png":
+"JungleMagnificentMaraCharacter.png":
 {
 	"frame": {"x":543,"y":259,"w":178,"h":256},
 	"rotated": false,
@@ -112,7 +112,7 @@
 	"spriteSourceSize": {"x":0,"y":0,"w":178,"h":256},
 	"sourceSize": {"w":178,"h":256}
 },
-"NightMareWholeHorseCharacter.png":
+"JungleMalichaeCharacter.png":
 {
 	"frame": {"x":724,"y":0,"w":178,"h":256},
 	"rotated": false,
@@ -120,7 +120,7 @@
 	"spriteSourceSize": {"x":0,"y":0,"w":178,"h":256},
 	"sourceSize": {"w":178,"h":256}
 },
-"PatinaCharacter.png":
+"JungleTerminusCharacter.png":
 {
 	"frame": {"x":0,"y":1295,"w":178,"h":256},
 	"rotated": false,
@@ -128,7 +128,7 @@
 	"spriteSourceSize": {"x":0,"y":0,"w":178,"h":256},
 	"sourceSize": {"w":178,"h":256}
 },
-"PecosBillCharacter.png":
+"MoonStalkerCharacter.png":
 {
 	"frame": {"x":181,"y":1036,"w":178,"h":256},
 	"rotated": false,
@@ -136,7 +136,7 @@
 	"spriteSourceSize": {"x":0,"y":0,"w":178,"h":256},
 	"sourceSize": {"w":178,"h":256}
 },
-"RedRifleCharacter.png":
+"MythikalChronanCharacter.png":
 {
 	"frame": {"x":362,"y":777,"w":178,"h":256},
 	"rotated": false,
@@ -144,7 +144,7 @@
 	"spriteSourceSize": {"x":0,"y":0,"w":178,"h":256},
 	"sourceSize": {"w":178,"h":256}
 },
-"RetroSpeedrunnerCharacter.png":
+"MythikalDriftCharacter.png":
 {
 	"frame": {"x":543,"y":518,"w":178,"h":256},
 	"rotated": false,
@@ -152,7 +152,7 @@
 	"spriteSourceSize": {"x":0,"y":0,"w":178,"h":256},
 	"sourceSize": {"w":178,"h":256}
 },
-"SalemCharacter.png":
+"MythikalGreyhatCharacter.png":
 {
 	"frame": {"x":724,"y":259,"w":178,"h":256},
 	"rotated": false,
@@ -160,7 +160,7 @@
 	"spriteSourceSize": {"x":0,"y":0,"w":178,"h":256},
 	"sourceSize": {"w":178,"h":256}
 },
-"SeeingRedRedRifleCharacter.png":
+"MythikalTraceKnightCharacter.png":
 {
 	"frame": {"x":905,"y":0,"w":178,"h":256},
 	"rotated": false,
@@ -168,7 +168,7 @@
 	"spriteSourceSize": {"x":0,"y":0,"w":178,"h":256},
 	"sourceSize": {"w":178,"h":256}
 },
-"SpeedrunnerCharacter.png":
+"NexusCharacter.png":
 {
 	"frame": {"x":0,"y":1554,"w":178,"h":256},
 	"rotated": false,
@@ -176,7 +176,7 @@
 	"spriteSourceSize": {"x":0,"y":0,"w":178,"h":256},
 	"sourceSize": {"w":178,"h":256}
 },
-"SpoilerCharacter.png":
+"NightMareCharacter.png":
 {
 	"frame": {"x":181,"y":1295,"w":178,"h":256},
 	"rotated": false,
@@ -184,7 +184,7 @@
 	"spriteSourceSize": {"x":0,"y":0,"w":178,"h":256},
 	"sourceSize": {"w":178,"h":256}
 },
-"SupplicateCharacter.png":
+"NightMareWholeHorseCharacter.png":
 {
 	"frame": {"x":362,"y":1036,"w":178,"h":256},
 	"rotated": false,
@@ -192,7 +192,7 @@
 	"spriteSourceSize": {"x":0,"y":0,"w":178,"h":256},
 	"sourceSize": {"w":178,"h":256}
 },
-"TheUndersidersInstructions.png":
+"OrbitalAtlantisDeckBack.png":
 {
 	"frame": {"x":543,"y":777,"w":178,"h":256},
 	"rotated": false,
@@ -200,7 +200,7 @@
 	"spriteSourceSize": {"x":0,"y":0,"w":178,"h":256},
 	"sourceSize": {"w":178,"h":256}
 },
-"TheurgyCharacter.png":
+"PatinaCharacter.png":
 {
 	"frame": {"x":724,"y":518,"w":178,"h":256},
 	"rotated": false,
@@ -208,7 +208,7 @@
 	"spriteSourceSize": {"x":0,"y":0,"w":178,"h":256},
 	"sourceSize": {"w":178,"h":256}
 },
-"TheurgyFateweaverCharacter.png":
+"PecosBillCharacter.png":
 {
 	"frame": {"x":905,"y":259,"w":178,"h":256},
 	"rotated": false,
@@ -216,7 +216,7 @@
 	"spriteSourceSize": {"x":0,"y":0,"w":178,"h":256},
 	"sourceSize": {"w":178,"h":256}
 },
-"UmbraCharacter.png":
+"RedRifleCharacter.png":
 {
 	"frame": {"x":1086,"y":0,"w":178,"h":256},
 	"rotated": false,
@@ -224,7 +224,7 @@
 	"spriteSourceSize": {"x":0,"y":0,"w":178,"h":256},
 	"sourceSize": {"w":178,"h":256}
 },
-"VerdigrisCharacter.png":
+"RetroSpeedrunnerCharacter.png":
 {
 	"frame": {"x":181,"y":1554,"w":178,"h":256},
 	"rotated": false,
@@ -232,7 +232,7 @@
 	"spriteSourceSize": {"x":0,"y":0,"w":178,"h":256},
 	"sourceSize": {"w":178,"h":256}
 },
-"WhatsHerFaceCharacter.png":
+"SalemCharacter.png":
 {
 	"frame": {"x":362,"y":1295,"w":178,"h":256},
 	"rotated": false,
@@ -240,9 +240,97 @@
 	"spriteSourceSize": {"x":0,"y":0,"w":178,"h":256},
 	"sourceSize": {"w":178,"h":256}
 },
-"WhatsHerFaceGadgeteerCharacter.png":
+"SeeingRedRedRifleCharacter.png":
 {
 	"frame": {"x":543,"y":1036,"w":178,"h":256},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":178,"h":256},
+	"sourceSize": {"w":178,"h":256}
+},
+"SpeedrunnerCharacter.png":
+{
+	"frame": {"x":724,"y":777,"w":178,"h":256},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":178,"h":256},
+	"sourceSize": {"w":178,"h":256}
+},
+"SpoilerCharacter.png":
+{
+	"frame": {"x":905,"y":518,"w":178,"h":256},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":178,"h":256},
+	"sourceSize": {"w":178,"h":256}
+},
+"StarbladeCharacter.png":
+{
+	"frame": {"x":1086,"y":259,"w":178,"h":256},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":178,"h":256},
+	"sourceSize": {"w":178,"h":256}
+},
+"SupplicateCharacter.png":
+{
+	"frame": {"x":1267,"y":0,"w":178,"h":256},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":178,"h":256},
+	"sourceSize": {"w":178,"h":256}
+},
+"TheUndersidersInstructions.png":
+{
+	"frame": {"x":362,"y":1554,"w":178,"h":256},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":178,"h":256},
+	"sourceSize": {"w":178,"h":256}
+},
+"TheurgyCharacter.png":
+{
+	"frame": {"x":543,"y":1295,"w":178,"h":256},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":178,"h":256},
+	"sourceSize": {"w":178,"h":256}
+},
+"TheurgyFateweaverCharacter.png":
+{
+	"frame": {"x":724,"y":1036,"w":178,"h":256},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":178,"h":256},
+	"sourceSize": {"w":178,"h":256}
+},
+"UmbraCharacter.png":
+{
+	"frame": {"x":905,"y":777,"w":178,"h":256},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":178,"h":256},
+	"sourceSize": {"w":178,"h":256}
+},
+"VerdigrisCharacter.png":
+{
+	"frame": {"x":1086,"y":518,"w":178,"h":256},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":178,"h":256},
+	"sourceSize": {"w":178,"h":256}
+},
+"WhatsHerFaceCharacter.png":
+{
+	"frame": {"x":1267,"y":259,"w":178,"h":256},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":178,"h":256},
+	"sourceSize": {"w":178,"h":256}
+},
+"WhatsHerFaceGadgeteerCharacter.png":
+{
+	"frame": {"x":1448,"y":0,"w":178,"h":256},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":178,"h":256},
@@ -255,6 +343,6 @@
 	"format": "RGBA8888",
 	"size": {"w":2048,"h":2048},
 	"scale": "1",
-	"smartupdate": "$TexturePacker:SmartUpdate:41bf8336f127ea30feec734a56afc503:bf9c0c7b1483510698328aaba48d38c9:4ee285c32a91b7652e02ac049f918b2a$"
+	"smartupdate": "$TexturePacker:SmartUpdate:2f24d6e2864420fc0422cbd6a3f70e29:95ce40af69ca37257b23f63f430f0b7d:4ee285c32a91b7652e02ac049f918b2a$"
 }
 }

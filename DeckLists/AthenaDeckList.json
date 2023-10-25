@@ -41,7 +41,11 @@
 				"TheEnneadInstructions": "You guys again? I thought we settled this centuries ago.",
 				"KaargraWarfangCharacter": "bloodsport? there is more glory in great fields of tactical battle.",
 				"Cauldron.CeladrochCharacter": "I've imprisoned more powerful. your threat of doom fails to intimidate.",
-				"OblivAeonFrontPageCharacter": "Endings have come and gone, destroyer. Yet we persist."
+				"OblivAeonFrontPageCharacter": "Sweeping aside millenia of legend will prove beyond you, Destroyer."
+			},
+			"openingLineRequests": {
+				"TheEnneadInstructions": "RaCharacter",
+				"OblivAeonFrontPageCharacter": "RaCharacter"
 			},
 			"complexity": 1
 		},
@@ -408,7 +412,11 @@
 				"TheEnneadInstructions": "we're not so dissimilar are we? difference being, my vessel is linked by blood and yours by trinkets.",
 				"KaargraWarfangCharacter": "so like... dodgeball? yeah, we got this.",
 				"Cauldron.CeladrochCharacter": "ooh, big scary mountain. all we need are some hobbits.",
-				"OblivAeonFrontPageCharacter": "I am and am not my predecessors. We can and will succeed."
+				"OblivAeonFrontPageCharacter": "don't worry. I'm a fast learner."
+			},
+			"openingLineRequests": {
+				"TheEnneadInstructions": "RaCharacter",
+				"OblivAeonFrontPageCharacter": "TachyonCharacter"
 			}
 		},
 		{
@@ -453,6 +461,11 @@
 				"KaargraWarfangCharacter": "diá doxa, épeita.",
 				"Cauldron.CeladrochCharacter": "hypnos épeita, ákra.",
 				"OblivAeonFrontPageCharacter": "oú katáléxis, témeron."
+			},
+			"openingLineRequests": {
+				"TheEnneadInstructions": "RaSettingSunCharacter",
+				"Cauldron.CeladrochCharacter": "FutureLadyOfTheWoodCharacter",
+				"OblivAeonFrontPageCharacter": "VoidGuardDrMedicoCharacter"
 			}
 		}
 	]

@@ -36,18 +36,23 @@
   <ItemGroup>
     <Reference Include="ArtifactMod">
       <HintPath>C:\Program Files (x86)\Steam\steamapps\workshop\content\337150\2887958701\ArtifactMod.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="CauldronMods">
       <HintPath>C:\Program Files (x86)\Steam\steamapps\workshop\content\337150\2437294168\CauldronMods.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="EngineCommon">
       <HintPath>C:\Program Files (x86)\Steam\steamapps\common\Sentinels of the Multiverse\Sentinels_Data\Managed\EngineCommon.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="LazyFanComix">
       <HintPath>C:\Program Files (x86)\Steam\steamapps\workshop\content\337150\2436856735\LazyFanComix.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="SentinelsEngine">
       <HintPath>C:\Program Files (x86)\Steam\steamapps\common\Sentinels of the Multiverse\Sentinels_Data\Managed\SentinelsEngine.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -116,6 +121,39 @@
     <Compile Include="CaptainCain\CaptainCainTurnTakerController.cs" />
     <Compile Include="CaptainCain\AllInCardController.cs" />
     <Compile Include="CaptainCain\CaptainCainBaseCardController.cs" />
+    <Compile Include="Nexus\AtmosphericDisturbanceCardController.cs" />
+    <Compile Include="Nexus\HydrokinesisCardController.cs" />
+    <Compile Include="Nexus\InstantStormCardController.cs" />
+    <Compile Include="Nexus\LithokinesisCardController.cs" />
+    <Compile Include="Nexus\MudslideWarningCardController.cs" />
+    <Compile Include="Nexus\NexusEquipmentCardController.cs" />
+    <Compile Include="Nexus\NexusOngoingCardController.cs" />
+    <Compile Include="Nexus\OldFaithfulCardController.cs" />
+    <Compile Include="Nexus\PlasmaCondenserCardController.cs" />
+    <Compile Include="Nexus\NexusOneShotCardController.cs" />
+    <Compile Include="Nexus\PyrokinesisCardController.cs" />
+    <Compile Include="Nexus\SandblastCardController.cs" />
+    <Compile Include="Nexus\SeismicInducerCardController.cs" />
+    <Compile Include="Nexus\StaticTerminalCardController.cs" />
+    <Compile Include="Nexus\ToxinDistillerCardController.cs" />
+    <Compile Include="Nexus\TrainingBreakCardController.cs" />
+    <Compile Include="Nexus\UnlockedPalmtopCardController.cs" />
+    <Compile Include="Nexus\VisitToTheLabCardController.cs" />
+    <Compile Include="Nexus\VolcanicActivityCardController.cs" />
+    <Compile Include="Nexus\AerokinesisCardController.cs" />
+    <Compile Include="Nexus\ActionEnvironmentalScientistCardController.cs" />
+    <Compile Include="Nexus\NexusCharacterCardController.cs" />
+    <Compile Include="Nexus\NexusTurnTakerController.cs" />
+    <Compile Include="Promos\JungleImpactCharacterCardController.cs" />
+    <Compile Include="Promos\JungleTerminusCharacterCardController.cs" />
+    <Compile Include="Promos\JungleMalichaeCharacterCardController.cs" />
+    <Compile Include="Promos\JungleCypherCharacterCardController.cs" />
+    <Compile Include="Promos\JungleMagnificentMaraCharacterCardController.cs" />
+    <Compile Include="Promos\JungleLadyOfTheWoodCharacterCardController.cs" />
+    <Compile Include="Promos\JungleDocHavocCharacterCardController.cs" />
+    <Compile Include="Promos\JungleEchelonCharacterCardController.cs" />
+    <Compile Include="Starblade\StarbladeBaseCardController.cs" />
+    <Compile Include="Starblade\PosturaBaseCardController.cs" />
     <Compile Include="NightMare\BringAnotherCardController.cs" />
     <Compile Include="NightMare\CowabungaItIsCardController.cs" />
     <Compile Include="NightMare\DynamicEntryCardController.cs" />
@@ -263,6 +301,25 @@
     <Compile Include="Spoiler\SpoilerOneshotCardController.cs" />
     <Compile Include="Spoiler\SpoilerEquipmentCardController.cs" />
     <Compile Include="Spoiler\SpoilerOngoingCardController.cs" />
+    <Compile Include="Starblade\StarbladeConstructCardController.cs" />
+    <Compile Include="Starblade\StarbladeCharacterCardController.cs" />
+    <Compile Include="Starblade\StarbladeTurnTakerController.cs" />
+    <Compile Include="Starblade\YaomachtiaCardController.cs" />
+    <Compile Include="Starblade\WeightedNetCardController.cs" />
+    <Compile Include="Starblade\ValeTudoCardController.cs" />
+    <Compile Include="Starblade\TeamFormationCardController.cs" />
+    <Compile Include="Starblade\StarburstCardController.cs" />
+    <Compile Include="Starblade\RapierAndBucklerCardController.cs" />
+    <Compile Include="Starblade\MatadorCardController.cs" />
+    <Compile Include="Starblade\MakeTheNameCardController.cs" />
+    <Compile Include="Starblade\LaVerdaderaDestrezaCardController.cs" />
+    <Compile Include="Starblade\LastStandCardController.cs" />
+    <Compile Include="Starblade\EstrellaPacificaCardController.cs" />
+    <Compile Include="Starblade\ChupaPorrazoCardController.cs" />
+    <Compile Include="Starblade\ChainAndSpikesCardController.cs" />
+    <Compile Include="Starblade\BowAndArrowCardController.cs" />
+    <Compile Include="Starblade\AquilaCardController.cs" />
+    <Compile Include="Starblade\ToroCardController.cs" />
     <Compile Include="Supplicate\MultiversalKoansCardController.cs" />
     <Compile Include="Supplicate\NamchoCycleCardController.cs" />
     <Compile Include="Supplicate\PunyamStaffCardController.cs" />
@@ -408,6 +465,12 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="DeckLists\OrbitalAtlantisDeckList.json" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="DeckLists\NexusDeckList.json" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="DeckLists\StarbladeDeckList.json" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

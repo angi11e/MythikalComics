@@ -25,7 +25,7 @@ namespace Angille.TheUndersiders
 
 			// Each villain character card deals the non-villain target with the highest HP 2 projectile damage, one at a time.
 			IEnumerator mainDamageCR = MultipleDamageSourcesDealDamage(
-				new LinqCardCriteria((Card c) => c.IsVillainCharacterCard && !c.IsFlipped && c.IsInPlayAndNotUnderCard),
+				new LinqCardCriteria((Card c) => c.IsVillainCharacterCard && !c.IsFlipped && c.IsTarget && c.IsInPlayAndNotUnderCard),
 				TargetType.HighestHP,
 				1,
 				new LinqCardCriteria((Card c) => c.IsTarget && !IsVillainTarget(c), "non-villain"),

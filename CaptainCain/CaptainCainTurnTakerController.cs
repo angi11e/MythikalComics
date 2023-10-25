@@ -16,7 +16,8 @@ namespace Angille.CaptainCain
 		}
 
 		protected override IEnumerable<string> VillainsToAugment => new[] {
-			"BloodCountessBathory"
+			"BloodCountessBathory",
+			"TheBaronessCharacter"
 		};
 	}
 }

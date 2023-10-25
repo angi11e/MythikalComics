@@ -6,32 +6,43 @@ using Handelabra.Sentinels.Engine.Model;
 
 namespace Angille.Nexus
 {
-	public class AerokinesisCardController : CardController
+	public class AerokinesisCardController : NexusOngoingCardController
 	{
 		/*
+		 * increase projectile and lightning damage by 1.
+		 * 
+		 * whenever {Nexus} deals projectile damage to a target,
+		 * 1 player may draw a card.
 		 */
 
 		public AerokinesisCardController(
 			Card card,
 			TurnTakerController turnTakerController
-		) : base(card, turnTakerController)
+		) : base(
+			card,
+			turnTakerController,
+			DamageType.Projectile,
+			DamageType.Lightning,
+			new TriggerType[] { TriggerType.DrawCard }
+		)
 		{
 		}
 
-		public override IEnumerator Play()
+		protected override IEnumerator BaseDamageRewardResponse(DealDamageAction dd)
 		{
-
-			yield break;
-		}
-
-		public override void AddTriggers()
-		{
-
-			base.AddTriggers();
-		}
-
-		public override IEnumerator UsePower(int index = 0)
-		{
+			// 1 player may draw a card.
+			IEnumerator drawCardCR = GameController.SelectHeroToDrawCard(
+				DecisionMaker,
+				cardSource: GetCardSource()
+			);
+			if (UseUnityCoroutines)
+			{
+				yield return GameController.StartCoroutine(drawCardCR);
+			}
+			else
+			{
+				GameController.ExhaustCoroutine(drawCardCR);
+			}
 
 			yield break;
 		}

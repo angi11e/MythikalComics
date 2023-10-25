@@ -38,7 +38,19 @@
 				"DrawCardNow"
 			],
 			"openingLines": {
-				"default": "Good, good. This is how it went the first time."
+				"default": "Good, good. This is how it went the first time.",
+				"LaCapitanCharacter": "I like older you a thousand times better.",
+				"LaCapitanTeamCharacter": "I did will have going to. sorry, time conjugation isn't my strong suit.",
+				"Cauldron.TheMistressOfFateCharacter": "I can't help who I am, lady.",
+				"VainFacadePlaytest.GrandfatherCharacter": "Unlikely. I've read your file, friend.",
+				"OblivAeonFrontPageCharacter": "that's funny. that's when I'm from, as it turns out."
+			},
+			"openingLineRequests": {
+				"LaCapitanCharacter": "TheSentinelsInstructions",
+				"LaCapitanTeamCharacter": "ChronoRangerCharacter",
+				"Cauldron.TheMistressOfFateCharacter": "DualDriftCharacter",
+				"VainFacadePlaytest.GrandfatherCharacter": "LaComodoraCharacter",
+				"OblivAeonFrontPageCharacter": "LaComodoraCharacter"
 			},
 			"complexity": 3
 		},

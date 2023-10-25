@@ -10,9 +10,9 @@
 			"count": 1,
 			"title": "Nexus",
 			"body": "Aggressive Chemistry",
-			"backgroundColor": "1c964d",
-			"foilBackgroundColor": "1c964d",
-			"hitpointsColor": "1c964d",
+			"backgroundColor": "5F8D0E",
+			"foilBackgroundColor": "5F8D0E",
+			"hitpointsColor": "5F8D0E",
 			"character": true,
 			"powers": [
 				"Select a damage type. {Nexus} deals 1 target 1 damage of that type."
@@ -27,20 +27,29 @@
 			],
 			"incapacitatedAbilities": [
 				"One Player may Play a card now.",
-				"",
-				""
+				"Select a damage type. one hero deals 1 target 1 damage of that type.",
+				"Select a damage type. until the start of your turn, increase all damage of that type by 1."
 			],
 			"flippedIcons": [
 				"PlayCardNow",
-				"",
-				"",
-				""
+				"DealDamage",
+				"IncreaseDamageDealt"
 			],
 			"openingLines": {
-				"default": "",
-				"OblivAeonFrontPageCharacter": ""
+				"default": "from here out, you'll weather every manner of disaster. Is it worth it?",
+				"ChokepointCharacter": "don't I know it! my real power should terrify you.",
+				"DeadlineCharacter": "well. yeah. it's my planet. now vamos.",
+				"Cauldron.GrayCharacter": "rude. this tech is only secondary, but you can forget it anyway!",
+				"Cauldron.VectorCharacter": "blood is mostly water. let's see what I can do with that, hm?",
+				"OblivAeonFrontPageCharacter": "ash I can work with. but until then I've got everything else to throw at you."
 			},
-			"complexity": 1
+			"openingLineRequests": {
+				"ChokepointCharacter": "UnityCharacter",
+				"DeadlineCharacter": "TheNaturalistCharacter",
+				"Cauldron.GrayCharacter": "ExpeditionOblaskPyreCharacter",
+				"OblivAeonFrontPageCharacter": "TheNaturalistCharacter"
+			},
+			"complexity": 2
 		},
 		{
 			"identifier": "ActionEnvironmentalScientist",
@@ -51,17 +60,12 @@
 				"limited"
 			],
 			"body": [
-				"",
-				""
-			],
-			"powers": [
-				""
+				"whenever you destroy an environment target, you may draw a card.",
+				"the first time each turn you destroy a villain target, you may play a card."
 			],
 			"icons": [
-				"",
-				"",
-				"",
-				""
+				"DrawCardNow",
+				"PlayCardNow"
 			],
 			"flavorText": "“”",
 			"flavorReference": ""
@@ -74,17 +78,13 @@
 				"ongoing"
 			],
 			"body": [
-				"",
-				""
-			],
-			"powers": [
-				""
+				"increase projectile and lightning damage by 1.",
+				"whenever {Nexus} deals projectile damage to a target, 1 player may draw a card."
 			],
 			"icons": [
-				"",
-				"",
-				"",
-				""
+				"IncreaseDamageDealtProjectile",
+				"IncreaseDamageDealtLightning",
+				"DrawCardNow"
 			],
 			"flavorText": "“”",
 			"flavorReference": ""
@@ -97,14 +97,14 @@
 				"one-shot"
 			],
 			"body": [
-				"air and fire",
-				""
+				"{Nexus} deals 1 target 2 projectile damage and 1 different target 2 fire damage, in either order.",
+				"reveal the top card of your deck. if it is a one-shot, put it into play. otherwise, move it to your hand."
 			],
 			"icons": [
-				"",
-				"",
-				"",
-				""
+				"DealDamageProjectile",
+				"DealDamageFire",
+				"Manipulate",
+				"PlayCardNow"
 			],
 			"flavorText": "“”",
 			"flavorReference": ""
@@ -117,17 +117,13 @@
 				"ongoing"
 			],
 			"body": [
-				"",
-				""
-			],
-			"powers": [
-				""
+				"increase cold and toxic damage by 1.",
+				"whenever {Nexus} deals cold damage to a target, 1 target regains 2 HP."
 			],
 			"icons": [
-				"",
-				"",
-				"",
-				""
+				"IncreaseDamageDealtCold",
+				"IncreaseDamageDealtToxic",
+				"GainHP"
 			],
 			"flavorText": "“”",
 			"flavorReference": ""
@@ -140,14 +136,13 @@
 				"one-shot"
 			],
 			"body": [
-				"air and water",
-				""
+				"{Nexus} deals 1 target 2 projectile damage and 1 different target 2 cold damage, in either order.",
+				"Up to 5 targets regain 1 HP each."
 			],
 			"icons": [
-				"",
-				"",
-				"",
-				""
+				"DealDamageProjectile",
+				"DealDamageCold",
+				"GainHP"
 			],
 			"flavorText": "“”",
 			"flavorReference": ""
@@ -160,17 +155,13 @@
 				"ongoing"
 			],
 			"body": [
-				"",
-				""
-			],
-			"powers": [
-				""
+				"increase melee and infernal damage by 1.",
+				"whenever {Nexus} deals melee damage to a target, discard the top card of that target's deck."
 			],
 			"icons": [
-				"",
-				"",
-				"",
-				""
+				"IncreaseDamageDealtMelee",
+				"IncreaseDamageDealtInfernal",
+				"Discard"
 			],
 			"flavorText": "“”",
 			"flavorReference": ""
@@ -178,19 +169,18 @@
 		{
 			"identifier": "MudslideWarning",
 			"count": 3,
-			"title": "MudslideWarning",
+			"title": "Mudslide Warning",
 			"keywords": [
 				"one-shot"
 			],
 			"body": [
-				"water and earth",
-				""
+				"{Nexus} deals 1 target 2 melee damage and 1 different target 2 cold damage, in either order.",
+				"Destroy 1 ongoing card."
 			],
 			"icons": [
-				"",
-				"",
-				"",
-				""
+				"DealDamageMelee",
+				"DealDamageCold",
+				"DestroyOngoing"
 			],
 			"flavorText": "“”",
 			"flavorReference": ""
@@ -203,14 +193,14 @@
 				"one-shot"
 			],
 			"body": [
-				"fire and water",
-				""
+				"{Nexus} deals 1 target 2 cold damage and 1 different target 2 fire damage, in either order.",
+				"You may discard a card. if you do, another player may play a card."
 			],
 			"icons": [
-				"",
-				"",
-				"",
-				""
+				"DealDamageCold",
+				"DealDamageFire",
+				"Discard",
+				"PlayCardNow"
 			],
 			"flavorText": "“”",
 			"flavorReference": ""
@@ -223,17 +213,16 @@
 				"equipment"
 			],
 			"body": [
-				"",
-				""
+				"the first time each turn {Nexus} deals fire damage to a target, she also deals that target 1 radiant damage."
 			],
 			"powers": [
-				""
+				"destroy a hero ongoing or equipment card. if a card is destroyed this way, {Nexus} deals each non-hero target 1 fire damage. if [i]Hydrokinesis[/i] is in play, move the destroyed card to its player's hand."
 			],
 			"icons": [
-				"",
-				"",
-				"",
-				""
+				"DealDamageRadiant",
+				"HasPower",
+				"Destroy",
+				"DealDamageFire"
 			],
 			"flavorText": "“”",
 			"flavorReference": ""
@@ -246,17 +235,13 @@
 				"ongoing"
 			],
 			"body": [
-				"",
-				""
-			],
-			"powers": [
-				""
+				"increase fire and radiant damage by 1.",
+				"whenever {Nexus} deals fire damage to a target, that target deals itself 1 fire damage."
 			],
 			"icons": [
-				"",
-				"",
-				"",
-				""
+				"IncreaseDamageDealtFire",
+				"IncreaseDamageDealtRadiant",
+				"DealDamageFire"
 			],
 			"flavorText": "“”",
 			"flavorReference": ""
@@ -269,14 +254,14 @@
 				"one-shot"
 			],
 			"body": [
-				"air and earth",
-				""
+				"{Nexus} deals 1 target 2 projectile damage and 1 different target 2 melee damage, in either order.",
+				"{Nexus} may deal herself 2 irreducible psychic damage. if she takes damage this way, another player may use a power."
 			],
 			"icons": [
-				"",
-				"",
-				"",
-				""
+				"DealDamageProjectile",
+				"DealDamageMelee",
+				"DealDamagePsychic",
+				"UsePowerNow"
 			],
 			"flavorText": "“”",
 			"flavorReference": ""
@@ -289,17 +274,16 @@
 				"equipment"
 			],
 			"body": [
-				"",
-				""
+				"the first time each turn {Nexus} deals melee damage to a target, she also deals that target 1 infernal damage."
 			],
 			"powers": [
-				""
+				"Discard the top card of each deck. if [i]Aerokinesis[/i] is in play, put the top card of 1 trash into play."
 			],
 			"icons": [
-				"",
-				"",
-				"",
-				""
+				"DealDamageInfernal",
+				"HasPower",
+				"Discard",
+				"PlayCardNow"
 			],
 			"flavorText": "“”",
 			"flavorReference": ""
@@ -312,17 +296,16 @@
 				"equipment"
 			],
 			"body": [
-				"",
-				""
+				"the first time each turn {Nexus} deals projectile damage to a target, she also deals that target 1 lightning damage."
 			],
 			"powers": [
-				""
+				"{Nexus} deals each target 2 lightning damage. if [i]Lithokinesis[/i] is in play, reduce damage dealt to hero targets this way to 0."
 			],
 			"icons": [
-				"",
-				"",
-				"",
-				""
+				"DealDamageLightning",
+				"HasPower",
+				"DealDamageLightning",
+				"ReduceDamageTakenLightning"
 			],
 			"flavorText": "“”",
 			"flavorReference": ""
@@ -335,17 +318,15 @@
 				"equipment"
 			],
 			"body": [
-				"",
-				""
+				"the first time each turn {Nexus} deals cold damage to a target, she also deals that target 1 toxic damage."
 			],
 			"powers": [
-				""
+				"until the end of your next turn, each time {Nexus} deals toxic damage to a target, reduce the next damage dealt by that target by 1. while [i]Pyrokinesis[/i] is in play, this applies to cold and fire damage as well."
 			],
 			"icons": [
-				"",
-				"",
-				"",
-				""
+				"DealDamageToxic",
+				"HasPower",
+				"ReduceDamageDealt"
 			],
 			"flavorText": "“”",
 			"flavorReference": ""
@@ -358,14 +339,13 @@
 				"one-shot"
 			],
 			"body": [
-				"",
-				""
+				"you may shuffle your trash into your deck.",
+				"reveal cards from the top of your deck until a non-limited ongoing card is revealed. put it into play. discard the other revealed cards.",
+				"you may move an equipment card from your trash to your hand."
 			],
 			"icons": [
-				"",
-				"",
-				"",
-				""
+				"Manipulate",
+				"PlayCardNow"
 			],
 			"flavorText": "“”",
 			"flavorReference": ""
@@ -379,17 +359,16 @@
 				"limited"
 			],
 			"body": [
-				"",
-				""
+				"whenever one of your non-limited cards is destroyed, you may discard a card. if you do, move the destroyed card into your hand."
 			],
 			"powers": [
-				""
+				"reveal the top card of each deck, then replace it. select a deck and either discard or put into play its top card. if a card was put into play this way, {Nexus} deals herself 2 irreducible psychic damage."
 			],
 			"icons": [
-				"",
-				"",
-				"",
-				""
+				"Manipulate",
+				"HasPower",
+				"PlayCardNow",
+				"DealDamagePsychic"
 			],
 			"flavorText": "“”",
 			"flavorReference": ""
@@ -402,14 +381,13 @@
 				"one-shot"
 			],
 			"body": [
-				"",
-				""
+				"you may shuffle your trash into your deck.",
+				"reveal cards from the top of your deck until a non-limited equipment card is revealed. put it into play. discard the other revealed cards.",
+				"you may move an ongoing card from your trash to your hand."
 			],
 			"icons": [
-				"",
-				"",
-				"",
-				""
+				"Manipulate",
+				"PlayCardNow"
 			],
 			"flavorText": "“”",
 			"flavorReference": ""
@@ -422,14 +400,13 @@
 				"one-shot"
 			],
 			"body": [
-				"",
-				""
+				"{Nexus} deals 1 target 2 melee damage and 1 different target 2 fire damage, in either order.",
+				"Destroy 1 environment card."
 			],
 			"icons": [
-				"",
-				"",
-				"",
-				""
+				"DealDamageMelee",
+				"DealDamageFire",
+				"DestroyEnvironment"
 			],
 			"flavorText": "“”",
 			"flavorReference": ""

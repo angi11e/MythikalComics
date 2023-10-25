@@ -1,0 +1,433 @@
+﻿{
+	"name": "Starblade",
+	"kind": "Hero",
+	"initialCardIdentifiers": [
+		"StarbladeCharacter"
+	],
+	"cards": [
+		{
+			"identifier": "StarbladeCharacter",
+			"count": 1,
+			"title": "Starblade",
+			"body": "Constructive Feint",
+			"backgroundColor": "1037DE",
+			"foilBackgroundColor": "1037DE",
+			"hitpointsColor": "1037DE",
+			"character": true,
+			"powers": [
+				"{Starblade} deals 1 target 2 melee damage. {Starblade} deals 1 different target 1 energy damage."
+			],
+			"icons": [
+				"HasPower",
+				"DealDamageMelee",
+				"DealDamageRadiant"
+			],
+			"hitpoints": 28,
+			"nemesisIdentifiers": [
+				"Angille.Starblade"
+			],
+			"incapacitatedAbilities": [
+				"One Player may Play a card now.",
+				"One hero may deal 1 target 1 energy damage.",
+				"Each player may move one of their non-character cards in play to their hand. Any who do may play a different card."
+			],
+			"flippedIcons": [
+				"PlayCardNow",
+				"DealDamageEnergy",
+				"Manipulate"
+			],
+			"openingLines": {
+				"default": "enough talk, en garde!",
+				"InfinitorCharacter": "ah, no. sorry. my mind is comfortably singular, thank you.",
+				"ProgenyCharacter": "yeah, words are hard, huh? time for some thrilling heroics.",
+				"Cauldron.MenagerieCharacter": "I don't like the tone you used on 'catch'. or 'guests' for that matter.",
+				"Cauldron.PhaseVillainCharacter": "oh, a chase. they never [i]actually[/i] get away though.",
+				"OblivAeonFrontPageCharacter": "is that what this is? well, it's a start, isn't it."
+			},
+			"openingLineRequests": {
+				"InfinitorCharacter": "CaptainCosmicRequitalCharacter",
+				"OblivAeonFrontPageCharacter": "VoidGuardMainstayCharacter"
+			},
+			"complexity": 2
+		},
+		{
+			"identifier": "Aquila",
+			"count": 3,
+			"title": "águila",
+			"keywords": [
+				"one-shot"
+			],
+			"body": [
+				"you may destroy an environment card.",
+				"if no environment card is destroyed this way, reveal the top card of each deck, then either discard or replace each revealed card."
+			],
+			"icons": [
+				"DestroyEnvironment",
+				"Manipulate",
+				"Discard"
+			],
+			"flavorText": "“got 'em.{BR}they just turned down 8th.”",
+			"flavorReference": "Starblade, Morning Glory #5"
+		},
+		{
+			"identifier": "BowAndArrow",
+			"count": 2,
+			"title": "Bow and Arrow",
+			"hitpoints": 4,
+			"keywords": [
+				"construct"
+			],
+			"body": [
+				"whenever {Starblade} deals a non-hero target melee damage, this card deals that target 2 projectile damage."
+			],
+			"activatableAbilities": [
+				{
+					"name": "technique",
+					"text": "this card deals 1 target 2 projectile damage."
+				}
+			],
+			"icons": [
+				"DealDamageProjectile",
+				"Angille.HasTechnique"
+			],
+			"flavorQuotes": [
+				{
+					"identifier": "Starblade",
+					"text": "can it hurt him?"
+				},
+				{
+					"identifier": "Parse",
+					"text": "no.{BR}do not let that discourage you."
+				}
+			],
+			"flavorReference": "Freedom Five Annual #30"
+		},
+		{
+			"identifier": "ChainAndSpikes",
+			"count": 2,
+			"title": "Chain and Spikes",
+			"hitpoints": 4,
+			"keywords": [
+				"construct"
+			],
+			"body": [
+				"the first time each turn {Starblade} deals a non-hero target energy damage, this card deals each non-hero target 1 melee damage."
+			],
+			"activatableAbilities": [
+				{
+					"name": "technique",
+					"text": "destroy an ongoing card. if it was a hero card, its player may draw a card. otherwise, this card deals itself 2 energy damage."
+				}
+			],
+			"icons": [
+				"DealDamageMelee",
+				"DestroyOngoing",
+				"DealDamageEnergy",
+				"Angille.HasTechnique"
+			],
+			"flavorText": "“lucha ahora, big guy.{BR}I make a piss-poor distraction.”",
+			"flavorReference": "Starblade, Scion Strike #5"
+		},
+		{
+			"identifier": "ChupaPorrazo",
+			"count": 2,
+			"title": "Chupa Porrazo",
+			"keywords": [
+				"ongoing",
+				"postura"
+			],
+			"body": [
+				"when this card enters play, destroy your other postura cards, then put a [i]weighted net[/i] into play from your trash.",
+				"whenever a hero target would be dealt damage by a villain card, you may redirect that damage to {Starblade} or a construct card."
+			],
+			"powers": [
+				"{Starblade} deals herself and 1 target 3 irreducible melee damage. activate a [u]technique[/u] text."
+			],
+			"icons": [
+				"RedirectDamage",
+				"HasPower",
+				"DealDamageMelee",
+				"MakeDamageIrreducible"
+			],
+			"flavorText": "“the chalk!{BR}[b]that's[/b] how he was making fae gates!”",
+			"flavorReference": "Tenebra, Morning Glory #4"
+		},
+		{
+			"identifier": "EstrellaPacifica",
+			"count": 3,
+			"title": "Estrella Pacifica",
+			"keywords": [
+				"equipment",
+				"limited"
+			],
+			"body": [
+				"whenever {Starblade} would deal damage, you may change its type to melee or energy.",
+				"at the start of your turn, each construct card regains 1 hp."
+			],
+			"powers": [
+				"move all postura cards from your trash into your hand. you may play a postura card."
+			],
+			"icons": [
+				"StartOfTurnAction",
+				"GainHP",
+				"HasPower",
+				"PlayCardNow"
+			],
+			"flavorText": "“I am [b]Starblade[/b], protector{BR}of Fairport. and you have made a{BR}serious lapse in judgement.”",
+			"flavorReference": "Starblade, Morning Glory #1"
+		},
+		{
+			"identifier": "LastStand",
+			"count": 2,
+			"title": "Last Stand",
+			"keywords": [
+				"one-shot"
+			],
+			"body": [
+				"activate a [u]technique[/u] text.",
+				"destroy any number of construct cards. {Starblade} deals 1 target X energy damage, then X hero targets each regain 3 hp, where X = the number of construct cards destroyed this way.",
+				"you may play a postura card."
+			],
+			"icons": [
+				"DestroyTarget",
+				"DealDamageEnergy",
+				"GainHP",
+				"PlayCardNow"
+			],
+			"flavorText": "“I won't...{BR}let you use these...{BR}against me any longer!”",
+			"flavorReference": "Starblade, Scion Strike #3"
+		},
+		{
+			"identifier": "LaVerdaderaDestreza",
+			"count": 2,
+			"title": "La Verdadera Destreza",
+			"keywords": [
+				"ongoing",
+				"postura"
+			],
+			"body": [
+				"when this card enters play, destroy your other postura cards, then put a [i]rapier and buckler[/i] into play from your trash.",
+				"the first time {Starblade} is dealt damage each turn, draw 1 card."
+			],
+			"powers": [
+				"{Starblade} deals 1 target 1 melee damage. reduce the next damage dealt by a target dealt damage this way by 2. activate a [u]technique[/u] text."
+			],
+			"icons": [
+				"DrawCardNow",
+				"HasPower",
+				"DealDamageMelee",
+				"ReduceDamageDealt"
+			],
+			"flavorText": "“ah ah ah, stay right where{BR}you are, Mister Smithwick.”",
+			"flavorReference": "Starblade, Morning Glory #2"
+		},
+		{
+			"identifier": "MakeTheName",
+			"count": 4,
+			"title": "Make the Name",
+			"keywords": [
+				"one-shot"
+			],
+			"body": [
+				"you may shuffle your trash into your deck.",
+				"reveal cards from the top of your deck until 1 construct card and 1 postura card have been revealed. you may put each of those cards either into your hand or into play. discard the other revealed cards.",
+				"if no cards entered play this way, you may play a card."
+			],
+			"icons": [
+				"Manipulate",
+				"PlayCardNow",
+				"Discard"
+			],
+			"flavorText": "“I'm saying this as a friend.{BR}if you want to make a real difference?{BR}go home.”",
+			"flavorReference": "Felicia Fields, Sentinels of Freedom #8"
+		},
+		{
+			"identifier": "Matador",
+			"count": 3,
+			"title": "Matadora",
+			"keywords": [
+				"one-shot"
+			],
+			"body": [
+				"damage dealt by {Starblade} and by construct cards is irreducible.",
+				"you may use a power."
+			],
+			"icons": [
+				"MakeDamageIrreducible",
+				"UsePowerNow"
+			],
+			"flavorText": "“where can I hit to{BR}do the most damage?”",
+			"flavorReference": "Starblade, Freedom Five #799"
+		},
+		{
+			"identifier": "RapierAndBuckler",
+			"count": 2,
+			"title": "Rapier and Buckler",
+			"hitpoints": 4,
+			"keywords": [
+				"construct"
+			],
+			"body": [
+				"reduce damage dealt to {Starblade} and construct cards by 1."
+			],
+			"activatableAbilities": [
+				{
+					"name": "technique",
+					"text": "reduce the next damage dealt to a hero target by 2. {Starblade} deals 1 target 2 melee damage."
+				}
+			],
+			"icons": [
+				"ReduceDamageTaken",
+				"DealDamageMelee",
+				"Angille.HasTechnique"
+			],
+			"flavorText": "“stand down, Sibyll.{BR}Reverb is unconscious.{BR}it's over.”",
+			"flavorReference": "Starblade, Morning Glory #2"
+		},
+		{
+			"identifier": "Starburst",
+			"count": 3,
+			"title": "Starburst",
+			"keywords": [
+				"ongoing",
+				"limited"
+			],
+			"body": [
+				"increase damage dealt by {Starblade} and by construct cards by 1.",
+				"you may use an additional power during your power phase.",
+				"at the start of your turn, destroy this card."
+			],
+			"icons": [
+				"IncreaseDamageDealt",
+				"UsePowerExtra",
+				"StartOfTurnAction",
+				"DestroySelf"
+			],
+			"flavorText": "“hey, why don't you pick{BR}on somebody your own size!”",
+			"flavorReference": "Idealist, Freedom Five #798"
+		},
+		{
+			"identifier": "TeamFormation",
+			"count": 3,
+			"title": "Team Formation",
+			"keywords": [
+				"one-shot"
+			],
+			"body": [
+				"each player may draw a card.",
+				"one player may play a card or use a power.",
+				"activate a [u]technique[/u] text."
+			],
+			"icons": [
+				"DrawCardNow",
+				"PlayCardNow",
+				"UsePowerNow",
+				"Angille.UseTechnique"
+			],
+			"flavorText": "“two hours.{BR}yeah, we can do this.{BR}we'll find Saure's kid in no time.”",
+			"flavorReference": "Starblade, Morning Glory #6"
+		},
+		{
+			"identifier": "Toro",
+			"count": 3,
+			"title": "Toro",
+			"keywords": [
+				"one-shot"
+			],
+			"body": [
+				"{Starblade} deals 1 target 2 melee damage. that target deals another target 2 projectile damage.",
+				"activate a [u]technique[/u] text."
+			],
+			"icons": [
+				"DealDamageMelee",
+				"DealDamageProjectile",
+				"Angille.UseTechnique"
+			],
+			"flavorText": "“is there no end{BR}to these cabrones!?”",
+			"flavorReference": "Starblade, Scion Strike #2"
+		},
+		{
+			"identifier": "ValeTudo",
+			"count": 2,
+			"title": "Vale Tudo",
+			"keywords": [
+				"ongoing",
+				"postura"
+			],
+			"body": [
+				"when this card enters play, destroy your other postura cards, then put a [i]chain and spikes[/i] into play from your trash.",
+				"whenever a construct card is destroyed, {Starblade} deals 1 target 1 melee damage."
+			],
+			"powers": [
+				"{Starblade} deals up to 2 targets 2 melee damage each. activate a [u]technique[/u] text."
+			],
+			"icons": [
+				"PlayCardNow",
+				"DealDamageMelee",
+				"HasPower",
+				"Angille.UseTechnique"
+			],
+			"flavorText": "“after Oberson,{BR}the Prodigal Suns are{BR}practically a pushover.”",
+			"flavorReference": "Starblade, Morning Glory #5"
+		},
+		{
+			"identifier": "WeightedNet",
+			"count": 2,
+			"title": "Weighted Net",
+			"hitpoints": 4,
+			"keywords": [
+				"construct"
+			],
+			"body": [
+				"play this card next to a target. reduce damage dealt by that target by 1."
+			],
+			"activatableAbilities": [
+				{
+					"name": "technique",
+					"text": "this card deals the card this card is next to 1 melee damage and 1 psychic damage."
+				}
+			],
+			"icons": [
+				"ReduceDamageDealt",
+				"DealDamageMelee",
+				"DealDamagePsychic",
+				"Angille.HasTechnique"
+			],
+			"flavorText": "“I am your roaming charge,{BR}[b]and[/b] a free sovereign citizen of Faerie!”",
+			"flavorReference": "Redcap Riley, Morning Glory #4"
+		},
+		{
+			"identifier": "Yaomachtia",
+			"count": 2,
+			"title": "Yaomachtia",
+			"keywords": [
+				"ongoing",
+				"postura"
+			],
+			"body": [
+				"when this card enters play, destroy your other postura cards, then put a [i]bow and arrow[/i] into play from your trash.",
+				"whenever a construct card is destroyed, restore a construct card to its max hp."
+			],
+			"powers": [
+				"you may play a construct card. {Starblade} deals 1 target 1 melee and 1 energy damage. activate a [u]technique[/u] text."
+			],
+			"icons": [
+				"GainHP",
+				"HasPower",
+				"PlayCardNow",
+				"DealDamage"
+			],
+			"flavorQuotes": [
+				{
+					"identifier": "CaptainCosmic",
+					"text": "brilliant!{BR}fancy some pointers?"
+				},
+				{
+					"identifier": "Starblade",
+					"text": "against tentacles{BR}over there? absolutely!"
+				}
+			],
+			"flavorReference": "Prime Wardens #63"
+		}
+	]
+}

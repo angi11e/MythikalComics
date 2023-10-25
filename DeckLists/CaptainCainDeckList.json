@@ -41,7 +41,10 @@
 			"openingLines": {
 				"default": "nobody's more up to the task of your defeat than [b]Captain Cain![/b]",
 				"VainFacadePlaytest.TheBaronessCharacter": "[i]believe?[/i] maybe not. but we have to. you're everything I've tried to leave behind.",
-				"OblivAeonFrontPageCharacter": "the bigger the jaw, the bigger the fall, buddy."
+				"OblivAeonFrontPageCharacter": "my spark extinguished centuries ago. so bigger the jaw? bigger the fall."
+			},
+			"openingLineRequests": {
+				"OblivAeonFrontPageCharacter": "OmnitronXCharacter"
 			},
 			"complexity": 2
 		},
@@ -95,7 +98,7 @@
 				"GainHP"
 			],
 			"flavorText": "“with these, nobody could suspect{BR}me of being...more than human.”",
-			"flavorReference": "Captain Cain, All-star Comics #108"
+			"flavorReference": "Captain Cain, Cobalt Comics #108"
 		},
 		{
 			"identifier": "EndlessHunger",
@@ -141,7 +144,7 @@
 				"PlayCardNow"
 			],
 			"flavorText": "“don't overdo it.{BR}I cannot guarantee the results.”",
-			"flavorReference": "Dr. Nicole Jekyll, All-star Comics #110"
+			"flavorReference": "Dr. Nicole Jekyll, Cobalt Comics #110"
 		},
 		{
 			"identifier": "InTheNickOfTime",
@@ -186,7 +189,7 @@
 				"Angille.Blood"
 			],
 			"flavorText": "“[b]impossible![/b]{BR}I saw your body.{BR}I was there.”",
-			"flavorReference": "shrieking shrike, All-star Comics #86"
+			"flavorReference": "shrieking shrike, Cobalt Comics #86"
 		},
 		{
 			"identifier": "ManOfAction",
@@ -237,7 +240,7 @@
 				"Angille.Fist"
 			],
 			"flavorText": "“Working through the night,{BR}the mysterious hero rebuilt the{BR}shelter on his own!”",
-			"flavorReference": "The Daily Spin, All-star comics #23"
+			"flavorReference": "The Daily Spin, Cobalt comics #23"
 		},
 		{
 			"identifier": "NoMoreTricks",
@@ -290,7 +293,7 @@
 				"CannotDealDamage"
 			],
 			"flavorText": "“turn to mist?{BR}don't be silly.{BR}it's just science.”",
-			"flavorReference": "Captain Cain, All-star Comics #107"
+			"flavorReference": "Captain Cain, Cobalt Comics #107"
 		},
 		{
 			"identifier": "TwoFistedJustice",
@@ -341,7 +344,7 @@
 				"Angille.Blood"
 			],
 			"flavorText": "“Ah, Cristian. you always were{BR}such a sentimental fool.”",
-			"flavorReference": "Lady Satanna, All-star Comics #238"
+			"flavorReference": "Lady Satanna, Cobalt Comics #238"
 		},
 		{
 			"identifier": "YouveMadeMeMadBuster",

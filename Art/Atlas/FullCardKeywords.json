@@ -2,7 +2,31 @@
 
 "Bear.png":
 {
-	"frame": {"x":0,"y":0,"w":70,"h":70},
+	"frame": {"x":0,"y":531,"w":70,"h":70},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":70,"h":70},
+	"sourceSize": {"w":70,"h":70}
+},
+"BiasMinus.png":
+{
+	"frame": {"x":532,"y":0,"w":70,"h":70},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":70,"h":70},
+	"sourceSize": {"w":70,"h":70}
+},
+"BiasMod.png":
+{
+	"frame": {"x":0,"y":604,"w":70,"h":70},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":70,"h":70},
+	"sourceSize": {"w":70,"h":70}
+},
+"BiasPlus.png":
+{
+	"frame": {"x":73,"y":531,"w":70,"h":70},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":70,"h":70},
@@ -10,7 +34,7 @@
 },
 "Blade.png":
 {
-	"frame": {"x":73,"y":0,"w":70,"h":70},
+	"frame": {"x":532,"y":73,"w":70,"h":70},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":70,"h":70},
@@ -18,7 +42,7 @@
 },
 "Blood.png":
 {
-	"frame": {"x":146,"y":0,"w":70,"h":70},
+	"frame": {"x":605,"y":0,"w":70,"h":70},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":70,"h":70},
@@ -26,7 +50,7 @@
 },
 "card-keywords-full.png":
 {
-	"frame": {"x":0,"y":73,"w":529,"h":528},
+	"frame": {"x":0,"y":0,"w":529,"h":528},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":529,"h":528},
@@ -34,7 +58,7 @@
 },
 "Crown.png":
 {
-	"frame": {"x":219,"y":0,"w":70,"h":70},
+	"frame": {"x":0,"y":677,"w":70,"h":70},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":70,"h":70},
@@ -42,7 +66,7 @@
 },
 "Dog.png":
 {
-	"frame": {"x":292,"y":0,"w":70,"h":70},
+	"frame": {"x":73,"y":604,"w":70,"h":70},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":70,"h":70},
@@ -50,7 +74,23 @@
 },
 "Fist.png":
 {
-	"frame": {"x":365,"y":0,"w":70,"h":70},
+	"frame": {"x":146,"y":531,"w":70,"h":70},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":70,"h":70},
+	"sourceSize": {"w":70,"h":70}
+},
+"HasTale.png":
+{
+	"frame": {"x":532,"y":146,"w":70,"h":70},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":70,"h":70},
+	"sourceSize": {"w":70,"h":70}
+},
+"HasTechnique.png":
+{
+	"frame": {"x":605,"y":73,"w":70,"h":70},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":70,"h":70},
@@ -58,7 +98,15 @@
 },
 "Mask.png":
 {
-	"frame": {"x":438,"y":0,"w":70,"h":70},
+	"frame": {"x":678,"y":0,"w":70,"h":70},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":70,"h":70},
+	"sourceSize": {"w":70,"h":70}
+},
+"ReadTale.png":
+{
+	"frame": {"x":0,"y":750,"w":70,"h":70},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":70,"h":70},
@@ -66,7 +114,7 @@
 },
 "Skull.png":
 {
-	"frame": {"x":511,"y":0,"w":70,"h":70},
+	"frame": {"x":73,"y":677,"w":70,"h":70},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":70,"h":70},
@@ -74,7 +122,7 @@
 },
 "Spider.png":
 {
-	"frame": {"x":584,"y":0,"w":70,"h":70},
+	"frame": {"x":146,"y":604,"w":70,"h":70},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":70,"h":70},
@@ -82,7 +130,15 @@
 },
 "Tattle.png":
 {
-	"frame": {"x":657,"y":0,"w":70,"h":70},
+	"frame": {"x":219,"y":531,"w":70,"h":70},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":70,"h":70},
+	"sourceSize": {"w":70,"h":70}
+},
+"UseTechnique.png":
+{
+	"frame": {"x":532,"y":219,"w":70,"h":70},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":70,"h":70},
@@ -95,6 +151,6 @@
 	"format": "RGBA8888",
 	"size": {"w":1024,"h":1024},
 	"scale": "1",
-	"smartupdate": "$TexturePacker:SmartUpdate:d5a95f92d1cfffe7b52ea12af07977b6:93511d893cfccb62e622c2e2f2ae8070:78a8fe050ee96964a4e5b33f95cb8cbd$"
+	"smartupdate": "$TexturePacker:SmartUpdate:8d36b96e365f25acab2efb9b850d86b2:75132b2ab83522e122945f9d47c47b35:78a8fe050ee96964a4e5b33f95cb8cbd$"
 }
 }

@@ -46,7 +46,12 @@
 				"TheChairmanCharacter": "we're bringin' a new ‘league’ t' ye then.",
 				"SergeantSteelTeamCharacter": "if'n it's ‘quick and brutal’ ye want, we got that in spades.",
 				"TheOperativeTeamCharacter": "what about the kelpie's will? pick yer fav'rit fae creature.",
-				"Cauldron.DynamoCharacter": "pain? bring it on, sparky!"
+				"Cauldron.DynamoCharacter": "I'll have ye know, me da's [b]Dark Horse[/b]. crusadin' is me blood.",
+				"OblivAeonFrontPageCharacter": "ye cannae count out the freaks. not yet, no how."
+			},
+			"openingLineRequests": {
+				"Cauldron.DynamoCharacter": "Cauldron.CricketCharacter",
+				"OblivAeonFrontPageCharacter": "GuiseCharacter"
 			},
 			"complexity": 1
 		},
@@ -434,7 +439,12 @@
 				"TheChairmanCharacter": "[b]*angry snort*[/b] *clop clop*",
 				"SergeantSteelTeamCharacter": "*clop clop* [b]*angry snort*[/b] [i]*equine stare*[/i]",
 				"TheOperativeTeamCharacter": "[i]*tentative whinny*[/i] *prance* [b]*nicker*[/b]",
-				"Cauldron.DynamoCharacter": "[b]*snort*[/b] *kaclop kaclop kaclop* [i]*trample*[/i]"
+				"Cauldron.DynamoCharacter": "[b]*snort*[/b] *kaclop kaclop kaclop* [i]*trample*[/i]",
+				"OblivAeonFrontPageCharacter": "*clop clop* [b]*angry snort*[/b] [i]*equine stare*[/i]"
+			},
+			"openingLineRequests": {
+				"TheChairmanCharacter": "DarkWatchMrFixerCharacter",
+				"OblivAeonFrontPageCharacter": "GuiseCharacter"
 			}
 		},
 		{
@@ -481,7 +491,12 @@
 				"TheChairmanCharacter": "you heard of the ‘Part Timers’? maybe we could work a deal.",
 				"SergeantSteelTeamCharacter": "now [b]that's[/b] what I'm talking about.",
 				"TheOperativeTeamCharacter": "dragon's got nothin' on me, sister.",
-				"Cauldron.DynamoCharacter": "pain? bring it on, sparky!"
+				"Cauldron.DynamoCharacter": "hey yeah. you got jobs need doing?",
+				"OblivAeonFrontPageCharacter": "oh, I'll show [b]you[/b] frail!"
+			},
+			"openingLineRequests": {
+				"Cauldron.DynamoCharacter": "RenegadeCricketCharacter",
+				"OblivAeonFrontPageCharacter": "MrFixerCharacter"
 			}
 		}
 	]
